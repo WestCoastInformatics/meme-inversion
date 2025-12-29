@@ -1,0 +1,40 @@
+INSTALL
+-------
+1. Choose $INV_HOME
+2. Unzip dist_inversion*.zip into $INV_HOME
+3. Configure the shell environment by setting INV_HOME in $ENV_FILE
+
+Dependencies
+-----------------------
+Required Perl Libraries  Perl 64 is used
+  Carp
+  Config::Properties
+  DBD::Oracle
+  DBI
+  Digest::MD5
+  Encode
+  Encode::Encoder
+  Encode
+  File::Basename
+  File::Copy
+  File::Find
+  FindBin
+  GeneralUtils
+  Getopt::Long
+  Getopt::Std
+  IO::Handle;
+  Symbol
+  Text::Wrap
+  Time::Local
+  Tk::Balloon
+  Tk::Dialog
+  Tk::NoteBook
+  Tk::ProgressBar
+  Tk::Tree
+  Tk
+
+
+UPDATE
+------
+Same as install
+

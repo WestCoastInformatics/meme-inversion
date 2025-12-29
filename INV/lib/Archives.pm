@@ -1,0 +1,1258 @@
+#
+# File: Archives.pm
+# Author: Tim Kao (2007)
+#
+# Changes
+# 10/15/2008 SL : Fixing the Tar Modification flag (Per Brian's Advise)
+# 04/04/2008 TK (1-GZSP9): Bug fixes for never_inserted and project. Will not check the directory
+#							strcture when archive above.
+# 09/10/2007 TK (1-FQ6VN): Created on this date.
+#
+package Archives;
+
+use Digest::MD5 qw(md5_hex);
+use Encode qw(encode_utf8);
+use File::Find;
+use File::stat;
+use Cwd;
+
+#
+# Configuration parameters
+#
+$source_family          = "";
+$vsab_path              = "";
+$vsab                   = "";
+$rsab                   = "";
+$is_secondary_inversion = 0;
+$never_inserted         = 0;
+$target_dir_path        = "";
+$is_translation         = 0;
+$project                = 0;
+$translation_of         = "";
+$SRC_ROOT               = "";
+$ARCHIVE_ROOT           = "";
+$MEME_HOME              = "";
+
+# Global hash
+our %sourcesSRC = ();
+our %vsabs      = ();
+our %rsabs      = ();
+our %archive_dir_structure = (
+							   "bin"               => "1",
+							   "cxt"               => "1",
+							   "etc"               => "1",
+							   "etc/qa"            => "1",
+							   "insert"            => "1",
+							   "orig"              => "1",
+							   "orig/fromprovider" => "1",
+							   "src"               => "1",
+							   "trans"             => "2"
+);
+
+############################################################
+# Configuration Procedures
+############################################################
+
+#
+# Sets package configuration variables
+# Returns void
+#
+sub configure
+{
+	my ( $l_vsab, $l_never_inserted, $l_project ) = @_;
+	setVSAB($l_vsab);
+	setNeverInserted($l_never_inserted);
+	setProject($l_project);
+}
+
+#
+# Sets SRC_ROOT
+# Returns void
+#
+sub setSRCROOT
+{
+	($SRC_ROOT) = @_;
+	if ( !( -e $SRC_ROOT ) )
+	{
+		die "Non-existent dir: $SRC_ROOT\n";
+	}
+	print "     SRC_ROOT is set to $SRC_ROOT\n";
+}
+
+#
+# Sets ARCHIVE_ROOT
+# Returns void
+#
+sub setARCHIVEROOT
+{
+	($ARCHIVE_ROOT) = @_;
+	if ( !( -e $ARCHIVE_ROOT ) )
+	{
+		die "Non-existent dir: $ARCHIVE_ROOT\n";
+	}
+	print "     ARCHIVE_ROOT is set to $ARCHIVE_ROOT\n";
+}
+
+#
+# Sets ARCHIVE_ROOT
+# Returns void
+#
+sub setMEMEHOME
+{
+	($MEME_HOME) = @_;
+	if ( !( -e $MEME_HOME ) )
+	{
+		die "Non-existent dir: $MEME_HOME\n";
+	}
+	print "     MEME_HOME is set to $MEME_HOME\n";
+}
+
+#
+# Sets "current_path"
+# Returns void
+#
+sub setCurrentPath
+{
+	($vsab_path) = @_;
+	if ( !( -e $vsab_path ) )
+	{
+		die "Non-existent dir: $vsab_path\n";
+	}
+}
+
+#
+# Sets never_inserted
+# Returns void
+#
+sub setNeverInserted
+{
+	($never_inserted) = @_;
+}
+
+#
+# Sets project
+# Returns void
+#
+sub setProject
+{
+	($project) = @_;
+}
+
+#
+# Sets VSAB
+# Returns void
+#
+sub setVSAB
+{
+	($vsab) = @_;
+}
+
+#
+# Sets RSAB
+# Returns void
+#
+sub setRSAB
+{
+	($rsab) = @_;
+}
+
+#
+# Sets Source Family
+# Returns void
+#
+sub setSourceFamily
+{
+	($source_family) = @_;
+}
+
+#
+# Find RSAB base on VSAB value in sources.src
+# Returns RSAB
+#
+sub findRSAB
+{
+	my ($l_vsab) = @_;
+	my @line = split /\|/, $sourcesSRC{$l_vsab};
+	return $line[4];
+}
+
+#
+# Find source family base on VSAB value in sources.src
+# Returns source family
+#
+sub findSourceFamily
+{
+	my ($l_vsab) = @_;
+	my @line = split /\|/, $sourcesSRC{$l_vsab};
+	return $line[6];
+}
+
+#
+# Determine if this vsab is a sub source
+# Returns void
+#
+sub cacheSourcesSRC
+{
+	my ($path) = @_;
+	open( FILE, "$path/src/sources.src" )
+	  or die "Can't open $path/src/sources.src: $!\n";
+	%sourcesSRC = ();
+	while (<FILE>)
+	{
+		my @line = split /\|/, $_;
+		$sourcesSRC{ $line[0] } = $_;
+	}
+	close(FILE);
+}
+
+#
+# Determine if this vsab is a translation of
+# Returns void
+#
+sub determineTranslationOf
+{
+	my @tmp_path = split /\//, $vsab_path;
+	my $tmp_length = ( scalar @tmp_path );
+	if ( $tmp_path[ $tmp_length - 2 ] eq "trans" )
+	{
+		$is_translation = 1;
+
+		#this is the vsab of the main translation source
+		$translation_of = $tmp_path[ $tmp_length - 3 ];
+	}
+}
+
+#
+# Given the vsab from the path, determine if this is a secondary inversion
+# Returns void
+#
+sub determineSecondaryInversion
+{
+	if ( $vsab =~ /_secondary/ )
+	{
+		$is_secondary_inversion = 1;
+		my (@l_vsab) = split /\_/, $vsab;
+
+		#get rid of _secondary
+		pop(@l_vsab);
+		setVSAB( join( "_", @l_vsab ) );
+	}
+}
+
+#
+# Sets the target_dir_path
+# Returns void
+#
+sub setTargetDirPath
+{
+	($target_dir_path) = @_;
+}
+
+#
+# Find the vsab in $SRC_ROOT, sets the path
+# Returns void
+#
+sub findVSABPath
+{
+	my ($location) = @_;
+	my $starting_dir = "$SRC_ROOT";
+	if ( $location eq "ARCHIVE" ) { $starting_dir = "$ARCHIVE_ROOT/SABS"; }
+	my $found_path = "";
+	print "   Looking for $vsab under $starting_dir\n";
+	find sub {
+		if ( -d && $_ eq "$vsab" && $File::Find::name !~ /staging/ )
+		{
+			$found_path = "$File::Find::name";
+		}
+	}, $starting_dir;
+
+	if ($found_path)
+	{
+		print "     $vsab found at $found_path\n";
+		return $found_path;
+	} else
+	{
+		die "$vsab not found under $starting_dir\n";
+	}
+}
+
+#
+# Prints the configured variables
+# Returns void
+#
+sub printConfiguredVars
+{
+	print "Path:                   $vsab_path\n";
+	print "VSAB:                   $vsab\n";
+	print "RSAB:                   $rsab\n";
+	print "Source Family:          $source_family\n";
+	print "Secondary Inversion:    $is_secondary_inversion\n";
+	print "Never Inserted:         $never_inserted\n";
+	print "Trans:                  $is_translation\n";
+	print "Trans of                $translation_of\n";
+	print "Target Dir              $target_dir_path\n";
+}
+
+
+
+#
+#check for permissions and changes them
+#
+
+sub changeperm{
+ my $parent  = "$vsab_path";
+
+find (\&findfile, $parent);
+find (\&wanteddir, $parent);
+find (\&wantedfile, $parent);
+exit;
+
+sub findfile{
+
+if (! -f) {
+return;
+}
+
+my $files = $File::Find::name;
+if ($files =~m/(^.*)(\/\..)/){
+print "$files\n";
+unlink $files or die "could not delete $files: $!\n";
+print "deleted: $files\n";
+ }
+ 
+}
+
+sub wanteddir{
+   
+   if (! -d){
+    return;
+}
+  
+    my $a = (stat($File::Find::name));
+    my $mode = $a->mode;
+    $mode = $mode & 0777;
+    $perm = sprintf("%04o", $mode);
+    
+    if (($File::Find::name =~ m/(^.*)(\/\bbin\b)/) || ($File::Find::name =~ m/(^.*)(\/\bcxt\b)/) || ($File::Find::name =~ m/(^.*)(\/\betc\b)/) || ($File::Find::name =~ m/(^.*)(\/\borig\b)/)
+           || ($File::Find::name =~ m/(^.*)(\/\binsert\b)/) || ($File::Find::name =~ m/(^.*)(\/\bsrc\b)/)) {
+      if ($perm eq "0775"){
+          print "permissions are good for $File::Find::name, current permissions: $perm\n";
+        } else {
+         chmod 0775, $File::Find::name or die "cant change permissions for directory  $File::Find::name,current permissions: $perm1. Please contact the owner\n";
+          print "permissions are changed for $File::Find::name from $perm to 0775\n";
+           }
+         }
+      }
+
+sub wantedfile {
+
+        if (! -f){
+              return;
+             }
+
+    my $a1 = (stat($File::Find::name));
+    my $bmode = $a1->mode;
+    $bmode = $bmode & 0777;
+    $perm1 = sprintf("%04o", $bmode);
+
+       if (($File::Find::name =~ m/(^.*)(\/\bbin\b)/) || ($File::Find::name =~ m/(^.*)(\/\bcxt\b)/) || ($File::Find::name =~ m/(^.*)(\/\betc\b)/) || ($File::Find::name =~ m/(^.*)(\/\borig\b)/)
+           || ($File::Find::name =~ m/(^.*)(\/\binsert\b)/) || ($File::Find::name =~ m/(^.*)(\/\bsrc\b)/)) {
+
+       if (($perm1 eq "0775")|| ($perm1 eq "0664")|| ($perm1 eq "0777")|| ($perm1 eq "0644")|| ($perm1 eq "0755")|| ($perm1 eq "0765")){
+          print "permissions are good for $File::Find::name, current permissions: $perm1\n";
+        } else {
+         chmod 0775, $File::Find::name or die "cant change permissions for $File::Find::name, current permissions: $perm1. Please contact the owner\n";
+          print "permissions are changed for $File::Find::name from $perm1 to 0775\n";
+         }
+       }
+     }
+
+}
+
+
+########################################################
+# Archives functions
+########################################################
+
+#
+# This is the wrapper function containing the archiving functions
+# returns void
+#
+sub archive
+{
+	setCurrentPath( findVSABPath() );
+	changeperm();
+	determineSecondaryInversion();
+
+	#for project and never_inserted, do not validate the dir structure and
+	#just archive the existing files and structure
+	if ($project or $never_inserted) {
+		generateTargetDir();
+		tarMove( "$vsab_path", "$target_dir_path" );
+		removeVSABDir();
+		exit 0;	
+	}
+	
+	cacheSourcesSRC($vsab_path);
+	setRSAB( findRSAB($vsab) );
+	setSourceFamily( findSourceFamily($vsab) );
+	determineTranslationOf();
+	generateTargetDir();
+	prepWorkingAreaForArchive("$vsab_path");
+	tarMove( "$vsab_path", "$target_dir_path" );
+	repairLinks("$vsab");
+
+	#process tranlation sources
+	if (     -d "$vsab_path/trans"
+		 and !$is_secondary_inversion
+		 and !$project
+		 and !$never_inserted )
+	{
+		opendir( THISDIR, "$vsab_path/trans" )
+		  or die "$vsab_path/trans can't be opened: $!";
+		my @list_dir = grep { $_ ne '.' and $_ ne '..' } readdir THISDIR;
+		closedir(THISDIR);
+
+		#set translation_of
+		$translation_of = $vsab;
+		$is_translation = 1;
+		foreach $key (@list_dir)
+		{
+			if ( $key =~ /_secondary/ ) { next; }
+			print "   Generating links for translation source of $key\n";
+
+			#read in source.src
+			cacheSourcesSRC("$vsab_path/trans/$key");
+			repairLinks();
+		}
+	}
+
+	validateLinks("$target_dir_path");
+
+	removeVSABDir();
+}
+
+#
+# This procedure creates the directory structure for inversion and insertion
+# returns void
+#
+sub createInversionDir
+{
+	my $dest_dir = "$vsab_path/$vsab";
+	mkdir "$dest_dir", 0777 or die "can't mkdir $dest_dir: $!";
+	print "   $dest_dir created...", scalar(localtime), "\n";
+
+	mkdir "$dest_dir/tmp", 0777 or die "can't mkdir $dest_dir: $!";
+	print "   $dest_dir/tmp created...", scalar(localtime), "\n";
+
+	foreach $new_dir ( sort keys(%archive_dir_structure) )
+	{
+		if ( $new_dir eq "trans" ) { next; }
+		mkdir "$dest_dir/$new_dir", 0777
+		  or die "can't mkdir $dest_dir/$new_dir: $!";
+		print "   $dest_dir/$new_dir created...", scalar(localtime), "\n";
+	}
+}
+
+#
+# Move the directory from the dest to target while preserve timestamp and permission
+# Returns void
+#
+sub tarMove
+{
+	my ( $target, $destination ) = @_;
+	if ( $destination eq "src_root" )
+	{
+		$destination = "$SRC_ROOT/$vsab";
+		makeDir($destination);
+	}
+	print "   Moving $target to $destination\n";
+	system("(cd $target; tar cf - .) | (cd $destination; tar xf -)") == 0
+	  or die "can't tar or move from $target to $destination: $?";
+	print "     Successfully moved $target to $destination\n";
+}
+
+#
+# Move the SRC and BIN directory from the dest to target while preserve timestamp and permission
+# Returns void
+#
+sub copy_vsab
+{
+	my ($target) = @_;
+	my $destination = "$SRC_ROOT/$vsab";
+	makeDir($destination);
+
+	print "   Moving $target to $destination\n";
+	system("(cd $target; tar cf - src bin) | (cd $destination; tar xf -)") == 0
+	  or die "can't tar or move from $target to $destination: $?";
+	print "     Successfully moved $target to $destination\n";
+}
+
+#
+# Generate the target_dir_path base on $ARCHIVE_DIR and other config vars
+# Returns void
+#
+sub generateTargetDir
+{
+	my $l_target_dir_path = "$ARCHIVE_ROOT/SABS/$rsab";
+	if ($never_inserted)
+	{
+		$l_target_dir_path = "$ARCHIVE_ROOT/NeverInserted";
+	}
+	if ($project) { $l_target_dir_path = "$ARCHIVE_ROOT/project"; }
+	if ($is_translation)
+	{
+		$l_target_dir_path = "$ARCHIVE_ROOT/SABS/$source_family";
+		makeDir($l_target_dir_path);
+		$l_target_dir_path = $l_target_dir_path . "/$translation_of";
+		makeDir($l_target_dir_path);
+		$l_target_dir_path = $l_target_dir_path . "/trans";
+	}
+	makeDir($l_target_dir_path);
+
+	$l_target_dir_path = $l_target_dir_path . "/$vsab";
+	if ($is_secondary_inversion)
+	{
+		$l_target_dir_path = $l_target_dir_path . "_secondary";
+	}
+	makeDir($l_target_dir_path);
+
+	setTargetDirPath($l_target_dir_path);
+	print "   Target dir: $l_target_dir_path\n";
+}
+
+#
+# if the directory does not exist, this sub will create it
+# Returns void
+#
+sub makeDir
+{
+	my ($tmp_dir) = @_;
+
+	if ( !( -e $tmp_dir ) )
+	{
+		mkdir $tmp_dir, 0775 or die "can't mkdir $tmp_dir\n";
+	}
+}
+
+#
+# Remove files and directories not in the archived directory
+# structure defined in %archive_dir_structure
+# Returns void
+#
+sub prepWorkingAreaForArchive
+{
+	my ($location) = @_;
+	opendir( THISDIR, $location ) or die "$location can't be opened: $!";
+	my @list_dir = grep { $_ ne '.' and $_ ne '..' } readdir THISDIR;
+	closedir(THISDIR);
+	print "   Remove directories and files not needed for the archive...",
+	  scalar(localtime), "\n";
+	foreach $content (@list_dir)
+	{
+		if ( !$archive_dir_structure{$content} )
+		{
+			remove("$location/$content");
+		}
+	}
+	splice(@list_dir);
+
+	#clean up the translation directories if there are any
+	if ( -d "$location/trans" )
+	{
+		foreach $key (`ls $location/trans/*/*`)
+		{
+			chomp($key);
+			if ( $key =~ /:/ )
+			{
+
+				#remove :
+				chop($key);
+				my @line = split /\//, $key;
+				my $content = pop(@line);
+				if ( !$archive_dir_structure{$content} )
+				{
+					remove("$key");
+				}
+			}
+		}
+	}
+}
+
+#
+# Recursively remove symbolic links
+# Returns void
+#
+sub deleteSymbolicLinks
+{
+	my ($location) = @_;
+	find sub {
+		if (-l) { unlink($_); }
+	}, $location;
+}
+
+#
+# Recursively remove the content of the current directory
+# Returns void
+#
+sub removeVSABDir
+{
+	remove($vsab_path);
+}
+
+#
+# Recursively remove the target, either file or directory
+# Returns void
+#
+sub remove
+{
+	my ($target) = @_;
+	system("rm -rf $target") == 0 or die "Can't delete $target: $?";
+	print "     $target removed...", scalar(localtime), "\n";
+}
+
+#
+# Return the insert_meta_version from sims_info for a given source, if not found, then default to max(insert_meta_version)
+# Return insert_meta_version, optional [max] - this indicates insert_meta_version is not found
+# so the functions returns the max insert_meta_version
+#
+sub lookUpYear
+{
+	my ($l_vsab) = @_;
+	my $l_release_ver =
+`$MEME_HOME/bin/dump_table.pl -u mth -q "select meta_ver from sims_info where source = '$l_vsab'"`;
+	my $is_max = 0;
+	chomp($l_release_ver);
+	if ( !($l_release_ver) )
+	{
+		$l_release_ver =
+`$MEME_HOME/bin/dump_table.pl -u mth -q "select max(insert_meta_version) version from sims_info`;
+		chomp($l_release_ver);
+		$is_max = 1;
+	}
+	if ( $l_release_ver !~ /^[1-9][0-9][0-9][0-9][A-Z][A-Z]$/ )
+	{
+		die "Invalid insert_meta_version: $l_release_ver for $vsab\n";
+	}
+	if ($is_max) { $l_release_ver = $l_release_ver . ",max"; }
+	return $l_release_ver;
+}
+
+#
+# Generate symbolic links base on the archiving rules
+# Returns void
+#
+sub repairLinks
+{
+	if ( $is_secondary_inversion or $never_inserted or $project )
+	{
+		return;
+	}
+	print "   Generating symbolic links base on archiving rules...",
+	  scalar(localtime), "\n";
+	for my $key ( keys %sourcesSRC )
+	{
+		my @line   = split /\|/, $sourcesSRC{$key};
+		my $l_rsab = $line[4];
+		my $l_sf   = $line[6];
+		my $l_vsab = $line[3];
+
+		my $l_new = "$ARCHIVE_ROOT/SABS/$l_rsab";
+		makeDir("$l_new");
+		$l_new = $l_new . "/$key";
+		my $l_old = "$ARCHIVE_ROOT/SABS/$rsab/$vsab";
+
+		#translation rule
+		if ( $key eq $l_vsab and $is_translation )
+		{
+			symlink( "$ARCHIVE_ROOT/SABS/$l_sf/$translation_of/trans/$key",
+					 "$l_new" );
+			print
+"     $l_new -> $ARCHIVE_ROOT/SABS/$l_sf/$translation_of/trans/$key\n";
+		}
+
+		#if translations, lookup release base on key (translation vsab)
+		#else look up base on l_vsab (main vsab)
+		my $lookup = $l_vsab;
+		if ($is_translation) { $lookup = $key; }
+
+		#yearly rule
+		my ( $release_ver, $max ) = split /,/, lookUpYear("$lookup");
+		my $release_year = substr( "$release_ver", 0, 4 );
+		my $release_meta = substr( "$release_ver", 4, 2 );
+		my $l_yearly_new = "$ARCHIVE_ROOT/Yearly/$release_year";
+		makeDir("$l_yearly_new");
+		$l_yearly_new = $l_yearly_new . "/$release_meta";
+		makeDir("$l_yearly_new");
+
+		my $l_yearly_old = $l_new;
+
+		#yearly rule
+		symlink( $l_yearly_old, "$l_yearly_new/$key" );
+		print "     $l_yearly_new/$key -> $l_yearly_old\n";
+
+		#does not have to apply sub source rule to main source
+		#only translation
+		if ( $is_translation or $l_new eq $l_old )
+		{
+			next;
+		}
+
+		#sub source rule
+		symlink( "$l_old", "$l_new" );
+		print "     $l_new -> $l_old\n";
+	}
+}
+
+#
+# Recursively go through the input location and deletes invalid links
+# Returns void
+#
+sub validateLinks
+{
+	my ($location) = @_;
+	print "   Validating links at $location...", scalar(localtime), "\n";
+	find sub {
+		if (-l)
+		{
+			my $target = readlink("$_");
+			unless ( -e $target )
+			{
+				print "     Broken link at $target\n";
+				if ( unlink("$File::Find::name") == 0 )   # Zero = none deleted.
+				{
+					print "     Unable to remove $File::Find::name!\n";
+					return;
+				}
+				print "     Removed '$File::Find::name'\n";
+			}
+		}
+	}, $location;
+}
+
+#
+# Wrapper function to validate Yearly links
+# Returns void
+#
+sub validateYearly
+{
+	validateLinks("$ARCHIVE_ROOT/Yearly");
+	validateYearlyStructure();
+	validateYearlyLinkStructure();
+	validateYearlyAgainstSABS();
+
+}
+
+#
+# Wrapper function to validate SABS links and directories
+# Returns void
+#
+sub validateSABS
+{
+	validateLinks("$ARCHIVE_ROOT/SABS");
+	validateSABSStructure();
+	validateSABSDirs();
+	validateTranslationSourcesLinks();
+
+}
+
+#
+# Validates the Yearly directory structure, should be $ARCHIVE_ROOT/Yearly/YYYY/XX
+# and it also ensures every link points to a valid place under $ARCHIVE_ROOT/SABS
+# Returns void
+#
+sub validateYearlyStructure
+{
+	print "   Valid directory structure in $ARCHIVE_ROOT/Yearly...",
+	  scalar(localtime), "\n";
+	opendir( THISDIR, "$ARCHIVE_ROOT/Yearly" )
+	  or die "$ARCHIVE_ROOT/Yearly can't be opened: $!";
+	my @yearly_dir = grep { $_ ne '.' and $_ ne '..' } readdir THISDIR;
+	closedir(THISDIR);
+
+	#this should be a valid year
+	foreach $year (@yearly_dir)
+	{
+		if ( $year !~ /^\d{4}$/ )
+		{
+			print "     Warning: $year does not conform to YYYY format\n";
+			next;
+		}
+
+		#get the next level
+		opendir( THISDIR, "$ARCHIVE_ROOT/Yearly/$year" )
+		  or die "$ARCHIVE_ROOT/Yearly/$year can't be opened: $!";
+		my @meta_dir = grep { $_ ne '.' and $_ ne '..' } readdir THISDIR;
+		closedir(THISDIR);
+
+		#this should be valid year meta format
+		foreach $yearly_meta (@meta_dir)
+		{
+			if ( $yearly_meta !~ /[A-Z][A-Z]/ )
+			{
+				print "     Warning: $yearly_meta not conform to [A-Z][A-Z]\n";
+				next;
+			}
+
+			#get the vsab level
+			opendir( THISDIR, "$ARCHIVE_ROOT/Yearly/$year/$yearly_meta" )
+			  or die
+			  "$ARCHIVE_ROOT/Yearly/$year/$yearly_meta can't be opened: $!";
+			my @vsabs = grep { $_ ne '.' and $_ ne '..' } readdir THISDIR;
+			closedir(THISDIR);
+
+			#vsab should exist in $ARCHIVE_ROOT/SABS
+			foreach $l_vsab (@vsabs)
+			{
+				my $found = 0;
+				find sub {
+					if ( -d && $_ eq "$l_vsab" ) { $found = 1; }
+				  },
+				  "$ARCHIVE_ROOT/SABS";
+				if ( !$found )
+				{
+					print
+					  "     Warning: $l_vsab not found in $ARCHIVE_ROOT/SABS\n";
+				}
+			}
+		}
+	}
+}
+
+#
+# Validate each links points to $ARCHIVE_ROOT/SABS/RSAB/VSAB
+# Returns void
+#
+sub validateYearlyLinkStructure
+{
+	print "   Valid yearly symbolic links structure in $ARCHIVE_ROOT/Yearly...",
+	  scalar(localtime), "\n";
+
+	#find and resolve all links
+	my @links = ();
+	find sub {
+		if (-l) { push( @links, readlink("$_") ); }
+	}, "$ARCHIVE_ROOT/Yearly";
+
+	#validate each links points to $ARCHIVE_ROOT/SABS/RSAB/VSAB
+	foreach $key (@links)
+	{
+		my @link = split /\//, $key;
+		my $l_vsab = $link[ ( scalar @link ) - 1 ];
+		my $l_rsab = $link[ ( scalar @link ) - 2 ];
+    if ($l_rsab eq "trans") {
+     print qq{     Warning: Yearly link points directly to trans/ directory.
+               Instead, it should point to a SABS/<RSAB>/<VSAB> directory.
+               $$key"
+};
+    } else {
+	  	unless ( $vsabs{"$l_vsab"} )
+  		{
+			  print "     Warning: $l_vsab not found in source_rank\n";
+			  next;
+		  }
+		  unless ( $vsabs{"$l_vsab"} eq "$l_rsab" )
+		  {
+			  print
+"       Warning: $l_rsab not equal to value of $vsabs{$l_vsab} in source_rank\n";
+		  }
+		  unless ( $link[ ( scalar @link ) - 3 ] eq "SABS" )
+		   { 
+			  print
+			  "     Warning: $link[ ( scalar @link ) - 3 ] should be SABS\n";
+		  }
+		}
+	}
+}
+
+#
+# Caches vsab and rsab from source_rank with the logic to determine vsab from sims_info
+# Returns void
+#
+sub cacheSABS
+{
+	print "   Caching vsab and rsab from source_rank...", scalar(localtime),
+	  "\n";
+	%vsabs = ();
+	%rsabs = ();
+	foreach $key (
+`$MEME_HOME/bin/dump_table.pl -u mth -q "select distinct source vsab, stripped_source rsab from source_rank \
+where source in (select source from sims_info where meta_ver > '2005' and meta_ver not in ('TBD','NOT_RELEASED')) \
+and stripped_source not in ('MBD','MED')"`
+	  )
+	{
+		chomp($key);
+		my ( $l_vsab, $l_rsab ) = split /\|/, $key;
+		unless ( $vsabs{"$l_vsab"} ) { $vsabs{"$l_vsab"} = "$l_rsab"; }
+		unless ( $rsabs{"$l_rsab"} ) { $rsabs{"$l_rsab"} = 1; }
+	}
+}
+
+#
+# There should be a Yearly link for each VSAB in $ARCHIVE_ROOT/SABS/RSAB and vice versa
+# Return void
+#
+sub validateYearlyAgainstSABS
+{
+	print
+"   There should be a Yearly link for each VSAB in $ARCHIVE_ROOT/SABS/RSAB...",
+	  scalar(localtime), "\n";
+	my %yearly_vsabs = ();
+	my %vsabs_vsabs  = ();
+	foreach $key (`ls $ARCHIVE_ROOT/Yearly/*/*`)
+	{
+		chomp($key);
+		if ( $key !~ /^$/ && $key !~ /\:/ )
+		{
+			$yearly_vsabs{$key} = 1;
+		}
+	}
+
+	foreach $key (`ls $ARCHIVE_ROOT/SABS/*`)
+	{
+		chomp($key);
+		if ( $key !~ /^$/ && $key !~ /\:/ && $key !~ /_secondary/ )
+		{
+			if   ( $yearly_vsabs{$key} ) { delete $yearly_vsabs{$key}; }
+			else                         { $vsabs_vsabs{$key} = 1; }
+		}
+	}
+	if ( keys(%yearly_vsabs) > 0 )
+	{
+		while ( my ( $key, $value ) = each(%yearly_vsabs) )
+		{
+			print "     Warning: $key not found in $ARCHIVE_ROOT/SABS/RSAB\n";
+		}
+	}
+
+	if ( keys(%vsabs_vsabs) > 0 )
+	{
+		while ( my ( $key, $value ) = each(%vsabs_vsabs) )
+		{
+			print
+			  "     Warning: link for $key not found in $ARCHIVE_ROOT/Yearly\n";
+		}
+	}
+}
+
+#
+# RSAB and VSAB from source_rank should exist in $ARCHIVE_ROOT/SABS/RSAB
+# and each VSAB in source_rank should have a subdirectory of the corresponding rsab dir
+# Returns void
+#
+sub validateSABSStructure
+{
+
+	print
+"   RSAB and VSAB from source_rank should exist in $ARCHIVE_ROOT/SABS/RSAB...",
+	  scalar(localtime), "\n";
+
+	#each RSAB in %vsabs should have a directory
+	my %l_sabs = ();
+	foreach $key (`ls $ARCHIVE_ROOT/SABS`)
+	{
+		chomp($key);
+		if ( $key !~ /^$/ && $key !~ /\:/ && $key !~ /_secondary/ )
+		{
+			$l_sabs{$key} = 1;
+		}
+	}
+
+	while ( my ( $key, $value ) = each(%rsabs) )
+	{
+		unless ( $l_sabs{$key} )
+		{
+			print
+			  "     Warning: $key does not exist in $ARCHIVE_ROOT/SABS/RSAB\n";
+		}
+	}
+
+	%l_sabs = ();
+
+#each VSAB in source_rank should have a subdirectory of the corresponding rsab dir
+	foreach $key (`ls $ARCHIVE_ROOT/SABS/*/*`)
+	{
+		chomp($key);
+
+		if ( $key =~ /\:/ && $key !~ /_secondary/ )
+		{
+
+			#remove :
+			chop($key);
+			my @line = split /\//, $key;
+
+			$l_sabs{ $line[ ( scalar @line ) - 1 ] } =
+			  $line[ ( scalar @line ) - 2 ];
+		}
+
+	}
+	while ( my ( $key, $value ) = each(%vsabs) )
+	{
+		unless ( $l_sabs{$key} && $l_sabs{$key} eq $value )
+		{
+			print
+"     Warning: $value/$key does not exist in $ARCHIVE_ROOT/SABS/RSAB/VSAB\n";
+		}
+	}
+}
+
+#
+# VSAB directory structure should only contain directories valid for archive
+# such as bin, etc, orig, insert...
+# Returns void
+#
+sub validateSABSDirs
+{
+	print "   SABS directory structure should have proper structure...",
+	  scalar(localtime), "\n";
+	foreach $key (`ls $ARCHIVE_ROOT/SABS/*/*/*`)
+	{
+		chomp($key);
+		if ( $key =~ /:/ )
+		{
+
+			#remove :
+			chop($key);
+			my @line = split /\//, $key;
+			my $dir = pop(@line);
+			unless ( $archive_dir_structure{$dir} )
+			{
+				print "     Warning: $key is an invalid dir\n";
+			}
+		}
+	}
+
+	#translation sources
+	foreach $key (`ls $ARCHIVE_ROOT/SABS/*/*/trans/*/*`)
+	{
+		chomp($key);
+		if ( $key =~ /:/ )
+		{
+
+			#remove :
+			chop($key);
+			my @line = split /\//, $key;
+			my $dir = pop(@line);
+			unless ( $archive_dir_structure{$dir} )
+			{
+				print "     Warning: $key is an invalid dir\n";
+			}
+		}
+	}
+}
+
+#
+# Each translation source should have valid RSAB/VSAB links pointing to the main_source/trans/vsab dir
+# Returns void
+#
+sub validateTranslationSourcesLinks
+{
+	print
+"   Every translation source should have $ARCHIVE_ROOT/SABS and Yearly links...",
+	  scalar(localtime), "\n";
+	foreach $key (`ls $ARCHIVE_ROOT/SABS/*/*/trans/*`)
+	{
+		chomp($key);
+		if ( $key =~ /:/ && $key !~ /_secondary/ )
+		{
+
+			#remove :
+			chop($key);
+			my @line  = split /\//, $key;
+			my $dir   = pop(@line);
+			my $found = 0;
+			find sub {
+				if ( -l && $_ eq "$dir" )
+				{
+					$found = 1;
+					my $target = readlink("$_");
+				}
+			  },
+			  "$ARCHIVE_ROOT/SABS";
+			unless ( $found or $key eq $target )
+			{
+				print
+"     Warning: $key not found or invalid in $ARCHIVE_ROOT/SABS\n";
+			}
+
+			$found = 0;
+			find sub {
+				if ( -l && $_ eq "$dir" )
+				{
+					$found = 1;
+					my $target = readlink("$_");
+				}
+			}, "$ARCHIVE_ROOT/Yearly";
+			unless ( $found or $key eq $target )
+			{
+				print
+"     Warning: $key not found or invalid in $ARCHIVE_ROOT/Yearly\n";
+			}
+		}
+	}
+}
+
+#
+# Iterate through the archive and generate translation and sub source links base on sources.src
+# Returns void
+#
+sub generateLinksForArchive
+{
+
+	#delete all the links in the archive/SABS
+	print "   Delete all symbolic links in $ARCHIVE_ROOT/SABS...",
+	  scalar(localtime), "\n";
+	deleteSymbolicLinks("$ARCHIVE_ROOT/SABS");
+
+	#translation sources
+	print "   Generating symbolic links base on translation archiving rules...",
+	  scalar(localtime), "\n";
+	foreach $src (`ls $ARCHIVE_ROOT/SABS/*/*/trans/*/src/sources.src`)
+	{
+		chomp($src);
+		if ( $src =~ /_secondary/ ) { next; }
+
+		#read in source.src
+		open( FILE, "$src" )
+		  or die "Can't open $src: $!\n";
+		%sourcesSRC = ();
+		while (<FILE>)
+		{
+			my @line = split /\|/, $_;
+			$sourcesSRC{ $line[0] } = $_;
+		}
+		close(FILE);
+
+		my @line = split /\//, $src;
+
+		#remove sources.src
+		pop(@line);
+
+		#remove src
+		pop(@line);
+
+		my $l_old = join( "/", @line );
+
+		for my $key ( keys %sourcesSRC )
+		{
+			my @line   = split /\|/, $sourcesSRC{$key};
+			my $l_rsab = $line[4];
+			my $l_sf   = $line[6];
+			my $l_vsab = $line[3];
+
+			my $l_new = "$ARCHIVE_ROOT/SABS/$l_rsab";
+			makeDir("$l_new");
+			$l_new = $l_new . "/$key";
+
+			symlink( "$l_old", "$l_new" );
+			print "     $l_new -> $l_old\n";
+
+			my $found = 0;
+
+			find sub {
+				if ( -d && $_ eq "$key" ) { $found = 1; }
+			  },
+			  "$ARCHIVE_ROOT/Yearly";
+
+			unless ($found)
+			{
+
+				#yearly rule
+				my ( $release_ver, $max ) = split /,/, lookUpYear($l_vsab);
+				my $release_year = substr( "$release_ver", 0, 4 );
+				my $release_meta = substr( "$release_ver", 4, 2 );
+				my $l_yearly_new = "$ARCHIVE_ROOT/Yearly/$release_year";
+				makeDir("$l_yearly_new");
+				$l_yearly_new = $l_yearly_new . "/$release_meta";
+				makeDir("$l_yearly_new");
+
+				my $l_yearly_old = $l_new;
+
+				#yearly rule
+				symlink( $l_yearly_old, "$l_yearly_new/$key" );
+				print "     $l_yearly_new/$key -> $l_yearly_old\n";
+			}
+		}
+	}
+
+	#sub sources
+	print "   Generating symbolic links base on subsources archiving rules...",
+	  scalar(localtime), "\n";
+	foreach $src (`ls $ARCHIVE_ROOT/SABS/*/*/src/sources.src`)
+	{
+		chomp($src);
+		if ( $src =~ /_secondary/ ) { next; }
+
+		#read in source.src
+		open( FILE, "$src" )
+		  or die "Can't open $src: $!\n";
+		%sourcesSRC = ();
+		while (<FILE>)
+		{
+			my @line = split /\|/, $_;
+			$sourcesSRC{ $line[0] } = $_;
+		}
+		close(FILE);
+
+		my @line = split /\//, $src;
+
+		#remove sources.src
+		pop(@line);
+
+		#remove src
+		pop(@line);
+
+		my $l_old = join( "/", @line );
+		for my $key ( keys %sourcesSRC )
+		{
+			my @line   = split /\|/, $sourcesSRC{$key};
+			my $l_rsab = $line[4];
+			my $l_sf   = $line[6];
+			my $l_vsab = $line[3];
+
+			my $l_new = "$ARCHIVE_ROOT/SABS/$l_rsab";
+			makeDir("$l_new");
+			$l_new = $l_new . "/$key";
+
+			my $found = 0;
+
+			find sub {
+				if ( -l && $_ eq "$key" ) { $found = 1; }
+			  },
+			  "$ARCHIVE_ROOT/Yearly";
+
+			unless ($found)
+			{
+
+				#yearly rule
+				my ( $release_ver, $max ) = split /,/, lookUpYear($l_vsab);
+				my $release_year = substr( "$release_ver", 0, 4 );
+				my $release_meta = substr( "$release_ver", 4, 2 );
+				my $l_yearly_new = "$ARCHIVE_ROOT/Yearly/$release_year";
+				makeDir("$l_yearly_new");
+				$l_yearly_new = $l_yearly_new . "/$release_meta";
+				makeDir("$l_yearly_new");
+
+				my $l_yearly_old = $l_new;
+
+				#yearly rule
+				symlink( $l_yearly_old, "$l_yearly_new/$key" );
+				print "     $l_yearly_new/$key -> $l_yearly_old\n";
+			}
+
+			#does not have to apply sub source rule to main source
+			if ( $l_new eq $l_old )
+			{
+				next;
+			}
+
+			#sub source rule
+			symlink( "$l_old", "$l_new" );
+			print "     $l_new -> $l_old\n";
+		}
+	}
+}
+
+return 1;
+
+

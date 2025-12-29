@@ -1,0 +1,13 @@
+#!/bin/tcsh -f
+# Script: countu awkfield file
+# Uses awk to count number of distinct values in awkfield in file
+# countu '$2' junk -- counts unique values in 2nd "|"-delimited field of junk
+# countu 'substr($2,1,5)' junk -- counts unique tokens consisting of 1st 5-chars
+#        in 2nd "|"-delimited field of junk file
+
+if ($#argv != 2) then
+	echo "Usage: $0 'awkfield' filename"
+	exit 1
+endif
+
+awk -F\| '{print '$1'}' $2 | sort -T . -u | wc -l

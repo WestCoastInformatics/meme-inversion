@@ -1,0 +1,13 @@
+#!/bin/csh -f
+# Script: tallyfield awkfield file
+# Uses awk to tally tokens in awkfield in file
+# tallyfield '$2' junk -- tallies tokens in 2nd "|"-delimited field of junk file
+# tallyfield 'substr($2,1,5)' junk -- tallies tokens consisting of 1st 5-chars
+#        in 2nd "|"-delimited field of junk file
+
+if ($#argv < 1) then
+	echo "Usage: $0 'awkfield' filename"
+	exit 1
+endif
+
+awk -F\| '{count['$1']++} END {for (x in count) {print x "	" count[x]; tot+=count[x]} print "~TOTAL	" tot}' $2 | sort

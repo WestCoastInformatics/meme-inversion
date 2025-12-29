@@ -1,0 +1,291 @@
+# This is the list of valid HTML character entities
+# This list is used by QA3.pl
+# Do not remove this file
+#
+# 08/15/02 - WAK
+# from:
+# http://www.w3.org/MarkUp/html3/latin1.html
+# http://www.cwru.edu/help/interHTML/examples/isolist0.html
+# 
+#Name|Syntax|Description|
+lt|&lt;|Less than sign
+gt|&gt;|Greater than sign
+amp|&amp;|Ampersand
+quot|&quot;|Double quote sign
+#
+space|&nbsp;|non-breaking space
+Aacute|&Aacute;|Capital A, acute accent
+Agrave|&Agrave;|Capital A, grave accent
+Acirc|&Acirc;|Capital A, circumflex accent
+Atilde|&Atilde;|Capital A, tilde
+Aring|&Aring;|Capital A, ring
+Auml|&Auml;|Capital A, dieresis or umlaut mark
+AElig|&AElig;|Capital AE dipthong (ligature)
+Ccedil|&Ccedil;|Capital C, cedilla
+Eacute|&Eacute;|Capital E, acute accent
+Egrave|&Egrave;|Capital E, grave accent
+Ecirc|&Ecirc;|Capital E, circumflex accent
+Euml|&Euml;|Capital E, dieresis or umlaut mark
+Iacute|&Iacute;|Capital I, acute accent
+Igrave|&Igrave;|Capital I, grave accent
+Icirc|&Icirc;|Capital I, circumflex accent
+Iuml|&Iuml;|Capital I, dieresis or umlaut mark
+ETH|&ETH;|Capital Eth, Icelandic
+Ntilde|&Ntilde;|Capital N, tilde
+Oacute|&Oacute;|Capital O, acute accent
+Ograve|&Ograve;|Capital O, grave accent
+Ocirc|&Ocirc;|Capital O, circumflex accent
+Otilde|&Otilde;|Capital O, tilde
+Ouml|&Ouml;|Capital O, dieresis or umlaut mark
+Oslash|&Oslash;|Capital O, slash
+Uacute|&Uacute;|Capital U, acute accent
+Ugrave|&Ugrave;|Capital U, grave accent
+Ucirc|&Ucirc;|Capital U, circumflex accent
+Uuml|&Uuml;|Capital U, dieresis or umlaut mark
+Yacute|&Yacute;|Capital Y, acute accent
+#
+THORN|&THORN;|Capital THORN, Icelandic
+szlig|&szlig;|Small sharp s, German (sz ligature)
+#
+aacute|&aacute;|Small a, acute accent
+agrave|&agrave;|Small a, grave accent
+acirc|&acirc;|Small a, circumflex accent
+atilde|&atilde;|Small a, tilde
+atilde|&atilde;|Small a, tilde
+auml|&auml;|Small a, dieresis or umlaut mark
+aelig|&aelig;|Small ae dipthong (ligature)
+ccedil|&ccedil;|Small c, cedilla
+eacute|&eacute;|Small e, acute accent
+egrave|&egrave;|Small e, grave accent
+ecirc|&ecirc;|Small e, circumflex accent
+euml|&euml;|Small e, dieresis or umlaut mark
+iacute|&iacute;|Small i, acute accent
+igrave|&igrave;|Small i, grave accent
+icirc|&icirc;|Small i, circumflex accent
+iuml|&iuml;|Small i, dieresis or umlaut mark
+eth|&eth;|Small eth, Icelandic
+ntilde|&ntilde;|Small n, tilde
+oacute|&oacute;|Small o, acute accent
+ograve|&ograve;|Small o, grave accent
+ocirc|&ocirc;|Small o, circumflex accent
+otilde|&otilde;|Small o, tilde
+ouml|&ouml;|Small o, dieresis or umlaut mark
+oslash|&oslash;|Small o, slash
+uacute|&uacute;|Small u, acute accent
+ugrave|&ugrave;|Small u, grave accent
+ucirc|&ucirc;|Small u, circumflex accent
+uuml|&uuml;|Small u, dieresis or umlaut mark
+yacute|&yacute;|Small y, acute accent
+thorn|&thorn;|Small thorn, Icelandic
+yuml|&yuml;|Small y, dieresis or umlaut mark
+#
+# Numerical
+#Reference           Description
+#&#00;-&#08;         Unused 
+|&#09;|Horizontal tab
+|&#10;|Line feed
+#&#11;-&#31;         Unused
+#
+|&#32;|Space
+|&#33;|Exclamation mark
+|&#34;|Quotation mark
+|&#35;|Number sign
+|&#36;|Dollar sign
+|&#37;|Percent sign
+|&#38;|Ampersand
+|&#39;|Apostrophe
+|&#40;|Left parenthesis
+|&#41;|Right parenthesis
+|&#42;|Asterisk
+|&#43;|Plus sign
+|&#44;|Comma
+|&#45;|Hyphen
+|&#46;|Period (fullstop)
+|&#47;|Solidus (slash)
+#
+#&#48; - &#57;       Digits 0-9
+|&#48;|0
+|&#49;|1
+|&#50;|2
+|&#51;|3
+|&#52;|4
+|&#53;|5
+|&#54;|6
+|&#55;|7
+|&#56;|8
+|&#57;|9
+#
+|&#58;|Colon
+|&#59;|Semi-colon
+|&#60;|Less than
+|&#61;|Equals aign
+|&#62;|Greater than
+|&#63;|Question mark
+|&#64;|Commercial at
+#     
+#&#65;-&#90;         Letters A-Z
+A|&#65;|A
+B|&#66;|B
+C|&#67;|C
+D|&#68;|D
+E|&#69;|E
+F|&#70;|F
+G|&#71;|G
+H|&#72;|H
+I|&#73;|I
+J|&#74;|J
+K|&#75;|K
+L|&#76;|L
+M|&#77;|M
+N|&#78;|N
+O|&#79;|O
+P|&#80;|P
+Q|&#81;|Q
+R|&#82;|R
+S|&#83;|S
+T|&#84;|T
+U|&#85;|U
+V|&#86;|V
+W|&#87;|W
+X|&#88;|X
+Y|&#89;|Y
+Z|&#90;|Z
+#
+|&#91;|Left square bracket
+|&#92;|Reverse solidus (backslash)
+|&#93;|Right square bracket
+|&#94;|Caret
+|&#95;|Horizontal bar
+|&#96;|Acute accent
+#
+#&#97;-&#122;        Letters a-z
+a|&#97;|a
+b|&#98;|b
+c|&#99;|c
+d|&#100;|d
+e|&#101;|e
+f|&#102;|f
+g|&#103;|g
+h|&#104;|h
+i|&#105;|i
+j|&#106;|j
+k|&#107;|k
+l|&#108;|l
+m|&#109;|m
+n|&#110;|n
+o|&#111;|o
+p|&#112;|p
+q|&#113;|q
+r|&#114;|r
+s|&#115;|s
+t|&#116;|t
+u|&#117;|u
+v|&#118;|v
+w|&#119;|w
+x|&#120;|x
+y|&#121;|y
+z|&#122;|z
+#
+|&#123;|Left curly brace
+|&#124;|Vertical bar
+|&#125;|Right curly brace
+|&#126;|Tilde
+#
+# &#127;- &#159;      Unused
+#
+|&#160;|non-breaking space
+|&#161;|Inverted exclamation
+|&#162;|Cent sign
+|&#163;|Pound sterling
+|&#164;|General currency sign
+|&#165;|Yen sign
+|&#166;|Broken vertical bar
+|&#167;|Section sign
+|&#168;|Umlaut (dieresis)
+|&#169;|Copyright
+|&#170;|Feminine ordinal
+|&#171;|Left angle quote, guillemotleft
+|&#172;|Not sign
+|&#173;|Soft hyphen
+|&#174;|Registered trademark
+|&#175;|Macron accent
+|&#176;|Degree sign
+|&#177;|Plus or minus
+|&#178;|Superscript two
+|&#179;|Superscript three
+|&#180;|Acute accent
+|&#181;|Micro sign
+|&#182;|Paragraph sign
+|&#183;|Middle dot
+|&#184;|Cedilla
+|&#185;|Superscript one
+|&#186;|Masculine ordinal
+|&#187;|Right angle quote, guillemotright
+|&#188;|Fraction one-fourth
+|&#189;|Fraction one-half
+|&#190;|Fraction three-fourths
+|&#191;|Inverted question mark
+|&#192;|Capital A, acute accent
+|&#193;|Capital A, grave accent
+|&#194;|Capital A, circumflex accent
+|&#195;|Capital A, tilde
+|&#196;|Capital A, ring
+|&#197;|Capital A, dieresis or umlaut mark
+|&#198;|Capital AE dipthong (ligature)
+|&#199;|Capital C, cedilla
+|&#200;|Capital E, acute accent
+|&#201;|Capital E, grave accent
+|&#202;|Capital E, circumflex accent
+|&#203;|Capital E, dieresis or umlaut mark
+|&#204;|Capital I, acute accent
+|&#205;|Capital I, grave accent
+|&#206;|Capital I, circumflex accent
+|&#207;|Capital I, dieresis or umlaut mark
+|&#208;|Capital Eth, Icelandic
+|&#209;|Capital N, tilde
+|&#210;|Capital O, acute accent
+|&#211;|Capital O, grave accent
+|&#212;|Capital O, circumflex accent
+|&#213;|Capital O, tilde
+|&#214;|Capital O, dieresis or umlaut mark
+|&#215;|Multiply sign
+|&#216;|Capital O, slash
+|&#217;|Capital U, acute accent
+|&#218;|Capital U, grave accent
+|&#219;|Capital U, circumflex accent
+|&#220;|Capital U, dieresis or umlaut mark
+|&#221;|Capital Y, acute accent
+|&#222;|Capital THORN, Icelandic
+|&#223;|Small sharp s, German (sz ligature)
+|&#224;|Small a, acute accent
+|&#225;|Small a, grave accent
+|&#226;|Small a, circumflex accent
+|&#227;|Small a, tilde
+|&#228;|Small a, tilde
+|&#229;|Small a, dieresis or umlaut mark
+|&#230;|Small ae dipthong (ligature)
+|&#231;|Small c, cedilla
+|&#232;|Small e, acute accent
+|&#233;|Small e, grave accent
+|&#234;|Small e, circumflex accent
+|&#235;|Small e, dieresis or umlaut mark
+|&#236;|Small i, acute accent
+|&#237;|Small i, grave accent
+|&#238;|Small i, circumflex accent
+|&#239;|Small i, dieresis or umlaut mark
+|&#240;|Small eth, Icelandic
+|&#241;|Small n, tilde
+|&#242;|Small o, acute accent
+|&#243;|Small o, grave accent
+|&#244;|Small o, circumflex accent
+|&#245;|Small o, tilde
+|&#246;|Small o, dieresis or umlaut mark
+|&#247;|Division sign
+|&#248;|Small o, slash
+|&#249;|Small u, acute accent
+|&#250;|Small u, grave accent
+|&#251;|Small u, circumflex accent
+|&#252;|Small u, dieresis or umlaut mark
+|&#253;|Small y, acute accent
+|&#254;|Small thorn, Icelandic
+|&#255;|Small y, dieresis or umlaut mark

@@ -1,0 +1,33 @@
+#!/bin/tcsh -f
+#
+# CHANGES
+# 11/13/2006 BAC (1-CDMK9): Small fix to field separator entry
+#
+# checkfields filename
+#
+# Tabulates the lines in filename by the number of '|'-delimited fields therein.
+# Also min & max number of chars. in each field, and number of nonzero flds.
+#
+
+if ("$1" =~ "-F?") then
+	set fsep = "$1"
+	shift
+else
+	set fsep = "-F|"
+endif
+
+if ($#argv != 1) then
+	echo "Usage: $0 [-FfieldSepChar] filename"
+	exit 1
+endif
+
+
+
+echo "#flds	#lines"
+echo "-----	------"
+awk "$fsep" '{print NF "|"}' $1 | tallyfield.pl '$1'
+echo " "
+
+echo "fld#	length range	#nonzero"
+echo "----	------------	--------"
+awk "$fsep" '(NR==1){j=NF;for(i=1;i<=j;i++)l[i]=u[i]=length($i)}(j<NF){j=NF}{for(i=1;i<=j;i++){len=length($i);if(len<l[i])l[i]=len;if(len>u[i])u[i]=len;if(len>0)n[i]++}}END{for(i=1;i<=j;i++) print i "	" l[i] " - " u[i] "		" n[i]}' $1

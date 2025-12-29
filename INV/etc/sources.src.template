@@ -1,0 +1,32 @@
+#
+# template for filling in sources.src
+# enter value in 2nd field
+# field name|value|description
+#
+# note that the descriptions are very brief so that the lines don't
+# wrap.  see src documentation for more detail.
+#
+#
+# used by this script:
+# /usr/tools/src/make.sources.src.pl
+
+source_name||VSAB of the source being added. 
+low_source||VSAB of the source above which to rank this one. 
+restriction_level||Range: {0,1,2,3}/ 
+normalized_source||Base name (e.g. SNMI98 for SNMI98XREF). 
+stripped_source||Version independent name (e.g. MSH for MSH2000). 
+version||Version of the source (e.g. 2000 for MSH2000). 
+source_family||e.g. MSH for MSH2000, HCPCS for MTHHH.  
+official_name||Typically the value of the SRC/PT.
+nlm_contact||email address
+acquisition_contact||Full contact information 
+content_contact||Full contact information
+license_contact||Full contact information
+inverter||email address
+context_type||FULL, FULL-MULTIPLE, FULL-NOSIB, FULL-NOSIB-MULTIPLE, null
+url||One or more URLs 
+language||e.g. ENG
+citation||Citation information
+license_info||Additional license info (used only for CPT now).
+character_set|UTF-8|Make this UTF-8
+rel_directionality_flag||Y,N, is directionality of rels important?  

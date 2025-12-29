@@ -1,0 +1,5 @@
+#!/bin/csh -f
+# Removes leading and trailing blanks from lines and fields
+# Squeezes multiple embedded blanks to single blank
+
+sed 's/^  *//; s/  *$//; s/|  */|/g; s/  *|/|/g; s/   */ /g' $1

@@ -1,0 +1,237 @@
+#NOTE: when creating new source directories, update the /meta/sources hierarchy!
+
+# Use the following format
+# Field 1: blank space or '*' for deleted, '#' for commented line
+# Field 2: Start of Assigned Range for Source Atom ID
+# Field 3: End of Assigned Range for Source Atom ID
+# Filed 4: SAB{<Termgroup>,<Termgroup>, etc.} - local path to classes file
+# ex. MSH2002{HT,MH,EP,EN,PM,NM,N1,CE,TQ,XQ} - /lti10h/META02/classes_atoms.src
+# each SAB should have a set of curly brackets after it, even if those
+# brackets are empty
+#
+# ALSO, some records are commented out ('#') to allow for automated processing of
+# ranges by scripts
+
+*|  min_id|  max_id|termgrp - /path/to/ATOMS_file	("*" = deleted)
+#|--------|--------|-----------------------------
+ |30000000|30109999|NCI2004{PT,SY,AB,BR,HD} - /d1/nci/projects/TDE_to_MEME/NCI2004/classes_atoms.src
+ |30110000|30129999|PDQ2005{PT,OP,AB,ACR,LV,SY,CU,FBD,BD,IS} - /d1/nci/sources/PDQ2005_05/classes_atoms.src
+ |30130000|31911499|MEME_FROM_NCI-RRF-2005AB{} - /d1/nci/sources/MEME_FROM_NCI-RRF-2005AB/classes_atoms.src
+ |31911500|31925499|CBO2005_06{PTSY} - /d1/nci/sources/CBO2005_06/classes_atoms.src
+ |31925500|31925549|root SRC atoms - /d1/nci/projects/create_root_atoms_for_NCI_sources
+ |31926000|32075599|NCI2005_05{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,PT,SY} - /d1/nci/sources/NCI2005_95/classes_atoms.src
+ |32075600|32204999|NCI2005_09{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2005_09/classes_atoms.src
+ |32205000|32231999|PDQ2005_12{PT,OP,AB,ACR,LV,SY,CU,FBD,BD,IS} - /d1/nci/sources/PDQ2005_12/classes_atoms.src
+ |32232000|32371999|NCI2005_10E{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2005_10E/classes_atoms.src
+ |35408000|35408999|MDBCAC2005_12{HT,PT} - /d1/nci/sources/MDBCAC2005_12/classes_atoms.src
+ |35409000|35553999|NCI2005_12F{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2005_12F/classes_atoms.src
+ |35554000|35699999|NCI2006_01C{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_01C/classes_atoms.src
+ |35700000|35700003|NCIMTH{PN} - /d1/nci/sources/NCIMTH/classes_atoms.src
+ |35700100|38894299|2005AC UMLS inversion - /d1/nci/sources/MEME_FROM_NCI-RRF-2005AC/classes_atoms.src
+ |38894300|39040380|NCI2006_02D{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_02D/classes_atoms.src
+ |39040500|39050499|open
+ |39050600|39197599|NCI2006_03D{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_03D/classes_atoms.src
+ |39197600|39211599|CBO2006_03{PT,SY} - /d1/nci/sources/CBO2006_03C/classes_atoms.src
+ |39211600|39361599|NCI2006_04D{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_04D/classes_atoms.src
+ |39361600|39511599|NCI2006_05D{AB,AD,BN,CCI,CCN,CCS,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_05D/classes_atoms.src
+ |39511600|42240999|sources from Meta2006AA - /d1/nci/sources/MEME_FROM_NCI-RRF-2006AA/classes_atoms.src
+ |42390999|42523105|NCI2006_06E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_06E/classes_atoms.src
+# |42391000|42404999|CBO2006_03_DTS{PT,SY} - /d1/nci/sources/CBO2006_03_DTSE/classes_atoms.src   #not inserted
+ |42523200|42673199|NCI2006_07D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_07D/classes_atoms.src
+ |42673200|42677199|ICDO3{PT,ET,SY} - /d1/nci/sources/ICDO3_meme4/classes_atoms.src
+ |42677200|42827199|NCI2006_08D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_07D/src/classes_atoms.src
+ |42827200|42829299|PMA2007{PT} - cbioapp513.nci.nih.gov/d3/inv/sources/PMA2007/src/classes_atoms.src
+ |42829300|42979299|NCI2006_09D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d1/nci/sources/NCI2006_09D/src/classes_atoms.src 
+ |42979300|43130299|NCI2006_10D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2006_10D/src/classes_atoms.src 
+ |43130300|46906299|MTH2006AB - /d3/inv/sources/MTH2006AB/part[123]/classes_atoms.src
+ |46906300|46934299|PDQ2006_12{PT,OP,AB,ACR,LV,SY,CU,FBD,BD,IS} - /d3/inv/sources/PDQ2006_12/src/classes_atoms.src 
+ |46934300|47086299|NCI2006_11D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2006_11D/src/classes_atoms.src 
+ |98978000|99077999|MDR90{HG,HT,LT,OL,OS,PT,SC} - d1/nci/sources/MDR90/classes_atoms.src  #Number range is correct.  UMLS inversion files used for insertion.
+ |102617996|102742999|MDRSPA90{OS,HG,HT,PT,LT,OL,SC} - /d1/nci/sources/MDR90/Foreign/SPA/classes_atoms.src #Number range is correct.  UMLS inversion files used                            #for insertion.
+ |102743000|106583999|MTH2006AC - /d3/inv/sources/MTH2006AC/part[123]/classes_atoms.src 
+ |106584000|106736999|NCI2006_12D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2006_12D/src/classes_atoms.src 
+ |106737000|106889999|NCI2007_01D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_01D/src/classes_atoms.src 
+ |106890000|106899999|MGED131{PT,HT,SY,DPT,DHT,DSY} - /d3/inv/sources/MGED131/src/classes_atoms.src 
+ |106900000|107054999|NCI2007_02C{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_02C/src/classes_atoms.src 
+ |107055000|107219999|NCI2007_03D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_03D/src/classes_atoms.src 
+ |107220000|109331999|MTH2006AD - /d3/inv/sources/MTH2006AD/part[123]/classes_atoms.src 
+ |109332000|109360599|PDQ2007_05{PT,OP,AB,ACR,LV,SY,CU,FBD,BD,IS} - /d3/inv/sources/PDQ2007_05/src/classes_atoms.src 
+ |109360600|109530599|NCI2007_04E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_04E/src/classes_atoms.src 
+ |109530600|111818599|MTH2007AA - /d3/inv/sources/MTH2007AA/part[123]/classes_atoms.src 
+ |111818600|111988599|NCI2007_05E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_05E/src/classes_atoms.src 
+ |111988600|112158599|NCI2007_06D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_06D/src/classes_atoms.src 
+ |112158600|112176599|CBO2007_06{PT,SY} - /d3/inv/sources/CBO2007_06/src/classes_atoms.src
+ |112176600|112346599|NCI2007_07C{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_07C/src/classes_atoms.src 
+ |112346600|112516599|NCI2007_08D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_08D/src/classes_atoms.src 
+ |112516600|112686599|NCI2007_09D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_09D/src/classes_atoms.src 
+ |112686600|116282599|MTH2007AB - /d3/inv/sources/MTH2007AB/part[123]/classes_atoms.src 
+ |116282600|116452599|NCI2007_10D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_10D/src/classes_atoms.src 
+ |116452600|116482199|PDQ2007_11{PT,OP,AB,ACR,LV,SY,CU,FBD,BD,IS} - /d3/inv/sources/PDQ2007_11/src/classes_atoms.src 
+ |116482200|116607199|RADLEX20{PT,SY,AT,AS} - /d3/inv/sources/RADLEX20/src/classes_atoms.src 
+ |116607200|116777199|NCI2007_12A{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_12A/src/classes_atoms.src 
+ |116777200|116947199|NCI2007_12E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2007_12E/src/classes_atoms.src 
+ |116947200|117117199|NCI2008_01D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_01D/src/classes_atoms.src 
+ |117117200|119802199|MTH2007AC - /d3/inv/sources/MTH2007AC/part[123]/classes_atoms.src 
+ |119802200|119972999|NCI2008_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_02D/src/classes_atoms.src 
+ |119973000|120145799|NCI2008_03D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_03D/src/classes_atoms.src 
+ |120145800|120318599|NCI2008_04D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_04D/src/classes_atoms.src 
+ |120318600|121623399|MTH2007AC (part3) - /d3/inv/sources/MTH2007AC/part3/classes_atoms.src 
+ |121623400|121653399|open -  
+ |121653400|121827499|NCI2008_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_05D/src/classes_atoms.src 
+ |121827500|121860499|PDQ2008_06{PT,OP,AB,ACR,LV,SY,CU,FBD,BD,IS} - /d3/inv/sources/PDQ2008_06/src/classes_atoms.src 
+ |121860500|122038499|NCI2008_06D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_06D/src/classes_atoms.src 
+ |122038500|122050499|open -  
+ |122050500|122228499|NCI2008_07D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_07D/src/classes_atoms.src 
+ |122228500|122242499|RADLEX2_01{PT,SY,AT,AS} - /d3/inv/sources/RADLEX2_01-TDE/RADLEX2_01/src/classes_atoms.src 
+ |122242500|122420599|NCI2008_08D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_08D/src/classes_atoms.src 
+ |122420600|124883599|MTH2008AA - /d3/inv/sources/MTH2008AA/part[123]/classes_atoms.src 
+ |124883600|125064599|NCI2008_09D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_09D/src/classes_atoms.src 
+ |125064600|125264599|NCI2008_10E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_10E/src/classes_atoms.src 
+ |125264600|125464599|NCI2008_11D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_11D/src/classes_atoms.src 
+ |125464600|125664599|NCI2008_12D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2008_12D/src/classes_atoms.src 
+ |125664600|125864599|NCI2009_01D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_01D/src/classes_atoms.src 
+ |125864600|125899599|PDQ2009_02{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,MTH_AB,MTH_ACR,MTH_BN,MTH_CHN,MTH_CON,MTH_LV,MTH_PT,MTH_SY,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2009_02/src/classes_atoms.src 
+ |125899600|126099599|NCI2009_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_02D/src/classes_atoms.src 
+ |126099600|126113599|open 
+ |126113600|126313599|NCI2009_03D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_03D/src/classes_atoms.src 
+ |126313600|126329599|open 
+ |126329600|129677599|MTH2008AB - /d3/inv/sources/MTH2008AB/part[123]/classes_atoms.src 
+ |129677600|129877599|NCI2009_04D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_04D/src/classes_atoms.src 
+ |129877600|129893799|RADLEX2_1{PT,SY,AT,AS} - /d3/inv/sources/RADLEX2_1/src/classes_atoms.src 
+ |129893800|130093799|NCI2009_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_05D/src/classes_atoms.src 
+ |130093800|130114799|CBO2009_06{PT,SY} - /d3/inv/sources/CBO2007_06/src/classes_atoms.src
+ |130114800|130314799|NCI2009_06E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_06E/src/classes_atoms.src 
+ |130314800|130514799|NCI2009_07E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_07E/src/classes_atoms.src 
+ |130514800|130548799|PDQ2009_10{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,MTH_AB,MTH_ACR,MTH_BN,MTH_CHN,MTH_CON,MTH_LV,MTH_PT,MTH_SY,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2009_10/src/classes_atoms.src 
+ |130548800|133275799|MTH2009AA - /d3/inv/sources/MTH2009AA/part[123]/classes_atoms.src 
+ |154057728|154147228|MDR12_0{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /d3/inv/sources/MDR12_0/src/classes_atoms.src 
+ |154147229|154347228|NCI2009_08E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_08E/src/classes_atoms.src 
+ |154347229|154546228|NCI2009_09C{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_09C/src/classes_atoms.src 
+ |154546229|154747228|NCI2009_10D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_10D/src/classes_atoms.src 
+ |154747229|154949328|NCI2009_11E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_11E/src/classes_atoms.src 
+ |154949329|155152928|NCI2009_12D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2009_12D/src/classes_atoms.src 
+ |155152929|155187928|PDQ2010_01_22{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,MTH_AB,MTH_ACR,MTH_BN,MTH_CHN,MTH_CON,MTH_LV,MTH_PT,MTH_SY,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2010_01_22/src/classes_atoms.src 
+ |155187929|155222928|RADLEX3_03{AS,AT,PT,SY} - /d3/inv/sources/RADLEX3_03/src/classes_atoms.src 
+ |155222929|155428928|NCI2010_01D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_01D/src/classes_atoms.src 
+ |155428929|155638928|NCI2010_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_02D/src/classes_atoms.src 
+ |155638929|155673928|PDQ2010_04_09{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,MTH_AB,MTH_ACR,MTH_BN,MTH_CHN,MTH_CON,MTH_LV,MTH_PT,MTH_SY,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2010_04_09/src/classes_atoms.src 
+ |155673929|155683628|PMA2010{PT} - /d3/inv/sources/PMA2010/src/classes_atoms.src 
+ |155683629|155896628|NCI2010_03H{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_03H/src/classes_atoms.src 
+ |155896629|155931628|RADLEX3_1{PT,AT,AS,SY} - /d3/inv/sources/RADLEX3_1/src/classes_atoms.src 
+ |155931629|156145628|NCI2010_04F{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_04F/src/classes_atoms.src 
+ |156145629|156361628|NCI2010_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_05D/src/classes_atoms.src 
+ |156361629|156580628|NCI2010_06E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_06E/src/classes_atoms.src 
+ |156580629|156590628|NPO2010_07_30{PT,SY} - /d3/inv/sources/NPO2010_07_30/src/classes_atoms.src 
+ |156590629|156812628|NCI2010_07D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_07D/src/classes_atoms.src 
+ |156812629|156848628|PDQ2010_08_06{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,MTH_AB,MTH_ACR,MTH_BN,MTH_CHN,MTH_CON,MTH_LV,MTH_PT,MTH_SY,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2010_08_06/src/classes_atoms.src 
+ |156848629|157071628|NCI2010_08E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_08E/src/classes_atoms.src 
+ |157071629|157296628|NCI2010_10A{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_10A/src/classes_atoms.src 
+ |157296629|157522628|NCI2010_10D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_10D/src/classes_atoms.src 
+ |157522629|157532628|NPO2010_10_31{PT,SY} - /d3/inv/sources/NPO2010_10_31/src/classes_atoms.src 
+ |157532629|157764628|NCI2010_11E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_11E/src/classes_atoms.src 
+ |157764629|158007628|NCI2010_12C{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2010_12C/src/classes_atoms.src 
+ |158007629|158044628|CBO2011_02{PT,SY} - /d3/inv/sources/CBO2011_02/src/classes_atoms.src
+ |158047629|158290628|NCI2011_01E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_01E/src/classes_atoms.src 
+ |158290629|158331628|RADLEX3_33{PT,AT,AS,SY,NSSY} - /d3/inv/sources/RADLEX3_33/src/classes_atoms.src 
+ |158331629|158575628|NCI2011_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_02D/src/classes_atoms.src 
+ |158575629|158820628|NCI2011_03D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_03D/src/classes_atoms.src 
+ |158820629|159068628|NCI2011_04D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_04D/src/classes_atoms.src 
+ |159068629|159319628|NCI2011_05E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_05E/src/classes_atoms.src 
+ |159319629|159571628|NCI2011_06D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_06D/src/classes_atoms.src 
+ |159571629|159824628|NCI2011_07D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_07D/src/classes_atoms.src 
+ |159824629|160078628|NCI2011_08E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_08E/src/classes_atoms.src 
+ |160078629|160332628|NCI2011_09D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_09D/src/classes_atoms.src 
+ |160332629|160586628|NCI2011_10E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_10E/src/classes_atoms.src 
+ |160586629|160841628|NCI2011_11D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_11D/src/classes_atoms.src 
+ |160841629|161098628|NCI2011_12E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2011_12E/src/classes_atoms.src 
+ |161098629|161355628|NCI2012_01F{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2012_01F/src/classes_atoms.src 
+ |161355629|161613628|NCI2012_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /d3/inv/sources/NCI2012_02D/src/classes_atoms.src
+ |161613629|161886628|NCI2012_03D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_03D/src/classes_atoms.src
+ |161886629|162159629|NCI2012_04E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_04E/src/classes_atoms.src
+ |162159630|162432629|NCI2012_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_05D/src/classes_atoms.src
+ |162432630|162706629|NCI2012_06D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_06D/src/classes_atoms.src
+ |162706630|162982629|NCI2012_07E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_07E/src/classes_atoms.src
+ |162982630|163258629|NCI2012_08D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_08D/src/classes_atoms.src
+ |163258630|164089629|NCI2012_09D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_09D/src/classes_atoms.src
+ |164089630|164368629|NCI2012_10E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_10E/src/classes_atoms.src
+ |164368630|164650629|NCI2012_11D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_11D/src/classes_atoms.src
+ |164650630|164933629|NCI2012_12D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2012_12D/src/classes_atoms.src
+ |164933630|165217629|NCI2013_01C{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_01C/src/classes_atoms.src
+ |165217630|165504629|NCI2013_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_02D/src/classes_atoms.src
+ |165605458|165695199|MDR12_1{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /d3/inv/sources/MDR12_1/src/classes_atoms.src 
+ |165695200|169362199|MTH2010AA - /meme_work/inv/sources/MTH2010AA/part[123]/classes_atoms.src 
+ |169362200|173146999|MTH2010AB - /meme_work/inv/sources/MTH2010AB/part[123]/classes_atoms.src 
+ |173147000|176321999|MTH2011AA - /meme_work/inv/sources/MTH2011AA/part[123]/classes_atoms.src 
+ |176322000|180359999|MTH2011AB - /meme_work/inv/sources/MTH2011AB/part[123]/classes_atoms.src 
+ |180360000|182881799|MTH2012AA - /meme_work/inv/sources/MTH2012AA/part[13]/classes_atoms.src 
+ |182881800|187053899|MTH2012AB - /meme_work/inv/sources/MTH2012AB/part[13]/classes_atoms.src 
+ |188024169|188115281|MDR13_1{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /d3/inv/sources/MDR13_1/src/classes_atoms.src 
+ |188115282|188226281|MDR14_0{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /d3/inv/sources/MDR14_0/src/classes_atoms.src 
+ |188226282|188320281|MDR14_1{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /d3/inv/sources/MDR14_1/src/classes_atoms.src 
+ |188320282|188414281|MDR15_0{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR15_0/src/classes_atoms.src 
+ |188414282|188704281|NCI2013_03D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_03D/src/classes_atoms.src
+ |188704282|188995281|NCI2013_04E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_04E/src/classes_atoms.src
+ |188995282|189288281|NCI2013_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_05D/src/classes_atoms.src
+ |189288282|189584281|NCI2013_06D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_06D/src/classes_atoms.src
+ |189584282|189882281|NCI2013_07E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_07E/src/classes_atoms.src
+ |189882282|190192281|NCI2013_08D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_08D/src/classes_atoms.src
+ |190192282|190506281|NCI2013_09E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_09E/src/classes_atoms.src
+ |190506282|190824281|NCI2013_10B{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_10B/src/classes_atoms.src
+ |190824282|191144281|NCI2013_11D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_11D/src/classes_atoms.src
+ |191144282|191474282|NCI2013_12E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2013_12E/src/classes_atoms.src
+ |191474283|191814282|NCI2014_01D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2014_01D/src/classes_atoms.src
+ |191814283|192157282|NCI2014_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2014_02D/src/classes_atoms.src
+ |192157283|192500282|NCI2014_03E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2014_03E/src/classes_atoms.src
+ |192500283|192843282|NCI2014_04D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI2014_04D/src/classes_atoms.src
+ |192843283|193186282|NCI_2014_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_05D/src/classes_atoms.src
+ |193186283|193531282|NCI_2014_06E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_06E/src/classes_atoms.src
+ |193531283|193879282|NCI_2014_07D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_07D/src/classes_atoms.src
+ |193879283|194227282|NCI_2014_08D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_08D/src/classes_atoms.src
+ |194480486|195650820|SNOMEDCT_2011_01_31{FN, MTH_FN, MTH_PT, MTH_PTGB, MTH_SY, MTH_SYGB, PT, PTGB, SB, SY, SYGB, XM} - /d3/inv/sources/SNOMEDCT_2011_01_31/src/classes_atoms.src 
+ |195650821|196000820|NCI_2014_09E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_09E/src/classes_atoms.src
+ |196000821|196350820|NCI_2014_10D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_10D/src/classes_atoms.src
+ |196350821|196700820|NCI_2014_11D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_11D/src/classes_atoms.src
+ |196700821|197050820|NCI_2014_12E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2014_12E/src/classes_atoms.src
+ |197050821|197401820|NCI_2015_01D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2015_01D/src/classes_atoms.src
+ |197401821|197752820|NCI_2015_02D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2015_02D/src/classes_atoms.src
+ |197752821|198106820|NCI_2015_03E{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2015_03E/src/classes_atoms.src
+ |198106821|198461820|NCI_2015_04D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2015_04D/src/classes_atoms.src
+ |198461821|198818820|NCI_2015_05D{AB,AD,BN,CA2,CA3,CNU,CCN,CCS,CSN,DN,FBD,HD,OP,PT,SY} - /meme_work/inv/sources/NCI_2015_05D/src/classes_atoms.src
+ |211445338|212626494|SNOMEDCT_2011_07_31{FN, MTH_FN, MTH_PT, MTH_PTGB, MTH_SY, MTH_SYGB, PT, PTGB, SB, SY, SYGB, XM} - /d3/inv/sources/SNOMEDCT_2011_07_31/src/classes_atoms.src 
+ |212626495|212666494|PDQ2011_12_30{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2011_12_30/src/classes_atoms.src 
+ |212666495|212671494|NPO2011_12_08{PT,SY} - /d3/inv/sources/NPO2011_12_08/src/classes_atoms.src
+ |212671495|212711494|PDQ2012_03_09{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,NSC,OP,PSC,PT,SY} - /d3/inv/sources/PDQ2012_03_09/src/classes_atoms.src 
+ |212711495|212754494|PDQ2013_02_15{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,NSC,OP,PSC,PT,SY} - /meme_work/inv/sources/PDQ2013_02_15/src/classes_atoms.src 
+ |225811979|226996000|SNOMEDCT_2012_01_31{FN, MTH_FN, MTH_PT, MTH_PTGB, MTH_SY, MTH_SYGB, PT, PTGB, SB, SY, SYGB, XM} - /meme_work/inv/sources/SNOMEDCT_2012_01_31/src/classes_atoms.src 
+ |226996001|227091000|MDR15_1{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL, MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR15_1/src/classes_atoms.src 
+ |227091001|227092001|ISO3166-2_2012{PT,SY} - /meme_work/inv/sources/ISO3166-2_2012/src/classes_atoms.src 
+ |227092002|227190001|MDR16_0{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL,MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR16_0/src/classes_atoms.src 
+ |227190002|227201001|ISO3166-2_2012{PT,AB,CSD,SY} - re-working inversion /meme_work/inv/sources/ISO3166-2_2012/src/classes_atoms.src 
+ |227201100|231496699|MTH2013AA - /meme_work/inv/sources/MTH2013AA/part[13]/classes_atoms.src 
+ |231496700|235289299|MTH2013AB - /meme_work/inv/sources/MTH2013AB/part[13]/classes_atoms.src
+ |231496700|231596699|MDR16_1{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL,MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR16_1/src/classes_atoms.src 
+ #|231621700|231626699|ICD10_2010{PT,HT} - /meme_work/inv/sources/ICD10_2010/src/classes_atoms.src  - not used
+ |231626700|231691699|RADLEX3_10{PT,OP,SY} - /meme_work/inv/sources/RADLEX3_10/src/classes_atoms.src 
+ |231691700|231791699|MDR17_0{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL,MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR17_0/src/classes_atoms.src 
+ |231791700|231834699|PDQ2014_03_07{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,NSC,OP,PSC,PT,SY} - /meme_work/inv/sources/PDQ2014_03_07/src/classes_atoms.src 
+ |231834700|231884699|ICD10_2010{PT,HT} - /meme_work/inv/sources/ICD10_2010/src/classes_atoms.src 
+ |231884700|231929699|PDQ_2014_08_29{AB,ACR,BN,CAS,CHN,CON,CU,DN,FBD,HT,IND,IS,LV,NSC,OP,PSC,PT,SY} - /meme_work/inv/sources/PDQ_2014_08_29/src/classes_atoms.src 
+ |231929700|232031699|MDR_17_1{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL,MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR_17_1/src/classes_atoms.src 
+ |232031700|232133699|MDR_18_0{OS,HG,HT,PT,LT,OL,AB,XM,MTH_HG,MTH_LT,MTH_OL,MTH_OS,MTH_PT,MTH_SMQ} - /meme_work/inv/sources/MDR_18_0/src/classes_atoms.src 
+ |235289300|240109299|MTH2014AA - /meme_work/inv/sources/MTH2014AA/part[13]/classes_atoms.src
+ |240109300|244102799|MTH2014AB - /meme_work/inv/sources/MTH_2014AB/part[13]/classes_atoms.src
+ |244102800|247280299|MTH2014AB part3 re-run - /meme_work/inv/sources/MTH_2014AB/part3/classes_atoms.src
+ |247280300|250187299|MTH2015AA - /meme_work/inv/sources/MTH_2015AA/part[13]/classes_atoms.src
+ |250187300|254716399|MTH2015AB - /meme_work/inv/sources/MTH_2015AB/part[13]/classes_atoms.src
+ |254716400|257323699|MTH2016AA - /meme_work/inv/sources/MTH_2016AA/part[13]/classes_atoms.src
+ |257323700|262204799|MTH2016AB - /meme_work/inv/sources/MTH_2016AB/part[13]/classes_atoms.src
+ |262204800|264756299|MTH2017AA - /meme_work/inv/sources/MTH_2017AA/all/classes_atoms.src
+ |264756300|270005899|MTH2017AB - /meme_work/inv/sources/MTH_2017AB/all/classes_atoms.src
+ |270005900|275293999|MTH2018AA - /meme_work/inv/sources/MTH_2018AA/all/classes_atoms.src
+ |275294000|280855799|MTH2018AB - /meme_work/inv/sources/MTH_2018AB/all/classes_atoms.src
+ |280855800|283389199|MTH2019AA - /meme_work/inv/sources/MTH_2019AA/all/classes_atoms.src
+ |283389200|289204499|MTH2019AB - /meme_work/inv/sources/MTH_2019AB/all/classes_atoms.src
+ |325096909|326357809|SNOMEDCT_2015_03_01{FN, MTH_FN, MTH_PT, MTH_PTGB, MTH_SY, MTH_SYGB, PT, PTGB, SB, SY, SYGB, XM} - /meme_work/inv/sources/SNOMEDCT_2015_03_01/src/classes_atoms.src 
+ |326357810|326433809|RADLEX3_12{PT,SY,OP} - /meme_work/inv/sources/RADLEX3_12/src/classes_atoms.src 
+ |326433810|326469809|RDR_2015_04{PT,SY} - /meme_work/inv/sources/RDR_2015_04/src/classes_atoms.src 
+ |326469810|326479809|ICDO_3_1{PT,ET,SY} - /meme_work/inv/sources/ICDO_3_1/src/classes_atoms.src

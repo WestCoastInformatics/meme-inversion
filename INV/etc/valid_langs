@@ -1,0 +1,24 @@
+# used by QA3.pl 
+# Created by: make_new_valid_files.csh
+# Created on: Wed Jan 26 17:37:04 PST 2005
+# From DB: oa_mid2005
+# 
+# blank and commented lines are ignored
+# 
+English|ENG
+French|FRE
+German|GER
+Portuguese|POR
+Spanish|SPA
+Danish|DAN
+Dutch|DUT
+Finnish|FIN
+Norwegian|NOR
+Swedish|SWE
+Hungarian|HUN
+Italian|ITA
+Russian|RUS
+Hebrew|HEB
+Basque|BAQ
+Czech|CZE
+Japanese|JPN

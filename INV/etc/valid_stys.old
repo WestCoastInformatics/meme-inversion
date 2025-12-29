@@ -1,0 +1,143 @@
+# used by QA3.pl
+# Created by: make_new_valid_files.csh
+# Created on: Wed Jan 26 17:37:04 PST 2005
+# From DB: oa_mid2005
+# 
+# blank and commented lines are ignored
+# 
+ALL CHEMICAL STYs
+Acquired Abnormality
+Activity
+Age Group
+Alga
+Amino Acid Sequence
+Amino Acid, Peptide, or Protein
+Amphibian
+Anatomical Abnormality
+Anatomical Structure
+Animal
+Antibiotic
+Archaeon
+Bacterium
+Behavior
+Biologic Function
+Biologically Active Substance
+Biomedical Occupation or Discipline
+Biomedical or Dental Material
+Bird
+Body Location or Region
+Body Part, Organ, or Organ Component
+Body Space or Junction
+Body Substance
+Body System
+Carbohydrate
+Carbohydrate Sequence
+Cell
+Cell Component
+Cell Function
+Cell or Molecular Dysfunction
+Chemical
+Chemical Viewed Functionally
+Chemical Viewed Structurally
+Classification
+Clinical Attribute
+Clinical Drug
+Conceptual Entity
+Congenital Abnormality
+Daily or Recreational Activity
+Diagnostic Procedure
+Disease or Syndrome
+Drug Delivery Device
+Educational Activity
+Eicosanoid
+Element, Ion, or Isotope
+Embryonic Structure
+Entity
+Environmental Effect of Humans
+Enzyme
+Event
+Experimental Model of Disease
+Family Group
+Finding
+Fish
+Food
+Fully Formed Anatomical Structure
+Functional Concept
+Fungus
+Gene or Genome
+Genetic Function
+Geographic Area
+Governmental or Regulatory Activity
+Group
+Group Attribute
+Hazardous or Poisonous Substance
+Health Care Activity
+Health Care Related Organization
+Hormone
+Human
+Human-caused Phenomenon or Process
+Idea or Concept
+Immunologic Factor
+Indicator, Reagent, or Diagnostic Aid
+Individual Behavior
+Injury or Poisoning
+Inorganic Chemical
+Intellectual Product
+Invertebrate
+Laboratory Procedure
+Laboratory or Test Result
+Language
+Lipid
+Machine Activity
+Mammal
+Manufactured Object
+Medical Device
+Mental Process
+Mental or Behavioral Dysfunction
+Molecular Biology Research Technique
+Molecular Function
+Molecular Sequence
+Natural Phenomenon or Process
+Neoplastic Process
+Neuroreactive Substance or Biogenic Amine
+Nucleic Acid, Nucleoside, or Nucleotide
+Nucleotide Sequence
+Occupation or Discipline
+Occupational Activity
+Organ or Tissue Function
+Organic Chemical
+Organism
+Organism Attribute
+Organism Function
+Organization
+Organophosphorus Compound
+Pathologic Function
+Patient or Disabled Group
+Pharmacologic Substance
+Phenomenon or Process
+Physical Object
+Physiologic Function
+Plant
+Population Group
+Professional Society
+Professional or Occupational Group
+Qualitative Concept
+Quantitative Concept
+Receptor
+Regulation or Law
+Reptile
+Research Activity
+Research Device
+Rickettsia or Chlamydia
+Self-help or Relief Organization
+Sign or Symptom
+Social Behavior
+Spatial Concept
+Steroid
+Substance
+Temporal Concept
+Therapeutic or Preventive Procedure
+Tissue
+Vertebrate
+Virus
+Vitamin

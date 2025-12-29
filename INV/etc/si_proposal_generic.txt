@@ -1,0 +1,71 @@
+Source inversion proposal for <SAB>
+
+I.  General
+
+A.  Outstanding issues
+
+When you send the source inversion proposal to NLM, 
+use this space to draw attention to anything in the source_inversion
+proposal that has a question or needs to be reviewed by NLM.  Don't go into
+detail here, just list the issue and indicate which section to look at for
+more detail.
+
+By the time the source inversion is completed, this section should be
+empty (i.e. all questions should have been addressed).
+
+B.  New/changed since last inversion.
+
+Highlight any changes since the previous inversion
+
+C.  Estimate of new/changed concepts
+
+Ballpark figure to give NLM a sense of how much editing there will be.
+
+D.  Notes for insertion
+
+Make note of anything relevant to the insertion recipe, e.g. "all codes
+have changed so do not match on code."  
+
+II.  Format of input files:
+
+A.  Pointer to source documentation
+
+B.  Brief description of the input files, e.g. list the files and
+fields.  This section can get kind of long, even if you leave out
+a lot of the details, but it is helpful to have the info all in one place.
+
+III.  Inversion plan:
+
+A.  General notes/comments
+
+B.  Mapping of source data:
+
+For each field/piece of data in the source files, explain where it will
+end up in the inversion and (for relationships and attributes) what it will be attached to.   Note any data that is being ignored.  
+
+C.  META UI fields:
+
+Indicate what source data (if any) is being used to populate the following fields:
+
+CODE
+SAUI
+SCUI
+SDUI
+
+D.  Additional data added during Meta construction
+
+1.  Semantic types.  Document how defaults are assigned
+
+2....  Other stuff, e.g. how termtypes are assigned, generation of mergesets,
+SFO/LFO rels, suppressibility, Americanizations,
+stripping of UTF-8, etc.
+
+
+IV.  Data problems
+
+Describe any problems you have encountered with the data or documentation.
+If the list is very long, you can just make this a pointer to a separate
+file.
+V.  SRC and Metadata:
+
+This is usually the output from /usr/tools/src/check_sources.src.pl

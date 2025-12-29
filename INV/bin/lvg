@@ -1,0 +1,29 @@
+#!/bin/sh -f
+# ---------------------------------
+# This is the batch file that sets
+# the initial classpath, and runs
+# the java lexical tools programs.
+# ---------------------------------
+
+
+JAVA=/meme_work/ncim/lvg2017/bin/jre1.8.0_101/bin/java
+
+# ------------------
+# Set the LVG_DIR
+# ------------------
+LVG_DIR=/meme_work/ncim/lvg2017
+JDBC=
+
+# ------------------
+# Set the classpath
+# ------------------
+CLASSPATH="${JDBC}:${LVG_DIR}:${LVG_DIR}/lib/lvg2017dist.jar:"
+
+export LVG_DIR JAVA CLASSPATH
+
+# ------------------
+# Run the command 
+# ------------------
+${JAVA}  -Xms32m -Xmx128m -classpath ${CLASSPATH} gov.nih.nlm.nls.lvg.Tools.CmdLineTools.lvg ${*}
+
+

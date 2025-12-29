@@ -1,0 +1,226 @@
+#-----------------------------------------------------------------------------
+# MRMAP template
+# last update: 02/28/2006 - WAK
+
+# 09/06/2006: -- SSL - UMLSMAPSETSEPARATOR changed to MTH_UMLSMAPSETSEPARATOR
+#    MTH_MAPSETSEPARATORCODE changed to MAPSETSEPARATORCODE
+# -----------------------------------------------------------------
+# for more info see:
+# The official spec:
+# http://meow.nlm.nih.gov/MEME/Documentation/mrmap.html
+# 
+# There is an auxiliary file about representing ATXs:
+# http://meow.nlm.nih.gov/MEME/toprint/mratx.txt
+# 
+# This file describes how MRMAP is computed from MID data:
+# http://meow.nlm.nih.gov/MRD/Documentation/mrmap.html
+# -----------------------------------------------------------------
+# 
+# This file lists attributes of a MAPSET which can be automatically
+# turned into attributes.src entries for insertion into the MID.
+#
+# The format is:
+#   ATTRIBUTE_NAME|Attribute Value|[optional description or comments]
+#
+# Blank lines and lines beginning with a "#" are ignored
+#
+# To prepare a new set of mappings for insertion:
+#
+# 1. Make an "XM" (cross mapping) atom in classes_atoms.src as follows:
+#
+#    source = SAB of the source that asserts the mappings
+#    termtype = XM
+#    code = the identifier (such as the SNOMEDCT "MAPSETID") provided by
+#           the source (or, if none is provided, just make up an identifier,
+#           unique within this source's RSAB, for this set of mappings)
+#    atom_name = a made-up string describing the set of mappings, such as
+#                "Medline Plus to MeSH mappings"
+#
+# 2. In the same directory with the above classes_atoms.src file, make
+#    a copy of this template file named <MyVSAB>.mapsetattrs, where
+#    <MyVSAB> is this source's VSAB, and fill in the values (between
+#    the "||") for each ATTRIBUTE_NAME listed below.
+# (I've used the name 'attributes_map.src' for the output file - WAK)
+#
+#    For more documention on valid values see:
+#    http://meow.nlm.nih.gov/apelon.html - MRDOC Editor
+# 
+# 3. One of the attribute values filled out in the previous step is the
+#    "MAPPING_FILENAME".  Create a file by that name with one line for
+#    each mapping, with the format:
+#    FROM_SID|FROM_EXPR|FROM_RULE|FROM_RES|FROM_TYPE|TO_SID|TO_EXPR|TO_RULE|TO_RES|TO_TYPE|REL|RELA|SUBSETID|RANK|RULE|TYPE|ATN|ATV|MAPSID|MAPRES
+#
+#	 1) FROM_SID: Source asserted identifier mapped from
+#	 2) FROM_EXPR: Expression mapped from (if blank just use the UI)
+#	 3) FROM_RULE: Machine processible rule for when the mapped from is valid
+#	 4) FROM_RES: Restriction on when the mapped from should be used
+#	 5) FROM_TYPE: Type of mapped from expression (if blank just use the UI)
+#	 6) TO_SID: Source asserted identifier mapped to
+#	 7) TO_EXPR: Expression mapped to (if blank just use the UI)
+#	 8) TO_RULE: Machine processible rule for when the mapped to is valid
+#	 9) TO_RES: Restriction on when the mapped to should be used
+#	10) TO_TYPE: Type of mapped to expression (if blank just use the UI)
+#	11) REL: Relationship
+#	12) RELA: Relationship attribute
+#	13) SUBSETID: Map sub set identifier
+#	14) RANK: Order in which mappings in a subset should be applied
+#	15) RULE: Machine processible rule for when to apply mapping
+#	16) TYPE: Type of mapping
+#	17) ATN: Row level attribute name associated with this mapping
+#	18) ATV: Row level attribute value associated with this mapping
+#	19) MAPSID
+#	20) MAPRES
+#
+#    where FROM and TO are identifiers of the types specified by the attribute 
+#    values chosen for FROM_ID_TYPE and TO_ID_TYPE.
+#    (relationships in the MRMAP attributes are read from left to right)
+#    
+#    FROM_TYPE and TO_TYPE are typically SCUI or CODE, but valid values may
+#    be found in the MRDOC Editor
+#
+#    FROM_SID and TO_SID are unique identifiers for each FROM/TO entity
+#    they need only be unique within the scope of your mapping file
+#    
+#    The list of valid RELs is:
+#     AQ
+#     CHD
+#     DEL
+#     PAR
+#     QB
+#     RB
+#     RL
+#     RN
+#     RO
+#     RQ
+#     RU
+#     SIB
+#     SUBX
+#     SY
+#     XR
+#
+# 4. Run "/usr/tools/src/genMappingAttrs.pl <MyVSAB>.mapsetattrs" to
+#    generate the mapset attributes.
+#-----------------------------------------------------------------------------
+# Below is the list of ATTRIBUTE_NAMEs.  Note that mandatory attributes
+# are preceded by an asterisk (*).
+
+# MAPSETVSAB must match the SAB of the XM atom
+
+*MAPSETVSAB||VSAB of the source asserting this mapset
+*MAPSETRSAB||RSAB of the source asserting this mapset
+*FROMVSAB||VSAB of the source from which this mapset's mappings map
+*FROMRSAB||RSAB of the source from which this mapset's mappings map
+*TOVSAB||VSAB of the source to which this mapset's mappings map
+*TORSAB||RSAB of the source to which this mapset's mappings map
+
+# need more explanation here ----
+FROMRULE||see above
+TORULE||see above
+
+# MAPSET NAME should be the name provided by the source for this
+# set of mappings or, if the source doesn't provide an explicit
+# name, the name of the XM atom.
+*MAPSETNAME||name of mapset
+
+# MAPSET VERSION - This carries the version information of the mapset. 
+# It will be either a version identifier (if such is provided by the source), 
+# or the date the mapping files are received.
+*MAPSETVERSION||Version Info
+
+# SOS
+SOS||description of mapset
+
+# Supplied by some sources, if not, you make one up
+#
+# the sole purpose of this code is to identify multiple mappings within a version
+# of a source. Use a different code for each of those mappings 
+# Otherwise, it doesn't matter. You can use the same code in different versions
+# you can even use the same code for all your sources, as long as the code of the
+# XM atom matches the MAPSETID for the mapset.
+# some NLM generated mapsets may require that we track these codes, but for normal
+# sources, pretty much any number will suffice.
+*MAPSETID||code of XM atom
+
+# You'll know if you need these, otherwise not required
+MTH_MAPSETCOMPLEXITY|ONE_TO_ONE|ONE_TO_ONE, ONE_TO_N, N_TO_ONE, or N_TO_N
+MTH_MAPFROMCOMPLEXITY||e.g., SINGLE SCUI
+MTH_MAPTOCOMPLEXITY||e.g., SINGLE CODE, MULTIPLE CODE
+
+# (we're talking about the entire source here, not just your mapping file)
+MTH_MAPFROMEXHAUSTIVE||Y or N - 'Y' if every object in the "FROM" source mapped to something, otherwise 'N'.
+MTH_MAPTOEXHAUSTIVE||Y or N - 'Y' if every object in the "TO" source mapped to, otherwise 'N'.
+
+# I think these should be required, no?
+*FROMTYPE||e.g., SCUI or CODE
+*TOTYPE||e.g., SCUI or CODE
+
+# The following IDCHOICE values determine what is used for the ID
+# subfields of the XMAPFROM and XMAPTO attributes.  Basically, if
+# the source provides IDs for the "from" or "to" objects (such as
+# SNOMEDCT's TARGETID for its "to" objects), this should be set to
+# "SID".  If not, this may always be set to "GEN" (which will result
+# in generating a new set of ID numbers for these objects), but it
+# may also be set to "EXPR" if the expressions are single IDs.
+# [**** the above needs more explanation/simplification ****]
+
+*FROMIDCHOICE||SID or EXPR or GEN
+*TOIDCHOICE||SID or EXPR or GEN
+
+# MAPSET TYPE should be set either to whatever is provided by the
+# source (e.g., SNOMEDCT's "MAPSETTYPE" number) or else to a brief
+# description of the type of mappings this mapset contains (such as
+# "ATX" for mappings formerly represented in the MRATX file or
+# "SEE ALSO" for "see also" mappings).
+
+*MAPSETTYPE||"type" of mappings in this mapset
+
+# MAPSET SEPARATOR CODE should be the XML code of the character used
+# in the source to separate codes of multi-valued mappings.  E.g.,
+# SNOMEDCT shows mappings to multiple ICD codes as: code1|...|codeN
+# 
+# Thus, its separator character is "|", and that character's XML code
+# is: &#7c;
+#
+# If the source doesn't have multi-valued mappings, leave this blank.
+
+MAPSETSEPARATORCODE||XML code ("&#xy;") of source's separator char, if any
+
+# UMLS_MAPSET_SEPARATOR should be set to the character, if any, to be
+# used in the Metathesaurus for separating codes in multi-valued
+# mappings.  E.g., if a mapping to two codes will be represented as:
+#   code1,code2
+# then UMLS_MAPSET_SEPARATOR should be set to: ,
+#
+# To avoid confusion with the Metathesaurus field separator, the vertical
+# bar character (|) should never be chosen for the UMLS_MAPSET_SEPARATOR.
+#
+# If the source doesn't have multi-valued mappings, leave this blank.
+
+MTH_UMLSMAPSETSEPARATOR||separator character used for multiple identifiers
+
+# MAPSET_XR_TARGETID should be the "target ID" used in the source for
+# any "null" mappings (i.e., "mappings" indicating that the "from"
+# object is explicitly not mapped or cannot be mapped to any object in
+# the target source).
+# 
+# i.e., if such mappings are expressed in the source using a non-blank
+# target identifier that refers to a "target" that has no content,
+# then MAPSET_XR_TARGETID should be set to that target identifier.
+# e.g., in SNOMEDCT, MAPTARGETID 100051 has a blank TARGETCODES value,
+# so MAPSET_XR_TARGETID would be set to 100051.
+
+# MAPSET XR TARGETID - source's "target ID" for the null target
+MAPSETXRTARGETID||source's "target ID" for the null target
+
+MAPPINGFILENAME||path or filename (in this directory) of file of mappings
+
+# The following attributes apply only to SNOMED map sets
+MAPSETSCHEMENAME||
+MAPSETSCHEMEID||
+MAPSETSCHEMEVERSION||
+MAPSETREALMID||
+MAPSETRULETYPE||
+TARGETSCHEMEID||
+
+MAPSETGRAMMAR||Applies only to ATX sets
+

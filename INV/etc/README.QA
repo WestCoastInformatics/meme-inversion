@@ -1,0 +1,108 @@
+
+QA.pl Created by MAJ, maintained by WAK
+(documenation last updated: 09/20/02 by WAK)
+
+Usage: QA.pl [-f filename] [-c] [-e] [-s SAB] [-d directory name]
+Options:
+ -d specify a directory
+ -f will QA only <filename>
+ -h will display this message
+ -s user specified <SAB>
+ -t suppress checking treepos.dat
+ -a suppress checking source_atoms.dat
+
+With no options, QA.pl will examine all files in the current directory 
+with .src extension.
+
+To make sure that you get the correct tests for each file make sure
+that you use the correct form of the name. For example, class.src, classes.src,
+classes_added.src and classes_atoms.src will all be checked as a 'classes' file.
+Filenames can be as short as 'class', 'attr', 'relat', & 'merge' and any name
+that is longer than that with the same prefix and a .src extension will be
+checked.
+
+When you use the -f option to test an individual file, you will 
+apply the correct tests to the file if you follow the names above.
+
+This program is the front-end of a quality assurance suite for Source
+(.src) files. This program does three types of checks:
+
+Basic Counts
+------------
+	checkfields
+	quick_char_ count (number of non-alphanumeric chars)
+		notes mis-matched parens, brackets, braces
+	tallyfields of all non-unique field values
+
+Error Checking
+--------------
+attributes.src:
+	Field Lengths
+	Duplicate Record IDs
+	Basic Field Values
+	Correct number of Fields
+	Codes and Qualifiers
+	TBR for Contexts and Lexical Tags
+	Semantic Types are Status N
+	Semantic Types are C level
+	Source Level not Status 'R'
+	STYs are valid
+	ID Types
+	IDs and Qualifiers
+	
+classes_atoms.src:
+	ASCII chars out of range
+	zero-length terms
+	Excess White Space
+	Unique SAIDs
+	Basic field values
+	Field count
+	Field length
+	Unexpected Characters in Terms
+	HTML/XML character entities in Terms
+	Duplicate Terms
+	Case Insensitive Duplicate terms
+	<{number}> at the end of a line 
+	Highest SAID and Lowest SAID match record in termid.ranges file
+	Count of terms less than 3 chars
+	Long Term		terms over 700 characters long 
+	Unexpected Char		terms with unexpected characters (*,$,@,?,!,^)
+	Bad Fields		wrong number of fields
+	Bad Value		checks for expected value range (nNyY, RUNS, PCS, etc)
+	Bad Space		extra spaces or tabs
+	Bad Value		valid SEMANTIC_TYPE
+	Bad Value		valid RELAS (is_a, etc)
+	Non-Ascii		non-ASCII characters
+
+mergefacts.src:
+	SAIDs are valid in classes_atoms
+	Field Count
+	Basic field values
+	Valid TYPE in fields 9/11
+	ID Type in fields 1/3
+	Qualifiers present for certain codes
+	Field lengths
+
+relationships.src
+	IDs and Qualifiers Fields 1/11 & 4/13
+	Unique File ID
+	Correct No. of Fields
+	Basic values in Fields
+	Correct Types in ID_types
+	Valid RELAs
+	Source level not status='N'
+	Duplicates and Conflicts in Rels
+	SFO/LFO rels are TBR = 'n'
+	NT rels aren't 'mapped_from'
+	Qualifiers where required
+	Field Lengths
+
+The file 'QA_FILE.3' provides both a summary report of counts and a detailed
+report for each file. Errors and serious warnings are also reported to the
+file 'ERROR_LOG.3'.
+
+If you have specified that QA3.pl check only one file by using the '-f' flag
+the report files have the name of the file as the extension.
+
+
+
