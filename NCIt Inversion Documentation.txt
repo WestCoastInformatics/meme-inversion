@@ -1,0 +1,640 @@
+﻿NCI Thesaurus Inversion Steps:
+
+
+Note: This documentation currently uses the examples of 2025_06E and 2025_07D as previous and current versions respectively. 
+
+
+For future runs, be sure to use the correct variables/inputs to reflect the actual version you are running. In fact, it might even be easier to just quickly go through and edit the documentation variables before each new run. And then after the process is complete, update the red bolded version values above.
+
+
+1) Login as tomcata to ncias-q3000-c.nci.nih.gov.
+        
+sudo su - tomcata
+
+csh
+
+inv
+
+2) Create source directory (e.g. NCI_2025_07D)
+
+
+# (e.g. NCI_2025_07D)
+
+        $INV_HOME_OLD/bin/create_vsab_dirs.pl NCI_<yyyy>_<ver> 
+        
+3) Copy over files from the previous inversion:
+
+
+#a) Set variables for previous and current inversion 
+                
+set previous = NCI_2025_06E
+set current = NCI_2025_07D
+
+
+#b) Copy the inversion scripts under /bin
+        
+cp -r /local/content/MEME/MEME5/inv/sources/$previous/bin/. /local/content/MEME/MEME5/inv/sources/$current/bin/
+        
+
+
+
+
+#c) Copy the README.INVERSION, nci.cfg, NCI_<ver>.txt, si_proposal*, and the qa directory under /etc
+
+        cp /local/content/MEME/MEME5/inv/sources/$previous/etc/README.INVERSION /local/content/MEME/MEME5/inv/sources/$current/etc/
+cp /local/content/MEME/MEME5/inv/sources/$previous/etc/nci.cfg /local/content/MEME/MEME5/inv/sources/$current/etc/
+cp /local/content/MEME/MEME5/inv/sources/$previous/etc/NCI_*.txt /local/content/MEME/MEME5/inv/sources/$current/etc/
+cp /local/content/MEME/MEME5/inv/sources/$previous/etc/si_proposal* /local/content/MEME/MEME5/inv/sources/$current/etc/
+
+        cp -r /local/content/MEME/MEME5/inv/sources/$previous/etc/qa /local/content/MEME/MEME5/inv/sources/$current/etc/
+        
+
+
+
+
+#d) Copy the sources.src and termgroups.src under /src 
+
+
+cp /local/content/MEME/MEME5/inv/sources/$previous/src/sources.src /local/content/MEME/MEME5/inv/sources/$current/src/
+cp /local/content/MEME/MEME5/inv/sources/$previous/src/termgroups.src /local/content/MEME/MEME5/inv/sources/$current/src/
+
+        
+4) ftp the 'meta_export-<ver>.zip' into orig/fromprovider
+
+
+# a) Make sure to edit the <ver> (e.g., meta_export_25.07d.zip)
+
+        wget --user=apelon --password=ncicbapelon ftp://lpgftp.nci.nih.gov/evs/apelon/ForMEME/meta_export_<ver>.zip 
+        b) unzip all files into the orig/fromprovider directory
+
+
+5) Update /etc/NCI<ver>.txt file name with the current VSAB 
+
+# a) Set variables for previous and current inversion
+        
+
+
+
+
+set previous = NCI_2025_06E
+        set current = NCI_2025_07D
+
+
+# b) update the VSABs of all the subsources within the file
+        
+
+
+cd /local/content/MEME/MEME5/inv/sources/${current}/etc/
+        mv ${previous}.txt ${current}.txt        
+                
+        vi ${current}.txt
+
+
+# In VI. Update previous versions to current. (Example below changes 2025_06E to 2025_07D)
+                
+        :%s/2025_06E/2025_07D/g
+
+
+# Save and Quit
+        
+        :wq
+        c) make any changes (i.e., add/remove), IF INSTRUCTED BY LIZ, to the TERMTYPES, 
+        ATTRIBUTES, ASSOCIATIONS, and ROLES sections. 
+        
+# d) Copy this file to the /orig/fromprovider directory.
+
+
+        cp /local/content/MEME/MEME5/inv/sources/$current/etc/${current}.txt /local/content/MEME/MEME5/inv/sources/$current/orig/fromprovider
+
+
+# this is not actually a required file, but it can help you find out if there are any new rels or attributes 
+# (the other way to find this out is to have someone who is familiar with the NCI side tell you.
+
+# You can diff this file with the previous version, basically the only thing that should change is the versions,
+# still this is somewhat of a chicken and egg problem, since this information needs to be added to /bin/owltotref/evs/nci.config 
+# BEFORE the TREF files are made).
+
+6) Update src/sources.src with the current VSAB, previous VSAB, 
+and date (field 17). Add any new subsources, IF NEEDED.
+
+
+# In VI. Update both the previous and current versions to reflect the actual dates. 
+# (Example: 2025_06E will be 2025_07D. And 2025_05D will be 2025_06E.)
+# Be careful to always go in order of updating the later date first.
+
+
+cd /local/content/MEME/MEME5/inv/sources/${current}/src
+        vi sources.src
+
+
+# First change the later date (For example, 2025_06E to 2025_07D)
+
+
+:%s/2025_06E/2025_07D/g 
+
+
+# Then change the earlier date (For example, 2025_05D to 2025_06E)
+        
+:%s/2025_05D/2025_06E/g 
+         
+# Lastly while still in VI, manually search for the previous month and update (For example, June will be changed to July)
+# Type “/June” and hit enter to locate. And then type “i” to insert update manually to “July”.
+        
+# Save and Quit
+        
+:wq
+        
+7) Update src/termgroups.src with the current VSAB and previous VSAB.
+        a) add any new termgroups, IF NEEDED.
+cd /local/content/MEME/MEME5/inv/sources/${current}/src
+        vi termgroups.src
+        
+# In VI. Update both the previous and current versions to reflect the actual dates.
+# (Example: 2025_06E will be 2025_07D. And 2025_05D will be 2025_06E.)
+# Be careful to always go in order of updating the later date first.
+# First change the later date (For example, 2025_06E to 2025_07D)
+                
+:%s/2025_06E/2025_07D/g 
+
+
+# Then change the earlier date (For example, 2025_05D to 2025_06E)
+
+
+:%s/2025_05D/2025_06E/g 
+
+
+# Save and Quit
+        
+:wq
+                
+8)  Update etc/nci.cfg file:
+
+
+#a) Update VSAB of NCI and all subsources.
+
+
+cd /local/content/MEME/MEME5/inv/sources/${current}/etc/
+        vi nci.cfg
+
+
+# In VI. Update previous versions to current. (Example below changes 2025_06E to 2025_07D)
+                
+:%s/2025_06E/2025_07D/g 
+
+
+# Save and Quit
+        
+:wq
+        
+b) add any new subsources, termtypes, IF NEEDED.
+        
+c) Update source_atom_id start number. 
+        
+1) log in to meme-edit.semantics.cancer.gov/ncim-server-rest/index.html#/login.
+
+
+2) in the Inversion tab, request a range of source_atom_ids. 
+
+
+a) Enter “NCI_2025_07D” into the Versioned Terminology input box
+
+
+b) Click “Request Range”. Enter “900000” into “Number of IDs” and click “add”
+        
+
+
+# 3) add this range to the nci.cfg file
+                        
+vi nci.cfg
+                        
+# In VI. Search for “SaidStart” and input the “Min” number (For example: 750646883)
+                
+# Search “/SaidStart” and type “i” to manually input the number. 
+
+
+# Save and Quit
+
+
+:wq
+
+                        
+9) Create file of relationships with role groups. File only contains groups with more than one relationship. 
+For example: 
+        C7850|group-99|R114|C36421 
+        C7850|group-99|R115|C38328
+        C7850|group-100|R115|C41041
+        C7850|group-100|R142|C3047
+        C7850|group-100|R142|C3112
+        
+a) update file name in bin/create_rolegroups.pl
+        
+# Locate the relations-yyyy-mm-dd.txt in /orig/fromprovider. 
+                
+        cd /local/content/MEME/MEME5/inv/sources/${current}/orig/fromprovider
+        ls -ltr
+
+
+# Then update the respective “relations-yyyy-mm-dd.txt” file name in bin/create_rolegroups.pl to match 
+        
+cd /local/content/MEME/MEME5/inv/sources/${current}/bin/
+        vi create_rolegroups.pl
+
+
+# Type “i” to manually input the change. 
+        
+# Save and Quit
+                
+:wq        
+                
+b) Run the following script. This will create a rolegroups.tmp file in /tmp
+        
+create_rolegroups.pl 
+c) Run the following command afterwards
+sort ../tmp/rolegroups.tmp | uniq -d > ../orig/rels_needing_relgrp.txt 
+
+10) Create TREF files: 
+        
+#a) update file names in bin/create_tref.pl 
+
+
+        cd /local/content/MEME/MEME5/inv/sources/${current}/bin/
+
+
+# Update the respective *-yyyy-mm-dd.txt files (annotationDeclaration, objectDeclaration, hierarchy, classDeclaration, objectDeclaration, relations)
+
+
+# Make sure they match the files in /orig/fromprovider
+                
+        vi create_tref.pl
+
+
+# In the below example, 20250707 is updated to 20250805.
+
+
+        :%s/20250707/20250805/g 
+
+
+# b) IF NEEDED, update bin/get_nci_assoc.pl and get_owl_roles.pl for any new properties.
+
+
+# c) run the bin/create_tref.pl script
+
+
+        create_tref.pl
+
+
+# d) de-dup *TREF files: bin/delete_dup_tref_lines.pl
+                
+delete_dup_tref_lines.pl
+11) Copy orig/MRDOC.TREF and orig/MRSAB.TREF from previous inversion.
+1. Navigate to the correct directory and copy over files
+
+
+# Set variables for previous and current inversion 
+                
+        set previous = NCI_2025_06E
+        set current = NCI_2025_07D
+
+
+# Copy files over
+
+
+        cd /local/content/MEME/MEME5/inv/sources/$current/orig
+        cp /local/content/MEME/MEME5/inv/sources/$previous/orig/MRDOC.TREF .
+        cp /local/content/MEME/MEME5/inv/sources/$previous/orig/MRSAB.TREF .
+
+
+
+
+
+
+# b) Update version and date information in MRSAB.TREF
+# You only need to update two fields: version date and month. (For example, 2025_06E to 2025_07D. And “June” to “July”)
+        
+vi MRSAB.TREF
+
+
+# Type “i” and manually update the two fields
+
+
+# Save and Quit
+        :wq
+                
+c) Add new ATNs and RELAs AS NEEDED in MRDOC.TREF
+
+
+12) Update VSAB bin/compare_exportrels2tref.s        
+                
+cd /local/content/MEME/MEME5/inv/sources/$current/bin
+        
+# In VI, just update the version fields (should be three of them, change 2025_06E to 2025_07D)
+
+
+vi compare_exportrels2tref.s
+                
+:%s/2025_06E/2025_07D/g 
+
+
+# Save and Quit
+        :wq
+                
+        
+13) Run bin/tref_2_relational_files.pl
+
+
+        cd /local/content/MEME/MEME5/inv/sources/$current/bin
+        
+        tref_2_relational_files.pl
+
+a) C15256 and C164057 will be reported as self-referential rels. 
+        This is considered valid by NCI but will be removed during the inversion. 
+No need to report this to NCI. (This is simply a message that will be returned when running the script)
+
+
+14) Update and run /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/checkall-qual.csh 
+        
+a) Following instructions at beginning of file to create files 
+        and directories. 
+
+
+For simplicity sake, the instructions are listed below (in step 1-2) using more recent examples. BE CAREFUL NOT TO DUPLICATE STEPS
+        
+# 1) Create new directories for your data and link the .owl and .txt (output of exportrels)to the Orig-<ver> directory:
+                
+cd /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/
+
+
+# Make the directory with <ver> (Example: 2507D)
+                
+        mkdir 2507D
+
+
+# Make the link with Orig-<ver> (Example: Orig-2507E)
+                
+ln -s /local/content/MEME/MEME5/inv/sources/NCI_2025_07D/orig Orig-2507D
+
+
+# 2) Create the config_associations, config_properties, and config_roles files in the inversion's orig directory as copies of current NCI<ver>.txt
+
+
+
+
+
+
+
+
+
+
+# Set variable for current inversion 
+                
+        set current = NCI_2025_07D
+        cd /local/content/MEME/MEME5/inv/sources/$current/orig/fromprovider
+        cp ${current}.txt ../config_associations
+        cp ${current}.txt ../config_properties
+        cp ${current}.txt ../config_roles
+
+
+# Edit each file so that it contains only the respective data (without the header or any other data). 
+# Example: ’config_associations' only contains the association data, config_properties only contains the properties data, etc.
+# “Associations” and “Roles” can be searched directly. But config_properties data will be searched with “Attributes”
+        
+# Example below is for editing config_associations. Be sure to follow the same steps for the other two files
+        
+vi config_associations
+
+
+# In VI, search for the word “ASSOCIATIONS”. (Search “ROLES” for config_roles and “ATTRIBUTES” for config_properties)
+                
+/ASSOCIATIONS
+        
+# Check the line number. If the line number (for example 779) is not shown, you can type the vi command below        
+:.=
+
+
+# Go back to the top of the page. 
+        
+        1G
+
+
+# Because the line number said 779. Delete the first 778 rows. For example: ‘778dd’
+
+
+{input the line number and subtract by 1 here}dd 
+
+
+
+
+
+
+
+
+
+
+# For ROLES you can keep the line that says “mapped_to|mapped_from|”.
+# For ASSOCIATIONS get rid of additional lines like “#Format:Valid Associations for NCI-MEME|Association Inverse” below the header.
+# For ATTRIBUTES get rid of the lines below the header including “# Format: NCI Attribute Name|Attribute Name as used in NCI-MEME”
+
+
+# Scroll down to end of the text (move curser to one line below what you want to keep). 
+
+
+# Then delete current line and everything below
+
+
+        dG
+
+
+# for any additional single lines you want to manually delete just use “dd”
+
+
+# Save and Quit
+                
+:wq
+                
+# 3) update version in check.conflictingrels.s
+
+
+        cd /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/
+                
+#In VI, edit the version (for example: set curTREF="Orig-2507D”, set curfiles="2507D”)
+                
+        vi check.conflictingrels.s
+
+
+# Type “i” and manually update the two fields
+        
+# Save and Quit
+        :wq
+        b) update versions and file settings (e.g., set curdir)
+
+
+        cd /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/
+        vi checkall-qual.csh
+
+
+# Edit variables (for example: set ver = "2507D”, set prev = "2506E”, set prevtmpdir="/local/content/MEME/MEME5/inv/sources/NCI_2025_06E/tmp")
+
+
+# run the script 
+
+
+        /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/checkall-qual.csh 
+
+        
+        c) review the output file = checklist-report-<ver>.txt. This file 
+        also gets sent to Lori once the inversion is complete.
+
+
+        cd /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/
+                
+        vi checklist-report-<EDITTHIS>.txt
+
+                
+15) echo "beginning inversion"
+        
+a) if new subsources, uncomment the following lines in the 
+        bin/invert_NCI.pl script:
+                i) $Inv->prTime("processSubsourceAtoms");
+                ii) &processSubsourceAtoms; -- within this section
+                fill in the information for creating the SRC atoms.        
+                iii) be sure to comment out the subsource subroutine after
+                the inversion is complete so that it will not run for the next
+                inversion. Uncomment section again, if a new subsource 
+                is added.
+         
+b) if new attributes update 'processMRSAT' subroutine, if
+        needed, in invert_NCI.pl
+        
+c) run the inversion script (Takes 1-2 hours)
+                
+# Set variable for current inversion 
+                
+        set current = NCI_2025_07D
+        cd /local/content/MEME/MEME5/inv/sources/$current/bin
+        nohup invert_NCI.pl >! invert.log &
+16) echo "creating MRDOC.RRF"
+
+
+# a) Run the script
+        
+        $INV_HOME/bin/makeDoc.pl
+
+# Set variable for current inversion 
+                
+        set current = NCI_2025_07D
+
+
+# Make sure you are still in the correct directory
+        
+cd /local/content/MEME/MEME5/inv/sources/$current/bin
+
+
+# b) Perform the grep. If found, then fill in the field.
+
+
+grep '#' ../src/MRDOC.RRF.
+
+17) echo "running QA" (takes about 45 minutes)
+        
+# Set variable for current inversion
+        set current = NCI_2025_07D
+
+
+# Make sure you are still in the correct directory
+
+
+        cd /local/content/MEME/MEME5/inv/sources/$current/bin
+
+
+# a) 
+
+
+cd ../src
+        
+# b) 
+
+
+nohup $INV_HOME/bin/srcQa.pl -c ../etc/*cfg >! ../bin/invert.log
+        
+# c) 
+
+
+$INV_HOME/bin/findQaStats.pl >> ../bin/invert.log
+        
+# d) review bin/invert.log for error messages
+                
+vi ../bin/invert.log
+        :q
+18) Perform conservation of mass 
+
+# For ease, copy the conservation.txt from the previous inversion and use it as a starting point.  
+
+# For each section of the QaReport.NCI_2025_07D.txt that has an ERR, you would then confirm conservation.txt has that error from the  previous run and indicate the rationale for the ERROR. If it's a new ERR you'll have to add it to conservation.txt. 
+
+# When you get to the LM Atom.102.Termgroup section of the QaReport.NCI_2025_07D.txt file you'll copy the output counts to  conservation.txt and then run some of the greps to add to your conservation.txt to prove that the number of source/termtypes accounted for in the QA file match what would be expected by grepping the classDeclaration*.txt file. 
+
+# Then you'll check in QaReport.NCI_2025_07D.txt for the Min/Max saids to confirm that you haven't exceeded the requested range.  
+
+# Then you'll get to the LM Relation.101 section of the QaReport.NCI_2025_07D.txt and copy that to conservation.txt and run some random greps to prove those counts match up.  Basically this process continues as you go through QaReport.NCI_2025_07D.txt and update conservation.txt accordingly.
+
+# Set variable for current inversion 
+                
+        set current = NCI_2025_07D
+
+
+# Make sure you are still in the correct directory
+        
+cd /local/content/MEME/MEME5/inv/sources/$current/bin
+        
+# a) review ../etc/qa/Forbidden_attr.txt for forbidden characters and correct, if needed
+                
+vi ../etc/qa/Forbidden_attr.txt
+        :q
+        
+# b) review ../etc/qa/Forbidden_classes.txt for forbidden characters and correct, if needed
+                
+        vi ../etc/qa/Forbidden_classes.txt
+        :q
+
+
+# c) review QaReport.NCI_2025_<ver>.txt.err and QaReport.NCI_2025_<ver>.txt.
+
+
+cd /local/content/MEME/MEME5/inv/sources/$current/etc/qa
+                
+                vi QaReport.${current}.txt.err
+                :q
+
+
+                vi QaReport.${current}.txt
+                :q
+
+
+# d) confirm counts in etc/qa/conservation.txt file.
+                
+vi conservation.txt
+        :q
+
+19) Update the etc/si_proposal_<ver>.txt
+        a) update file name with current version
+        b) add anything new or changed since the last inversion to
+        Section I.B.  (e.g., new TTY, new attributes, deprecated RELAs, etc.). 
+        c) list any data issues that were encountered to Section IV.
+        Data problems (e.g., incorrect termgroup)
+20) Archive inversion files to s3.
+
+
+# a) 
+        push_s3.csh inv <VSAB> 
+        b) Keep two most current versions of NCIt in the directory.Delete 
+        older versions.
+21)  Announce inversion is complete and ready for a test insertion.
+        https://wiki.nci.nih.gov/display/EVSproj/NCI+Source+Tracking
+22) Archive etc/NCI<ver>.txt file to ncicbftp2.nci.nih.gov:/evs/apelon/ForMEME/.
+        a) use FileZilla client
+        b) user = evsmgr; pw = Nr2013!!
+        c) Place previous version of NCI<ver>r.txt into the archive folder. 
+23) Send Lori W. and Lyubov R. summary of the month's data:
+        a) include 'checklist-report-<ver>.txt file
+        b) note any data errors that need to be addressed (invalid
+        codes, tty, self-referential relationships, etc.)
