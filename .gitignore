@@ -3,3 +3,4 @@
 .vscode
 .project
 .classpath
+/INV/config/inversion_config.json

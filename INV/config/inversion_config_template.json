@@ -1,0 +1,35 @@
+{
+  "version_info": {
+    "current_version": "",
+    "previous_version": "",
+    "prior_previous_version": "",
+    "description": "Configuration for NCI Thesaurus Inversion - Template"
+  },
+  "runtime_parameters": {
+    "previous_month": "",
+    "current_month": "",
+    "said_start": "",
+    "meta_export_file": ""
+  },
+  "new_subsources": [],
+  "new_source_metadata": [],
+  "new_termgroup_metadata": [],
+  "new_attributes": [],
+  "new_mrdoc_entries": {
+    "relas": [],
+    "atns": []
+  },
+  "options": {
+    "process_subsources": false,
+    "process_source_metadata": false,
+    "process_termgroup_metadata": false,
+    "process_new_attributes": false,
+    "process_new_mrdoc": false
+  },
+  "automation": {
+    "confirm_config": true,
+    "ignore_missing_previous_version": true,
+    "force_recreate": true,
+    "start_inversion": true
+  }
+}

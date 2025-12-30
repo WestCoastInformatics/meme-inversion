@@ -17,6 +17,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+
 # Base configuration
 BASE_DIR="/Users/deborahshapiro/Code/workspace-meme-inversion2"
 
@@ -100,6 +101,19 @@ echo "=========================================="
 echo "  NCI Thesaurus Inversion Automation"
 echo "=========================================="
 echo ""
+
+
+# OS Detection and sed configuration
+OS="$(uname -s)"
+case "${OS}" in
+    Linux*)     machine=Linux; SED_INPLACE=("-i") ;;
+    Darwin*)    machine=Mac;   SED_INPLACE=("-i" "") ;;
+    CYGWIN*)    machine=Cygwin; SED_INPLACE=("-i") ;;
+    MINGW*)     machine=MinGw;  SED_INPLACE=("-i") ;;
+    *)          machine="UNKNOWN:${OS}"; SED_INPLACE=("-i") ;;
+esac
+
+print_msg "Dedicated detection: Operating System listed as ${machine}"
 
 # ============================================
 # LOAD CONFIGURATION FROM FILE
@@ -390,7 +404,7 @@ if [ "$SKIP_COPY_PREVIOUS" = false ]; then
 
         # Update VSABs in the file
         print_msg "Updating VSABs in ${NEW_NCI_FILE}..."
-        sed -i '' "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" "${NEW_NCI_FILE}"
+        sed "${SED_INPLACE[@]}" "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" "${NEW_NCI_FILE}"
 
         # Copy to orig/fromprovider
         print_msg "Copying to orig/fromprovider..."
@@ -409,14 +423,14 @@ if [ -f "${CURRENT_DIR}/src/sources.src" ]; then
     cd "${CURRENT_DIR}/src"
 
     print_msg "Step 1: Replacing all ${PREVIOUS_VSAB} with ${CURRENT_VSAB}..."
-    sed -i ''  "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" sources.src
+    sed "${SED_INPLACE[@]}"  "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" sources.src
 
     print_msg "Step 2: Replacing all ${PRIOR_PREVIOUS_VSAB} with ${PREVIOUS_VSAB}..."
-    sed -i '' "s/${PRIOR_PREVIOUS_VSAB}/${PREVIOUS_VSAB}/g" sources.src
+    sed "${SED_INPLACE[@]}" "s/${PRIOR_PREVIOUS_VSAB}/${PREVIOUS_VSAB}/g" sources.src
 
     # Update month names
     print_msg "Step 3: Replacing month name ${PREVIOUS_MONTH} with ${CURRENT_MONTH}..."
-    sed -i '' "s/${PREVIOUS_MONTH}/${CURRENT_MONTH}/g" sources.src
+    sed "${SED_INPLACE[@]}" "s/${PREVIOUS_MONTH}/${CURRENT_MONTH}/g" sources.src
 
     print_msg "Step 4: Fixing mismatched sources in source entries..."
     # For entries where field 1 (RSAB) and field 2 (VSAB) have different source codes,
@@ -460,10 +474,10 @@ if [ -f "${CURRENT_DIR}/src/termgroups.src" ]; then
     cd "${CURRENT_DIR}/src"
 
     print_msg "Step 1: Replacing all ${PREVIOUS_VSAB} with ${CURRENT_VSAB}..."
-    sed -i '' "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" termgroups.src
+    sed "${SED_INPLACE[@]}" "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" termgroups.src
 
     print_msg "Step 2: Replacing all ${PRIOR_PREVIOUS_VSAB} with ${PREVIOUS_VSAB}..."
-    sed -i '' "s/${PRIOR_PREVIOUS_VSAB}/${PREVIOUS_VSAB}/g" termgroups.src
+    sed "${SED_INPLACE[@]}" "s/${PRIOR_PREVIOUS_VSAB}/${PREVIOUS_VSAB}/g" termgroups.src
 
     print_msg "Step 3: Fixing mismatched sources in termgroup entries..."
     # For entries where field 1 and field 2 have different source codes,
@@ -512,12 +526,12 @@ if [ -f "${CURRENT_DIR}/etc/nci.cfg" ]; then
 
     # Update VSAB
     if [ "$SKIP_COPY_PREVIOUS" = false ]; then
-        sed -i '' "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" nci.cfg
+        sed "${SED_INPLACE[@]}" "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" nci.cfg
     fi
 
     # Update SAID start
     print_msg "Setting SaidStart to: $SAID_START"
-    sed -i '' "s/SaidStart\s*=\s*[0-9]*/SaidStart = ${SAID_START}/" nci.cfg
+    sed "${SED_INPLACE[@]}" "s/SaidStart\s*=\s*[0-9]*/SaidStart = ${SAID_START}/" nci.cfg
 
     print_msg "nci.cfg updated"
 else
@@ -538,7 +552,7 @@ if [ -f "${CURRENT_DIR}/bin/create_rolegroups.pl" ]; then
 
         # Update the script with the correct filename
         cd "${CURRENT_DIR}/bin"
-        sed -i '' "s/relations-[0-9-]*.txt/${RELATIONS_BASENAME}/g" create_rolegroups.pl
+        sed "${SED_INPLACE[@]}" "s/relations-[0-9-]*.txt/${RELATIONS_BASENAME}/g" create_rolegroups.pl
 
         print_msg "Running create_rolegroups.pl..."
         perl create_rolegroups.pl
@@ -572,7 +586,7 @@ if [ -f "${CURRENT_DIR}/bin/create_tref.pl" ]; then
         OLD_EXPORT_DATE=$(perl -nle 'print $1 if /annotationDeclaration-(\d{8})/' create_tref.pl | head -1)
         if [ -n "$OLD_EXPORT_DATE" ] && [ "$OLD_EXPORT_DATE" != "$CURRENT_EXPORT_DATE" ]; then
             print_msg "Updating dates in create_tref.pl from $OLD_EXPORT_DATE to $CURRENT_EXPORT_DATE"
-            sed -i '' "s/${OLD_EXPORT_DATE}/${CURRENT_EXPORT_DATE}/g" create_tref.pl
+            sed "${SED_INPLACE[@]}" "s/${OLD_EXPORT_DATE}/${CURRENT_EXPORT_DATE}/g" create_tref.pl
         fi
     else
         print_warn "Could not find annotationDeclaration file to extract date"
@@ -603,8 +617,8 @@ if [ "$SKIP_COPY_PREVIOUS" = false ]; then
     # Update MRSAB.TREF
     if [ -f "MRSAB.TREF" ]; then
         print_msg "Updating MRSAB.TREF with version and date..."
-        sed -i '' "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" MRSAB.TREF
-        sed -i '' "s/${PREVIOUS_MONTH}/${CURRENT_MONTH}/g" MRSAB.TREF
+        sed "${SED_INPLACE[@]}" "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" MRSAB.TREF
+        sed "${SED_INPLACE[@]}" "s/${PREVIOUS_MONTH}/${CURRENT_MONTH}/g" MRSAB.TREF
     fi
 
     print_warn "REMINDER: If you configured new ATNs/RELAs in inversion_config.json,"
@@ -620,12 +634,12 @@ if [ -f "${CURRENT_DIR}/bin/compare_exportrels2tref.s" ]; then
     cd "${CURRENT_DIR}/bin"
 
     if [ "$SKIP_COPY_PREVIOUS" = false ]; then
-        sed -i '' "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" compare_exportrels2tref.s
+        sed "${SED_INPLACE[@]}" "s/${PREVIOUS_VSAB}/${CURRENT_VSAB}/g" compare_exportrels2tref.s
     fi
 
     # Update hardcoded absolute paths to relative paths
     print_msg "Converting absolute paths to relative paths..."
-    sed -i 's|/local/content/MEME/MEME5/inv/sources/[^/]*/orig/|../orig/|g' compare_exportrels2tref.s
+    sed "${SED_INPLACE[@]}" 's|/local/content/MEME/MEME5/inv/sources/[^/]*/orig/|../orig/|g' compare_exportrels2tref.s
 
     print_msg "compare_exportrels2tref.s updated"
 fi
@@ -690,10 +704,19 @@ print_msg "Setting up Perl module paths..."
 export INV_HOME
 
 # Use cygpath to convert Windows paths to proper Cygwin paths
-INV_BIN_UNIX=$(cygpath -u "${INV_HOME}/bin")
-INV_LIB_UNIX=$(cygpath -u "${INV_HOME}/lib")
-INV_HOME_UNIX=$(cygpath -u "${INV_HOME}")
-CURRENT_DIR_UNIX=$(cygpath -u "${CURRENT_DIR}")
+# Use cygpath to convert Windows paths to proper Cygwin paths if available
+if command -v cygpath &> /dev/null; then
+    INV_BIN_UNIX=$(cygpath -u "${INV_HOME}/bin")
+    INV_LIB_UNIX=$(cygpath -u "${INV_HOME}/lib")
+    INV_HOME_UNIX=$(cygpath -u "${INV_HOME}")
+    CURRENT_DIR_UNIX=$(cygpath -u "${CURRENT_DIR}")
+else
+    # On non-Cygwin systems (macOS, Linux), use paths as-is
+    INV_BIN_UNIX="${INV_HOME}/bin"
+    INV_LIB_UNIX="${INV_HOME}/lib"
+    INV_HOME_UNIX="${INV_HOME}"
+    CURRENT_DIR_UNIX="${CURRENT_DIR}"
+fi
 
 export INV_HOME_UNIX
 export PERL5LIB="${INV_BIN_UNIX}:${INV_LIB_UNIX}:${CURRENT_DIR_UNIX}/lib:${PERL5LIB:-}"
