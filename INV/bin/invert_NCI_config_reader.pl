@@ -229,12 +229,29 @@ sub processSourceMetadataFromConfig {
         push @new_entries, "$line|\n";  # Add trailing pipe
     }
 
-    # Append new entries to sources.src
-    open($fh, '>>', $sources_file) or die "Cannot append to $sources_file: $!";
-    print $fh $_ for @new_entries;
+    # Deduplicate: Remove existing entries for the codes we are adding
+    foreach my $meta (@$metadata_entries) {
+        my $code = $meta->{code};
+        # Remove lines where the first field (RSAB) matches the code (ignoring version suffix)
+        @lines = grep { 
+            my ($rsab) = split(/\|/); 
+            # Check if RSAB starts with Code_
+            !($rsab && $rsab =~ /^$code\_/) 
+        } @lines;
+    }
+
+    # Append new entries to list
+    push @lines, @new_entries;
+
+    # Sort lines alphabetically
+    my @sorted_lines = sort @lines;
+
+    # Write updated sources.src
+    open($fh, '>', $sources_file) or die "Cannot write to $sources_file: $!";
+    print $fh $_ for @sorted_lines;
     close($fh);
 
-    print "Completed adding " . scalar(@new_entries) . " source metadata entr(ies) to sources.src\n";
+    print "Completed adding, deduplicating, and sorting " . scalar(@new_entries) . " source metadata entr(ies) in sources.src\n";
 }
 
 # Process termgroup metadata and update termgroups.src

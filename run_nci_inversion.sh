@@ -1,4 +1,4 @@
-/bin/bash
+#!/bin/bash
 #
 # NCI Thesaurus Inversion Automation Script
 # Adapted for Windows/Git Bash environment
@@ -748,7 +748,6 @@ else
     print_warn "  env PERL5LIB=\"${PERL5LIB}\" INV_HOME=\"${INV_HOME_UNIX}\" perl invert_NCI.pl"
     exit 0
 fi
-
 # ============================================
 print_step "15" "Creating MRDOC.RRF"
 if [ -f "${INV_HOME}/bin/makeDoc.pl" ]; then

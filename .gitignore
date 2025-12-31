@@ -4,3 +4,5 @@
 .project
 .classpath
 /INV/config/inversion_config.json
+/INV/config/api_metadata_export.txt
+/INV/bin/test*

@@ -211,12 +211,7 @@ sub process {
 
   # Load and process inversion configuration
   $Inv->prTime("Loading inversion configuration");
-  my $config;
-  if (defined &loadInversionConfig) {
-      $config = loadInversionConfig("$Bin/../etc/inversion_config.json");
-  } else {
-      print STDERR "INFO: loadInversionConfig not defined, skipping dynamic config.\n";
-  }
+  my $config = loadInversionConfig("$Bin/../etc/inversion_config.json");
 
   # DEBUG: Log config result
   open($debug_fh, '>>', '../tmp/config_debug.log') or warn "Cannot open debug log: $!";
@@ -228,6 +223,11 @@ sub process {
   close($debug_fh);
 
   if ($config) {
+    # Update nci.cfg with new source mappings (MUST BE FIRST)
+    # This adds vsab.{code}, rsab.{code}, and {code}_{vsab}.RSSN entries
+    # Required for processMRCONSO to recognize the new source
+    updateNciCfgFromConfig($config);
+    
     # Process source metadata (adds entries to sources.src)
     processSourceMetadataFromConfig($config);
 
@@ -370,6 +370,10 @@ while (<MRCON>){
                 $sab=$1;
                 $tty=$2;
           }
+        elsif($sabtty=~/(FDA-NIH-MoRE)(..)/){
+                $sab=$1;
+                $tty=$2;
+          }
         elsif($sabtty=~/(MRCT-Ctr)(..)/){
                 $sab=$1;
                 $tty=$2;
@@ -382,6 +386,18 @@ while (<MRCON>){
 		         #$sab="NCI";
 				 #$tty=$2;
 		#}
+        elsif($sabtty=~/(............)(..)/){
+                $sab=$1;
+                $tty=$2;
+        }        
+        elsif($sabtty=~/(...........)(..)/){
+                $sab=$1;
+                $tty=$2;
+        }        
+        elsif($sabtty=~/(..........)(..)/){
+                $sab=$1;
+                $tty=$2;
+        }
         elsif($sabtty=~/(.........)(..)/){
                 $sab=$1;
                 $tty=$2;
@@ -570,10 +586,26 @@ while (<MRCON>){
                 $sab=$1;
                 $tty=$2;
           }
-		elsif($sabtty=~/(SEER)(..)/){
-		         $sab="NCI";
-				 $tty="SY";
-		}
+        elsif($sabtty=~/(FDA-NIH-MoRE)(..)/){
+                $sab=$1;
+                $tty=$2;
+          }
+	elsif($sabtty=~/(SEER)(..)/){
+	        $sab="NCI";
+	$tty="SY";
+	}
+        elsif($sabtty=~/(............)(..)/){
+                $sab=$1;
+                $tty=$2;
+        }
+        elsif($sabtty=~/(...........)(..)/){
+                $sab=$1;
+                $tty=$2;
+        }
+        elsif($sabtty=~/(..........)(..)/){
+                $sab=$1;
+                $tty=$2;
+        }        
         elsif($sabtty=~/(.........)(..)/){
                 $sab=$1;
                 $tty=$2;

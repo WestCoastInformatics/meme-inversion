@@ -11,7 +11,7 @@
 # USAGE:
 # 1. Run this script on the server: ./extract_metadata.sh
 # 2. Copy the output file to your offline environment:
-#    cp $INV_HOME/etc/api_metadata_export.txt /path/to/offline/INV/etc/
+#    cp $INV_HOME/config/api_metadata_export.txt /path/to/offline/INV/config/
 # 3. Run makeDoc.pl offline - it will automatically use the exported file
 #
 
@@ -46,7 +46,7 @@ if [ -z "$adminPwd" ]; then
 fi
 
 # Set output file location
-OUTPUT_FILE="${INV_HOME}/etc/api_metadata_export.txt"
+OUTPUT_FILE="${INV_HOME}/config/api_metadata_export.txt"
 
 echo "-----------------------------------------------------"
 echo "Extracting metadata from NCIMeta API"
@@ -57,8 +57,8 @@ echo "Admin User: $adminUser"
 echo "Output file: $OUTPUT_FILE"
 echo "-----------------------------------------------------"
 
-# Create etc directory if it doesn't exist
-#mkdir -p "${INV_HOME}/etc"
+# Create config directory if it doesn't exist
+mkdir -p "${INV_HOME}/config"
 
 # Clear output file
 > "$OUTPUT_FILE"
@@ -99,6 +99,6 @@ echo "-----------------------------------------------------"
 echo ""
 echo "Next steps:"
 echo "1. Copy $OUTPUT_FILE to your offline environment"
-echo "2. Place it in the INV/etc/ directory"
+echo "2. Place it in the INV/config/ directory"
 echo "3. Run makeDoc.pl - it will automatically use this file"
 echo ""

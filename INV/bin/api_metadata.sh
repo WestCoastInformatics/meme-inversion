@@ -41,6 +41,27 @@ echo "adminUser = $adminUser"
 echo ""
 fi
 
+# Check for local export file first
+EXPORT_FILE="$INV_HOME/config/api_metadata_export.txt"
+
+if [[ -f "$EXPORT_FILE" ]]; then
+    if [[ $quiet != 1 ]]; then
+        echo "Using local export file: $EXPORT_FILE"
+    fi
+
+    if [[ $mode == "rela_inverse" ]]; then
+        sed -n '/\[RELA_INVERSE\]/,/^\[.*\]/p' "$EXPORT_FILE" | grep -v '^\[' | grep -v '^$'
+        exit 0
+    elif [[ $mode == "expanded_form" ]]; then
+        sed -n '/\[EXPANDED_FORM\]/,/^\[.*\]/p' "$EXPORT_FILE" | grep -v '^\[' | grep -v '^$'
+        exit 0
+    elif [[ $mode == "tty_class" ]]; then
+        sed -n '/\[TTY_CLASS\]/,/^\[.*\]/p' "$EXPORT_FILE" | grep -v '^\[' | grep -v '^$' | grep -v '^{' | grep -v '^[[:space:]]' | grep -v '^}'
+        exit 0
+    fi
+    # If mode is not one of the above, fall through to API call (or add more handlers if needed)
+fi
+
 # Login
 token=`curl -H "Content-type: text/plain" -X POST -d "$adminPwd" $url/security/authenticate/$adminUser 2>/dev/null | perl -pe 's/.*"authToken":"([^"]*).*/$1/;'`
 
