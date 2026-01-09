@@ -18,6 +18,7 @@ use Encode qw(encode_utf8);
 {
   my ($_theLog, $_theCfg, $_theIdGen, $_OUT);
   my $_lastId = 0;
+  my %_seen = ();
   my %_valids = (srcAttrId => 0, sgId => 0, lvl => 0, atn => 0,
 				 atv => 0, vsab => 0, status => 0, tbr => 0, released => 0,
 				 suppress => 0, sgType => 0, sgQual => 0, satui => 0,
@@ -96,30 +97,33 @@ use Encode qw(encode_utf8);
     my ($digest, $nam, $key, $val);
     $_lastId = $$_theIdGen->newAtid();
 
-    # now apply specific values
+    # now apply specific values and cleanLine for atv
     while (($key, $val) = each %{$thisData}) {
       if (defined ($_valids{"$key"})) {
-		$self->{"$key"} = $val;
+        if ($key eq 'atv') {
+          $self->{'atv'} = iutl->cleanLine($val);
+        } else {
+          $self->{"$key"} = $val;
+        }
       } else {
-		$$_theLog->logError("Invalid Attr attribute <$key> encountered\n");
+        # skip metadata fields starting with _
+        next if $key =~ /^_/;
+        $$_theLog->logError("Invalid Attr attribute <$key> encountered\n");
       }
     }
-    
-       #now apply cleanLine subroutine for all attribute values
-    while (($key, $val) = each %{$thisData}) {
-      if (defined ($_valids{"$key"})) {
-              if ($key eq 'atv'){
-                $self->{'atv'} = iutl->cleanLine($val);
-          }
-       }
-   }
     
     # now find md5 digest.
     $digest = md5_hex(encode_utf8($self->{'atv'}));
     $self->{'digest'} = $digest;
     $self->{'srcAttrId'} = $_lastId;
 
-    print $_OUT "$_lastId|$self->{'sgId'}|$self->{'lvl'}|$self->{'atn'}|$self->{'atv'}|$self->{'vsab'}|$self->{'status'}|$self->{'tbr'}|$self->{'released'}|$self->{'suppress'}|$self->{'sgType'}|$self->{'sgQual'}|$self->{'satui'}|$digest|\n";
+    # Deduplicate: Only print if this exact attribute hasn't been seen before
+    my $key = join('|', $self->{'sgId'}, $self->{'lvl'}, $self->{'atn'}, $self->{'atv'}, $self->{'vsab'}, $self->{'status'}, $self->{'tbr'}, $self->{'released'}, $self->{'suppress'}, $self->{'sgType'}, $self->{'sgQual'}, $self->{'satui'}, $digest);
+    if ($$thisData{'_no_dedup'} || !$_seen{$key}) {
+        $_seen{$key} = 1;
+        print $_OUT "$_lastId|$self->{'sgId'}|$self->{'lvl'}|$self->{'atn'}|$self->{'atv'}|$self->{'vsab'}|$self->{'status'}|$self->{'tbr'}|$self->{'released'}|$self->{'suppress'}|$self->{'sgType'}|$self->{'sgQual'}|$self->{'satui'}|$digest|\n";
+    }
+
     return $_lastId;
   }
 

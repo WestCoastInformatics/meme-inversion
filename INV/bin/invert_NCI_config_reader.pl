@@ -72,8 +72,9 @@ sub processSubsourceAtomsFromConfig {
         my $misc_ID2 = $miscAtom2->getLastId();
 
         # Create SSN atom (source short name)
+        # Fix: Baseline uses full name for SSN, not abbreviation
         $miscAtom3->dumpAtom({
-            str => $abbrev,
+            str => $fullname,
             code => "V-$code",
             tty => 'SSN',
             vsab => 'SRC'
@@ -131,7 +132,6 @@ sub processSubsourceAtomsFromConfig {
 # Process source metadata and update sources.src
 sub processSourceMetadataFromConfig {
     my ($config) = @_;
-
     # Check if processing is enabled
     if (!$config->{options}->{process_source_metadata}) {
         print "Source metadata processing disabled in config\n";
@@ -221,9 +221,7 @@ sub processSourceMetadataFromConfig {
             "",                               # LAT: language
             $charset,                         # CENC: character encoding
             "",                               # CURVER: current version
-            "",                               # SABIN: (empty)
-            "",                               # SSN: (empty)
-            ""                                # SCIT: (empty)
+            # SABIN, SSN, SCIT omitted to match legacy NCI format (20 fields)
         );
 
         push @new_entries, "$line|\n";  # Add trailing pipe
@@ -240,18 +238,45 @@ sub processSourceMetadataFromConfig {
         } @lines;
     }
 
-    # Append new entries to list
-    push @lines, @new_entries;
-
-    # Sort lines alphabetically
-    my @sorted_lines = sort @lines;
+    # Stable Insertion Logic:
+    # Instead of globally sorting the file (which moves existing rows),
+    # we find the correct alphabetical position for each new entry and insert it.
+    
+    foreach my $new_line (@new_entries) {
+        my ($new_rsab) = split(/\|/, $new_line);
+        $new_rsab =~ s/_$current_vsab$//;
+        my $new_rsab_lc = lc($new_rsab);
+        
+        my $inserted = 0;
+        # We start looking AFTER any NCI sources at the top if necessary,
+        # but the rule is "best alphabetic placement".
+        for (my $i = 0; $i < scalar(@lines); $i++) {
+            my $line = $lines[$i];
+            next if $line =~ /^NCI_\d/; # Usually keep NCI at top if it is there
+            
+            my ($curr_rsab) = split(/\|/, $line);
+            $curr_rsab =~ s/_\d+.*$//; # Handle versioned or unversioned codes in file
+            my $curr_rsab_lc = lc($curr_rsab);
+            
+            if ($new_rsab_lc lt $curr_rsab_lc) {
+                splice(@lines, $i, 0, $new_line);
+                $inserted = 1;
+                last;
+            }
+        }
+        
+        # If not inserted, append to the end
+        if (!$inserted) {
+            push @lines, $new_line;
+        }
+    }
 
     # Write updated sources.src
     open($fh, '>', $sources_file) or die "Cannot write to $sources_file: $!";
-    print $fh $_ for @sorted_lines;
+    print $fh $_ for @lines;
     close($fh);
 
-    print "Completed adding, deduplicating, and sorting " . scalar(@new_entries) . " source metadata entr(ies) in sources.src\n";
+    print "Completed adding (stable insertion) and deduplicating " . scalar(@new_entries) . " source metadata entr(ies) in sources.src\n";
 }
 
 # Process termgroup metadata and update termgroups.src
@@ -485,6 +510,8 @@ sub updateNciCfgFromConfig {
         }
 
         # 4. Add {code}_{vsab}.RSSN entry (after FDA_{vsab}.RSSN or in RSSN section)
+        # This section is now partially redundant if vsab.$code was just added,
+        # but it handles cases where vsab.$code and rsab.$code existed but RSSN didn't.
         my $rssn_key = "${code}_${current_vsab}";
         my $found_rssn = 0;
         for (my $i = 0; $i < scalar(@lines); $i++) {
@@ -514,6 +541,28 @@ sub updateNciCfgFromConfig {
         }
 
         $added_codes{$code} = 1;
+    }
+
+    # CRITICAL FIX: Ensure SaidStart is updated from config
+    my $config_said_start = $config->{runtime_parameters}->{said_start};
+    if ($config_said_start) {
+        my $updated_said = 0;
+        for (my $i = 0; $i < scalar(@lines); $i++) {
+            if ($lines[$i] =~ /^SaidStart\s*=/) {
+                 if ($lines[$i] !~ /$config_said_start/) {
+                     $lines[$i] = "SaidStart = $config_said_start\n";
+                     print "  Updated SaidStart to match config: $config_said_start\n";
+                 } else {
+                     print "  SaidStart matches config: $config_said_start\n";
+                 }
+                 $updated_said = 1;
+                 last;
+            }
+        }
+        if (!$updated_said) {
+             print "  WARNING: SaidStart line not found in nci.cfg, appending it\n";
+             push @lines, "SaidStart = $config_said_start\n";
+        }
     }
 
     # Write updated nci.cfg

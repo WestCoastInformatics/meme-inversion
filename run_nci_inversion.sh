@@ -133,25 +133,35 @@ fi
 
 # Read version information using simpler Python approach
 read_config_simple() {
-    python3 << 'PYTHON_SCRIPT'
+    cat << 'EOF' > inv_config_reader.py
 import json
 import sys
-
 try:
     with open('INV/config/inversion_config.json') as f:
         config = json.load(f)
 
+    # Print version info
     print("CURRENT_VERSION=" + config['version_info']['current_version'])
     print("PREVIOUS_VERSION=" + config['version_info']['previous_version'])
     print("PRIOR_PREVIOUS_VERSION=" + config['version_info']['prior_previous_version'])
+    
+    # Print runtime parameters
     print("PREVIOUS_MONTH=" + config['runtime_parameters']['previous_month'])
     print("CURRENT_MONTH=" + config['runtime_parameters']['current_month'])
     print("SAID_START=" + config['runtime_parameters']['said_start'])
     print("META_EXPORT_FILE=" + config['runtime_parameters']['meta_export_file'])
+    
+    # Print auto-run configuration if present
+    if 'auto_run' in config:
+        for key, value in config['auto_run'].items():
+             print(f"AUTO_{key.upper()}={str(value).lower()}")
+
 except Exception as e:
     print("ERROR: " + str(e), file=sys.stderr)
     sys.exit(1)
-PYTHON_SCRIPT
+EOF
+    python3 inv_config_reader.py
+    rm inv_config_reader.py
 }
 
 # Read all config values at once and strip carriage returns (Windows line endings)

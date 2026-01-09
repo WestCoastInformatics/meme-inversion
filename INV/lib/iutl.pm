@@ -292,7 +292,7 @@ sub cleanLine {
   s/\x{201E}/\"/g;    #DOUBLE LOW-9 QUOTATION MARK
   s/\x{201F}/\"/g;    #DOUBLE HIGH-REVERSED-9 QUOTATION MARK
   s/\x{2022}/\*/g;    #BULLET
-  s/\x{202F}/ /g;     #NARROW NO-BREAK SPACE
+#  s/\x{202F}/ /g;     #NARROW NO-BREAK SPACE
   s/\x{2032}/\'/g;    #PRIME
   s/\x{2033}/\"/g;    #DOUBLE PRIME
   s/\x{2034}/\'''/g;  #TRIPLE PRIME

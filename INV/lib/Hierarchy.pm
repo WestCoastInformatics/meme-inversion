@@ -155,7 +155,7 @@ package Hierarchy;
     my $self = shift;
     my @hcRoots = ();
     my $cd;
-    foreach $cd (keys (%children)) {
+    foreach $cd (sort keys (%children)) {
       if (!defined ($parents{"$cd"})) {
 		push (@hcRoots, $cd);
       }
@@ -233,7 +233,7 @@ package Hierarchy;
       push(@{$cxts{"$nd"}}, $root);
     }
     # now call findCxt recursively.
-    foreach $nd (keys (%parents)) {
+    foreach $nd (sort keys (%parents)) {
       &findCxt($nd);
     }
     return 0;
@@ -584,7 +584,7 @@ package Hierarchy;
     $$LogRef->logDebug("Generating cxts.\n");
 
     # for each node
-    foreach $nd (keys ( %{$parRef} )) {
+    foreach $nd (sort keys ( %{$parRef} )) {
       $attrNum = 0;
       # foreach cxt dump PAR context and its attributes
       $atId1 = $saidConv ? $$tag2Said{"$nd"} : $nd;
@@ -782,7 +782,7 @@ package Hierarchy;
     $$LogRef->logDebug("Generating cxts.\n");
 
     # for each node
-    foreach $nd (keys ( %{$parRef} )) {
+    foreach $nd (sort keys ( %{$parRef} )) {
       $attrNum = 0;
       # foreach cxt dump PAR context and its attributes
       $atId1 = $saidConv ? $$tag2Said{"$nd"} : $nd;

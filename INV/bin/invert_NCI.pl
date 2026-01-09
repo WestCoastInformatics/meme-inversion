@@ -72,6 +72,7 @@ our $CfgFile = "../etc/nci.cfg";
 our $Log;
 our $Cfg;
 our $HierRef;
+our $config;
 
 
 # Template variables
@@ -204,36 +205,7 @@ sub process {
   $srcBldr->processSrc('NCI');
   $Inv->prTime("Done SRC building");
 
-  # DEBUG: Write to file to verify this code executes
-  open(my $debug_fh, '>>', '../tmp/config_debug.log') or warn "Cannot open debug log: $!";
-  print $debug_fh "DEBUG: About to load inversion configuration\n";
-  close($debug_fh);
-
-  # Load and process inversion configuration
-  $Inv->prTime("Loading inversion configuration");
-  my $config = loadInversionConfig("$Bin/../etc/inversion_config.json");
-
-  # DEBUG: Log config result
-  open($debug_fh, '>>', '../tmp/config_debug.log') or warn "Cannot open debug log: $!";
   if ($config) {
-    print $debug_fh "DEBUG: Config loaded successfully\n";
-  } else {
-    print $debug_fh "DEBUG: Config is undefined/false\n";
-  }
-  close($debug_fh);
-
-  if ($config) {
-    # Update nci.cfg with new source mappings (MUST BE FIRST)
-    # This adds vsab.{code}, rsab.{code}, and {code}_{vsab}.RSSN entries
-    # Required for processMRCONSO to recognize the new source
-    updateNciCfgFromConfig($config);
-    
-    # Process source metadata (adds entries to sources.src)
-    processSourceMetadataFromConfig($config);
-
-    # Process termgroup metadata (adds entries to termgroups.src)
-    processTermgroupMetadataFromConfig($config);
-
     # Process subsource atoms (creates SRC atoms, merges, and relationships)
     processSubsourceAtomsFromConfig($config, $miscAtom1, $miscAtom2, $miscAtom3, $tgRel, $misc_merge, $Attribute);
   }
@@ -816,7 +788,7 @@ while (<MRCON>){
 		    if ($tty eq 'PT'){
 			 
 		  # origcode or cui?
-			$ptAtom -> dumpAtom({vsab => $in2vsab{"$sab"},str => $str, scui => $cui, code => $origcode, suppress => 'N'});
+			$ptAtom -> dumpAtom({vsab => $in2vsab{"$sab"},str => $str, scui => $cui, code => $origcode, tty => 'PT', suppress => 'N'});
 			$pt1Atom = $ptAtom->getLastId();
 			  
 			          if (defined($cd2merge{$cui})){
@@ -1243,6 +1215,22 @@ sub processSubsourceAtoms {
 #main
 #----------------------------------
 sub main{
+  # Load and process inversion configuration BEFORE initializing NLMInv
+  # This ensures nci.cfg is updated before it is read
+  print "Loading inversion configuration...\n";
+  $config = loadInversionConfig("$Bin/../etc/inversion_config.json");
+  
+  if ($config) {
+    # Update nci.cfg with new source mappings (MUST BE FIRST)
+    updateNciCfgFromConfig($config);
+    
+    # Process source metadata (adds entries to sources.src)
+    processSourceMetadataFromConfig($config);
+
+    # Process termgroup metadata (adds entries to termgroups.src)
+    processTermgroupMetadataFromConfig($config);
+  }
+
   #instantiate NLMInv
   $Inv = new NLMInv($CfgFile);
   
