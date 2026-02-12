@@ -438,9 +438,38 @@ if [ -f "${CURRENT_DIR}/src/sources.src" ]; then
     print_msg "Step 2: Replacing all ${PRIOR_PREVIOUS_VSAB} with ${PREVIOUS_VSAB}..."
     sed "${SED_INPLACE[@]}" "s/${PRIOR_PREVIOUS_VSAB}/${PREVIOUS_VSAB}/g" sources.src
 
-    # Update month names
-    print_msg "Step 3: Replacing month name ${PREVIOUS_MONTH} with ${CURRENT_MONTH}..."
-    sed "${SED_INPLACE[@]}" "s/${PREVIOUS_MONTH}/${CURRENT_MONTH}/g" sources.src
+    # Update date on the first line (NCI source) by parsing the version string
+    print_msg "Step 3: Updating NCI source date from version ${CURRENT_VERSION}..."
+    
+    # Extract year and month from CURRENT_VERSION (format: NCI_YYYY_MMX where X is a letter)
+    # Example: NCI_2026_01D -> year=2026, month=01
+    VERSION_YEAR=$(echo "${CURRENT_VERSION}" | sed -E 's/NCI_([0-9]{4})_.*/\1/')
+    VERSION_MONTH=$(echo "${CURRENT_VERSION}" | sed -E 's/NCI_[0-9]{4}_([0-9]{2})[A-Z]/\1/')
+    
+    # Map month digits to name
+    case "${VERSION_MONTH}" in
+        01) MONTH_NAME="January" ;;
+        02) MONTH_NAME="February" ;;
+        03) MONTH_NAME="March" ;;
+        04) MONTH_NAME="April" ;;
+        05) MONTH_NAME="May" ;;
+        06) MONTH_NAME="June" ;;
+        07) MONTH_NAME="July" ;;
+        08) MONTH_NAME="August" ;;
+        09) MONTH_NAME="September" ;;
+        10) MONTH_NAME="October" ;;
+        11) MONTH_NAME="November" ;;
+        12) MONTH_NAME="December" ;;
+        *) MONTH_NAME="Unknown" ;;
+    esac
+    
+    if [ "$MONTH_NAME" != "Unknown" ]; then
+        NEW_DATE="${MONTH_NAME} ${VERSION_YEAR}, Protege version"
+        print_msg "Setting NCI source date to: ${NEW_DATE}"
+        sed "${SED_INPLACE[@]}" "1s/[A-Z][a-z]* [0-9]\{4\}, Protege version/${NEW_DATE}/" sources.src
+    else
+        print_warn "Could not parse month from ${CURRENT_VERSION}, skipping date update"
+    fi
 
     print_msg "Step 4: Fixing mismatched sources in source entries..."
     # For entries where field 1 (RSAB) and field 2 (VSAB) have different source codes,
@@ -541,7 +570,7 @@ if [ -f "${CURRENT_DIR}/etc/nci.cfg" ]; then
 
     # Update SAID start
     print_msg "Setting SaidStart to: $SAID_START"
-    sed "${SED_INPLACE[@]}" "s/SaidStart\s*=\s*[0-9]*/SaidStart = ${SAID_START}/" nci.cfg
+    sed "${SED_INPLACE[@]}" "s/SaidStart *= *[0-9]*/SaidStart = ${SAID_START}/" nci.cfg
 
     print_msg "nci.cfg updated"
 else

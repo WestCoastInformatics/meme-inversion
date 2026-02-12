@@ -89,7 +89,7 @@ Extract metadata on a server with API access and copy it to your offline environ
    ./extract_metadata.sh
    ```
 
-3. This creates `$INV_HOME/config/api_metadata_export.txt` containing:
+3. This creates `$INV_HOME/etc/api_metadata_export.txt` containing:
    - **[RELA_INVERSE]** - Relationship attribute inverse mappings
    - **[EXPANDED_FORM]** - Full names for TTY, ATN, and RELA codes
    - **[TTY_CLASS]** - Term type classifications (preferred, synonym, abbreviation, etc.)
@@ -97,7 +97,7 @@ Extract metadata on a server with API access and copy it to your offline environ
 4. Copy the file to your offline environment:
    ```bash
    # Example using scp
-   scp $INV_HOME/config/api_metadata_export.txt user@offline-machine:/path/to/INV/config/
+   scp $INV_HOME/etc/api_metadata_export.txt user@offline-machine:/path/to/INV/config/
    ```
 
 **In Your Offline Environment:**
