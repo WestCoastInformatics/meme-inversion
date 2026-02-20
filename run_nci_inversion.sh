@@ -224,13 +224,13 @@ fi
 # Extract version components for various uses
 # e.g., NCI_2025_07D -> 2025_07D, 07D, 2507D
 CURRENT_VSAB=$(echo "$CURRENT_VERSION" | sed 's/NCI_//')
-CURRENT_SHORT=$(echo "$CURRENT_VSAB" | sed 's/2025_//')
-CURRENT_COMPACT=$(echo "$CURRENT_VSAB" | sed 's/2025_/25/' | tr '[:upper:]' '[:lower:]')
+CURRENT_SHORT=$(echo "$CURRENT_VSAB" | sed -E 's/^20[0-9]{2}_//')
+CURRENT_COMPACT=$(echo "$CURRENT_VSAB" | sed -E 's/^20([0-9]{2})_/\1/')
 
 if [ "$SKIP_COPY_PREVIOUS" = false ]; then
     PREVIOUS_VSAB=$(echo "$PREVIOUS_VERSION" | sed 's/NCI_//')
-    PREVIOUS_SHORT=$(echo "$PREVIOUS_VSAB" | sed 's/2025_//')
-    PREVIOUS_COMPACT=$(echo "$PREVIOUS_VSAB" | sed 's/2025_/25/' | tr '[:upper:]' '[:lower:]')
+    PREVIOUS_SHORT=$(echo "$PREVIOUS_VSAB" | sed -E 's/^20[0-9]{2}_//')
+    PREVIOUS_COMPACT=$(echo "$PREVIOUS_VSAB" | sed -E 's/^20([0-9]{2})_/\1/')
 fi
 
 # Extract VSAB from prior previous version
@@ -724,6 +724,18 @@ else
 fi
 
 # ============================================
+print_step "12.5" "Running Quality Checks (checkall-qual.csh)"
+print_msg "Calling checkall-qual.csh with current and previous versions..."
+if [ -f "${INV_HOME}/bin/checkall-qual.csh" ]; then
+    # Change to root workspace directory which contains archive/checkall
+    cd "${INV_HOME}/.."
+    tcsh INV/bin/checkall-qual.csh "${CURRENT_COMPACT}" "${PREVIOUS_COMPACT}"
+    print_msg "Quality checks completed."
+else
+    print_warn "checkall-qual.csh not found in INV/bin - skipping quality checks"
+fi
+
+# ============================================
 print_step "13" "Setting up Perl module library"
 # Create symlink to INV/lib so invert_NCI.pl can find required Perl modules
 if [ ! -e "${CURRENT_DIR}/lib" ]; then
@@ -766,6 +778,45 @@ print_msg "INV_HOME set to: $INV_HOME_UNIX"
 print_step "14" "Running inversion script"
 print_msg "Preparing to run invert_NCI.pl..."
 print_msg "Configuration will be loaded from: ${CONFIG_DEST}"
+
+# Pre-inversion checklist warning check
+CHECKLIST_FILE="${INV_HOME}/../archive/checkall/checklist-report-${CURRENT_COMPACT}-newonly.txt"
+if [ -f "$CHECKLIST_FILE" ]; then
+    print_msg "Scanning quality checklist for new items..."
+    
+    # Check if there are any non-empty sections that flag new items
+    # (By checking if file is larger than the baseline empty skeleton)
+    NEW_ITEMS_FOUND=false
+    
+    if grep -q "^[1-9][0-9]*" "$CHECKLIST_FILE" 2>/dev/null; then
+        # This strictly extracts the contents of sections 6, 7, and 8 (Roles, Properties, Subsources)
+        # and checks if there are any non-empty, non-header substantive strings inside them.
+        if sed -n "/^6. New Roles/,/^---/p; /^7.  New Properties/,/^---/p; /^8.  New subsources/,/^---/p" "$CHECKLIST_FILE" | grep -v -i -e "^[0-9]\." -e "^new roles:" -e "^new properties:" -e "^new subsources;" -e "^disap\?pearing" -e "^\s*$" -e "^-\+$" | grep -q "[a-zA-Z0-9]"; then
+            NEW_ITEMS_FOUND=true
+        fi
+    fi
+
+    if [ "$NEW_ITEMS_FOUND" = true ]; then
+        echo ""
+        echo "======================================================================="
+        print_error "WARNING: NEW DATA DISCOVERED IN QUALITY CHECKS!"
+        print_warn "The pre-inversion quality checklist reported new roles, properties, or subsources."
+        print_warn "File: $CHECKLIST_FILE"
+        print_warn "You must update INV/config/inversion_config.json with this new metadata"
+        print_warn "and restart the inversion from the beginning."
+        echo "======================================================================="
+        echo ""
+        
+        if ! confirm "Are you absolutely sure you want to proceed without updating configuration?"; then
+            print_msg "Inversion cancelled by user. Please update configuration and restart."
+            exit 1
+        fi
+    else
+        print_msg "Quality checklist scanned - no new configuration requirements detected."
+    fi
+else
+    print_warn "Checklist report file not found at: $CHECKLIST_FILE"
+fi
 
 if confirm "Ready to run inversion? (This takes 1-2 hours)"; then
     cd "${CURRENT_DIR}/bin"
