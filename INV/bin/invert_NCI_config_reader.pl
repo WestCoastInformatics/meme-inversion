@@ -4,7 +4,6 @@
 
 use strict;
 use warnings;
-use JSON::PP;
 
 # Load configuration from JSON file
 sub loadInversionConfig {
@@ -15,13 +14,47 @@ sub loadInversionConfig {
         return undef;
     }
 
-    # Read file using built-in Perl functions
-    open(my $fh, '<', $config_file) or die "Cannot open $config_file: $!";
-    my $json_text = do { local $/; <$fh> };
-    close($fh);
+    # Python script to convert JSON to Perl-evaluable string safely
+    my $python_code = <<'EOF';
+import json, sys
+def to_perl(obj):
+    if isinstance(obj, dict):
+        return '{' + ', '.join(repr(str(k)) + ' => ' + to_perl(v) for k, v in obj.items()) + '}'
+    elif isinstance(obj, list):
+        return '[' + ', '.join(to_perl(x) for x in obj) + ']'
+    elif isinstance(obj, bool):
+        return '1' if obj else '0'
+    elif obj is None:
+        return 'undef'
+    elif isinstance(obj, (int, float)):
+        return str(obj)
+    else:
+        try:
+            s = str(obj)
+        except:
+            s = obj.encode('utf-8')
+        return repr(s)
+try:
+    with open(sys.argv[1]) as f:
+        print(to_perl(json.load(f)))
+except Exception as e:
+    sys.exit(1)
+EOF
 
-    my $json = JSON::PP->new;
-    my $config = $json->decode($json_text);
+    my $perl_str = `python -c "$python_code" "$config_file"`;
+    
+    if ($? != 0 || !$perl_str) {
+        # Try python3 if python is not available or failed
+        $perl_str = `python3 -c "$python_code" "$config_file"`;
+        if ($? != 0 || !$perl_str) {
+            die "Cannot parse $config_file using Python json module. Check if python is installed.";
+        }
+    }
+
+    my $config = eval $perl_str;
+    if ($@) {
+        die "Failed to evaluate parsed JSON: $@\nString was:\n$perl_str";
+    }
 
     print "Loaded inversion configuration from $config_file\n";
     return $config;
