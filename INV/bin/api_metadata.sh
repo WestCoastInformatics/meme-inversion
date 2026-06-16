@@ -22,6 +22,12 @@ if [ ${#arr[@]} -ne 1 ]; then
 fi
 
 mode=${arr[0]}
+PYTHON=${PYTHON:-python3}
+
+if ! command -v "$PYTHON" >/dev/null 2>&1; then
+  echo "ERROR: python3 is required. Set PYTHON=/path/to/python if needed." >&2
+  exit 1
+fi
 
 # import URL into environment from config
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -76,21 +82,21 @@ fi
 # get output
 # Perform call based on mode
 if [[ $mode == "max_src_atom_id" ]]; then
-    head -1 /tmp/x.$$ | python -c 'import sys, json; print json.load(sys.stdin)["sourceIdRanges"][0]["endSourceId"]'
+    head -1 /tmp/x.$$ | "$PYTHON" -c 'import sys, json; print(json.load(sys.stdin)["sourceIdRanges"][0]["endSourceId"])'
 elif [[ $mode == "min_src_atom_id" ]]; then
-    head -1 /tmp/x.$$ | python -c 'import sys, json; print json.load(sys.stdin)["sourceIdRanges"][0]["beginSourceId"]'
+    head -1 /tmp/x.$$ | "$PYTHON" -c 'import sys, json; print(json.load(sys.stdin)["sourceIdRanges"][0]["beginSourceId"])'
 
 elif [[ $mode == "rela_inverse" ]]; then
     cat > x.$$.py <<EOF
 import sys, json
 for x in json.load(sys.stdin)["keyValuePairLists"]:
   if x["name"] == "Additional_Relationship_Types":
-    print json.dumps(x["keyValuePairs"])
+    print(json.dumps(x["keyValuePairs"]))
 EOF
-    head -1 /tmp/x.$$ | python x.$$.py | python -m json.tool |\
+    head -1 /tmp/x.$$ | "$PYTHON" x.$$.py | "$PYTHON" -m json.tool |\
     grep '"key"' | perl -pe 's/ +"key": "//; s/",?$//' > y.$$.txt
     for rela in `cat y.$$.txt`; do
-        inverse=`curl --silent -G "$url/metadata/additionalRelationshipType/$rela/NCIMTH/latest" -H "Authorization: $token" | python -m json.tool | grep '"inverseAbbreviation"' | perl -pe 's/ *"inverseAbbreviation": "//; s/",?$//'`
+        inverse=`curl --silent -G "$url/metadata/additionalRelationshipType/$rela/NCIMTH/latest" -H "Authorization: $token" | "$PYTHON" -m json.tool | grep '"inverseAbbreviation"' | perl -pe 's/ *"inverseAbbreviation": "//; s/",?$//'`
         echo "$rela|$inverse"
 done
     /bin/rm -f x.$$.py y.$$.txt
@@ -107,9 +113,9 @@ for x in json.load(sys.stdin)["keyValuePairLists"]:
     name = "RELA"
   for pair in x["keyValuePairs"]:
     s = name + "|" + pair["key"] + "|expanded_form|" + pair["value"]
-    print(s.encode('utf-8'))
+    print(s)
 EOF
-    head -1 /tmp/x.$$ | python x.$$.py 
+    head -1 /tmp/x.$$ | "$PYTHON" x.$$.py 
     /bin/rm -f x.$$.py
 
 elif [[ $mode == "tty_class" ]]; then
@@ -117,9 +123,9 @@ elif [[ $mode == "tty_class" ]]; then
 import sys, json
 for x in json.load(sys.stdin)["keyValuePairLists"]:
   if x["name"] == "Term_Types":
-    print json.dumps(x["keyValuePairs"])
+    print(json.dumps(x["keyValuePairs"]))
 EOF
-    head -1 /tmp/x.$$ | python x.$$.py | python -m json.tool |\
+    head -1 /tmp/x.$$ | "$PYTHON" x.$$.py | "$PYTHON" -m json.tool |\
     grep '"key"' | perl -pe 's/ +"key": "//; s/",?$//' > y.$$.txt
     # abbreviation -> nameVariantType=AB
     # attribute -> codeVariantType=ATTRIBUTE
@@ -131,30 +137,30 @@ EOF
     # preferred -> codeVariantType=PN,PET
     # synonym -> codeVariantType=SY
     for tty in `cat y.$$.txt`; do
-        curl --silent -G "$url/metadata/termType/$tty/NCIMTH/latest" -H "Authorization: $token" | python -m json.tool > /tmp/x2.$$
+        curl --silent -G "$url/metadata/termType/$tty/NCIMTH/latest" -H "Authorization: $token" | "$PYTHON" -m json.tool > /tmp/x2.$$
         egrep '"(code|name)VariantType"' /tmp/x2.$$ |\
          perl -ne 'next if /nameVariantType": "UNDEF/; s/ *"(code|name)VariantType": "//; s/",?$//; s/^/TTY|'$tty'|tty_class|/; print;'
         egrep '"hierarchicalType": true' /tmp/x2.$$ |\
          perl -ne 'print "TTY|'$tty'|tty_class|hierarchical\n";'
         egrep '"obsolete": true' /tmp/x2.$$ |\
          perl -ne 'print "TTY|'$tty'|tty_class|obsolete\n";'
-        curl --silent -G "$url/metadata/termType/$tty/NCIMTH/latest" -H "Authorization: $token" | python -m json.tool 
+        curl --silent -G "$url/metadata/termType/$tty/NCIMTH/latest" -H "Authorization: $token" | "$PYTHON" -m json.tool 
 done
     /bin/rm -f x.$$.py y.$$.txt
 
 elif [[ $mode == "current_sources" ]]; then
 
-    head -1 /tmp/x.$$ | python -m json.tool | egrep '"(terminology|version)"' |\
+    head -1 /tmp/x.$$ | "$PYTHON" -m json.tool | egrep '"(terminology|version)"' |\
       perl -ne 'chop; s/ *"(terminology|version)": "//; s/",?$//; if ($x) { print "$x|".$x."_$_\n"; $x= ""; } else {$x = $_; }' |\
       perl -pe 's/_latest//;'
 
 elif [[ $mode == "precedence" ]]; then
 
-    head -1 /tmp/x2.$$ | python -m json.tool | egrep '"(terminology|version)"' |\
+    head -1 /tmp/x2.$$ | "$PYTHON" -m json.tool | egrep '"(terminology|version)"' |\
       perl -ne 'chop; s/ *"(terminology|version)": "//; s/",?$//; if ($x) { print "$x|_$_\n"; $x= ""; } else {$x = $_; }' |\
       perl -pe 's/_latest//;' > /tmp/x3.$$
 
-    head -1 /tmp/x.$$ | python -m json.tool |  egrep '"(key|value)"' |\
+    head -1 /tmp/x.$$ | "$PYTHON" -m json.tool |  egrep '"(key|value)"' |\
       perl -ne 'BEGIN { open(I,"/tmp/x3.'$$'");while(<I>) {chop; @_=split/\|/; $m{$_[0]}=$_[1]; } }
         chop; s/ *"(key|value)": "//; s/",?$//; if ($x) { print "$x$m{$x}/$_|".($i++)."\n"; $x= ""; } else {$x = $_; }'
 
