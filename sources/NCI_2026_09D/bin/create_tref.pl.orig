@@ -1,0 +1,172 @@
+#!/usr/bin/perl
+
+#create TREF files
+#update file names
+
+open (ANNOT, "<../orig/fromprovider/annotationDeclaration-20210125.txt") || die "can't open ANNOT\n";
+
+while(<ANNOT>){
+	chomp;
+	s/\r//;
+	($property,$annot,$annot_val)=split(/\|/);
+	if($annot =~/label/){
+		$property2label{$property}=$annot_val;
+	}
+	else{
+	}
+}
+close(ANNOT);
+
+open (ROLES, "<../orig/fromprovider/objectDeclaration-20210125.txt") || die "can't open ROLES\n";
+
+while(<ROLES>){
+    chomp;
+    s/\r//;
+    ($property,$annot,$annot_val)=split(/\|/);
+	    if($annot =~/label/){
+	        $property2label{$property}=$annot_val;
+		}
+	    else{
+	    }
+}
+close(ROLES);
+
+open (CLASS, "<../orig/fromprovider/classDeclaration-20210125.txt") || die "can't open CLASS\n";
+open (MRCONSO, ">../tmp/MRCONSO.TREF.tmp") || die "can't open MRCONSO\n";
+open (MRSAT, ">../tmp/MRSAT.TREF.tmp") || die "can't open MRSAT\n";
+open (MRREL, ">../tmp/MRREL.TREF.tmp") || die "can't open MRREL\n";
+
+while (<CLASS>){
+	chomp;
+	s/\r//;
+	s/CTCAE 3\.0/CTCAE_3/;
+	s/CTCAE 5\.0/CTCAE_5/;
+	s/BRIDG 3\.0\.3/BRIDG_3_0_3/;
+	s/BRIDG 5\.3/BRIDG_5_3/;
+	s/ACC\/AHA/ACC-AHA/;
+	($cui,$property,$value,$qual1,$val1,$qual2,$val2,$qual3,$val3,$qual4,$val4)=split(/\|/);
+
+	if($property eq 'P90'){
+		$tg=$val2.$val1;
+		if($tg eq 'NCIPT'){  #NCI/PT created from P108 (Preferred_Name)
+			next;
+		}
+		elsif($qual3 ne ''){
+			if($qual3 eq 'P386'){
+				print MRCONSO "|$value|$cui||$tg||\n";
+			}
+			else{
+				print MRCONSO "|$value|$cui||$tg|$val3|\n";
+			}					
+		}
+		else{
+			print MRCONSO "|$value|$cui||$tg||\n";
+		}
+	}
+	elsif($property =~ /^NH/){  
+		next;
+	}			
+	elsif($property eq 'rdfs:label'){  #label
+		next;
+	}			
+	elsif($property =~ /^A/){  #Associations
+		print MRREL "|$value|CUI||RO|$property2label{$property}|$cui|CUI|\n";
+	}			
+	elsif($property eq 'P97'){  #Definition
+		print MRSAT "|$cui|CUI|$property2label{$property}|<def-definition>$value</def-definition><def-source>$val1</def-source>|\n";
+	}			
+	elsif($property eq 'P108'){ #Preferred_Name; NCI/PT atom
+		print MRCONSO "|$value|$cui||NCIPT||\n";
+	}
+	elsif($property eq 'P211'){  #GO_Annotation
+		#print MRSAT "|$cui|CUI|$property2label{$property}|$value|$property2label{$qual1}|$val1|$property2label{$qual2}|$val2|$property2label{$qual3}|$val3|$property2label{$qual4}|$val4|\n";
+	}			
+	elsif($property eq 'P325'){  #ALT_DEFINITION
+		if($attr ne ''){
+			print MRSAT "|$cui|CUI|$property2label{$property}|<def-definition>$value</def-definition><def-source>$val1</def-source>|<attr>$val2</attr>|\n";
+		}
+		else{
+			print MRSAT "|$cui|CUI|$property2label{$property}|<def-definition>$value</def-definition><def-source>$val1</def-source>|\n";
+		}
+	}			
+	elsif($property eq 'P375'){  #Maps_To relationship
+		if($val1 eq 'Has Synonym'){
+			print MRREL "|$val3|CUI|$val4|SY|mapped_to|$cui|CUI|\n";
+		} 
+		elsif($val1 eq 'Broader Than'){ 
+			print MRREL "|$val3|CUI|$val4|BT|mapped_to|$cui|CUI|\n";
+		}
+		elsif($val1 eq 'Narrower Than'){ 
+			print MRREL "|$val3|CUI|$val4|NT|mapped_to|$cui|CUI|\n";
+		}
+		elsif($val1 eq 'Related To'){
+			print MRREL "|$val3|CUI|$val4|RT|mapped_to|$cui|CUI|\n";
+		}
+		else{
+			print "New Maps_To relationship: $val1\n";
+		}
+	}
+	elsif($property =~ /^P/){  #Properties
+		print MRSAT "|$cui|CUI|$property2label{$property}|$value|\n";
+	}			
+}
+close(CLASS);
+
+open (GROUP, "<../orig/rels_needing_relgrp.txt") || die "can't open GROUP\n";
+while (<GROUP>){
+	chomp;
+	($cui,$group)=split(/\|/);
+	$cui2rg{"$cui|$group"}++;
+}
+close(GROUP);
+
+open (RELS, "<../orig/fromprovider/relations-20210125.txt") || die "can't open RELS\n";
+while (<RELS>){
+	chomp;
+	s/\r//;
+	($id1,$group,$role,$id2)=split(/\|/);
+
+	if ($group eq ''){
+		$rui++;
+		print MRREL "$rui|$id2|CUI||RO|$property2label{$role}|$id1|CUI|\n";
+	}
+	elsif($cui2rg{"$id1|$group"}){
+		if($group eq $prev){
+			$rui++;
+			print MRREL "$rui|$id2|CUI||RO|$property2label{$role}|$id1|CUI|\n";
+			print MRSAT "|$rui|RUI|RELATIONSHIPGROUP|$count|\n";
+		}
+		elsif($group ne $prev){
+			if($id1 eq $prev_id){
+				$count++;
+				$rui++;
+           		print MRREL "$rui|$id2|CUI||RO|$property2label{$role}|$id1|CUI|\n";
+           		print MRSAT "|$rui|RUI|RELATIONSHIPGROUP|$count|\n";
+				$prev=$group;
+			}
+			if($id1 ne $prev_id){
+				$count=0;
+				$count++;
+				$rui++;
+           		print MRREL "$rui|$id2|CUI||RO|$property2label{$role}|$id1|CUI|\n";
+            	print MRSAT "|$rui|RUI|RELATIONSHIPGROUP|$count|\n";
+				$prev_id=$id1;
+            	$prev= $group;
+			}
+		} #end of elsif loop
+	}	
+	else{
+		$rui++;
+		print MRREL "$rui|$id2|CUI||RO|$property2label{$role}|$id1|CUI|\n";
+	}
+}
+close(RELS);
+
+open (HIER, "<../orig/fromprovider/hierarchy-20210125.txt") || die "can't open HIER\n";
+while (<HIER>){
+	chomp;
+	s/\r//;
+	($chd,$par)=split(/\|/);
+	print MRREL "|$par|CUI||CHD|isa|$chd|CUI|\n";
+}
+close(HIER);

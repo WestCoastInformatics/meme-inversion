@@ -1,0 +1,104 @@
+#!/bin/csh -f
+
+1) Create source directory
+	$INV_HOME_OLD/bin/create_vsab_dirs.pl NCI_<yyyy>_<ver> (e.g. NCI_2018_01E)
+
+2) ftp the data files (meta_export-<ver>.zip) into orig/fromprovider
+    a) wget --user=apelon --password="$NCI_FTP_PASSWORD" ftp://lpgftp.nci.nih.gov/evs/apelon/ForMEME/meta_export_17.07e.zip
+    b) unzip all files into the orig/fromprovider directory
+    c) Included in the zip are 6 data files (*Declaration*txt (4), hierarchy*txt, relations*txt) and ThesaurusInferred.owl. 
+
+3) copy from the previous inversion orig/fromprovider/NCI<ver>.txt (e.g. NCI2025_08D.txt), update it, and then 'cp ../orig/fromprovider/NCI<ver>.txt ../etc'
+# this is not actually a required file, but it can help you find out if there
+# are any new rels or attributes (the other way to find this out is to have
+# someone who is familiar with the NCI side tell you.
+# You can diff this file with the previous version, basically the only
+# thing that should change is the versions,
+# still this is somewhat of a chicken and egg problem, since this information
+# needs to be added to /bin/owltotref/evs/nci.config BEFORE the TREF
+# files are made
+
+4)  Verify the etc/NCI<ver>.txt file has the <ctrl>VM (end of line) characters removed.
+
+5)  Create sources.src by using dump_src_info.pl and make.sources.src.pl.
+        a) $INV_HOME_OLD/bin/dump_src_info.pl [-d <db>] [-r <RSAB> | <SAB> | -f<SF>] > template
+
+        b) edit template
+        c) $INV_HOME_OLD/bin/make.sources.src.pl template > sources.src
+
+6)  Copy over inversion files (src/termgroups, bin/inversion scripts, etc/qa/conservation.txt, etc) from the previous inversion.
+
+7)  Update src/termgroups.src
+
+8)  Update etc/nci.cfg file
+
+9) Create file of relationships with role groups. 
+	a) input file (orig/fromprovider/relations-<ver>.txt) contains groups with more than one relationship. For example: 
+		C168764|group-92|R177|C101057
+		C168764|group-92|R177|C97516
+		C168764|group-93|R177|C24601
+		C168764|group-93|R177|C99321
+	
+	b) update file name in bin/create_rolegroups.pl and run
+		create_rolegroups.pl | sort ../tmp/rolegroups.tmp | uniq -d > ../orig/rels_needing_relgrp.txt 
+
+	c) output file (orig/rels_needing_relgrp.txt) identifies groups with more than one relationship. 
+ 		C168764|group-92
+		C168764|group-93
+
+10) Create TREF files: 
+	a) update file names in bin/create_tref.pl 
+	b) update bin/get_nci_assoc.pl and get_owl_roles.pl for any new properties.
+	c) run bin/create_tref.pl
+	d) Confirm  not present tmp/MR*TREF files.
+	e) de-dup *TREF files: bin/delete_dup_tref_lines.pl
+
+11) Copy orig/MRDOC.TREF and orig/MRSAB.TREF from previous inversion.
+	a) Update version information in MRSAB.TREF
+	b) Add new ATNs and RELAs as needed in MRDOC.TREF
+
+12) Update VSAB bin/compare_exportrels2tref.s
+
+12a) Create reports on TREF files (e.g., fs.not.pn.rpt, fn.no.fs.rpt) ***update scripts***
+	(a) grep '|NCIPT|' MRCONSO.TREF > FSYN-NCIPT.out
+	(a) cd ../orig/rpts.s
+
+13) Confirm all non-ascii characters in *TREF files changed 
+	a) $INV_HOME_OLD/bin/charfreq.pl -8 ../orig/*TREF
+	b) $INV_HOME_OLD/bin/show-examples.pl -c U+00E9 ../orig/*TREF
+
+14) Run bin/tref_2_relational_files.pl
+
+15) Update and run /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/checkall-qual.csh 
+
+16) echo "beginning inversion"
+		a) if new subsources or attributes, update invert_NCI.pl
+		b) run 'nohup invert_NCI.pl >! invert.log &'
+
+17) echo "creating MRDOC.RRF"
+		a) $INV_HOME/bin/makeDoc.pl 
+
+18) echo "running QA"
+		a) cd ../src
+		b) nohup $INV_HOME/bin/srcQa.pl -c ../etc/*cfg
+		c) $INV_HOME/bin/findQaStats.pl
+
+19) No default STYs needed.
+
+20) Perform conservation of mass.
+
+21) Update the etc/si_proposal_<ver>.txt.
+
+22) Ftp to ncicbftp2.nci.nih.gov the orig/NCI2025_<ver>.txt file.
+	a) place in directory /evs/apelon/ForMEME/archive
+	b) move the previous NCI*txt file to the archive folder.
+
+23) Email Lori Whiteman a summary of the inversion describing any data issues 
+encountered and the resolution. Attach a copy of /local/content/MEME/MEME5/inv/archive/projects/TDE_QA/checklist-report-2509E.txt.
+
+24) Send out the inversion source tracking email indicating inversion is 
+complete to WCI and NCI.
+
+25) After insertion is complete and the following month's source data arrives, 
+archive the previous month's inversion files to s3 using 
+'push_s3.csh inv <vsab>'.

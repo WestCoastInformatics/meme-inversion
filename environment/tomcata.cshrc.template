@@ -1,0 +1,134 @@
+# @(#)cshrc 1.11 89/11/29 SMI
+umask 002
+set host = `hostname`
+limit memoryuse 2097152
+limit coredumpsize unlimited
+
+setenv INV_HOME /local/content/MEME/MEME5/inv/INV
+setenv ENV_HOME /local/content/MEME/MEME5/inv/ENV
+setenv ENV_FILE /local/content/MEME/MEME5/inv/ENV/etc/env.prop
+source $ENV_HOME/bin/env.csh
+setenv PATH "${INV_HOME}/bin:$PATH"
+#setenv PATH "${INV_HOME}/bin:${INV_HOME_OLD}/bin:$PATH"
+
+
+# incantation to fix broken "sort" command:
+setenv _POSIX2_VERSION 1
+
+setenv EDITOR vim 
+setenv LANG en_US.UTF-8
+setenv LC_COLLATE C
+setenv SQLPATH ~
+setenv EXINIT "set ai sw=4|map - :f"
+
+
+if (`hostname` == ncias-d3777-c.nci.nih.gov && "$TERM" != "dumb") then
+    echo "Welcome to AWS MEME5-Dev."
+    set prompt='[%n-dev] %m:%~ %# '
+    setenv JAVA_HOME /usr/bin/java
+    setenv LVG_HOME /meme_work/ncim/lvg
+    alias tstart "sudo service tomcat-evs-meme start"
+    alias tstop "sudo service tomcat-evs-meme stop"
+endif
+
+if (`hostname` == ncias-q3793-c.nci.nih.gov && "$TERM" != "dumb") then
+    echo "Welcome to AWS MEME5-Edit."
+    set prompt="`hostname`:`pwd` (\!)% "
+    alias cd 'cd \!*;set prompt="`hostname`:`pwd` (\!)% "'
+    setenv JAVA_HOME /usr/bin/java
+    setenv LVG_HOME /meme_work/ncim/lvg
+    alias tstart "sudo service tomcat-evs-meme start"
+    alias tstop "sudo service tomcat-evs-meme stop"
+endif
+
+if (`hostname` == ncias-q3794-c.nci.nih.gov && "$TERM" != "dumb") then
+    echo "Welcome to AWS MEME5-Test."
+    set prompt='[%n-test] %m:%~ %# '
+    setenv JAVA_HOME /usr/bin/java
+    setenv LVG_HOME /meme_work/ncim/lvg
+    alias tstart "sudo service tomcat-evs-meme start"
+    alias tstop "sudo service tomcat-evs-meme stop"
+endif
+
+if (`hostname` == ncias-q3795-c.nci.nih.gov && "$TERM" != "dumb") then
+    echo "Welcome to MEME5-Release."
+    set prompt='[%n-release] %m:%~ %# '
+    setenv JAVA_HOME /usr/bin/java
+    setenv LVG_HOME /meme_work/ncim/lvg
+    alias tstart "sudo service tomcat-evs-meme start"
+    alias tstop "sudo service tomcat-evs-meme stop"
+endif
+
+
+setenv PATH ".:$MEME_HOME/bin:$INV_HOME/bin:/usr/bin:$HOME/bin:$JAVA_HOME/bin:$PATH"
+
+
+
+#
+# MEME stuff
+#
+
+alias mysqldev "mysql -h meme-mysql-dev.cedgf8hvhoiw.us-east-1.rds.amazonaws.com -P 3306  -u ncimdb -p ncimdb"
+alias mysqltest "mysql -h meme-test.cedgf8hvhoiw.us-east-1.rds.amazonaws.com -P 3306  -u ncimdb -p ncimdb"
+alias mysqledit "mysql -h meme-edit-new.cedgf8hvhoiw.us-east-1.rds.amazonaws.com -P 3306  -u ncimdb -p ncimdb"
+alias mysqlrelease "mysql -h meme-release.cedgf8hvhoiw.us-east-1.rds.amazonaws.com -P 3306  -u ncimdb -p ncimdb"
+
+# General aliases
+alias a alias
+alias c clear
+alias cnt 'sort |uniq -c |sort +0 -1nr'
+alias cp /bin/cp -i
+alias d dirs
+alias dif diff
+alias erbs 'stty erase'
+alias grpe grep
+alias h history
+alias hi history
+alias j jobs -l
+alias l 'echo \!*{*}'
+alias ls ls -F --color=never
+alias lss ls -s
+alias ll ls -als
+alias lld ll -d
+alias lst 'ls -lt \!* | head'
+alias m more
+#alias more less
+alias mv /bin/mv -i
+alias p pushd
+alias pl /usr/bin/perl
+alias pp popd
+alias rm /bin/rm -i
+alias so source
+alias t cat
+alias tv cat -t -v -e
+alias z suspend
+alias erbs "stty erase"
+alias max "awk '"'$'"1>m{m="'$'"1}END{print m}'"
+alias maxlen 'pl -e '"'"'while(<>){chop;$l=length if length>$l;}print $l,qq/\n/;'"'"
+alias tot "awk '{s+="'$'"1}END{print s}'"
+alias totn "awk '{s+="'$'"1; n++}END{print s, n}'"
+alias fold8bit "perl -pe 'tr/\200-\377/\177\001-\177/;'"
+alias show8bit "perl -ne 'print if /[\200-\377]/;'"
+
+#Next-gen MEME alias
+
+alias M5 cd /local/content/MEME/MEME5
+alias inv cd /local/content/MEME/MEME5/inv/sources
+alias mr cd /local/content/MEME/MEME5/mr
+
+alias release 'cd /local/content/MEME/MEME5/mr/ncim/202602/META'
+alias oldrelease 'cd /local/content/MEME/MEME5/mr/ncim/202508//META'
+alias MTHDIR 'cd /local/content/MEME/MEME5/inv/sources/MTH_2025AA'
+alias ncimedit 'cd /local/content/MEME/MEME5/ncim'
+alias tlogs 'cd /local/content/tomcat/evs-meme/logs'
+alias atail 'tail -f /local/content/apache/logs/meme/error.log'
+alias ttail "tail -f /local/content/tomcat/evs-meme/logs/catalina.out"
+
+set history=999 noclobber ignoreeof notify 
+
+#setenv EDITOR emacs
+setenv rc "run.config.umls=/local/content/MEME/MEME5/ncim/config/config.properties"
+unset autologout
+
+alias nocolor ' unset LS_COLORS ; setenv TERM vt220'
+alias aws '/usr/local/bin/aws'

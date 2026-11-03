@@ -1,0 +1,17 @@
+INSTALL
+-------
+1. Choose $ENV_HOME
+2. Unzip dist_env*.zip into $ENV_HOME
+3. Copy the etc/env.prop_orig to etc/env.prop
+4. Edit the properties file.
+5. Configure the shell environment by setting 
+   $ENV_HOME and $ENV_FILE ($ENV_HOME/etc/env.prop)
+
+Dependencies
+-----------------------
+None
+
+UPDATE
+------
+Same as install, make sure to review env.prop_orig for new settings
+that may not be in your env.prop.

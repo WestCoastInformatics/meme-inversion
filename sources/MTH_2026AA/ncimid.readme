@@ -1,0 +1,39 @@
+To get ncimid.removed.sources, ncimid.sources and ncimid.termgroups (lists of
+removed sources, VSABs, and termgroups in NCI's MID):
+
+$INV_HOME/bin/api_metadata.sh current_sources --quiet >ncimid.sources
+$INV_HOME/bin/api_metadata.sh precedence --quiet >ncimid.termgroups
+
+and edit the above files to 's/_latest//' and remove/fix the header line.
+
+
+
+old method:
+% ssh meme@nciws-p385-v
+% alias mysqledit  [and note the password for ncimdb]
+% mysql -h ncidb-q122.nci.nih.gov -P 3668 -u ncimdb -p ncimdb -e 'select terminology, concat(terminology,'"'_'"',version) from terminologies where current order by terminology;' >ncimid.sources
+ [and then input the password noted above]
+% mysql -h ncidb-q122.nci.nih.gov -P 3668 -u ncimdb -p ncimdb -e 'select terminology from root_terminologies where terminology not in (select terminology from terminologies t where t.current);' >ncimid.removed.sources
+ [and then input the password noted above]
+% mysql -h ncidb-q122.nci.nih.gov -P 3668 -u ncimdb -p ncimdb -e 'select concat(plt.terminologies,'"'_'"',t.version,'"'/'"',pltt.termTypes) as termType, plt.terminologies_ORDER as rank from precedence_lists pl, precedence_list_terminologies plt, precedence_list_term_types pltt, terminologies t where pl.terminology='"'NCIMTH'"' and plt.PrecedenceListJpa_id=pl.id and pltt.PrecedenceListJpa_id=pl.id and pltt.termTypes_ORDER=plt.terminologies_ORDER and t.current and t.terminology=plt.terminologies;' >ncimid.termgroups
+ [and then input the password noted above]
+
+and edit the above 3 files to 's/_latest//' and remove/fix the header line.
+
+
+
+older method:
+
+% ssh meme@nciws-p385-v [was cbioapp513]
+% sqlms >& ncimid.sources
+> select source,current_name,previous_name from source_version order by source;
+> quit;
+
+% sqlms >& ncimid.termgroups
+> select termgroup,rank from termgroup_rank order by 2;
+> quit;
+
+# (remove ncimid.termgroups lines for sources that aren't current)
+% cut -d\| -f3 ncimid.sources | sort -u |grep -v '^$' |grep -v '^ old' |cat - old/old.sources |sort -u >old.sources
+% mv ncimid.termgroups{,.all}
+% sed 's/\//|/' ncimid.termgroups.all |sort -t\| +0 -1 |join -t\| -v1 - old.sources |sed 's/|/\//' |sort -t\| +1nr -o ncimid.termgroups

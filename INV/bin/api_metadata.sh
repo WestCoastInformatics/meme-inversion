@@ -34,7 +34,7 @@ fi
 adminUser=`grep 'admin.user' $MEME_HOME/config/config.properties | perl -ne '@_ = split/=/; print $_[1];'`
 adminPwd=`grep 'admin.password' $MEME_HOME/config/config.properties | perl -ne '@_ = split/=/; print $_[1];'`
 #url=`grep 'base.url' $MEME_HOME/config/config.properties | perl -ne '@_ = split/=/; print $_[1];'`
-url=http://ncias-q3000-c.nci.nih.gov:8080/ncim-server-rest
+url=http://ncias-q3793-c.nci.nih.gov:8080/ncim-server-rest
 
 if [[ $quiet != 1 ]]; then
 echo "-----------------------------------------------------"
@@ -178,3 +178,4 @@ echo "-----------------------------------------------------"
 echo "Finished ...`/bin/date`"
 echo "-----------------------------------------------------"
 fi
+

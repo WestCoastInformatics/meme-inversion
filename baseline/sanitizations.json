@@ -1,0 +1,52 @@
+[
+  {
+    "repository_path": "sources/MTH_2026AA/invert2.s",
+    "source_path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/invert2.s",
+    "source_sha256": "04705b345748ba16a9a4a29bcb2c131d1aec9334cacd07ea49ed7ea5a33c3a75",
+    "imported_sha256": "56cd786adecc7afd4d729dbbec8de41708f294e15062a305d154fa2ecfb84a5a",
+    "transformations": [
+      {
+        "kind": "redacted-comment-credential",
+        "replacements": 1,
+        "executable_statements_changed": false
+      }
+    ]
+  },
+  {
+    "repository_path": "sources/NCI_2026_09D/etc/README.INVERSION",
+    "source_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_09D/etc/README.INVERSION",
+    "source_sha256": "0f90b0033c85a9e98db8a819bfe5a5667440077037536e98305839ce2c7518e7",
+    "imported_sha256": "262843be0ba81b5bc75f3ce1acf0f43fbc8bf2da534c052fcdd7ffe604931508",
+    "transformations": [
+      {
+        "kind": "redacted-runbook-credential",
+        "replacements": 1
+      }
+    ]
+  },
+  {
+    "repository_path": "sources/NCI_2026_10D/etc/README.INVERSION",
+    "source_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/README.INVERSION",
+    "source_sha256": "0f90b0033c85a9e98db8a819bfe5a5667440077037536e98305839ce2c7518e7",
+    "imported_sha256": "262843be0ba81b5bc75f3ce1acf0f43fbc8bf2da534c052fcdd7ffe604931508",
+    "transformations": [
+      {
+        "kind": "redacted-runbook-credential",
+        "replacements": 1
+      }
+    ]
+  },
+  {
+    "repository_path": "environment/tomcata.cshrc.template",
+    "source_path": "/local/home/tomcata/.cshrc",
+    "source_sha256": "1b0c4a1375170ef8167b56c445c7c54304bfd9828c31dc4b8ed5336f4dbb3712",
+    "imported_sha256": "16985e96940859e0a57acdd973961c8030311a07fd8955ca20c58d05ab0334c1",
+    "transformations": [
+      {
+        "kind": "credential-free-environment-template",
+        "replacements": 4,
+        "note": "Database aliases prompt for credentials; original profile remains in private capture"
+      }
+    ]
+  }
+]
