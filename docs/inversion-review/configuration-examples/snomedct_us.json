@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "engine_ref": "<candidate-commit-sha>",
+  "policy_ref": "catalog:examples/snomedct-us/policy",
+  "environment_profile": "catalog:examples/dev-replay-worker",
+  "replacement_baseline": {"source": "SNOMEDCT_US", "version": "SNOMEDCT_US_2026_03_01"},
+  "comparison_baseline": {"source": "SNOMEDCT_US", "version": "SNOMEDCT_US_2026_03_01"},
+  "publisher_history": [],
+  "inputs": {
+    "native_data": ["catalog:examples/snomedct-us-september-2026/us-rf2-package"],
+    "reference_ncimeta": "catalog:examples/snomedct-us-september-2026/historical-metadata-and-icd-inventory",
+    "identity_state": null,
+    "source_plan": "catalog:examples/snomedct-us-september-2026/reviewed-metadata-decisions"
+  },
+  "source_atom_ids": {
+    "start": 1000000000,
+    "end": 1099999999,
+    "provenance_ref": "catalog:examples/synthetic-range-not-a-reservation"
+  },
+  "validation_profile": "catalog:examples/snomedct-us/required-validation",
+  "output_stage": "inversion-src",
+  "source_options": {"rf2_view": "Snapshot"},
+  "replay": {
+    "case_variant": "illustrative-only",
+    "reference_ref": "catalog:examples/snomedct-us-september-2026/official-reference",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "semantic-strict"
+  }
+}

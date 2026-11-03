@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ncimeta:inversion-configuration:1",
+  "title": "Proposed common inversion configuration",
+  "description": "One self-contained configuration model for NCI, SNOMEDCT_US and MTH. This planning schema does not implement resolution, execution or semantic/provenance validation. Shared request fields retain the vocabulary of request.schema.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "source", "version", "engine_ref", "policy_ref",
+    "environment_profile", "replacement_baseline", "comparison_baseline",
+    "publisher_history", "inputs", "source_atom_ids", "validation_profile",
+    "output_stage", "source_options"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "source": {"enum": ["NCI", "SNOMEDCT_US", "MTH"]},
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact VSAB; source-specific semantic checks enforce compatibility."
+    },
+    "engine_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Candidate revision resolved once to a full Git commit; execution must reject placeholders."
+    },
+    "policy_ref": {"$ref": "#/$defs/nonempty_reference"},
+    "environment_profile": {"$ref": "#/$defs/nonempty_reference"},
+    "replacement_baseline": {
+      "description": "Exact source release replaced in NCImeta. Null requires an explicit first-insertion or inapplicability decision.",
+      "oneOf": [{"$ref": "#/$defs/source_version"}, {"type": "null"}]
+    },
+    "comparison_baseline": {
+      "description": "Independently selected source release supplying comparison artifacts. Null requires explicit justification.",
+      "oneOf": [{"$ref": "#/$defs/source_version"}, {"type": "null"}]
+    },
+    "publisher_history": {
+      "description": "Ordered additional publisher-history artifact references, never inferred from calendar adjacency.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nonempty_reference"}
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["native_data", "reference_ncimeta", "identity_state", "source_plan"],
+      "properties": {
+        "native_data": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/nonempty_reference"}
+        },
+        "reference_ncimeta": {"$ref": "#/$defs/nullable_reference"},
+        "identity_state": {"$ref": "#/$defs/nullable_reference"},
+        "source_plan": {"$ref": "#/$defs/nonempty_reference"}
+      }
+    },
+    "source_atom_ids": {
+      "description": "Inclusive complete SAID range, including SRC atoms. Semantic checks verify ordering, capacity and evidence; adapters translate legacy offsets.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end", "provenance_ref"],
+      "properties": {
+        "start": {"type": "integer", "minimum": 1},
+        "end": {"type": "integer", "minimum": 1},
+        "provenance_ref": {"$ref": "#/$defs/nonempty_reference"}
+      }
+    },
+    "validation_profile": {"$ref": "#/$defs/nonempty_reference"},
+    "output_stage": {"$ref": "#/$defs/output_stage"},
+    "source_options": {"type": "object"},
+    "replay": {
+      "description": "Present when comparing against an official archived inversion; absent for a run without an official reference.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_variant", "reference_ref", "reference_stage", "comparison_profile"],
+      "properties": {
+        "case_variant": {"type": "string", "minLength": 1},
+        "reference_ref": {"$ref": "#/$defs/nonempty_reference"},
+        "reference_stage": {"$ref": "#/$defs/output_stage"},
+        "comparison_profile": {"enum": ["exact", "semantic-strict"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"source": {"const": "NCI"}}, "required": ["source"]},
+      "then": {"properties": {"source_options": {"$ref": "#/$defs/nci_options"}}}
+    },
+    {
+      "if": {"properties": {"source": {"const": "SNOMEDCT_US"}}, "required": ["source"]},
+      "then": {"properties": {"source_options": {"$ref": "#/$defs/snomed_options"}}}
+    },
+    {
+      "if": {"properties": {"source": {"const": "MTH"}}, "required": ["source"]},
+      "then": {"properties": {"source_options": {"$ref": "#/$defs/mth_options"}}}
+    }
+  ],
+  "$defs": {
+    "output_stage": {"enum": ["inversion-src", "insertion-package"]},
+    "nonempty_reference": {
+      "type": "string",
+      "pattern": "\\S",
+      "description": "Logical artifact, Git policy or profile reference; resolution must reject placeholders and freeze exact identity before execution."
+    },
+    "nullable_reference": {
+      "description": "Explicit null is allowed only if the source/stage contract confirms this dependency is inapplicable.",
+      "oneOf": [{"$ref": "#/$defs/nonempty_reference"}, {"type": "null"}]
+    },
+    "source_version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "version"],
+      "properties": {
+        "source": {"$ref": "#/properties/source"},
+        "version": {"$ref": "#/properties/version"}
+      }
+    },
+    "nci_options": {"type": "object", "additionalProperties": false},
+    "snomed_options": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rf2_view"],
+      "properties": {"rf2_view": {"const": "Snapshot"}}
+    },
+    "mth_options": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metamorphosys_profile_ref"],
+      "properties": {"metamorphosys_profile_ref": {"$ref": "#/$defs/nonempty_reference"}}
+    }
+  }
+}

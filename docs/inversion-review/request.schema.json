@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ncimeta:inversion-test-request:1",
+  "title": "Proposed inversion replay request",
+  "description": "Planning contract for a future isolated test runner. Case resolution must validate the candidate Git commit and freeze all dependencies before execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source",
+    "version",
+    "engine_ref",
+    "case_variant",
+    "reference_stage",
+    "comparison_profile"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "source": {
+      "enum": ["NCI", "SNOMEDCT_US", "MTH"]
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact VSAB; case catalog resolution enforces source-specific compatibility."
+    },
+    "engine_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Candidate revision resolved once to a full Git commit; submission must reject the template placeholder."
+    },
+    "case_variant": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Named reviewed catalog case, including its historical preparation state and any intentional transition changes."
+    },
+    "reference_stage": {
+      "enum": ["inversion-src", "insertion-package"]
+    },
+    "comparison_profile": {
+      "enum": ["exact", "semantic-strict"]
+    }
+  }
+}

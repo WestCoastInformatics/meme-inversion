@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "<candidate-commit-sha>",
+  "policy_ref": "catalog:examples/nci/policy",
+  "environment_profile": "catalog:examples/dev-replay-worker",
+  "replacement_baseline": {"source": "NCI", "version": "NCI_2026_08E"},
+  "comparison_baseline": {"source": "NCI", "version": "NCI_2026_09D"},
+  "publisher_history": [],
+  "inputs": {
+    "native_data": ["catalog:examples/nci-october-2026/native-export-bundle"],
+    "reference_ncimeta": "catalog:examples/nci-october-2026/historical-ncimeta-inputs",
+    "identity_state": null,
+    "source_plan": "catalog:examples/nci-october-2026/reviewed-subsource-plan"
+  },
+  "source_atom_ids": {
+    "start": 1000000000,
+    "end": 1099999999,
+    "provenance_ref": "catalog:examples/synthetic-range-not-a-reservation"
+  },
+  "validation_profile": "catalog:examples/nci/required-validation",
+  "output_stage": "inversion-src",
+  "source_options": {},
+  "replay": {
+    "case_variant": "illustrative-skipped-month-transition",
+    "reference_ref": "catalog:examples/nci-october-2026/official-reference",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "semantic-strict"
+  }
+}

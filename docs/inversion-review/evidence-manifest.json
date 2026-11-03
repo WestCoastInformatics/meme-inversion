@@ -1,0 +1,1366 @@
+{
+  "assessment_date": "2026-11-03",
+  "server": "ncias-q3793-c.nci.nih.gov",
+  "server_root": "/local/content/MEME/MEME5/inv",
+  "primary_capture_utc": "2026-11-03T17:09:50.416379+00:00",
+  "supplement_capture_utc": "2026-11-03T17:13:02.610266+00:00",
+  "inventory_entries": 1228,
+  "primary_code_and_document_files": 292,
+  "collection_errors": [],
+  "git_main": "3be55ea33024ba9ef998207c1a6de9eb3e482a56",
+  "git_rework": "d65d9f60ce11046154b5439ab083b634460ad5b8",
+  "dependency_checks": [
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/old",
+      "exists": false,
+      "is_symlink": true,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/prev",
+      "exists": false,
+      "is_symlink": true,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/old/ncisources.spec",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB/ncisources.spec"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/old/src/cui_said_map",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB/src/cui_said_map"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/old/Meta/MRSAB.RRF",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB/Meta/MRSAB.RRF"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_09D/tmp/nci_roles3.tmp",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/NCI_2026_09D/tmp/nci_roles3.tmp"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_08E",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/NCI_2026_08E"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/INV_OLD/bin/autoinv.pl",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/INV_OLD/bin/autoinv.pl"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/INV_OLD/bin/SRCbuilder.pl",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/INV_OLD/bin/SRCbuilder.pl"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/INV_OLD/bin/QA4.pl",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv/INV_OLD/bin/QA4.pl"
+    },
+    {
+      "path": "/local/content/MEME/INV_OLD",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/INV_OLD"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/mr/ncim/202608/META/MRCONSO.RRF",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/mr/ncim/202608/META/MRCONSO.RRF"
+    }
+  ],
+  "source_file_hashes": [
+    {
+      "path": "INV/README.txt",
+      "size": 132,
+      "sha256": "5c1c9b475e436ab2d7eaa1550b2a9dbbfb1b86365d4ee3b3b0e4f3c9862dd33e"
+    },
+    {
+      "path": "INV/lib/CharCount.pm",
+      "size": 2278,
+      "sha256": "82cd866b286f747114d91eb8896ec7b4a59e3ac7b8e6af1d2c15041a3009a68d"
+    },
+    {
+      "path": "INV/lib/Logger.pm",
+      "size": 2988,
+      "sha256": "83d70c5aaf87acb66552e731778fd6940901b3ae7dd821a1ab039b92eb40c5fc"
+    },
+    {
+      "path": "INV/lib/QA4_util.pm",
+      "size": 36403,
+      "sha256": "d72c2700cee36e61e162c59279b7d055018bc5d53d982a7cb724036590febb82"
+    },
+    {
+      "path": "INV/lib/Relation.pm",
+      "size": 2876,
+      "sha256": "966be7992d60367afe92f32b141f9e017505b566b4bb9a5dac987236badb4b0e"
+    },
+    {
+      "path": "INV/lib/Hierarchy-nocxtAttrs.pm",
+      "size": 23812,
+      "sha256": "5e58cd556e21ac070ab10d31fe881941e5a8615fd43bfa7d65eb53e4ffe80836"
+    },
+    {
+      "path": "INV/lib/FldMon.pm",
+      "size": 9883,
+      "sha256": "912fa4b88258f76d3d52f914f519ecc0aae45011ca4c7864beb688124498d078"
+    },
+    {
+      "path": "INV/lib/SrcQa.pm",
+      "size": 18448,
+      "sha256": "54ce989deae9f549a0693b5c6a9167f8467d2b5146e97805328dac85181973e8"
+    },
+    {
+      "path": "INV/lib/NLMInv.pm",
+      "size": 16239,
+      "sha256": "39452587e8d3a25496e2b4ebf0c8cc16b0026f15eb17e8807d80160816bb8cc6"
+    },
+    {
+      "path": "INV/lib/Hierarchy.pm",
+      "size": 23768,
+      "sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0"
+    },
+    {
+      "path": "INV/lib/QaAttrs.pm",
+      "size": 23281,
+      "sha256": "0747942c0f3cf7d10d9494d8b3ae9a5b96ca7c3e17c8b2066f3e6083229d2695"
+    },
+    {
+      "path": "INV/lib/Archives.pm",
+      "size": 28518,
+      "sha256": "d25a49a5646610772d17981a20508c1af9a0afb40edde1f70276158d20957d31"
+    },
+    {
+      "path": "INV/lib/QA4.pm",
+      "size": 83751,
+      "sha256": "3107359d8465affdf3cc0af6d84977464c71337009a0c51712445748e2059767"
+    },
+    {
+      "path": "INV/lib/QaAtoms.pm",
+      "size": 27003,
+      "sha256": "07fe4ebca1428bb9f59257ca0924089264d32ace70e04d2cd289f945317f1d13"
+    },
+    {
+      "path": "INV/lib/Context.pm",
+      "size": 3485,
+      "sha256": "648e39468b9f587b4c7780182d086fb112edd94fe01a992872814b3a0938505e"
+    },
+    {
+      "path": "INV/lib/QaCxts.pm",
+      "size": 21147,
+      "sha256": "abba721bb1993bd241d53795803dad8741b1b224fcb4ef5292fe6f28b77baf05"
+    },
+    {
+      "path": "INV/lib/LineMon.pm",
+      "size": 5665,
+      "sha256": "513f870ea13304537dc18a623217e8be49c7f68f53bb68b1127293617ee19fe3"
+    },
+    {
+      "path": "INV/lib/NLMConfig.pm",
+      "size": 2418,
+      "sha256": "85d28b8126ebc8786bc141139b42e13f7d7331c81e2da670a0396f048202aebb"
+    },
+    {
+      "path": "INV/lib/Attribute.pm",
+      "size": 3133,
+      "sha256": "2630353024f96215830e0002303406852cefcd9547e4dc6496e819be0c6e8fb1"
+    },
+    {
+      "path": "INV/lib/SrcDiffs.pm",
+      "size": 36823,
+      "sha256": "edc9c8be0f7d41a2b6888ecc759dba7f71b28e695e4c00101ad9e0d4068027f2"
+    },
+    {
+      "path": "INV/lib/QaMerges.pm",
+      "size": 8549,
+      "sha256": "4fd3dbd0ec60b93518ae44a27359ca917ed11a0d72727bba9fd4d6ad5d2967a5"
+    },
+    {
+      "path": "INV/lib/Merge.pm",
+      "size": 2399,
+      "sha256": "99620c986bef4093db45fad9244ec36daa7b284636fdd17b075301b355f4593c"
+    },
+    {
+      "path": "INV/lib/QaSrcs.pm",
+      "size": 8755,
+      "sha256": "88d6dd6a864c079c6582638e059810035d7f9685a9a73d519fb16c1b7d1ef155"
+    },
+    {
+      "path": "INV/lib/QaDocs.pm",
+      "size": 10245,
+      "sha256": "8954445ce0c0ef0145202899d5a41572971636d70cafa7873b9e420a0e6fe817"
+    },
+    {
+      "path": "INV/lib/IdGen.pm",
+      "size": 1311,
+      "sha256": "4dc1dff974b45f446a9927316bec5fab5b117cfd0adac1565fad4c3afe6abbb7"
+    },
+    {
+      "path": "INV/lib/Contexts.pm",
+      "size": 44964,
+      "sha256": "36f24964c4ec9cc9734e754b83f6e6a6794ad0cdca8ab372911c5df65c433174"
+    },
+    {
+      "path": "INV/lib/LVG.pm",
+      "size": 849,
+      "sha256": "3c10904510beeccaa3742313724239b1ec4bb6e9cbc333d9accd2937c2b20fab"
+    },
+    {
+      "path": "INV/lib/QaRels.pm",
+      "size": 21031,
+      "sha256": "d3db8d4fd765df5d8ff959f8a98c94e4fe6b518dbd5a60d29881e18aaba08a17"
+    },
+    {
+      "path": "INV/lib/MakeDoc.pm",
+      "size": 5688,
+      "sha256": "48e7fb0333daaedecf77df08c49a762e2aa72f6f23506950ef6bb33cdc7056ad"
+    },
+    {
+      "path": "INV/lib/findSrcDefaults.pm",
+      "size": 4583,
+      "sha256": "6a323f3be5dad9403cea0ab81b15e475864cc1d8e027fba7514d668ca4ac8821"
+    },
+    {
+      "path": "INV/lib/Brit2Amer.pm",
+      "size": 1247,
+      "sha256": "a17fbea789b8fd31f6300f4a2cc0f7b086c443bf9fedb260f918698385bb5b8a"
+    },
+    {
+      "path": "INV/lib/QaStats.pm",
+      "size": 14190,
+      "sha256": "442aaf898d1ad74b545c023ebac16eb27bc69bd4b4298a102038e79d31406545"
+    },
+    {
+      "path": "INV/lib/SrcStats.pm",
+      "size": 5676,
+      "sha256": "aca6c0a3afd0891b829077888839a6ef3ce319fdd29349f29b53e1f0f30371f2"
+    },
+    {
+      "path": "INV/lib/QaTGs.pm",
+      "size": 10670,
+      "sha256": "c5e63984c3235c177c00b476bf53f51bc30bfc9c49df8fb1b7105b6a1bcd3fb9"
+    },
+    {
+      "path": "INV/lib/SrcReport.pm",
+      "size": 34244,
+      "sha256": "e5b7ac1cc44837aa705a253d5ef17ebea5a89711cbeffe18685fe9876233bbb7"
+    },
+    {
+      "path": "INV/lib/Atom.pm",
+      "size": 5384,
+      "sha256": "4e63041aa0e1468b4c6e23b6205b120f6179009eaa4814534b5119358c2c86e2"
+    },
+    {
+      "path": "INV/lib/Midsvcs.pm",
+      "size": 712,
+      "sha256": "6e28f26a584e3c256566d4e86dcbbd9a1e5d0e416c37999e3176ad37b653c8c7"
+    },
+    {
+      "path": "INV/lib/SrcBldr.pm",
+      "size": 7748,
+      "sha256": "c49ca5c7a43ff504f7baba7c394fa890675ea3a725e38dd07512c69ea957e1ae"
+    },
+    {
+      "path": "INV/lib/print_inv.pm",
+      "size": 1143,
+      "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af"
+    },
+    {
+      "path": "INV/lib/iutl.pm",
+      "size": 14785,
+      "sha256": "49c3527b91526ce0f5da0a64c202e834dbad150c3a7ed89cac4f76450cf9afed"
+    },
+    {
+      "path": "INV/etc/README.QA",
+      "size": 3162,
+      "sha256": "9d56915659a354f2672c08bf44a4019a53a9ef63012349ab1705699a29832559"
+    },
+    {
+      "path": "INV/etc/README_FILELINKS",
+      "size": 110,
+      "sha256": "09c9445b28406f38229c4b747115a3cc0746ba8f0a01809bae3aa59382790054"
+    },
+    {
+      "path": "INV/etc/inv_defaults.cfg",
+      "size": 104143,
+      "sha256": "5ff5f66aa4cf49c1715bdb305b02a627e64a04193e3c81750130d969c5e94d96"
+    },
+    {
+      "path": "INV/etc/README.INVERSION.generic.txt",
+      "size": 2574,
+      "sha256": "aa23be33e683e586f74624c4bbf87c0305bb21ee4c2136a1bbd6aac5b45f3e18"
+    },
+    {
+      "path": "INV/bin/makeDoc.pl",
+      "size": 999,
+      "sha256": "bfbb19ff0583944b743fed53ca8959b552076ce24408b9baae7c11c755660dd2"
+    },
+    {
+      "path": "INV/bin/stys.pl",
+      "size": 1303,
+      "sha256": "bd046edd401536e7736b4a114177b34a30983ffdf7bed0ae9650572487eec040"
+    },
+    {
+      "path": "INV/bin/QA4.pl",
+      "size": 10693,
+      "sha256": "47d7c7c040f2cce37542388dccfcc3d06dacb8b37fb4f8e75f6e4db087607e1a"
+    },
+    {
+      "path": "INV/bin/grep8.pl",
+      "size": 305,
+      "sha256": "5ff64daa54bab88a62a65b13d6e79db354b5beb0c9a527f8921270c3c3331885"
+    },
+    {
+      "path": "INV/bin/QaReason.pl",
+      "size": 31329,
+      "sha256": "a3e9e6afdbd4d4dfd75f35a1775cca6309154ccacee9846cd31872eef12123ce"
+    },
+    {
+      "path": "INV/bin/check_sources.pl",
+      "size": 5476,
+      "sha256": "cb62e5c788a89816b60d0658adda3f8b43aa59b4a0ce9f92a2b1d0da92d52c18"
+    },
+    {
+      "path": "INV/bin/toLvg.pl",
+      "size": 582,
+      "sha256": "7f1902847f277d1d55baf4dc24ffff13bb7dd93d7195ff2ee1406fb013589cd5"
+    },
+    {
+      "path": "INV/bin/matchparens.pl",
+      "size": 446,
+      "sha256": "417a8fba5e94f3042c95be3b6e5bacb8c93076ffa8c14a2de2aefae358848761"
+    },
+    {
+      "path": "INV/bin/tallyfield.pl",
+      "size": 1450,
+      "sha256": "18cd732ebf03b72238437e66f78d88a1dfd409294be455cf9ec689232bef2084"
+    },
+    {
+      "path": "INV/bin/print.ancestors.pl",
+      "size": 494,
+      "sha256": "d55ff52b6d67a92eb22b198d5d234f6d9f1757435f7205d0a7bb971b2b991cb9"
+    },
+    {
+      "path": "INV/bin/make.par_chd_rels.pl",
+      "size": 2333,
+      "sha256": "6603009b8001a5210a96b8a1efdaf4368b4d331e2db84b7bc17280898674515a"
+    },
+    {
+      "path": "INV/bin/show-examples.pl",
+      "size": 4135,
+      "sha256": "3f438817256aa829ae104b99df57ab024d3288add8fdf47084e0d11ad401f53b"
+    },
+    {
+      "path": "INV/bin/look4utf8.pl",
+      "size": 939,
+      "sha256": "385ebb58fca3f6fd0b6ae3e5f51440cb8c2a33599f270e67d0cb833afedec39f"
+    },
+    {
+      "path": "INV/bin/guess-encoding.pl",
+      "size": 828,
+      "sha256": "7f8f3c8296b69098513bb775f9f9fd9282fd690396567fcf4feeae11c7df78bf"
+    },
+    {
+      "path": "INV/bin/show.stys.s",
+      "size": 308,
+      "sha256": "657c3fdcdfa03516b5a49b8b5acda43e03b536982fa39aa33ea4ce009ce017ff"
+    },
+    {
+      "path": "INV/bin/strip.junk.pl",
+      "size": 300,
+      "sha256": "e0b338c7e9e2d3ddae013598077014cf5962c62b6b178bd8cb67bae6c41f8304"
+    },
+    {
+      "path": "INV/bin/strip7.pl",
+      "size": 307,
+      "sha256": "b522e753ac277c32bdd054c1576b4a1cfc4511b7b69cee9963a98e918cd231be"
+    },
+    {
+      "path": "INV/bin/findQaStats.pl",
+      "size": 594,
+      "sha256": "980653a0e095ae8302111ac69e84e9fddbd2ded39efa7592995b86a3c1379317"
+    },
+    {
+      "path": "INV/bin/show_mapset_attrs.pl",
+      "size": 315,
+      "sha256": "8e66deb02815bfbdc5f9f7e70c865763d344d65542a8f310741718feb84ebcd9"
+    },
+    {
+      "path": "INV/bin/print.contexts.pl",
+      "size": 2406,
+      "sha256": "ef23c5890f1c79559f5ebe9895c27f08d4198ebe272fdc066b97795223b68c39"
+    },
+    {
+      "path": "INV/bin/autoinv.pl",
+      "size": 23275,
+      "sha256": "ca0c5614f5eb153c0e5252d6aa6bd4eebb95f10679d0108ab78fb79cd271dc17"
+    },
+    {
+      "path": "INV/bin/fix_broken_lines.pl",
+      "size": 356,
+      "sha256": "03d581b6fb46248acf9c08e96a8e714b8e19e324a25a85c162641bd98c35ca1a"
+    },
+    {
+      "path": "INV/bin/make_new_valid_files.csh",
+      "size": 1271,
+      "sha256": "35816f47519e82cf7d9cb775b906486332d9e3ec628ddc72857c8c595d1ea608"
+    },
+    {
+      "path": "INV/bin/bt_nt_to_treepos.pl",
+      "size": 6002,
+      "sha256": "2f71ab995ec7b8357c9f0664f6568a470a60828b933643add44c64cd57c93f1c"
+    },
+    {
+      "path": "INV/bin/matchquote.pl",
+      "size": 293,
+      "sha256": "40fbbe23b415cdae2822929fe4796b271d37111aa5328bda3bd0a14311df6ec0"
+    },
+    {
+      "path": "INV/bin/SRCbuilder.pl",
+      "size": 12856,
+      "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282"
+    },
+    {
+      "path": "INV/bin/show-forbidden.pl",
+      "size": 2866,
+      "sha256": "dd7e2582d812622baaa9e11a594cf145032fff50bebcc6fc70890516d9f5181e"
+    },
+    {
+      "path": "INV/bin/raw_to_contexts.csh",
+      "size": 5699,
+      "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1"
+    },
+    {
+      "path": "INV/bin/treepos2parchd.pl",
+      "size": 323,
+      "sha256": "6a7f2e2dacb4af7bcfdbc1e2289a2f0dbdcbf1f1ab82bfd8edb6d19a1eeb394f"
+    },
+    {
+      "path": "INV/bin/findSrcStats.pl",
+      "size": 978,
+      "sha256": "48c45b04f7ae7b238f155005b295990377ff44f0fbb6e2b73575d54560286829"
+    },
+    {
+      "path": "INV/bin/treepos2btntrels.pl",
+      "size": 337,
+      "sha256": "298ebea22218461ce641a80d809ab2f00407bd16bc60847fc3a3bcf2c116d713"
+    },
+    {
+      "path": "INV/bin/brit2amer.pl",
+      "size": 3214,
+      "sha256": "e91691ec6d36c9a4b3b057e412eb54469857606424e19bc5a2388bc820138607"
+    },
+    {
+      "path": "INV/bin/current_stys.csh",
+      "size": 2484,
+      "sha256": "b7b580a855faa82210c6cc1a70db474387c883d2a23ff9e527d6f3bd07fa0396"
+    },
+    {
+      "path": "INV/bin/find.cycles.s",
+      "size": 773,
+      "sha256": "fe944d7e2aec2d6f42d8c2735c31bc1b95ec4e3125cc1fc059bda76927a8d3ac"
+    },
+    {
+      "path": "INV/bin/findExtIds.pl",
+      "size": 9924,
+      "sha256": "cec345f6941c9c3a68e79459b8156bcd27c6d849585bcb62f67f741da2401655"
+    },
+    {
+      "path": "INV/bin/to-utf8.pl",
+      "size": 937,
+      "sha256": "d97fb11bdd02cf6ca79c61eb776a12e4c3b1e8767c2142a6cda03086031c80a8"
+    },
+    {
+      "path": "INV/bin/printQaUserInfo.pl",
+      "size": 1361,
+      "sha256": "de4fca298702d2ec37a7e855dad42be3715a654fd7a4683e2f55ad3c30541e5a"
+    },
+    {
+      "path": "INV/bin/charfreq.pl",
+      "size": 3321,
+      "sha256": "013b7d2d96442e7ff9aa39fd9cbe476bea0555b909f01a28299dd55c486914a2"
+    },
+    {
+      "path": "INV/bin/check.mergefacts.s",
+      "size": 467,
+      "sha256": "cec5f2c3cdf650b64a4ac64d238f872c6f755bbe6d021fa10de4dcedeeb90b2a"
+    },
+    {
+      "path": "INV/bin/csv2vb.pl",
+      "size": 733,
+      "sha256": "235a3208c871677bcd88c37d9247e09d0df8ccd52ff3bea829b0fbf5380e80e0"
+    },
+    {
+      "path": "INV/bin/make.sources.src.pl",
+      "size": 1385,
+      "sha256": "a375f14ad4935ef348f6e4bd905d411c93315f37574b6d31ff7151b05445a7e5"
+    },
+    {
+      "path": "INV/bin/report.pl",
+      "size": 3752,
+      "sha256": "0913ac83647dee85bf3ae994a077d2f18f770b8513c8046a3aab1e3d9084be22"
+    },
+    {
+      "path": "INV/bin/readrels.s",
+      "size": 477,
+      "sha256": "cde3dd3fff2de62b20082461e2f62652bdd44c53ca080174c288bd2a6b1bb9f1"
+    },
+    {
+      "path": "INV/bin/check4britishisms.pl",
+      "size": 1295,
+      "sha256": "25d9bc7ff9ad0ea163a2a812a508d5a91002dce158d52c4e5006881ee91df5b7"
+    },
+    {
+      "path": "INV/bin/charCount.pl",
+      "size": 1058,
+      "sha256": "1ab56356fbf514209cc5328658b584fd454d6ab74107bf5061e5d2ba40d983c3"
+    },
+    {
+      "path": "INV/bin/strip.nonprint.pl",
+      "size": 160,
+      "sha256": "d62cb34d23080c8fc430786b9484aa7b84a09e47d05f7b7f1ce75b441159ea4e"
+    },
+    {
+      "path": "INV/bin/simple.contexts.pl",
+      "size": 3201,
+      "sha256": "d0ed93073f79fed97d9bed84228e9e1c68e59121ff555b550fd4df91f747fc6a"
+    },
+    {
+      "path": "INV/bin/txt2meow.pl",
+      "size": 2735,
+      "sha256": "c1e2e6ea78076d2c72e243a30f1cebc60a3ed86f51389019affcbce3c134c34b"
+    },
+    {
+      "path": "INV/bin/create_vsab_dirs.pl",
+      "size": 2006,
+      "sha256": "23e8944bb829aaac5195bb392fa620573bc4df551a9518815764b5378bc8497c"
+    },
+    {
+      "path": "INV/bin/treepos_to_contexts.pl",
+      "size": 4090,
+      "sha256": "b114ba441bfeb25e3417fc2072118c12784264c30fb40ed7bff7396bd65927a2"
+    },
+    {
+      "path": "INV/bin/treepos_to_attributes.pl",
+      "size": 4648,
+      "sha256": "c68c07d95b7a172273abe1020c4974685ca434b1fec2ecd248495c69f005759b"
+    },
+    {
+      "path": "INV/bin/strip.pl",
+      "size": 386,
+      "sha256": "1b7fffe182f6be5b9e538eb07e0d5f67fe6629d98c00f63f6ae5ca88dd65d170"
+    },
+    {
+      "path": "INV/bin/genIndexes.csh",
+      "size": 4147,
+      "sha256": "bfdcd5ab2a3a93afc0d673af34d2e84365b2a6bd5ac0a1248b28d96beb365f94"
+    },
+    {
+      "path": "INV/bin/findSrcDiffs.pl",
+      "size": 1904,
+      "sha256": "efa6b0960e4204a53296eb63e5ee121639e7446f4f284ee738586c0e5b00397f"
+    },
+    {
+      "path": "INV/bin/showEncodings.pl",
+      "size": 419,
+      "sha256": "17634ab8a8296efadb66962fbc9b7ca0d1dc1acedced662156570aa9aa1d0a6d"
+    },
+    {
+      "path": "INV/bin/print.raw3.to.attributes.pl",
+      "size": 8472,
+      "sha256": "5928fa07f0ddcdc41bee494a5d57ec0b7d562c4016fa05b2f8c0a009b4325437"
+    },
+    {
+      "path": "INV/bin/extract_metadata.sh",
+      "size": 3173,
+      "sha256": "ffe99de726151b98da1de4e0e1e6dffb18c2dd9e765c7f035db045dfa46ed921"
+    },
+    {
+      "path": "INV/bin/srcQa.pl",
+      "size": 7199,
+      "sha256": "8fcf021a48d20f188d5510b0af78003984b3ff6f63bdf720276501a156f09730"
+    },
+    {
+      "path": "INV/bin/ssl.pl",
+      "size": 4529,
+      "sha256": "df67931f61e14ab7f9b015e94d21539768da63154caa4ed10903edd6a6a3e95e"
+    },
+    {
+      "path": "INV/bin/api_metadata.sh",
+      "size": 7232,
+      "sha256": "a3344bef1d2f897c215edb527883a4ba46870dbeb2004a473dd203c4f2a431cd"
+    },
+    {
+      "path": "INV/bin/checkfields.pl",
+      "size": 1283,
+      "sha256": "d23c4e918f70bd20b492e23547bfa2f9420cc41217fac8392451e50eb649db50"
+    },
+    {
+      "path": "INV/bin/Config/Properties.pm",
+      "size": 18255,
+      "sha256": "b578a65aa5096baf2d074cdf348b1db8d89cc82de93e8cc81a07f0ab3ffd1fa5"
+    },
+    {
+      "path": "ENV/README.txt",
+      "size": 822,
+      "sha256": "e0bf2f6b171d2a4d1c86af9aeb40a31475ac173c2123aeb11c3439aedd8c744d"
+    },
+    {
+      "path": "ENV/bin/env.csh",
+      "size": 359,
+      "sha256": "4f64f67e8e171859ec4c8c132acecdc4f2686abe9eba31850b46c7cb8fab2584"
+    },
+    {
+      "path": "ENV/bin/env.sh",
+      "size": 387,
+      "sha256": "7a51a07155d9c4f1e38be2c472c5b161f2f25cf1b19082b03a739c59fea09d14"
+    },
+    {
+      "path": "ENV/bin/env.pl",
+      "size": 1120,
+      "sha256": "2bd5418bf853a15368c44a4916a53cd6d131b1e04582fba7d4562f73181edf0d"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/patch_defs.pl",
+      "size": 679,
+      "sha256": "8b3a79e56b2540122383f9e46bddc71505b320276cdab44230b2c2d4d78b6609"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/patch_status_attrib.pl",
+      "size": 711,
+      "sha256": "69b576905b0bc34099f4ab6fe6679d6349d5dcf63605bebbd9ab2279867472c6"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/tref_2_relational_files.pl",
+      "size": 1467,
+      "sha256": "659d132355893e707b6c4c20441c96972f063d0d2f3c8d73b3a37938f23569fc"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/invert_NCI.pl",
+      "size": 40191,
+      "sha256": "d6d8d74997d18dbc460880e708246b4d249d5d70b433fad78c36b683e198e00e"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/get_nci_assoc.pl",
+      "size": 3005,
+      "sha256": "4c34ba16a1cd69395fd7544f4e426c038e9ef22837da55c250467d842fe7ea64"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/get_owl_roles.pl",
+      "size": 3007,
+      "sha256": "ff3b4c5b63d1d00496ba504d5e58409965d2d0dc295f912f4d6c2f6625cde844"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/assign_rolegroups.pl",
+      "size": 627,
+      "sha256": "17fac65d4014eb85df72d3ed815130cb9d142f0f1ee998414b53d0aa859ad296"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/confirm_mapping_codes.pl",
+      "size": 840,
+      "sha256": "c4c1e928f3f84254ded48c886d139cf98bd87b5b5ba4fe2a5c77ae3c853dd204"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/delete_dup_roles.pl",
+      "size": 437,
+      "sha256": "359310345e228f2b030f66d76114872883002e6c62a2a359dfa42a62f25f9964"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/delete_dup_tref_lines.pl",
+      "size": 1487,
+      "sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/get_prop_name.pl",
+      "size": 3526,
+      "sha256": "44a6d7d9d42d399caef00520445656afed982fa2382354991be8ed210adf5cbf"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/get_sy_pt_name.pl",
+      "size": 1971,
+      "sha256": "dd27d72f5aae41e48b9bdc6b1ea038180362763a93c528a1f1eb5c0f65cc47bf"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/nci_2017_06d.csh",
+      "size": 47513,
+      "sha256": "c2b7052017daed5eaf6bb389569a9dc934d0ddc09fa8f6802f920ad8a7892b85"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/create_rolegroups.pl",
+      "size": 657,
+      "sha256": "75e57276e2f473798de0c76dc339f5b3d9f934a0fdbe97c4d3f22ca353a6821c"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/create_tref.pl",
+      "size": 4927,
+      "sha256": "6efbc7307fd787004642a33c67cb8c6acc49fb107c27c8bfe428574c5ead9ca1"
+    },
+    {
+      "path": "sources/NCI_2026_09D/bin/compare_exportrels2tref.s",
+      "size": 630,
+      "sha256": "08429723488d26bbf84a6085130c01c15f5cd7443e41d8910e0f3ae8f1007b24"
+    },
+    {
+      "path": "sources/NCI_2026_09D/etc/README.INVERSION",
+      "size": 4312,
+      "sha256": "0f90b0033c85a9e98db8a819bfe5a5667440077037536e98305839ce2c7518e7"
+    },
+    {
+      "path": "sources/NCI_2026_09D/etc/nci.cfg",
+      "size": 11591,
+      "sha256": "b832a5fe68ce2d7a265c566f892efb6ae006073065cda52343f62bf5c135449c"
+    },
+    {
+      "path": "sources/NCI_2026_09D/etc/qa/conservation.txt",
+      "size": 26483,
+      "sha256": "9aff02714aa8e9b16b38fb7647f5aa1241c5b0d868ade1b7fcda28d0ee6e1996"
+    },
+    {
+      "path": "sources/NCI_2026_09D/orig/conservation.txt",
+      "size": 26823,
+      "sha256": "dff03de3f9557cfe45bb3ca58e8ca95edd1fa7f91199cef623056930ffb3337d"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/patch_defs.pl",
+      "size": 679,
+      "sha256": "8b3a79e56b2540122383f9e46bddc71505b320276cdab44230b2c2d4d78b6609"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/patch_status_attrib.pl",
+      "size": 711,
+      "sha256": "69b576905b0bc34099f4ab6fe6679d6349d5dcf63605bebbd9ab2279867472c6"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/tref_2_relational_files.pl",
+      "size": 1467,
+      "sha256": "659d132355893e707b6c4c20441c96972f063d0d2f3c8d73b3a37938f23569fc"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/get_nci_assoc.pl",
+      "size": 3005,
+      "sha256": "4c34ba16a1cd69395fd7544f4e426c038e9ef22837da55c250467d842fe7ea64"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/get_owl_roles.pl",
+      "size": 3007,
+      "sha256": "ff3b4c5b63d1d00496ba504d5e58409965d2d0dc295f912f4d6c2f6625cde844"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/assign_rolegroups.pl",
+      "size": 627,
+      "sha256": "17fac65d4014eb85df72d3ed815130cb9d142f0f1ee998414b53d0aa859ad296"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/confirm_mapping_codes.pl",
+      "size": 840,
+      "sha256": "c4c1e928f3f84254ded48c886d139cf98bd87b5b5ba4fe2a5c77ae3c853dd204"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/delete_dup_roles.pl",
+      "size": 437,
+      "sha256": "359310345e228f2b030f66d76114872883002e6c62a2a359dfa42a62f25f9964"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/delete_dup_tref_lines.pl",
+      "size": 1487,
+      "sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/get_prop_name.pl",
+      "size": 3526,
+      "sha256": "44a6d7d9d42d399caef00520445656afed982fa2382354991be8ed210adf5cbf"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/get_sy_pt_name.pl",
+      "size": 1971,
+      "sha256": "dd27d72f5aae41e48b9bdc6b1ea038180362763a93c528a1f1eb5c0f65cc47bf"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/nci_2017_06d.csh",
+      "size": 47513,
+      "sha256": "c2b7052017daed5eaf6bb389569a9dc934d0ddc09fa8f6802f920ad8a7892b85"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/create_rolegroups.pl",
+      "size": 657,
+      "sha256": "fe043606aff626e87d87bfd72885435b732ed60cd8e69e84595909d344719ecb"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/create_tref.pl",
+      "size": 4927,
+      "sha256": "929230080198176550bf940451eec6ab8217feab6ad2f9ac1a9c8821213f8362"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/compare_exportrels2tref.s",
+      "size": 630,
+      "sha256": "f5b1258ab680ae021128f1fcd30b906eddbafca54a11399764e969553b5e1cc6"
+    },
+    {
+      "path": "sources/NCI_2026_10D/bin/invert_NCI.pl",
+      "size": 40150,
+      "sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9"
+    },
+    {
+      "path": "sources/NCI_2026_10D/etc/README.INVERSION",
+      "size": 4312,
+      "sha256": "0f90b0033c85a9e98db8a819bfe5a5667440077037536e98305839ce2c7518e7"
+    },
+    {
+      "path": "sources/NCI_2026_10D/etc/nci.cfg",
+      "size": 11731,
+      "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a"
+    },
+    {
+      "path": "sources/NCI_2026_10D/etc/qa/conservation.txt",
+      "size": 27260,
+      "sha256": "02ab5a886a23c5296c6b5d856797034fbc0a3673fa3631a6b4b3640a28526429"
+    },
+    {
+      "path": "sources/NCI_2026_10D/orig/conservation.txt",
+      "size": 26823,
+      "sha256": "dff03de3f9557cfe45bb3ca58e8ca95edd1fa7f91199cef623056930ffb3337d"
+    },
+    {
+      "path": "sources/SNOMEDCT_US_2026_09_01/bin/rmdanglingattrs.pl",
+      "size": 462,
+      "sha256": "df549de020a643b276259d7de47fc087c0f9a108b96584d26f4b497cc06b0955"
+    },
+    {
+      "path": "sources/SNOMEDCT_US_2026_09_01/bin/invert_rf2.pl",
+      "size": 57536,
+      "sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3"
+    },
+    {
+      "path": "sources/SNOMEDCT_US_2026_09_01/bin/invert.s",
+      "size": 2930,
+      "sha256": "406a73b3e24e4e980cc8c5d5aaed237a53fd429ef44a667328692b5980934371"
+    },
+    {
+      "path": "sources/SNOMEDCT_US_2026_09_01/etc/README.txt",
+      "size": 4530,
+      "sha256": "5cac7aa3e29a17c3dea8922886205900661e83920d5cbd9305b9cb9ca36874d6"
+    },
+    {
+      "path": "sources/SNOMEDCT_US_2026_09_01/etc/sct.cfg",
+      "size": 28903,
+      "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+    },
+    {
+      "path": "sources/MTH_2026AA/env.s",
+      "size": 263,
+      "sha256": "7f56e9d6068c0cd6ee8c3a7b37baaf66218fcaaed278d6ad12e61766b6da9277"
+    },
+    {
+      "path": "sources/MTH_2026AA/extractlnc.s",
+      "size": 1786,
+      "sha256": "fc72417c1fd81c311254ac28ccd2a65a00a3386ec162bec539851dde2184c9bd"
+    },
+    {
+      "path": "sources/MTH_2026AA/extractsctus.s",
+      "size": 1436,
+      "sha256": "0accc27a56f202963c4dcc3ad44769a180a4ad1dbd9154882d97d8dec0e6eb02"
+    },
+    {
+      "path": "sources/MTH_2026AA/fix.mthsab.s",
+      "size": 1021,
+      "sha256": "322c5a3e08965fbddc6f78628b04e0528299fdaa789a98f1204a7bddc5b9f0c2"
+    },
+    {
+      "path": "sources/MTH_2026AA/initdir.s",
+      "size": 777,
+      "sha256": "65f05cb5fa3543d0d39af29d4e6b6bf1e7ee28094369d305fa192f2180ece904"
+    },
+    {
+      "path": "sources/MTH_2026AA/make.meme4classes.s",
+      "size": 659,
+      "sha256": "e4be9fbb346d7adad09ffc5290f789ef345c5276f29f02f26cdb5e1861b9afc6"
+    },
+    {
+      "path": "sources/MTH_2026AA/preinvert1.s",
+      "size": 895,
+      "sha256": "33927c1b9427782184ced1485a5ed602631d3ee8c454ea3900491806ed6fe830"
+    },
+    {
+      "path": "sources/MTH_2026AA/preinvert2.s",
+      "size": 2061,
+      "sha256": "51c582a73a972e70fcb6078798623760dd078a53afaef2ef3f3f4c6b536ddbbe"
+    },
+    {
+      "path": "sources/MTH_2026AA/runQA.s",
+      "size": 330,
+      "sha256": "cb7337ac819fc4354d5a18fe1941a7addabf4bfd503142dd0a202e2649bf0214"
+    },
+    {
+      "path": "sources/MTH_2026AA/updatevsabs.s",
+      "size": 1211,
+      "sha256": "f9f1edeb7cd7403e403ccbd3ab8d813194f293687a849b4e6a3acc1e3f7b6d74"
+    },
+    {
+      "path": "sources/MTH_2026AA/autoinv.pl",
+      "size": 23309,
+      "sha256": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d"
+    },
+    {
+      "path": "sources/MTH_2026AA/fix.ccs.sf.pl",
+      "size": 144,
+      "sha256": "ff7bb5733b3c554fd0c8bfb4f8f3a6a65de2d100eeaafe05777fb2ea4e170a48"
+    },
+    {
+      "path": "sources/MTH_2026AA/fix.vsrc.atoms.pl",
+      "size": 482,
+      "sha256": "5bedc80feccd922b193d3c0b2f338d446f3bf28621e864ddfef639b42c9d4520"
+    },
+    {
+      "path": "sources/MTH_2026AA/genmmsysconfigs.pl",
+      "size": 2475,
+      "sha256": "ccc95a44ecf50b23d9fc8a174c535bc4dc99fc00ad97caa8c209017f71e2e627"
+    },
+    {
+      "path": "sources/MTH_2026AA/get.saidpts.pl",
+      "size": 1111,
+      "sha256": "f7bd7cf278645818e5ed89759f782c01d43ed3507388ed96c03d58cb863237e3"
+    },
+    {
+      "path": "sources/MTH_2026AA/guess.ncisources.spec.pl",
+      "size": 1093,
+      "sha256": "cdcafcea8d87a4e4ae042b030c154f96df089a951de025a4cbabccfd2aa369b9"
+    },
+    {
+      "path": "sources/MTH_2026AA/make.meme4classes.pl",
+      "size": 668,
+      "sha256": "343237b79a7f789a17a959bf718d1d42f7250a89a8af324dcd697e00d688f01a"
+    },
+    {
+      "path": "sources/MTH_2026AA/make.sourcestermgroups.pl",
+      "size": 3562,
+      "sha256": "b293b1eab7e2c01c07d5dda31342efa2f71e909fe94989bfa1f2b8f591350a77"
+    },
+    {
+      "path": "sources/MTH_2026AA/mrcxt2raw3.pl",
+      "size": 1756,
+      "sha256": "b4d5d287f1e69d93ddae99b4cd3c2bc993c27f40b1668c6090c18ac84e6e374f"
+    },
+    {
+      "path": "sources/MTH_2026AA/remove.oldsrcvsabs.pl",
+      "size": 790,
+      "sha256": "816bbd6c7bcc600b0f5fb7149598b6ac6bae136a27b2be87a4d1aca231300d29"
+    },
+    {
+      "path": "sources/MTH_2026AA/updatevsabs.pl",
+      "size": 1020,
+      "sha256": "eef63b30752c2a956b88be52321ec28aa4fd6414bf4b0dbee602b4b256603dc6"
+    },
+    {
+      "path": "sources/MTH_2026AA/raw_to_contexts.csh",
+      "size": 5699,
+      "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1"
+    },
+    {
+      "path": "sources/MTH_2026AA/bigrange.spec",
+      "size": 53,
+      "sha256": "77beef0af7c82fb1ee705f0d299091f27d568a2a683d4c567eb16607fe1ad137"
+    },
+    {
+      "path": "sources/MTH_2026AA/inv1.spec",
+      "size": 1302,
+      "sha256": "adeddeedf73eb97161f1d324f87a89c88ca29f04994c5682401a8782a08fe024"
+    },
+    {
+      "path": "sources/MTH_2026AA/inv2.spec",
+      "size": 3422,
+      "sha256": "88d6665fcf3e90be9d6206e3e92ec1099496bf43a1a73adb115e1a9e789cbe13"
+    },
+    {
+      "path": "sources/MTH_2026AA/inv3.spec",
+      "size": 770,
+      "sha256": "184e02a0dcd44e58ebf16ab6c074cc50882d45b7ad4b18e780ac9e1f80c8bd8d"
+    },
+    {
+      "path": "sources/MTH_2026AA/runmmsys.s",
+      "size": 4047,
+      "sha256": "06a56c1a94b53874f848ced55d8a2ba59be929b0791bbb3517602661f703f0ff"
+    },
+    {
+      "path": "sources/MTH_2026AA/invert1.s",
+      "size": 4706,
+      "sha256": "abd7971efdf0d01091d0d23918ea8d1ab037706c70494be99aaa2d08e3090840"
+    },
+    {
+      "path": "sources/MTH_2026AA/range3.spec",
+      "size": 55,
+      "sha256": "e5eee6e149ee5e9653fb9001bb92eacdc02aa794f209d44391eb27a3f5ff51f9"
+    },
+    {
+      "path": "sources/MTH_2026AA/ncisources.spec",
+      "size": 6018,
+      "sha256": "770d49565cb8f04e9aa4d2747d009c2fbda8c886e5e17f87030438cc2dbc79e2"
+    },
+    {
+      "path": "sources/MTH_2026AA/invert2.s",
+      "size": 8969,
+      "sha256": "04705b345748ba16a9a4a29bcb2c131d1aec9334cacd07ea49ed7ea5a33c3a75"
+    },
+    {
+      "path": "sources/MTH_2026AA/src/inv3.spec",
+      "size": 768,
+      "sha256": "d51bc362cd1c1f194bc3171cf3a028216c706ed274f2d67c387990da328a2738"
+    },
+    {
+      "path": "sources/MTH_2026AA/src/inv1.spec",
+      "size": 1306,
+      "sha256": "8d48836ac5935224477f90af859da1223d032fa417c870097e5b266f0e507792"
+    },
+    {
+      "path": "sources/MTH_2026AA/src/inv2.spec",
+      "size": 3426,
+      "sha256": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2"
+    },
+    {
+      "path": "archive/projects/TDE_QA/confirm_mapping_codes.pl",
+      "size": 840,
+      "sha256": "e1265faffbebaa4bf67a460840cfa681896fcd4892071fff4c127d9ed461e10f"
+    },
+    {
+      "path": "archive/projects/TDE_QA/get_dup_atoms.pl",
+      "size": 1260,
+      "sha256": "957da1b09310518d658ebfcabb44c0b883ae76f69c5719d948155d07579e129a"
+    },
+    {
+      "path": "archive/projects/TDE_QA/check-nci-gloss.pl",
+      "size": 2497,
+      "sha256": "7438a454c9f860833c31f7e7200cccfe8d27062b1cba7cc54f88f075b96b47e0"
+    },
+    {
+      "path": "archive/projects/TDE_QA/check.pts_qual.pl",
+      "size": 2958,
+      "sha256": "1655d862fa271f90559b9fc05da779c21a8953a0c97f1e5f7f7b9704e9e3b783"
+    },
+    {
+      "path": "archive/projects/TDE_QA/get_PrefName_dups.pl",
+      "size": 731,
+      "sha256": "f6ccda9080cd46b7e5ecefb2d0c56e91663e86c9d3a90a0b9c7e832bcfd07b98"
+    },
+    {
+      "path": "archive/projects/TDE_QA/get_FULL_SYN-PT_dups.pl",
+      "size": 1209,
+      "sha256": "821058871165bd2d407ab13b4b206f6ec96b6d975b646c00a3d800711fb61c8b"
+    },
+    {
+      "path": "archive/projects/TDE_QA/get_self_refs.pl",
+      "size": 504,
+      "sha256": "d25df61b9f03737605d9042f144ea0139d2bbfc932d200c1054e76c7d3b33c72"
+    },
+    {
+      "path": "archive/projects/TDE_QA/get-prevsubsources-qual.pl",
+      "size": 1168,
+      "sha256": "a0972dda360ba503d347c7181be51f3776bc46f71eafd10426b3934848348765"
+    },
+    {
+      "path": "archive/projects/TDE_QA/check.conflictingrels.s",
+      "size": 11998,
+      "sha256": "292c4853c718f3f8fa7a143fd5e22e99156bc985766917b0faff6045f3f8e11c"
+    },
+    {
+      "path": "archive/projects/TDE_QA/checkall-qual.csh",
+      "size": 24848,
+      "sha256": "1ea8e327fad0be403d42c53139902e4d1ed06cfeb9c9d457c342fbdd5aa2fe7f"
+    }
+  ],
+  "supplement_hashes": [
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/ncimid.readme",
+      "sha256": "d4c22bee75d3d7ef7e0fa90e1c25fae6a5711efe5b51cd399f3d5c2d92a60f86"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/sab.vsab.map",
+      "sha256": "3b47bacc4e48c7c51a4a8c6f0e96fd1ab98656afa50d18de8469be7e2b865b02"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/src_data",
+      "sha256": "fb3e47382e911af3177216a193bb6166471243a6f44abfffcc8a6554d332937c"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/ncimid.sources",
+      "sha256": "059038919f1a9a076cb55213c8cc64e65f0d81491d41b5ceebb3f320f0ce3f32"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/ncimid.termgroups",
+      "sha256": "ae222dbd75728487631a65e607726addc4318f62802815e174b7bc824c84a470"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/ncisources.spec.guessed",
+      "sha256": "2175fb4eae943aff8d0315a2085278fc9a1a8435fd050d966001572a5a122920"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/ncirest.prop",
+      "sha256": "9f99f8b0f7f2b8f16497d72be0b342715ac5f33bf20f0995c69663d7963af9b9"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/template.prop",
+      "sha256": "108c195b01be7b92d8ad5f91a5cd142c475997f5bb960ba2ec68981b0b914d07"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/ncim/bin/push_s3.csh",
+      "sha256": "85c911b3d1c9db0c3b1f208854526a6da4c240baf3b85c7099941fec790ee1dd"
+    },
+    {
+      "path": "tomcata.cshrc.selected_environment_lines",
+      "sha256": "a40b670418485924368bd88b186654840413f0ad6978b184dcf91da662ede4bf"
+    }
+  ],
+  "verification": [
+    {
+      "name": "MTH preinvert2 KEEP/UPDATE field selection against deployed ncisources.spec",
+      "field_2_matches": 0,
+      "field_3_matches": 46
+    },
+    {
+      "name": "FldMon two null required-field values, isolated local probe",
+      "nullable_after": 2,
+      "ENullFlds_after": 0,
+      "error_samples_recorded": 1
+    },
+    {
+      "name": "Shared SrcDiffs compile using local Perl",
+      "exit_code": 255,
+      "error": "defined(@array) at line 247"
+    }
+  ],
+  "scope_limits": [
+    "The five user-supplied DOCX exports were reviewed; other contents of the Drive folder were not accessed.",
+    "No full inversion, test insertion, production modification, S3 restore, or current database baseline query performed.",
+    "Local runtime checks do not establish the server runtime compatibility."
+  ],
+  "shared_library_comparison": {
+    "method": "original server SHA-256 versus local file SHA-256",
+    "matched_modules": 39,
+    "differences_or_missing": []
+  },
+  "user_clarifications": [
+    "NCIt may skip a publisher month: August can be the replacement baseline for October, without a September insertion.",
+    "Older and sizeable release folders are intentionally archived in S3, with history going back several years; absence from the server is expected local staging behavior, not evidence of archival data loss.",
+    "Existing scripts in /local/content/MEME/MEME5/ncim/bin already list, pull, push and update archived source versions; reuse them in the lifecycle.",
+    "Begin a fresh implementation from the operational code on meme-edit as the authoritative baseline; previous project rework branches and wrappers are informative only, not the foundation."
+  ],
+  "documents": [
+    {
+      "name": "Basic inversion instructions.docx",
+      "path": "/Users/shapirod2/Downloads/Basic inversion instructions.docx",
+      "sha256": "5c67b0159e27286e5925ade14e27cf1d9066141ad8ddd04f49ecbf6dc793d615",
+      "review_method": "full native text extraction plus package structure inspection",
+      "rendered_page_numbers_used": false
+    },
+    {
+      "name": "MTH Inversion.docx",
+      "path": "/Users/shapirod2/Downloads/MTH Inversion.docx",
+      "sha256": "ad8f3ab81b1cfa689a95a7e7a96df1b7dc00e8d45926863f943b374b4592dccc",
+      "review_method": "full native text extraction plus package structure inspection",
+      "rendered_page_numbers_used": false
+    },
+    {
+      "name": "WCI Documentation - SNOMEDCT_US inversion for NCI.docx",
+      "path": "/Users/shapirod2/Downloads/WCI Documentation - SNOMEDCT_US inversion for NCI.docx",
+      "sha256": "a1a67d2ef5a1592ff3d7135693da37797422687a5724ef60f629ebdf092a3193",
+      "review_method": "full native text extraction plus package structure inspection",
+      "rendered_page_numbers_used": false
+    },
+    {
+      "name": "SNOMEDCT_US inversion for NCI.docx",
+      "path": "/Users/shapirod2/Downloads/SNOMEDCT_US inversion for NCI.docx",
+      "sha256": "3648dc5aa07548072af533ffb94f85fcabc3ace4c6734a803d5e081adfc5d42a",
+      "review_method": "full native text extraction plus package structure inspection",
+      "rendered_page_numbers_used": false
+    },
+    {
+      "name": "NCIt Inversion Documentation.docx",
+      "path": "/Users/shapirod2/Downloads/NCIt Inversion Documentation.docx",
+      "sha256": "f0a9d22683825aaff03bf78382a2f4c017a3d4c93d890e370b7931ed03b801dd",
+      "review_method": "full native text extraction plus package structure inspection",
+      "rendered_page_numbers_used": false
+    }
+  ],
+  "archive_availability": {
+    "source": "user clarification",
+    "history": "Several years of older and sizeable release folders retained in S3",
+    "s3_objects_independently_inspected": false,
+    "restore_performed": false,
+    "dependency_check_scope": "Local filesystem at collection time; exists=false does not establish absence from S3."
+  },
+  "s3_tooling_review": {
+    "captured_at": "2026-11-03T17:42:15.045619+00:00",
+    "source": "/local/content/MEME/MEME5/ncim/bin",
+    "inspection_only": true,
+    "s3_operations_executed": false,
+    "files": [
+      {
+        "path": "/local/content/MEME/MEME5/ncim/bin/backupIndexes.csh",
+        "size": 3292,
+        "sha256": "15cfb76a1cafbc0e81d3a3c06006b4ab5fb773be034ac4cbf9b8497da10c3aa0"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/ncim/bin/list_s3.csh",
+        "size": 1522,
+        "sha256": "bdd744e0f9a49859e631c2ff62c85586c3e4a7b6d807f9698443d67ba5c3fce1"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/ncim/bin/pull_s3.csh",
+        "size": 4174,
+        "sha256": "42bae55e9cc014387a1059481b8a566a73b56c217d6097688bac4ceb59c9c3d0"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/ncim/bin/push_s3.csh",
+        "size": 3515,
+        "sha256": "85c911b3d1c9db0c3b1f208854526a6da4c240baf3b85c7099941fec790ee1dd"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/ncim/bin/test_insertion.sh",
+        "size": 5324,
+        "sha256": "64e70e74e4456eb05f2e09d2ca23d3cce6c324f9364c75c35dcae4d89c5909cc"
+      }
+    ],
+    "recommendation": "Reuse list_s3.csh, pull_s3.csh and push_s3.csh/--update; add dependency planning and verification, with focused shared-script hardening as needed."
+  },
+  "revised_priorities": [
+    {
+      "priority": 1,
+      "item": "Isolated replay/comparison apparatus, trustworthy validation and release gates"
+    },
+    {
+      "priority": 2,
+      "item": "Canonical versioned operational code; eliminate copy-forward executable state"
+    },
+    {
+      "priority": 3,
+      "item": "Explicit baseline and release lifecycle using existing S3 tools"
+    },
+    {
+      "priority": 4,
+      "item": "Consolidated metadata and representation rules"
+    },
+    {
+      "priority": 5,
+      "item": "Incremental transformation migration"
+    },
+    {
+      "priority": 6,
+      "item": "Optional skill and simpler operator interface"
+    }
+  ],
+  "priority_reassessment_basis": "Multi-year S3 archives and existing list/pull/push/update scripts remove the basis for treating archive preservation or replacement S3 tooling as a standalone top priority. Restore verification supports baseline preparation and regression testing.",
+  "test_architecture": {
+    "status": "proposed_not_implemented",
+    "requirements_source": "User request for development isolation over multiple cycles and source/version replay against official S3 inversions",
+    "design": "test-architecture.md",
+    "request_template": "request-template.json",
+    "request_schema": "request.schema.json",
+    "worker_provisioned": false,
+    "candidate_inversion_executed": false,
+    "official_s3_reference_retrieved": false,
+    "key_contracts": [
+      "Candidate runs away from meme-edit with private storage/runtime",
+      "Reuse existing S3 tooling with read-only official-reference acquisition",
+      "Pin reference stage and snapshot identity separately from candidate output",
+      "Resolve historical baselines, metadata and IDs explicitly",
+      "Validate independently and compare record multiplicity, identifier correspondence and semantic structure",
+      "First prove unchanged legacy replay against a frozen reference"
+    ],
+    "historical_reproduction_status": "Not yet tested; live DB queries are potential external inputs, not proof that historical output cannot be reproduced. Separate output-affecting lookups from QA-only lookups and audit archived exports before identifying actual gaps."
+  },
+  "common_configuration": {
+    "status": "proposed_not_implemented",
+    "requirements_source": "User request for shared configuration and consistent parameter names across NCI, SNOMEDCT_US and MTH",
+    "design": "configuration.md",
+    "schema": "configuration.schema.json",
+    "examples": [
+      "configuration-examples/nci.json",
+      "configuration-examples/snomedct_us.json",
+      "configuration-examples/mth.json"
+    ],
+    "key_contracts": [
+      "One common schema and vocabulary with typed source-specific options",
+      "Replacement baseline, comparison baseline and publisher history remain distinct",
+      "Exact version is a VSAB; publisher suffixes and native filenames are derived or read from artifact manifests",
+      "Complete inclusive SAID bounds include SRC atoms; adapters handle MTH base offset",
+      "Short test requests expand into this same configuration and immutable case lock",
+      "Initial adapters generate legacy settings without requiring simultaneous parser rewrites"
+    ],
+    "examples_are_illustrative": true,
+    "example_id_ranges_are_actual_reservations": false,
+    "legacy_adapters_implemented": false,
+    "schema_validation_limit": "JSON syntax, local reference resolution and targeted example contract checks only; no full JSON Schema validator is installed."
+  },
+  "implementation_starting_point": {
+    "authority": "Explicit user direction",
+    "baseline": "Verified operational deployment on meme-edit",
+    "prior_project_rework_role": "Informative evidence only; no inherited implementation foundation",
+    "required_capture": [
+      "Shared libraries",
+      "Active source-specific scripts and specifications",
+      "Mappings and defaults",
+      "Configuration and runtime/environment dependencies",
+      "Archive-tool dependency identities"
+    ],
+    "assessment_snapshot_host": "ncias-q3793-c",
+    "active_deployment_relationship_verified": false,
+    "production_baseline_imported": true,
+    "clean_implementation_branch_created": true,
+    "first_gate": "Unchanged production-engine replay in the isolated development environment against matching official reference inputs and outputs",
+    "correctness_boundary": "Production behavior is the compatibility reference; known defects still require reviewed corrections and independent validation",
+    "baseline_procedure": "baselining.md",
+    "repository_state_at_procedure_design": {
+      "branch": "main",
+      "commit": "3be55ea33024ba9ef998207c1a6de9eb3e482a56",
+      "remote": "https://github.com/WestCoastInformatics/meme-inversion.git",
+      "tracked_code_scope": "Shared INV tree; not a complete capture of all three operational source workflows",
+      "planning_documents": "Untracked docs directory; preserve during baseline import",
+      "git_mutations_performed": "No mutation at design time; baseline import performed subsequently as recorded in production_capture"
+    },
+    "production_capture": {
+      "completed_at": "2026-11-03T21:26:48.633644+00:00",
+      "repository": "/Users/shapirod2/Code/workspace-meme-inversion",
+      "worktree": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/worktree",
+      "branch": "baseline/meme-edit-20261103",
+      "snapshot_tag": "production-snapshot-20261103",
+      "snapshot_commit": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "source_files_and_links": 285,
+      "snapshot_tree_entries": 292,
+      "sanitized_files": 4,
+      "checks": [
+        "Stable read-only source capture",
+        "Source/blob SHA-256 comparison",
+        "Exact path allowlist",
+        "Executable-bit and symlink verification",
+        "Staged and committed Git blob verification",
+        "Documented credential redactions"
+      ],
+      "functional_replay_executed": false,
+      "pushed": false,
+      "legacy_whitespace_check_status": 2,
+      "legacy_whitespace_warnings_preserved": 1021,
+      "manifest_in_baseline_branch": "baseline/manifest.json",
+      "source_selection_basis": "User-specified server path, scripts/runbooks and observed execution/output artifacts; current installed DB state not queried",
+      "physical_host_verified": true,
+      "web_alias_relationship": "The meme-edit web hostname resolves to a load balancer, not a direct host alias"
+    }
+  }
+}
