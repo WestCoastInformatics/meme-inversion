@@ -1,0 +1,411 @@
+{
+  "inspection_date": "2026-11-03",
+  "ssh_host": "ncias-d3777-c",
+  "reported_host": "ncias-d3777-c.nci.nih-gov",
+  "ssh_account": "shapirod2",
+  "run_account": "tomcata",
+  "storage_separate_from_production": {
+    "confirmed_by": "user",
+    "value": true
+  },
+  "cpu_count": 8,
+  "memory_kib": {
+    "MemTotal": 32487648,
+    "MemAvailable": 27463884,
+    "SwapTotal": 0,
+    "SwapFree": 0
+  },
+  "paths": [
+    {
+      "path": "/",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/",
+      "readable": true,
+      "writable": false,
+      "device": 66305,
+      "mode": "0o555",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720
+    },
+    {
+      "path": "/local",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local",
+      "readable": true,
+      "writable": false,
+      "device": 66305,
+      "mode": "0o755",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720
+    },
+    {
+      "path": "/local/content",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content",
+      "readable": true,
+      "writable": false,
+      "device": 66305,
+      "mode": "0o755",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720
+    },
+    {
+      "path": "/local/content/MEME",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME",
+      "readable": true,
+      "writable": true,
+      "device": 66305,
+      "mode": "0o755",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720
+    },
+    {
+      "path": "/local/content/MEME/MEME5",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5",
+      "readable": true,
+      "writable": true,
+      "device": 66305,
+      "mode": "0o750",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720,
+      "entries": [
+        "39751",
+        "inv",
+        "ncim"
+      ]
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/inv",
+      "readable": true,
+      "writable": true,
+      "device": 66305,
+      "mode": "0o750",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720,
+      "entries": [
+        "sources"
+      ]
+    },
+    {
+      "path": "/local/content/MEME/MEME5/mr",
+      "exists": false,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/mr",
+      "readable": false,
+      "writable": false
+    },
+    {
+      "path": "/local/content/MEME/MEME5/ncim/bin",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/content/MEME/MEME5/ncim/bin",
+      "readable": true,
+      "writable": true,
+      "device": 66305,
+      "mode": "0o750",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720,
+      "entries": [
+        "backupIndexes.csh",
+        "cronvalidate.csh",
+        "getMaintHtml.sh",
+        "lib",
+        "list_aws.csh",
+        "list_s3.csh",
+        "make_config.csh",
+        "make_id_files.csh",
+        "nightlyTasks.csh",
+        "prep_insertion.csh",
+        "pull_s3.csh",
+        "push_s3.csh",
+        "qa_checks.csh",
+        "rebuildDeepRels.sql",
+        "refresh_rds.csh",
+        "resize_ec2.csh",
+        "sleep_ec2.csh",
+        "sleep_rds.csh",
+        "terminology_download_script",
+        "test_insertion.sh",
+        "wake_ec2.csh",
+        "wake_rds.csh",
+        "weeklyTasks.csh"
+      ]
+    },
+    {
+      "path": "/local/home/tomcata",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/local/home/tomcata",
+      "readable": true,
+      "writable": true,
+      "device": 66305,
+      "mode": "0o700",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720
+    },
+    {
+      "path": "/var/tmp",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/var/tmp",
+      "readable": true,
+      "writable": true,
+      "device": 66305,
+      "mode": "0o1777",
+      "total_bytes": 214668652544,
+      "available_bytes": 131717406720
+    },
+    {
+      "path": "/tmp",
+      "exists": true,
+      "is_symlink": false,
+      "resolved": "/tmp",
+      "readable": true,
+      "writable": true,
+      "device": 37,
+      "mode": "0o1777",
+      "total_bytes": 16633675776,
+      "available_bytes": 16625135616
+    }
+  ],
+  "versions": {
+    "uname": {
+      "command": [
+        "uname",
+        "-srvmo"
+      ],
+      "status": 0,
+      "output": "Linux 6.1.188-233.386.amzn2023.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Sep 25 01:46:49 UTC 2026 x86_64 GNU/Linux\n"
+    },
+    "perl": {
+      "command": [
+        "perl",
+        "-e",
+        "print \"$^V\\n\"; print join(\"\\n\", @INC), \"\\n\";"
+      ],
+      "status": 0,
+      "output": "v5.32.1\n/usr/local/lib64/perl5/5.32\n/usr/local/share/perl5/5.32\n/usr/lib64/perl5/vendor_perl\n/usr/share/perl5/vendor_perl\n/usr/lib64/perl5\n/usr/share/perl5\n"
+    },
+    "python": {
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "status": 0,
+      "output": "Python 3.9.25\n"
+    },
+    "java": {
+      "command": [
+        "java",
+        "-XX:-UsePerfData",
+        "-version"
+      ],
+      "status": 0,
+      "output": "openjdk version \"25.0.4.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS)\nOpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4.1+10-LTS, mixed mode, sharing)\n"
+    },
+    "tcsh": {
+      "command": [
+        "tcsh",
+        "--version"
+      ],
+      "status": 0,
+      "output": "tcsh 6.24.14 (Astron) 2024-11-26 (x86_64-unknown-linux) options wide,nls,dl,al,kan,sm,rh,color,filec\n"
+    },
+    "sort": {
+      "command": [
+        "sort",
+        "--version"
+      ],
+      "status": 0,
+      "output": "sort (GNU coreutils) 8.32\nCopyright (C) 2020 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by Mike Haertel and Paul Eggert.\n"
+    },
+    "aws": {
+      "command": [
+        "aws",
+        "--version"
+      ],
+      "status": 0,
+      "output": "aws-cli/2.36.47 Python/3.9.25 Linux/6.1.188-233.386.amzn2023.x86_64 source/x86_64.amzn.2023\n"
+    },
+    "git": {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "status": 0,
+      "output": "git version 2.50.1\n"
+    },
+    "docker": {
+      "error": "[Errno 2] No such file or directory: 'docker'"
+    },
+    "podman": {
+      "error": "[Errno 2] No such file or directory: 'podman'"
+    },
+    "unshare": {
+      "command": [
+        "unshare",
+        "--version"
+      ],
+      "status": 0,
+      "output": "unshare from util-linux 2.37.4\n"
+    }
+  },
+  "namespace_probe": {
+    "command": [
+      "unshare",
+      "--user",
+      "--map-root-user",
+      "--mount",
+      "--net",
+      "/usr/bin/true"
+    ],
+    "status": 0,
+    "output": ""
+  },
+  "archive_bucket": "nci-evs-meme",
+  "aws_authentication_verified": true,
+  "aws_effective_permissions_audited": false,
+  "s3_calls_performed": [
+    "ListObjectsV2",
+    "HeadObject"
+  ],
+  "archive_metadata": {
+    "NCI_2026_10D": {
+      "list_status": 0,
+      "objects": [
+        {
+          "key": "inv/sources/NCI_2026_10D.tgz",
+          "head_status": 0,
+          "compressed_bytes": 546021953,
+          "last_modified_utc": "2026-11-02T19:27:52+00:00",
+          "etag": "\"963c247639c26378f2864699905fe2f0-66\"",
+          "version_id": null,
+          "content_sha256": null
+        }
+      ]
+    },
+    "NCI_2026_09D": {
+      "list_status": 0,
+      "objects": [
+        {
+          "key": "inv/sources/NCI_2026_09D.tgz",
+          "head_status": 0,
+          "compressed_bytes": 545396090,
+          "last_modified_utc": "2026-10-06T01:08:57+00:00",
+          "etag": "\"c1660ac87d8b07368bf266cd19e02e97-66\"",
+          "version_id": null,
+          "content_sha256": null
+        }
+      ]
+    },
+    "NCI_2026_08E": {
+      "list_status": 0,
+      "objects": [
+        {
+          "key": "inv/sources/NCI_2026_08E.tgz",
+          "head_status": 0,
+          "compressed_bytes": 543332829,
+          "last_modified_utc": "2026-09-12T00:00:54+00:00",
+          "etag": "\"92c5af70fea5d62134d74d3dce0bd733-65\"",
+          "version_id": null,
+          "content_sha256": null
+        }
+      ]
+    },
+    "SNOMEDCT_US_2026_09_01": {
+      "list_status": 0,
+      "objects": [
+        {
+          "key": "inv/sources/SNOMEDCT_US_2026_09_01.tgz",
+          "head_status": 0,
+          "compressed_bytes": 2604169969,
+          "last_modified_utc": "2026-10-20T20:43:07+00:00",
+          "etag": "\"7a8716489dd41548f0589c8626394a92-311\"",
+          "version_id": null,
+          "content_sha256": null
+        }
+      ]
+    },
+    "MTH_2026AA": {
+      "list_status": 0,
+      "objects": [
+        {
+          "key": "inv/sources/MTH_2026AA.tgz",
+          "head_status": 0,
+          "compressed_bytes": 2321579873,
+          "last_modified_utc": "2026-06-24T17:04:12+00:00",
+          "etag": "\"0105867fc99cc311bb3e4d53ac43ddf6-277\"",
+          "version_id": null,
+          "content_sha256": null
+        }
+      ]
+    }
+  },
+  "archive_tools": [
+    {
+      "path": "/local/content/MEME/MEME5/ncim/bin/list_s3.csh",
+      "dev_sha256": "bd62bd4a8fcb583292132be1c527994e16ba2c1ae120e275712e2965b79543b1",
+      "baseline_sha256": "bdd744e0f9a49859e631c2ff62c85586c3e4a7b6d807f9698443d67ba5c3fce1",
+      "matches_baseline": false
+    },
+    {
+      "path": "/local/content/MEME/MEME5/ncim/bin/pull_s3.csh",
+      "dev_sha256": "a8fd2af2701c528c102101bca26e6363b2b9b3d934236068420551a125a60983",
+      "baseline_sha256": "42bae55e9cc014387a1059481b8a566a73b56c217d6097688bac4ceb59c9c3d0",
+      "matches_baseline": false
+    },
+    {
+      "path": "/local/content/MEME/MEME5/ncim/bin/push_s3.csh",
+      "dev_sha256": "05b6521d8d1c4d8593f3484ff1af7d2aa296082c74a0da05b565c51fed04a23b",
+      "baseline_sha256": "85c911b3d1c9db0c3b1f208854526a6da4c240baf3b85c7099941fec790ee1dd",
+      "matches_baseline": false
+    }
+  ],
+  "existing_dev_source_directories": [
+    "MDR_29_0",
+    "MDR_29_0.tgz",
+    "MTH_2026AA",
+    "NCI_2026_03E"
+  ],
+  "workspace_created": false,
+  "archives_downloaded": false,
+  "candidate_executed": false,
+  "isolation_scope": "Separate dev host and user-confirmed separate storage; namespace capability tested, but physical path remapping is not selected",
+  "capacity_scope": "Compressed object sizes only; expanded size and peak scratch space not yet measured",
+  "private_raw_evidence_sha256": {
+    "dev-preflight.json": "0b91cb811b80db353e8bf545d5592f70b9c8e243a888dcdec6f97454e516bd9c",
+    "dev-reference-check.json": "8afd58a6a7cb9db97878c9b5cea36bfa73d3a3e2cd85720a75909b3b485879b0"
+  },
+  "inspected_at_utc": "2026-11-03T21:44:19.762585+00:00",
+  "archive_metadata_checked_at_utc": "2026-11-03T21:47:38.425191+00:00",
+  "layout_policy": {
+    "mode": "mirror-production",
+    "root": "/local/content/MEME/MEME5",
+    "standard_paths": {
+      "shared_inversion_code": "/local/content/MEME/MEME5/inv/INV",
+      "environment_framework": "/local/content/MEME/MEME5/inv/ENV",
+      "source_releases": "/local/content/MEME/MEME5/inv/sources/<VSAB>",
+      "reference_ncimeta": "/local/content/MEME/MEME5/mr/ncim/<release>",
+      "publisher_umls": "/local/content/MEME/MEME5/mr/umls/<release>",
+      "archive_tools": "/local/content/MEME/MEME5/ncim/bin",
+      "ncit_shared_qa": "/local/content/MEME/MEME5/inv/archive/projects/TDE_QA"
+    },
+    "source_directory_inventories_must_match": false,
+    "dependency_selection": "Only versions and artifacts declared by the selected run",
+    "extra_source_folders": "Irrelevant to dependency readiness; do not synchronize or remove for parity",
+    "path_relocations": "Explicit design decision with reason and migration impact",
+    "test_artifact_locations": "Choose explicitly without relocating operational source/data folders",
+    "temporary_paths": "Preserve existing configuration; deliberate overrides only",
+    "authority": "User clarification"
+  }
+}

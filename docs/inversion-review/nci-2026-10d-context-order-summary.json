@@ -1,0 +1,76 @@
+{
+  "run_id": "context-order-20261104",
+  "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "completed_at": "2026-11-04T22:01:38.037584+00:00",
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "status": "PASS_EQUIVALENT",
+  "scope": "Five generated core src outputs with archived source metadata; not full release eligibility",
+  "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+  "checks": {
+    "core_exit_zero": true,
+    "metadata_unchanged": true,
+    "atoms_exact": true,
+    "relationships_exact": true,
+    "merges_exact": true,
+    "context_multiset_equal": true,
+    "attribute_content_equal": true,
+    "structural_checks": true,
+    "termgroups_valid": true,
+    "metadata_matches_reference": true,
+    "attribute_ids_unique_and_contiguous": true,
+    "same_attribute_id_span": true,
+    "non_context_attributes_exact": true,
+    "no_attribute_id_or_unknown_reference_types": true
+  },
+  "files": {
+    "classes_atoms.src": {
+      "rows": 803253,
+      "exact_match": true,
+      "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142"
+    },
+    "attributes.src": {
+      "rows": 1265611,
+      "exact_match": false,
+      "sha256": "4de548599a0ce63d52feda7089e8cf6b39f51e1d0d5794654d04a954c68fb80c"
+    },
+    "relationships.src": {
+      "rows": 1228468,
+      "exact_match": true,
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e"
+    },
+    "mergefacts.src": {
+      "rows": 595089,
+      "exact_match": true,
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d"
+    },
+    "contexts.src": {
+      "rows": 1185069,
+      "exact_match": false,
+      "sha256": "cf07ee100571de00a5f43a7c3d83465a24c7346beab018149dfc1bdaf33baf92"
+    }
+  },
+  "non_context_attributes_exact": 796203,
+  "remaining_serialization_differences": "Historical context row order and generated CONTEXT attribute IDs differ; full context records and all attribute content/multiplicity match.",
+  "previous_candidate_preserved_and_verified": true,
+  "preserved_previous_candidate": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-core-20261104",
+  "engine_and_inputs_verified_after_run": true,
+  "hash_seed_fixture": {
+    "seeds": 4,
+    "passed_locally": true,
+    "passed_on_dev": true,
+    "scope": "Seven-node/two-root/three-parent actual hierarchy and serializer regression; full core separately compared once."
+  },
+  "additional_full_graph_seed_check": {
+    "status": "not executed",
+    "reason": "SSH authentication failed before remote execution; authenticated control socket no longer present",
+    "full_data_byte_stability_claimed": false
+  },
+  "comparison_fixtures_passed": 17,
+  "preservation_profile_checks_passed": 21,
+  "full_release_eligibility": "Not assessed: metadata acquisition, MRDOC/legacy QA and insertion are outside this case",
+  "production_deployed": false,
+  "result_receipt": "nci-2026-10d-context-order-result.json",
+  "status_receipt": "nci-2026-10d-context-order-status.json",
+  "next_step": "Prepare unchanged-production SNOMED replay with inversion-stage attributes.orig reference and a source-specific comparison profile."
+}

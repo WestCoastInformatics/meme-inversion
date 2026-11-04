@@ -304,3 +304,95 @@ The user explicitly selected the operational code on meme-edit as the gold stand
 The plan now requires a verified, hashed production snapshot and a clean implementation branch based on that snapshot. Prior automation/rework branches remain informative only. The existing assessment snapshot was collected from `ncias-q3793-c`; its exact relationship to the active meme-edit deployment and the currently used source-specific versions must be verified when freezing the implementation baseline. The 39 matching shared modules establish only that comparison's scope, not completeness of repository main as the production baseline.
 
 No production snapshot import, new implementation branch, or replay execution was performed to record this decision. Compatibility is measured against official production behavior and archived results, with intentional defect corrections separately reviewed and validated.
+
+## E18. Development layout and release-folder selection
+
+The user selected `ncias-d3777-c`, confirmed separate storage from production, and directed the initial setup to mirror meme-edit's physical directory layout. Operational code and data should use their existing standard paths. Relocation is a deliberate design change requiring a stated reason and migration impact, rather than a default consequence of building a test apparatus.
+
+The user separately clarified that dev and production can contain different source/version folder inventories. A run uses the releases and dependencies it needs. Extra folders do not block readiness; required absent releases can be restored from S3. No synchronization or cleanup is needed to make the servers' folder lists match, and folder presence does not establish a replacement baseline.
+
+These instructions supersede the proposed separate replay root and default physical-path remapping. The successful namespace probe remains a capability observation, not a selected deployment layout. No alternate replay root or source relocation was created. The [test architecture](test-architecture.md), [configuration design](configuration.md), and [development readiness report](dev-worker-readiness.md) now reflect this distinction.
+
+## E19. Frozen October archive and explicit input/output boundaries
+
+The first actual S3 reference was acquired on dev without extraction: `inv/sources/NCI_2026_10D.tgz`, 546,021,953 compressed bytes, 104 members, SHA-256 `c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee`. All 20 archived source-code/configuration entries checked against their captured production hashes match. All five publisher files used by role-group/TREF preparation are present, along with archived TREF intermediates and completed core output. See [the reference boundary record](nci-reference-boundaries.md).
+
+`src/sources.src` has source name `NCI_2026_10D` and low source `NCI_2026_08E`, verified using field 2's meaning in `INV/etc/sources.fields` and the loader comments in `SrcBldr.pm`. This is saved metadata evidence for the August-to-October transition, not a fresh database query. The archived `insert` metadata instead has August source names and July low-source tags. Its exact production role is not yet traced, and it is excluded from the October output reference. Same-named `src`/`insert` files all differ; the atom files have 803,253 versus 798,994 newlines.
+
+The core inverter reads prepared `sources.src`/`termgroups.src` plus current TREF data and writes five core `.src` files. Normal invocation uses overwrite rather than append mode. Role-group/TREF preparation reads the current publisher exports. No previous source folder is opened by those inspected stages; prior-state relationships are supplied in the declared metadata. Metadata acquisition, documentation generation, and QA remain separate coverage/dependency decisions.
+
+The first replay must generate role groups, TREF, and core output afresh. It can use archived source metadata as an explicitly declared fixture, but that does not test how that metadata was acquired or edited. A fully restored completed source folder is not a fresh candidate, and copying official atoms/attributes/relationships/contexts into a candidate cannot establish equivalence.
+
+The dev pull helper was updated from the captured production reference with optional archive retention/download-only behavior and targeted failure checks after 12 network-isolated fixture cases passed. The job selected the existing `meme` AWS profile through the environment. No upload, archive extraction, candidate source-folder creation, or inverter execution was performed in this acquisition/audit step.
+
+## E20. Preparation copies current output; it does not rewrite versions
+
+The user identified the pre-insertion copy step. Inspection found identical `ncim/bin/prep_insertion.csh` files on production and dev. For non-MTH sources, lines 92–93 copy current `src/*.src` and `src/*.RRF` unchanged to `insert` by default or `test` with `-t`; line 104 adjusts group ownership. MTH additionally copies `umlscui.txt` and explicitly includes bequeathal relationships. No filtering or version rewrite is performed. [Preparation review](insertion-preparation-review.md)
+
+This establishes the intended role of `insert`, but does not explain its August-labeled contents in the October archive. Those contents do not correspond to current October `src`. Establish the invocation and subsequent-change history before certifying an archived insertion package; do not infer that prep transformed October into August.
+
+The script does not clear a preexisting non-MTH target or explicitly stop on each copy failure. A clean target inventory, verified copies, and hash-bound staging receipts are therefore necessary modernization gates. These properties alone do not prove the cause of this archive mismatch. No preparation or insertion command was executed for this inspection.
+
+## E21. Fresh NCIt preparation and active core replay
+
+The user selected archived October `src` as the key reference and excluded the archive's `insert` contents/history from this replay. No further insertion-history investigation is required for this case.
+
+`tools/prepare_nci_candidate.py` created the standard dev folder `inv/sources/NCI_2026_10D` from the Git production snapshot plus exactly five publisher inputs and two archived metadata inputs. None of the five generated core files was seeded. All five preparation stages ran offline and exited zero. Regenerated MRCONSO, MRREL, and MRSAT TREF files match the archived SHA-256 values byte-for-byte. The [preparation receipt](nci-2026-10d-candidate-preparation.json) includes inputs, code identities, stage timing, and comparisons.
+
+The official atom file has 803,253 unique contiguous IDs, 781548593–782351845. This is observed historical output evidence for this isolated test, not a production allocation reservation.
+
+At this evidence stage the unchanged core inverter was running offline through `tools/run_nci_core_replay.py`. The first attempt's overly short time limit was corrected after the archived log established a 2,247-second production core duration; that attempt was stopped and preserved before the clean restart with a 7,200-second limit. The [run and restart receipt](nci-2026-10d-core-run-status.json) records that launch. Subsequent comparison and candidate results are recorded below; metadata acquisition, MRDOC generation, legacy API-dependent QA, and insertion remain excluded.
+
+## E22. Completed NCIt src comparison and reproduced term-type defect
+
+The corrected core run exited zero and finished on November 3 at 16:29 PST. Five core row counts match the official October archive. Relationships and merge facts match byte-for-byte; context full-record multisets match including duplicate counts. All attribute content matches after excluding only generated attribute row IDs. All 796,203 non-CONTEXT attributes match including IDs; 469,407 CONTEXT attributes have changed generated-ID assignments. Both attribute ID allocations are unique and span 1–1,265,611. `Hierarchy.pm:785` emits contexts/attributes through unsorted hash-key iteration. No attribute-ID reference types occur in the five selected files.
+
+One atom differs substantively: ID 781756819, AMPHIREGULIN, code 7MGE0HPM2H, CUI C1000. Archived termgroup is `FDA_2026_10D/PT`; fresh termgroup is `FDA_2026_10D/`. All other atom fields/rows match. MRCONSO.TREF line 2 contains FDAPT and an original code and is the first subsource PT input. `invert_NCI.pl:742` omits `tty` where the alternate branch at line 628 sets PT. An offline in-memory probe with the actual installed serializer and combined pinned configuration reproduced the empty/default and retained-template behavior. The historical correction that put PT in the archive is not established.
+
+The candidate's missing FDA termgroup is not in its declared termgroups. SRC/VPT, SRC/VAB, SRC/RPT, SRC/RAB and SRC/SSN, also absent from that per-source fixture, are explicitly accepted by `QaTGs.pm:402-409` and must not be misclassified as new defects. Structural/reference checks passed for both file sets; the independent termgroup check still identifies this candidate defect. Comparison is complete; acceptance FAIL, review required. No candidate output or frozen archive was changed.
+
+Fifteen comparison/corruption fixtures passed locally and on dev. SHA-256 identities of the executed comparison and diagnosis code, exact counts, field examples, file structures, digest checks, typed reference checks, and coverage limits are recorded in the [comparison summary](nci-2026-10d-comparison-summary.json), [full comparison](nci-2026-10d-comparison.json), and [diagnosis](nci-2026-10d-atom-diagnosis.json). The two archived metadata inputs remain unchanged. qaStats/MRDOC/legacy QA generation and insertion are excluded from this bounded replay.
+
+## E23. QA and timestamps support a post-QA atom correction
+
+Read-only inspection of the same hash-verified archive's QA reports explicitly found `VUndefinedTG_781756819 => FDA_2026_10D/`, `VUndefinedTTY_781756819 =>`, and the termgroup pattern error for atom 781756819. The archived QA statistics contain exactly one atom in the incomplete FDA termgroup.
+
+Core inversion ended November 1 at 19:44:49 PST; QA ended at 20:24:11; the archived atom file mtime is 20:36:00. Thus the final corrected atom file was modified 11 minutes 49 seconds after QA. This substantially strengthens the earlier unverified-history assessment: a post-QA correction is strongly supported, and a manual edit is plausible. Neither operator identity nor the editing method/command is established. [Hashed excerpts and timeline](nci-2026-10d-post-qa-correction-evidence.json)
+
+The unchanged generator's missing-PT defect remains reproduced; no candidate output or archived file was altered during this inspection. Fix it in the generator and retain a regression fixture rather than treating the official correction as nondeterminism or waiving the difference.
+
+## E24. User accepts the manual post-QA correction as a working assumption
+
+The user stated that she may confirm the edit with the inverter but authorized proceeding on the assumption that the inverter made it after reviewing QA. Record this as an accepted working assumption, with operator confirmation pending and nonblocking. The underlying QA/timestamp evidence remains E23; no new operator/audit evidence was obtained.
+
+The next candidate should explicitly assign PT in the affected path and carry a first-original-code-PT regression fixture. The unchanged baseline's failed termgroup validation and raw comparison remain valid observations and are not waived by this historical explanation.
+
+## E25. Explicit PT fix and regression checks
+
+`fix/nci-explicit-pt` was created from the captured production baseline's planning commit, keeping the original baseline branch/tag unchanged. The sole transformation change is `tty => 'PT'` in `invert_NCI.pl:742`. A fixture runs the actual core inverter with three input orders, preferred terms with/without publisher codes, and a synonym. The unchanged baseline fails the two cold publisher-code-first cases; the fixed script passes all three, locally and on dev. Both versions were exercised on dev with networking disabled after verification of all 169 shared runtime files. Original publisher codes/CUIs and the synonym's SY type are asserted.
+
+At the initial regression stage the source fix and fixture were uncommitted in the separate worktree, with full October replay pending. Subsequent commit, deployment to dev, and completed replay are recorded in E26–E27. No production deployment or official archive was changed. [Patch, hashes and regression results](nci-2026-10d-explicit-pt-fix.json)
+
+## E26. Pinned explicit-PT candidate and preserved dev baseline
+
+The tested source fix and regression fixture were committed locally as `0de8ca21158a2b1efa451ceff26809bbeaee20f9` on `fix/nci-explicit-pt`. Its full October core replay launched with networking disabled at the standard dev source path. E27 records the completed automatic comparison.
+
+Before the source script/output was advanced, 24 prior baseline artifacts totaling 889,361,600 bytes were copied, hash-verified, and made read-only under the release's `etc/qa/replay-runs/baseline-core-20261103`. The new candidate has no seeded generated core output. Current publisher inputs, metadata fixtures and previously reproduced TREF files retain their declared hashes. The core engine commit and reused native-preparation commit are explicit separate fields. [Launch receipt](nci-2026-10d-explicit-pt-launch.json), [candidate request](nci-2026-10d-explicit-pt-case.json)
+
+Seventeen comparison/corruption fixtures and twelve preservation/profile checks passed before that launch, including preservation failure without changing original files, complete read-only preservation before reset, missing preferred-term rejection, duplicate IDs, prohibited attribute-ID references, changed non-context records and missing metadata. The worker subsequently verified the new outputs and engine/input/runtime identities before reporting scoped core equivalence. Production and the official S3 archive are unchanged.
+
+## E27. Explicit-PT full October replay passes
+
+Commit `0de8ca21158a2b1efa451ceff26809bbeaee20f9` completed core inversion at 12:15:52 PST and automatic comparison at 12:17:25 on November 4. All 14 core-profile conditions pass. Atoms, relationships and merge facts match the official archive byte-for-byte. Context full-record multisets and attribute content/multiplicity match under the strictly scoped row-ID profile. All 796,203 non-CONTEXT attributes match including IDs. No undeclared termgroup remains. Inputs, engine and runtime reverified unchanged, and all 24 preserved baseline artifacts rehashed successfully after the run. [Result summary](nci-2026-10d-explicit-pt-summary.json)
+
+The unchanged baseline failure remains historical evidence; the new generator produces the archived PT correction directly. This is core conversion coverage with archived metadata, not full release eligibility. The subsequent ordering proposal was first characterized locally across four seeds without a deployed library change; E28 records its separate committed candidate and full comparison. [Proposal evidence](nci-hierarchy-order-proposal.json)
+
+## E28. Ordering candidate and stage-correct SNOMED reference
+
+The independent ordering candidate `bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09` changes only the active Hierarchy::dumpCxtsAttrs emission loop to sorted keys. A seven-node/two-root/three-parent fixture produces identical context/attribute bytes across four seeds and preserves golden record content. It passes locally and on dev, as do the three PT inversion cases. The full October core comparison completed at 14:01:38 PST on November 4 with PASS_EQUIVALENT, all 14 profile conditions passing. Atoms/relationships/merges match byte-for-byte; context records and attribute content/multiplicity match under the scoped profile. The PT-only result and old shared runtime were preserved before the update and reverified after execution. [Ordering evidence](nci-2026-10d-context-order-fix.json), [full result](nci-2026-10d-context-order-summary.json)
+
+An additional full-graph component seed check did not start because the authenticated SSH session ended. Four-seed fixture stability and the completed full-data comparison are established; full-data byte stability across different seeds is not yet established.
+
+The SNOMED September reference is frozen read-only at its standard archive path, SHA-256 `61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b`, 2,604,169,969 bytes, 120 members, and 25,929,050,786 expanded regular-file bytes. All five code/configuration files match the production snapshot. No candidate source folder was restored or inversion run. Sixteen required native/ICD inventory inputs are present; the absent complex-map file is optional in the inspected engine.
+
+Archived `src/attributes.orig` is an exact prefix of `src/attributes.src`; all 1,133,725 added records are SEMANTIC_TYPE from E-SNOMEDCT_US_2026_09_01. The user confirmed these are added during insertion. The correct inversion oracle is therefore attributes.orig; the final file is a distinct enriched artifact. Keep the original SRC semantic type in comparisons. Both test/sty_term_ids and test/new_sty_defaults exist in the archive and belong to insertion-stage investigation, not required inversion inputs. [SNOMED contract](snomedct-us-2026-09-01-input-output-contract.json), [stage proof](snomedct-us-2026-09-01-attribute-stages.json)

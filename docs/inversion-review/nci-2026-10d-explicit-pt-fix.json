@@ -1,0 +1,544 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "status": "committed and full October core replay passed",
+  "branch": "fix/nci-explicit-pt",
+  "worktree": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/candidate-nci-explicit-pt",
+  "base_commit": "bc085a3c7fa4c069a3cc454aae50861b8e5a7093",
+  "production_import_commit": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "committed": true,
+  "deployed": true,
+  "change": {
+    "path": "sources/NCI_2026_10D/bin/invert_NCI.pl",
+    "line": 742,
+    "description": "Explicitly set tty to PT for preferred terms with an original publisher code",
+    "baseline_sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9",
+    "candidate_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+    "diff": "diff --git a/sources/NCI_2026_10D/bin/invert_NCI.pl b/sources/NCI_2026_10D/bin/invert_NCI.pl\nindex d7d5a6a..8daddb0 100755\n--- a/sources/NCI_2026_10D/bin/invert_NCI.pl\n+++ b/sources/NCI_2026_10D/bin/invert_NCI.pl\n@@ -739,7 +739,7 @@ while (<MRCON>){\n \t\t    if ($tty eq 'PT'){\n \t\t\t \n \t\t  # origcode or cui?\n-\t\t\t$ptAtom -> dumpAtom({vsab => $in2vsab{\"$sab\"},str => $str, scui => $cui, code => $origcode, suppress => 'N'});\n+\t\t\t$ptAtom -> dumpAtom({vsab => $in2vsab{\"$sab\"},str => $str, scui => $cui, code => $origcode, tty => 'PT', suppress => 'N'});\n \t\t\t$pt1Atom = $ptAtom->getLastId();\n \t\t\t  \n \t\t\t          if (defined($cd2merge{$cui})){\n"
+  },
+  "regression_fixture": {
+    "path": "tests/check_nci_pt_termgroups.py",
+    "sha256": "60fe2f5c0ddc94fede308362914c81cfcf5d5b2b10e5ed8f455fa507813f1ed6",
+    "method": "Run the real core inverter on three synthetic TREF/metadata fixtures, including a synonym and retained original publisher codes"
+  },
+  "local_before": {
+    "script": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/candidate-nci-explicit-pt/sources/NCI_2026_10D/bin/invert_NCI.pl",
+    "script_sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9",
+    "shared_runtime": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/candidate-nci-explicit-pt/INV",
+    "config_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+    "all_passed": false,
+    "cases": [
+      {
+        "name": "publisher_code_first",
+        "passed": false,
+        "exit_status": 0,
+        "failures": [
+          "FDA_ORIG_1: expected FDA_2026_10D/PT/C1, got FDA_2026_10D//C1"
+        ],
+        "fda_atoms": [
+          {
+            "id": "100000011",
+            "termgroup": "FDA_2026_10D/",
+            "code": "FDA_ORIG_1",
+            "name": "First FDA preferred term",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000012",
+            "termgroup": "FDA_2026_10D/SY",
+            "code": "FDA_SYN_1",
+            "name": "FDA synonym",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000013",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "C2",
+            "name": "FDA preferred term without publisher code",
+            "source_cui": "C2"
+          },
+          {
+            "id": "100000014",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_2",
+            "name": "Second FDA preferred term",
+            "source_cui": "C2"
+          }
+        ],
+        "log_tail": "Done creating all.\nInitializing\n**** Starting Application -- Wed Nov  4 11:12:57 PST 2026\n\nBegin => Wed Nov  4 11:12:57 PST 2026\n\n********* End SrcBldr**********\n\nDone SRC building => Wed Nov  4 11:12:57 PST 2026\n\nprocessSubsourceAtoms => Wed Nov  4 11:12:57 PST 2026\n\nEdit and un-comment processSubsourceAtoms if there is a new subsource => Wed Nov  4 11:12:57 PST 2026\n\nin processNewSubSource\n\tBegin NCI/PT atom dump. => Wed Nov  4 11:12:57 PST 2026\n\n\tprocess non NCI/PT entries. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin attributes. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin relationships. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin relation grouping. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin Context. => Wed Nov  4 11:12:57 PST 2026\n\nBefore: root nodes are: <100000009>\nAfter: root nodes are: <31926003>\nContext Tree Root Node: 31926003\nDone process => Wed Nov  4 11:12:57 PST 2026\n\nEnd => Wed Nov  4 11:12:57 PST 2026\n\n"
+      },
+      {
+        "name": "two_publisher_codes_before_initialization",
+        "passed": false,
+        "exit_status": 0,
+        "failures": [
+          "FDA_ORIG_1: expected FDA_2026_10D/PT/C1, got FDA_2026_10D//C1",
+          "FDA_ORIG_2: expected FDA_2026_10D/PT/C2, got FDA_2026_10D//C2"
+        ],
+        "fda_atoms": [
+          {
+            "id": "100000011",
+            "termgroup": "FDA_2026_10D/",
+            "code": "FDA_ORIG_1",
+            "name": "First FDA preferred term",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000012",
+            "termgroup": "FDA_2026_10D/SY",
+            "code": "FDA_SYN_1",
+            "name": "FDA synonym",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000013",
+            "termgroup": "FDA_2026_10D/",
+            "code": "FDA_ORIG_2",
+            "name": "Second FDA preferred term",
+            "source_cui": "C2"
+          },
+          {
+            "id": "100000014",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "C2",
+            "name": "FDA preferred term without publisher code",
+            "source_cui": "C2"
+          }
+        ],
+        "log_tail": "Done creating all.\nInitializing\n**** Starting Application -- Wed Nov  4 11:12:57 PST 2026\n\nBegin => Wed Nov  4 11:12:57 PST 2026\n\n********* End SrcBldr**********\n\nDone SRC building => Wed Nov  4 11:12:57 PST 2026\n\nprocessSubsourceAtoms => Wed Nov  4 11:12:57 PST 2026\n\nEdit and un-comment processSubsourceAtoms if there is a new subsource => Wed Nov  4 11:12:57 PST 2026\n\nin processNewSubSource\n\tBegin NCI/PT atom dump. => Wed Nov  4 11:12:57 PST 2026\n\n\tprocess non NCI/PT entries. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin attributes. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin relationships. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin relation grouping. => Wed Nov  4 11:12:57 PST 2026\n\n\tBegin Context. => Wed Nov  4 11:12:57 PST 2026\n\nBefore: root nodes are: <100000009>\nAfter: root nodes are: <31926003>\nContext Tree Root Node: 31926003\nDone process => Wed Nov  4 11:12:57 PST 2026\n\nEnd => Wed Nov  4 11:12:57 PST 2026\n\n"
+      },
+      {
+        "name": "no_publisher_code_first",
+        "passed": true,
+        "exit_status": 0,
+        "failures": [],
+        "fda_atoms": [
+          {
+            "id": "100000011",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "C2",
+            "name": "FDA preferred term without publisher code",
+            "source_cui": "C2"
+          },
+          {
+            "id": "100000012",
+            "termgroup": "FDA_2026_10D/SY",
+            "code": "FDA_SYN_1",
+            "name": "FDA synonym",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000013",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_1",
+            "name": "First FDA preferred term",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000014",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_2",
+            "name": "Second FDA preferred term",
+            "source_cui": "C2"
+          }
+        ],
+        "log_tail": ""
+      }
+    ],
+    "scope": "Real core inverter with synthetic TREF/metadata; no API, QA, insertion or publisher distribution"
+  },
+  "local_after": {
+    "script": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/candidate-nci-explicit-pt/sources/NCI_2026_10D/bin/invert_NCI.pl",
+    "script_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+    "shared_runtime": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/candidate-nci-explicit-pt/INV",
+    "config_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+    "all_passed": true,
+    "cases": [
+      {
+        "name": "publisher_code_first",
+        "passed": true,
+        "exit_status": 0,
+        "failures": [],
+        "fda_atoms": [
+          {
+            "id": "100000011",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_1",
+            "name": "First FDA preferred term",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000012",
+            "termgroup": "FDA_2026_10D/SY",
+            "code": "FDA_SYN_1",
+            "name": "FDA synonym",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000013",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "C2",
+            "name": "FDA preferred term without publisher code",
+            "source_cui": "C2"
+          },
+          {
+            "id": "100000014",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_2",
+            "name": "Second FDA preferred term",
+            "source_cui": "C2"
+          }
+        ],
+        "log_tail": ""
+      },
+      {
+        "name": "two_publisher_codes_before_initialization",
+        "passed": true,
+        "exit_status": 0,
+        "failures": [],
+        "fda_atoms": [
+          {
+            "id": "100000011",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_1",
+            "name": "First FDA preferred term",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000012",
+            "termgroup": "FDA_2026_10D/SY",
+            "code": "FDA_SYN_1",
+            "name": "FDA synonym",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000013",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_2",
+            "name": "Second FDA preferred term",
+            "source_cui": "C2"
+          },
+          {
+            "id": "100000014",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "C2",
+            "name": "FDA preferred term without publisher code",
+            "source_cui": "C2"
+          }
+        ],
+        "log_tail": ""
+      },
+      {
+        "name": "no_publisher_code_first",
+        "passed": true,
+        "exit_status": 0,
+        "failures": [],
+        "fda_atoms": [
+          {
+            "id": "100000011",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "C2",
+            "name": "FDA preferred term without publisher code",
+            "source_cui": "C2"
+          },
+          {
+            "id": "100000012",
+            "termgroup": "FDA_2026_10D/SY",
+            "code": "FDA_SYN_1",
+            "name": "FDA synonym",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000013",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_1",
+            "name": "First FDA preferred term",
+            "source_cui": "C1"
+          },
+          {
+            "id": "100000014",
+            "termgroup": "FDA_2026_10D/PT",
+            "code": "FDA_ORIG_2",
+            "name": "Second FDA preferred term",
+            "source_cui": "C2"
+          }
+        ],
+        "log_tail": ""
+      }
+    ],
+    "scope": "Real core inverter with synthetic TREF/metadata; no API, QA, insertion or publisher distribution"
+  },
+  "dev": {
+    "host": "ncias-d3777-c.nci.nih-gov",
+    "verified_runtime_files": 169,
+    "baseline": {
+      "script": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/bin/invert_NCI.pl",
+      "script_sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9",
+      "shared_runtime": "/local/content/MEME/MEME5/inv/INV",
+      "config_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+      "all_passed": false,
+      "cases": [
+        {
+          "name": "publisher_code_first",
+          "passed": false,
+          "exit_status": 0,
+          "failures": [
+            "FDA_ORIG_1: expected FDA_2026_10D/PT/C1, got FDA_2026_10D//C1"
+          ],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": "Done creating all.\nInitializing\n**** Starting Application -- Wed Nov  4 19:17:20 UTC 2026\n\nBegin => Wed Nov  4 19:17:20 UTC 2026\n\n********* End SrcBldr**********\n\nDone SRC building => Wed Nov  4 19:17:20 UTC 2026\n\nprocessSubsourceAtoms => Wed Nov  4 19:17:20 UTC 2026\n\nEdit and un-comment processSubsourceAtoms if there is a new subsource => Wed Nov  4 19:17:20 UTC 2026\n\nin processNewSubSource\n\tBegin NCI/PT atom dump. => Wed Nov  4 19:17:20 UTC 2026\n\n\tprocess non NCI/PT entries. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin attributes. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin relationships. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin relation grouping. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin Context. => Wed Nov  4 19:17:20 UTC 2026\n\nBefore: root nodes are: <100000009>\nAfter: root nodes are: <31926003>\nContext Tree Root Node: 31926003\nDone process => Wed Nov  4 19:17:20 UTC 2026\n\nEnd => Wed Nov  4 19:17:20 UTC 2026\n\n"
+        },
+        {
+          "name": "two_publisher_codes_before_initialization",
+          "passed": false,
+          "exit_status": 0,
+          "failures": [
+            "FDA_ORIG_1: expected FDA_2026_10D/PT/C1, got FDA_2026_10D//C1",
+            "FDA_ORIG_2: expected FDA_2026_10D/PT/C2, got FDA_2026_10D//C2"
+          ],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": "Done creating all.\nInitializing\n**** Starting Application -- Wed Nov  4 19:17:20 UTC 2026\n\nBegin => Wed Nov  4 19:17:20 UTC 2026\n\n********* End SrcBldr**********\n\nDone SRC building => Wed Nov  4 19:17:20 UTC 2026\n\nprocessSubsourceAtoms => Wed Nov  4 19:17:20 UTC 2026\n\nEdit and un-comment processSubsourceAtoms if there is a new subsource => Wed Nov  4 19:17:20 UTC 2026\n\nin processNewSubSource\n\tBegin NCI/PT atom dump. => Wed Nov  4 19:17:20 UTC 2026\n\n\tprocess non NCI/PT entries. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin attributes. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin relationships. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin relation grouping. => Wed Nov  4 19:17:20 UTC 2026\n\n\tBegin Context. => Wed Nov  4 19:17:20 UTC 2026\n\nBefore: root nodes are: <100000009>\nAfter: root nodes are: <31926003>\nContext Tree Root Node: 31926003\nDone process => Wed Nov  4 19:17:20 UTC 2026\n\nEnd => Wed Nov  4 19:17:20 UTC 2026\n\n"
+        },
+        {
+          "name": "no_publisher_code_first",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        }
+      ],
+      "network": "disabled",
+      "scope": "Real core inverter with synthetic TREF/metadata; no API, QA, insertion or publisher distribution"
+    },
+    "candidate": {
+      "script": "/tmp/nci-explicit-pt-check-rkxyygpp/invert_NCI.pl",
+      "script_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+      "shared_runtime": "/local/content/MEME/MEME5/inv/INV",
+      "config_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+      "all_passed": true,
+      "cases": [
+        {
+          "name": "publisher_code_first",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        },
+        {
+          "name": "two_publisher_codes_before_initialization",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        },
+        {
+          "name": "no_publisher_code_first",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        }
+      ],
+      "network": "disabled",
+      "scope": "Real core inverter with synthetic TREF/metadata; no API, QA, insertion or publisher distribution"
+    },
+    "baseline_and_current_output_modified": false,
+    "completed_at": "2026-11-04T19:17:21.389416+00:00"
+  },
+  "untouched": [
+    "Production deployment",
+    "Frozen production baseline/tag",
+    "Official S3 archive",
+    "Existing dev baseline inversion outputs",
+    "Hierarchy iteration and generated-ID behavior"
+  ],
+  "required_before_acceptance": "Full October core replay completed successfully; full release eligibility remains outside this case",
+  "next_separate_change": "Deterministic hierarchy traversal/output ordering",
+  "historical_assumption": "User accepts manual PT correction after QA, pending optional operator confirmation",
+  "commit": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+  "deployment_target": "dev only; production unchanged",
+  "full_replay_status": "PASS_EQUIVALENT",
+  "full_replay_request": "nci-2026-10d-explicit-pt-case.json",
+  "full_replay_launch": "nci-2026-10d-explicit-pt-launch.json",
+  "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/baseline-core-20261103",
+  "full_replay_result": "nci-2026-10d-explicit-pt-result.json",
+  "full_replay_summary": "nci-2026-10d-explicit-pt-summary.json"
+}

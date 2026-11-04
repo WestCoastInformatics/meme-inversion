@@ -23,6 +23,8 @@ The revised six priorities are:
 | 5 | Incremental transformation migration | Replaces components after their behavior and acceptance criteria are understood |
 | 6 | Optional skill and simpler operator interface | Improves usability over the same deterministic execution and validation contracts |
 
+The first NCIt replay supplies concrete priority-1 fixtures: an original-code FDA PT atom loses its term type through a reused template, and hierarchy hash iteration changes context order and generated attribute IDs. Both now have separate committed fixes and passing full October core comparisons: explicit PT (`0de8ca2`) and stable context emission (`bfda2ce`). Atoms/relationships/merges are byte-identical to the archive; context/attribute content matches under the declared order/ID profile. The ordering fixture also passes across four hash seeds locally and on dev. The unchanged baseline failure, PT-only outputs, and old library remain preserved. The user accepts a manual post-QA PT correction as the working historical explanation; operator confirmation remains nonblocking. [Completed NCIt comparison](nci-reference-boundaries.md#completed-core-comparison), [ordering result](nci-2026-10d-context-order-summary.json)
+
 Priorities 1 and 2 should start together; validation fixes and the test apparatus must themselves be version controlled. The first full case should replay unchanged legacy code on the development worker against a frozen official S3 reference before evaluating rewritten code. Representative S3 restores support that apparatus and priority 3; they are not a new archival program. The separate [test architecture](test-architecture.md) specifies worker isolation, the request format, case locking, reference-stage selection, ID-aware comparison, and acceptance criteria.
 
 Use [one common configuration model](configuration.md) across all three sources from the start. Shared fields have the same name and meaning; distinct baseline roles remain separate, with a small typed section for genuinely source-specific options. Generate legacy settings through adapters initially, then let migrated components consume the common model directly.
@@ -33,7 +35,7 @@ The user has explicitly selected the operational code on **meme-edit as the auth
 
 The previous inversion-rework branches and automation wrappers are background evidence only. They are not the implementation base, an inherited architecture, or a required workflow. Do not merge or cherry-pick that work as the foundation. The shared-library match to repository main does not establish that all deployed source-specific code is already represented there; verify each operational component against the production snapshot.
 
-The assessment collection came from `ncias-q3793-c:/local/content/MEME/MEME5/inv`. A subsequent read-only capture of that user-specified deployment has now been imported into a dedicated local baseline branch and snapshot tag. Source provenance is the physical server tree; the meme-edit web hostname resolves to a load balancer. Code selection is supported by scripts/runbooks and observed execution/output artifacts, rather than a live installed-version database query. The snapshot is content-verified; functional replay remains pending. See [the baseline result](baseline-result.md).
+The assessment collection came from `ncias-q3793-c:/local/content/MEME/MEME5/inv`. A subsequent read-only capture of that user-specified deployment has now been imported into a dedicated local baseline branch and snapshot tag. Source provenance is the physical server tree; the meme-edit web hostname resolves to a load balancer. Code selection is supported by scripts/runbooks and observed execution/output artifacts, rather than a live installed-version database query. The snapshot is content-verified. On dev, native NCIt preparation reproduced all three archived TREF files byte-for-byte and core conversion completed. Comparison found one substantive termgroup difference, alongside context ordering and generated attribute-ID differences; the original baseline finding is resolved by the separately committed candidate, which passed its full October core comparison. See [the baseline result](baseline-result.md).
 
 First reproduce the verified operational behavior on the isolated development worker, using matching official reference inputs/outputs. Then introduce the common configuration, lifecycle changes, validation fixes, and incremental replacements under comparison gates. For older historical cases, retain the exact archived production code when needed to distinguish historical release behavior from a candidate change. Production behavior is the compatibility reference; documented defects still require explicit reviewed corrections and independent correctness checks. Starting afresh does not require discarding working production transformations or rewriting every component at once. [E17](evidence.md#e17-user-selected-implementation-starting-point)
 
@@ -45,11 +47,17 @@ The read-only server collection captured 1,228 filesystem entries and 292 code/c
 
 Git main was `3be55ea33024ba9ef998207c1a6de9eb3e482a56`; the inspected `NM-271-inversion-rework` branch was `d65d9f60ce11046154b5439ab083b634460ad5b8`. That branch contains `run_nci_inversion.sh`. Neither the accessible branch listing nor available Git history contained `run_snomed_inversion.sh`; its implementation was not reviewed. The deployed SNOMED scripts were reviewed directly.
 
-This was a code, documentation, dependency, and selected-log assessment. No complete inversion, test insertion, production change, S3 restoration, or current database baseline query was performed. The user confirmed that older and sizeable release folders are intentionally archived in S3, with history going back several years. Their absence from the server is expected storage tiering, not evidence of data loss. Exact S3 object identities and restore completeness were not independently checked. Some script comments describe historical operations rather than proof that those operations ran in the latest release.
+The initial review was a code, documentation, dependency, and selected-log assessment. Subsequent authorized dev work installed the pinned runtime, retained the official October S3 archive, and regenerated native intermediates. All three TREF files match exactly, and the unchanged core inverter completed offline against declared archived source metadata. The five-output comparison is complete: relationships/merges are byte-identical, contexts and attribute content match under the explicitly described ordering/ID diagnostics, and one atom lacks PT in its FDA termgroup. The fixed candidate subsequently passed its scoped core comparison; the original baseline failure is retained as evidence. No test insertion, database operation, or production change has been performed. See [current execution and coverage](nci-reference-boundaries.md#completed-core-comparison).
 
 Detailed locators and conflicts are in [the evidence notes](evidence.md). Original file hashes, collection times, and dependency-check results are in [the evidence manifest](evidence-manifest.json).
 
-The subsequent test-architecture design and request/schema examples are proposals. No development server, test service, candidate inversion, S3 restore, or importer environment has been provisioned or executed by this review.
+The common test-service design and request/schema examples remain proposals. Source-specific characterization tools now execute and compare NCIt on the dev host; they are not yet a general runner. Official NCIt and SNOMED archives have been downloaded and frozen. No importer environment or test insertion has been executed.
+
+The user subsequently selected the existing development host `ncias-d3777-c` and confirmed separate storage. A read-only preflight and S3 archive-metadata check have passed. Setup mirrors meme-edit's physical directory layout; path changes require an explicit design decision. Dev and production need not contain the same release-folder inventory: each run resolves only its declared versions and dependencies. See [development-worker readiness](dev-worker-readiness.md).
+
+The shared-code/environment step has now been completed on dev: 169 files from the production snapshot were installed at `inv/INV` and `inv/ENV`, both shell environments verified, and selected NCIt script syntax checks passed without external networking. Existing source folders were not changed. The full replay apparatus and its reference inputs remain to be prepared. See [the setup record](dev-shared-runtime-setup.md).
+
+The first October reference archive is frozen and the clean candidate has completed conversion and comparison. Saved October metadata explicitly names August as low source. Relationships/merges match exactly, context/attribute contents match under the documented ordering and generated-ID diagnostics, and one FDA atom has a missing PT term type. This is a reproduced generator defect requiring a separate candidate correction; the unchanged baseline is preserved. Archived `insert` history is outside the selected reference scope. [Completed comparison](nci-reference-boundaries.md#completed-core-comparison)
 
 Historical reproduction has not been shown impossible. Some live queries affect output generation; others affect only QA. Saved exports or query responses can supply the historical values without a complete database clone. The first replay must audit the chosen archive and identify any actual missing inputs before drawing a conclusion about exact reproducibility. See [the historical replay distinction](test-architecture.md#historical-replay-is-not-presumed-impossible).
 
@@ -68,6 +76,8 @@ October's conservation notes explain low-source QA mismatches by saying Septembe
 ### SNOMEDCT_US: direct RF2 with NCImeta-specific representation
 
 The deployed September 2026 configuration selects the US RF2 **Snapshot**, names all relevant terminology/refset files, and provides SAID bounds. `invert.s` also derives ICD target inventories from a separately versioned NCImeta `MRCONSO.RRF`, currently the `202608` release. Thus RF2 alone does not determine the output: the target terminology inventory is another input.
+
+The September archive is now frozen on dev and all five archived code/configuration files match the production snapshot. Its original `src/attributes.orig` has 9,324,589 rows; final `src/attributes.src` is that exact byte prefix plus 1,133,725 SEMANTIC_TYPE records. The user confirmed that those are added during data insertion. Therefore the inversion comparison must map candidate `attributes.src` to archived `attributes.orig`, preserving its own original semantic-type record; insertion enrichment is separate coverage. Both archived ICD target inventories are present. [SNOMED boundary contract](snomedct-us-2026-09-01-input-output-contract.json)
 
 `invert_rf2.pl` processes metadata, concepts, attributes, definitions, language/subset data, descriptions, relationships, associations, maps, and contexts in a meaningful order. Concrete relationship values, language preference, relationship groups, and module names are already part of the source logic. Treating this as a generic delimited-file conversion would lose important semantics.
 
@@ -168,17 +178,19 @@ Proposed operator commands could be `plan`, `discover`, `build`, `validate`, `co
 
 A release manifest should include source/VSAB, native package identities, comparison and replacement baselines, NCImeta reference snapshot, source disposition plan, code/policy revisions, ID reservation bounds and receipt, expected outputs, stage results, exceptions, and final output checksums. Secrets stay in the execution environment rather than the manifest.
 
-Keep these categories physically and logically separate:
+Treat code, native data, dependencies, run evidence, and final output as distinct lifecycle roles. Initial dev setup preserves the production physical paths; these roles do not imply new top-level directories:
 
-```text
-repository/                 # adapters, libraries, schemas, policies, tests, runbooks
-native/<package-id>/        # unchanged publisher packages
-dependencies/<bundle-id>/   # prior maps, reference exports, comparison inputs
-runs/<run-id>/              # resolved manifest, temporary data, logs, stage receipts
-packages/<package-id>/      # immutable final .src bundle and validation evidence
-```
+| Role | Initial placement and contract |
+|---|---|
+| Code and policy | Version in Git and deploy at the existing shared/source-specific locations; stop manual copy-forward through the planned code migration |
+| Native data | Preserve the source's existing `orig` and publisher `mr` locations; record identities and keep original bytes |
+| Prior/reference dependencies | Resolve the declared source/version folders, maps, and named NCImeta/UMLS releases at their standard paths |
+| Run evidence | Associate configuration, locks, logs, and receipts with the exact run; explicitly select any new test-artifact locations |
+| Final output | Retain existing `src`/`insert` stage meanings and freeze the validated package identity |
 
-During compatibility migration, a run can expose the old `bin/etc/orig/src/tmp` layout as a private view. Its `bin` must resolve to a pinned code package, not another release's executable files or a moving shared library. Run one legacy inversion per isolated process/work directory: the shared library uses process-wide state, fixed temporary filenames, relative paths, and mutable record templates.
+A physical relocation needs a deliberate design decision with its reason and migration impact. The dev and production release-folder sets need not match. Only the current run's declared dependencies determine which folders must be available.
+
+During compatibility migration, retain the existing `bin/etc/orig/src/tmp` layout at the standard development paths. As the code migration proceeds, `bin` must resolve to the selected pinned code package rather than inherited executable state from another release or a moving shared library. Start with one legacy inversion at a time in its selected release folder and a separate process: the shared library uses process-wide state, fixed temporary filenames, relative paths, and mutable record templates. Source-folder inventories need not match between servers.
 
 Move source-family definitions, VSAB mappings, RELA/inverse mappings, ATN/TTY definitions, normalization rules, known source exclusions, and release-scoped decisions into reviewed configuration. Generate `sources.src`, `termgroups.src`, TREF metadata, and MRDOC from those same inputs. An operator decision becomes a policy/manifest change followed by regeneration, not an undocumented edit of generated output.
 

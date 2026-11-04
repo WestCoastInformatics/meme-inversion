@@ -1,0 +1,48 @@
+{
+  "script_name": "prep_insertion.csh",
+  "production_path": "/local/content/MEME/MEME5/ncim/bin/prep_insertion.csh",
+  "production_sha256": "c89dfa7cb2f9fe0ab9ec491bc75c30546705bbf98585e5f734bd4b45296c3975",
+  "dev_path": "/local/content/MEME/MEME5/ncim/bin/prep_insertion.csh",
+  "dev_sha256": "c89dfa7cb2f9fe0ab9ec491bc75c30546705bbf98585e5f734bd4b45296c3975",
+  "copies_match": true,
+  "non_mth_operations": [
+    {
+      "lines": [
+        85,
+        87
+      ],
+      "operation": "Create target directory if absent"
+    },
+    {
+      "line": 92,
+      "operation": "Copy src/*.src to target unchanged"
+    },
+    {
+      "line": 93,
+      "operation": "Copy src/*.RRF to target unchanged"
+    },
+    {
+      "line": 104,
+      "operation": "Set target group recursively to tomcata"
+    }
+  ],
+  "target_modes": {
+    "default": "insert",
+    "-t": "test"
+  },
+  "mth_operations": [
+    "Copy src/*.src including bequeathal relationships",
+    "Copy src/MRDOC.RRF",
+    "Copy src/umlscui.txt",
+    "Set target group recursively"
+  ],
+  "does_not_do": [
+    "Version rewriting",
+    "Record filtering",
+    "Removal of preexisting target files",
+    "Explicit failure checks after copies/group changes"
+  ],
+  "script_executed": false,
+  "files_changed_on_servers": false,
+  "snapshot_role": "Newly inspected production dependency; captured separately from the original baseline commit"
+}

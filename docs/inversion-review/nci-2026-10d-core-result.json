@@ -1,0 +1,91 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "case_variant": "as-produced-with-archived-source-metadata",
+  "reference_stage": "inversion-src",
+  "host": "ncias-d3777-c.nci.nih-gov",
+  "candidate_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D",
+  "started_at": "2026-11-03T23:53:33.888234+00:00",
+  "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+  "network": "disabled",
+  "metadata_inputs": [
+    "sources.src",
+    "termgroups.src"
+  ],
+  "core_inverter_executed": true,
+  "insertion_preparation_executed": false,
+  "verified_input_and_code_files": 199,
+  "comparison": [
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/classes_atoms.src",
+      "bytes": 86815704,
+      "sha256": "784f2744e575d12a3c99283d1d563a747612648de43a59970275904a8047281a",
+      "newline_count": 803253,
+      "expected_sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+      "expected_newline_count": 803253,
+      "exact_match": false
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/attributes.src",
+      "bytes": 306298097,
+      "sha256": "a1b5d189cd4efe6ac6790bf1dc86ecf0e22141fa7916406d615ff8471fe20160",
+      "newline_count": 1265611,
+      "expected_sha256": "1fe0990bd7ce36529e8e16a2ade0353a3ac5aac4df95a0c078fdb83e32fc7920",
+      "expected_newline_count": 1265611,
+      "exact_match": false
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/relationships.src",
+      "bytes": 169343929,
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+      "newline_count": 1228468,
+      "expected_sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+      "expected_newline_count": 1228468,
+      "exact_match": true
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/mergefacts.src",
+      "bytes": 44631179,
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+      "newline_count": 595089,
+      "expected_sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+      "expected_newline_count": 595089,
+      "exact_match": true
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/contexts.src",
+      "bytes": 270665435,
+      "sha256": "c25604d2682369155f2ca606834e9255c1a0c2d091a587b27f9bfb0066e5ebfb",
+      "newline_count": 1185069,
+      "expected_sha256": "2a2778c7a375d69058cd2891d570dc44845028491f82c9f0a401c0a18676667e",
+      "expected_newline_count": 1185069,
+      "exact_match": false
+    }
+  ],
+  "coverage": "Five core src outputs from regenerated TREF and archived source metadata",
+  "independent_semantic_validation": "pending",
+  "status": "core-src-differences-require-review",
+  "timeout_seconds": 7200,
+  "command": [
+    "unshare",
+    "--user",
+    "--map-root-user",
+    "--net",
+    "/usr/bin/perl",
+    "invert_NCI.pl"
+  ],
+  "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-core-inversion.log",
+  "core_pid": 2433878,
+  "exit_status": 0,
+  "inverter_completed_at": "2026-11-04T00:29:20.796930+00:00",
+  "metadata_unchanged": true,
+  "all_five_exact_match": false,
+  "completed_at": "2026-11-04T00:29:23.728578+00:00",
+  "log_info": {
+    "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-core-inversion.log",
+    "bytes": 1125,
+    "sha256": "6dc68262da668df1a6970ceee311bc4f1f7df8d275287dbf7aa4659b29f92fcb",
+    "newline_count": 34
+  }
+}

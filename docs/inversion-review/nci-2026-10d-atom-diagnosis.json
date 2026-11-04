@@ -1,0 +1,86 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "atom": {
+    "src_atom_id": "781756819",
+    "source": "FDA_2026_10D",
+    "termgroup": "FDA_2026_10D/",
+    "code": "7MGE0HPM2H",
+    "status": "R",
+    "tobereleased": "Y",
+    "released": "N",
+    "atom_name": "AMPHIREGULIN",
+    "suppressible": "N",
+    "source_aui": "",
+    "source_cui": "C1000",
+    "source_dui": "",
+    "language": "ENG",
+    "order_id": "781756819",
+    "last_release_cui": ""
+  },
+  "difference": {
+    "line": 208227,
+    "reference_id": "781756819",
+    "candidate_id": "781756819",
+    "differences": [
+      {
+        "field": "termgroup",
+        "reference": "FDA_2026_10D/PT",
+        "candidate": "FDA_2026_10D/"
+      }
+    ]
+  },
+  "undeclared_candidate_termgroups": {
+    "SRC/VPT": 60,
+    "SRC/VAB": 60,
+    "SRC/RPT": 1,
+    "SRC/RAB": 1,
+    "SRC/SSN": 1,
+    "FDA_2026_10D/": 1
+  },
+  "official_termgroup_declared": true,
+  "matching_prepared_input": [
+    {
+      "line": 2,
+      "fields": [
+        "",
+        "AMPHIREGULIN",
+        "C1000",
+        "",
+        "FDAPT",
+        "7MGE0HPM2H",
+        ""
+      ]
+    }
+  ],
+  "first_subsource_pt_input": {
+    "line": 2,
+    "fields": [
+      "",
+      "AMPHIREGULIN",
+      "C1000",
+      "",
+      "FDAPT",
+      "7MGE0HPM2H",
+      ""
+    ]
+  },
+  "probe": {
+    "termgroups_in_call_order": [
+      "FDA_2026_10D/",
+      "FDA_2026_10D/PT",
+      "FDA_2026_10D/PT"
+    ],
+    "expected": [
+      "FDA_2026_10D/",
+      "FDA_2026_10D/PT",
+      "FDA_2026_10D/PT"
+    ],
+    "passed": true,
+    "scope": "Actual Atom serializer and combined pinned defaults/source config; output held in memory"
+  },
+  "code_cause": "Original-code subsource PT branch omits tty; its shared ptAtom starts with an empty default and later retains PT from a different branch",
+  "archive_correction_history": "Not established; the archived atom contains PT but the pinned generator omits it for this input",
+  "candidate_modified": false,
+  "completed_at": "2026-11-04T17:05:56.280297+00:00"
+}

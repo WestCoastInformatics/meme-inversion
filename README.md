@@ -9,3 +9,24 @@ Native packages, generated outputs, working intermediates, database exports, ide
 All imported files are hash-verified against the capture. Four files have documented credential redactions: two runbooks, one comment in a shell script, and the shell-profile template. The original hashes and transformations are in [baseline/sanitizations.json](baseline/sanitizations.json). Raw originals remain in a protected local capture outside tracked files. No transformation or QA logic was modernized in this import.
 
 This is a code snapshot, not evidence of a successful replay. Some historical interpreter/INV_OLD/JRE paths are currently absent. Source versions were selected from scripts, logs and observed output/insertion artifacts; the installed NCImeta database state was not queried. See the manifest's known limits and [baseline/exclusions.json](baseline/exclusions.json).
+
+## Characterization and replay tools
+
+This branch adds the development replay/comparison apparatus and review evidence to the production-derived code. The two transformation changes remain separate ancestor commits: explicit PT assignment (`0de8ca2`) and stable hierarchy emission (`bfda2ce`). The untouched production snapshot/tag and original failed replay remain the baseline.
+
+NCIt October native preparation reproduced all three archived TREF files exactly. Both fixes passed complete offline comparisons of the five generated core files against the frozen official archive, using explicitly declared archived source metadata. Atoms, relationships and merge facts are byte-identical; context and attribute content pass the documented order/generated-ID comparison profile. [Current result and limits](docs/inversion-review/nci-2026-10d-context-order-summary.json)
+
+The tools in `tools/` currently characterize this NCIt case at the mirrored dev paths. They are source-specific scaffolding for the [common configuration and adapters](docs/inversion-review/configuration.md), which are not yet a general runner. Metadata acquisition, MRDOC/legacy QA, insertion and production release eligibility are outside the passing case. Remote tools enforce the selected dev host/account; they must not be redirected into staff working directories. Preservation precedes candidate replacement, and prior run receipts identify the apparatus bytes actually executed.
+
+The SNOMED September archive is frozen and inventoried; its candidate has not run. Its [reference contract](docs/inversion-review/snomedct-us-2026-09-01-input-output-contract.json) maps generated `attributes.src` to archived `src/attributes.orig`, before insertion adds semantic types. The NCIt generated-ID rules are not automatically valid for SNOMED or MTH. Full-graph byte stability across hash seeds has not been checked; the committed four-seed hierarchy regression uses a synthetic graph and the actual serializers.
+
+Run the local regression checks from this checkout:
+
+```sh
+python3 -B tools/check_core_comparison.py
+python3 -B tools/check_nci_replay_advance.py
+python3 -B tests/check_nci_pt_termgroups.py
+python3 -B tests/check_nci_hierarchy_order.py
+```
+
+These checks use temporary synthetic inputs and do not require server access. The S3 pull helper's separate dev-only fixtures are in `tools/check_pull_s3.py`; twelve cases passed during archive-tool setup. `operations/ncim/bin/prep_insertion.csh` is a captured reference, not an insertion command run by this apparatus. See the [assessment and phased priorities](docs/inversion-review/assessment.md) for the broader migration plan.

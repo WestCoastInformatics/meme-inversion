@@ -1,4 +1,6 @@
 /.baseline-private/
+__pycache__/
+*.py[cod]
 **/orig/
 **/fromprovider/
 **/tmp/

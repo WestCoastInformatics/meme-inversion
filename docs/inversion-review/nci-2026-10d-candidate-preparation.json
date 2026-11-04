@@ -1,0 +1,240 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "environment_profile": "ncias-d3777-c",
+  "case_variant": "as-produced-with-archived-source-metadata",
+  "reference_stage": "inversion-src",
+  "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+  "candidate_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D",
+  "inputs": [
+    {
+      "relative_path": "orig/fromprovider/annotationDeclaration-20261026.txt",
+      "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda",
+      "bytes": 8502
+    },
+    {
+      "relative_path": "orig/fromprovider/classDeclaration-20261026.txt",
+      "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec",
+      "bytes": 157230668
+    },
+    {
+      "relative_path": "orig/fromprovider/objectDeclaration-20261026.txt",
+      "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+      "bytes": 4934
+    },
+    {
+      "relative_path": "orig/fromprovider/relations-20261026.txt",
+      "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f",
+      "bytes": 14705566
+    },
+    {
+      "relative_path": "orig/fromprovider/hierarchy-20261026.txt",
+      "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b",
+      "bytes": 3596568
+    },
+    {
+      "relative_path": "src/sources.src",
+      "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+      "bytes": 44614
+    },
+    {
+      "relative_path": "src/termgroups.src",
+      "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+      "bytes": 6038
+    }
+  ],
+  "code": [
+    {
+      "relative_path": "bin/assign_rolegroups.pl",
+      "sha256": "17fac65d4014eb85df72d3ed815130cb9d142f0f1ee998414b53d0aa859ad296"
+    },
+    {
+      "relative_path": "bin/compare_exportrels2tref.s",
+      "sha256": "f5b1258ab680ae021128f1fcd30b906eddbafca54a11399764e969553b5e1cc6"
+    },
+    {
+      "relative_path": "bin/confirm_mapping_codes.pl",
+      "sha256": "c4c1e928f3f84254ded48c886d139cf98bd87b5b5ba4fe2a5c77ae3c853dd204"
+    },
+    {
+      "relative_path": "bin/create_rolegroups.pl",
+      "sha256": "fe043606aff626e87d87bfd72885435b732ed60cd8e69e84595909d344719ecb"
+    },
+    {
+      "relative_path": "bin/create_tref.pl",
+      "sha256": "929230080198176550bf940451eec6ab8217feab6ad2f9ac1a9c8821213f8362"
+    },
+    {
+      "relative_path": "bin/create_tref.pl.orig",
+      "sha256": "ece7ed766494ce360ee629936aa438b7f17c52f80e6b96aca14c3657cab31043"
+    },
+    {
+      "relative_path": "bin/delete_dup_roles.pl",
+      "sha256": "359310345e228f2b030f66d76114872883002e6c62a2a359dfa42a62f25f9964"
+    },
+    {
+      "relative_path": "bin/delete_dup_tref_lines.pl",
+      "sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272"
+    },
+    {
+      "relative_path": "bin/get_nci_assoc.pl",
+      "sha256": "4c34ba16a1cd69395fd7544f4e426c038e9ef22837da55c250467d842fe7ea64"
+    },
+    {
+      "relative_path": "bin/get_owl_roles.pl",
+      "sha256": "ff3b4c5b63d1d00496ba504d5e58409965d2d0dc295f912f4d6c2f6625cde844"
+    },
+    {
+      "relative_path": "bin/get_prop_name.pl",
+      "sha256": "44a6d7d9d42d399caef00520445656afed982fa2382354991be8ed210adf5cbf"
+    },
+    {
+      "relative_path": "bin/get_sy_pt_name.pl",
+      "sha256": "dd27d72f5aae41e48b9bdc6b1ea038180362763a93c528a1f1eb5c0f65cc47bf"
+    },
+    {
+      "relative_path": "bin/invert_NCI.pl",
+      "sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9"
+    },
+    {
+      "relative_path": "bin/invert_NCI.pl.orig",
+      "sha256": "0c3f5437d1d2c1239b89b7bd626448e681e91e5bb11ca455a9da20c8a450aa10"
+    },
+    {
+      "relative_path": "bin/nci_2017_06d.csh",
+      "sha256": "c2b7052017daed5eaf6bb389569a9dc934d0ddc09fa8f6802f920ad8a7892b85"
+    },
+    {
+      "relative_path": "bin/patch_defs.pl",
+      "sha256": "8b3a79e56b2540122383f9e46bddc71505b320276cdab44230b2c2d4d78b6609"
+    },
+    {
+      "relative_path": "bin/patch_status_attrib.pl",
+      "sha256": "69b576905b0bc34099f4ab6fe6679d6349d5dcf63605bebbd9ab2279867472c6"
+    },
+    {
+      "relative_path": "bin/tref_2_relational_files.pl",
+      "sha256": "659d132355893e707b6c4c20441c96972f063d0d2f3c8d73b3a37938f23569fc"
+    },
+    {
+      "relative_path": "etc/README.INVERSION",
+      "sha256": "262843be0ba81b5bc75f3ce1acf0f43fbc8bf2da534c052fcdd7ffe604931508"
+    },
+    {
+      "relative_path": "etc/nci.cfg",
+      "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a"
+    }
+  ],
+  "stages": [
+    {
+      "name": "role-groups",
+      "args": [
+        "/usr/bin/perl",
+        "create_rolegroups.pl"
+      ],
+      "status": 0,
+      "started_at": "2026-11-03T23:33:35.490272+00:00",
+      "completed_at": "2026-11-03T23:33:36.010038+00:00",
+      "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-role-groups.log",
+      "network": "disabled"
+    },
+    {
+      "name": "sort-role-groups",
+      "args": [
+        "/usr/bin/sort",
+        "../tmp/rolegroups.tmp",
+        "-o",
+        "../tmp/rolegroups.sorted.tmp"
+      ],
+      "status": 0,
+      "started_at": "2026-11-03T23:33:36.011154+00:00",
+      "completed_at": "2026-11-03T23:33:36.023057+00:00",
+      "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-sort-role-groups.log",
+      "network": "disabled"
+    },
+    {
+      "name": "repeated-role-groups",
+      "args": [
+        "/usr/bin/uniq",
+        "-d",
+        "../tmp/rolegroups.sorted.tmp"
+      ],
+      "status": 0,
+      "started_at": "2026-11-03T23:33:36.024152+00:00",
+      "completed_at": "2026-11-03T23:33:36.031793+00:00",
+      "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-repeated-role-groups.log",
+      "network": "disabled"
+    },
+    {
+      "name": "create-tref",
+      "args": [
+        "/usr/bin/perl",
+        "create_tref.pl"
+      ],
+      "status": 0,
+      "started_at": "2026-11-03T23:33:36.032935+00:00",
+      "completed_at": "2026-11-03T23:33:42.422761+00:00",
+      "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-create-tref.log",
+      "network": "disabled"
+    },
+    {
+      "name": "deduplicate-tref",
+      "args": [
+        "/usr/bin/perl",
+        "delete_dup_tref_lines.pl"
+      ],
+      "status": 0,
+      "started_at": "2026-11-03T23:33:42.423992+00:00",
+      "completed_at": "2026-11-03T23:33:51.572428+00:00",
+      "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-deduplicate-tref.log",
+      "network": "disabled"
+    }
+  ],
+  "core_inverter_executed": false,
+  "insertion_preparation_executed": false,
+  "coverage": "Native/TREF preparation with archived source metadata; metadata acquisition, QA, insertion excluded",
+  "reference_atom_id_evidence": {
+    "rows": 803253,
+    "unique_ids": 803253,
+    "minimum": 781548593,
+    "maximum": 782351845,
+    "contiguous": true,
+    "scope": "Observed official output IDs for isolated replay; not a production allocation receipt"
+  },
+  "candidate_prepared_at": "2026-11-03T23:33:35.489347+00:00",
+  "src_seed_files": [
+    "sources.src",
+    "termgroups.src"
+  ],
+  "status": "native-preparation-matches-reference",
+  "preparation_comparison": [
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/orig/MRCONSO.TREF",
+      "bytes": 37716189,
+      "sha256": "a171923ff9742453d5a10a65eb0964b4cad14fc693e05044f27846601f58cb25",
+      "newline_count": 807904,
+      "expected_sha256": "a171923ff9742453d5a10a65eb0964b4cad14fc693e05044f27846601f58cb25",
+      "exact_match": true
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/orig/MRREL.TREF",
+      "bytes": 81439975,
+      "sha256": "1f8d61641f84849c0f877ddd3d57b1b37a458902cccf65b8a0507018ae3c2390",
+      "newline_count": 1503707,
+      "expected_sha256": "1f8d61641f84849c0f877ddd3d57b1b37a458902cccf65b8a0507018ae3c2390",
+      "exact_match": true
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/orig/MRSAT.TREF",
+      "bytes": 102525470,
+      "sha256": "ce0d0b353d25d54bde22349fa33ecfbb43502ebf0f368bd718fa71d230692e71",
+      "newline_count": 1115038,
+      "expected_sha256": "ce0d0b353d25d54bde22349fa33ecfbb43502ebf0f368bd718fa71d230692e71",
+      "exact_match": true
+    }
+  ],
+  "preparation_matches_reference": true,
+  "core_outputs_present": [],
+  "completed_at": "2026-11-03T23:33:52.345195+00:00"
+}

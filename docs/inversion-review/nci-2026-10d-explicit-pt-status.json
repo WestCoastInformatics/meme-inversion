@@ -1,0 +1,194 @@
+{
+  "active": {
+    "run_id": "explicit-pt-20261104",
+    "engine_ref": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+    "worker_pid": 3414553,
+    "run_directory": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-20261104",
+    "worker_log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-20261104/worker.log",
+    "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/baseline-core-20261103",
+    "started_at": "2026-11-04T19:39:35.498448+00:00",
+    "status": "complete",
+    "acceptance_status": "PASS_EQUIVALENT",
+    "completed_at": "2026-11-04T20:17:25.533109+00:00",
+    "result_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-20261104/result.json"
+  },
+  "preserved_baseline_verified": true,
+  "preservation_manifest": {
+    "run_id": "baseline-core-20261103",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "preserved_at": "2026-11-04T19:39:32.838642+00:00",
+    "files": [
+      {
+        "relative_path": "src/classes_atoms.src",
+        "sha256": "784f2744e575d12a3c99283d1d563a747612648de43a59970275904a8047281a",
+        "bytes": 86815704,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/attributes.src",
+        "sha256": "a1b5d189cd4efe6ac6790bf1dc86ecf0e22141fa7916406d615ff8471fe20160",
+        "bytes": 306298097,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/relationships.src",
+        "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+        "bytes": 169343929,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/mergefacts.src",
+        "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+        "bytes": 44631179,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/contexts.src",
+        "sha256": "c25604d2682369155f2ca606834e9255c1a0c2d091a587b27f9bfb0066e5ebfb",
+        "bytes": 270665435,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/replay-core.json",
+        "sha256": "d6ffadfa498ac3030381f250db4dde54c3740b15cccf7e2bc7ae74b908c00724",
+        "bytes": 3614,
+        "original_mode": "0o600",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/replay-comparison.json",
+        "sha256": "f783f46a7e42409201161dee51fcb8c5b63c61dc4171a8a3ed2f2d9f9672ef92",
+        "bytes": 18700,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/replay-atom-diagnosis.json",
+        "sha256": "552fc6fd0dd66188a35b2f9b1670941263f09df9ce414a21efe990fa61fbc0c9",
+        "bytes": 2025,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/replay-restart.json",
+        "sha256": "6766e5182f8258f5493cce4fddd0b9e799dfdd1db05b61c42c39bfbaf28705d6",
+        "bytes": 787,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/replay-core-inversion.log",
+        "sha256": "6dc68262da668df1a6970ceee311bc4f1f7df8d275287dbf7aa4659b29f92fcb",
+        "bytes": 1125,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/invert_NCI_2026_10D.log",
+        "sha256": "f6f2feb18508e66308fb35ad5b4e76f3dd01c471c8403590d4ada354e7415502",
+        "bytes": 1099,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/replay-core-worker.py",
+        "sha256": "8af79f0ccd84b9bc3acd21fa10f1a8ea56aee979a491ac088e6be69242ea5b5f",
+        "bytes": 7792,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/replay-core-worker.log",
+        "sha256": "f17af9a20b39974803e2124e0564db65ea9c61180e778bf8d72fa3744d4d06c5",
+        "bytes": 16985,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/replay-core-inputs.json",
+        "sha256": "349e284bece568b034483fed6cc8e076dfba342264c99e92c15e435d26b908bf",
+        "bytes": 36170,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/code2merge.txt",
+        "sha256": "aa622cc224d359cd792afe2a8f86ec71a812e851f29e22cffd887d40f6340020",
+        "bytes": 3648579,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/parchd_nci_scui.out",
+        "sha256": "a705fa2aefa1184d32db11cc6e39e022ae9bc4ffb04ba3a46f029cacbba69977",
+        "bytes": 7747730,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/nci_relations.out",
+        "sha256": "8941ac064817c7690828a8557dd1421429f1c405379bb58218a37fc455c2a7ad",
+        "bytes": 7270,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "tmp/self_rels.txt",
+        "sha256": "c6cc31e678efc94149704a2c35d88b4a3163d89337e602a1da866733941d4a20",
+        "bytes": 124,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "tmp/nci_relations1.out",
+        "sha256": "15f7a03c5a431991440634690cc3d6a6b09fec7858e6f256b40c269e569f3986",
+        "bytes": 4184,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "bin/invert_NCI.pl",
+        "sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9",
+        "bytes": 40150,
+        "original_mode": "0o775",
+        "reset_current": false
+      },
+      {
+        "relative_path": "etc/replay-case.json",
+        "sha256": "6c09f9ed6c5f6f4227c3debf7100c8a60dc44f9bf23a2e7ea38264d83d3fc609",
+        "bytes": 8539,
+        "original_mode": "0o600",
+        "reset_current": false
+      },
+      {
+        "relative_path": "etc/nci.cfg",
+        "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+        "bytes": 11731,
+        "original_mode": "0o644",
+        "reset_current": false
+      },
+      {
+        "relative_path": "src/sources.src",
+        "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+        "bytes": 44614,
+        "original_mode": "0o644",
+        "reset_current": false
+      },
+      {
+        "relative_path": "src/termgroups.src",
+        "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+        "bytes": 6038,
+        "original_mode": "0o644",
+        "reset_current": false
+      }
+    ],
+    "new_candidate_run_id": "explicit-pt-20261104",
+    "native_inputs_retained_at_standard_path": true,
+    "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee"
+  }
+}

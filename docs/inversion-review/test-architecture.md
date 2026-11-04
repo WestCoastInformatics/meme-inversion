@@ -12,7 +12,7 @@ The implementation baseline is a verified snapshot of the operational code on me
 
 ## Historical replay is not presumed impossible
 
-Live database/API access is a potential external input, not proof that historical inversions cannot be reproduced. No archived release has yet been restored and replayed by this review. Separate queries that influence output from queries used only for validation:
+Live database/API access is a potential external input, not proof that historical inversions cannot be reproduced. The October NCIt archive has now been frozen and inspected, but no candidate replay has run. Its native inputs and archived preparation metadata are present; code tracing separates the core conversion from later live-lookup QA/documentation steps. See [the case boundary](nci-reference-boundaries.md). Separate queries that influence output from queries used only for validation:
 
 | Dependency | Observed use | Reproduction implication |
 |---|---|---|
@@ -29,22 +29,24 @@ The acceptance goal should distinguish byte-identical output, semantic output eq
 
 ## Deployment boundary
 
-Start with one dedicated Linux development VM or server and one large-job worker. It should have its own disk, service account, private work directories, runtime packages, and read-only access to the required official S3 prefixes. Choose its location after checking access and measuring a representative workload; no specific host or instance size has been selected.
+The user selected `ncias-d3777-c` and confirmed separate storage from production. Read-only inspection found 8 logical CPUs, about 31 GiB RAM, about 123 GiB free disk, working S3 metadata reads, and successful user/mount/network namespace creation. See [development-worker readiness](dev-worker-readiness.md). Start with one large-job worker, the standard meme-edit directory layout on dev, and read-only acquisition credentials. Measure the first case's expanded data and peak scratch requirements before accepting the capacity budget. Namespace creation was a capability probe, not a chosen filesystem layout.
 
 The worker must not mount staff working directories writable, share production scratch space, call production mutation APIs, allocate production SAID ranges, update official S3 archive keys, or provision/recreate meme-test or meme-release. Historical runs can use the official ID range inside the isolated worker without making a new reservation. Any future importer acceptance tests require a separately owned disposable database and explicit test credentials.
 
 Historical metadata/API responses should be supplied by versioned local files or a small local compatibility endpoint. Block candidate access to production NCImeta endpoints so a remaining hardcoded `latest` call fails visibly rather than changing the result or touching staff work. Provide only the credentials and network access required by the worker.
 
-Legacy absolute paths can be supported inside a container or private filesystem namespace on the development host. For example, `/local/content/MEME/MEME5/inv/sources` can resolve to the worker's own storage. This lets existing scripts retain their paths initially. Merely using another subdirectory on meme-edit does not provide the requested isolation of CPU, memory, disk, or operational side effects.
+Mirror the physical production paths on the separate development host: shared code under `/local/content/MEME/MEME5/inv/INV` and `inv/ENV`, release folders under `inv/sources/<VSAB>`, and companion data under `mr/ncim/<release>` and `mr/umls/<release>`. Preserve the source-specific subdirectories and links. Path relocations or remapped physical roots require an explicit design decision; they are not part of initial setup. Process/network isolation can be added while preserving the mirrored paths. Merely using another subdirectory on meme-edit would not provide the selected separate-host isolation.
 
-Use the existing `pull_s3.csh` conventions and transfer implementation. The current script has fixed destinations, so run it in that private development layout or add a focused destination option to the shared tool. Do not assume that it already accepts an arbitrary staging path. Official-reference acquisition needs read-only S3 operations; do not invoke push/update commands against official keys from this apparatus.
+The release-folder inventories may differ between dev and production. A run selects its source/version and declared baselines, publisher history, identity state, and reference data. Reuse verified local dependencies and restore required absent ones. Extra folders do not block a run; do not synchronize folder sets, infer a dependency from a directory's presence, or remove unrelated versions to obtain parity.
+
+Use the existing `pull_s3.csh` conventions and transfer implementation at the standard paths. Its fixed destinations fit the requested mirror, so an arbitrary-destination option is not initially required. Compare the dev tool copies with the pinned production versions before updating them. Official-reference acquisition needs read-only S3 operations; archive retention and receipts remain explicit test requirements, and push/update commands against official keys are excluded from replay.
 
 ```mermaid
 flowchart LR
     Staff[Staff inversion on meme-edit] -->|Existing archival process| Official[Official S3 archives]
     Request[Source/version + candidate revision] --> Resolve[Resolve and freeze case]
     Official -->|Read only| Resolve
-    Resolve --> Inputs[Private input/dependency view]
+    Resolve --> Inputs[Declared dependencies at standard dev paths]
     Resolve --> Expected[Read-only official reference]
     Inputs --> Worker[Candidate engine on dev worker]
     Worker --> Validate[Independent validation]
@@ -83,7 +85,7 @@ For an NCIt August → October test, the catalog explicitly records August as th
 
 ## Freeze the official reference
 
-Reuse the archive locations already defined by the shared scripts: inversion archives under `inv/sources/<VSAB>.tgz`, with `.tar.gz` fallback for older archives, and companion NCImeta/UMLS data under their existing `mr` prefixes. Verify the object actually retrieved and record its identity. No S3 object or version has been retrieved as part of this design.
+Reuse the archive locations already defined by the shared scripts: inversion archives under `inv/sources/<VSAB>.tgz`, with `.tar.gz` fallback for older archives, and companion NCImeta/UMLS data under their existing `mr` prefixes. The first October NCIt object has now been downloaded, hash-frozen, and inventoried at the standard path without extraction. Its [reference record](nci-reference-boundaries.md) identifies the actual bytes and preparation/output boundaries.
 
 The `--update` archival workflow means the same named inversion object may acquire newer contents, including insertion logs or file changes. If S3 object versions are available, select one explicitly. Otherwise, retain a read-only local reference snapshot identified by the downloaded bytes' SHA-256. Once a case is locked, subsequent retries must reuse that frozen reference. Refreshing a reference creates a new case revision, with the difference visible.
 
@@ -94,9 +96,9 @@ Choose the reference stage explicitly:
 | `inversion-src` | Approved inverter output under the archived release's `src` directory | Candidate completes the equivalent inversion and declared preparation stages |
 | `insertion-package` | Approved final insertion inputs, often under `insert`, including applicable later additions | Candidate also reproduces the declared enrichment/finalization steps |
 
-Directory names alone do not prove which files were accepted. Capture the archive's stage and, where available, the release/insertion receipt or operator identification of the official package. Never silently fall back from missing `src` files to `insert` files. Validate required files and stage compatibility before running the candidate.
+Directory names alone do not prove which version or workflow state files represent. Capture the selected files' stage/version metadata and, where available, the release/insertion receipt or operator identification of the official package. The inspected October archive has October `src` metadata with August low source, while `insert` contains August-labeled source metadata with July low-source tags. Its `insert` set is not the October output oracle. Never silently fall back from missing `src` files to `insert` files. Validate required files, source version, and stage compatibility before running the candidate.
 
-Archive acquisition and candidate output should occupy separate directories. Reference files are mounted read-only to the comparator and should be inaccessible to the candidate process except for explicitly allowlisted historical inputs. Candidate output cannot replace or update the reference.
+The retained official archive stays at the standard download path; fresh candidate output belongs in the standard release folder. No separate reference working root is required. The archive is read-only, checksum-identified, and excluded from candidate generation except for explicitly allowlisted native/preparation inputs. Candidate output cannot replace or update the reference. Do not seed candidate generated files by extracting completed official outputs.
 
 Historical archives may contain manually curated metadata that is a legitimate input to the old workflow. Distinguish two case types:
 
@@ -107,30 +109,29 @@ Report which type ran. Copying official generated atoms, relationships, attribut
 
 ## Worker layout and execution
 
+The operational development tree mirrors meme-edit:
+
 ```text
-dev-root/
-  cache/archives/<content-sha>/       # Reusable downloaded archives
-  references/<case-revision>/         # Frozen expected files, read only
-  cases/<source>/<version>/          # Reviewed case descriptors
-  runs/<run-id>/
-    request.json
-    inversion.json                   # Same common configuration model for every source
-    case.lock.json
-    inputs/                          # Declared inputs and private derived views
-    work/                            # Compatibility layout and scratch files
-    candidate/                       # Newly produced output
-    validation/
-    comparison/
-    logs/
-    report.md
-    result.json
+/local/content/MEME/MEME5/
+  inv/
+    INV/                             # Pinned shared inversion code
+    ENV/                             # Environment framework
+    sources/<VSAB>/                  # Only selected releases and dependencies are needed
+      bin/ etc/ orig/ tmp/ src/ insert/   # Source-specific conventions retained
+    archive/projects/TDE_QA/          # Existing shared QA location
+  mr/
+    ncim/<release>/
+    umls/<release>/
+  ncim/bin/                          # Existing archive tools
 ```
+
+The apparatus also needs a request, complete `inversion.json`, immutable `case.lock.json`, frozen reference identity/content, validation/comparison results, logs, and reports. These are logical artifact roles; a separate physical `dev-root` is not implied. Choose their retention and physical locations explicitly when implementing the apparatus, while preserving the operational paths above. A candidate must not overwrite the only frozen official reference. The exact reference-acquisition and retention plan must be settled before executing a replay.
 
 Run sequence:
 
 1. Validate the request, resolve the case, and verify reference-stage compatibility.
 2. Acquire the official archive and companion data through existing transfer tooling; freeze/check the reference and input identities.
-3. Prepare an isolated engine/runtime and private compatibility paths. Native cache and references remain unchanged; legacy steps that patch inputs receive their own writable derived copy.
+3. Prepare the pinned engine/runtime at the standard dev paths and verify only the declared release/dependency folders. Preserve native/reference inputs; legacy steps that patch inputs require an explicit derived-copy plan within the agreed layout.
 4. Execute candidate stages with pinned configuration and historical IDs/metadata, collecting command status, logs, timings, resource use, and stage receipts.
 5. Run independent structural, identity, range, reference, and source-policy validation.
 6. Compare the newly generated output with the frozen official output, including per-file and semantic differences.
@@ -213,4 +214,18 @@ Expand to NCIt skipped-month scenarios, SNOMED direct RF2 releases with a pinned
 
 The isolated worker, request/lock format, baseline replay, comparator, and negative comparator fixtures are early deliverables under priorities 1 and 2. They must be available before substantial semantic rewrites and can be built while staff continues production inversions. Priority 3 expands the same apparatus into the common operational lifecycle; it should not introduce a second incompatible manifest or runner.
 
-Implementation still needs deployment choices for the development host/storage, access to the relevant S3 prefixes, the first complete reference case, availability of historical metadata snapshots, and ownership of any disposable importer database. These are concrete setup tasks; none requires interrupting staff's inversion directories or introducing candidate changes on meme-edit.
+The development host is selected, its storage separation is user-confirmed, and the shared-code layout mirrors meme-edit. AWS authentication and selected S3 list/head reads have passed. Remaining setup includes the source-specific case/runtime dependencies, an explicit reference/artifact retention plan, a read-only acquisition identity or scoped session, the first complete reference case, historical metadata snapshots, a measured capacity budget, and ownership of any future disposable importer database. These tasks can proceed without interrupting staff's inversion directories or introducing candidate changes on meme-edit.
+
+The initial shared-runtime setup is complete: 169 pinned `INV`/`ENV` files were verified at the standard dev paths, Bash/tcsh activation passes, and selected NCIt scripts pass offline syntax checks. NCIt source-data acquisition, archive-tool reconciliation, explicit metadata fixtures, offline core execution and scoped comparison are now implemented. The current ordering candidate changes one shared module and has its own runtime receipt. See [the setup record](dev-shared-runtime-setup.md) and [current comparison](nci-2026-10d-context-order-summary.json). The general request/lock runner and other sources' execution remain future work.
+
+## First implemented characterization
+
+The bounded October NCIt replay and [completed comparison](nci-reference-boundaries.md#completed-core-comparison) exercise a subset of this architecture at standard dev paths. It has pinned code/input/reference hashes, offline conversion, stage receipts, full-record multiset comparison, a narrowly scoped generated attribute-ID diagnostic, structural/reference checks, 17 comparison fixtures, and 21 preservation/profile checks. It is not yet the common request/lock runner or a complete semantic validator.
+
+The comparison rejected the unchanged baseline for one missing FDA PT term type even though all counts agreed and every other content record matched. Separate explicit-PT and context-ordering fixes now pass full October core comparison. The first-record PT regression, combined source/SRC termgroup validation, and four-seed hierarchy regression protect these changes. The unchanged baseline result and previous candidate outputs remain preserved. [Current result](nci-2026-10d-context-order-summary.json)
+
+## Insertion enrichment can modify the archived src directory
+
+The user confirmed that semantic types are appended to the original attributes file during data insertion. The SNOMED September archive proves this concrete distinction: `src/attributes.orig` (9,324,589 rows) is the exact prefix of final `src/attributes.src` (10,458,314 rows); the additional 1,133,725 rows are SEMANTIC_TYPE attributes. Archived test outputs also contain `sty_term_ids` and `new_sty_defaults`.
+
+For an inversion replay, explicitly bind canonical output `attributes.src` to the pre-enrichment reference member `src/attributes.orig`. Do not remove all semantic-type records during comparison: the original file already has a legitimate SRC semantic-type record. Insertion enrichment belongs to a separate stage with its own historical inputs/state and validation. Directory names alone do not establish a file's lifecycle stage. Preserve and hash stage outputs before any later insertion step changes the active files. The common configuration/case catalog must support explicit per-output reference members.

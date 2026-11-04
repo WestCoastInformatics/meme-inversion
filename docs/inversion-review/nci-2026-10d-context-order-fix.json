@@ -1,0 +1,450 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "status": "committed; full October core comparison PASS_EQUIVALENT",
+  "branch": "fix/nci-stable-context-order",
+  "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "parent_engine_ref": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+  "worktree": "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261103T211206Z/candidate-nci-context-order",
+  "change": {
+    "path": "INV/lib/Hierarchy.pm",
+    "line": 785,
+    "previous_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+    "candidate_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "description": "Sort only the active context/attribute emission loop by parent-node key"
+  },
+  "local_before": {
+    "hierarchy_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+    "override_tested": false,
+    "fixture": "Seven nodes, two roots, shared descendant with three parents; 11 contexts and 12 CONTEXT attributes",
+    "seeds": [
+      {
+        "seed": "1",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "44a666faa044f9c9dcd5797043b24490d7fc68e21adc50692281c780744989c3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "85abaa2e78cd4fc2a9e52807d6cc3838447310e72c9ef9a721ab9242da7448bf",
+          "record_multiset_sha256": "640319530ea850b33ff880e8cac7ffb09407205a3bbc0a595336be185dbceb13",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "2",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "8f536558ded2dc7319af65e981017ffc5be954a179ae7841c11631fe1a66aebd",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "ce808e8c6525a37b6e365c129ffb5b453c7b5ed45d3fea94f8c55a88e4ae19df",
+          "record_multiset_sha256": "afc7e668aeaae4da926e16bc92622b2e5eb5ea2308af573fec2089d626f05901",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "17",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "33131c9fa0e9138ce66171a87de4a8116d495d0a0233a7459ed4061f79dc9d82",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "a69f8cc5fcc77fadd229ee4f460dd041b3ac58fb2a9221e8a9821b8850554b25",
+          "record_multiset_sha256": "44b7fe57d8a180dbda5ca917a652a03aa85c4122909de51911af3b1cc2e8541d",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "12345",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "33131c9fa0e9138ce66171a87de4a8116d495d0a0233a7459ed4061f79dc9d82",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "a69f8cc5fcc77fadd229ee4f460dd041b3ac58fb2a9221e8a9821b8850554b25",
+          "record_multiset_sha256": "44b7fe57d8a180dbda5ca917a652a03aa85c4122909de51911af3b1cc2e8541d",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      }
+    ],
+    "context_bytes_stable": false,
+    "attribute_bytes_stable": false,
+    "context_contents_stable": true,
+    "attribute_contents_stable": true,
+    "operational_code_changed": false,
+    "golden_content_preserved": true,
+    "all_passed": false
+  },
+  "local_after": {
+    "hierarchy_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "override_tested": false,
+    "fixture": "Seven nodes, two roots, shared descendant with three parents; 11 contexts and 12 CONTEXT attributes",
+    "seeds": [
+      {
+        "seed": "1",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "2",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "17",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "12345",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      }
+    ],
+    "context_bytes_stable": true,
+    "attribute_bytes_stable": true,
+    "context_contents_stable": true,
+    "attribute_contents_stable": true,
+    "operational_code_changed": false,
+    "golden_content_preserved": true,
+    "all_passed": true
+  },
+  "dev": {
+    "before": {
+      "hierarchy_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+      "override_tested": false,
+      "fixture": "Seven nodes, two roots, shared descendant with three parents; 11 contexts and 12 CONTEXT attributes",
+      "seeds": [
+        {
+          "seed": "1",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "8f536558ded2dc7319af65e981017ffc5be954a179ae7841c11631fe1a66aebd",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "ce808e8c6525a37b6e365c129ffb5b453c7b5ed45d3fea94f8c55a88e4ae19df",
+            "record_multiset_sha256": "afc7e668aeaae4da926e16bc92622b2e5eb5ea2308af573fec2089d626f05901",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        },
+        {
+          "seed": "2",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "fa705fb845c926072c93a8252c046f98ef6a222b573aa214a85a05aac2390bf3",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "d5b00131461728b23a373bee300f2ec4aeb2e8b477e2a17d1f8e4eecc51f4933",
+            "record_multiset_sha256": "7f7b3f9cf2a6a09f197149bff8e222de6a87c904a6e94bc79411edc818262d6b",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        },
+        {
+          "seed": "17",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "7a3e9f1aa368a9e512052c18aceace29226eb1b0e1ec24f997e1753ff561b246",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "276e49a5f5c00f566572b5dbd3f25eedf0cc96e95f8d5da543701397ea988e24",
+            "record_multiset_sha256": "3b3848b7fe94985dbd808d502cf37cac0128669191619325358df452857c6faf",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        },
+        {
+          "seed": "12345",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "b5ce89a1a642ae466fb2f442957caf1b218bedd87105dd2a40247de11332f11d",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "aee2feb274eaa90de3d56345b219d53655c1cc217031ef1975c29b431e697a32",
+            "record_multiset_sha256": "9a305c2e16af0e0835bf203d964ed3c79519fe1cc3e7e0275e21bdd27b632f60",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        }
+      ],
+      "context_bytes_stable": false,
+      "attribute_bytes_stable": false,
+      "context_contents_stable": true,
+      "attribute_contents_stable": true,
+      "operational_code_changed": false
+    },
+    "after": {
+      "hierarchy_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+      "override_tested": true,
+      "fixture": "Seven nodes, two roots, shared descendant with three parents; 11 contexts and 12 CONTEXT attributes",
+      "seeds": [
+        {
+          "seed": "1",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+            "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        },
+        {
+          "seed": "2",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+            "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        },
+        {
+          "seed": "17",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+            "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        },
+        {
+          "seed": "12345",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 11,
+            "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+            "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+          },
+          "attributes": {
+            "rows": 12,
+            "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+            "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+            "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+          }
+        }
+      ],
+      "context_bytes_stable": true,
+      "attribute_bytes_stable": true,
+      "context_contents_stable": true,
+      "attribute_contents_stable": true,
+      "operational_code_changed": false
+    },
+    "golden_content_preserved": true,
+    "pt_regression": {
+      "script": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/bin/invert_NCI.pl",
+      "script_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+      "shared_runtime": "/tmp/nci-order-runtime-5xs1czgs/INV",
+      "config_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+      "all_passed": true,
+      "cases": [
+        {
+          "name": "publisher_code_first",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        },
+        {
+          "name": "two_publisher_codes_before_initialization",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        },
+        {
+          "name": "no_publisher_code_first",
+          "passed": true,
+          "exit_status": 0,
+          "failures": [],
+          "fda_atoms": [
+            {
+              "id": "100000011",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "C2",
+              "name": "FDA preferred term without publisher code",
+              "source_cui": "C2"
+            },
+            {
+              "id": "100000012",
+              "termgroup": "FDA_2026_10D/SY",
+              "code": "FDA_SYN_1",
+              "name": "FDA synonym",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000013",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_1",
+              "name": "First FDA preferred term",
+              "source_cui": "C1"
+            },
+            {
+              "id": "100000014",
+              "termgroup": "FDA_2026_10D/PT",
+              "code": "FDA_ORIG_2",
+              "name": "Second FDA preferred term",
+              "source_cui": "C2"
+            }
+          ],
+          "log_tail": ""
+        }
+      ],
+      "network": "disabled",
+      "scope": "Real core inverter with synthetic TREF/metadata; no API, QA, insertion or publisher distribution"
+    },
+    "all_passed": true,
+    "installed_hierarchy_unchanged": true
+  },
+  "preserved_pt_only_result": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-core-20261104",
+  "full_replay_launch": "nci-2026-10d-context-order-launch.json",
+  "deployed": "dev only",
+  "production_deployed": false,
+  "runtime_receipt": "/local/content/MEME/MEME5/inv/candidate-runtime.json",
+  "initial_installation_receipt_unchanged": true,
+  "comparison_fixtures": 17,
+  "preservation_and_profile_checks": 21,
+  "full_release_eligibility": "Not assessed",
+  "full_october_replay_pending": false,
+  "completed_at": "2026-11-04T22:01:38.037584+00:00",
+  "full_october_replay_status": "PASS_EQUIVALENT",
+  "result_summary": "nci-2026-10d-context-order-summary.json",
+  "result_receipt": "nci-2026-10d-context-order-result.json",
+  "previous_candidate_preserved_and_verified": true
+}

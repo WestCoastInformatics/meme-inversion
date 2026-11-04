@@ -1,0 +1,86 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "reference_stage": "inversion-src",
+  "comparison_complete": true,
+  "exact_match": false,
+  "review_status": "REVIEW_REQUIRED",
+  "acceptance_status": "FAIL",
+  "reason": "One atom has an undeclared FDA termgroup missing PT; generated-ID/order diagnostics do not waive this content difference",
+  "core_exit_status": 0,
+  "all_core_row_counts_match": true,
+  "files": {
+    "relationships.src": "byte-identical",
+    "mergefacts.src": "byte-identical",
+    "contexts.src": "identical full-record multiset including duplicate counts; row order differs",
+    "attributes.src": "all content matches excluding generated row ID only; 796203 non-CONTEXT rows match including IDs",
+    "classes_atoms.src": "one changed termgroup at atom 781756819; all other bytes/positions match"
+  },
+  "substantive_difference": {
+    "line": 208227,
+    "reference_id": "781756819",
+    "candidate_id": "781756819",
+    "differences": [
+      {
+        "field": "termgroup",
+        "reference": "FDA_2026_10D/PT",
+        "candidate": "FDA_2026_10D/"
+      }
+    ]
+  },
+  "atom": {
+    "src_atom_id": "781756819",
+    "source": "FDA_2026_10D",
+    "termgroup": "FDA_2026_10D/",
+    "code": "7MGE0HPM2H",
+    "status": "R",
+    "tobereleased": "Y",
+    "released": "N",
+    "atom_name": "AMPHIREGULIN",
+    "suppressible": "N",
+    "source_aui": "",
+    "source_cui": "C1000",
+    "source_dui": "",
+    "language": "ENG",
+    "order_id": "781756819",
+    "last_release_cui": ""
+  },
+  "framework_termgroups_not_redeclared_in_source_fixture": [
+    "SRC/RAB",
+    "SRC/RPT",
+    "SRC/SSN",
+    "SRC/VAB",
+    "SRC/VPT"
+  ],
+  "framework_termgroup_evidence": "Pinned INV/lib/QaTGs.pm:402-409 explicitly adds these SRC termgroups",
+  "unexpected_candidate_termgroups": {
+    "FDA_2026_10D/": 1
+  },
+  "candidate_termgroup_membership_passed": false,
+  "serializer_probe_passed": true,
+  "fixture_checks_passed": 15,
+  "comparison_tool_source_sha256": "1ad380b8500d03a676b01c884f51c7753ed16eb66b5435bd0223ba6944b805c7",
+  "diagnosis_tool_source_sha256": "e6687223d7a61253885552308e44b93b8bbe5da3a200ef9f6192410bf0f27474",
+  "metadata_inputs": "sources.src and termgroups.src are unchanged declared fixtures, not regenerated outputs",
+  "excluded": "qaStats.src and MRDOC generation, historical API-dependent QA, metadata acquisition, insertion",
+  "reports": [
+    "nci-2026-10d-core-result.json",
+    "nci-2026-10d-comparison.json",
+    "nci-2026-10d-atom-diagnosis.json"
+  ],
+  "candidate_modified": false,
+  "archive_modified": false,
+  "completed_at": "2026-11-04T17:05:56.280297+00:00",
+  "post_qa_correction_evidence": "nci-2026-10d-post-qa-correction-evidence.json",
+  "historical_correction_assessment": "User accepts a manual correction after QA as the working assumption; operator confirmation remains pending and does not block further work.",
+  "historical_correction_working_assumption": {
+    "statement": "The inverter manually added PT to atom 781756819 after reviewing the NCI_2026_10D QA results.",
+    "status": "user-accepted working assumption",
+    "accepted_on": "2026-11-04",
+    "operator_confirmation": "pending; user may confirm with the inverter",
+    "blocks_further_work": false,
+    "evidence": "nci-2026-10d-post-qa-correction-evidence.json",
+    "implementation_consequence": "Fix the missing explicit PT assignment in a separate candidate revision and add a first-original-code-PT regression fixture; preserve the unchanged baseline and raw comparison."
+  }
+}

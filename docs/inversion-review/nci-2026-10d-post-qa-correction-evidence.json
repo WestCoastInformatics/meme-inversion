@@ -1,0 +1,109 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+  "collected_at": "2026-11-04T18:59:03.457914+00:00",
+  "timeline": [
+    {
+      "event": "core-inversion-finished",
+      "path": "NCI_2026_10D/etc/qa/invert_NCI_2026_10D.log",
+      "mtime": 1793591089,
+      "utc": "2026-11-02T03:44:49+00:00",
+      "local": "2026-11-01T19:44:49-08:00",
+      "timezone": "America/Los_Angeles (PST)"
+    },
+    {
+      "event": "qa-finished",
+      "path": "NCI_2026_10D/etc/qa/Qa_NCI_2026_10D.log",
+      "mtime": 1793593451,
+      "utc": "2026-11-02T04:24:11+00:00",
+      "local": "2026-11-01T20:24:11-08:00",
+      "timezone": "America/Los_Angeles (PST)"
+    },
+    {
+      "event": "atom-file-last-modified",
+      "path": "NCI_2026_10D/src/classes_atoms.src",
+      "mtime": 1793594160,
+      "utc": "2026-11-02T04:36:00+00:00",
+      "local": "2026-11-01T20:36:00-08:00",
+      "timezone": "America/Los_Angeles (PST)"
+    }
+  ],
+  "log_files": [
+    {
+      "path": "NCI_2026_10D/bin/invert.log",
+      "bytes": 11472,
+      "mtime": 1793593451,
+      "sha256": "9422c5c0ffaba02d258403ccd2258c3fed5099ab4ef828273b223de281f8ffbf",
+      "relevant_lines": []
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/invert_NCI_2026_10D.log",
+      "bytes": 2198,
+      "mtime": 1793591089,
+      "sha256": "123b4639fb9a85320dd59e733e64a59880cc973a06fd62a8375be4738479ba39",
+      "relevant_lines": []
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/Qa_NCI_2026_10D.log",
+      "bytes": 7527,
+      "mtime": 1793593451,
+      "sha256": "a9f68f6ff1333c4134c8ea57089f4973acc5c11ddcc5e673e9758bdaf671008f",
+      "relevant_lines": []
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/Forbidden_classes.txt",
+      "bytes": 175,
+      "mtime": 1793591954,
+      "sha256": "7737c3796c83071befcdd17ac016a4eb6b22ae55646bbf51c5cf73e5d89d35e0",
+      "relevant_lines": []
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/QaReport.NCI_2026_10D.txt",
+      "bytes": 78111,
+      "mtime": 1793593451,
+      "sha256": "eb2aa98b960d40abc4aef9b2e4a6258d2752e083c7a5c37dba22d926fe54335a",
+      "relevant_lines": [
+        {
+          "line": 460,
+          "text": "\tFDA_2026_10D/ => 1"
+        }
+      ]
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/QaReport.NCI_2026_10D.txt.err",
+      "bytes": 8518,
+      "mtime": 1793593451,
+      "sha256": "36072bbcc459c591170a4e316639593d194fa913c4c8af2484a471849dee0f75",
+      "relevant_lines": [
+        {
+          "line": 137,
+          "text": "\t****ERR:  EValPat_781756819_3 => FDA_2026_10D/"
+        },
+        {
+          "line": 155,
+          "text": "\t****ERR: VUndefinedTG_781756819 => FDA_2026_10D/"
+        },
+        {
+          "line": 156,
+          "text": "\t****ERR: VUndefinedTTY_781756819 => "
+        }
+      ]
+    }
+  ],
+  "seconds_from_qa_end_to_atom_mtime": 709,
+  "seconds_from_inversion_end_to_atom_mtime": 3071,
+  "finding": "Archived QA explicitly flagged the same missing termgroup/TTY on atom 781756819. The final archived atom has PT and its file mtime is later than QA completion.",
+  "inference": "Strong evidence of a post-QA correction; a manual edit is consistent with the evidence but operator/method are not established",
+  "operator_or_command_identified": false,
+  "archive_or_candidate_modified": false,
+  "working_assumption": {
+    "statement": "The inverter manually added PT to atom 781756819 after reviewing the NCI_2026_10D QA results.",
+    "status": "user-accepted working assumption",
+    "accepted_on": "2026-11-04",
+    "operator_confirmation": "pending; user may confirm with the inverter",
+    "blocks_further_work": false,
+    "evidence": "nci-2026-10d-post-qa-correction-evidence.json",
+    "implementation_consequence": "Fix the missing explicit PT assignment in a separate candidate revision and add a first-original-code-PT regression fixture; preserve the unchanged baseline and raw comparison."
+  }
+}

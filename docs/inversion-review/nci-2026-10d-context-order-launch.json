@@ -1,0 +1,20 @@
+{
+  "run_id": "context-order-20261104",
+  "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "status": "worker-launched",
+  "run_directory": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/context-order-20261104",
+  "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-core-20261104",
+  "started_at": "2026-11-04T21:23:46.615668+00:00",
+  "worker_pid": 3501815,
+  "worker_log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/context-order-20261104/worker.log",
+  "changed_path": "/local/content/MEME/MEME5/inv/INV/lib/Hierarchy.pm",
+  "changed_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+  "apparatus_sha256": {
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "check_nci_replay_advance.py": "6ae72083ac174224480e93e6bd627d714327adb8e4273fa68989fbbd7e63f524"
+  },
+  "completed_at": "2026-11-04T21:23:54.870718+00:00"
+}

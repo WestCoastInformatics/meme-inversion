@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "environment_profile": "ncias-d3777-c",
+  "status": "archive frozen; pre-insertion inversion boundary reviewed; candidate not prepared/executed",
+  "reference_stage": "inversion-src",
+  "reference_file_map": [
+    {
+      "output_name": "classes_atoms.src",
+      "reference_path": "SNOMEDCT_US_2026_09_01/src/classes_atoms.src",
+      "size": 163029934,
+      "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+      "newline_count": 1048850
+    },
+    {
+      "output_name": "attributes.src",
+      "reference_path": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+      "size": 2319449724,
+      "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+      "newline_count": 9324589
+    },
+    {
+      "output_name": "relationships.src",
+      "reference_path": "SNOMEDCT_US_2026_09_01/src/relationships.src",
+      "size": 140346293,
+      "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+      "newline_count": 742425
+    },
+    {
+      "output_name": "mergefacts.src",
+      "reference_path": "SNOMEDCT_US_2026_09_01/src/mergefacts.src",
+      "size": 138634414,
+      "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+      "newline_count": 1048849
+    },
+    {
+      "output_name": "contexts.src",
+      "reference_path": "SNOMEDCT_US_2026_09_01/src/contexts.src",
+      "size": 6220515460,
+      "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+      "newline_count": 20403095
+    }
+  ],
+  "reference": {
+    "archive_path": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.tgz",
+    "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+    "bucket": "nci-evs-meme",
+    "key": "inv/sources/SNOMEDCT_US_2026_09_01.tgz"
+  },
+  "publisher_view": "Snapshot",
+  "replacement_baseline": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_03_01"
+  },
+  "baseline_evidence": "VSABOLD from archived matching configuration; sources.src field-2 verification remains a preparation check",
+  "comparison_baseline": null,
+  "publisher_history": [],
+  "conversion_inputs": [
+    {
+      "legacy_key": "File.INP.CONCEPTS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 32708601,
+      "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+      "newline_count": 543260
+    },
+    {
+      "legacy_key": "File.INP.DESCRIPTIONS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 233100225,
+      "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+      "newline_count": 1739085
+    },
+    {
+      "legacy_key": "File.INP.RELATIONS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 408144315,
+      "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+      "newline_count": 3647178
+    },
+    {
+      "legacy_key": "File.INP.CONCRETERELS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 4045099,
+      "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+      "newline_count": 37557
+    },
+    {
+      "legacy_key": "File.INP.DEFINITIONS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 8509782,
+      "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+      "newline_count": 19447
+    },
+    {
+      "legacy_key": "File.INP.REFSETS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 30481,
+      "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+      "newline_count": 229
+    },
+    {
+      "legacy_key": "File.INP.DESCRFORMAT",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 491,
+      "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+      "newline_count": 4
+    },
+    {
+      "legacy_key": "File.INP.MODULEDEP",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 1046,
+      "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+      "newline_count": 9
+    },
+    {
+      "legacy_key": "File.INP.LANGUAGESETS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 394245927,
+      "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+      "newline_count": 3383931
+    },
+    {
+      "legacy_key": "File.INP.SIMPLEMAPS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 57698895,
+      "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+      "newline_count": 561572
+    },
+    {
+      "legacy_key": "File.INP.COMPLEXMAPS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iissscRefset_ComplexMapSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": false,
+      "present": false
+    },
+    {
+      "legacy_key": "File.INP.EXTENDEDMAPS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 160201316,
+      "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+      "newline_count": 682229
+    },
+    {
+      "legacy_key": "File.INP.ATTRIBUTES",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 85849760,
+      "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+      "newline_count": 748737
+    },
+    {
+      "legacy_key": "File.INP.SUBSETS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 1995855,
+      "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+      "newline_count": 22726
+    },
+    {
+      "legacy_key": "File.INP.ASSOCIATIONS",
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+      "role": "archived-publisher-RF2-Snapshot",
+      "required": true,
+      "present": true,
+      "size": 24125967,
+      "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+      "newline_count": 227704
+    },
+    {
+      "legacy_key": "File.INP.ICD10META",
+      "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+      "role": "target-terminology-inventory",
+      "required": true,
+      "present": true,
+      "size": 109803,
+      "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+      "newline_count": 18291
+    },
+    {
+      "legacy_key": "File.INP.ICD10CMMETA",
+      "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+      "role": "target-terminology-inventory",
+      "required": true,
+      "present": true,
+      "size": 797093,
+      "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+      "newline_count": 98506
+    }
+  ],
+  "archived_metadata_inputs": [
+    {
+      "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+      "size": 904,
+      "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+      "newline_count": 1
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+      "size": 828,
+      "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+      "newline_count": 12
+    }
+  ],
+  "postprocessing": {
+    "script": "bin/rmdanglingattrs.pl",
+    "purpose": "Remove SOURCE_AUI attributes whose description is absent from generated atoms; compare the post-filter inversion result to attributes.orig"
+  },
+  "insertion_enrichment": {
+    "workflow_owner": "data insertion",
+    "provenance": "User confirmed on 2026-11-04 that semantic types are added to original attributes.src during insertion",
+    "original_reference": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+    "enriched_reference": "SNOMEDCT_US_2026_09_01/src/attributes.src",
+    "original_is_exact_prefix": true,
+    "added_rows": 1133725,
+    "added_attribute_names": {
+      "SEMANTIC_TYPE": 1133725
+    },
+    "added_sources": {
+      "E-SNOMEDCT_US_2026_09_01": 1133725
+    },
+    "archived_insertion_related_artifacts": [
+      {
+        "path": "SNOMEDCT_US_2026_09_01/test/sty_term_ids",
+        "size": 37325267,
+        "sha256": "f653d8aaba3bd811d06f691dcde80484065495cf1eba81a00909ada623baa822",
+        "newline_count": 1143286
+      },
+      {
+        "path": "SNOMEDCT_US_2026_09_01/test/new_sty_defaults",
+        "size": 35000493,
+        "sha256": "f2e47bcbdf7cc4ea7dcf41f96c56588041ba8bcf84b97ceda17c1ad366c6af73",
+        "newline_count": 1138465
+      }
+    ],
+    "included_in_inversion_replay": false,
+    "do_not_ignore_semantic_types_generally": "Retain all original records, including the SRC semantic-type record; compare to the correct stage rather than filtering the attribute type away",
+    "workflow_stage_confirmed_by_user": true,
+    "original_file_confirmed_by_archive": true
+  },
+  "unused_legacy_configuration": [
+    "File.INP.STATEDRELS",
+    "File.INP.OldSubset",
+    "File.INP.URCid2Did"
+  ],
+  "prior_source_folder_required_by_inspected_core": false,
+  "metadata_acquisition_or_insertion_can_require_prior_state": true,
+  "code_matches_production_snapshot": true,
+  "candidate_prepared": false,
+  "candidate_executed": false,
+  "capacity_estimate": {
+    "selected_input_bytes": 1411566388,
+    "core_reference_bytes": 8981975825,
+    "minimum_candidate_plus_reference_plus_largest_sort_pair_bytes": 30404982570,
+    "additional_preserved_run_bytes": 8981975825,
+    "memory_benchmark_required": true,
+    "notes": "Disk estimate excludes staging overhead and safety reserve; operational TMP_DIR remains unchanged; no full archive extraction is needed"
+  },
+  "remaining_work": [
+    "Finalize a SNOMED comparison profile that preserves SCTID identity, typed qualifiers, map/association/group semantics and structured CONTEXT values",
+    "Select/activate the exact baseline engine/runtime before the unchanged RF2 replay; current dev has an independently tested NCIt candidate runtime",
+    "Prepare clean standard-path candidate from declared inputs and Git code; do not seed completed outputs",
+    "Pin historical SAID bounds and metadata fixtures, estimate resource limits, then run RF2 core plus documented attribute cleanup",
+    "Keep insertion-time semantic enrichment as separate coverage; no live insertion/database operation is authorized by an inversion replay"
+  ],
+  "artifact_type": "characterization boundary; not yet an implemented common run configuration",
+  "common_configuration_design": "configuration.schema.json",
+  "reference_stage_description": "Inversion output before insertion-time enrichment; attributes.src comparison selects archived attributes.orig explicitly",
+  "case_variant": "as-produced-with-archived-source-metadata-and-ICD-target-inventories",
+  "comparison_profile": "pending-snomed-core-profile"
+}

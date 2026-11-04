@@ -1,0 +1,69 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+  "status": "PASS_EQUIVALENT",
+  "completed_at": "2026-11-04T20:17:25.533109+00:00",
+  "scope": "Five generated core src outputs with archived source metadata; not full release eligibility",
+  "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+  "checks": {
+    "core_exit_zero": true,
+    "metadata_unchanged": true,
+    "atoms_exact": true,
+    "relationships_exact": true,
+    "merges_exact": true,
+    "context_multiset_equal": true,
+    "attribute_content_equal": true,
+    "structural_checks": true,
+    "termgroups_valid": true,
+    "metadata_matches_reference": true,
+    "attribute_ids_unique_and_contiguous": true,
+    "same_attribute_id_span": true,
+    "non_context_attributes_exact": true,
+    "no_attribute_id_or_unknown_reference_types": true
+  },
+  "files": {
+    "attributes.src": {
+      "rows": 1265611,
+      "exact_match": false,
+      "sha256": "bbb24b3f64564e415c1845abc85b31dafbb8ad8ae9ffa548e038c0498373340d"
+    },
+    "relationships.src": {
+      "rows": 1228468,
+      "exact_match": true,
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e"
+    },
+    "mergefacts.src": {
+      "rows": 595089,
+      "exact_match": true,
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d"
+    },
+    "contexts.src": {
+      "rows": 1185069,
+      "exact_match": false,
+      "sha256": "caf6105dc2ee298b18f7eb0ed3c9e5b8d23871988606e17c2020b697000977f0"
+    },
+    "classes_atoms.src": {
+      "rows": 803253,
+      "exact_match": true,
+      "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142"
+    }
+  },
+  "substantive_atom_difference_resolved": true,
+  "corrected_atom": {
+    "id": 781756819,
+    "termgroup": "FDA_2026_10D/PT",
+    "atom_file_matches_official_sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142"
+  },
+  "remaining_serialization_differences": "Context row order and 469407 generated CONTEXT attribute IDs; every full context record and all attribute content/multiplicity match",
+  "non_context_attributes_exact": 796203,
+  "baseline_preserved_and_verified": true,
+  "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/baseline-core-20261103",
+  "comparison_fixtures_passed": 17,
+  "preservation_profile_checks_passed": 12,
+  "full_release_eligibility": "Not assessed: metadata acquisition, MRDOC/legacy QA and insertion are outside this case",
+  "production_deployed": false,
+  "next_change": "Deterministic ordering of the NCIt hierarchy emitter",
+  "result_receipt": "nci-2026-10d-explicit-pt-result.json",
+  "status_receipt": "nci-2026-10d-explicit-pt-status.json"
+}

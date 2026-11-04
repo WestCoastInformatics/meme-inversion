@@ -1,0 +1,102 @@
+{
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+  "attribute_stages": {
+    "orig": {
+      "path": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+      "size": 2319449724,
+      "mode": "0o640",
+      "mtime": 1790728477,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+      "newline_count": 9324589
+    },
+    "final": {
+      "path": "SNOMEDCT_US_2026_09_01/src/attributes.src",
+      "size": 2473694758,
+      "mode": "0o640",
+      "mtime": 1792434097,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "fb1e21d7af7cc40af7d68bbc391e303178840d5be68b6efcc0016ca613083204",
+      "newline_count": 10458314
+    },
+    "original_is_exact_prefix": true,
+    "prefix_sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+    "final_attribute_names": {
+      "SEMANTIC_TYPE": 1133726,
+      "SUBSET_MEMBER": 2456142,
+      "REFSET_PATTERN": 69,
+      "DESCRIPTION_FORMAT": 3,
+      "DESCRIPTION_LENGTH": 3,
+      "SOURCE_EFFECTIVE_TIME": 8,
+      "TARGET_EFFECTIVE_TIME": 8,
+      "EFFECTIVE_TIME": 390812,
+      "ACTIVE": 390812,
+      "DEFINITION_STATUS_ID": 390812,
+      "MODULE_ID": 48491,
+      "MODULE_NAME": 48491,
+      "DEFAULT_LANGUAGECODE": 1,
+      "DEFAULT_MODULE_ID": 1,
+      "COUNT_OF_BASE_OF_ACTIVE_INGREDIENT": 16477,
+      "CONCENTRATION_STRENGTH_NUMERATOR_VALUE": 3180,
+      "CONCENTRATION_STRENGTH_DENOMINATOR_VALUE": 3180,
+      "PRESENTATION_STRENGTH_NUMERATOR_VALUE": 6724,
+      "PRESENTATION_STRENGTH_DENOMINATOR_VALUE": 6724,
+      "COUNT_OF_ACTIVE_INGREDIENT": 77,
+      "CTV3ID": 383344,
+      "ICD-O-3_CODE": 23514,
+      "DEFINITION": 12836,
+      "TYPE_ID": 1048820,
+      "CASE_SIGNIFICANCE_ID": 1048820,
+      "UMLSREL": 112,
+      "UMLSRELA": 112,
+      "MAPSETSID": 2,
+      "MAPSETNAME": 2,
+      "MAPSETVERSION": 2,
+      "MAPSETRSAB": 2,
+      "MAPSETVSAB": 2,
+      "FROMRSAB": 2,
+      "FROMVSAB": 2,
+      "TORSAB": 2,
+      "TOVSAB": 2,
+      "SOS": 2,
+      "MTH_MAPSETCOMPLEXITY": 2,
+      "MTH_MAPFROMCOMPLEXITY": 2,
+      "MTH_MAPTOCOMPLEXITY": 2,
+      "MTH_MAPFROMEXHAUSTIVE": 2,
+      "MTH_MAPTOEXHAUSTIVE": 2,
+      "XMAP": 448829,
+      "XMAPFROM": 279457,
+      "XMAPTO": 33715,
+      "CONTEXT": 2282984
+    },
+    "tail_rows": 1133725,
+    "tail_attribute_names": {
+      "SEMANTIC_TYPE": 1133725
+    },
+    "tail_sources": {
+      "E-SNOMEDCT_US_2026_09_01": 1133725
+    }
+  },
+  "semantic_seed_files": [],
+  "completed_at": "2026-11-04T21:25:20.148028+00:00",
+  "workflow_stage_confirmation": "User: semantic types added to original attributes.src during a data-insertion step; attributes.orig is the inversion comparison reference.",
+  "semantic_seed_files_scope": "Initial targeted etc-directory search only; this empty list does not describe the complete archive.",
+  "archived_insertion_related_artifacts": [
+    {
+      "path": "SNOMEDCT_US_2026_09_01/test/sty_term_ids",
+      "size": 37325267,
+      "sha256": "f653d8aaba3bd811d06f691dcde80484065495cf1eba81a00909ada623baa822",
+      "newline_count": 1143286
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/test/new_sty_defaults",
+      "size": 35000493,
+      "sha256": "f2e47bcbdf7cc4ea7dcf41f96c56588041ba8bcf84b97ceda17c1ad366c6af73",
+      "newline_count": 1138465
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "run_id": "explicit-pt-20261104",
+  "engine_ref": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+  "status": "worker-launched",
+  "run_directory": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-20261104",
+  "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/baseline-core-20261103",
+  "started_at": "2026-11-04T19:39:27.260334+00:00",
+  "worker_pid": 3414553,
+  "worker_log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-20261104/worker.log",
+  "source_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+  "apparatus_sha256": {
+    "advance_nci_replay.py": "1c3bfeefb752838e9e08c1f340efc8bc5b80af4601ebd9c20df7edbe2d17824a",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "check_nci_replay_advance.py": "8d12db2714d347a8019aa600247dbbba6bbc4c9828e7410a58a41917ea86b896"
+  },
+  "completed_at": "2026-11-04T19:39:35.441956+00:00"
+}

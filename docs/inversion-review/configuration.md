@@ -65,7 +65,7 @@ The existing [test request](request-template.json) remains the small operator in
 shared defaults + source profile + reviewed release/case + request
     -> inversion.json       complete configuration in the common schema
     -> case.lock.json       immutable resolved configuration and dependencies
-    -> generated legacy files in a private run directory
+    -> generated legacy files at the agreed source-release paths on dev
     -> execution, validation, comparison, and report
 ```
 
@@ -73,7 +73,11 @@ These are stages of one contract, not independently maintained operator configur
 
 The resolver freezes all Git/profile/artifact references to commits, runtime identities, object identities/versions where available, file inventories, and hashes. A catalog reference in the examples is a proposed logical identifier, not a new archive service. Resolution delegates to the existing S3 tools and the worker's verified cache. The replay reference is the official result; it must not be made an undeclared candidate input. Archived preparation metadata used as candidate input is recorded and the reduced workflow coverage is stated.
 
-Machine-specific paths such as `ORIGDIR`, `TEMPDIR`, `SRCDIR`, and MTH's compatibility links are generated from the environment profile and artifact manifests. Credentials are supplied by the worker's account/secret mechanism, not committed in configuration. A changed worker location must not require renaming logical inputs or editing source scripts.
+Validate the actual release identity of selected reference files as well as their directory/stage label. The October NCIt archive contains October `src` output and older August-labeled `insert` state; the latter must not become October's expected result merely because it is in the same archive. An archive can legitimately contain multiple versions and workflow states. The resolver selects declared artifacts instead of treating its entire contents as one uniform input/output package.
+
+Paths such as `ORIGDIR`, `TEMPDIR`, `SRCDIR`, and MTH's links are resolved from the environment profile and artifact manifests. The initial dev profile mirrors meme-edit's physical layout under `/local/content/MEME/MEME5`; the host name changes, while operational paths retain their production meaning. A relocation requires an explicit design decision and profile revision, rather than an automatic new replay root. Credentials are supplied by the worker's account/secret mechanism, not committed in configuration.
+
+Configuration selects required source versions and dependency roles. It does not require matching the complete folder inventories of dev and production. Reuse verified local folders and retrieve required absent dependencies; extra folders are irrelevant to the selected run.
 
 ## Validation and migration
 

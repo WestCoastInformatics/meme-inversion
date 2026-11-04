@@ -1,0 +1,1014 @@
+{
+  "active": {
+    "run_id": "context-order-20261104",
+    "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "worker_pid": 3501815,
+    "run_directory": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/context-order-20261104",
+    "worker_log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/context-order-20261104/worker.log",
+    "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/explicit-pt-core-20261104",
+    "started_at": "2026-11-04T21:23:54.930413+00:00",
+    "status": "complete",
+    "acceptance_status": "PASS_EQUIVALENT",
+    "completed_at": "2026-11-04T22:01:38.037584+00:00",
+    "result_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/context-order-20261104/result.json"
+  },
+  "preserved_baseline_verified": true,
+  "preservation_manifest": {
+    "run_id": "explicit-pt-20261104",
+    "engine_ref": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+    "preserved_at": "2026-11-04T21:23:52.147928+00:00",
+    "files": [
+      {
+        "relative_path": "src/classes_atoms.src",
+        "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+        "bytes": 86815706,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/attributes.src",
+        "sha256": "bbb24b3f64564e415c1845abc85b31dafbb8ad8ae9ffa548e038c0498373340d",
+        "bytes": 306298097,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/relationships.src",
+        "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+        "bytes": 169343929,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/mergefacts.src",
+        "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+        "bytes": 44631179,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "src/contexts.src",
+        "sha256": "caf6105dc2ee298b18f7eb0ed3c9e5b8d23871988606e17c2020b697000977f0",
+        "bytes": 270665435,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/replay-core.json",
+        "sha256": "19f4d7766ad6ab62d92dd6d920773f8bdf51a95cfafa7dc0ef33d0ab2fc58fdf",
+        "bytes": 3725,
+        "original_mode": "0o600",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/replay-comparison.json",
+        "sha256": "4a87ee889af511d3571df54ade2b9cbe04d0750ddeb0d2a0fcd3ce3b59faef32",
+        "bytes": 19359,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/replay-core-inversion.log",
+        "sha256": "d8208ce3ca15c632695f52abeb5ba6df6f04f228038d39fbce813732fe8bafa5",
+        "bytes": 1125,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/qa/invert_NCI_2026_10D.log",
+        "sha256": "68414f9aaf32f374d03448a0424d784973d37c42102c714a8772d8a13be8758b",
+        "bytes": 1099,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/code2merge.txt",
+        "sha256": "aa622cc224d359cd792afe2a8f86ec71a812e851f29e22cffd887d40f6340020",
+        "bytes": 3648579,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/parchd_nci_scui.out",
+        "sha256": "a705fa2aefa1184d32db11cc6e39e022ae9bc4ffb04ba3a46f029cacbba69977",
+        "bytes": 7747730,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "etc/nci_relations.out",
+        "sha256": "8941ac064817c7690828a8557dd1421429f1c405379bb58218a37fc455c2a7ad",
+        "bytes": 7270,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "tmp/self_rels.txt",
+        "sha256": "c6cc31e678efc94149704a2c35d88b4a3163d89337e602a1da866733941d4a20",
+        "bytes": 124,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "tmp/nci_relations1.out",
+        "sha256": "15f7a03c5a431991440634690cc3d6a6b09fec7858e6f256b40c269e569f3986",
+        "bytes": 4184,
+        "original_mode": "0o640",
+        "reset_current": true
+      },
+      {
+        "relative_path": "bin/invert_NCI.pl",
+        "sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+        "bytes": 40163,
+        "original_mode": "0o775",
+        "reset_current": false
+      },
+      {
+        "relative_path": "etc/replay-case.json",
+        "sha256": "6c09f9ed6c5f6f4227c3debf7100c8a60dc44f9bf23a2e7ea38264d83d3fc609",
+        "bytes": 8539,
+        "original_mode": "0o600",
+        "reset_current": false
+      },
+      {
+        "relative_path": "etc/nci.cfg",
+        "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+        "bytes": 11731,
+        "original_mode": "0o644",
+        "reset_current": false
+      },
+      {
+        "relative_path": "src/sources.src",
+        "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+        "bytes": 44614,
+        "original_mode": "0o644",
+        "reset_current": false
+      },
+      {
+        "relative_path": "src/termgroups.src",
+        "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+        "bytes": 6038,
+        "original_mode": "0o644",
+        "reset_current": false
+      },
+      {
+        "relative_path": "engine/INV/lib/Hierarchy.pm",
+        "original_path": "/local/content/MEME/MEME5/inv/INV/lib/Hierarchy.pm",
+        "sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+        "bytes": 23768,
+        "original_mode": "0o644",
+        "reset_current": false
+      }
+    ],
+    "new_candidate_run_id": "context-order-20261104",
+    "native_inputs_retained_at_standard_path": true,
+    "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+    "runtime_files": [
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/INSTALL.txt",
+        "sha256": "4477ea43037c92e83753d66b54b26cc0db4388bb23650c6a551c7674bceeb5e1",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/README.txt",
+        "sha256": "e0bf2f6b171d2a4d1c86af9aeb40a31475ac173c2123aeb11c3439aedd8c744d",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/bin/env.csh",
+        "sha256": "4f64f67e8e171859ec4c8c132acecdc4f2686abe9eba31850b46c7cb8fab2584",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/bin/env.pl",
+        "sha256": "2bd5418bf853a15368c44a4916a53cd6d131b1e04582fba7d4562f73181edf0d",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/bin/env.sh",
+        "sha256": "7a51a07155d9c4f1e38be2c472c5b161f2f25cf1b19082b03a739c59fea09d14",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/etc/env.prop",
+        "sha256": "2804e5936b40022054079b744976aa50e368bc8005072d431f820ff1b4590e9a",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop",
+        "sha256": "5bbf4c6464b39d221052ce38936482441fd2e6488fecc763645d98846b0282d3",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop.midp.cheek",
+        "sha256": "5f662e95891e5e2b35c6f4d57a073e748c0d597cf9e3d23e0b369cf213710f71",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop.midp.chin",
+        "sha256": "4f5fbaf9110acabae31602dcb7d3692bdf33ce45538951116e83f72b928816e4",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop.mrdp.cheek",
+        "sha256": "7a7832bcdc7d3642a6d3c9e04ef65838458fa8fd1182a2137e197cde9880d4c2",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop.mrdp.chin",
+        "sha256": "df0a52b189a9299f5abd6b44e594971e76ffd61bb36c63a06119fb9c52109b37",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop.webapps",
+        "sha256": "b5af66fc2604c9adf1208c08acf739ac1e31e71a27e2bab5602a1803a029b4aa",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/ENV/lib/etc/env.prop_orig",
+        "sha256": "bdabe2f1f4d76dec31d3fb12241fa51ae0ea2b91aa681db8b8f030a0218ccb08",
+        "mode": "0o777"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/INSTALL.txt",
+        "sha256": "3405b1ccabe1de06fb1c5ba222b251be8c17283d69802cd73efaf276440aae68",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/README.txt",
+        "sha256": "5c1c9b475e436ab2d7eaa1550b2a9dbbfb1b86365d4ee3b3b0e4f3c9862dd33e",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/Config/Properties.pm",
+        "sha256": "b578a65aa5096baf2d074cdf348b1db8d89cc82de93e8cc81a07f0ab3ffd1fa5",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/QA4.pl",
+        "sha256": "47d7c7c040f2cce37542388dccfcc3d06dacb8b37fb4f8e75f6e4db087607e1a",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/QaReason.pl",
+        "sha256": "a3e9e6afdbd4d4dfd75f35a1775cca6309154ccacee9846cd31872eef12123ce",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/SRCbuilder.pl",
+        "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/api_metadata.sh",
+        "sha256": "a3344bef1d2f897c215edb527883a4ba46870dbeb2004a473dd203c4f2a431cd",
+        "mode": "0o755"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/autoinv.pl",
+        "sha256": "ca0c5614f5eb153c0e5252d6aa6bd4eebb95f10679d0108ab78fb79cd271dc17",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/brit2amer.pl",
+        "sha256": "e91691ec6d36c9a4b3b057e412eb54469857606424e19bc5a2388bc820138607",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/bt_nt_to_treepos.pl",
+        "sha256": "2f71ab995ec7b8357c9f0664f6568a470a60828b933643add44c64cd57c93f1c",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/charCount.pl",
+        "sha256": "1ab56356fbf514209cc5328658b584fd454d6ab74107bf5061e5d2ba40d983c3",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/charfreq.pl",
+        "sha256": "013b7d2d96442e7ff9aa39fd9cbe476bea0555b909f01a28299dd55c486914a2",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/check.mergefacts.s",
+        "sha256": "cec5f2c3cdf650b64a4ac64d238f872c6f755bbe6d021fa10de4dcedeeb90b2a",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/check4britishisms.pl",
+        "sha256": "25d9bc7ff9ad0ea163a2a812a508d5a91002dce158d52c4e5006881ee91df5b7",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/check_sources.pl",
+        "sha256": "cb62e5c788a89816b60d0658adda3f8b43aa59b4a0ce9f92a2b1d0da92d52c18",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/checkfields",
+        "sha256": "ceda6fce5a950946eb2734899670e1d48dea4b80503d906a188c47a067149e21",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/checkfields.pl",
+        "sha256": "d23c4e918f70bd20b492e23547bfa2f9420cc41217fac8392451e50eb649db50",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/checkfields.pl.orig",
+        "sha256": "7a22741b6af6b7c171df74fc4fd6879484fb710205836d54e6a39cb5566e011b",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/countu",
+        "sha256": "fec87282ece5cecc49b06f3073c4d074326c397b84a3180b67949863831cca17",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/create_vsab_dirs.pl",
+        "sha256": "23e8944bb829aaac5195bb392fa620573bc4df551a9518815764b5378bc8497c",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/csv2vb.pl",
+        "sha256": "235a3208c871677bcd88c37d9247e09d0df8ccd52ff3bea829b0fbf5380e80e0",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/current_stys.csh",
+        "sha256": "b7b580a855faa82210c6cc1a70db474387c883d2a23ff9e527d6f3bd07fa0396",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/extract_metadata.sh",
+        "sha256": "ffe99de726151b98da1de4e0e1e6dffb18c2dd9e765c7f035db045dfa46ed921",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/find.cycles.s",
+        "sha256": "fe944d7e2aec2d6f42d8c2735c31bc1b95ec4e3125cc1fc059bda76927a8d3ac",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/findExtIds.pl",
+        "sha256": "cec345f6941c9c3a68e79459b8156bcd27c6d849585bcb62f67f741da2401655",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/findQaStats.pl",
+        "sha256": "980653a0e095ae8302111ac69e84e9fddbd2ded39efa7592995b86a3c1379317",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/findSrcDiffs.pl",
+        "sha256": "efa6b0960e4204a53296eb63e5ee121639e7446f4f284ee738586c0e5b00397f",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/findSrcStats.pl",
+        "sha256": "48c45b04f7ae7b238f155005b295990377ff44f0fbb6e2b73575d54560286829",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/fix_broken_lines.pl",
+        "sha256": "03d581b6fb46248acf9c08e96a8e714b8e19e324a25a85c162641bd98c35ca1a",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/genIndexes.csh",
+        "sha256": "bfdcd5ab2a3a93afc0d673af34d2e84365b2a6bd5ac0a1248b28d96beb365f94",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/grep8.pl",
+        "sha256": "5ff64daa54bab88a62a65b13d6e79db354b5beb0c9a527f8921270c3c3331885",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/guess-encoding.pl",
+        "sha256": "7f8f3c8296b69098513bb775f9f9fd9282fd690396567fcf4feeae11c7df78bf",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/look4utf8.pl",
+        "sha256": "385ebb58fca3f6fd0b6ae3e5f51440cb8c2a33599f270e67d0cb833afedec39f",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/lvg",
+        "sha256": "68543b0fdf7e72dd0c2161c92c5803889d043ca0027b8ebd7fdf912d835d8956",
+        "mode": "0o755"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/make.par_chd_rels.pl",
+        "sha256": "6603009b8001a5210a96b8a1efdaf4368b4d331e2db84b7bc17280898674515a",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/make.sources.src.pl",
+        "sha256": "a375f14ad4935ef348f6e4bd905d411c93315f37574b6d31ff7151b05445a7e5",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/makeDoc.pl",
+        "sha256": "bfbb19ff0583944b743fed53ca8959b552076ce24408b9baae7c11c755660dd2",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/make_new_valid_files.csh",
+        "sha256": "35816f47519e82cf7d9cb775b906486332d9e3ec628ddc72857c8c595d1ea608",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/matchparens.pl",
+        "sha256": "417a8fba5e94f3042c95be3b6e5bacb8c93076ffa8c14a2de2aefae358848761",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/matchquote.pl",
+        "sha256": "40fbbe23b415cdae2822929fe4796b271d37111aa5328bda3bd0a14311df6ec0",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/print.ancestors.pl",
+        "sha256": "d55ff52b6d67a92eb22b198d5d234f6d9f1757435f7205d0a7bb971b2b991cb9",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/print.contexts.pl",
+        "sha256": "ef23c5890f1c79559f5ebe9895c27f08d4198ebe272fdc066b97795223b68c39",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/print.raw3.to.attributes.pl",
+        "sha256": "5928fa07f0ddcdc41bee494a5d57ec0b7d562c4016fa05b2f8c0a009b4325437",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/printQaUserInfo.pl",
+        "sha256": "de4fca298702d2ec37a7e855dad42be3715a654fd7a4683e2f55ad3c30541e5a",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/raw_to_contexts.csh",
+        "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/readrels.s",
+        "sha256": "cde3dd3fff2de62b20082461e2f62652bdd44c53ca080174c288bd2a6b1bb9f1",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/report.pl",
+        "sha256": "0913ac83647dee85bf3ae994a077d2f18f770b8513c8046a3aab1e3d9084be22",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/show-examples.pl",
+        "sha256": "3f438817256aa829ae104b99df57ab024d3288add8fdf47084e0d11ad401f53b",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/show-forbidden.pl",
+        "sha256": "dd7e2582d812622baaa9e11a594cf145032fff50bebcc6fc70890516d9f5181e",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/show.stys.s",
+        "sha256": "657c3fdcdfa03516b5a49b8b5acda43e03b536982fa39aa33ea4ce009ce017ff",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/showEncodings.pl",
+        "sha256": "17634ab8a8296efadb66962fbc9b7ca0d1dc1acedced662156570aa9aa1d0a6d",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/show_mapset_attrs.pl",
+        "sha256": "8e66deb02815bfbdc5f9f7e70c865763d344d65542a8f310741718feb84ebcd9",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/simple.contexts.pl",
+        "sha256": "d0ed93073f79fed97d9bed84228e9e1c68e59121ff555b550fd4df91f747fc6a",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/srcQa.pl",
+        "sha256": "8fcf021a48d20f188d5510b0af78003984b3ff6f63bdf720276501a156f09730",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/ssl.pl",
+        "sha256": "df67931f61e14ab7f9b015e94d21539768da63154caa4ed10903edd6a6a3e95e",
+        "mode": "0o664"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/strip.junk.pl",
+        "sha256": "e0b338c7e9e2d3ddae013598077014cf5962c62b6b178bd8cb67bae6c41f8304",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/strip.nonprint.pl",
+        "sha256": "d62cb34d23080c8fc430786b9484aa7b84a09e47d05f7b7f1ce75b441159ea4e",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/strip.pl",
+        "sha256": "1b7fffe182f6be5b9e538eb07e0d5f67fe6629d98c00f63f6ae5ca88dd65d170",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/strip7.pl",
+        "sha256": "b522e753ac277c32bdd054c1576b4a1cfc4511b7b69cee9963a98e918cd231be",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/stripblanks",
+        "sha256": "b010477fbd12256ae3a968a698dd707d73c741801bd81cb53cb7e40fbb0da937",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/stys.pl",
+        "sha256": "bd046edd401536e7736b4a114177b34a30983ffdf7bed0ae9650572487eec040",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/tallyfield",
+        "sha256": "2bb5613a0aa1b35cf40b5f099df0c4b25608359d11c2bb05da21fe956c7eb477",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/tallyfield.pl",
+        "sha256": "18cd732ebf03b72238437e66f78d88a1dfd409294be455cf9ec689232bef2084",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/to-utf8.pl",
+        "sha256": "d97fb11bdd02cf6ca79c61eb776a12e4c3b1e8767c2142a6cda03086031c80a8",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/toLvg.pl",
+        "sha256": "7f1902847f277d1d55baf4dc24ffff13bb7dd93d7195ff2ee1406fb013589cd5",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/treepos2btntrels.pl",
+        "sha256": "298ebea22218461ce641a80d809ab2f00407bd16bc60847fc3a3bcf2c116d713",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/treepos2parchd.pl",
+        "sha256": "6a7f2e2dacb4af7bcfdbc1e2289a2f0dbdcbf1f1ab82bfd8edb6d19a1eeb394f",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/treepos_to_attributes.pl",
+        "sha256": "c68c07d95b7a172273abe1020c4974685ca434b1fec2ecd248495c69f005759b",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/treepos_to_contexts.pl",
+        "sha256": "b114ba441bfeb25e3417fc2072118c12784264c30fb40ed7bff7396bd65927a2",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/bin/txt2meow.pl",
+        "sha256": "c1e2e6ea78076d2c72e243a30f1cebc60a3ed86f51389019affcbce3c134c34b",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/Blocks-4.0.0.txt",
+        "sha256": "9cc457320b30c411dada320d98a8a83b5db551225a598637473c851861e75496",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/CP1252.TXT",
+        "sha256": "222dcc703bd43968953430a247af7c65f3bd17994f397209b25f9fc59f4c812f",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/Forbidden_characters.txt",
+        "sha256": "7d969ae2dae9dc391400a9247dd90aec70182b504d5fb927f71cb00fef531eb8",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/META",
+        "sha256": "b51458d30f294961e0cbd79810bd9b3404c61e71dbe23af0d030ffe48f121d09",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/NamesList.txt",
+        "sha256": "a75073b5572dde6d68c7312bd0334904ca686c9c6594f27eae91dd482db08da5",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/README.INVERSION.generic.txt",
+        "sha256": "aa23be33e683e586f74624c4bbf87c0305bb21ee4c2136a1bbd6aac5b45f3e18",
+        "mode": "0o775"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/README.QA",
+        "sha256": "9d56915659a354f2672c08bf44a4019a53a9ef63012349ab1705699a29832559",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/README_FILELINKS",
+        "sha256": "09c9445b28406f38229c4b747115a3cc0746ba8f0a01809bae3aa59382790054",
+        "mode": "0o664"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/attrib.fields",
+        "sha256": "d768c4746fa7c310aa6926f8c29cf195aabca632ef22bd9cea3602bf052d9597",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/brit.amer.map",
+        "sha256": "a7e922bea555871274ec70e7cb6de739f8c28d6bded9d083a238241d94ef4a78",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/brit2amer.map",
+        "sha256": "80d57deda16cfd986b09ecc6ba39149956da3101f03a5fd41e3c9753d84859c5",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/brit2amer.txt",
+        "sha256": "80d57deda16cfd986b09ecc6ba39149956da3101f03a5fd41e3c9753d84859c5",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/char_entities.txt",
+        "sha256": "f0f90c81b6ee38c6f75042a59022fa1dbfc13fbd90d6d5c9bb2a4a77fc939fd9",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/class.fields",
+        "sha256": "269f80d86f76864dd52e020908cd1019618bdc34ee9adafd02202e327363f146",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/entries",
+        "sha256": "b4e1b18bf2b383b1386fcddeeefff054da1cc242be202611087c4a2b3cebc411",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/inv_defaults.cfg",
+        "sha256": "5ff5f66aa4cf49c1715bdb305b02a627e64a04193e3c81750130d969c5e94d96",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/invalidChars.txt",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/merge.fields",
+        "sha256": "b15ba5e405bb312af4317c82b5d0fd63a64f7ea32f507c6affb4e0df7589bf20",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/rels.fields",
+        "sha256": "1ec6220220891143a00fb3215cc2edf4ffddbae1e65f57d507767014d56a6204",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/si_proposal_generic.txt",
+        "sha256": "1da683cd78b1bd2e10c1a19dbbfdf5642ac7695242bbd66b51a88015310e95f9",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/sources.fields",
+        "sha256": "284051067ed2d4b3b0456e17dc0d74540f5e54db77307e55101cb85e78d6268d",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/sources.src.template",
+        "sha256": "8aab7923d52b3d3f2dc7a052257e974d6d325778c5ac42f312d3e5ece4402611",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/spell-list",
+        "sha256": "364b7dc80ee5c05199c767d5851c9b068d5d8e90448117c3f8fb45f26124c397",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/template.mapsetattr",
+        "sha256": "4c5e5cff6270c4a83680155dd71c6d939cc48446e791500236922ae2327f146d",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/termgroups.fields",
+        "sha256": "b309dda36a4d7f4f8d0a36a9eec143a5cfbff6b0e49a9173764cdbe99cb36b94",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/valid_langs",
+        "sha256": "6bb38139be8ee5f99ae273de576a99658dfd1a4479aaf1d3231b7902cb9c191a",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/valid_relas",
+        "sha256": "7d394a687c984c542165b1a53bd42fc92373af15cc8bc0761eafbfcbe7cc1aa8",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/valid_stys",
+        "sha256": "05ef6b8ddc737f57f3c7d0d88179f4532e30a966dd13831ef0c55406d982da36",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/etc/valid_stys.old",
+        "sha256": "610f63e2d107c67f04d92f146c0ddae2acdb2827832f4e0009f7298bd2f1facd",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/biggrin.gif",
+        "sha256": "6bb92fc4e109755707a80a896d99f6b85edfc200954579d24a51c1cfa0e324e0",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/confused.gif",
+        "sha256": "e7e4ff69e15dd326e54c8c4bd2384a1f29fc240dc49e8c4f8181cf6e573c50d3",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/cool.gif",
+        "sha256": "121ef0804d2feb81dce817f58b1969e3986db8785ef29d4ff7528ec3309c50f5",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/eek.gif",
+        "sha256": "63434c6f7883988071fd5eb1c218a0a9a135d76414d6b048bfa55141a924fbbc",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/greenball.gif",
+        "sha256": "61a9b3b5865df7163f5a279b5a5430c0d80ce2e6c239f697d61d2d39e3ef4fda",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/happy.gif",
+        "sha256": "0ccf0bb5b43e19b5d3c0df979496a513a4cde8ec042e7be969ae7345e021c2ee",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/mad.gif",
+        "sha256": "7f59d34789c6c75ed2d550fa431ac14e6441c6c83345ff905c290cf5b0561d4a",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/redball.gif",
+        "sha256": "258c27da66561320b2ff0837bd48992bfbdcbfc326c68eecea31c0754e9a6ae9",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/redface.gif",
+        "sha256": "6fd4117e3b8f7a8b782c8496117b8f2b586db2028335dc529e351f7570d6424c",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/rolleyes.gif",
+        "sha256": "f6b8dbbc6fb2b9dc698eb11303e90bc149aa90427d13d900e1da9a9d7da7cb1a",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/sad.gif",
+        "sha256": "46a0f99f6b725cf11444e0750ce26e6acf398c2a99dd7b2a8daee96ebcffd23c",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/tongue.gif",
+        "sha256": "5925cd2a7322fc2dcb8d7e514163239d62aa4f473697d93958ace74da695747c",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/img/wink.gif",
+        "sha256": "0afde65d7e1e469db6b727f4cda5da52d491abfcb0b1db108caeb08eda068963",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Archives.pm",
+        "sha256": "d25a49a5646610772d17981a20508c1af9a0afb40edde1f70276158d20957d31",
+        "mode": "0o664"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Archives.pm.old",
+        "sha256": "6066e92d12f0caf02008bc4b4534503b77503fe960c404cf1b19f9760a796b91",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Atom.pm",
+        "sha256": "4e63041aa0e1468b4c6e23b6205b120f6179009eaa4814534b5119358c2c86e2",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Attribute.pm",
+        "sha256": "2630353024f96215830e0002303406852cefcd9547e4dc6496e819be0c6e8fb1",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Brit2Amer.pm",
+        "sha256": "a17fbea789b8fd31f6300f4a2cc0f7b086c443bf9fedb260f918698385bb5b8a",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/CharCount.pm",
+        "sha256": "82cd866b286f747114d91eb8896ec7b4a59e3ac7b8e6af1d2c15041a3009a68d",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Context.pm",
+        "sha256": "648e39468b9f587b4c7780182d086fb112edd94fe01a992872814b3a0938505e",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Contexts.pm",
+        "sha256": "36f24964c4ec9cc9734e754b83f6e6a6794ad0cdca8ab372911c5df65c433174",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/FldMon.pm",
+        "sha256": "912fa4b88258f76d3d52f914f519ecc0aae45011ca4c7864beb688124498d078",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Hierarchy-nocxtAttrs.pm",
+        "sha256": "5e58cd556e21ac070ab10d31fe881941e5a8615fd43bfa7d65eb53e4ffe80836",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Hierarchy.pm",
+        "sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/IdGen.pm",
+        "sha256": "4dc1dff974b45f446a9927316bec5fab5b117cfd0adac1565fad4c3afe6abbb7",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/LVG.pm",
+        "sha256": "3c10904510beeccaa3742313724239b1ec4bb6e9cbc333d9accd2937c2b20fab",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/LineMon.pm",
+        "sha256": "513f870ea13304537dc18a623217e8be49c7f68f53bb68b1127293617ee19fe3",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Logger.pm",
+        "sha256": "83d70c5aaf87acb66552e731778fd6940901b3ae7dd821a1ab039b92eb40c5fc",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/MakeDoc.pm",
+        "sha256": "48e7fb0333daaedecf77df08c49a762e2aa72f6f23506950ef6bb33cdc7056ad",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Merge.pm",
+        "sha256": "99620c986bef4093db45fad9244ec36daa7b284636fdd17b075301b355f4593c",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Midsvcs.pm",
+        "sha256": "6e28f26a584e3c256566d4e86dcbbd9a1e5d0e416c37999e3176ad37b653c8c7",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/NLMConfig.pm",
+        "sha256": "85d28b8126ebc8786bc141139b42e13f7d7331c81e2da670a0396f048202aebb",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/NLMInv.pm",
+        "sha256": "39452587e8d3a25496e2b4ebf0c8cc16b0026f15eb17e8807d80160816bb8cc6",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QA4.pm",
+        "sha256": "3107359d8465affdf3cc0af6d84977464c71337009a0c51712445748e2059767",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QA4_util.pm",
+        "sha256": "d72c2700cee36e61e162c59279b7d055018bc5d53d982a7cb724036590febb82",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaAtoms.pm",
+        "sha256": "07fe4ebca1428bb9f59257ca0924089264d32ace70e04d2cd289f945317f1d13",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaAttrs.pm",
+        "sha256": "0747942c0f3cf7d10d9494d8b3ae9a5b96ca7c3e17c8b2066f3e6083229d2695",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaCxts.pm",
+        "sha256": "abba721bb1993bd241d53795803dad8741b1b224fcb4ef5292fe6f28b77baf05",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaDocs.pm",
+        "sha256": "8954445ce0c0ef0145202899d5a41572971636d70cafa7873b9e420a0e6fe817",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaMerges.pm",
+        "sha256": "4fd3dbd0ec60b93518ae44a27359ca917ed11a0d72727bba9fd4d6ad5d2967a5",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaRels.pm",
+        "sha256": "d3db8d4fd765df5d8ff959f8a98c94e4fe6b518dbd5a60d29881e18aaba08a17",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaSrcs.pm",
+        "sha256": "88d6dd6a864c079c6582638e059810035d7f9685a9a73d519fb16c1b7d1ef155",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaStats.pm",
+        "sha256": "442aaf898d1ad74b545c023ebac16eb27bc69bd4b4298a102038e79d31406545",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/QaTGs.pm",
+        "sha256": "c5e63984c3235c177c00b476bf53f51bc30bfc9c49df8fb1b7105b6a1bcd3fb9",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/Relation.pm",
+        "sha256": "966be7992d60367afe92f32b141f9e017505b566b4bb9a5dac987236badb4b0e",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/SrcBldr.pm",
+        "sha256": "c49ca5c7a43ff504f7baba7c394fa890675ea3a725e38dd07512c69ea957e1ae",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/SrcDiffs.pm",
+        "sha256": "edc9c8be0f7d41a2b6888ecc759dba7f71b28e695e4c00101ad9e0d4068027f2",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/SrcQa.pm",
+        "sha256": "54ce989deae9f549a0693b5c6a9167f8467d2b5146e97805328dac85181973e8",
+        "mode": "0o664"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/SrcReport.pm",
+        "sha256": "e5b7ac1cc44837aa705a253d5ef17ebea5a89711cbeffe18685fe9876233bbb7",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/SrcStats.pm",
+        "sha256": "aca6c0a3afd0891b829077888839a6ef3ce319fdd29349f29b53e1f0f30371f2",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/findSrcDefaults.pm",
+        "sha256": "6a323f3be5dad9403cea0ab81b15e475864cc1d8e027fba7514d668ca4ac8821",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/iutl.pm",
+        "sha256": "49c3527b91526ce0f5da0a64c202e834dbad150c3a7ed89cac4f76450cf9afed",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/lucene-core-2.3.1.jar",
+        "sha256": "1e419e7286507bb263d7c8b36ab18cf88208e5152f97a9aa7d8700f62c7b78e9",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/lucene-demos-2.3.1.jar",
+        "sha256": "09b63587408965bf9e3bd46b9cf48b07290bf9d375f092f3aeba754d64e02def",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/lucene_index_gen.jar",
+        "sha256": "81bf108cef2740f31b4dd42f4d9617ad03a7982e36b3028a96e4792e58075791",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/print_inv.022309",
+        "sha256": "00f41c37e1876aa0874d65bd1b5f6d7f82abd2267a528be0ba8fcea3d1008042",
+        "mode": "0o644"
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/INV/lib/print_inv.pm",
+        "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af",
+        "mode": "0o644"
+      }
+    ]
+  }
+}

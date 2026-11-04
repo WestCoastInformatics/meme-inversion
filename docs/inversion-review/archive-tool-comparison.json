@@ -1,0 +1,80 @@
+{
+  "checked_at_utc": "2026-11-03T22:24:49.762921+00:00",
+  "host": "ncias-d3777-c",
+  "files": [
+    {
+      "name": "list_s3.csh",
+      "dev_path": "/local/content/MEME/MEME5/ncim/bin/list_s3.csh",
+      "dev_sha256": "bd62bd4a8fcb583292132be1c527994e16ba2c1ae120e275712e2965b79543b1",
+      "production_ref": "production-snapshot-20261103",
+      "production_repository_path": "operations/ncim/bin/list_s3.csh",
+      "production_sha256": "bdd744e0f9a49859e631c2ff62c85586c3e4a7b6d807f9698443d67ba5c3fce1",
+      "syntax_check": {
+        "status": 0,
+        "output": ""
+      },
+      "differences": [
+        "Trailing whitespace only; no command or configuration difference"
+      ]
+    },
+    {
+      "name": "pull_s3.csh",
+      "dev_path": "/local/content/MEME/MEME5/ncim/bin/pull_s3.csh",
+      "dev_sha256": "a8fd2af2701c528c102101bca26e6363b2b9b3d934236068420551a125a60983",
+      "production_ref": "production-snapshot-20261103",
+      "production_repository_path": "operations/ncim/bin/pull_s3.csh",
+      "production_sha256": "42bae55e9cc014387a1059481b8a566a73b56c217d6097688bac4ceb59c9c3d0",
+      "syntax_check": {
+        "status": 0,
+        "output": ""
+      },
+      "differences": [
+        "Dev declares AWS_BIN=aws and AWS_PROFILE=meme; captured production uses /usr/bin/aws with ambient/default profile",
+        "Dev centralizes bucket and directory constants; configured values match production locations",
+        "Dev exits on an invalid inv/ncim/umls argument; captured production prints an error and continues",
+        "Whitespace and unused setup-variable differences"
+      ]
+    },
+    {
+      "name": "push_s3.csh",
+      "dev_path": "/local/content/MEME/MEME5/ncim/bin/push_s3.csh",
+      "dev_sha256": "05b6521d8d1c4d8593f3484ff1af7d2aa296082c74a0da05b565c51fed04a23b",
+      "production_ref": "production-snapshot-20261103",
+      "production_repository_path": "operations/ncim/bin/push_s3.csh",
+      "production_sha256": "85c911b3d1c9db0c3b1f208854526a6da4c240baf3b85c7099941fec790ee1dd",
+      "syntax_check": {
+        "status": 0,
+        "output": ""
+      },
+      "differences": [
+        "Dev declares AWS_BIN=aws and AWS_PROFILE=meme; captured production uses /usr/bin/aws with ambient/default profile",
+        "Dev centralizes bucket and directory constants; configured values match production locations",
+        "Dev exits on an invalid inv/ncim/umls argument; captured production prints an error and continues",
+        "Whitespace and unused setup-variable differences"
+      ]
+    }
+  ],
+  "profile_metadata_read_checks": {
+    "default": {
+      "status": 0,
+      "content_length": 546021953,
+      "etag": "\"963c247639c26378f2864699905fe2f0-66\"",
+      "last_modified": "2026-11-02T19:27:52+00:00",
+      "version_id": null
+    },
+    "meme": {
+      "status": 0,
+      "content_length": 546021953,
+      "etag": "\"963c247639c26378f2864699905fe2f0-66\"",
+      "last_modified": "2026-11-02T19:27:52+00:00",
+      "version_id": null
+    }
+  },
+  "profile_values_are_credentials": false,
+  "scope": "Static content comparison, syntax parsing without execution, and HeadObject metadata reads only",
+  "file_age_or_authorship_established": false,
+  "server_files_changed": false,
+  "downloads_performed": false,
+  "uploads_performed": false,
+  "recommendation": "Keep captured production code as the reference baseline. Treat named AWS profile as explicit environment configuration and preserve the useful invalid-argument exit as a separately reviewed change when reconciling implementations."
+}

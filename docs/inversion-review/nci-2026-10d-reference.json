@@ -1,0 +1,535 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "environment_profile": "ncias-d3777-c",
+  "bucket": "nci-evs-meme",
+  "key": "inv/sources/NCI_2026_10D.tgz",
+  "aws_profile": "meme",
+  "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz",
+  "object_identity": {
+    "ContentLength": 546021953,
+    "ETag": "\"963c247639c26378f2864699905fe2f0-66\"",
+    "LastModified": "2026-11-02T19:27:52+00:00",
+    "VersionId": null
+  },
+  "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+  "archive_bytes": 546021953,
+  "downloaded_this_run": true,
+  "archive_read_only": true,
+  "member_count": 104,
+  "regular_file_bytes": 4147680334,
+  "native_files": [
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/meta_export_26.10d.zip",
+      "size": 84108226,
+      "sha256": "2a8ac9b124221da0d058d103f7db73e70c9979ef5a8cabb1e31486f53c6acc46"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/annotationDeclaration-20261026.txt",
+      "size": 8502,
+      "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/classDeclaration-20261026.txt",
+      "size": 157230668,
+      "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/datatypeDeclaration-20261026.txt",
+      "size": 6152,
+      "sha256": "61b55b0d9d72a671aecb3efae9baada7a54434bc7639fbcb0040234c1f16615b"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/objectDeclaration-20261026.txt",
+      "size": 4934,
+      "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/relations-20261026.txt",
+      "size": 14705566,
+      "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/hierarchy-20261026.txt",
+      "size": 3596568,
+      "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/ThesaurusInferred.owl",
+      "size": 935239187,
+      "sha256": "a64895bb3ba2068f54b80498e952380ae77374c24ee4b10e7df767d9fdb3ce42"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/NCI2026_10D.txt",
+      "size": 61825,
+      "sha256": "9d2517734b730651b3c7adbc528df9bf99b929ded21e1db4f4a9784745f7b566"
+    }
+  ],
+  "stages": {
+    "src": [
+      {
+        "path": "NCI_2026_10D/src/attributes.src",
+        "size": 306298097,
+        "mode": "0o664",
+        "mtime": 1793591089,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "1fe0990bd7ce36529e8e16a2ade0353a3ac5aac4df95a0c078fdb83e32fc7920",
+        "newline_count": 1265611
+      },
+      {
+        "path": "NCI_2026_10D/src/relationships.src",
+        "size": 169343929,
+        "mode": "0o664",
+        "mtime": 1793591010,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+        "newline_count": 1228468
+      },
+      {
+        "path": "NCI_2026_10D/src/mergefacts.src",
+        "size": 44631179,
+        "mode": "0o664",
+        "mtime": 1793590947,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+        "newline_count": 595089
+      },
+      {
+        "path": "NCI_2026_10D/src/contexts.src",
+        "size": 270665435,
+        "mode": "0o664",
+        "mtime": 1793591089,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2a2778c7a375d69058cd2891d570dc44845028491f82c9f0a401c0a18676667e",
+        "newline_count": 1185069
+      },
+      {
+        "path": "NCI_2026_10D/src/MRDOC.RRF",
+        "size": 49819,
+        "mode": "0o664",
+        "mtime": 1793591817,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "ccc3183041b2556b59ca046a294f8af34b32752c2e2bc7468b89b1662e32b3e5",
+        "newline_count": 623
+      },
+      {
+        "path": "NCI_2026_10D/src/qaStats.src",
+        "size": 70162,
+        "mode": "0o664",
+        "mtime": 1793591894,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "38ac4a86a51cd25ccb9fdeea9464a93749d297527e0939c3661a397f59290582",
+        "newline_count": 868
+      },
+      {
+        "path": "NCI_2026_10D/src/classes_atoms.src",
+        "size": 86815706,
+        "mode": "0o664",
+        "mtime": 1793594160,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+        "newline_count": 803253
+      },
+      {
+        "path": "NCI_2026_10D/src/sources.src",
+        "size": 44614,
+        "mode": "0o644",
+        "mtime": 1793646753,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+        "newline_count": 60
+      },
+      {
+        "path": "NCI_2026_10D/src/termgroups.src",
+        "size": 6038,
+        "mode": "0o644",
+        "mtime": 1793646807,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+        "newline_count": 130
+      }
+    ],
+    "insert": [
+      {
+        "path": "NCI_2026_10D/insert/attributes.src",
+        "size": 304524066,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "d68d4d6f4ad7ab25fbc580c7cb91824388a07204d838d12ded0ccc2cff746a63",
+        "newline_count": 1258799
+      },
+      {
+        "path": "NCI_2026_10D/insert/classes_atoms.src",
+        "size": 86340658,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "722c4a36733e2fd2d27b6f46ac0d6248c20bc05201222d888b3fe42388a7142c",
+        "newline_count": 798994
+      },
+      {
+        "path": "NCI_2026_10D/insert/contexts.src",
+        "size": 265891848,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "78b153e8da59fc86b60989723aaada51ffa64200bb27d8fca3a25b924554ca73",
+        "newline_count": 1164984
+      },
+      {
+        "path": "NCI_2026_10D/insert/mergefacts.src",
+        "size": 44360228,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "7e486413fc1175a343db792e1c0791949309528f4257fc73ebb9034b9602c39d",
+        "newline_count": 591476
+      },
+      {
+        "path": "NCI_2026_10D/insert/qaStats.src",
+        "size": 68980,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "f2c4101bb83d4357bc03801b2cf1d1d4455f370c0f4a9643edb3d2d03b283899",
+        "newline_count": 849
+      },
+      {
+        "path": "NCI_2026_10D/insert/relationships.src",
+        "size": 168296927,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "5606ad58faece016efab19d5e7897d9a45d0ae3a68ce618381185519da1ba652",
+        "newline_count": 1220912
+      },
+      {
+        "path": "NCI_2026_10D/insert/sources.src",
+        "size": 43904,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "56b7ba6b7d17046ac1005d389684f96b86e95092df20a0cac255962ee9d2a43c",
+        "newline_count": 59
+      },
+      {
+        "path": "NCI_2026_10D/insert/termgroups.src",
+        "size": 5931,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "cc8c7851bf173724fb92409227579aab9c19141c576b7f1d6641074eb0745697",
+        "newline_count": 128
+      },
+      {
+        "path": "NCI_2026_10D/insert/MRDOC.RRF",
+        "size": 49769,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "3424271ff588ebc1495c9f3fdea0b70607a732ee4bec0726e9356d6e5c1a9ec3",
+        "newline_count": 622
+      },
+      {
+        "path": "NCI_2026_10D/insert/sty_term_ids",
+        "size": 22084714,
+        "mode": "0o664",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "95890bcc1270c5e5a33fee0a6183c54db5c735a2206ef80b9f75f239deeac55e",
+        "newline_count": 661865
+      },
+      {
+        "path": "NCI_2026_10D/insert/reportChecklistResults.txt",
+        "size": 1602,
+        "mode": "0o664",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "8392c93e4f49d7d71baff21f157603aceb7620a9abe50a79bfbc58924c42c8f1",
+        "newline_count": 23
+      }
+    ]
+  },
+  "stage_overlap": [
+    {
+      "name": "MRDOC.RRF",
+      "same_sha256": false
+    },
+    {
+      "name": "attributes.src",
+      "same_sha256": false
+    },
+    {
+      "name": "classes_atoms.src",
+      "same_sha256": false
+    },
+    {
+      "name": "contexts.src",
+      "same_sha256": false
+    },
+    {
+      "name": "mergefacts.src",
+      "same_sha256": false
+    },
+    {
+      "name": "qaStats.src",
+      "same_sha256": false
+    },
+    {
+      "name": "relationships.src",
+      "same_sha256": false
+    },
+    {
+      "name": "sources.src",
+      "same_sha256": false
+    },
+    {
+      "name": "termgroups.src",
+      "same_sha256": false
+    }
+  ],
+  "metadata_summary": {
+    "NCI_2026_10D/etc/nci.cfg": {
+      "release_tags_seen": {
+        "2026_10D": 121
+      },
+      "scope": "Observed text tags; dependency roles not inferred",
+      "settings": {
+        "VSAB": "NCI_2026_10D",
+        "RSAB": "NCI",
+        "ORIGDIR": "../orig",
+        "TEMPDIR": "../tmp",
+        "SRCDIR": "../src",
+        "ETCDIR": "../etc",
+        "SaidStart": "781548593",
+        "Atidstart": "1",
+        "Rlidstart": "1",
+        "File.Source": "<SRCDIR>/sources.src",
+        "File.Termgroup": "<SRCDIR>/termgroups.src",
+        "FILE.MRCONSO": "<ORIGDIR>/MRCONSO.TREF",
+        "FILE.MRREL": "<ORIGDIR>/MRREL.TREF",
+        "FILE.MRSAT": "<ORIGDIR>/MRSAT.TREF",
+        "FILE.MRDOC": "<ORIGDIR>/MRDOC.TREF"
+      }
+    },
+    "NCI_2026_10D/src/sources.src": {
+      "release_tags_seen": {
+        "2026_10D": 181,
+        "2026_08E": 59
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    },
+    "NCI_2026_10D/src/termgroups.src": {
+      "release_tags_seen": {
+        "2026_10D": 132,
+        "2026_08E": 128
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    }
+  },
+  "code_comparison": [
+    {
+      "path": "NCI_2026_10D/bin/patch_defs.pl",
+      "archive_sha256": "8b3a79e56b2540122383f9e46bddc71505b320276cdab44230b2c2d4d78b6609",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/patch_status_attrib.pl",
+      "archive_sha256": "69b576905b0bc34099f4ab6fe6679d6349d5dcf63605bebbd9ab2279867472c6",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/tref_2_relational_files.pl",
+      "archive_sha256": "659d132355893e707b6c4c20441c96972f063d0d2f3c8d73b3a37938f23569fc",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_nci_assoc.pl",
+      "archive_sha256": "4c34ba16a1cd69395fd7544f4e426c038e9ef22837da55c250467d842fe7ea64",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_owl_roles.pl",
+      "archive_sha256": "ff3b4c5b63d1d00496ba504d5e58409965d2d0dc295f912f4d6c2f6625cde844",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/assign_rolegroups.pl",
+      "archive_sha256": "17fac65d4014eb85df72d3ed815130cb9d142f0f1ee998414b53d0aa859ad296",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/confirm_mapping_codes.pl",
+      "archive_sha256": "c4c1e928f3f84254ded48c886d139cf98bd87b5b5ba4fe2a5c77ae3c853dd204",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/create_tref.pl.orig",
+      "archive_sha256": "ece7ed766494ce360ee629936aa438b7f17c52f80e6b96aca14c3657cab31043",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/delete_dup_roles.pl",
+      "archive_sha256": "359310345e228f2b030f66d76114872883002e6c62a2a359dfa42a62f25f9964",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/delete_dup_tref_lines.pl",
+      "archive_sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_prop_name.pl",
+      "archive_sha256": "44a6d7d9d42d399caef00520445656afed982fa2382354991be8ed210adf5cbf",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_sy_pt_name.pl",
+      "archive_sha256": "dd27d72f5aae41e48b9bdc6b1ea038180362763a93c528a1f1eb5c0f65cc47bf",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/invert_NCI.pl.orig",
+      "archive_sha256": "0c3f5437d1d2c1239b89b7bd626448e681e91e5bb11ca455a9da20c8a450aa10",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/nci_2017_06d.csh",
+      "archive_sha256": "c2b7052017daed5eaf6bb389569a9dc934d0ddc09fa8f6802f920ad8a7892b85",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/create_rolegroups.pl",
+      "archive_sha256": "fe043606aff626e87d87bfd72885435b732ed60cd8e69e84595909d344719ecb",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/create_tref.pl",
+      "archive_sha256": "929230080198176550bf940451eec6ab8217feab6ad2f9ac1a9c8821213f8362",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/compare_exportrels2tref.s",
+      "archive_sha256": "f5b1258ab680ae021128f1fcd30b906eddbafca54a11399764e969553b5e1cc6",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/bin/invert_NCI.pl",
+      "archive_sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    },
+    {
+      "path": "NCI_2026_10D/etc/README.INVERSION",
+      "archive_sha256": "0f90b0033c85a9e98db8a819bfe5a5667440077037536e98305839ce2c7518e7",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": false
+    },
+    {
+      "path": "NCI_2026_10D/etc/nci.cfg",
+      "archive_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+      "matches_captured_production": true,
+      "matches_committed_snapshot": true
+    }
+  ],
+  "pull_tool": {
+    "path": "/local/content/MEME/MEME5/ncim/bin/pull_s3.csh",
+    "base_ref": "production-snapshot-20261103",
+    "sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+    "previous_sha256": "a8fd2af2701c528c102101bca26e6363b2b9b3d934236068420551a125a60983",
+    "backup": "/local/content/MEME/MEME5/ncim/bin/pull_s3.csh.before-reference-20261103T230205Z",
+    "checks": {
+      "passed": 12,
+      "checks": [
+        "download-only retains archive without extraction; profile passed through",
+        "keep-archive extracts and retains archive",
+        "legacy two-argument extraction removes archive",
+        "failed download never extracts or reports success",
+        "failed extraction retains archive and reports failure",
+        "invalid argument rejected before AWS: invalid <VERSION>",
+        "invalid argument rejected before AWS: inv <VERSION> --invalid",
+        "invalid argument rejected before AWS: ncim <VERSION> --download-only",
+        "download-only leaves an existing source folder untouched",
+        "restore refuses to overwrite an existing source folder",
+        "existing local archive is never overwritten",
+        "legacy tar.gz fallback works with download-only"
+      ],
+      "network": "disabled",
+      "real_aws_calls": 0,
+      "fixtures_removed": true
+    },
+    "changes": [
+      "Optional download-only and keep-archive modes for inversion archives",
+      "AWS_PROFILE and optional AWS_BIN supplied through the environment",
+      "Invalid arguments and failed transfers/extractions return failure",
+      "Existing local archives are not overwritten"
+    ],
+    "profile_selected_for_this_job": "meme"
+  },
+  "inventory_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz.inventory.json",
+  "receipt_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz.reference.json",
+  "source_directory_exists": false,
+  "extracted": false,
+  "candidate_executed": false,
+  "case_status": "reference-frozen-and-input-output-boundary-mapped; candidate-not-prepared",
+  "completed_at": "2026-11-03T23:02:54.098370+00:00",
+  "stage_interpretation": {
+    "src": {
+      "source_version": "NCI_2026_10D",
+      "low_source": "NCI_2026_08E",
+      "selected_as_reference": true,
+      "reference_stage": "inversion-src"
+    },
+    "insert": {
+      "source_name_release_tags": [
+        "2026_08E"
+      ],
+      "low_source_release_tags": [
+        "2026_07D"
+      ],
+      "selected_as_reference": false,
+      "interpretation": "Intended insertion staging area copied unchanged from src by prep_insertion.csh; archived contents do not correspond to current October src. Exact cause/timing remains unresolved.",
+      "prep_script": "insertion-preparation-review.json"
+    }
+  },
+  "boundary_review": "nci-2026-10d-boundary-review.json"
+}

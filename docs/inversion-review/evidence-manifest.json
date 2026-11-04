@@ -1160,7 +1160,10 @@
     "NCIt may skip a publisher month: August can be the replacement baseline for October, without a September insertion.",
     "Older and sizeable release folders are intentionally archived in S3, with history going back several years; absence from the server is expected local staging behavior, not evidence of archival data loss.",
     "Existing scripts in /local/content/MEME/MEME5/ncim/bin already list, pull, push and update archived source versions; reuse them in the lifecycle.",
-    "Begin a fresh implementation from the operational code on meme-edit as the authoritative baseline; previous project rework branches and wrappers are informative only, not the foundation."
+    "Begin a fresh implementation from the operational code on meme-edit as the authoritative baseline; previous project rework branches and wrappers are informative only, not the foundation.",
+    "The development server is ncias-d3777-c and uses completely separate storage from production.",
+    "Initial setup on ncias-d3777-c must mirror meme-edit physical paths; any path relocation must be a deliberate design change.",
+    "Dev and production may have extra or fewer source/version folders; a run uses only the versions and dependencies it needs, with no folder-inventory synchronization requirement."
   ],
   "documents": [
     {
@@ -1268,14 +1271,14 @@
   ],
   "priority_reassessment_basis": "Multi-year S3 archives and existing list/pull/push/update scripts remove the basis for treating archive preservation or replacement S3 tooling as a standalone top priority. Restore verification supports baseline preparation and regression testing.",
   "test_architecture": {
-    "status": "proposed_not_implemented",
+    "status": "source-specific NCIt characterization apparatus implemented; common runner remains proposed",
     "requirements_source": "User request for development isolation over multiple cycles and source/version replay against official S3 inversions",
     "design": "test-architecture.md",
     "request_template": "request-template.json",
     "request_schema": "request.schema.json",
-    "worker_provisioned": false,
-    "candidate_inversion_executed": false,
-    "official_s3_reference_retrieved": false,
+    "worker_provisioned": true,
+    "candidate_inversion_executed": true,
+    "official_s3_reference_retrieved": true,
     "key_contracts": [
       "Candidate runs away from meme-edit with private storage/runtime",
       "Reuse existing S3 tooling with read-only official-reference acquisition",
@@ -1284,7 +1287,7 @@
       "Validate independently and compare record multiplicity, identifier correspondence and semantic structure",
       "First prove unchanged legacy replay against a frozen reference"
     ],
-    "historical_reproduction_status": "Not yet tested; live DB queries are potential external inputs, not proof that historical output cannot be reproduced. Separate output-affecting lookups from QA-only lookups and audit archived exports before identifying actual gaps."
+    "historical_reproduction_status": "NCIt October native TREF reproduced exactly. Unchanged core exposed one PT defect; separate explicit-PT and ordering candidates each passed scoped core comparison using archived metadata. SNOMED reference frozen with stage-correct attributes.orig; no SNOMED or MTH candidate run yet."
   },
   "common_configuration": {
     "status": "proposed_not_implemented",
@@ -1362,5 +1365,258 @@
       "physical_host_verified": true,
       "web_alias_relationship": "The meme-edit web hostname resolves to a load balancer, not a direct host alias"
     }
+  },
+  "development_worker": {
+    "ssh_host": "ncias-d3777-c",
+    "selected_by": "user",
+    "separate_storage_confirmed_by": "user",
+    "read_only_inspection_completed": true,
+    "readiness_report": "dev-worker-readiness.md",
+    "evidence": "dev-worker-evidence.json",
+    "workspace_created": true,
+    "archives_downloaded": true,
+    "candidate_inversion_executed": true,
+    "layout_policy": {
+      "mode": "mirror-production",
+      "root": "/local/content/MEME/MEME5",
+      "standard_paths": {
+        "shared_inversion_code": "/local/content/MEME/MEME5/inv/INV",
+        "environment_framework": "/local/content/MEME/MEME5/inv/ENV",
+        "source_releases": "/local/content/MEME/MEME5/inv/sources/<VSAB>",
+        "reference_ncimeta": "/local/content/MEME/MEME5/mr/ncim/<release>",
+        "publisher_umls": "/local/content/MEME/MEME5/mr/umls/<release>",
+        "archive_tools": "/local/content/MEME/MEME5/ncim/bin",
+        "ncit_shared_qa": "/local/content/MEME/MEME5/inv/archive/projects/TDE_QA"
+      },
+      "source_directory_inventories_must_match": false,
+      "dependency_selection": "Only versions and artifacts declared by the selected run",
+      "extra_source_folders": "Irrelevant to dependency readiness; do not synchronize or remove for parity",
+      "path_relocations": "Explicit design decision with reason and migration impact",
+      "test_artifact_locations": "Choose explicitly without relocating operational source/data folders",
+      "temporary_paths": "Preserve existing configuration; deliberate overrides only",
+      "authority": "User clarification"
+    },
+    "standard_shared_runtime_installed": true,
+    "runtime_installation": {
+      "source_commit": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "completed_at_utc": "2026-11-03T22:16:43.434052+00:00",
+      "report": "dev-shared-runtime-setup.md",
+      "receipt": "dev-runtime-installation.json",
+      "shared_files_verified": 169,
+      "bash_environment_passed": true,
+      "tcsh_environment_passed": true,
+      "core_module_load_passed": true,
+      "ncit_syntax_checks_passed": 5,
+      "source_folders_changed": false,
+      "archive_tools_changed": false,
+      "profiles_backed_up": true,
+      "repeated_installation_reused_code": true,
+      "candidate_inversion_executed": false,
+      "new_bootstrap_tools": [
+        "tools/build_shared_runtime_bundle.py",
+        "tools/install_shared_runtime.py"
+      ]
+    },
+    "archive_tools_review": {
+      "report": "archive-tool-comparison.json",
+      "checked_at_utc": "2026-11-03T22:24:49.762921+00:00",
+      "status": "comparison-complete; pull helper updated with reviewed acquisition options",
+      "list_script_difference": "whitespace only",
+      "pull_push_differences": [
+        "explicit meme AWS profile and configuration block",
+        "same configured bucket and paths",
+        "additional invalid-argument exit on dev"
+      ],
+      "default_and_meme_archive_metadata_reads_passed": true,
+      "scripts_modified": [
+        "pull_s3.csh"
+      ]
+    },
+    "reference_acquisition": {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "report": "nci-reference-boundaries.md",
+      "receipt": "nci-2026-10d-reference.json",
+      "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz",
+      "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+      "archive_bytes": 546021953,
+      "member_count": 104,
+      "expanded_regular_file_bytes": 4147680334,
+      "source_code_matches_captured_production": true,
+      "selected_reference_stage": "inversion-src",
+      "source_directory_created": false,
+      "extracted": false,
+      "candidate_executed": false,
+      "pull_script_updated": true,
+      "pull_fixture_checks_passed": 12,
+      "boundary_contract": "nci-2026-10d-input-output-contract.json",
+      "boundary_review": "nci-2026-10d-boundary-review.json",
+      "replacement_baseline_metadata": "NCI_2026_08E",
+      "insert_folder_version_tags": "2026_08E; low-source tags 2026_07D",
+      "comparison_stage": "October src only",
+      "candidate_prepared": false,
+      "insert_role": "Unmodified copy staging by prep_insertion.csh; archived August-labeled contents mismatch current October src; cause/timing untraced"
+    },
+    "current_candidate_engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "current_shared_runtime_receipt": "/local/content/MEME/MEME5/inv/candidate-runtime.json"
+  },
+  "insertion_preparation_review": {
+    "script_name": "prep_insertion.csh",
+    "production_path": "/local/content/MEME/MEME5/ncim/bin/prep_insertion.csh",
+    "production_sha256": "c89dfa7cb2f9fe0ab9ec491bc75c30546705bbf98585e5f734bd4b45296c3975",
+    "dev_path": "/local/content/MEME/MEME5/ncim/bin/prep_insertion.csh",
+    "dev_sha256": "c89dfa7cb2f9fe0ab9ec491bc75c30546705bbf98585e5f734bd4b45296c3975",
+    "copies_match": true,
+    "non_mth_operations": [
+      {
+        "lines": [
+          85,
+          87
+        ],
+        "operation": "Create target directory if absent"
+      },
+      {
+        "line": 92,
+        "operation": "Copy src/*.src to target unchanged"
+      },
+      {
+        "line": 93,
+        "operation": "Copy src/*.RRF to target unchanged"
+      },
+      {
+        "line": 104,
+        "operation": "Set target group recursively to tomcata"
+      }
+    ],
+    "target_modes": {
+      "default": "insert",
+      "-t": "test"
+    },
+    "mth_operations": [
+      "Copy src/*.src including bequeathal relationships",
+      "Copy src/MRDOC.RRF",
+      "Copy src/umlscui.txt",
+      "Set target group recursively"
+    ],
+    "does_not_do": [
+      "Version rewriting",
+      "Record filtering",
+      "Removal of preexisting target files",
+      "Explicit failure checks after copies/group changes"
+    ],
+    "script_executed": false,
+    "files_changed_on_servers": false,
+    "snapshot_role": "Newly inspected production dependency; captured separately from the original baseline commit"
+  },
+  "nci_native_preparation": {
+    "receipt": "nci-2026-10d-candidate-preparation.json",
+    "sha256": "6c09f9ed6c5f6f4227c3debf7100c8a60dc44f9bf23a2e7ea38264d83d3fc609",
+    "all_three_tref_exact_match": true,
+    "generated_core_outputs_seeded": false
+  },
+  "nci_core_replay": {
+    "observed_status_receipt": "nci-2026-10d-core-run-status.json",
+    "observed_at": "2026-11-03T23:55:25.348796+00:00",
+    "status": "completed; differences characterized; acceptance FAIL",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "reference_stage": "inversion-src",
+    "selected_reference_directory": "src",
+    "insertion_history_in_scope": false,
+    "timeout_seconds": 7200,
+    "result_pending": false,
+    "core_exit_status": 0,
+    "completed_at": "2026-11-04T00:29:23.728578+00:00",
+    "exact_files": 2,
+    "core_files": 5
+  },
+  "nci_core_comparison": {
+    "summary": "nci-2026-10d-comparison-summary.json",
+    "completed_at": "2026-11-04T17:05:56.280297+00:00",
+    "acceptance_status": "FAIL",
+    "substantive_differences": 1,
+    "candidate_modified": false,
+    "fixtures_passed": 15,
+    "receipts": {
+      "nci-2026-10d-core-result.json": "d6ffadfa498ac3030381f250db4dde54c3740b15cccf7e2bc7ae74b908c00724",
+      "nci-2026-10d-comparison.json": "f783f46a7e42409201161dee51fcb8c5b63c61dc4171a8a3ed2f2d9f9672ef92",
+      "nci-2026-10d-atom-diagnosis.json": "552fc6fd0dd66188a35b2f9b1670941263f09df9ce414a21efe990fa61fbc0c9",
+      "nci-2026-10d-comparison-summary.json": "40478cb9faa9d7abb60f5b80f672d6800a0738e0ac83de49c899a5f3d5afebe9"
+    }
+  },
+  "nci_post_qa_correction": {
+    "evidence": "nci-2026-10d-post-qa-correction-evidence.json",
+    "sha256": "c7e6604e81fafcb4d01252991d60c75e7ab2a33d3580b21c50716fc1815fd1ca",
+    "same_atom_explicitly_flagged_by_qa": true,
+    "post_qa_correction_strongly_supported": true,
+    "manual_edit_not_proven": true,
+    "working_assumption": {
+      "statement": "The inverter manually added PT to atom 781756819 after reviewing the NCI_2026_10D QA results.",
+      "status": "user-accepted working assumption",
+      "accepted_on": "2026-11-04",
+      "operator_confirmation": "pending; user may confirm with the inverter",
+      "blocks_further_work": false,
+      "evidence": "nci-2026-10d-post-qa-correction-evidence.json",
+      "implementation_consequence": "Fix the missing explicit PT assignment in a separate candidate revision and add a first-original-code-PT regression fixture; preserve the unchanged baseline and raw comparison."
+    }
+  },
+  "nci_explicit_pt_candidate": {
+    "evidence": "nci-2026-10d-explicit-pt-fix.json",
+    "sha256": "fbd16ac96a924c91c32873f3495e520dd2ecdbd35e1abca7c81ba00dfd39b4c1",
+    "branch": "fix/nci-explicit-pt",
+    "candidate_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+    "regression_cases": 3,
+    "passed_locally": true,
+    "passed_on_dev": true,
+    "full_october_replay_pending": false,
+    "committed": true,
+    "deployed": true,
+    "commit": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+    "deployment_target": "dev only",
+    "full_october_replay_status": "PASS_EQUIVALENT",
+    "launch_receipt": "nci-2026-10d-explicit-pt-launch.json",
+    "preserved_baseline": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/baseline-core-20261103",
+    "comparison_fixtures": 17,
+    "preservation_profile_checks": 12,
+    "launch_sha256": "1a650b3649dea3128cf8bb2eecf7cb958810f53b80742745958e5fcaee852241",
+    "completed_at": "2026-11-04T20:17:25.533109+00:00",
+    "preserved_baseline_verified_after_run": true,
+    "result_summary": "nci-2026-10d-explicit-pt-summary.json",
+    "result_sha256": "bb2319fee8ea5091f1c0428f042f8993486dba232f24ca188529ac8553bcc0b7"
+  },
+  "nci_hierarchy_order_proposal": {
+    "evidence": "nci-hierarchy-order-proposal.json",
+    "sha256": "fbfcbc06c91e321d19b9b25a760a060db1eaeae84e3a2c8588ce42e2a0d7730b",
+    "applied_to_operational_code": false,
+    "seed_count": 4
+  },
+  "snomed_reference_preparation": {
+    "status": "reference frozen and inversion/enrichment stages distinguished; candidate not prepared",
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "archive_downloaded": true,
+    "candidate_executed": false,
+    "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+    "receipt": "snomedct-us-2026-09-01-reference.json",
+    "inversion_attributes_reference": "src/attributes.orig",
+    "insertion_semantic_additions_confirmed_by_user": true,
+    "candidate_prepared": false,
+    "inversion_attributes_sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+    "original_is_exact_prefix": true,
+    "insertion_added_semantic_rows": 1133725
+  },
+  "nci_context_order_candidate": {
+    "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "status": "PASS_EQUIVALENT",
+    "evidence": "nci-2026-10d-context-order-fix.json",
+    "sha256": "bdc504945236d11f23bf2b21932c801ba0807433ef12517f5f687af27fc9e7b9",
+    "preserved_previous_runtime_and_output": true,
+    "production_deployed": false,
+    "completed_at": "2026-11-04T22:01:38.037584+00:00",
+    "result_summary": "nci-2026-10d-context-order-summary.json",
+    "result_sha256": "9458dbfe8a7f6f14556796c0838ae0d1bed2791930f2e638716646a20ee45274",
+    "preserved_previous_runtime_and_output_verified_after_run": true,
+    "comparison_fixtures": 17,
+    "preservation_profile_checks": 21,
+    "additional_full_graph_seed_check": "not executed: SSH session expired before remote execution"
   }
 }

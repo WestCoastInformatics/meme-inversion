@@ -1,0 +1,1277 @@
+{
+  "version": "NCI_2026_10D",
+  "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz",
+  "archive_bytes": 546021953,
+  "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+  "member_count": 104,
+  "regular_file_bytes": 4147680334,
+  "entries": [
+    {
+      "path": "NCI_2026_10D",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/tmp",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793592831,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/tmp/rolegroups.tmp",
+      "size": 6604,
+      "mode": "0o664",
+      "mtime": 1793299159,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "a298f7aa65ad7dce5b10b62f647966bf3c954dd56ed2b988a39098e4cba88284",
+      "newline_count": 389
+    },
+    {
+      "path": "NCI_2026_10D/tmp/MRCONSO.TREF.tmp",
+      "size": 37758425,
+      "mode": "0o664",
+      "mtime": 1793299257,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "b553ac104b4a5d9afe7d845db8fb85a4c65c1aa88efc328cc5577027b310ed72",
+      "newline_count": 809244
+    },
+    {
+      "path": "NCI_2026_10D/tmp/MRSAT.TREF.tmp",
+      "size": 102527440,
+      "mode": "0o664",
+      "mtime": 1793299257,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "200695d5ce38ad532bd2dd1c7334f99a6e88d5c827d2081430c64dbf56266317",
+      "newline_count": 1115046
+    },
+    {
+      "path": "NCI_2026_10D/tmp/MRREL.TREF.tmp",
+      "size": 81741378,
+      "mode": "0o664",
+      "mtime": 1793299257,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "13a4605e2c24666d49bc42d7fa98490ff713ff485f8b2fef298f6713be18c956",
+      "newline_count": 1510220
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_concepts.tmp",
+      "size": 10761950,
+      "mode": "0o664",
+      "mtime": 1793304355,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "256cea3a0e06286798701b83164f5b5ec2a3b9ffe3ac01f5955779c36d66f7e8",
+      "newline_count": 208103
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_rels.tmp",
+      "size": 63040880,
+      "mode": "0o664",
+      "mtime": 1793304359,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "8dce172ec5f4f7898664fddec9492540e2a2937c28ee414ed27a0f928e937371",
+      "newline_count": 1503707
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_properties.tmp",
+      "size": 95835242,
+      "mode": "0o664",
+      "mtime": 1793304366,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "e75cbc3f22b4d630dff3c91f8171b7b1c9166b05dd489b2f075f5f9d7bd95302",
+      "newline_count": 1115038
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_properties2.tmp",
+      "size": 87315487,
+      "mode": "0o664",
+      "mtime": 1793304369,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "5ddaf3bd3c890b4aa66a6cf03239a7ceacb01a9530a496c9da6fd8dd46a3c150",
+      "newline_count": 1114917
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_sy_pt_properties.tmp",
+      "size": 35292477,
+      "mode": "0o664",
+      "mtime": 1793304369,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "0db807cefbe790548c9365a85cf8e27f4bff6b46bf22bf6a125e30a65a11df05",
+      "newline_count": 807904
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_sy_pt_properties2.tmp",
+      "size": 59244931,
+      "mode": "0o664",
+      "mtime": 1793304372,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "b2dd274bf0694d4fb5b23fcaf0de673fa847f41b09bcf63d56b27382961cba2f",
+      "newline_count": 807903
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_roles.tmp",
+      "size": 40785801,
+      "mode": "0o664",
+      "mtime": 1793304384,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "9aa8975cac1e4bc465ca7245bf5b7793851505c54ca392e06021cdd4b2a14ea6",
+      "newline_count": 758524
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_roles2.tmp",
+      "size": 36495397,
+      "mode": "0o664",
+      "mtime": 1793304386,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "d9a505c2c4275410e02c79c2f642b0fa07962a94415b8776d61fc5da1a89072f",
+      "newline_count": 758524
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_roles3.tmp",
+      "size": 36176410,
+      "mode": "0o664",
+      "mtime": 1793304389,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "4395b7d54db8e40b5cbc014ccbc74106cc99487c05cd2c067e9cc91d640505ad",
+      "newline_count": 752631
+    },
+    {
+      "path": "NCI_2026_10D/tmp/self_rels.txt",
+      "size": 124,
+      "mode": "0o664",
+      "mtime": 1793591010,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "c6cc31e678efc94149704a2c35d88b4a3163d89337e602a1da866733941d4a20",
+      "newline_count": 4
+    },
+    {
+      "path": "NCI_2026_10D/tmp/nci_relations1.out",
+      "size": 4184,
+      "mode": "0o664",
+      "mtime": 1793591010,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "15f7a03c5a431991440634690cc3d6a6b09fec7858e6f256b40c269e569f3986",
+      "newline_count": 121
+    },
+    {
+      "path": "NCI_2026_10D/tmp/QaInt_DSTA",
+      "size": 74206350,
+      "mode": "0o664",
+      "mtime": 1793592172,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "e34e88190a3024fdb1e25f11c2d32bc6505f8663ab766fd68c5e08fb04e991b6",
+      "newline_count": 3488937
+    },
+    {
+      "path": "NCI_2026_10D/tmp/QaInt_REL",
+      "size": 13630863,
+      "mode": "0o664",
+      "mtime": 1793592498,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "9984ad87bb87f5a700e66f062b74dd9df9e1cca938f0656ff8b185fac9d3c714",
+      "newline_count": 1228486
+    },
+    {
+      "path": "NCI_2026_10D/tmp/QaInt_REL2",
+      "size": 351,
+      "mode": "0o664",
+      "mtime": 1793592831,
+      "role": "derived-intermediate-or-scratch",
+      "kind": "file",
+      "sha256": "d740d88ae0b5cd5b4570d8c64878a6f415191bd953ae35c15c1e1250ced43b7c",
+      "newline_count": 18
+    },
+    {
+      "path": "NCI_2026_10D/bin",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793591934,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/bin/patch_defs.pl",
+      "size": 679,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "8b3a79e56b2540122383f9e46bddc71505b320276cdab44230b2c2d4d78b6609",
+      "newline_count": 25
+    },
+    {
+      "path": "NCI_2026_10D/bin/patch_status_attrib.pl",
+      "size": 711,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "69b576905b0bc34099f4ab6fe6679d6349d5dcf63605bebbd9ab2279867472c6",
+      "newline_count": 28
+    },
+    {
+      "path": "NCI_2026_10D/bin/tref_2_relational_files.pl",
+      "size": 1467,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "659d132355893e707b6c4c20441c96972f063d0d2f3c8d73b3a37938f23569fc",
+      "newline_count": 53
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_nci_assoc.pl",
+      "size": 3005,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "4c34ba16a1cd69395fd7544f4e426c038e9ef22837da55c250467d842fe7ea64",
+      "newline_count": 21
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_owl_roles.pl",
+      "size": 3007,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "ff3b4c5b63d1d00496ba504d5e58409965d2d0dc295f912f4d6c2f6625cde844",
+      "newline_count": 20
+    },
+    {
+      "path": "NCI_2026_10D/bin/assign_rolegroups.pl",
+      "size": 627,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "17fac65d4014eb85df72d3ed815130cb9d142f0f1ee998414b53d0aa859ad296",
+      "newline_count": 30
+    },
+    {
+      "path": "NCI_2026_10D/bin/confirm_mapping_codes.pl",
+      "size": 840,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "c4c1e928f3f84254ded48c886d139cf98bd87b5b5ba4fe2a5c77ae3c853dd204",
+      "newline_count": 30
+    },
+    {
+      "path": "NCI_2026_10D/bin/create_tref.pl.orig",
+      "size": 4752,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "ece7ed766494ce360ee629936aa438b7f17c52f80e6b96aca14c3657cab31043",
+      "newline_count": 172
+    },
+    {
+      "path": "NCI_2026_10D/bin/delete_dup_roles.pl",
+      "size": 437,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "359310345e228f2b030f66d76114872883002e6c62a2a359dfa42a62f25f9964",
+      "newline_count": 23
+    },
+    {
+      "path": "NCI_2026_10D/bin/delete_dup_tref_lines.pl",
+      "size": 1487,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272",
+      "newline_count": 65
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_prop_name.pl",
+      "size": 3526,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "44a6d7d9d42d399caef00520445656afed982fa2382354991be8ed210adf5cbf",
+      "newline_count": 128
+    },
+    {
+      "path": "NCI_2026_10D/bin/get_sy_pt_name.pl",
+      "size": 1971,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "dd27d72f5aae41e48b9bdc6b1ea038180362763a93c528a1f1eb5c0f65cc47bf",
+      "newline_count": 91
+    },
+    {
+      "path": "NCI_2026_10D/bin/invert_NCI.pl.orig",
+      "size": 34927,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "0c3f5437d1d2c1239b89b7bd626448e681e91e5bb11ca455a9da20c8a450aa10",
+      "newline_count": 1043
+    },
+    {
+      "path": "NCI_2026_10D/bin/nci_2017_06d.csh",
+      "size": 47513,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "c2b7052017daed5eaf6bb389569a9dc934d0ddc09fa8f6802f920ad8a7892b85",
+      "newline_count": 1483
+    },
+    {
+      "path": "NCI_2026_10D/bin/create_rolegroups.pl",
+      "size": 657,
+      "mode": "0o775",
+      "mtime": 1793299146,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "fe043606aff626e87d87bfd72885435b732ed60cd8e69e84595909d344719ecb",
+      "newline_count": 33
+    },
+    {
+      "path": "NCI_2026_10D/bin/create_tref.pl",
+      "size": 4927,
+      "mode": "0o775",
+      "mtime": 1793299236,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "929230080198176550bf940451eec6ab8217feab6ad2f9ac1a9c8821213f8362",
+      "newline_count": 180
+    },
+    {
+      "path": "NCI_2026_10D/bin/compare_exportrels2tref.s",
+      "size": 630,
+      "mode": "0o775",
+      "mtime": 1793304340,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "f5b1258ab680ae021128f1fcd30b906eddbafca54a11399764e969553b5e1cc6",
+      "newline_count": 13
+    },
+    {
+      "path": "NCI_2026_10D/bin/invert_NCI.pl",
+      "size": 40150,
+      "mode": "0o775",
+      "mtime": 1793306355,
+      "role": "source-code-or-script-variant",
+      "kind": "file",
+      "sha256": "03c4cf44d6b25476352b971d35978d75179be1a51c63e010cb205fd02d0601c9",
+      "newline_count": 1181
+    },
+    {
+      "path": "NCI_2026_10D/bin/invert.log",
+      "size": 11472,
+      "mode": "0o664",
+      "mtime": 1793593451,
+      "role": "execution-log",
+      "kind": "file",
+      "sha256": "9422c5c0ffaba02d258403ccd2258c3fed5099ab4ef828273b223de281f8ffbf",
+      "newline_count": 283
+    },
+    {
+      "path": "NCI_2026_10D/cxt",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/etc",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793640480,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/etc/README.INVERSION",
+      "size": 4312,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "configuration-or-runbook",
+      "kind": "file",
+      "sha256": "0f90b0033c85a9e98db8a819bfe5a5667440077037536e98305839ce2c7518e7",
+      "newline_count": 104
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793640048,
+      "role": "preparation-metadata-or-derived-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/invert_NCI_2026_10D.log",
+      "size": 2198,
+      "mode": "0o664",
+      "mtime": 1793591089,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "123b4639fb9a85320dd59e733e64a59880cc973a06fd62a8375be4738479ba39",
+      "newline_count": 68
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/Qa_NCI_2026_10D.log",
+      "size": 7527,
+      "mode": "0o664",
+      "mtime": 1793593451,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "a9f68f6ff1333c4134c8ea57089f4973acc5c11ddcc5e673e9758bdaf671008f",
+      "newline_count": 164
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/Forbidden_classes.txt",
+      "size": 175,
+      "mode": "0o664",
+      "mtime": 1793591954,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "7737c3796c83071befcdd17ac016a4eb6b22ae55646bbf51c5cf73e5d89d35e0",
+      "newline_count": 4
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/Forbidden_attr.txt",
+      "size": 172,
+      "mode": "0o664",
+      "mtime": 1793591975,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "d5ebc0c05584c2f449ba98c1f613194efed2b4166072cfa1e15cca0aa3ca6a91",
+      "newline_count": 4
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/QaReport.NCI_2026_10D.txt",
+      "size": 78111,
+      "mode": "0o664",
+      "mtime": 1793593451,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "eb2aa98b960d40abc4aef9b2e4a6258d2752e083c7a5c37dba22d926fe54335a",
+      "newline_count": 2408
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/QaReport.NCI_2026_10D.txt.err",
+      "size": 8518,
+      "mode": "0o664",
+      "mtime": 1793593451,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "36072bbcc459c591170a4e316639593d194fa913c4c8af2484a471849dee0f75",
+      "newline_count": 267
+    },
+    {
+      "path": "NCI_2026_10D/etc/qa/conservation.txt",
+      "size": 27260,
+      "mode": "0o644",
+      "mtime": 1793640048,
+      "role": "validation-record",
+      "kind": "file",
+      "sha256": "02ab5a886a23c5296c6b5d856797034fbc0a3673fa3631a6b4b3640a28526429",
+      "newline_count": 710
+    },
+    {
+      "path": "NCI_2026_10D/etc/NCI2026_10D.txt",
+      "size": 61825,
+      "mode": "0o644",
+      "mtime": 1793295502,
+      "role": "preparation-metadata-or-derived-state",
+      "kind": "file",
+      "sha256": "9d2517734b730651b3c7adbc528df9bf99b929ded21e1db4f4a9784745f7b566",
+      "newline_count": 858
+    },
+    {
+      "path": "NCI_2026_10D/etc/code2merge.txt",
+      "size": 3648579,
+      "mode": "0o664",
+      "mtime": 1793588867,
+      "role": "preparation-metadata-or-derived-state",
+      "kind": "file",
+      "sha256": "aa622cc224d359cd792afe2a8f86ec71a812e851f29e22cffd887d40f6340020",
+      "newline_count": 208103
+    },
+    {
+      "path": "NCI_2026_10D/etc/parchd_nci_scui.out",
+      "size": 7747730,
+      "mode": "0o664",
+      "mtime": 1793591010,
+      "role": "preparation-metadata-or-derived-state",
+      "kind": "file",
+      "sha256": "a705fa2aefa1184d32db11cc6e39e022ae9bc4ffb04ba3a46f029cacbba69977",
+      "newline_count": 244186
+    },
+    {
+      "path": "NCI_2026_10D/etc/nci_relations.out",
+      "size": 7270,
+      "mode": "0o664",
+      "mtime": 1793591010,
+      "role": "preparation-metadata-or-derived-state",
+      "kind": "file",
+      "sha256": "8941ac064817c7690828a8557dd1421429f1c405379bb58218a37fc455c2a7ad",
+      "newline_count": 121
+    },
+    {
+      "path": "NCI_2026_10D/etc/nci.cfg",
+      "size": 11731,
+      "mode": "0o644",
+      "mtime": 1793377952,
+      "role": "configuration-or-runbook",
+      "kind": "file",
+      "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+      "newline_count": 379
+    },
+    {
+      "path": "NCI_2026_10D/etc/si_proposal_NCI_2026_10D.txt",
+      "size": 14432,
+      "mode": "0o644",
+      "mtime": 1793640480,
+      "role": "preparation-metadata-or-derived-state",
+      "kind": "file",
+      "sha256": "e548cae2e5db0852b6225207cec6b85367735d6358f7f18f9e4109bb95153f51",
+      "newline_count": 368
+    },
+    {
+      "path": "NCI_2026_10D/insert",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793292964,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/insert/attributes.src",
+      "size": 304524066,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "d68d4d6f4ad7ab25fbc580c7cb91824388a07204d838d12ded0ccc2cff746a63",
+      "newline_count": 1258799
+    },
+    {
+      "path": "NCI_2026_10D/insert/classes_atoms.src",
+      "size": 86340658,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "722c4a36733e2fd2d27b6f46ac0d6248c20bc05201222d888b3fe42388a7142c",
+      "newline_count": 798994
+    },
+    {
+      "path": "NCI_2026_10D/insert/contexts.src",
+      "size": 265891848,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "78b153e8da59fc86b60989723aaada51ffa64200bb27d8fca3a25b924554ca73",
+      "newline_count": 1164984
+    },
+    {
+      "path": "NCI_2026_10D/insert/mergefacts.src",
+      "size": 44360228,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "7e486413fc1175a343db792e1c0791949309528f4257fc73ebb9034b9602c39d",
+      "newline_count": 591476
+    },
+    {
+      "path": "NCI_2026_10D/insert/qaStats.src",
+      "size": 68980,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "f2c4101bb83d4357bc03801b2cf1d1d4455f370c0f4a9643edb3d2d03b283899",
+      "newline_count": 849
+    },
+    {
+      "path": "NCI_2026_10D/insert/relationships.src",
+      "size": 168296927,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "5606ad58faece016efab19d5e7897d9a45d0ae3a68ce618381185519da1ba652",
+      "newline_count": 1220912
+    },
+    {
+      "path": "NCI_2026_10D/insert/sources.src",
+      "size": 43904,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "56b7ba6b7d17046ac1005d389684f96b86e95092df20a0cac255962ee9d2a43c",
+      "newline_count": 59
+    },
+    {
+      "path": "NCI_2026_10D/insert/termgroups.src",
+      "size": 5931,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "cc8c7851bf173724fb92409227579aab9c19141c576b7f1d6641074eb0745697",
+      "newline_count": 128
+    },
+    {
+      "path": "NCI_2026_10D/insert/MRDOC.RRF",
+      "size": 49769,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "3424271ff588ebc1495c9f3fdea0b70607a732ee4bec0726e9356d6e5c1a9ec3",
+      "newline_count": 622
+    },
+    {
+      "path": "NCI_2026_10D/insert/sty_term_ids",
+      "size": 22084714,
+      "mode": "0o664",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "95890bcc1270c5e5a33fee0a6183c54db5c735a2206ef80b9f75f239deeac55e",
+      "newline_count": 661865
+    },
+    {
+      "path": "NCI_2026_10D/insert/reportChecklistResults.txt",
+      "size": 1602,
+      "mode": "0o664",
+      "mtime": 1793292964,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "8392c93e4f49d7d71baff21f157603aceb7620a9abe50a79bfbc58924c42c8f1",
+      "newline_count": 23
+    },
+    {
+      "path": "NCI_2026_10D/orig",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793304757,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/orig/conservation.txt",
+      "size": 26823,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "dff03de3f9557cfe45bb3ca58e8ca95edd1fa7f91199cef623056930ffb3337d",
+      "newline_count": 691
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRDOC.TREF",
+      "size": 34099,
+      "mode": "0o644",
+      "mtime": 1793292964,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "97f8364fa1ee10fe0b94f1dad99cd978fc2e50bb8fc3f3f78f8f4cbc41624a62",
+      "newline_count": 464
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793305060,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/meta_export_26.10d.zip",
+      "size": 84108226,
+      "mode": "0o664",
+      "mtime": 1793293183,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "2a8ac9b124221da0d058d103f7db73e70c9979ef5a8cabb1e31486f53c6acc46",
+      "newline_count": 317544
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/annotationDeclaration-20261026.txt",
+      "size": 8502,
+      "mode": "0o640",
+      "mtime": 1793049437,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda",
+      "newline_count": 289
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/classDeclaration-20261026.txt",
+      "size": 157230668,
+      "mode": "0o640",
+      "mtime": 1793049440,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec",
+      "newline_count": 3086359
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/datatypeDeclaration-20261026.txt",
+      "size": 6152,
+      "mode": "0o640",
+      "mtime": 1793049437,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "61b55b0d9d72a671aecb3efae9baada7a54434bc7639fbcb0040234c1f16615b",
+      "newline_count": 19
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/objectDeclaration-20261026.txt",
+      "size": 4934,
+      "mode": "0o640",
+      "mtime": 1793049437,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+      "newline_count": 97
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/relations-20261026.txt",
+      "size": 14705566,
+      "mode": "0o640",
+      "mtime": 1793049442,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f",
+      "newline_count": 733605
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/hierarchy-20261026.txt",
+      "size": 3596568,
+      "mode": "0o640",
+      "mtime": 1793049441,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b",
+      "newline_count": 244186
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/ThesaurusInferred.owl",
+      "size": 935239187,
+      "mode": "0o775",
+      "mtime": 1793049427,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "a64895bb3ba2068f54b80498e952380ae77374c24ee4b10e7df767d9fdb3ce42",
+      "newline_count": 16652484
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/NCI2026_10D.txt",
+      "size": 61825,
+      "mode": "0o644",
+      "mtime": 1793295456,
+      "role": "publisher-input",
+      "kind": "file",
+      "sha256": "9d2517734b730651b3c7adbc528df9bf99b929ded21e1db4f4a9784745f7b566",
+      "newline_count": 858
+    },
+    {
+      "path": "NCI_2026_10D/orig/rels_needing_relgrp.txt",
+      "size": 831,
+      "mode": "0o664",
+      "mtime": 1793299175,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "4951e05386836c730e949aa4dcff8a352971e8d504006cf47aa3062f59bd399c",
+      "newline_count": 50
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRCONSO.TREF",
+      "size": 37716189,
+      "mode": "0o664",
+      "mtime": 1793304221,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "a171923ff9742453d5a10a65eb0964b4cad14fc693e05044f27846601f58cb25",
+      "newline_count": 807904
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRREL.TREF",
+      "size": 81439975,
+      "mode": "0o664",
+      "mtime": 1793304225,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "1f8d61641f84849c0f877ddd3d57b1b37a458902cccf65b8a0507018ae3c2390",
+      "newline_count": 1503707
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRSAT.TREF",
+      "size": 102525470,
+      "mode": "0o664",
+      "mtime": 1793304230,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "ce0d0b353d25d54bde22349fa33ecfbb43502ebf0f368bd718fa71d230692e71",
+      "newline_count": 1115038
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRSAB.TREF",
+      "size": 489,
+      "mode": "0o644",
+      "mtime": 1793304305,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "40e1f74106ae383e56bbd0ef1b92574a69ed16ebcf79c590cf6172b07026296a",
+      "newline_count": 1
+    },
+    {
+      "path": "NCI_2026_10D/orig/nci_definfconcepts.txt",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1793304359,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "NCI_2026_10D/orig/nci_concepts.txt",
+      "size": 10761950,
+      "mode": "0o664",
+      "mtime": 1793304360,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "256cea3a0e06286798701b83164f5b5ec2a3b9ffe3ac01f5955779c36d66f7e8",
+      "newline_count": 208103
+    },
+    {
+      "path": "NCI_2026_10D/orig/nci_associations.txt",
+      "size": 17440264,
+      "mode": "0o664",
+      "mtime": 1793304364,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "62cc1194034430d698d0250f8a2d0bd52817f48c5ca5d795af7325a831ef33c3",
+      "newline_count": 500695
+    },
+    {
+      "path": "NCI_2026_10D/orig/nci_properties.txt",
+      "size": 146560418,
+      "mode": "0o664",
+      "mtime": 1793304381,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "6e73a0fe2d0c5891c95acceecc8d36b6cb2f28dad23629d81f20bac6b1f9da09",
+      "newline_count": 1922820
+    },
+    {
+      "path": "NCI_2026_10D/orig/config_associations",
+      "size": 2981,
+      "mode": "0o644",
+      "mtime": 1793304580,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "888f79ff2c5f993b16467b31510770da212652cd14024f6220ce7b14a090a206",
+      "newline_count": 54
+    },
+    {
+      "path": "NCI_2026_10D/orig/config_properties",
+      "size": 1735,
+      "mode": "0o644",
+      "mtime": 1793304615,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "398effcfbe8d8a22240201f8a95d41ac40e9e96f97eac62db0ca538451eed5c9",
+      "newline_count": 53
+    },
+    {
+      "path": "NCI_2026_10D/orig/config_roles",
+      "size": 6957,
+      "mode": "0o644",
+      "mtime": 1793304757,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "2aef71c5dcde687d79e60d36d3fc54d987fb481529b7475fc3385af586ae21da",
+      "newline_count": 96
+    },
+    {
+      "path": "NCI_2026_10D/src",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1793647056,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "NCI_2026_10D/src/attributes.src",
+      "size": 306298097,
+      "mode": "0o664",
+      "mtime": 1793591089,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "1fe0990bd7ce36529e8e16a2ade0353a3ac5aac4df95a0c078fdb83e32fc7920",
+      "newline_count": 1265611
+    },
+    {
+      "path": "NCI_2026_10D/src/relationships.src",
+      "size": 169343929,
+      "mode": "0o664",
+      "mtime": 1793591010,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+      "newline_count": 1228468
+    },
+    {
+      "path": "NCI_2026_10D/src/mergefacts.src",
+      "size": 44631179,
+      "mode": "0o664",
+      "mtime": 1793590947,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+      "newline_count": 595089
+    },
+    {
+      "path": "NCI_2026_10D/src/contexts.src",
+      "size": 270665435,
+      "mode": "0o664",
+      "mtime": 1793591089,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2a2778c7a375d69058cd2891d570dc44845028491f82c9f0a401c0a18676667e",
+      "newline_count": 1185069
+    },
+    {
+      "path": "NCI_2026_10D/src/MRDOC.RRF",
+      "size": 49819,
+      "mode": "0o664",
+      "mtime": 1793591817,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "ccc3183041b2556b59ca046a294f8af34b32752c2e2bc7468b89b1662e32b3e5",
+      "newline_count": 623
+    },
+    {
+      "path": "NCI_2026_10D/src/qaStats.src",
+      "size": 70162,
+      "mode": "0o664",
+      "mtime": 1793591894,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "38ac4a86a51cd25ccb9fdeea9464a93749d297527e0939c3661a397f59290582",
+      "newline_count": 868
+    },
+    {
+      "path": "NCI_2026_10D/src/classes_atoms.src",
+      "size": 86815706,
+      "mode": "0o664",
+      "mtime": 1793594160,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+      "newline_count": 803253
+    },
+    {
+      "path": "NCI_2026_10D/src/sources.src",
+      "size": 44614,
+      "mode": "0o644",
+      "mtime": 1793646753,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+      "newline_count": 60
+    },
+    {
+      "path": "NCI_2026_10D/src/termgroups.src",
+      "size": 6038,
+      "mode": "0o644",
+      "mtime": 1793646807,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+      "newline_count": 130
+    }
+  ],
+  "stages": {
+    "src": [
+      {
+        "path": "NCI_2026_10D/src/attributes.src",
+        "size": 306298097,
+        "mode": "0o664",
+        "mtime": 1793591089,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "1fe0990bd7ce36529e8e16a2ade0353a3ac5aac4df95a0c078fdb83e32fc7920",
+        "newline_count": 1265611
+      },
+      {
+        "path": "NCI_2026_10D/src/relationships.src",
+        "size": 169343929,
+        "mode": "0o664",
+        "mtime": 1793591010,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+        "newline_count": 1228468
+      },
+      {
+        "path": "NCI_2026_10D/src/mergefacts.src",
+        "size": 44631179,
+        "mode": "0o664",
+        "mtime": 1793590947,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+        "newline_count": 595089
+      },
+      {
+        "path": "NCI_2026_10D/src/contexts.src",
+        "size": 270665435,
+        "mode": "0o664",
+        "mtime": 1793591089,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2a2778c7a375d69058cd2891d570dc44845028491f82c9f0a401c0a18676667e",
+        "newline_count": 1185069
+      },
+      {
+        "path": "NCI_2026_10D/src/MRDOC.RRF",
+        "size": 49819,
+        "mode": "0o664",
+        "mtime": 1793591817,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "ccc3183041b2556b59ca046a294f8af34b32752c2e2bc7468b89b1662e32b3e5",
+        "newline_count": 623
+      },
+      {
+        "path": "NCI_2026_10D/src/qaStats.src",
+        "size": 70162,
+        "mode": "0o664",
+        "mtime": 1793591894,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "38ac4a86a51cd25ccb9fdeea9464a93749d297527e0939c3661a397f59290582",
+        "newline_count": 868
+      },
+      {
+        "path": "NCI_2026_10D/src/classes_atoms.src",
+        "size": 86815706,
+        "mode": "0o664",
+        "mtime": 1793594160,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+        "newline_count": 803253
+      },
+      {
+        "path": "NCI_2026_10D/src/sources.src",
+        "size": 44614,
+        "mode": "0o644",
+        "mtime": 1793646753,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+        "newline_count": 60
+      },
+      {
+        "path": "NCI_2026_10D/src/termgroups.src",
+        "size": 6038,
+        "mode": "0o644",
+        "mtime": 1793646807,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+        "newline_count": 130
+      }
+    ],
+    "insert": [
+      {
+        "path": "NCI_2026_10D/insert/attributes.src",
+        "size": 304524066,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "d68d4d6f4ad7ab25fbc580c7cb91824388a07204d838d12ded0ccc2cff746a63",
+        "newline_count": 1258799
+      },
+      {
+        "path": "NCI_2026_10D/insert/classes_atoms.src",
+        "size": 86340658,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "722c4a36733e2fd2d27b6f46ac0d6248c20bc05201222d888b3fe42388a7142c",
+        "newline_count": 798994
+      },
+      {
+        "path": "NCI_2026_10D/insert/contexts.src",
+        "size": 265891848,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "78b153e8da59fc86b60989723aaada51ffa64200bb27d8fca3a25b924554ca73",
+        "newline_count": 1164984
+      },
+      {
+        "path": "NCI_2026_10D/insert/mergefacts.src",
+        "size": 44360228,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "7e486413fc1175a343db792e1c0791949309528f4257fc73ebb9034b9602c39d",
+        "newline_count": 591476
+      },
+      {
+        "path": "NCI_2026_10D/insert/qaStats.src",
+        "size": 68980,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "f2c4101bb83d4357bc03801b2cf1d1d4455f370c0f4a9643edb3d2d03b283899",
+        "newline_count": 849
+      },
+      {
+        "path": "NCI_2026_10D/insert/relationships.src",
+        "size": 168296927,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "5606ad58faece016efab19d5e7897d9a45d0ae3a68ce618381185519da1ba652",
+        "newline_count": 1220912
+      },
+      {
+        "path": "NCI_2026_10D/insert/sources.src",
+        "size": 43904,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "56b7ba6b7d17046ac1005d389684f96b86e95092df20a0cac255962ee9d2a43c",
+        "newline_count": 59
+      },
+      {
+        "path": "NCI_2026_10D/insert/termgroups.src",
+        "size": 5931,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "cc8c7851bf173724fb92409227579aab9c19141c576b7f1d6641074eb0745697",
+        "newline_count": 128
+      },
+      {
+        "path": "NCI_2026_10D/insert/MRDOC.RRF",
+        "size": 49769,
+        "mode": "0o644",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "3424271ff588ebc1495c9f3fdea0b70607a732ee4bec0726e9356d6e5c1a9ec3",
+        "newline_count": 622
+      },
+      {
+        "path": "NCI_2026_10D/insert/sty_term_ids",
+        "size": 22084714,
+        "mode": "0o664",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "95890bcc1270c5e5a33fee0a6183c54db5c735a2206ef80b9f75f239deeac55e",
+        "newline_count": 661865
+      },
+      {
+        "path": "NCI_2026_10D/insert/reportChecklistResults.txt",
+        "size": 1602,
+        "mode": "0o664",
+        "mtime": 1793292964,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "8392c93e4f49d7d71baff21f157603aceb7620a9abe50a79bfbc58924c42c8f1",
+        "newline_count": 23
+      }
+    ]
+  },
+  "metadata_summary": {
+    "NCI_2026_10D/etc/nci.cfg": {
+      "release_tags_seen": {
+        "2026_10D": 121
+      },
+      "scope": "Observed text tags; dependency roles not inferred",
+      "settings": {
+        "VSAB": "NCI_2026_10D",
+        "RSAB": "NCI",
+        "ORIGDIR": "../orig",
+        "TEMPDIR": "../tmp",
+        "SRCDIR": "../src",
+        "ETCDIR": "../etc",
+        "SaidStart": "781548593",
+        "Atidstart": "1",
+        "Rlidstart": "1",
+        "File.Source": "<SRCDIR>/sources.src",
+        "File.Termgroup": "<SRCDIR>/termgroups.src",
+        "FILE.MRCONSO": "<ORIGDIR>/MRCONSO.TREF",
+        "FILE.MRREL": "<ORIGDIR>/MRREL.TREF",
+        "FILE.MRSAT": "<ORIGDIR>/MRSAT.TREF",
+        "FILE.MRDOC": "<ORIGDIR>/MRDOC.TREF"
+      }
+    },
+    "NCI_2026_10D/src/sources.src": {
+      "release_tags_seen": {
+        "2026_10D": 181,
+        "2026_08E": 59
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    },
+    "NCI_2026_10D/src/termgroups.src": {
+      "release_tags_seen": {
+        "2026_10D": 132,
+        "2026_08E": 128
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    }
+  },
+  "extracted": false,
+  "classification_scope": "Provisional roles by location; code-level input/output review is still required"
+}

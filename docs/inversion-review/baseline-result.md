@@ -11,8 +11,8 @@ Captured and imported locally on November 3, 2026. Production source files were 
 | Capture interval | 2026-11-03T21:12:06.988928+00:00 to 2026-11-03T21:12:08.189737+00:00 |
 | Imported production files/links | 285 |
 | Credential-sanitized files | 4 |
-| Remote publication | Pending; branch and tag are local |
-| Functional replay | Pending |
+| Baseline publication | Published by user; local origin tracking records baseline commit `bc085a3` |
+| Functional replay | Original NCIt replay characterized; separate explicit-PT `0de8ca2` and ordering `bfda2ce` candidates passed full October core comparisons |
 
 The production code tree was constructed from the fresh capture. No previous inversion-rework branch was merged or cherry-picked. The existing main checkout and earlier branch history are preserved. The production import and this planning record are separate commits.
 
@@ -41,4 +41,8 @@ This snapshot establishes code provenance, not a completed historical replay. Cu
 
 The source folders have execution and output/insertion artifacts, but the current installed NCImeta source state was not queried. The meme-edit web name resolves through a load balancer, so the recorded authoritative physical location is the server/path explicitly supplied by the user.
 
-Next, provision/select the isolated development worker, restore a matching official reference and its inputs using the existing archive tools, and run the unchanged baseline. Continue with [the test architecture](test-architecture.md) and [baselining steps 6–7](baselining.md#6-establish-an-unchanged-engine-replay).
+The user selected `ncias-d3777-c` with separate storage. Shared code and the NCIt baseline/fixed-candidate replays are established at the standard paths. The next source case is SNOMED: its official archive is frozen, code/configuration match the snapshot, and inversion attributes map to archived `attributes.orig`. Its engine has not run. Extra or fewer unrelated release folders do not matter. Continue with [the shared-runtime setup](dev-shared-runtime-setup.md), [the test architecture](test-architecture.md), and [SNOMED contract](snomedct-us-2026-09-01-input-output-contract.json).
+
+## Subsequent NCIt replay result
+
+The [committed explicit-PT candidate](nci-2026-10d-explicit-pt-summary.json) passed the full October core comparison on November 4. It corrects the one missing FDA term type reproduced from the unchanged production snapshot; that original baseline and its files remain preserved. The separate [ordering candidate](nci-2026-10d-context-order-summary.json) also passed its full core comparison and four-seed serialization fixture. Context/attribute content matches under the scoped ordering/generated-ID profile. Metadata acquisition, MRDOC/legacy QA and insertion remain outside these acceptance results.

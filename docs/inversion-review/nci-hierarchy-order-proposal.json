@@ -1,0 +1,150 @@
+{
+  "status": "local proposal characterized; not applied to operational code",
+  "baseline": {
+    "hierarchy_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+    "fixture": "Seven nodes, two roots, shared descendant with three parents; 11 contexts and 12 CONTEXT attributes",
+    "seeds": [
+      {
+        "seed": "1",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "2de4c92f39cf3ef738273fcf1a476b3d8e2422fb94af9d2b1902b2c6906bc5bb",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "d597d93734212b6f20c952e20c4df840106b7282e57ebb5b9a5460078d00efcf",
+          "record_multiset_sha256": "bd2ce57cab01c7fe2dbacd39a0c29db708ddfc1f441beb3dce5fe5f1722fa288",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "2",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "bce2616475ef4929338019f4d4877ebc7e5e11d92a33eec40ee5d01b821eac60",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "16e38fd678fef0e8ee64971588a01fbcecfbfa70ba7069b23ca36afe295de816",
+          "record_multiset_sha256": "64d54d732908eb8d37d2208eb9a14208ab1bdb81147b60745049a4e8a515bf10",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "17",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "7f83609cef9d81d4c15af99a2abd7f894f335260e1078d13d4f103ca16b42584",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "23375e9c02a4f19e0ed882cd4ca11be701589253e8f2d4a87146df09b32cb0f6",
+          "record_multiset_sha256": "2cd4d1c76782312fa42e6a7b3860e9625a6541cd5736f5ca3c1d3a493e323a2e",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "12345",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "06b3562638d26031cec7e31329229598dafeaeb33f528a01c4652ffdf4b72417",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "45c9a717f3b9d584299cd52a3c15c3448b22c1bef962f7bf3be2c79b6d0d4c71",
+          "record_multiset_sha256": "751846a1c44c8a4df532603a5c3bf7217254523a82e70f880f25b09c7339f37e",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      }
+    ],
+    "context_bytes_stable": false,
+    "attribute_bytes_stable": false,
+    "context_contents_stable": true,
+    "attribute_contents_stable": true,
+    "operational_code_changed": false
+  },
+  "proposed": {
+    "hierarchy_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "override_tested": true,
+    "fixture": "Seven nodes, two roots, shared descendant with three parents; 11 contexts and 12 CONTEXT attributes",
+    "seeds": [
+      {
+        "seed": "1",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "2",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "17",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      },
+      {
+        "seed": "12345",
+        "perl_version": "v5.34.1",
+        "contexts": {
+          "rows": 11,
+          "raw_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3",
+          "record_multiset_sha256": "1f076d2ab1f2c68890945e236b20195160501952bc174d5e7d5767d6b719c6e3"
+        },
+        "attributes": {
+          "rows": 12,
+          "raw_sha256": "c30b62db9a153b744a89b4946b2d181a6e6553ba915fc274bb1cf2ee7c3497a6",
+          "record_multiset_sha256": "118b1da2e58b5d8b5d7e2eb95c9b96ddc1f8dc02cc12a44ddfdddc825bbd99a0",
+          "content_multiset_without_row_id_sha256": "c96dc4d33fd8b8c219b27eff298124bf9b179d67fc83eba7507e42450e576bba"
+        }
+      }
+    ],
+    "context_bytes_stable": true,
+    "attribute_bytes_stable": true,
+    "context_contents_stable": true,
+    "attribute_contents_stable": true,
+    "operational_code_changed": false
+  },
+  "proposed_change": "Sort parent hash keys in the active Hierarchy::dumpCxtsAttrs emission loop only",
+  "actual_callers": "NCIt uses this emitter; current SNOMED uses its own already-sorted loop; historical/other callers still need appropriate coverage",
+  "all_record_content_preserved": true,
+  "source_fix_commit_under_test": "0de8ca21158a2b1efa451ceff26809bbeaee20f9"
+}

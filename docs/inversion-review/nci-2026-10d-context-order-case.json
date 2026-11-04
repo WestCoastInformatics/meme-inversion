@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "environment_profile": "ncias-d3777-c",
+  "case_variant": "explicit-pt-and-stable-context-order",
+  "reference_stage": "inversion-src",
+  "comparison_profile": "semantic-strict",
+  "status": "committed ordering candidate running offline; automatic full comparison pending",
+  "reference": {
+    "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz",
+    "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+    "bucket": "nci-evs-meme",
+    "key": "inv/sources/NCI_2026_10D.tgz",
+    "selected_directory": "src"
+  },
+  "replacement_baseline": {
+    "source": "NCI",
+    "version": "NCI_2026_08E"
+  },
+  "comparison_baseline": null,
+  "publisher_history": [],
+  "archived_metadata_inputs": [
+    {
+      "path": "NCI_2026_10D/src/sources.src",
+      "size": 44614,
+      "mode": "0o644",
+      "mtime": 1793646753,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+      "newline_count": 60
+    },
+    {
+      "path": "NCI_2026_10D/src/termgroups.src",
+      "size": 6038,
+      "mode": "0o644",
+      "mtime": 1793646807,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+      "newline_count": 130
+    }
+  ],
+  "native_inputs": [
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/annotationDeclaration-20261026.txt",
+      "size": 8502,
+      "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/objectDeclaration-20261026.txt",
+      "size": 4934,
+      "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/classDeclaration-20261026.txt",
+      "size": 157230668,
+      "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/relations-20261026.txt",
+      "size": 14705566,
+      "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f"
+    },
+    {
+      "path": "NCI_2026_10D/orig/fromprovider/hierarchy-20261026.txt",
+      "size": 3596568,
+      "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b"
+    }
+  ],
+  "configuration_inputs": [
+    "INV/etc/inv_defaults.cfg",
+    "sources/NCI_2026_10D/etc/nci.cfg"
+  ],
+  "preparation_outputs_to_regenerate": [
+    "tmp/rolegroups.tmp",
+    "orig/rels_needing_relgrp.txt",
+    "tmp/MRCONSO.TREF.tmp",
+    "tmp/MRREL.TREF.tmp",
+    "tmp/MRSAT.TREF.tmp",
+    "orig/MRCONSO.TREF",
+    "orig/MRREL.TREF",
+    "orig/MRSAT.TREF"
+  ],
+  "preparation_reference_files": [
+    {
+      "path": "NCI_2026_10D/orig/MRCONSO.TREF",
+      "size": 37716189,
+      "mode": "0o664",
+      "mtime": 1793304221,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "a171923ff9742453d5a10a65eb0964b4cad14fc693e05044f27846601f58cb25",
+      "newline_count": 807904
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRREL.TREF",
+      "size": 81439975,
+      "mode": "0o664",
+      "mtime": 1793304225,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "1f8d61641f84849c0f877ddd3d57b1b37a458902cccf65b8a0507018ae3c2390",
+      "newline_count": 1503707
+    },
+    {
+      "path": "NCI_2026_10D/orig/MRSAT.TREF",
+      "size": 102525470,
+      "mode": "0o664",
+      "mtime": 1793304230,
+      "role": "prepared-intermediate-or-source-input",
+      "kind": "file",
+      "sha256": "ce0d0b353d25d54bde22349fa33ecfbb43502ebf0f368bd718fa71d230692e71",
+      "newline_count": 1115038
+    }
+  ],
+  "core_outputs_to_regenerate": [
+    {
+      "path": "NCI_2026_10D/src/classes_atoms.src",
+      "size": 86815706,
+      "mode": "0o664",
+      "mtime": 1793594160,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+      "newline_count": 803253
+    },
+    {
+      "path": "NCI_2026_10D/src/attributes.src",
+      "size": 306298097,
+      "mode": "0o664",
+      "mtime": 1793591089,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "1fe0990bd7ce36529e8e16a2ade0353a3ac5aac4df95a0c078fdb83e32fc7920",
+      "newline_count": 1265611
+    },
+    {
+      "path": "NCI_2026_10D/src/relationships.src",
+      "size": 169343929,
+      "mode": "0o664",
+      "mtime": 1793591010,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+      "newline_count": 1228468
+    },
+    {
+      "path": "NCI_2026_10D/src/mergefacts.src",
+      "size": 44631179,
+      "mode": "0o664",
+      "mtime": 1793590947,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+      "newline_count": 595089
+    },
+    {
+      "path": "NCI_2026_10D/src/contexts.src",
+      "size": 270665435,
+      "mode": "0o664",
+      "mtime": 1793591089,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2a2778c7a375d69058cd2891d570dc44845028491f82c9f0a401c0a18676667e",
+      "newline_count": 1185069
+    }
+  ],
+  "auxiliary_outputs_to_regenerate": [
+    "etc/code2merge.txt",
+    "etc/parchd_nci_scui.out",
+    "etc/nci_relations.out",
+    "tmp/self_rels.txt",
+    "tmp/nci_relations1.out"
+  ],
+  "excluded_from_initial_coverage": [
+    "Source/termgroup metadata acquisition and editorial decisions",
+    "MRDOC generation from historical NCImeta metadata",
+    "Legacy QA/TDE comparison requiring prior data/API fixtures",
+    "Insertion-package preparation and database insertion"
+  ],
+  "candidate_preparation_rule": "Create the standard release folder from pinned code and declared inputs only. Do not populate candidate generated outputs from archived src, insert, tmp, or derived orig files.",
+  "unresolved_before_execution": [],
+  "candidate_prepared": true,
+  "candidate_executed": true,
+  "baseline_evidence": {
+    "replacement_baseline": "src/sources.src source_name=NCI_2026_10D, low_source=NCI_2026_08E",
+    "comparison_baseline": "Not required by the inspected conversion stages; select independently if prior-data QA is enabled"
+  },
+  "insertion_preparation": {
+    "script": "operations/ncim/bin/prep_insertion.csh",
+    "sha256": "c89dfa7cb2f9fe0ab9ec491bc75c30546705bbf98585e5f734bd4b45296c3975",
+    "default_target": "insert",
+    "test_target": "test",
+    "operation": "Copy .src/.RRF files unchanged and adjust group",
+    "excluded_from_initial_core_replay": true,
+    "archived_insert_does_not_match_current_src": true,
+    "archived_insert_history_in_scope": false
+  },
+  "remaining_validation": [
+    "Run committed fixed core and compare all five fresh outputs to the official October src reference",
+    "Review raw hash differences and strictly scoped order/attribute-ID diagnostics; require valid termgroups and reference checks"
+  ],
+  "historical_replay_atom_ids": {
+    "minimum": 781548593,
+    "maximum": 782351845,
+    "rows": 803253,
+    "unique_ids": 803253,
+    "contiguous": true,
+    "scope": "Observed reference output span for isolated replay only; not a production allocation receipt"
+  },
+  "preparation_receipt": "nci-2026-10d-candidate-preparation.json",
+  "execution_scope": "Native preparation and five core src outputs only; archived source metadata supplied as declared inputs",
+  "comparison_complete": false,
+  "acceptance_status": "PENDING",
+  "historical_correction_working_assumption": {
+    "statement": "The inverter manually added PT to atom 781756819 after reviewing the NCI_2026_10D QA results.",
+    "status": "user-accepted working assumption",
+    "accepted_on": "2026-11-04",
+    "operator_confirmation": "pending; user may confirm with the inverter",
+    "blocks_further_work": false,
+    "evidence": "nci-2026-10d-post-qa-correction-evidence.json",
+    "implementation_consequence": "Fix the missing explicit PT assignment in a separate candidate revision and add a first-original-code-PT regression fixture; preserve the unchanged baseline and raw comparison."
+  },
+  "separate_candidate_fix": "nci-2026-10d-explicit-pt-fix.json",
+  "preparation_engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "run_id": "context-order-20261104",
+  "candidate_change": {
+    "path": "INV/lib/Hierarchy.pm",
+    "expected_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "purpose": "Sort only the active context/attribute emission loop"
+  },
+  "acceptance_profile": "nci-core-v1",
+  "previous_comparison_summary": "nci-2026-10d-comparison-summary.json",
+  "previous_core_run_status_receipt": "nci-2026-10d-core-run-status.json",
+  "run_artifacts_directory": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-runs/context-order-20261104"
+}
