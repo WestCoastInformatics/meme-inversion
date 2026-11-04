@@ -782,7 +782,7 @@ package Hierarchy;
     $$LogRef->logDebug("Generating cxts.\n");
 
     # for each node
-    foreach $nd (keys ( %{$parRef} )) {
+    foreach $nd (sort keys ( %{$parRef} )) {
       $attrNum = 0;
       # foreach cxt dump PAR context and its attributes
       $atId1 = $saidConv ? $$tag2Said{"$nd"} : $nd;
