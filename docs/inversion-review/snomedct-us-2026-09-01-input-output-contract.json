@@ -4,7 +4,7 @@
   "version": "SNOMEDCT_US_2026_09_01",
   "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
   "environment_profile": "ncias-d3777-c",
-  "status": "archive frozen; pre-insertion inversion boundary reviewed; candidate not prepared/executed",
+  "status": "replay apparatus implemented and tested locally; candidate preparation/execution pending",
   "reference_stage": "inversion-src",
   "reference_file_map": [
     {
@@ -295,15 +295,32 @@
     "notes": "Disk estimate excludes staging overhead and safety reserve; operational TMP_DIR remains unchanged; no full archive extraction is needed"
   },
   "remaining_work": [
-    "Finalize a SNOMED comparison profile that preserves SCTID identity, typed qualifiers, map/association/group semantics and structured CONTEXT values",
-    "Select/activate the exact baseline engine/runtime before the unchanged RF2 replay; current dev has an independently tested NCIt candidate runtime",
-    "Prepare clean standard-path candidate from declared inputs and Git code; do not seed completed outputs",
-    "Pin historical SAID bounds and metadata fixtures, estimate resource limits, then run RF2 core plus documented attribute cleanup",
-    "Keep insertion-time semantic enrichment as separate coverage; no live insertion/database operation is authorized by an inversion replay"
+    "Prepare the clean candidate from eighteen declared archived inputs and five Git code/configuration files",
+    "Preserve current NCIt candidate library/receipt, restore and verify all 169 unchanged baseline shared files, then execute RF2 core and documented cleanup offline",
+    "Compare all five outputs, including every ID, qualifier, group and duplicate, against stage-selected references and run independent structure checks",
+    "Keep historical metadata/ICD acquisition, MRDOC/legacy QA and insertion as separately scoped future workflow coverage"
   ],
   "artifact_type": "characterization boundary; not yet an implemented common run configuration",
   "common_configuration_design": "configuration.schema.json",
   "reference_stage_description": "Inversion output before insertion-time enrichment; attributes.src comparison selects archived attributes.orig explicitly",
   "case_variant": "as-produced-with-archived-source-metadata-and-ICD-target-inventories",
-  "comparison_profile": "pending-snomed-core-profile"
+  "comparison_profile": "snomed-core-v1: exact bytes or full-record multiset, retaining every field and duplicate; no generated-ID waiver",
+  "apparatus_files": [
+    "tools/prepare_snomed_candidate.py",
+    "tools/run_snomed_core_replay.py",
+    "tools/compare_snomed_core.py",
+    "tools/check_snomed_replay.py"
+  ],
+  "execution_limits": {
+    "network": "disabled for core conversion and cleanup",
+    "perl_address_space_bytes": 23622320128,
+    "preflight_available_memory_bytes": 25769803776,
+    "preflight_free_disk_bytes": 53687091200,
+    "stop_if_available_memory_below_bytes": 2147483648,
+    "stop_if_free_disk_below_bytes": 12884901888,
+    "conversion_timeout_seconds": 14400,
+    "cleanup_timeout_seconds": 1800,
+    "sort_scratch": "standard release tmp directory on disk",
+    "global_TMP_DIR_changed": false
+  }
 }

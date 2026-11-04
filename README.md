@@ -27,6 +27,9 @@ python3 -B tools/check_core_comparison.py
 python3 -B tools/check_nci_replay_advance.py
 python3 -B tests/check_nci_pt_termgroups.py
 python3 -B tests/check_nci_hierarchy_order.py
+python3 -B tools/check_snomed_replay.py
 ```
 
 These checks use temporary synthetic inputs and do not require server access. The S3 pull helper's separate dev-only fixtures are in `tools/check_pull_s3.py`; twelve cases passed during archive-tool setup. `operations/ncim/bin/prep_insertion.csh` is a captured reference, not an insertion command run by this apparatus. See the [assessment and phased priorities](docs/inversion-review/assessment.md) for the broader migration plan.
+
+The SNOMED preparation/worker/comparator modules now support the September unchanged-production case through an explicit locked package. They select eighteen archived inputs and five Git code/configuration files, preserve the current dev library/receipt before restoring the baseline shared runtime, run conversion and original attribute cleanup offline with monitored capacity limits, and compare all five outputs without ignoring generated identifiers. Twenty-three local fixtures cover reference-stage mistakes, generated-output seeding, structural/content defects and runtime preservation failures. A completed SNOMED result must be recorded separately; the presence of these tools is not evidence that its inversion has run.
