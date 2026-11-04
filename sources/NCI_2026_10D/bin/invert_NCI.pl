@@ -739,7 +739,7 @@ while (<MRCON>){
 		    if ($tty eq 'PT'){
 			 
 		  # origcode or cui?
-			$ptAtom -> dumpAtom({vsab => $in2vsab{"$sab"},str => $str, scui => $cui, code => $origcode, suppress => 'N'});
+			$ptAtom -> dumpAtom({vsab => $in2vsab{"$sab"},str => $str, scui => $cui, code => $origcode, tty => 'PT', suppress => 'N'});
 			$pt1Atom = $ptAtom->getLastId();
 			  
 			          if (defined($cd2merge{$cui})){
