@@ -1,0 +1,300 @@
+{
+  "run_id": "baseline-core-20261104",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "completed_at": "2026-11-05T00:11:01.583694+00:00",
+  "core": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "run_id": "baseline-core-20261104",
+    "started_at": "2026-11-04T23:35:51.448633+00:00",
+    "network": "disabled for conversion and cleanup",
+    "metadata_acquisition": "archived sources/termgroups and ICD inventories used as declared inputs",
+    "insertion_executed": false,
+    "memory_address_space_limit_bytes": 23622320128,
+    "conversion": {
+      "exit_status": 0,
+      "elapsed_seconds": 1521.37,
+      "sampled_peak_resident_bytes": 5687513088,
+      "minimum_available_memory_bytes": 22520614912,
+      "child_max_rss_bytes": 5695606784
+    },
+    "exit_status": 0,
+    "before_attribute_cleanup": {
+      "bytes": 2319449724,
+      "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+      "newline_count": 9324589
+    },
+    "cleanup": {
+      "exit_status": 0,
+      "elapsed_seconds": 50.05,
+      "sampled_peak_resident_bytes": 156798976,
+      "minimum_available_memory_bytes": 28032364544,
+      "child_max_rss_bytes": 5695606784
+    },
+    "cleanup_exit_status": 0,
+    "files": {
+      "attributes.src": {
+        "bytes": 2319449724,
+        "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+        "newline_count": 9324589
+      },
+      "classes_atoms.src": {
+        "bytes": 163029934,
+        "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+        "newline_count": 1048850
+      },
+      "contexts.src": {
+        "bytes": 6220515460,
+        "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+        "newline_count": 20403095
+      },
+      "mergefacts.src": {
+        "bytes": 138634414,
+        "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+        "newline_count": 1048849
+      },
+      "relationships.src": {
+        "bytes": 140346293,
+        "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+        "newline_count": 742425
+      }
+    },
+    "attribute_cleanup_removed_rows": 0,
+    "completed_at": "2026-11-05T00:03:00.790032+00:00"
+  },
+  "comparison": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "run_id": "baseline-core-20261104",
+    "started_at": "2026-11-05T00:03:53.907316+00:00",
+    "files": {
+      "classes_atoms.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/classes_atoms.src",
+        "reference": {
+          "bytes": 163029934,
+          "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+          "newline_count": 1048850
+        },
+        "candidate": {
+          "bytes": 163029934,
+          "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+          "newline_count": 1048850
+        },
+        "exact_match": true
+      },
+      "relationships.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/relationships.src",
+        "reference": {
+          "bytes": 140346293,
+          "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+          "newline_count": 742425
+        },
+        "candidate": {
+          "bytes": 140346293,
+          "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+          "newline_count": 742425
+        },
+        "exact_match": true
+      },
+      "mergefacts.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/mergefacts.src",
+        "reference": {
+          "bytes": 138634414,
+          "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+          "newline_count": 1048849
+        },
+        "candidate": {
+          "bytes": 138634414,
+          "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+          "newline_count": 1048849
+        },
+        "exact_match": true
+      },
+      "contexts.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/contexts.src",
+        "reference": {
+          "bytes": 6220515460,
+          "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+          "newline_count": 20403095
+        },
+        "candidate": {
+          "bytes": 6220515460,
+          "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+          "newline_count": 20403095
+        },
+        "exact_match": true
+      },
+      "attributes.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+        "reference": {
+          "bytes": 2319449724,
+          "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+          "newline_count": 9324589
+        },
+        "candidate": {
+          "bytes": 2319449724,
+          "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+          "newline_count": 9324589
+        },
+        "exact_match": true
+      }
+    },
+    "reference_stage": "inversion-src",
+    "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+    "candidate_modified": false,
+    "insertion_executed": false,
+    "comparison_profile": "snomed-core-v1: exact bytes or full-record multiset, retaining every field and duplicate; no generated-ID waiver",
+    "candidate_validation": {
+      "atom_ids": {
+        "unique": 1048850,
+        "duplicates": 0,
+        "out_of_reserved_range": 0
+      },
+      "unknown_termgroups": {
+        "SRC/VSY": 1
+      },
+      "files": {
+        "mergefacts.src": {
+          "rows": 1048849,
+          "field_counts": {
+            "13": 1048849
+          },
+          "violations": {
+            "unknown_identifier_type": 1048820
+          },
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 31,
+            "ROOT_SOURCE_AUI|SNOMEDCT_US": 1048820,
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1048847
+          }
+        },
+        "contexts.src": {
+          "rows": 20403095,
+          "field_counts": {
+            "18": 20403095
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 40806190
+          }
+        },
+        "classes_atoms.src": {
+          "rows": 1048850,
+          "field_counts": {
+            "15": 1048850
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {}
+        },
+        "attributes.src": {
+          "rows": 9324589,
+          "field_counts": {
+            "15": 9324589
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 3045016,
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 2092700,
+            "SOURCE_RUI|SNOMEDCT_US_2026_09_01": 31210,
+            "SOURCE_AUI|SNOMEDCT_US_2026_09_01": 4155663
+          },
+          "attribute_names": {
+            "SEMANTIC_TYPE": 1,
+            "SUBSET_MEMBER": 2456142,
+            "REFSET_PATTERN": 69,
+            "DESCRIPTION_FORMAT": 3,
+            "DESCRIPTION_LENGTH": 3,
+            "SOURCE_EFFECTIVE_TIME": 8,
+            "TARGET_EFFECTIVE_TIME": 8,
+            "EFFECTIVE_TIME": 390812,
+            "ACTIVE": 390812,
+            "DEFINITION_STATUS_ID": 390812,
+            "MODULE_ID": 48491,
+            "MODULE_NAME": 48491,
+            "DEFAULT_LANGUAGECODE": 1,
+            "DEFAULT_MODULE_ID": 1,
+            "COUNT_OF_BASE_OF_ACTIVE_INGREDIENT": 16477,
+            "CONCENTRATION_STRENGTH_NUMERATOR_VALUE": 3180,
+            "CONCENTRATION_STRENGTH_DENOMINATOR_VALUE": 3180,
+            "PRESENTATION_STRENGTH_NUMERATOR_VALUE": 6724,
+            "PRESENTATION_STRENGTH_DENOMINATOR_VALUE": 6724,
+            "COUNT_OF_ACTIVE_INGREDIENT": 77,
+            "CTV3ID": 383344,
+            "ICD-O-3_CODE": 23514,
+            "DEFINITION": 12836,
+            "TYPE_ID": 1048820,
+            "CASE_SIGNIFICANCE_ID": 1048820,
+            "UMLSREL": 112,
+            "UMLSRELA": 112,
+            "MAPSETSID": 2,
+            "MAPSETNAME": 2,
+            "MAPSETVERSION": 2,
+            "MAPSETRSAB": 2,
+            "MAPSETVSAB": 2,
+            "FROMRSAB": 2,
+            "FROMVSAB": 2,
+            "TORSAB": 2,
+            "TOVSAB": 2,
+            "SOS": 2,
+            "MTH_MAPSETCOMPLEXITY": 2,
+            "MTH_MAPFROMCOMPLEXITY": 2,
+            "MTH_MAPTOCOMPLEXITY": 2,
+            "MTH_MAPFROMEXHAUSTIVE": 2,
+            "MTH_MAPTOEXHAUSTIVE": 2,
+            "XMAP": 448829,
+            "XMAPFROM": 279457,
+            "XMAPTO": 33715,
+            "CONTEXT": 2282984
+          }
+        },
+        "relationships.src": {
+          "rows": 742425,
+          "field_counts": {
+            "19": 742425
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "CODE_SOURCE|SRC": 2,
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1484848
+          }
+        }
+      },
+      "passed": false,
+      "scope": "Field structure, UTF-8, unique generated IDs (gaps permitted), reserved atom bounds, declared/framework termgroups, attribute digests, cleanup description references and context atom/path/identity consistency. Full-record comparison retains all typed qualifiers, groups, mapping values and IDs. Not complete release/domain validation."
+    },
+    "reference_validation": {
+      "same_bytes_as_candidate": true,
+      "passed": false
+    },
+    "acceptance": {
+      "status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+      "all_five_exact": true,
+      "all_five_full_record_equivalent": true,
+      "independent_structure_checks_passed": false,
+      "ignored_columns": [],
+      "generated_identifiers_reindexed": false,
+      "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+    },
+    "completed_at": "2026-11-05T00:10:13.083560+00:00"
+  },
+  "acceptance": {
+    "status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+    "all_five_exact": true,
+    "all_five_full_record_equivalent": true,
+    "independent_structure_checks_passed": false,
+    "ignored_columns": [],
+    "generated_identifiers_reindexed": false,
+    "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+  },
+  "inputs_engine_runtime_and_outputs_verified_after_run": true,
+  "insertion_executed": false,
+  "apparatus_sha256": {
+    "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "run_snomed_core_replay.py": "c72b0dcc5fbaa015804770b946dc0b84a8b8f43524dac8726a0acdfe7175d244",
+    "compare_snomed_core.py": "8a9125d3ed4baf397836e7206710394ebeb02d6b6e1b96b96ef9dc468ef62e86",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "check_snomed_replay.py": "568d09e7f6bb36aa0ecdfed4cd54acb83950a56fc3c4a688a6917015e93df0b2"
+  }
+}

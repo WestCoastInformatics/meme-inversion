@@ -1,0 +1,69 @@
+{
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "apparatus_ref": "841bdcf60bbfe7537fdbf089687b3554226517e1",
+  "run_id": "baseline-core-20261104",
+  "status": "PASS_EXACT_AFTER_VALIDATOR_REVIEW",
+  "raw_worker_status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+  "completed_at": "2026-11-05T00:11:01.583694+00:00",
+  "all_five_exact": true,
+  "files": {
+    "classes_atoms.src": {
+      "rows": 1048850,
+      "bytes": 163029934,
+      "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+      "exact_match": true,
+      "official_reference": "SNOMEDCT_US_2026_09_01/src/classes_atoms.src"
+    },
+    "relationships.src": {
+      "rows": 742425,
+      "bytes": 140346293,
+      "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+      "exact_match": true,
+      "official_reference": "SNOMEDCT_US_2026_09_01/src/relationships.src"
+    },
+    "mergefacts.src": {
+      "rows": 1048849,
+      "bytes": 138634414,
+      "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+      "exact_match": true,
+      "official_reference": "SNOMEDCT_US_2026_09_01/src/mergefacts.src"
+    },
+    "contexts.src": {
+      "rows": 20403095,
+      "bytes": 6220515460,
+      "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+      "exact_match": true,
+      "official_reference": "SNOMEDCT_US_2026_09_01/src/contexts.src"
+    },
+    "attributes.src": {
+      "rows": 9324589,
+      "bytes": 2319449724,
+      "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+      "exact_match": true,
+      "official_reference": "SNOMEDCT_US_2026_09_01/src/attributes.orig"
+    }
+  },
+  "source_metadata_and_ICD_inventories": "archived preparation inputs, verified unchanged",
+  "replacement_baseline_verified": "SNOMEDCT_US_2026_03_01",
+  "previous_source_folder_restored": false,
+  "conversion_seconds": 1521.37,
+  "cleanup_seconds": 50.05,
+  "conversion_max_rss_bytes": 5695606784,
+  "cleanup_removed_rows": 0,
+  "network": "disabled for conversion and cleanup",
+  "generated_identifiers_ignored_or_reassigned": false,
+  "record_fields_ignored": [],
+  "validation_review": "snomedct-us-2026-09-01-validation-review.json",
+  "validator_corrections": "Incomplete checker lists omitted valid SRC/VSY and ROOT_SOURCE_AUI. Production source patterns establish both; complete original scan counters were reclassified without rescanning or changing output.",
+  "corrected_validator_full_file_rescan_executed": false,
+  "corrected_local_regression_checks_passed": 25,
+  "inputs_engine_runtime_and_outputs_verified_after_run": true,
+  "insertion_executed": false,
+  "full_release_eligibility": "Not assessed: historical metadata/ICD acquisition, MRDOC, legacy/API QA and insertion excluded",
+  "raw_result": "snomedct-us-2026-09-01-baseline-result.json",
+  "status_receipt": "snomedct-us-2026-09-01-baseline-status.json",
+  "current_shared_runtime": "Restored unchanged production baseline; prior NCIt candidate Hierarchy.pm and receipt preserved under this run/runtime-before",
+  "production_changed": false
+}

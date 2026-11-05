@@ -1,0 +1,16 @@
+{
+  "run_id": "baseline-core-20261104",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "status": "worker-launched",
+  "worker_pid": 3677625,
+  "run_directory": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01/etc/qa/replay-runs/baseline-core-20261104",
+  "worker_log": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01/etc/qa/replay-runs/baseline-core-20261104/worker.log",
+  "launched_at": "2026-11-04T23:35:37.576285+00:00",
+  "apparatus_sha256": {
+    "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "run_snomed_core_replay.py": "c72b0dcc5fbaa015804770b946dc0b84a8b8f43524dac8726a0acdfe7175d244",
+    "compare_snomed_core.py": "8a9125d3ed4baf397836e7206710394ebeb02d6b6e1b96b96ef9dc468ef62e86",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "check_snomed_replay.py": "568d09e7f6bb36aa0ecdfed4cd54acb83950a56fc3c4a688a6917015e93df0b2"
+  }
+}

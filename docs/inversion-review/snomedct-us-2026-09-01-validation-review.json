@@ -1,0 +1,190 @@
+{
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "raw_result": "snomedct-us-2026-09-01-baseline-result.json",
+  "raw_result_sha256": "bc9445165292dabbe046998e691f461f8b4be6aa944f99f275e598918c4562c7",
+  "original_acceptance": {
+    "status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+    "all_five_exact": true,
+    "all_five_full_record_equivalent": true,
+    "independent_structure_checks_passed": false,
+    "ignored_columns": [],
+    "generated_identifiers_reindexed": false,
+    "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+  },
+  "reviewed_acceptance": {
+    "status": "PASS_EXACT",
+    "all_five_exact": true,
+    "all_five_full_record_equivalent": true,
+    "independent_structure_checks_passed": true,
+    "ignored_columns": [],
+    "generated_identifiers_reindexed": false,
+    "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+  },
+  "method": "Reclassify only two supported token categories in the complete, recorded full-file scan. Match prior violation totals to its complete type/qualifier counters; preserve every other validation result. No inversion or output file is changed. This is a review of recorded results, not a new full-file validator execution.",
+  "corrected_validator_full_file_rescan_executed": false,
+  "source_backed_corrections": [
+    {
+      "classification": "framework termgroup",
+      "value": "SRC/VSY",
+      "records": 1
+    },
+    {
+      "classification": "supported typed identifier",
+      "value": "ROOT_SOURCE_AUI",
+      "file": "mergefacts.src",
+      "records": 1048820
+    }
+  ],
+  "reviewed_validation": {
+    "atom_ids": {
+      "unique": 1048850,
+      "duplicates": 0,
+      "out_of_reserved_range": 0
+    },
+    "unknown_termgroups": {},
+    "files": {
+      "mergefacts.src": {
+        "rows": 1048849,
+        "field_counts": {
+          "13": 1048849
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "SRC_ATOM_ID|": 31,
+          "ROOT_SOURCE_AUI|SNOMEDCT_US": 1048820,
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1048847
+        }
+      },
+      "contexts.src": {
+        "rows": 20403095,
+        "field_counts": {
+          "18": 20403095
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 40806190
+        }
+      },
+      "classes_atoms.src": {
+        "rows": 1048850,
+        "field_counts": {
+          "15": 1048850
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {}
+      },
+      "attributes.src": {
+        "rows": 9324589,
+        "field_counts": {
+          "15": 9324589
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "SRC_ATOM_ID|": 3045016,
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 2092700,
+          "SOURCE_RUI|SNOMEDCT_US_2026_09_01": 31210,
+          "SOURCE_AUI|SNOMEDCT_US_2026_09_01": 4155663
+        },
+        "attribute_names": {
+          "SEMANTIC_TYPE": 1,
+          "SUBSET_MEMBER": 2456142,
+          "REFSET_PATTERN": 69,
+          "DESCRIPTION_FORMAT": 3,
+          "DESCRIPTION_LENGTH": 3,
+          "SOURCE_EFFECTIVE_TIME": 8,
+          "TARGET_EFFECTIVE_TIME": 8,
+          "EFFECTIVE_TIME": 390812,
+          "ACTIVE": 390812,
+          "DEFINITION_STATUS_ID": 390812,
+          "MODULE_ID": 48491,
+          "MODULE_NAME": 48491,
+          "DEFAULT_LANGUAGECODE": 1,
+          "DEFAULT_MODULE_ID": 1,
+          "COUNT_OF_BASE_OF_ACTIVE_INGREDIENT": 16477,
+          "CONCENTRATION_STRENGTH_NUMERATOR_VALUE": 3180,
+          "CONCENTRATION_STRENGTH_DENOMINATOR_VALUE": 3180,
+          "PRESENTATION_STRENGTH_NUMERATOR_VALUE": 6724,
+          "PRESENTATION_STRENGTH_DENOMINATOR_VALUE": 6724,
+          "COUNT_OF_ACTIVE_INGREDIENT": 77,
+          "CTV3ID": 383344,
+          "ICD-O-3_CODE": 23514,
+          "DEFINITION": 12836,
+          "TYPE_ID": 1048820,
+          "CASE_SIGNIFICANCE_ID": 1048820,
+          "UMLSREL": 112,
+          "UMLSRELA": 112,
+          "MAPSETSID": 2,
+          "MAPSETNAME": 2,
+          "MAPSETVERSION": 2,
+          "MAPSETRSAB": 2,
+          "MAPSETVSAB": 2,
+          "FROMRSAB": 2,
+          "FROMVSAB": 2,
+          "TORSAB": 2,
+          "TOVSAB": 2,
+          "SOS": 2,
+          "MTH_MAPSETCOMPLEXITY": 2,
+          "MTH_MAPFROMCOMPLEXITY": 2,
+          "MTH_MAPTOCOMPLEXITY": 2,
+          "MTH_MAPFROMEXHAUSTIVE": 2,
+          "MTH_MAPTOEXHAUSTIVE": 2,
+          "XMAP": 448829,
+          "XMAPFROM": 279457,
+          "XMAPTO": 33715,
+          "CONTEXT": 2282984
+        }
+      },
+      "relationships.src": {
+        "rows": 742425,
+        "field_counts": {
+          "19": 742425
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "CODE_SOURCE|SRC": 2,
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1484848
+        }
+      }
+    },
+    "passed": true,
+    "scope": "Field structure, UTF-8, unique generated IDs (gaps permitted), reserved atom bounds, declared/framework termgroups, attribute digests, cleanup description references and context atom/path/identity consistency. Full-record comparison retains all typed qualifiers, groups, mapping values and IDs. Not complete release/domain validation."
+  },
+  "source_evidence": [
+    {
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "path": "INV/lib/QaTGs.pm",
+      "lines": "400-409",
+      "sha256": "c5e63984c3235c177c00b476bf53f51bc30bfc9c49df8fb1b7105b6a1bcd3fb9",
+      "meaning": "All eight framework termgroups, including SRC/VSY, are explicitly accepted."
+    },
+    {
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "path": "INV/lib/SrcBldr.pm",
+      "lines": "212-220",
+      "sha256": "c49ca5c7a43ff504f7baba7c394fa890675ea3a725e38dd07512c69ea957e1ae",
+      "meaning": "The shared source builder deliberately emits SRC/VSY atoms."
+    },
+    {
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "path": "INV/etc/inv_defaults.cfg",
+      "lines": "3349 and 3375",
+      "sha256": "5ff5f66aa4cf49c1715bdb305b02a627e64a04193e3c81750130d969c5e94d96",
+      "meaning": "Both merge endpoint type patterns explicitly allow ROOT_SOURCE_AUI."
+    },
+    {
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "path": "sources/SNOMEDCT_US_2026_09_01/bin/invert_rf2.pl",
+      "lines": "876-878",
+      "sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3",
+      "meaning": "Each description-to-concept merge deliberately uses ROOT_SOURCE_AUI with qualifier SNOMEDCT_US."
+    }
+  ],
+  "corrected_validator_sha256": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+  "corrected_regression_sha256": "f23b924668e6ccb42ffce490fd077074edea88d0f790965ea3b4ecc4c4d1393f",
+  "corrected_local_regression_checks_passed": 25,
+  "original_local_and_dev_regression_checks_passed": 23,
+  "inversion_output_changed": false,
+  "production_deployed": false
+}

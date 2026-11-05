@@ -68,6 +68,12 @@ def check(contract):
                 paths[name].write_text(''.join(row(x) for x in data))
             return comparison.structure(paths, {(version + '/PT').encode()}, (777343593, 779143592))
         require(validate(fixture)['passed'], 'valid typed records and non-contiguous attribute IDs accepted')
+        framework = copy.deepcopy(fixture)
+        framework['classes_atoms.src'][0][2] = 'SRC/VSY'
+        require(validate(framework)['passed'], 'production framework SRC/VSY termgroup accepted')
+        root_source = copy.deepcopy(fixture)
+        root_source['mergefacts.src'][0][8:10] = ['ROOT_SOURCE_AUI', 'SNOMEDCT_US']
+        require(validate(root_source)['passed'], 'production ROOT_SOURCE_AUI merge endpoint accepted with root source qualifier')
         for defect, name, index, column, value in [
             ('duplicate attribute ID', 'attributes.src', 1, 0, '3'),
             ('dangling description attribute', 'attributes.src', 0, 1, '999999'),

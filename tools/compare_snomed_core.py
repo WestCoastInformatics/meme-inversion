@@ -12,9 +12,13 @@ import tempfile
 from compare_nci_core import FIELDS, compare_sorted
 from prepare_snomed_candidate import CORE_NAMES, TARGET, VERSION, guard, info, now, require_hash, save
 
-FRAMEWORK_TERMGROUPS = {b'SRC/VPT', b'SRC/VAB', b'SRC/RPT', b'SRC/RAB', b'SRC/SSN'}
+# The complete framework list is explicit in baseline INV/lib/QaTGs.pm:400-409.
+FRAMEWORK_TERMGROUPS = {b'SRC/VPT', b'SRC/VAB', b'SRC/RPT', b'SRC/RAB', b'SRC/SSN',
+                        b'SRC/RHT', b'SRC/RSY', b'SRC/VSY'}
+# ROOT_SOURCE_AUI is allowed by FieldMon.Merge.9/11 in inv_defaults.cfg and
+# emitted deliberately by baseline invert_rf2.pl:876-878 with root SAB qualifier.
 ID_TYPES = {b'SRC_ATOM_ID', b'SOURCE_CUI', b'SOURCE_AUI', b'SOURCE_RUI', b'SOURCE_ATUI',
-            b'CODE_SOURCE', b'CODE_ROOT_SOURCE', b'CODE_TERMGROUP', b'ROOT_SOURCE_CUI'}
+            b'CODE_SOURCE', b'CODE_ROOT_SOURCE', b'CODE_TERMGROUP', b'ROOT_SOURCE_CUI', b'ROOT_SOURCE_AUI'}
 
 
 def structure(paths, termgroups, said_bounds):

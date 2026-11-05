@@ -1271,7 +1271,7 @@
   ],
   "priority_reassessment_basis": "Multi-year S3 archives and existing list/pull/push/update scripts remove the basis for treating archive preservation or replacement S3 tooling as a standalone top priority. Restore verification supports baseline preparation and regression testing.",
   "test_architecture": {
-    "status": "source-specific NCIt characterization apparatus implemented; common runner remains proposed",
+    "status": "NCIt and SNOMED source-specific characterization implemented; common runner remains proposed",
     "requirements_source": "User request for development isolation over multiple cycles and source/version replay against official S3 inversions",
     "design": "test-architecture.md",
     "request_template": "request-template.json",
@@ -1287,7 +1287,7 @@
       "Validate independently and compare record multiplicity, identifier correspondence and semantic structure",
       "First prove unchanged legacy replay against a frozen reference"
     ],
-    "historical_reproduction_status": "NCIt October native TREF reproduced exactly. Unchanged core exposed one PT defect; separate explicit-PT and ordering candidates each passed scoped core comparison using archived metadata. SNOMED reference frozen with stage-correct attributes.orig; no SNOMED or MTH candidate run yet."
+    "historical_reproduction_status": "NCIt native TREF exact; fixed NCI core candidates equivalent. Unchanged SNOMED core and cleanup reproduced all five official files byte-for-byte with archived metadata/ICD inputs. Initial checker token-list errors adjudicated from production source and complete scan counters; no output changes. MTH replay not yet executed."
   },
   "common_configuration": {
     "status": "proposed_not_implemented",
@@ -1457,8 +1457,9 @@
       "candidate_prepared": false,
       "insert_role": "Unmodified copy staging by prep_insertion.csh; archived August-labeled contents mismatch current October src; cause/timing untraced"
     },
-    "current_candidate_engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
-    "current_shared_runtime_receipt": "/local/content/MEME/MEME5/inv/candidate-runtime.json"
+    "current_candidate_engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "current_shared_runtime_receipt": "/local/content/MEME/MEME5/inv/candidate-runtime.json",
+    "current_runtime_reason": "Unchanged-production SNOMED baseline replay; prior NCIt ordering-candidate runtime preserved read-only"
   },
   "insertion_preparation_review": {
     "script_name": "prep_insertion.csh",
@@ -1590,19 +1591,26 @@
     "seed_count": 4
   },
   "snomed_reference_preparation": {
-    "status": "reference frozen and inversion/enrichment stages distinguished; candidate not prepared",
+    "status": "PASS_EXACT_AFTER_VALIDATOR_REVIEW",
     "source": "SNOMEDCT_US",
     "version": "SNOMEDCT_US_2026_09_01",
     "archive_downloaded": true,
-    "candidate_executed": false,
+    "candidate_executed": true,
     "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
     "receipt": "snomedct-us-2026-09-01-reference.json",
     "inversion_attributes_reference": "src/attributes.orig",
     "insertion_semantic_additions_confirmed_by_user": true,
-    "candidate_prepared": false,
+    "candidate_prepared": true,
     "inversion_attributes_sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
     "original_is_exact_prefix": true,
-    "insertion_added_semantic_rows": 1133725
+    "insertion_added_semantic_rows": 1133725,
+    "result_summary": "snomedct-us-2026-09-01-baseline-summary.json",
+    "all_five_exact": true,
+    "raw_worker_status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+    "validation_review": "snomedct-us-2026-09-01-validation-review.json",
+    "corrected_validator_full_file_rescan_executed": false,
+    "baseline_engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "completed_at": "2026-11-05T00:11:01.583694+00:00"
   },
   "nci_context_order_candidate": {
     "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",

@@ -4,7 +4,7 @@
   "version": "SNOMEDCT_US_2026_09_01",
   "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
   "environment_profile": "ncias-d3777-c",
-  "status": "replay apparatus implemented and tested locally; candidate preparation/execution pending",
+  "status": "PASS_EXACT_AFTER_VALIDATOR_REVIEW",
   "reference_stage": "inversion-src",
   "reference_file_map": [
     {
@@ -54,7 +54,7 @@
     "source": "SNOMEDCT_US",
     "version": "SNOMEDCT_US_2026_03_01"
   },
-  "baseline_evidence": "VSABOLD from archived matching configuration; sources.src field-2 verification remains a preparation check",
+  "baseline_evidence": "Prepared sources.src fields 1 and 2 verify September replaces March; matching configuration agrees.",
   "comparison_baseline": null,
   "publisher_history": [],
   "conversion_inputs": [
@@ -284,21 +284,23 @@
   "prior_source_folder_required_by_inspected_core": false,
   "metadata_acquisition_or_insertion_can_require_prior_state": true,
   "code_matches_production_snapshot": true,
-  "candidate_prepared": false,
-  "candidate_executed": false,
+  "candidate_prepared": true,
+  "candidate_executed": true,
   "capacity_estimate": {
     "selected_input_bytes": 1411566388,
     "core_reference_bytes": 8981975825,
     "minimum_candidate_plus_reference_plus_largest_sort_pair_bytes": 30404982570,
     "additional_preserved_run_bytes": 8981975825,
-    "memory_benchmark_required": true,
-    "notes": "Disk estimate excludes staging overhead and safety reserve; operational TMP_DIR remains unchanged; no full archive extraction is needed"
+    "memory_benchmark_required": false,
+    "notes": "Disk estimate excludes staging overhead and safety reserve; operational TMP_DIR remains unchanged; no full archive extraction is needed",
+    "observed_conversion_max_rss_bytes": 5695606784,
+    "observed_conversion_seconds": 1521.37,
+    "capacity_scope": "One September 2026 unchanged-engine dev replay; retain monitored reserves for future cases"
   },
   "remaining_work": [
-    "Prepare the clean candidate from eighteen declared archived inputs and five Git code/configuration files",
-    "Preserve current NCIt candidate library/receipt, restore and verify all 169 unchanged baseline shared files, then execute RF2 core and documented cleanup offline",
-    "Compare all five outputs, including every ID, qualifier, group and duplicate, against stage-selected references and run independent structure checks",
-    "Keep historical metadata/ICD acquisition, MRDOC/legacy QA and insertion as separately scoped future workflow coverage"
+    "Use this exact-reproduction baseline behind common configuration/runner adapters and future migration comparisons",
+    "Keep historical metadata/ICD acquisition, MRDOC/legacy QA and insertion as separately scoped workflow coverage",
+    "A subsequent full-file validation run can exercise the corrected allowed-token lists on dev; current reviewed result uses the complete recorded scan, with the original report preserved."
   ],
   "artifact_type": "characterization boundary; not yet an implemented common run configuration",
   "common_configuration_design": "configuration.schema.json",
@@ -322,5 +324,7 @@
     "cleanup_timeout_seconds": 1800,
     "sort_scratch": "standard release tmp directory on disk",
     "global_TMP_DIR_changed": false
-  }
+  },
+  "observed_status_receipt": "snomedct-us-2026-09-01-baseline-status.json",
+  "result_summary": "snomedct-us-2026-09-01-baseline-summary.json"
 }
