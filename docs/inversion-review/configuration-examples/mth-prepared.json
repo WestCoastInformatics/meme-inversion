@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "engine_ref": "<candidate-commit-sha>",
+  "policy_ref": "catalog:examples/mth/policy",
+  "environment_profile": "catalog:examples/dev-replay-worker",
+  "replacement_baseline": {
+    "source": "MTH",
+    "version": "MTH_2025AB"
+  },
+  "comparison_baseline": {
+    "source": "MTH",
+    "version": "MTH_2025AB"
+  },
+  "publisher_history": [],
+  "inputs": {
+    "reference_ncimeta": "catalog:examples/mth-2026aa/historical-source-and-precedence-exports",
+    "identity_state": "catalog:examples/mth-2025ab/prior-identity-bundle",
+    "source_plan": "catalog:examples/mth-2026aa/reviewed-dispositions-and-vsab-mappings",
+    "source_data": [
+      "catalog:examples/mth-2026aa/verified-prepared-subset-and-contexts"
+    ],
+    "source_data_stage": "prepared"
+  },
+  "source_atom_ids": {
+    "start": 1000000000,
+    "end": 1099999999,
+    "provenance_ref": "catalog:examples/synthetic-range-not-a-reservation"
+  },
+  "validation_profile": "catalog:examples/mth/required-validation",
+  "output_stage": "inversion-src",
+  "source_options": {},
+  "replay": {
+    "case_variant": "illustrative-preserved-input-replay",
+    "reference_ref": "catalog:examples/mth-2026aa/official-reference",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "semantic-strict"
+  }
+}

@@ -1,0 +1,1764 @@
+{
+  "schema_version": 1,
+  "artifact_type": "read-only production workflow discovery; not an enabled execution adapter or replay result",
+  "physical_host": "ncias-q3793-c.nci.nih.gov",
+  "source_root": "/local/content/MEME/MEME5/inv",
+  "capture_started_at": "2026-11-05T16:55:52.473499+00:00",
+  "capture_completed_at": "2026-11-05T16:55:52.677899+00:00",
+  "raw_capture_sha256": "1b48b1c276c086b2b55a73fdeaefc6b25d585b17357e56bc142b0667f72a6a9d",
+  "production_writes": false,
+  "shared_runtime": {
+    "baseline_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "files_checked": 169,
+    "all_current_files_match_original_production_capture": true,
+    "comparison_basis": "Original production SHA-256 fields in baseline/manifest.json, before documented credential sanitization"
+  },
+  "raw_capture_handling": "Owner-only ignored local raw capture. Thirty reviewed source files imported with hashes; credential-bearing access examples redacted from one runbook and an unused executable credential-bearing historical script excluded. Original November 3 snapshot unchanged.",
+  "sources": {
+    "MDR_29_1": {
+      "inventory_entries": 105,
+      "captured_text_files": 10,
+      "code_and_runbook_capture": [
+        {
+          "relative_path": "bin/get.versions4mdr.s",
+          "bytes": 2898,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "e788924e0e37fd1f1052afb9e52c6240a8d50568ffec592e83308133e4b2aea5",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert_mdr.pl",
+          "bytes": 44639,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "4f32f980561594f1018d7ea2c5d6e5c46fb4a9751e9302b5b2f7de11db4356be",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert_mdr.s",
+          "bytes": 475,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "f92e6535c7c77e90800dd9af250d8b1931dbf8bf2f6bca36b5470c871fdf9766",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/mdr_20_0.csh",
+          "bytes": 64059,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "3caef468b12e93406689385161bb9cb37a33e925579c275b01f2ff031e8f3f5e",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/stys.pl",
+          "bytes": 889,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "e13652cb4691d7af57a7d9bd075cf232290fbea920118d951da99c886157b74f",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/append_atn.pl",
+          "bytes": 1118,
+          "mode": "0o750",
+          "mtime_ns": 1790279854000000000,
+          "kind": "file",
+          "sha256": "d10702fc7c1736c0803f27bcdbaa22e6afefed48bda75e6124bd089f5158a00d",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/MDR.cfg",
+          "bytes": 8221,
+          "mode": "0o640",
+          "mtime_ns": 1790276207000000000,
+          "kind": "file",
+          "sha256": "8f03510bb145661f5d7d0d25a4fb74bc81424c114eb94b02b5949d59a526a30c",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/README.INVERSION",
+          "bytes": 6612,
+          "mode": "0o750",
+          "mtime_ns": 1790284542000000000,
+          "kind": "file",
+          "sha256": "0bf989a067a18004525b7d2a17c3d03ead750115645abf8226c82ae63b40caf8",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 859,
+          "mode": "0o640",
+          "mtime_ns": 1790276293000000000,
+          "kind": "file",
+          "sha256": "2f1b35d40463e0cab89f0f33d064e24664c2b701891810b9ab98097b4238ac0d",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 606,
+          "mode": "0o640",
+          "mtime_ns": 1790276324000000000,
+          "kind": "file",
+          "sha256": "fdaceb394a3b21eb0f0bc49c5737a65a2591a93de5d80b64352527d39429703b",
+          "stable_during_capture": true
+        }
+      ],
+      "inventory": [
+        {
+          "relative_path": "tmp",
+          "bytes": 89,
+          "mode": "0o750",
+          "mtime_ns": 1790280802000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "bin",
+          "bytes": 173,
+          "mode": "0o750",
+          "mtime_ns": 1790280315000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "cxt",
+          "bytes": 6,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "etc",
+          "bytes": 111,
+          "mode": "0o750",
+          "mtime_ns": 1790284544000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "insert",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1791580759857790812,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "orig",
+          "bytes": 78,
+          "mode": "0o750",
+          "mtime_ns": 1790283156000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "src",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1791470476000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "test",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1791414674000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "tmp/amNames",
+          "bytes": 552423,
+          "mode": "0o640",
+          "mtime_ns": 1790279946000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/exNames",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1790279946000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/QaInt_DSTA",
+          "bytes": 12846478,
+          "mode": "0o640",
+          "mtime_ns": 1790280388000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/QaInt_REL",
+          "bytes": 3079962,
+          "mode": "0o640",
+          "mtime_ns": 1790280452000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/QaInt_REL2",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1790280802000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "bin/get.versions4mdr.s",
+          "bytes": 2898,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "e788924e0e37fd1f1052afb9e52c6240a8d50568ffec592e83308133e4b2aea5",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert_mdr.pl",
+          "bytes": 44639,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "4f32f980561594f1018d7ea2c5d6e5c46fb4a9751e9302b5b2f7de11db4356be",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert_mdr.s",
+          "bytes": 475,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "f92e6535c7c77e90800dd9af250d8b1931dbf8bf2f6bca36b5470c871fdf9766",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/mdr_20_0.csh",
+          "bytes": 64059,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "3caef468b12e93406689385161bb9cb37a33e925579c275b01f2ff031e8f3f5e",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/occs_defaults_stys",
+          "bytes": 3550139,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "bin/stys.pl",
+          "bytes": 889,
+          "mode": "0o750",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file",
+          "sha256": "e13652cb4691d7af57a7d9bd075cf232290fbea920118d951da99c886157b74f",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert.log",
+          "bytes": 18282,
+          "mode": "0o640",
+          "mtime_ns": 1790281646000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "bin/append_atn.pl",
+          "bytes": 1118,
+          "mode": "0o750",
+          "mtime_ns": 1790279854000000000,
+          "kind": "file",
+          "sha256": "d10702fc7c1736c0803f27bcdbaa22e6afefed48bda75e6124bd089f5158a00d",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/qa",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1790284439000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "etc/MG_Abbreviations",
+          "bytes": 565,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/MDR.cfg",
+          "bytes": 8221,
+          "mode": "0o640",
+          "mtime_ns": 1790276207000000000,
+          "kind": "file",
+          "sha256": "8f03510bb145661f5d7d0d25a4fb74bc81424c114eb94b02b5949d59a526a30c",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/si_proposal_MDR_29_1.txt",
+          "bytes": 19494,
+          "mode": "0o640",
+          "mtime_ns": 1790284497000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/README.INVERSION",
+          "bytes": 6612,
+          "mode": "0o750",
+          "mtime_ns": 1790284542000000000,
+          "kind": "file",
+          "sha256": "0bf989a067a18004525b7d2a17c3d03ead750115645abf8226c82ae63b40caf8",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/qa/invert_MDR_29_1.log",
+          "bytes": 1076,
+          "mode": "0o640",
+          "mtime_ns": 1790280225000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/Qa_MDR_29_1.log",
+          "bytes": 13062,
+          "mode": "0o640",
+          "mtime_ns": 1790281629000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/Forbidden_classes.txt",
+          "bytes": 175,
+          "mode": "0o640",
+          "mtime_ns": 1790280332000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/Forbidden_attr.txt",
+          "bytes": 172,
+          "mode": "0o640",
+          "mtime_ns": 1790280366000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/QaReport-MDR_29_1.txt",
+          "bytes": 22690,
+          "mode": "0o640",
+          "mtime_ns": 1790281629000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/QaReport-MDR_29_1.txt.err",
+          "bytes": 3002,
+          "mode": "0o640",
+          "mtime_ns": 1790281629000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/conservation.txt",
+          "bytes": 7034,
+          "mode": "0o640",
+          "mtime_ns": 1790284439000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/attributes.src",
+          "bytes": 488468558,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/classes_atoms.src",
+          "bytes": 12633021,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/contexts.src",
+          "bytes": 191499397,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/mergefacts.src",
+          "bytes": 2715516,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/qaStats.src",
+          "bytes": 13242,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/relationships.src",
+          "bytes": 31093019,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/sources.src",
+          "bytes": 859,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/termgroups.src",
+          "bytes": 606,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/MRDOC.RRF",
+          "bytes": 4739,
+          "mode": "0o640",
+          "mtime_ns": 1791579971313045959,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/sty_term_ids",
+          "bytes": 3935742,
+          "mode": "0o640",
+          "mtime_ns": 1791590205933318778,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/reportChecklistResults.txt",
+          "bytes": 313,
+          "mode": "0o640",
+          "mtime_ns": 1791604433598031282,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/new_sty_defaults",
+          "bytes": 3708340,
+          "mode": "0o640",
+          "mtime_ns": 1790269053000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1790273096000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "orig/mdr_by_version.zip",
+          "bytes": 2331692,
+          "mode": "0o750",
+          "mtime_ns": 1790279292000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/mdr_by_version.txt",
+          "bytes": 13994293,
+          "mode": "0o640",
+          "mtime_ns": 1790278218000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1789573206000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii",
+          "bytes": 177,
+          "mode": "0o750",
+          "mtime_ns": 1789573206000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedDRA_29_1_English_v2.zip",
+          "bytes": 10670739,
+          "mode": "0o750",
+          "mtime_ns": 1790272679000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/!!readme_29_1_English.txt",
+          "bytes": 3809,
+          "mode": "0o640",
+          "mtime_ns": 1785857700000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/detail_report_29_1_English.pdf",
+          "bytes": 2007607,
+          "mode": "0o640",
+          "mtime_ns": 1785999122000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/dist_file_format_29_1_English.pdf",
+          "bytes": 532896,
+          "mode": "0o640",
+          "mtime_ns": 1785857718000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/intguide_29_1_English.pdf",
+          "bytes": 701919,
+          "mode": "0o640",
+          "mtime_ns": 1785837160000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SMQ_intguide_29_1_English.pdf",
+          "bytes": 2166781,
+          "mode": "0o640",
+          "mtime_ns": 1785837168000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SMQ_spreadsheet_29_1_English.xlsx",
+          "bytes": 1865438,
+          "mode": "0o640",
+          "mtime_ns": 1785999114000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/version_report_29_1_English v2.xlsx",
+          "bytes": 139978,
+          "mode": "0o640",
+          "mtime_ns": 1789572952000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/whatsnew_29_1_English.pdf",
+          "bytes": 387635,
+          "mode": "0o640",
+          "mtime_ns": 1785837172000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlgt.asc",
+          "bytes": 18420,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlgt_hlt.asc",
+          "bytes": 35140,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlt.asc",
+          "bytes": 88135,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlt_pt.asc",
+          "bytes": 809100,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/intl_ord.asc",
+          "bytes": 378,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/llt.asc",
+          "bytes": 5319842,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/mdhier.asc",
+          "bytes": 7952187,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/meddra_history_english.asc",
+          "bytes": 7132659,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/meddra_release.asc",
+          "bytes": 16,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/pt.asc",
+          "bytes": 1443300,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/smq_content.asc",
+          "bytes": 3922159,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/smq_list.asc",
+          "bytes": 302254,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/soc.asc",
+          "bytes": 1497,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/soc_hlgt.asc",
+          "bytes": 7080,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/hlgt.seq",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/hlgt_hlt.seq",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/hlt.seq",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/hlt_pt.seq",
+          "bytes": 12736,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/intl_ord.seq",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/llt.seq",
+          "bytes": 47121,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/mdhier.seq",
+          "bytes": 85035,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/pt.seq",
+          "bytes": 16748,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/soc.seq",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/SeqAscii/soc_hlgt.seq",
+          "bytes": 0,
+          "mode": "0o640",
+          "mtime_ns": 1789587540000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 859,
+          "mode": "0o640",
+          "mtime_ns": 1790276293000000000,
+          "kind": "file",
+          "sha256": "2f1b35d40463e0cab89f0f33d064e24664c2b701891810b9ab98097b4238ac0d",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 606,
+          "mode": "0o640",
+          "mtime_ns": 1790276324000000000,
+          "kind": "file",
+          "sha256": "fdaceb394a3b21eb0f0bc49c5737a65a2591a93de5d80b64352527d39429703b",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/classes_atoms.src",
+          "bytes": 12633021,
+          "mode": "0o640",
+          "mtime_ns": 1790279946000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/relationships.src",
+          "bytes": 31093019,
+          "mode": "0o640",
+          "mtime_ns": 1790279946000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/mergefacts.src",
+          "bytes": 2715516,
+          "mode": "0o640",
+          "mtime_ns": 1790279946000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/contexts.src",
+          "bytes": 191499397,
+          "mode": "0o640",
+          "mtime_ns": 1790280225000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/MRDOC.RRF",
+          "bytes": 4739,
+          "mode": "0o640",
+          "mtime_ns": 1790280324000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/qaStats.src",
+          "bytes": 13242,
+          "mode": "0o640",
+          "mtime_ns": 1790281646000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/attributes.orig",
+          "bytes": 473425883,
+          "mode": "0o640",
+          "mtime_ns": 1790283035000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/attributes.src",
+          "bytes": 488468558,
+          "mode": "0o640",
+          "mtime_ns": 1791470476000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/classes_atoms.src",
+          "bytes": 12633021,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/contexts.src",
+          "bytes": 191499397,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/mergefacts.src",
+          "bytes": 2715516,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/qaStats.src",
+          "bytes": 13242,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/relationships.src",
+          "bytes": 31093019,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/sources.src",
+          "bytes": 859,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/termgroups.src",
+          "bytes": 606,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/MRDOC.RRF",
+          "bytes": 4739,
+          "mode": "0o640",
+          "mtime_ns": 1791412927000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/sty_term_ids",
+          "bytes": 3935742,
+          "mode": "0o640",
+          "mtime_ns": 1791470972000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/reportChecklistResults.txt",
+          "bytes": 313,
+          "mode": "0o640",
+          "mtime_ns": 1791442283000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/new_sty_defaults",
+          "bytes": 3712849,
+          "mode": "0o640",
+          "mtime_ns": 1791470476000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/attributes.src",
+          "bytes": 488468558,
+          "mode": "0o640",
+          "mtime_ns": 1791470476000000000,
+          "kind": "file"
+        }
+      ],
+      "replay_completed": false,
+      "matching_official_archive_frozen": false,
+      "execution_enabled": false
+    },
+    "RADLEX_4_3": {
+      "inventory_entries": 92,
+      "captured_text_files": 21,
+      "code_and_runbook_capture": [
+        {
+          "relative_path": "etc/RADLEX.cfg",
+          "bytes": 2702,
+          "mode": "0o640",
+          "mtime_ns": 1775168085000000000,
+          "kind": "file",
+          "sha256": "69151d88721479d4b7651287757c7f9a964687f31e63aa24a40222366c36c60d",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/README.INVERSION",
+          "bytes": 5265,
+          "mode": "0o750",
+          "mtime_ns": 1781733635910889705,
+          "kind": "file",
+          "sha256": "797054c44b308ec8f410d0b879b099ca4c6b39fef886a5c372b5c6b09e97d1fc",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/stys.pl",
+          "bytes": 882,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "6299a72110421ef3ba2ea1187063d08e836c7e5d579b9bc2fe5e47f8a4111d0c",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/make.par_chd_rels.pl",
+          "bytes": 2422,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "8bb8a769aaa30255535dfb9056978a645bc1b81df4cbffb0598e41caca9b2790",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_cycles.pl",
+          "bytes": 872,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "701194e4aa02cccb701ce6cec69c1c72ac01388a18ec8040daf3a627b8b803a5",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/default.sty-v2.pl",
+          "bytes": 2593,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "3e8d85c8a2aa922543bf115b4c22c6ded6fefebd69adb3985cf80db1daa826d7",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/print.stys.meme4-v2.pl",
+          "bytes": 2244,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "c8dab9beeaa8143d3cbd17c39ed62f30ac3ed18f8e279ad0a0824c756f6ef4c8",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/id_mismatched_code_merges.pl",
+          "bytes": 1152,
+          "mode": "0o740",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "95a6cce57a768e038e9bde64fb22ca8f8b56f382646d56f545cef7e0d8e82163",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/treepos.pl",
+          "bytes": 226,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "0982df2f7bf54e02370bc9ef2ca24b502ccbaef09df06dc2d16c55e8a9244bec",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_dup_rels.pl",
+          "bytes": 1009,
+          "mode": "0o740",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "d8303f5f81913433d4584d4a982d21d2fb9d1d3c539f8f49218e80cabb53e571",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/multi_relas_same_code.pl",
+          "bytes": 684,
+          "mode": "0o740",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "95f4147d136e5b3eaceb2f1059a1b951aca78aab3544a618f4b2c506306fffec",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/no_sty_term_ids.pl",
+          "bytes": 478,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "a38024da4ec5cf3f469b1df82b749d72f4c926c695a6f814e90c5683e0c3866c",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_dup_classes.pl",
+          "bytes": 1950,
+          "mode": "0o740",
+          "mtime_ns": 1775848445000000000,
+          "kind": "file",
+          "sha256": "ece1d4bff1013386d055bd909eb5486a6cb5d98bd97062a1ec7c7e2fb83948ed",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/makesrc.pl",
+          "bytes": 25566,
+          "mode": "0o750",
+          "mtime_ns": 1775850050000000000,
+          "kind": "file",
+          "sha256": "7b0b770eb57be8c9a8849c5f20f0c560c49c654350ea1b36d9e30a3d6b52e657",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/find_dup_sys.pl",
+          "bytes": 617,
+          "mode": "0o750",
+          "mtime_ns": 1774467934000000000,
+          "kind": "file",
+          "sha256": "b9cd653a16ec6a6f35edb11d2bc9bb057314148f9cd6a49539c1f76cae378095",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_dup_attributes.pl",
+          "bytes": 817,
+          "mode": "0o740",
+          "mtime_ns": 1775777940000000000,
+          "kind": "file",
+          "sha256": "1db96f50c93da37cb7a8a23c6feaef4b407cea24752e0d0e95f4ddffa68a53c2",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert_RADLEX.s",
+          "bytes": 786,
+          "mode": "0o750",
+          "mtime_ns": 1775848534000000000,
+          "kind": "file",
+          "sha256": "2c3a1358e2adda20ffc9b51298eccdd54711ba3d0a708745108bf10e265008a1",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/concat.pl",
+          "bytes": 481,
+          "mode": "0o750",
+          "mtime_ns": 1781211977282266080,
+          "kind": "file",
+          "sha256": "b25ff7b72ede6e39a192df94ce096cc2e64c286f9ddfbeec46b346143702e90b",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/make_vb.pl",
+          "bytes": 678,
+          "mode": "0o750",
+          "mtime_ns": 1781212283564694418,
+          "kind": "file",
+          "sha256": "c9d4330efe20cac983ae6a76a9dc84e68ce9af63e35774b6f01cccd10edc73a1",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 707,
+          "mode": "0o640",
+          "mtime_ns": 1774382204000000000,
+          "kind": "file",
+          "sha256": "fe3a3c3e1337fc9fb6f75985a4fd3f11750b505f96157b59a5d8ae726233d3b1",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 193,
+          "mode": "0o640",
+          "mtime_ns": 1774382223000000000,
+          "kind": "file",
+          "sha256": "4b7c3bae5294af646c4f0b44d5423dc730cea6765567f5a4850301e5b6e9db98",
+          "stable_during_capture": true
+        }
+      ],
+      "inventory": [
+        {
+          "relative_path": "etc",
+          "bytes": 92,
+          "mode": "0o775",
+          "mtime_ns": 1788298252261732472,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "tmp",
+          "bytes": 4096,
+          "mode": "0o775",
+          "mtime_ns": 1788284577896571223,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "orig",
+          "bytes": 59,
+          "mode": "0o775",
+          "mtime_ns": 1788302491241288986,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "test",
+          "bytes": 4096,
+          "mode": "0o775",
+          "mtime_ns": 1781643836742060591,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "insert",
+          "bytes": 4096,
+          "mode": "0o775",
+          "mtime_ns": 1789408988801615799,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "cxt",
+          "bytes": 6,
+          "mode": "0o775",
+          "mtime_ns": 1774032281000000000,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "bin",
+          "bytes": 4096,
+          "mode": "0o775",
+          "mtime_ns": 1788286019376509783,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "src",
+          "bytes": 4096,
+          "mode": "0o775",
+          "mtime_ns": 1789408989131617924,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "etc/qa",
+          "bytes": 4096,
+          "mode": "0o750",
+          "mtime_ns": 1788297801418560175,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "etc/RADLEX.cfg",
+          "bytes": 2702,
+          "mode": "0o640",
+          "mtime_ns": 1775168085000000000,
+          "kind": "file",
+          "sha256": "69151d88721479d4b7651287757c7f9a964687f31e63aa24a40222366c36c60d",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/README.INVERSION",
+          "bytes": 5265,
+          "mode": "0o750",
+          "mtime_ns": 1781733635910889705,
+          "kind": "file",
+          "sha256": "797054c44b308ec8f410d0b879b099ca4c6b39fef886a5c372b5c6b09e97d1fc",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "etc/si_proposal_RADLEX_4_3.txt",
+          "bytes": 11561,
+          "mode": "0o640",
+          "mtime_ns": 1788298250811722328,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/invert_RADLEX_4_3.log",
+          "bytes": 457,
+          "mode": "0o664",
+          "mtime_ns": 1788284535306277849,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/Qa_RADLEX_4_3.log",
+          "bytes": 1982,
+          "mode": "0o664",
+          "mtime_ns": 1788284646917047942,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/Forbidden_classes.txt",
+          "bytes": 175,
+          "mode": "0o664",
+          "mtime_ns": 1788284538786301829,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/Forbidden_attr.txt",
+          "bytes": 172,
+          "mode": "0o664",
+          "mtime_ns": 1788284543056331251,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/QaReport-RADLEX_4_3.txt",
+          "bytes": 22847,
+          "mode": "0o664",
+          "mtime_ns": 1788284646917047942,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/QaReport-RADLEX_4_3.txt.err",
+          "bytes": 2443,
+          "mode": "0o664",
+          "mtime_ns": 1788284646907047872,
+          "kind": "file"
+        },
+        {
+          "relative_path": "etc/qa/conservation.txt",
+          "bytes": 9145,
+          "mode": "0o640",
+          "mtime_ns": 1788297320995223960,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/RadLex_modified.csv",
+          "bytes": 15955095,
+          "mode": "0o664",
+          "mtime_ns": 1788209101248337966,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/par_chd_id",
+          "bytes": 827842,
+          "mode": "0o664",
+          "mtime_ns": 1788284369905138054,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/par_chd_said",
+          "bytes": 1765813,
+          "mode": "0o664",
+          "mtime_ns": 1788284369975138535,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/ChldPar",
+          "bytes": 0,
+          "mode": "0o664",
+          "mtime_ns": 1788284535306277849,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/ParChld",
+          "bytes": 0,
+          "mode": "0o664",
+          "mtime_ns": 1788284535306277849,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/relationships_no_dups_no_self_refs.tmp",
+          "bytes": 5402904,
+          "mode": "0o664",
+          "mtime_ns": 1788284535826281433,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/dup_rels_removed.txt",
+          "bytes": 2193740,
+          "mode": "0o664",
+          "mtime_ns": 1788284535826281433,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/classes_unique.txt",
+          "bytes": 7719732,
+          "mode": "0o664",
+          "mtime_ns": 1788284536036282880,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/classes_dupes.txt",
+          "bytes": 111160,
+          "mode": "0o664",
+          "mtime_ns": 1788284536036282880,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/mergefacts_new.txt",
+          "bytes": 1679062,
+          "mode": "0o664",
+          "mtime_ns": 1788284536076283155,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/attributes_unique.txt",
+          "bytes": 59898056,
+          "mode": "0o664",
+          "mtime_ns": 1788284536416285497,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/attributes_dupes.txt",
+          "bytes": 1015,
+          "mode": "0o664",
+          "mtime_ns": 1788284536416285497,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/QaInt_DSTA",
+          "bytes": 8389766,
+          "mode": "0o664",
+          "mtime_ns": 1788284555836419293,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/QaInt_REL",
+          "bytes": 438215,
+          "mode": "0o664",
+          "mtime_ns": 1788284566476492560,
+          "kind": "file"
+        },
+        {
+          "relative_path": "tmp/QaInt_REL2",
+          "bytes": 0,
+          "mode": "0o664",
+          "mtime_ns": 1788284577896571223,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider",
+          "bytes": 102,
+          "mode": "0o775",
+          "mtime_ns": 1788195546072747778,
+          "kind": "directory"
+        },
+        {
+          "relative_path": "orig/radlex_pipe.txt",
+          "bytes": 16332047,
+          "mode": "0o664",
+          "mtime_ns": 1788283734810776536,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/sq",
+          "bytes": 5809,
+          "mode": "0o664",
+          "mtime_ns": 1788300108654637879,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/RADLEX-output4.zip",
+          "bytes": 2697165,
+          "mode": "0o775",
+          "mtime_ns": 1788195397671697369,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/RADLEX_no_german.csv",
+          "bytes": 15955831,
+          "mode": "0o600",
+          "mtime_ns": 1785524460000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "orig/fromprovider/RADLEX_german_synonyms_removed.csv",
+          "bytes": 173259,
+          "mode": "0o600",
+          "mtime_ns": 1785524460000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/sources.src",
+          "bytes": 704,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/sty_term_ids",
+          "bytes": 2954309,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/classes_atoms.src",
+          "bytes": 7680210,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/reportChecklistResults.txt",
+          "bytes": 323,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/attributes.src",
+          "bytes": 80098898,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/termgroups.src",
+          "bytes": 193,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/relationships.src",
+          "bytes": 5400586,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/contexts.src",
+          "bytes": 11079763,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/mergefacts.src",
+          "bytes": 1658466,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "test/qaStats.src",
+          "bytes": 10495,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/sources.src",
+          "bytes": 707,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/sty_term_ids",
+          "bytes": 2967068,
+          "mode": "0o640",
+          "mtime_ns": 1789409375424153147,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/attributes_no_default_STYs.src",
+          "bytes": 70905732,
+          "mode": "0o640",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/classes_atoms.src",
+          "bytes": 7719732,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/reportChecklistResults.txt",
+          "bytes": 321,
+          "mode": "0o640",
+          "mtime_ns": 1789181782943000908,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/attributes.src",
+          "bytes": 69094868,
+          "mode": "0o640",
+          "mtime_ns": 1789408989121617860,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/termgroups.src",
+          "bytes": 193,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/relationships.src",
+          "bytes": 5402904,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/contexts.src",
+          "bytes": 11105738,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/mergefacts.src",
+          "bytes": 1679062,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/qaStats.src",
+          "bytes": 9862,
+          "mode": "0o640",
+          "mtime_ns": 1789164509068764591,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/MRDOC.RRF",
+          "bytes": 6556,
+          "mode": "0o664",
+          "mtime_ns": 1789164509078764658,
+          "kind": "file"
+        },
+        {
+          "relative_path": "insert/new_sty_defaults",
+          "bytes": 2830993,
+          "mode": "0o640",
+          "mtime_ns": 1789408989121617860,
+          "kind": "file"
+        },
+        {
+          "relative_path": "bin/stys.pl",
+          "bytes": 882,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "6299a72110421ef3ba2ea1187063d08e836c7e5d579b9bc2fe5e47f8a4111d0c",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/make.par_chd_rels.pl",
+          "bytes": 2422,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "8bb8a769aaa30255535dfb9056978a645bc1b81df4cbffb0598e41caca9b2790",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_cycles.pl",
+          "bytes": 872,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "701194e4aa02cccb701ce6cec69c1c72ac01388a18ec8040daf3a627b8b803a5",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/default.sty-v2.pl",
+          "bytes": 2593,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "3e8d85c8a2aa922543bf115b4c22c6ded6fefebd69adb3985cf80db1daa826d7",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/print.stys.meme4-v2.pl",
+          "bytes": 2244,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "c8dab9beeaa8143d3cbd17c39ed62f30ac3ed18f8e279ad0a0824c756f6ef4c8",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/id_mismatched_code_merges.pl",
+          "bytes": 1152,
+          "mode": "0o740",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "95a6cce57a768e038e9bde64fb22ca8f8b56f382646d56f545cef7e0d8e82163",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/treepos.pl",
+          "bytes": 226,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "0982df2f7bf54e02370bc9ef2ca24b502ccbaef09df06dc2d16c55e8a9244bec",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_dup_rels.pl",
+          "bytes": 1009,
+          "mode": "0o740",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "d8303f5f81913433d4584d4a982d21d2fb9d1d3c539f8f49218e80cabb53e571",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/multi_relas_same_code.pl",
+          "bytes": 684,
+          "mode": "0o740",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "95f4147d136e5b3eaceb2f1059a1b951aca78aab3544a618f4b2c506306fffec",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/no_sty_term_ids.pl",
+          "bytes": 478,
+          "mode": "0o750",
+          "mtime_ns": 1774032281000000000,
+          "kind": "file",
+          "sha256": "a38024da4ec5cf3f469b1df82b749d72f4c926c695a6f814e90c5683e0c3866c",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_dup_classes.orig",
+          "bytes": 824,
+          "mode": "0o740",
+          "mtime_ns": 1775779319000000000,
+          "kind": "file"
+        },
+        {
+          "relative_path": "bin/remove_dup_classes.pl",
+          "bytes": 1950,
+          "mode": "0o740",
+          "mtime_ns": 1775848445000000000,
+          "kind": "file",
+          "sha256": "ece1d4bff1013386d055bd909eb5486a6cb5d98bd97062a1ec7c7e2fb83948ed",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/makesrc.pl",
+          "bytes": 25566,
+          "mode": "0o750",
+          "mtime_ns": 1775850050000000000,
+          "kind": "file",
+          "sha256": "7b0b770eb57be8c9a8849c5f20f0c560c49c654350ea1b36d9e30a3d6b52e657",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/find_dup_sys.pl",
+          "bytes": 617,
+          "mode": "0o750",
+          "mtime_ns": 1774467934000000000,
+          "kind": "file",
+          "sha256": "b9cd653a16ec6a6f35edb11d2bc9bb057314148f9cd6a49539c1f76cae378095",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/remove_dup_attributes.pl",
+          "bytes": 817,
+          "mode": "0o740",
+          "mtime_ns": 1775777940000000000,
+          "kind": "file",
+          "sha256": "1db96f50c93da37cb7a8a23c6feaef4b407cea24752e0d0e95f4ddffa68a53c2",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert_RADLEX.s",
+          "bytes": 786,
+          "mode": "0o750",
+          "mtime_ns": 1775848534000000000,
+          "kind": "file",
+          "sha256": "2c3a1358e2adda20ffc9b51298eccdd54711ba3d0a708745108bf10e265008a1",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/concat.pl",
+          "bytes": 481,
+          "mode": "0o750",
+          "mtime_ns": 1781211977282266080,
+          "kind": "file",
+          "sha256": "b25ff7b72ede6e39a192df94ce096cc2e64c286f9ddfbeec46b346143702e90b",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/make_vb.pl",
+          "bytes": 678,
+          "mode": "0o750",
+          "mtime_ns": 1781212283564694418,
+          "kind": "file",
+          "sha256": "c9d4330efe20cac983ae6a76a9dc84e68ce9af63e35774b6f01cccd10edc73a1",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "bin/invert.log",
+          "bytes": 3925,
+          "mode": "0o664",
+          "mtime_ns": 1788284648167056550,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 707,
+          "mode": "0o640",
+          "mtime_ns": 1774382204000000000,
+          "kind": "file",
+          "sha256": "fe3a3c3e1337fc9fb6f75985a4fd3f11750b505f96157b59a5d8ae726233d3b1",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 193,
+          "mode": "0o640",
+          "mtime_ns": 1774382223000000000,
+          "kind": "file",
+          "sha256": "4b7c3bae5294af646c4f0b44d5423dc730cea6765567f5a4850301e5b6e9db98",
+          "stable_during_capture": true
+        },
+        {
+          "relative_path": "src/classes_atoms.src",
+          "bytes": 7719732,
+          "mode": "0o664",
+          "mtime_ns": 1788284536116283431,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/relationships.src",
+          "bytes": 5402904,
+          "mode": "0o664",
+          "mtime_ns": 1788284535846281569,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/mergefacts.src",
+          "bytes": 1679062,
+          "mode": "0o664",
+          "mtime_ns": 1788284536126283499,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/contexts.src",
+          "bytes": 11105738,
+          "mode": "0o664",
+          "mtime_ns": 1788284535306277849,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/MRDOC.RRF",
+          "bytes": 6556,
+          "mode": "0o664",
+          "mtime_ns": 1781729516780935422,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/qaStats.src",
+          "bytes": 9862,
+          "mode": "0o664",
+          "mtime_ns": 1788284648157056479,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/attributes.orig",
+          "bytes": 59898056,
+          "mode": "0o664",
+          "mtime_ns": 1788284536526286255,
+          "kind": "file"
+        },
+        {
+          "relative_path": "src/attributes.src",
+          "bytes": 69094868,
+          "mode": "0o640",
+          "mtime_ns": 1789408989121617860,
+          "kind": "file"
+        }
+      ],
+      "replay_completed": false,
+      "matching_official_archive_frozen": false,
+      "execution_enabled": false
+    }
+  },
+  "code_import_manifest": "../../baseline/additions-20261105.json",
+  "code_import_commit": "651d5aa6d534c6bef7ff38096625e9739465fe9c",
+  "imported_source_files": 30
+}

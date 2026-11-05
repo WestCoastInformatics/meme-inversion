@@ -1163,7 +1163,8 @@
     "Begin a fresh implementation from the operational code on meme-edit as the authoritative baseline; previous project rework branches and wrappers are informative only, not the foundation.",
     "The development server is ncias-d3777-c and uses completely separate storage from production.",
     "Initial setup on ncias-d3777-c must mirror meme-edit physical paths; any path relocation must be a deliberate design change.",
-    "Dev and production may have extra or fewer source/version folders; a run uses only the versions and dependencies it needs, with no folder-inventory synchronization requirement."
+    "Dev and production may have extra or fewer source/version folders; a run uses only the versions and dependencies it needs, with no folder-inventory synchronization requirement.",
+    "November 5: complete, reliably preserved input files are sufficient for historical replay; regenerating those inputs or reconstructing the entire historical database is not a prerequisite."
   ],
   "documents": [
     {
@@ -1310,7 +1311,13 @@
     "examples_are_illustrative": true,
     "example_id_ranges_are_actual_reservations": false,
     "legacy_adapters_implemented": false,
-    "schema_validation_limit": "JSON syntax, local reference resolution and targeted example contract checks only; no full JSON Schema validator is installed."
+    "schema_validation_limit": "JSON syntax, local reference resolution and targeted example contract checks only; no full JSON Schema validator is installed.",
+    "source_registry": "source-registry.json",
+    "additional_sources_in_scope": [
+      "MDR",
+      "RADLEX"
+    ],
+    "additional_source_adapters_implemented": false
   },
   "implementation_starting_point": {
     "authority": "Explicit user direction",
@@ -1591,7 +1598,7 @@
     "seed_count": 4
   },
   "snomed_reference_preparation": {
-    "status": "PASS_EXACT_AFTER_VALIDATOR_REVIEW",
+    "status": "PASS_EXACT",
     "source": "SNOMEDCT_US",
     "version": "SNOMEDCT_US_2026_09_01",
     "archive_downloaded": true,
@@ -1608,9 +1615,11 @@
     "all_five_exact": true,
     "raw_worker_status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
     "validation_review": "snomedct-us-2026-09-01-validation-review.json",
-    "corrected_validator_full_file_rescan_executed": false,
+    "corrected_validator_full_file_rescan_executed": true,
     "baseline_engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
-    "completed_at": "2026-11-05T00:11:01.583694+00:00"
+    "completed_at": "2026-11-05T00:11:01.583694+00:00",
+    "full_validation_receipt": "snomedct-us-2026-09-01-full-validation.json",
+    "full_validation_completed_at": "2026-11-05T16:41:41.056435+00:00"
   },
   "nci_context_order_candidate": {
     "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
@@ -1626,5 +1635,35 @@
     "comparison_fixtures": 17,
     "preservation_profile_checks": 21,
     "additional_full_graph_seed_check": "not executed: SSH session expired before remote execution"
+  },
+  "mth_core_replay": {
+    "status": "running",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "apparatus_ref": "2c07226af6e241896ff159ccb3e898bc5e9e925f",
+    "case": "mth-2026aa-baseline-case.json",
+    "preparation": "mth-2026aa-candidate-preparation.json",
+    "launch": "mth-2026aa-baseline-launch.json",
+    "observed_status": "mth-2026aa-baseline-status.json",
+    "preserved_inputs_complete": true,
+    "historical_input_regeneration_required": false,
+    "candidate_executed": true,
+    "comparison_pending": true,
+    "outputs_to_compare": 23,
+    "source_files_and_links": 57,
+    "shared_runtime_files": 169,
+    "prior_map_rows": 2208919,
+    "production_changed": false
+  },
+  "additional_source_discovery": {
+    "receipt": "additional-sources-production-discovery.json",
+    "contracts": "additional-source-contracts.md",
+    "production_versions": [
+      "MDR_29_1",
+      "RADLEX_4_3"
+    ],
+    "production_writes": false,
+    "common_adapters_enabled": false,
+    "replays_completed": false,
+    "code_import_commit": "651d5aa6d534c6bef7ff38096625e9739465fe9c"
   }
 }

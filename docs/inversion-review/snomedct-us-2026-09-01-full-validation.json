@@ -1,0 +1,180 @@
+{
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "started_at": "2026-11-05T16:35:49.458917+00:00",
+  "completed_at": "2026-11-05T16:41:41.056435+00:00",
+  "full_file_scan_executed": true,
+  "validation": {
+    "atom_ids": {
+      "unique": 1048850,
+      "duplicates": 0,
+      "out_of_reserved_range": 0
+    },
+    "unknown_termgroups": {},
+    "files": {
+      "attributes.src": {
+        "rows": 9324589,
+        "field_counts": {
+          "15": 9324589
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "SRC_ATOM_ID|": 3045016,
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 2092700,
+          "SOURCE_RUI|SNOMEDCT_US_2026_09_01": 31210,
+          "SOURCE_AUI|SNOMEDCT_US_2026_09_01": 4155663
+        },
+        "attribute_names": {
+          "SEMANTIC_TYPE": 1,
+          "SUBSET_MEMBER": 2456142,
+          "REFSET_PATTERN": 69,
+          "DESCRIPTION_FORMAT": 3,
+          "DESCRIPTION_LENGTH": 3,
+          "SOURCE_EFFECTIVE_TIME": 8,
+          "TARGET_EFFECTIVE_TIME": 8,
+          "EFFECTIVE_TIME": 390812,
+          "ACTIVE": 390812,
+          "DEFINITION_STATUS_ID": 390812,
+          "MODULE_ID": 48491,
+          "MODULE_NAME": 48491,
+          "DEFAULT_LANGUAGECODE": 1,
+          "DEFAULT_MODULE_ID": 1,
+          "COUNT_OF_BASE_OF_ACTIVE_INGREDIENT": 16477,
+          "CONCENTRATION_STRENGTH_NUMERATOR_VALUE": 3180,
+          "CONCENTRATION_STRENGTH_DENOMINATOR_VALUE": 3180,
+          "PRESENTATION_STRENGTH_NUMERATOR_VALUE": 6724,
+          "PRESENTATION_STRENGTH_DENOMINATOR_VALUE": 6724,
+          "COUNT_OF_ACTIVE_INGREDIENT": 77,
+          "CTV3ID": 383344,
+          "ICD-O-3_CODE": 23514,
+          "DEFINITION": 12836,
+          "TYPE_ID": 1048820,
+          "CASE_SIGNIFICANCE_ID": 1048820,
+          "UMLSREL": 112,
+          "UMLSRELA": 112,
+          "MAPSETSID": 2,
+          "MAPSETNAME": 2,
+          "MAPSETVERSION": 2,
+          "MAPSETRSAB": 2,
+          "MAPSETVSAB": 2,
+          "FROMRSAB": 2,
+          "FROMVSAB": 2,
+          "TORSAB": 2,
+          "TOVSAB": 2,
+          "SOS": 2,
+          "MTH_MAPSETCOMPLEXITY": 2,
+          "MTH_MAPFROMCOMPLEXITY": 2,
+          "MTH_MAPTOCOMPLEXITY": 2,
+          "MTH_MAPFROMEXHAUSTIVE": 2,
+          "MTH_MAPTOEXHAUSTIVE": 2,
+          "XMAP": 448829,
+          "XMAPFROM": 279457,
+          "XMAPTO": 33715,
+          "CONTEXT": 2282984
+        }
+      },
+      "classes_atoms.src": {
+        "rows": 1048850,
+        "field_counts": {
+          "15": 1048850
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {}
+      },
+      "contexts.src": {
+        "rows": 20403095,
+        "field_counts": {
+          "18": 20403095
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 40806190
+        }
+      },
+      "mergefacts.src": {
+        "rows": 1048849,
+        "field_counts": {
+          "13": 1048849
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "SRC_ATOM_ID|": 31,
+          "ROOT_SOURCE_AUI|SNOMEDCT_US": 1048820,
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1048847
+        }
+      },
+      "relationships.src": {
+        "rows": 742425,
+        "field_counts": {
+          "19": 742425
+        },
+        "violations": {},
+        "identifier_types_and_qualifiers": {
+          "CODE_SOURCE|SRC": 2,
+          "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1484848
+        }
+      }
+    },
+    "passed": true,
+    "scope": "Field structure, UTF-8, unique generated IDs (gaps permitted), reserved atom bounds, declared/framework termgroups, attribute digests, cleanup description references and context atom/path/identity consistency. Full-record comparison retains all typed qualifiers, groups, mapping values and IDs. Not complete release/domain validation."
+  },
+  "all_five_hashes_unchanged": true,
+  "files": {
+    "attributes.src": {
+      "bytes": 2319449724,
+      "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+      "newline_count": 9324589
+    },
+    "classes_atoms.src": {
+      "bytes": 163029934,
+      "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+      "newline_count": 1048850
+    },
+    "contexts.src": {
+      "bytes": 6220515460,
+      "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+      "newline_count": 20403095
+    },
+    "mergefacts.src": {
+      "bytes": 138634414,
+      "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+      "newline_count": 1048849
+    },
+    "relationships.src": {
+      "bytes": 140346293,
+      "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+      "newline_count": 742425
+    }
+  },
+  "validator_sha256": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+  "regression_checks_passed_on_dev": [
+    "eighteen declared conversion/metadata inputs and original attributes reference accepted",
+    "enriched-reference rejected before candidate preparation",
+    "generated-input rejected before candidate preparation",
+    "missing-native rejected before candidate preparation",
+    "all five exact files with passing checks accepted",
+    "reference equality cannot suppress independent validation findings",
+    "only full-record reordering can pass non-exact comparison",
+    "changed IDs or any record content cannot be waived",
+    "incomplete output set rejected",
+    "valid typed records and non-contiguous attribute IDs accepted",
+    "production framework SRC/VSY termgroup accepted",
+    "production ROOT_SOURCE_AUI merge endpoint accepted with root source qualifier",
+    "duplicate attribute ID detected",
+    "dangling description attribute detected",
+    "attribute value digest corruption detected",
+    "missing term type detected",
+    "unmapped relationship detected",
+    "unknown endpoint type detected",
+    "unresolved context path detected",
+    "wrong context child identity detected",
+    "wrong context parent identity detected",
+    "out-of-range atom ID detected",
+    "only declared baseline library installed",
+    "prior library bytes preserved read-only before runtime activation",
+    "late preservation failure leaves installed library unchanged"
+  ],
+  "inversion_rerun": false,
+  "candidate_modified": false,
+  "original_run_report_unchanged": true
+}

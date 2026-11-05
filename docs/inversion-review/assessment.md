@@ -2,13 +2,13 @@
 
 Assessment date: November 3, 2026. Scope: NCIt, SNOMEDCT_US, and MTH/UMLS.
 
-Scope extension, November 5: the common request/configuration interface must also accommodate MDR, RADLEX and future registered sources, including infrequent releases. They use the same common fields, with independently reviewed adapters and source contracts. MDR/RADLEX production workflow discovery and baseline replay remain to be done. [Source registry](source-registry.json)
+Scope extension, November 5: the common request/configuration interface must also accommodate MDR, RADLEX and future registered sources, including infrequent releases. They use the same common fields, with independently reviewed adapters and source contracts. MDR_29_1 and RADLEX_4_3 production workflows have now been inspected and their source code captured with provenance; their dev replays and acceptance profiles remain to be done. [Discovery contracts](additional-source-contracts.md) [Source registry](source-registry.json)
 
 Replay priority clarification, November 5: complete preserved input bundles are sufficient for historical replay. Verify versions, hashes and dependency closure, then reproduce the official output from those inputs. Regenerating already-preserved metadata exports or prepared publisher subsets is additional coverage, not a prerequisite. Future operational runs should capture these inputs automatically. This avoids making reconstruction of an entire historical database or obsolete input-generation runtime a gate when the required answers/files are already archived.
 
 ## Recommendation
 
-Adopt one release lifecycle with three source adapters, explicit baseline dependencies, versioned representation rules, and independently validated output packages. Preserve the working Perl transformations initially. Move operational code out of release directories before replacing transformation logic, then replace components behind proven input/output contracts.
+Adopt one release lifecycle with independently reviewed source adapters, explicit baseline dependencies, versioned representation rules, and independently validated output packages. Preserve the working Perl transformations initially. Move operational code out of release directories before replacing transformation logic, then replace components behind proven input/output contracts.
 
 The first investments should establish an isolated replay/comparison apparatus, make validation trustworthy, and provide a controlled, versioned home for operational code. Candidate inversions must run on a development worker away from meme-edit so staff can continue actual inversions over the coming cycles. Multi-year S3 history and list/pull/push/update operations already exist. Use them to retrieve frozen official reference outputs and declared inputs rather than treating archival preservation or a replacement transfer system as a standalone leading project. Rewriting parsers before output acceptance and source semantics are established would move undocumented assumptions into new code without establishing that the results are correct.
 
@@ -31,7 +31,7 @@ The first NCIt replay supplies concrete priority-1 fixtures: an original-code FD
 
 Priorities 1 and 2 should start together; validation fixes and the test apparatus must themselves be version controlled. The first full case should replay unchanged legacy code on the development worker against a frozen official S3 reference before evaluating rewritten code. Representative S3 restores support that apparatus and priority 3; they are not a new archival program. The separate [test architecture](test-architecture.md) specifies worker isolation, the request format, case locking, reference-stage selection, ID-aware comparison, and acceptance criteria.
 
-Use [one common configuration model](configuration.md) across all three sources from the start. Shared fields have the same name and meaning; distinct baseline roles remain separate, with a small typed section for genuinely source-specific options. Generate legacy settings through adapters initially, then let migrated components consume the common model directly.
+Use [one common configuration model](configuration.md) across every registered source from the start. Shared fields have the same name and meaning; distinct baseline roles remain separate, with a small typed section for genuinely source-specific options. Generate legacy settings through adapters initially, then let migrated components consume the common model directly.
 
 ## Implementation starting point: operational code on meme-edit
 

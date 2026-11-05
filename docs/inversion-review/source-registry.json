@@ -41,7 +41,7 @@
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": "configuration.schema.json#/$defs/mth_options",
-      "characterization_status": "dependency and archive audit in progress",
+      "characterization_status": "unchanged-engine preserved-input core replay running",
       "historical_cases_under_review": [
         "MTH_2026AA"
       ],
@@ -53,30 +53,44 @@
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "production workflow discovery pending",
+      "characterization_status": "production workflow inspected; unchanged-engine replay and acceptance profile pending",
       "historical_cases_under_review": [],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Identify source-specific scripts, shared libraries, mappings/specifications and actual runtime on meme-edit",
-        "Freeze a matching official archive and identify native/preparation inputs, prior-state dependencies and per-output reference stage",
-        "Establish an unchanged-engine dev replay and independent/source-specific comparison profile before enabling its adapter"
-      ]
+        "Verify imported code identities and resolve the actual selected runtime; no historical variant or default runtime assumed",
+        "Freeze a matching official S3 archive and verify the declared input bundle and per-output reference stage",
+        "Establish unchanged-engine dev replay and independent/source-specific validation before enabling its common adapter"
+      ],
+      "production_versions_inspected": [
+        "MDR_29_1"
+      ],
+      "production_discovery_ref": "additional-sources-production-discovery.json",
+      "workflow_contract_ref": "additional-source-contracts.md",
+      "production_code_import_ref": "../../baseline/additions-20261105.json",
+      "production_code_ref": "651d5aa6d534c6bef7ff38096625e9739465fe9c"
     },
     "RADLEX": {
       "display_name": "RADLEX",
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "production workflow discovery pending",
+      "characterization_status": "production workflow inspected; unchanged-engine replay and acceptance profile pending",
       "historical_cases_under_review": [],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Identify source-specific scripts, shared libraries, mappings/specifications and actual runtime on meme-edit",
-        "Freeze a matching official archive and identify native/preparation inputs, prior-state dependencies and per-output reference stage",
-        "Establish an unchanged-engine dev replay and independent/source-specific comparison profile before enabling its adapter"
-      ]
+        "Verify imported code identities and resolve the actual selected runtime; no historical variant or default runtime assumed",
+        "Freeze a matching official S3 archive and verify the declared input bundle and per-output reference stage",
+        "Establish unchanged-engine dev replay and independent/source-specific validation before enabling its common adapter"
+      ],
+      "production_versions_inspected": [
+        "RADLEX_4_3"
+      ],
+      "production_discovery_ref": "additional-sources-production-discovery.json",
+      "workflow_contract_ref": "additional-source-contracts.md",
+      "production_code_import_ref": "../../baseline/additions-20261105.json",
+      "production_code_ref": "651d5aa6d534c6bef7ff38096625e9739465fe9c"
     }
   }
 }

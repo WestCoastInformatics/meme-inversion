@@ -4,7 +4,7 @@
   "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
   "apparatus_ref": "841bdcf60bbfe7537fdbf089687b3554226517e1",
   "run_id": "baseline-core-20261104",
-  "status": "PASS_EXACT_AFTER_VALIDATOR_REVIEW",
+  "status": "PASS_EXACT",
   "raw_worker_status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
   "completed_at": "2026-11-05T00:11:01.583694+00:00",
   "all_five_exact": true,
@@ -56,8 +56,8 @@
   "generated_identifiers_ignored_or_reassigned": false,
   "record_fields_ignored": [],
   "validation_review": "snomedct-us-2026-09-01-validation-review.json",
-  "validator_corrections": "Incomplete checker lists omitted valid SRC/VSY and ROOT_SOURCE_AUI. Production source patterns establish both; complete original scan counters were reclassified without rescanning or changing output.",
-  "corrected_validator_full_file_rescan_executed": false,
+  "validator_corrections": "Initial allowed-token omissions were corrected from production source. A subsequent full-file scan with the corrected validator passes all checks; all five output hashes are unchanged. Original run/report and earlier review are preserved.",
+  "corrected_validator_full_file_rescan_executed": true,
   "corrected_local_regression_checks_passed": 25,
   "inputs_engine_runtime_and_outputs_verified_after_run": true,
   "insertion_executed": false,
@@ -65,5 +65,8 @@
   "raw_result": "snomedct-us-2026-09-01-baseline-result.json",
   "status_receipt": "snomedct-us-2026-09-01-baseline-status.json",
   "current_shared_runtime": "Restored unchanged production baseline; prior NCIt candidate Hierarchy.pm and receipt preserved under this run/runtime-before",
-  "production_changed": false
+  "production_changed": false,
+  "full_validation_receipt": "snomedct-us-2026-09-01-full-validation.json",
+  "full_validation_completed_at": "2026-11-05T16:41:41.056435+00:00",
+  "corrected_regression_checks_passed_on_dev": 25
 }

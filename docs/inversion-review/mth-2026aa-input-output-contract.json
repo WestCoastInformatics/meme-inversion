@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "artifact_type": "characterization case boundary; not the implemented common runner",
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "apparatus_ref": "2c07226af6e241896ff159ccb3e898bc5e9e925f",
+  "environment_profile": "ncias-d3777-c",
+  "status": "running",
+  "run_id": "baseline-core-20261105",
+  "replacement_baseline": {
+    "source": "MTH",
+    "version": "MTH_2025AB"
+  },
+  "baseline_evidence": "Frozen sources.src MTH line, captured old link and effective inv3.spec agree; no calendar inference or live DB inventory used",
+  "reference_stage": "inversion-src",
+  "reference_file_map": [
+    {
+      "path": "MTH_2026AA/src/classes_atoms.src",
+      "output_name": "classes_atoms.src",
+      "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+      "newline_count": 4018246,
+      "bytes": 555467101
+    },
+    {
+      "path": "MTH_2026AA/src/attributes.src",
+      "output_name": "attributes.src",
+      "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+      "newline_count": 20206954,
+      "bytes": 2796291696
+    },
+    {
+      "path": "MTH_2026AA/src/relationships.src",
+      "output_name": "relationships.src",
+      "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+      "newline_count": 6404200,
+      "bytes": 771791609
+    },
+    {
+      "path": "MTH_2026AA/src/mergefacts.src",
+      "output_name": "mergefacts.src",
+      "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+      "newline_count": 1169,
+      "bytes": 83696
+    },
+    {
+      "path": "MTH_2026AA/src/bequeathal.relationships.src",
+      "output_name": "bequeathal.relationships.src",
+      "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+      "newline_count": 7600,
+      "bytes": 682893
+    },
+    {
+      "path": "MTH_2026AA/src/contexts.src",
+      "output_name": "contexts.src",
+      "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+      "newline_count": 1118752,
+      "bytes": 312852927
+    },
+    {
+      "path": "MTH_2026AA/src/class_src",
+      "output_name": "class_src",
+      "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+      "newline_count": 2,
+      "bytes": 142
+    },
+    {
+      "path": "MTH_2026AA/src/attr_src",
+      "output_name": "attr_src",
+      "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+      "newline_count": 1,
+      "bytes": 109
+    },
+    {
+      "path": "MTH_2026AA/src/rel_src",
+      "output_name": "rel_src",
+      "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+      "newline_count": 1,
+      "bytes": 103
+    },
+    {
+      "path": "MTH_2026AA/src/merge_src",
+      "output_name": "merge_src",
+      "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+      "newline_count": 1,
+      "bytes": 67
+    },
+    {
+      "path": "MTH_2026AA/src/auis_nonupdatedSAB_moved",
+      "output_name": "auis_nonupdatedSAB_moved",
+      "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+      "newline_count": 597,
+      "bytes": 11130
+    },
+    {
+      "path": "MTH_2026AA/src/cui_merges",
+      "output_name": "cui_merges",
+      "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+      "newline_count": 571,
+      "bytes": 10278
+    },
+    {
+      "path": "MTH_2026AA/src/aui_said_map",
+      "output_name": "aui_said_map",
+      "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5",
+      "newline_count": 4017648,
+      "bytes": 115764330
+    },
+    {
+      "path": "MTH_2026AA/src/cui_said_map",
+      "output_name": "cui_said_map",
+      "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+      "newline_count": 1906016,
+      "bytes": 36214304
+    },
+    {
+      "path": "MTH_2026AA/src/rel_cui_said_map",
+      "output_name": "rel_cui_said_map",
+      "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+      "newline_count": 1906016,
+      "bytes": 36214304
+    },
+    {
+      "path": "MTH_2026AA/src/moved_aui_said_map",
+      "output_name": "moved_aui_said_map",
+      "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+      "newline_count": 597,
+      "bytes": 17100
+    },
+    {
+      "path": "MTH_2026AA/src/cui_splitonly_said_map",
+      "output_name": "cui_splitonly_said_map",
+      "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+      "newline_count": 30,
+      "bytes": 570
+    },
+    {
+      "path": "MTH_2026AA/src/attributes.contexts-all.src",
+      "output_name": "attributes.contexts-all.src",
+      "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+      "newline_count": 1075932,
+      "bytes": 460970251
+    },
+    {
+      "path": "MTH_2026AA/src/src-root.cuis.updated",
+      "output_name": "src-root.cuis.updated",
+      "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+      "newline_count": 21,
+      "bytes": 189
+    },
+    {
+      "path": "MTH_2026AA/src/classes_atoms.src.raw",
+      "output_name": "classes_atoms.src.raw",
+      "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff",
+      "newline_count": 4018248,
+      "bytes": 602938575
+    },
+    {
+      "path": "MTH_2026AA/src/said.ptsaid",
+      "output_name": "said.ptsaid",
+      "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f",
+      "newline_count": 4018248,
+      "bytes": 80364960
+    },
+    {
+      "path": "MTH_2026AA/src/ptsaid.order",
+      "output_name": "ptsaid.order",
+      "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d",
+      "newline_count": 1866759,
+      "bytes": 18667590
+    },
+    {
+      "path": "MTH_2026AA/src/cui.splitonly.new",
+      "output_name": "cui.splitonly.new",
+      "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+      "newline_count": 30,
+      "bytes": 270
+    }
+  ],
+  "source_atom_ids": {
+    "start": 769443591,
+    "end": 773943592,
+    "legacy_main_atom_base": 769443593,
+    "reserved_SRC_atoms": 2,
+    "provenance": "Captured range3.spec plus exact SRCbuilder checkpoint"
+  },
+  "preserved_input_bundle": {
+    "prepared_subset_receipt": "mth-2026aa-prepared-subset-reference.json",
+    "metadata_inputs": [
+      {
+        "relative_path": "src/sources.src",
+        "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef"
+      },
+      {
+        "relative_path": "src/termgroups.src",
+        "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f"
+      },
+      {
+        "relative_path": "src/vsab.updates",
+        "sha256": "2ec5d1ddf6da8ef5bd81dc251c586972c4ca2cbfd64e160418a636e8f9f2c686"
+      },
+      {
+        "relative_path": "src/sabs_updated_umls",
+        "sha256": "17159f125a7c0fc36798d127ccac80298b46ab9c7b910d8e4cf477aca35a1987"
+      },
+      {
+        "relative_path": "src/rsabs-updated.umls",
+        "sha256": "c06c5abc8f1ee35cf7a46849fb8ecf381949d600a7bee66c8ec1d7af60368bd0"
+      },
+      {
+        "relative_path": "src/vcodes_updated",
+        "sha256": "7743a79759f07a33051ea059e4f9e9024e179aa431d576475fe4eadd4b822dad"
+      },
+      {
+        "relative_path": "ncimid.sources",
+        "sha256": "059038919f1a9a076cb55213c8cc64e65f0d81491d41b5ceebb3f320f0ce3f32"
+      },
+      {
+        "relative_path": "ncimid.termgroups",
+        "sha256": "ae222dbd75728487631a65e607726addc4318f62802815e174b7bc824c84a470"
+      }
+    ],
+    "prior_identity": {
+      "archive_receipt": "mth-2025ab-reference.json",
+      "file": {
+        "path": "MTH_2025AB/src/cui_said_map",
+        "size": 41969461,
+        "mode": "0o664",
+        "mtime": 1760722349,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+        "newline_count": 2208919
+      },
+      "role": "Prior CUI identity map only; current AUI history is supplied by prepared MRAUI/MRCUI inputs"
+    }
+  },
+  "generated_outputs_seeded": false,
+  "core_outputs": [
+    "classes_atoms.src",
+    "attributes.src",
+    "relationships.src",
+    "mergefacts.src",
+    "bequeathal.relationships.src",
+    "contexts.src"
+  ],
+  "context_field_count": 19,
+  "identity_roles_preserved": [
+    "CUI",
+    "CUI_CURRENT",
+    "CUI_PREVIOUS"
+  ],
+  "current_and_moved_AUI_maps_regenerated_separately": true,
+  "runtime_resolution": {
+    "autoinv": "Exact captured source-local autoinv.pl; shared copy differs only by a diagnostic print",
+    "SRCbuilder": "Captured production INV/bin/SRCbuilder.pl; all four metadata outputs match official checkpoints",
+    "context_attributes": "Captured production INV/bin/print.raw3.to.attributes.pl",
+    "legacy_INV_OLD_paths_created": false,
+    "historical_MetamorphoSys_runtime_required_for_this_case": false
+  },
+  "intentional_compatibility": "Preserve captured invert2.s literal if (subset == 3) behavior rather than silently repairing it during unchanged-engine characterization",
+  "comparison_profile": "Exact bytes, or full-record multiset retaining all fields/IDs/duplicates; no generated-ID waiver",
+  "input_generation_is_prerequisite": false,
+  "coverage": "Final-range conversion from complete verified archived inputs, including regenerated identity transitions, contexts and bequeathal relationships",
+  "additional_coverage": [
+    "Producing preparation metadata and MetamorphoSys subsets for new releases",
+    "Preliminary ID estimation",
+    "MRDOC/legacy QA, umlscui.txt and insertion"
+  ],
+  "preserved_dev_tree": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-replay-20261105",
+  "preparation_permission_note": "Read-only preservation now retains original access bits; the running capsule received an owner-only preserved root and a separate preparation-permissions receipt without changing data.",
+  "preservation_review_ref": "mth-2026aa-preserved-access-review.json",
+  "preservation_fixture_ref": "mth-2026aa-preservation-fixtures.json"
+}

@@ -5,14 +5,23 @@
   "engine_ref": "<candidate-commit-sha>",
   "policy_ref": "catalog:examples/snomedct-us/policy",
   "environment_profile": "catalog:examples/dev-replay-worker",
-  "replacement_baseline": {"source": "SNOMEDCT_US", "version": "SNOMEDCT_US_2026_03_01"},
-  "comparison_baseline": {"source": "SNOMEDCT_US", "version": "SNOMEDCT_US_2026_03_01"},
+  "replacement_baseline": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_03_01"
+  },
+  "comparison_baseline": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_03_01"
+  },
   "publisher_history": [],
   "inputs": {
-    "native_data": ["catalog:examples/snomedct-us-september-2026/us-rf2-package"],
     "reference_ncimeta": "catalog:examples/snomedct-us-september-2026/historical-metadata-and-icd-inventory",
     "identity_state": null,
-    "source_plan": "catalog:examples/snomedct-us-september-2026/reviewed-metadata-decisions"
+    "source_plan": "catalog:examples/snomedct-us-september-2026/reviewed-metadata-decisions",
+    "source_data": [
+      "catalog:examples/snomedct-us-september-2026/us-rf2-package"
+    ],
+    "source_data_stage": "publisher"
   },
   "source_atom_ids": {
     "start": 1000000000,
@@ -21,7 +30,9 @@
   },
   "validation_profile": "catalog:examples/snomedct-us/required-validation",
   "output_stage": "inversion-src",
-  "source_options": {"rf2_view": "Snapshot"},
+  "source_options": {
+    "rf2_view": "Snapshot"
+  },
   "replay": {
     "case_variant": "illustrative-only",
     "reference_ref": "catalog:examples/snomedct-us-september-2026/official-reference",

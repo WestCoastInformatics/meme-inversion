@@ -70,10 +70,10 @@ AWS authentication and the specific read calls were verified using the existing 
 
 NCIt setup, unchanged-engine characterization, two separately pinned fixes, full core comparisons, and corruption/preservation fixtures are complete within their declared scope. Metadata acquisition, MRDOC/legacy QA, and insertion remain outside that result.
 
-The unchanged SNOMED engine and original cleanup have also completed. All five official reference files match byte-for-byte, including attributes.orig. The original checker had two incomplete allowed-token lists; a source-backed review of its complete scan counters resolves those flags, with the raw result retained. The corrected checker has 25 passing local fixtures; it has not had a second full-file scan. [Result and review](snomedct-us-2026-09-01-baseline-summary.json)
+The unchanged SNOMED engine and original cleanup have also completed. All five official reference files match byte-for-byte, including attributes.orig. The original checker had two incomplete allowed-token lists; a source-backed review of its complete scan counters resolves those flags, with the raw result retained. The corrected checker has 25 passing fixtures locally and on dev. A subsequent full-file scan passes, with all five output hashes unchanged. [Result and review](snomedct-us-2026-09-01-baseline-summary.json)
 
 1. Implement adapters from the common configuration and immutable lock to the characterized NCIt/SNOMED engines, using source-specific acceptance profiles over shared format/type definitions.
-2. Prepare the MTH dependency/runtime case, including its external UMLS data and historical Java/INV_OLD requirements, before attempting its baseline replay.
+2. Complete the running MTH prepared-input replay and full comparison. Its archived subset, metadata and prior identity inputs are verified; this boundary needs neither historical Java nor an INV_OLD installation. Input regeneration is optional further coverage.
 3. Keep historical metadata acquisition, MRDOC/legacy QA and insertion as explicit additional workflow coverage. Restore only declared dependencies and retain monitored resource reserves. SNOMED's observed 5.3 GiB peak is evidence for this one case, not a universal capacity guarantee.
 
-These steps continue the [test architecture](test-architecture.md). The current tools provide NCIt characterization, not a provisioned general test service.
+These steps continue the [test architecture](test-architecture.md). The current tools provide source-specific characterization cases, not a provisioned general test service. MDR/RADLEX production discovery is captured separately; their replay and acceptance profiles remain pending.

@@ -5,14 +5,23 @@
   "engine_ref": "<candidate-commit-sha>",
   "policy_ref": "catalog:examples/nci/policy",
   "environment_profile": "catalog:examples/dev-replay-worker",
-  "replacement_baseline": {"source": "NCI", "version": "NCI_2026_08E"},
-  "comparison_baseline": {"source": "NCI", "version": "NCI_2026_09D"},
+  "replacement_baseline": {
+    "source": "NCI",
+    "version": "NCI_2026_08E"
+  },
+  "comparison_baseline": {
+    "source": "NCI",
+    "version": "NCI_2026_09D"
+  },
   "publisher_history": [],
   "inputs": {
-    "native_data": ["catalog:examples/nci-october-2026/native-export-bundle"],
     "reference_ncimeta": "catalog:examples/nci-october-2026/historical-ncimeta-inputs",
     "identity_state": null,
-    "source_plan": "catalog:examples/nci-october-2026/reviewed-subsource-plan"
+    "source_plan": "catalog:examples/nci-october-2026/reviewed-subsource-plan",
+    "source_data": [
+      "catalog:examples/nci-october-2026/native-export-bundle"
+    ],
+    "source_data_stage": "publisher"
   },
   "source_atom_ids": {
     "start": 1000000000,

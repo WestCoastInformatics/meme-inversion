@@ -80,19 +80,28 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "native_data",
+        "source_data",
+        "source_data_stage",
         "reference_ncimeta",
         "identity_state",
         "source_plan"
       ],
       "properties": {
-        "native_data": {
+        "source_data": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
             "$ref": "#/$defs/nonempty_reference"
-          }
+          },
+          "description": "Source artifacts at the declared starting stage. Prepared inputs require verified producer/version/hash provenance; completed candidate outputs cannot be seeded as inputs."
+        },
+        "source_data_stage": {
+          "enum": [
+            "publisher",
+            "prepared"
+          ],
+          "description": "publisher runs required preparation; prepared consumes the verified archived conversion-input bundle directly. Input-generation runtimes are required only for selected preparation stages."
         },
         "reference_ncimeta": {
           "$ref": "#/$defs/nullable_reference"
@@ -224,6 +233,38 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "MTH"
+          },
+          "inputs": {
+            "properties": {
+              "source_data_stage": {
+                "const": "publisher"
+              }
+            },
+            "required": [
+              "source_data_stage"
+            ]
+          }
+        },
+        "required": [
+          "source",
+          "inputs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "source_options": {
+            "required": [
+              "metamorphosys_profile_ref"
+            ]
+          }
+        }
+      }
     }
   ],
   "$defs": {
@@ -284,12 +325,10 @@
     "mth_options": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "metamorphosys_profile_ref"
-      ],
       "properties": {
         "metamorphosys_profile_ref": {
-          "$ref": "#/$defs/nonempty_reference"
+          "$ref": "#/$defs/nonempty_reference",
+          "description": "Required when generating an MTH subset from publisher inputs; not required to consume a frozen prepared subset."
         }
       }
     }

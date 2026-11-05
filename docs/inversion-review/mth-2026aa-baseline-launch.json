@@ -1,0 +1,20 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "run_id": "baseline-core-20261105",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "worker_pid": 341605,
+  "status": "worker-launched",
+  "run_directory": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/baseline-core-20261105",
+  "worker_log": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/baseline-core-20261105/worker.log",
+  "launched_at": "2026-11-05T16:25:39.757523+00:00",
+  "apparatus_sha256": {
+    "replay_mth_core.py": "0cc78ef56b029c46f6db18a807a27ab65f41de4078fd84df1323812e554967ed",
+    "replay_process.py": "87ca8b95ac74b07e8fccb3c28370a79447814dc0dfc4b37583f7dbac1b3390ce",
+    "compare_mth_core.py": "77da139f38d38a4e4b44ebe7f4cf8ad319d2b2f31cc0264d440d4b8e20e27992",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "check_mth_replay.py": "ed47d0c914b99fcc09aa04254c9d501553e4042152ea62626483d023868a5e3a",
+    "check_replay_process.py": "8997e7981f91cda2baf42e53f3d98df976924504cbeb4c1e31dbec3c3e90657d"
+  }
+}

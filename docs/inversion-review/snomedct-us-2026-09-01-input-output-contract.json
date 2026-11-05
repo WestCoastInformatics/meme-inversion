@@ -4,7 +4,7 @@
   "version": "SNOMEDCT_US_2026_09_01",
   "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
   "environment_profile": "ncias-d3777-c",
-  "status": "PASS_EXACT_AFTER_VALIDATOR_REVIEW",
+  "status": "PASS_EXACT",
   "reference_stage": "inversion-src",
   "reference_file_map": [
     {
@@ -299,8 +299,7 @@
   },
   "remaining_work": [
     "Use this exact-reproduction baseline behind common configuration/runner adapters and future migration comparisons",
-    "Keep historical metadata/ICD acquisition, MRDOC/legacy QA and insertion as separately scoped workflow coverage",
-    "A subsequent full-file validation run can exercise the corrected allowed-token lists on dev; current reviewed result uses the complete recorded scan, with the original report preserved."
+    "Keep historical metadata/ICD acquisition, MRDOC/legacy QA and insertion as separately scoped workflow coverage"
   ],
   "artifact_type": "characterization boundary; not yet an implemented common run configuration",
   "common_configuration_design": "configuration.schema.json",
@@ -326,5 +325,6 @@
     "global_TMP_DIR_changed": false
   },
   "observed_status_receipt": "snomedct-us-2026-09-01-baseline-status.json",
-  "result_summary": "snomedct-us-2026-09-01-baseline-summary.json"
+  "result_summary": "snomedct-us-2026-09-01-baseline-summary.json",
+  "full_validation_receipt": "snomedct-us-2026-09-01-full-validation.json"
 }

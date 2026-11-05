@@ -2,24 +2,25 @@
 
 Status: proposed contract, November 3, 2026. This design and its schema/examples do not change the current inverters. The example artifact references and ID ranges are illustrative, not verified historical inputs or production reservations.
 
-## One vocabulary for all three sources
+## One vocabulary for every registered source
 
 Use one configuration model across registered sources, including NCIt (`NCI`), `SNOMEDCT_US`, `MTH`, `MDR`, and `RADLEX`. A run uses one `inversion.json` in the same format regardless of source or release frequency. Shared defaults and source profiles belong in Git; operators provide the release and reviewed decisions rather than maintain independently named configurations. The important constraint is one schema and one meaning for each common field.
 
-The [source registry](source-registry.json) separates recognition from execution support. The request/schema accept a canonical source key rather than hardcode a three-source enum; the resolver must require a reviewed registered adapter, typed options, historical case, runtime/dependency closure and comparison profile. Registry recognition alone cannot make a source runnable. Freeze those identities in the run lock. MDR and RADLEX are explicitly registered for workflow discovery; their production code and input/output contracts have not yet been characterized. No release-specific options or conversion engine are assumed for them. Existing case-specific characterization scripts retain their narrow guards until common adapters are implemented.
+The [source registry](source-registry.json) separates recognition from execution support. The request/schema accept a canonical source key rather than hardcode a three-source enum; the resolver must require a reviewed registered adapter, typed options, historical case, runtime/dependency closure and comparison profile. Registry recognition alone cannot make a source runnable. Freeze those identities in the run lock. MDR and RADLEX production code and workflow boundaries have now been inspected and captured; their unchanged-engine replays and acceptance profiles remain pending. See [their discovery contracts](additional-source-contracts.md). No release-specific options or conversion engine are assumed for them. Existing case-specific characterization scripts retain their narrow guards until common adapters are implemented.
 
 The [proposed schema](configuration.schema.json) and examples for [NCI](configuration-examples/nci.json), [SNOMEDCT_US](configuration-examples/snomedct_us.json), and [MTH](configuration-examples/mth.json) make the contract concrete. JSON keeps this consistent with the existing test request. YAML could be an authoring convenience later, provided it produces exactly the same validated model.
 
 | Common field | Meaning for every source | Existing names or mechanisms it replaces |
 |---|---|---|
-| `source` | Stable source abbreviation: `NCI`, `SNOMEDCT_US`, or `MTH` | `RSAB`; source inferred from directory/script |
+| `source` | Canonical registered source abbreviation, including `NCI`, `SNOMEDCT_US`, `MTH`, `MDR`, and `RADLEX` | `RSAB`; source inferred from directory/script |
 | `version` | Exact versioned source abbreviation, such as `MTH_2026AA` | `VSAB`; release suffixes embedded in `rel`, `newrel`, and `release` |
 | `engine_ref` | Candidate code revision, resolved to an immutable commit | Copied `bin`/scripts; whichever shared installation is selected |
 | `policy_ref` | Versioned representation rules, mappings, and defaults | Copied configuration; manual RELMAP/MRDOC edits; code comment toggles |
 | `replacement_baseline` | Source version actually being replaced in NCImeta | SNOMED's documented previous-inserted version; MTH `old`; NCIt low-source lineage |
 | `comparison_baseline` | Release whose artifacts are used for change detection/QA | Prior NCIt TDE inputs; previous-version comparison files |
 | `publisher_history` | Explicit ordered native-history dependencies needed for this transition | History inferred from a prior folder or an overloaded `prevrel` |
-| `inputs.native_data` | References to the original publisher packages/files | `ORIGDIR`, `File.INP.*`, external UMLS links, hardcoded native paths |
+| `inputs.source_data` | References to source packages/files at the declared starting stage | `ORIGDIR`, `File.INP.*`, external UMLS links, preserved prepared subsets/intermediates |
+| `inputs.source_data_stage` | `publisher` generates required preparation data; `prepared` consumes a verified preserved input bundle | Implicit starting points and assumptions that old input-generation runtimes must always run |
 | `inputs.reference_ncimeta` | Frozen NCImeta metadata/inventory bundle used by preparation or QA | Live database/API lookups; SNOMED's separately selected MRCONSO; MTH saved exports |
 | `inputs.identity_state` | Prior persistent identity maps, independently identified | MTH `old/src/cui_said_map` and related identity state |
 | `inputs.source_plan` | Reviewed decisions for this particular transition | NCIt new-subsource decisions; SNOMED metadata decisions; MTH source dispositions |
@@ -28,6 +29,8 @@ The [proposed schema](configuration.schema.json) and examples for [NCI](configur
 | `validation_profile` | Versioned mandatory checks and output expectations | Differing QA scripts, copied lists, broad informal waivers |
 
 The legacy column is a migration map, not a set of equivalent assignments. A legacy field must be traced to its actual consumers before the adapter translates it. In particular, `VSABOLD`/`EngNumOld` and MTH `prevrel` can serve more than one role. A field used only to copy or edit inherited code should disappear instead of becoming a new historical data requirement. [Evidence for the naming and offset differences](evidence.md#e16-common-configuration-and-legacy-name-mapping)
+
+Complete preserved input bundles are valid starting points. The same two source-data fields apply to every registered source. For example, [MTH with publisher preparation](configuration-examples/mth.json) needs a MetamorphoSys profile; [MTH consuming prepared inputs](configuration-examples/mth-prepared.json) does not need that generator/runtime. The resolver validates dependency closure, producer provenance and hashes for the selected stage. Saved NCImeta exports and prior identity state remain separate input roles. This does not permit seeding a candidate with its official generated output.
 
 ## Preserve distinct meanings
 
