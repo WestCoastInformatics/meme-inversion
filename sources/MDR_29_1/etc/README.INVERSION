@@ -1,0 +1,206 @@
+README.INVERSION
+
+DISCLAIMER:
+
+Data submitted by source providers may vary from version to version, 
+including changes in file names and file formats.  The source inversion 
+spec is also subject to change.  It is the responsibility of the inverter 
+to evaluate source data and determine how/whether to accomodate 
+changes/additions and deletions, and to update the source inversion 
+accordingly.
+
+RSAB: MDR 
+
+Last update of this file:  09/24/2026
+Last VSAB inverted using this README: MDR_29_1 
+
+Overview:  
+
+This is a local source insertion using Meddra source files. 
+
+A.  Files from source provider
+
+1)  Required files
+	hlt.asc
+	hlgt.asc
+	intl_ord.asc
+	llt.asc
+	mdhier.asc
+	pt.asc
+	soc.asc
+	smq_list.asc
+	smq_content.asc
+
+2)  Other files provided by source provider
+	hlgt_hlt.asc
+	hlt_pt.asc
+	meddra_history.asc
+	meddra_release.asc
+	soc_hlgt.asc
+
+	hlgt.seq
+	hlgt_hlt.seq
+	hlt.seq
+	hlt_pt.seq
+	intl_ord.seq
+	llt.seq
+	mdhier.seq
+	pt.seq
+	soc.seq
+	soc_hlgt.seq
+
+	ICD-10 to MedDRA Map - June 2023.xlsx
+
+	intguide_<ver>_English.pdf
+	detail_report_<ver>_English.pdf
+	dist_file_format_<ver>English.pdf
+	readme_<ver>_English.txt
+	SMQ_intguide_<ver>_English.pdf
+	SMQ_spreadsheet_<ver>_English.xlsx
+	version_report_<ver>_English.xlsx
+	whatsnew_<ver>_English.pdf
+
+B.  Scripts and other files required for source inversion 
+1) scripts
+	setup.csh 
+	get.versions4mdr.s (see note below on running this file)
+	invert_mdr.s  - wrapper script
+		invert_mdr.pl
+		append_atn.pl
+		$INV_HOME/bin/makeDoc.pl
+		$INV_HOME/bin/srcQa.pl
+		$INV_HOME/bin/findQaStats.pl
+
+2) other useful scripts and files:
+	a. #OBSOLETE - etc/COSTART_classes_atoms.src (copy from prev. inversion, verify version through NCI MRSAB.RRF)
+
+	b. #OBSOLETE - etc/ICD9CM_classes_atoms.src (copy from UMLS inversion, verify version through NCI MRSAB.RRF )
+
+	c. #OBSOLETE - bin/occs_default_stys (output file after creating default 		STYs using "invert_mdr.pl -s"; default STYs automatically appended to 
+	attributes.src)
+
+	d. etc/MG_Abbreviations (copy from prev. inversion)
+
+	e. orig/mdr_by_version.txt (see note below)
+		
+
+C.  Process
+(step-by-step instructions on how to run the inversion)
+
+1. $INV_HOME/bin/create_vsab_dirs.pl <VSAB>
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+
+4. Unzip file into orig/fromprovider directory. 
+
+5.  Update etc/MDR configuration file
+
+6.  Update sources.src by using dump_src_info.pl and make.sources.src.pl.
+        a) $INV_HOME_OLD/bin/dump_src_info.pl [-d <db>] [-r <RSAB> | <SAB> | -f <SF>] > template
+        b) edit template
+        c) $INV_HOME_OLD/bin/make.sources.src.pl template > sources.src
+
+7.  Update termgroups.src 
+
+8.  Before running 'invert_mdr.s' script, need to run a file called
+'get.versions4mdr.s'.  This script creates a file called
+'mdr_by_version.txt' which provides the values for the ATN =
+PT_IN_VERSION.  In order to get previous versions starting from MDR
+8.0 to the current released version, the script is kept and run on 
+NLM's devmlbapp01 server in /umls_s/src_root/MDR<ver>/bin. (The script will need to be updated with the current SAB as future versions are processed).  
+The output file (mdr_by_version.txt) should then be moved to ncias-q3793-v.nci.nih.gov and placed in the orig directory.
+
+***Note: if unable to run in the dvlbmlapp01 /umls_s/src_root/MDR<ver>/bin directory due to permission restrictions, there is another copy on /umls_s/home/quans/MDR_version_script which can be run there.  A copy of the script is on (NCI) meme_work/inv/sources/MDR*/bin but this is just a copy.  It doesn't run on NCI machines.
+
+
+9. Ftp data file from (UMLS) /umls_s/home/quans/MDR_version_script/mdr_by_version.txt to your GFE using SecureFX. 
+
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+[credential-bearing access example removed]
+
+#12.  OBSOLETE STEP 3/2012 -- Mappings/XM atoms are not created for the NCI inversion of MDR. Copy etc/COSTART_classes_atoms.src from the prev. inversion. Verify version is still current through NCI MRSAB.RRF.
+
+#13. OBSOLETE STEP 3/2012-- Mappings/XM atoms are not created for the NCI inversion of MDR. Copy etc/ICD9CM_classes_atoms.src from the UMLS inversion. Verify version through NCI MRSAB.RRF.
+
+14.  Run bin/invert_mdr.s
+
+15.  Perform conservation of mass/QA
+
+16.  Finalize the source inversion proposal
+
+17.  Create a README.INVERSION file.
+
+18.  Create a SIMS record.
+
+19.  Announce that the source is ready for test insertion.
+
+#20.  OBSOLETE as of 9/9/2024. Default STYs now created as part of the insertion process.
+	Create default STYs using 'invert_mdr.pl -s' after the test 
+	insertion is complete.
+	a) move test/sty_term_ids to src 
+	b) run invert_mdr.pl -s
+
+D.  Considerations for next inversion:
+	1. Update the etc/MG_Abbreviations file using the list of 
+abbreviations and expansions found on the MDR website 
+(http://www.meddramsso.com/subscriber_acronyms_abbreviations.asp).
+
+	For 2015, NLM decided not to update the list.  To remain
+	consistant, NCI will not update the list either. 
+
+	2. Can the 'get.versions4mdr.s' script be altered to use the
+MR* files on nciws-p385-v rather than NLM's files?
+
+E.  Inversion changes
+	1. The whoart, icd*, harts, and costart fields were blank for this version.  ATN = CROSS_REFERENCE and RELA = mapped_from deprecated.
