@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:ncimeta:inversion-test-request:1",
   "title": "Proposed inversion replay request",
-  "description": "Planning contract for a future isolated test runner. Case resolution must validate the candidate Git commit and freeze all dependencies before execution.",
+  "description": "Planning contract for a future isolated test runner over a reviewed, extensible source registry. Resolve the source adapter and historical case, validate the candidate commit and freeze all dependencies before execution.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -19,7 +19,9 @@
       "const": 1
     },
     "source": {
-      "enum": ["NCI", "SNOMEDCT_US", "MTH"]
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_-]*$",
+      "description": "Canonical source key from the reviewed source registry. Schema shape acceptance does not enable execution: the resolver must require a reviewed adapter, case, options schema and dependency contract, then freeze their identities."
     },
     "version": {
       "type": "string",
@@ -37,10 +39,16 @@
       "description": "Named reviewed catalog case, including its historical preparation state and any intentional transition changes."
     },
     "reference_stage": {
-      "enum": ["inversion-src", "insertion-package"]
+      "enum": [
+        "inversion-src",
+        "insertion-package"
+      ]
     },
     "comparison_profile": {
-      "enum": ["exact", "semantic-strict"]
+      "enum": [
+        "exact",
+        "semantic-strict"
+      ]
     }
   }
 }

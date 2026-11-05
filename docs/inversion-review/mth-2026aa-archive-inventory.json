@@ -1,0 +1,1960 @@
+{
+  "version": "MTH_2026AA",
+  "archive_path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.tgz",
+  "archive_bytes": 2321579873,
+  "archive_sha256": "9a0a8e6c6f58588f3fa7726c08299bf787fc16a3888363cb432438be5e961d93",
+  "member_count": 131,
+  "regular_file_bytes": 12964819129,
+  "entries": [
+    {
+      "path": "MTH_2026AA",
+      "size": 0,
+      "mode": "0o750",
+      "mtime": 1782313396,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2026AA/env.s",
+      "size": 263,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "7f56e9d6068c0cd6ee8c3a7b37baaf66218fcaaed278d6ad12e61766b6da9277",
+      "newline_count": 13
+    },
+    {
+      "path": "MTH_2026AA/extractlnc.s",
+      "size": 1786,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "fc72417c1fd81c311254ac28ccd2a65a00a3386ec162bec539851dde2184c9bd",
+      "newline_count": 49
+    },
+    {
+      "path": "MTH_2026AA/extractsctus.s",
+      "size": 1436,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "0accc27a56f202963c4dcc3ad44769a180a4ad1dbd9154882d97d8dec0e6eb02",
+      "newline_count": 39
+    },
+    {
+      "path": "MTH_2026AA/fix.mthsab.s",
+      "size": 1021,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "322c5a3e08965fbddc6f78628b04e0528299fdaa789a98f1204a7bddc5b9f0c2",
+      "newline_count": 36
+    },
+    {
+      "path": "MTH_2026AA/initdir.s",
+      "size": 777,
+      "mode": "0o750",
+      "mtime": 1779902857,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "65f05cb5fa3543d0d39af29d4e6b6bf1e7ee28094369d305fa192f2180ece904",
+      "newline_count": 25
+    },
+    {
+      "path": "MTH_2026AA/make.meme4classes.s",
+      "size": 659,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e4be9fbb346d7adad09ffc5290f789ef345c5276f29f02f26cdb5e1861b9afc6",
+      "newline_count": 16
+    },
+    {
+      "path": "MTH_2026AA/preinvert1.s",
+      "size": 895,
+      "mode": "0o750",
+      "mtime": 1753980595,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "33927c1b9427782184ced1485a5ed602631d3ee8c454ea3900491806ed6fe830",
+      "newline_count": 25
+    },
+    {
+      "path": "MTH_2026AA/preinvert2.s",
+      "size": 2061,
+      "mode": "0o750",
+      "mtime": 1746657006,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "51c582a73a972e70fcb6078798623760dd078a53afaef2ef3f3f4c6b536ddbbe",
+      "newline_count": 55
+    },
+    {
+      "path": "MTH_2026AA/runQA.s",
+      "size": 330,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "cb7337ac819fc4354d5a18fe1941a7addabf4bfd503142dd0a202e2649bf0214",
+      "newline_count": 12
+    },
+    {
+      "path": "MTH_2026AA/updatevsabs.s",
+      "size": 1211,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "f9f1edeb7cd7403e403ccbd3ab8d813194f293687a849b4e6a3acc1e3f7b6d74",
+      "newline_count": 38
+    },
+    {
+      "path": "MTH_2026AA/autoinv.pl",
+      "size": 23309,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d",
+      "newline_count": 513
+    },
+    {
+      "path": "MTH_2026AA/fix.ccs.sf.pl",
+      "size": 144,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "ff7bb5733b3c554fd0c8bfb4f8f3a6a65de2d100eeaafe05777fb2ea4e170a48",
+      "newline_count": 9
+    },
+    {
+      "path": "MTH_2026AA/fix.vsrc.atoms.pl",
+      "size": 482,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "5bedc80feccd922b193d3c0b2f338d446f3bf28621e864ddfef639b42c9d4520",
+      "newline_count": 22
+    },
+    {
+      "path": "MTH_2026AA/genmmsysconfigs.pl",
+      "size": 2475,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "ccc95a44ecf50b23d9fc8a174c535bc4dc99fc00ad97caa8c209017f71e2e627",
+      "newline_count": 79
+    },
+    {
+      "path": "MTH_2026AA/get.saidpts.pl",
+      "size": 1111,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "f7bd7cf278645818e5ed89759f782c01d43ed3507388ed96c03d58cb863237e3",
+      "newline_count": 56
+    },
+    {
+      "path": "MTH_2026AA/guess.ncisources.spec.pl",
+      "size": 1093,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "cdcafcea8d87a4e4ae042b030c154f96df089a951de025a4cbabccfd2aa369b9",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2026AA/make.meme4classes.pl",
+      "size": 668,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "343237b79a7f789a17a959bf718d1d42f7250a89a8af324dcd697e00d688f01a",
+      "newline_count": 31
+    },
+    {
+      "path": "MTH_2026AA/make.sourcestermgroups.pl",
+      "size": 3562,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b293b1eab7e2c01c07d5dda31342efa2f71e909fe94989bfa1f2b8f591350a77",
+      "newline_count": 131
+    },
+    {
+      "path": "MTH_2026AA/mrcxt2raw3.pl",
+      "size": 1756,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b4d5d287f1e69d93ddae99b4cd3c2bc993c27f40b1668c6090c18ac84e6e374f",
+      "newline_count": 55
+    },
+    {
+      "path": "MTH_2026AA/remove.oldsrcvsabs.pl",
+      "size": 790,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "816bbd6c7bcc600b0f5fb7149598b6ac6bae136a27b2be87a4d1aca231300d29",
+      "newline_count": 26
+    },
+    {
+      "path": "MTH_2026AA/updatevsabs.pl",
+      "size": 1020,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "eef63b30752c2a956b88be52321ec28aa4fd6414bf4b0dbee602b4b256603dc6",
+      "newline_count": 37
+    },
+    {
+      "path": "MTH_2026AA/raw_to_contexts.csh",
+      "size": 5699,
+      "mode": "0o750",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1",
+      "newline_count": 184
+    },
+    {
+      "path": "MTH_2026AA/bigrange.spec",
+      "size": 53,
+      "mode": "0o640",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "77beef0af7c82fb1ee705f0d299091f27d568a2a683d4c567eb16607fe1ad137",
+      "newline_count": 2
+    },
+    {
+      "path": "MTH_2026AA/inv1.spec",
+      "size": 1302,
+      "mode": "0o640",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "adeddeedf73eb97161f1d324f87a89c88ca29f04994c5682401a8782a08fe024",
+      "newline_count": 33
+    },
+    {
+      "path": "MTH_2026AA/inv2.spec",
+      "size": 3422,
+      "mode": "0o640",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "88d6665fcf3e90be9d6206e3e92ec1099496bf43a1a73adb115e1a9e789cbe13",
+      "newline_count": 80
+    },
+    {
+      "path": "MTH_2026AA/inv3.spec",
+      "size": 770,
+      "mode": "0o640",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "184e02a0dcd44e58ebf16ab6c074cc50882d45b7ad4b18e780ac9e1f80c8bd8d",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/ncimid.readme",
+      "size": 2194,
+      "mode": "0o640",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "d4c22bee75d3d7ef7e0fa90e1c25fae6a5711efe5b51cd399f3d5c2d92a60f86",
+      "newline_count": 39
+    },
+    {
+      "path": "MTH_2026AA/runmmsys.s",
+      "size": 4047,
+      "mode": "0o750",
+      "mtime": 1780586284,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "06a56c1a94b53874f848ced55d8a2ba59be929b0791bbb3517602661f703f0ff",
+      "newline_count": 92
+    },
+    {
+      "path": "MTH_2026AA/updatevsabs.log",
+      "size": 0,
+      "mode": "0o640",
+      "mtime": 1780590534,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2026AA/invert1.s",
+      "size": 4706,
+      "mode": "0o750",
+      "mtime": 1780596140,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "abd7971efdf0d01091d0d23918ea8d1ab037706c70494be99aaa2d08e3090840",
+      "newline_count": 111
+    },
+    {
+      "path": "MTH_2026AA/bin",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596152,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "."
+    },
+    {
+      "path": "MTH_2026AA/etc",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596152,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "."
+    },
+    {
+      "path": "MTH_2026AA/qa",
+      "size": 0,
+      "mode": "0o750",
+      "mtime": 1780623760,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2026AA/qa/process.16467653.20260604191125.log",
+      "size": 2784,
+      "mode": "0o640",
+      "mtime": 1780614685,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "933a1f737d1f8c913e14a575508f1854bc0f59d36a811c6c680d656183f1d90a",
+      "newline_count": 4
+    },
+    {
+      "path": "MTH_2026AA/qa/process.16467653.20260604214240.log",
+      "size": 384399,
+      "mode": "0o640",
+      "mtime": 1780623760,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b194a30d95a2b9c689b2f3beb44d66daf9b183ae29905aed5a5c47309633bcf9",
+      "newline_count": 6503
+    },
+    {
+      "path": "MTH_2026AA/src",
+      "size": 0,
+      "mode": "0o750",
+      "mtime": 1780676007,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2026AA/src/vsab.updates",
+      "size": 1004,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2ec5d1ddf6da8ef5bd81dc251c586972c4ca2cbfd64e160418a636e8f9f2c686",
+      "newline_count": 44
+    },
+    {
+      "path": "MTH_2026AA/src/sabs_updated_umls",
+      "size": 353,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "17159f125a7c0fc36798d127ccac80298b46ab9c7b910d8e4cf477aca35a1987",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/src/rsabs-updated.umls",
+      "size": 142,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "c06c5abc8f1ee35cf7a46849fb8ecf381949d600a7bee66c8ec1d7af60368bd0",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/src/vcodes_updated",
+      "size": 184,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "7743a79759f07a33051ea059e4f9e9024e179aa431d576475fe4eadd4b822dad",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/src/highranks.txt",
+      "size": 842,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "fae2e32676f3a79c66c2be9c79fe5245b491e897d590175d87095f48b0963959",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2026AA/src/SRCbuilder.log",
+      "size": 390,
+      "mode": "0o640",
+      "mtime": 1780601635,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e5efaecfa6d0b325f21cd08da16d0d027caebad1d838ecb8f7e1a26b7b4676d2",
+      "newline_count": 30
+    },
+    {
+      "path": "MTH_2026AA/src/attr_src",
+      "size": 109,
+      "mode": "0o640",
+      "mtime": 1780601635,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2026AA/src/class_src",
+      "size": 142,
+      "mode": "0o640",
+      "mtime": 1780601635,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+      "newline_count": 2
+    },
+    {
+      "path": "MTH_2026AA/src/rel_src",
+      "size": 103,
+      "mode": "0o640",
+      "mtime": 1780601635,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2026AA/src/merge_src",
+      "size": 67,
+      "mode": "0o640",
+      "mtime": 1780601635,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2026AA/src/inv3.spec",
+      "size": 768,
+      "mode": "0o640",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "d51bc362cd1c1f194bc3171cf3a028216c706ed274f2d67c387990da328a2738",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/src/MRCONSO.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRCONSO.RRF"
+    },
+    {
+      "path": "MTH_2026AA/src/MRSAT.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRSAT.RRF"
+    },
+    {
+      "path": "MTH_2026AA/src/MRSTY.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRSTY.RRF"
+    },
+    {
+      "path": "MTH_2026AA/src/MRDEF.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRDEF.RRF"
+    },
+    {
+      "path": "MTH_2026AA/src/MRREL.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRREL.RRF"
+    },
+    {
+      "path": "MTH_2026AA/src/MRCUI.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRCUI.RRF"
+    },
+    {
+      "path": "MTH_2026AA/src/auis_nonupdatedSAB_moved",
+      "size": 11130,
+      "mode": "0o640",
+      "mtime": 1780596247,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+      "newline_count": 597
+    },
+    {
+      "path": "MTH_2026AA/src/cui_merges",
+      "size": 10278,
+      "mode": "0o640",
+      "mtime": 1780596250,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+      "newline_count": 571
+    },
+    {
+      "path": "MTH_2026AA/src/inv1.spec",
+      "size": 1306,
+      "mode": "0o640",
+      "mtime": 1780596250,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "8d48836ac5935224477f90af859da1223d032fa417c870097e5b266f0e507792",
+      "newline_count": 33
+    },
+    {
+      "path": "MTH_2026AA/src/inv2.spec",
+      "size": 3426,
+      "mode": "0o640",
+      "mtime": 1780596250,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2",
+      "newline_count": 80
+    },
+    {
+      "path": "MTH_2026AA/src/classes_atoms.src",
+      "size": 555467101,
+      "mode": "0o640",
+      "mtime": 1780611249,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+      "newline_count": 4018246
+    },
+    {
+      "path": "MTH_2026AA/src/termgroups.src",
+      "size": 7163,
+      "mode": "0o640",
+      "mtime": 1780601068,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f",
+      "newline_count": 135
+    },
+    {
+      "path": "MTH_2026AA/src/sources.src",
+      "size": 13996,
+      "mode": "0o640",
+      "mtime": 1780596227,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/src/autoinv.log",
+      "size": 545,
+      "mode": "0o640",
+      "mtime": 1780611149,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "f9c76f4d360b52d02554145c82ec603ca5786067fe5c6f8b3cfa95825b92e2b8",
+      "newline_count": 12
+    },
+    {
+      "path": "MTH_2026AA/src/aui_said_map",
+      "size": 115764330,
+      "mode": "0o640",
+      "mtime": 1780602304,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5",
+      "newline_count": 4017648
+    },
+    {
+      "path": "MTH_2026AA/src/cui.splitonly.new",
+      "size": 270,
+      "mode": "0o640",
+      "mtime": 1780602298,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+      "newline_count": 30
+    },
+    {
+      "path": "MTH_2026AA/src/cui_splitonly_said_map",
+      "size": 570,
+      "mode": "0o640",
+      "mtime": 1780602300,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+      "newline_count": 30
+    },
+    {
+      "path": "MTH_2026AA/src/moved_aui_said_map",
+      "size": 17100,
+      "mode": "0o640",
+      "mtime": 1780602301,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+      "newline_count": 597
+    },
+    {
+      "path": "MTH_2026AA/src/cui_said_map",
+      "size": 36214304,
+      "mode": "0o640",
+      "mtime": 1780602305,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+      "newline_count": 1906016
+    },
+    {
+      "path": "MTH_2026AA/src/rel_cui_said_map",
+      "size": 36214304,
+      "mode": "0o640",
+      "mtime": 1780602306,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+      "newline_count": 1906016
+    },
+    {
+      "path": "MTH_2026AA/src/aui_said_map2",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780602306,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "aui_said_map"
+    },
+    {
+      "path": "MTH_2026AA/src/rel_cui_said_map2",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780602306,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "rel_cui_said_map"
+    },
+    {
+      "path": "MTH_2026AA/src/attributes.src",
+      "size": 2796291696,
+      "mode": "0o640",
+      "mtime": 1780610871,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+      "newline_count": 20206954
+    },
+    {
+      "path": "MTH_2026AA/src/mergefacts.src",
+      "size": 83696,
+      "mode": "0o640",
+      "mtime": 1780610022,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+      "newline_count": 1169
+    },
+    {
+      "path": "MTH_2026AA/src/bequeathal.relationships.src",
+      "size": 682893,
+      "mode": "0o640",
+      "mtime": 1780610351,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+      "newline_count": 7600
+    },
+    {
+      "path": "MTH_2026AA/src/used.vsabs",
+      "size": 292,
+      "mode": "0o640",
+      "mtime": 1780610363,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "7aeffd05cf71e5644e9caa7eb392ad3f3023739489ffc20202ebeea2e9ca099f",
+      "newline_count": 18
+    },
+    {
+      "path": "MTH_2026AA/src/missing.vsabs",
+      "size": 0,
+      "mode": "0o640",
+      "mtime": 1780610363,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2026AA/src/MRDOC.RRF",
+      "size": 97400,
+      "mode": "0o640",
+      "mtime": 1780610363,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "5a4c3fde39135edbad64f388063106711f4a91fc94c5fbcea83dbe5d8325c76b",
+      "newline_count": 1712
+    },
+    {
+      "path": "MTH_2026AA/src/missing.tgs",
+      "size": 0,
+      "mode": "0o640",
+      "mtime": 1780610366,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2026AA/src/relationships.src",
+      "size": 771791609,
+      "mode": "0o640",
+      "mtime": 1780610375,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+      "newline_count": 6404200
+    },
+    {
+      "path": "MTH_2026AA/src/attributes.src.nocxts.gz",
+      "size": 426289663,
+      "mode": "0o640",
+      "mtime": 1780605086,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "fe683232bce785e50a340da8fa761e199ab84bba3d3276a7b6ade0376d3967d6",
+      "newline_count": 1577590
+    },
+    {
+      "path": "MTH_2026AA/src/raw3",
+      "size": 0,
+      "mode": "0o750",
+      "mtime": 1780611159,
+      "role": "official-inversion-output-or-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2026AA/src/src-root.cuis.updated",
+      "size": 189,
+      "mode": "0o640",
+      "mtime": 1780610433,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/src/stat_report.log",
+      "size": 145,
+      "mode": "0o640",
+      "mtime": 1780610871,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "5cd3a749647ef4d1778821414b4f2e116196a5a33c53039d3dd108867693f60e",
+      "newline_count": 15
+    },
+    {
+      "path": "MTH_2026AA/src/attributes.contexts-all.src",
+      "size": 460970251,
+      "mode": "0o640",
+      "mtime": 1780610871,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+      "newline_count": 1075932
+    },
+    {
+      "path": "MTH_2026AA/src/runQA.log",
+      "size": 2445,
+      "mode": "0o640",
+      "mtime": 1780610929,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "23706142db336de2ea8f4b504f8aac11d69919df93ff5d75e20004e5d60c01fd",
+      "newline_count": 51
+    },
+    {
+      "path": "MTH_2026AA/src/ERROR_LOG",
+      "size": 0,
+      "mode": "0o640",
+      "mtime": 1780610871,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2026AA/src/contexts.src",
+      "size": 312852927,
+      "mode": "0o640",
+      "mtime": 1780611159,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+      "newline_count": 1118752
+    },
+    {
+      "path": "MTH_2026AA/src/said.ptsaid",
+      "size": 80364960,
+      "mode": "0o640",
+      "mtime": 1780611220,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f",
+      "newline_count": 4018248
+    },
+    {
+      "path": "MTH_2026AA/src/ptsaid.order",
+      "size": 18667590,
+      "mode": "0o640",
+      "mtime": 1780611223,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d",
+      "newline_count": 1866759
+    },
+    {
+      "path": "MTH_2026AA/src/classes_atoms.src.raw",
+      "size": 602938575,
+      "mode": "0o640",
+      "mtime": 1780602217,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff",
+      "newline_count": 4018248
+    },
+    {
+      "path": "MTH_2026AA/src/umlscui.txt",
+      "size": 920815823,
+      "mode": "0o640",
+      "mtime": 1780611362,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "ddefb49edfdd6615d7bb6809baca49dffe2f90fa742da41ab53ba57143aa7c0f",
+      "newline_count": 10755691
+    },
+    {
+      "path": "MTH_2026AA/src/src_data",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596227,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "../src_data"
+    },
+    {
+      "path": "MTH_2026AA/src/Meta",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "../Meta3"
+    },
+    {
+      "path": "MTH_2026AA/src/bin",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780596152,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": ".."
+    },
+    {
+      "path": "MTH_2026AA/range3.spec",
+      "size": 55,
+      "mode": "0o640",
+      "mtime": 1780596396,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e5eee6e149ee5e9653fb9001bb92eacdc02aa794f209d44391eb27a3f5ff51f9",
+      "newline_count": 2
+    },
+    {
+      "path": "MTH_2026AA/QA_FILE.25255.1780610871.tmp",
+      "size": 189,
+      "mode": "0o640",
+      "mtime": 1780610935,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "93c3b01c8d8889742c19971153c9effa45dd1af84016f453dd095fc0c56e1de1",
+      "newline_count": 8
+    },
+    {
+      "path": "MTH_2026AA/sab.vsab.map",
+      "size": 1325,
+      "mode": "0o640",
+      "mtime": 1780590290,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "3b47bacc4e48c7c51a4a8c6f0e96fd1ab98656afa50d18de8469be7e2b865b02",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2026AA/ncisources.spec.guessed",
+      "size": 6023,
+      "mode": "0o640",
+      "mtime": 1780590536,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "2175fb4eae943aff8d0315a2085278fc9a1a8435fd050d966001572a5a122920",
+      "newline_count": 201
+    },
+    {
+      "path": "MTH_2026AA/ncisources.spec",
+      "size": 6018,
+      "mode": "0o640",
+      "mtime": 1780591164,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "770d49565cb8f04e9aa4d2747d009c2fbda8c886e5e17f87030438cc2dbc79e2",
+      "newline_count": 201
+    },
+    {
+      "path": "MTH_2026AA/ncimid.sources",
+      "size": 2485,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "059038919f1a9a076cb55213c8cc64e65f0d81491d41b5ceebb3f320f0ce3f32",
+      "newline_count": 120
+    },
+    {
+      "path": "MTH_2026AA/ncimid.termgroups",
+      "size": 10308,
+      "mode": "0o640",
+      "mtime": 1780591803,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "ae222dbd75728487631a65e607726addc4318f62802815e174b7bc824c84a470",
+      "newline_count": 476
+    },
+    {
+      "path": "MTH_2026AA/template.prop",
+      "size": 25119,
+      "mode": "0o600",
+      "mtime": 1777885200,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "108c195b01be7b92d8ad5f91a5cd142c475997f5bb960ba2ec68981b0b914d07",
+      "newline_count": 128
+    },
+    {
+      "path": "MTH_2026AA/ncirest.prop",
+      "size": 25164,
+      "mode": "0o640",
+      "mtime": 1780591803,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "9f99f8b0f7f2b8f16497d72be0b342715ac5f33bf20f0995c69663d7963af9b9",
+      "newline_count": 130
+    },
+    {
+      "path": "MTH_2026AA/runmmsys.log",
+      "size": 7235,
+      "mode": "0o640",
+      "mtime": 1780593610,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "1ca57e56a878064b19809cc144b6a928b09f7f9743db3c02d51aef77b6b438fd",
+      "newline_count": 65
+    },
+    {
+      "path": "MTH_2026AA/Meta3",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780591803,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "METASUBSET3"
+    },
+    {
+      "path": "MTH_2026AA/src_data",
+      "size": 36,
+      "mode": "0o640",
+      "mtime": 1780595926,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "fb3e47382e911af3177216a193bb6166471243a6f44abfffcc8a6554d332937c",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2026AA/invert2.s",
+      "size": 8969,
+      "mode": "0o750",
+      "mtime": 1780596070,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "04705b345748ba16a9a4a29bcb2c131d1aec9334cacd07ea49ed7ea5a33c3a75",
+      "newline_count": 203
+    },
+    {
+      "path": "MTH_2026AA/rsabs3",
+      "size": 267,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "2b8ad6375725d5a6d83246198e01c4fd2a35cc47347c180f160e628d35f53b39",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2026AA/vsabs.deleted",
+      "size": 0,
+      "mode": "0o640",
+      "mtime": 1780596152,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2026AA/xm.tofix",
+      "size": 0,
+      "mode": "0o640",
+      "mtime": 1780596917,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2026AA/QA_SUM.25255.1780610871.tmp",
+      "size": 811,
+      "mode": "0o640",
+      "mtime": 1780610935,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "0ef89236b73c5b0c4af0311faeb3fc1e0fd4e024457d5c84a4ffc51c6cd2144e",
+      "newline_count": 22
+    },
+    {
+      "path": "MTH_2026AA/METASUBSET3",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780591803,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "/local/content/MEME/MEME5/mr/umls/2026AA/DVDIMAGE/../subset3/METASUBSET"
+    },
+    {
+      "path": "MTH_2026AA/old",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780509973,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "../MTH_2025AB"
+    },
+    {
+      "path": "MTH_2026AA/Meta",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780509900,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "/local/content/MEME/MEME5/mr/umls/2026AA/META"
+    },
+    {
+      "path": "MTH_2026AA/prev",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1780509900,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "../MTH_2025AB"
+    },
+    {
+      "path": "MTH_2026AA/insert",
+      "size": 0,
+      "mode": "0o750",
+      "mtime": 1782126099,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2026AA/insert/attributes.contexts-all.src",
+      "size": 460970251,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+      "newline_count": 1075932
+    },
+    {
+      "path": "MTH_2026AA/insert/attributes.src",
+      "size": 2796291696,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+      "newline_count": 20206954
+    },
+    {
+      "path": "MTH_2026AA/insert/bequeathal.relationships.src",
+      "size": 682893,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+      "newline_count": 7600
+    },
+    {
+      "path": "MTH_2026AA/insert/classes_atoms.src",
+      "size": 555467101,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+      "newline_count": 4018246
+    },
+    {
+      "path": "MTH_2026AA/insert/contexts.src",
+      "size": 312852927,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+      "newline_count": 1118752
+    },
+    {
+      "path": "MTH_2026AA/insert/mergefacts.src",
+      "size": 83696,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+      "newline_count": 1169
+    },
+    {
+      "path": "MTH_2026AA/insert/relationships.src",
+      "size": 771791609,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+      "newline_count": 6404200
+    },
+    {
+      "path": "MTH_2026AA/insert/sources.src",
+      "size": 13996,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2026AA/insert/termgroups.src",
+      "size": 7163,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f",
+      "newline_count": 135
+    },
+    {
+      "path": "MTH_2026AA/insert/MRDOC.RRF",
+      "size": 97400,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "5a4c3fde39135edbad64f388063106711f4a91fc94c5fbcea83dbe5d8325c76b",
+      "newline_count": 1712
+    },
+    {
+      "path": "MTH_2026AA/insert/umlscui.txt",
+      "size": 920815823,
+      "mode": "0o640",
+      "mtime": 1781740804,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "ddefb49edfdd6615d7bb6809baca49dffe2f90fa742da41ab53ba57143aa7c0f",
+      "newline_count": 10755691
+    },
+    {
+      "path": "MTH_2026AA/insert/sty_term_ids",
+      "size": 9398572,
+      "mode": "0o664",
+      "mtime": 1782083228,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "36cc7324aa156bf1e18db6eee579dbf629a5745e698cb7e5b66d540711c21af4",
+      "newline_count": 296179
+    },
+    {
+      "path": "MTH_2026AA/insert/maint",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1782125434,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2026AA/insert/maint/bequeathal.ancestor.relationships.src",
+      "size": 199310,
+      "mode": "0o664",
+      "mtime": 1782125085,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "68d965a4ebf4637c0a6eb1c16fa9fb986cfcfd24842d4cf91405304329330643",
+      "newline_count": 2279
+    },
+    {
+      "path": "MTH_2026AA/insert/maint/bequeathal.atom.relationships.src",
+      "size": 12750,
+      "mode": "0o664",
+      "mtime": 1782125944,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "cb42b6b664dfc179da13022ca802b3a39dd33daf9bf4361a5da5142fd0b29fad",
+      "newline_count": 146
+    },
+    {
+      "path": "MTH_2026AA/insert/reportChecklistResults.txt",
+      "size": 3632,
+      "mode": "0o664",
+      "mtime": 1782138888,
+      "role": "archived-insert-state-needs-version-review",
+      "kind": "file",
+      "sha256": "bd29d4d77de97a3958e249dacc5c2556bbeee0736b5e63f65d4e705aa87b7642",
+      "newline_count": 47
+    }
+  ],
+  "stages": {
+    "src": [
+      {
+        "path": "MTH_2026AA/src/vsab.updates",
+        "size": 1004,
+        "mode": "0o640",
+        "mtime": 1780596152,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2ec5d1ddf6da8ef5bd81dc251c586972c4ca2cbfd64e160418a636e8f9f2c686",
+        "newline_count": 44
+      },
+      {
+        "path": "MTH_2026AA/src/sabs_updated_umls",
+        "size": 353,
+        "mode": "0o640",
+        "mtime": 1780596152,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "17159f125a7c0fc36798d127ccac80298b46ab9c7b910d8e4cf477aca35a1987",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/src/rsabs-updated.umls",
+        "size": 142,
+        "mode": "0o640",
+        "mtime": 1780596152,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "c06c5abc8f1ee35cf7a46849fb8ecf381949d600a7bee66c8ec1d7af60368bd0",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/src/vcodes_updated",
+        "size": 184,
+        "mode": "0o640",
+        "mtime": 1780596152,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "7743a79759f07a33051ea059e4f9e9024e179aa431d576475fe4eadd4b822dad",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/src/highranks.txt",
+        "size": 842,
+        "mode": "0o640",
+        "mtime": 1780596152,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "fae2e32676f3a79c66c2be9c79fe5245b491e897d590175d87095f48b0963959",
+        "newline_count": 45
+      },
+      {
+        "path": "MTH_2026AA/src/SRCbuilder.log",
+        "size": 390,
+        "mode": "0o640",
+        "mtime": 1780601635,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e5efaecfa6d0b325f21cd08da16d0d027caebad1d838ecb8f7e1a26b7b4676d2",
+        "newline_count": 30
+      },
+      {
+        "path": "MTH_2026AA/src/attr_src",
+        "size": 109,
+        "mode": "0o640",
+        "mtime": 1780601635,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+        "newline_count": 1
+      },
+      {
+        "path": "MTH_2026AA/src/class_src",
+        "size": 142,
+        "mode": "0o640",
+        "mtime": 1780601635,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+        "newline_count": 2
+      },
+      {
+        "path": "MTH_2026AA/src/rel_src",
+        "size": 103,
+        "mode": "0o640",
+        "mtime": 1780601635,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+        "newline_count": 1
+      },
+      {
+        "path": "MTH_2026AA/src/merge_src",
+        "size": 67,
+        "mode": "0o640",
+        "mtime": 1780601635,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+        "newline_count": 1
+      },
+      {
+        "path": "MTH_2026AA/src/inv3.spec",
+        "size": 768,
+        "mode": "0o640",
+        "mtime": 1780596227,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "d51bc362cd1c1f194bc3171cf3a028216c706ed274f2d67c387990da328a2738",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/src/auis_nonupdatedSAB_moved",
+        "size": 11130,
+        "mode": "0o640",
+        "mtime": 1780596247,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+        "newline_count": 597
+      },
+      {
+        "path": "MTH_2026AA/src/cui_merges",
+        "size": 10278,
+        "mode": "0o640",
+        "mtime": 1780596250,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+        "newline_count": 571
+      },
+      {
+        "path": "MTH_2026AA/src/inv1.spec",
+        "size": 1306,
+        "mode": "0o640",
+        "mtime": 1780596250,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "8d48836ac5935224477f90af859da1223d032fa417c870097e5b266f0e507792",
+        "newline_count": 33
+      },
+      {
+        "path": "MTH_2026AA/src/inv2.spec",
+        "size": 3426,
+        "mode": "0o640",
+        "mtime": 1780596250,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2",
+        "newline_count": 80
+      },
+      {
+        "path": "MTH_2026AA/src/classes_atoms.src",
+        "size": 555467101,
+        "mode": "0o640",
+        "mtime": 1780611249,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+        "newline_count": 4018246
+      },
+      {
+        "path": "MTH_2026AA/src/termgroups.src",
+        "size": 7163,
+        "mode": "0o640",
+        "mtime": 1780601068,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f",
+        "newline_count": 135
+      },
+      {
+        "path": "MTH_2026AA/src/sources.src",
+        "size": 13996,
+        "mode": "0o640",
+        "mtime": 1780596227,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/src/autoinv.log",
+        "size": 545,
+        "mode": "0o640",
+        "mtime": 1780611149,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "f9c76f4d360b52d02554145c82ec603ca5786067fe5c6f8b3cfa95825b92e2b8",
+        "newline_count": 12
+      },
+      {
+        "path": "MTH_2026AA/src/aui_said_map",
+        "size": 115764330,
+        "mode": "0o640",
+        "mtime": 1780602304,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5",
+        "newline_count": 4017648
+      },
+      {
+        "path": "MTH_2026AA/src/cui.splitonly.new",
+        "size": 270,
+        "mode": "0o640",
+        "mtime": 1780602298,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+        "newline_count": 30
+      },
+      {
+        "path": "MTH_2026AA/src/cui_splitonly_said_map",
+        "size": 570,
+        "mode": "0o640",
+        "mtime": 1780602300,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+        "newline_count": 30
+      },
+      {
+        "path": "MTH_2026AA/src/moved_aui_said_map",
+        "size": 17100,
+        "mode": "0o640",
+        "mtime": 1780602301,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+        "newline_count": 597
+      },
+      {
+        "path": "MTH_2026AA/src/cui_said_map",
+        "size": 36214304,
+        "mode": "0o640",
+        "mtime": 1780602305,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+        "newline_count": 1906016
+      },
+      {
+        "path": "MTH_2026AA/src/rel_cui_said_map",
+        "size": 36214304,
+        "mode": "0o640",
+        "mtime": 1780602306,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+        "newline_count": 1906016
+      },
+      {
+        "path": "MTH_2026AA/src/attributes.src",
+        "size": 2796291696,
+        "mode": "0o640",
+        "mtime": 1780610871,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+        "newline_count": 20206954
+      },
+      {
+        "path": "MTH_2026AA/src/mergefacts.src",
+        "size": 83696,
+        "mode": "0o640",
+        "mtime": 1780610022,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+        "newline_count": 1169
+      },
+      {
+        "path": "MTH_2026AA/src/bequeathal.relationships.src",
+        "size": 682893,
+        "mode": "0o640",
+        "mtime": 1780610351,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+        "newline_count": 7600
+      },
+      {
+        "path": "MTH_2026AA/src/used.vsabs",
+        "size": 292,
+        "mode": "0o640",
+        "mtime": 1780610363,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "7aeffd05cf71e5644e9caa7eb392ad3f3023739489ffc20202ebeea2e9ca099f",
+        "newline_count": 18
+      },
+      {
+        "path": "MTH_2026AA/src/missing.vsabs",
+        "size": 0,
+        "mode": "0o640",
+        "mtime": 1780610363,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "newline_count": 0
+      },
+      {
+        "path": "MTH_2026AA/src/MRDOC.RRF",
+        "size": 97400,
+        "mode": "0o640",
+        "mtime": 1780610363,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "5a4c3fde39135edbad64f388063106711f4a91fc94c5fbcea83dbe5d8325c76b",
+        "newline_count": 1712
+      },
+      {
+        "path": "MTH_2026AA/src/missing.tgs",
+        "size": 0,
+        "mode": "0o640",
+        "mtime": 1780610366,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "newline_count": 0
+      },
+      {
+        "path": "MTH_2026AA/src/relationships.src",
+        "size": 771791609,
+        "mode": "0o640",
+        "mtime": 1780610375,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+        "newline_count": 6404200
+      },
+      {
+        "path": "MTH_2026AA/src/attributes.src.nocxts.gz",
+        "size": 426289663,
+        "mode": "0o640",
+        "mtime": 1780605086,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "fe683232bce785e50a340da8fa761e199ab84bba3d3276a7b6ade0376d3967d6",
+        "newline_count": 1577590
+      },
+      {
+        "path": "MTH_2026AA/src/src-root.cuis.updated",
+        "size": 189,
+        "mode": "0o640",
+        "mtime": 1780610433,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/src/stat_report.log",
+        "size": 145,
+        "mode": "0o640",
+        "mtime": 1780610871,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "5cd3a749647ef4d1778821414b4f2e116196a5a33c53039d3dd108867693f60e",
+        "newline_count": 15
+      },
+      {
+        "path": "MTH_2026AA/src/attributes.contexts-all.src",
+        "size": 460970251,
+        "mode": "0o640",
+        "mtime": 1780610871,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+        "newline_count": 1075932
+      },
+      {
+        "path": "MTH_2026AA/src/runQA.log",
+        "size": 2445,
+        "mode": "0o640",
+        "mtime": 1780610929,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "23706142db336de2ea8f4b504f8aac11d69919df93ff5d75e20004e5d60c01fd",
+        "newline_count": 51
+      },
+      {
+        "path": "MTH_2026AA/src/ERROR_LOG",
+        "size": 0,
+        "mode": "0o640",
+        "mtime": 1780610871,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "newline_count": 0
+      },
+      {
+        "path": "MTH_2026AA/src/contexts.src",
+        "size": 312852927,
+        "mode": "0o640",
+        "mtime": 1780611159,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+        "newline_count": 1118752
+      },
+      {
+        "path": "MTH_2026AA/src/said.ptsaid",
+        "size": 80364960,
+        "mode": "0o640",
+        "mtime": 1780611220,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f",
+        "newline_count": 4018248
+      },
+      {
+        "path": "MTH_2026AA/src/ptsaid.order",
+        "size": 18667590,
+        "mode": "0o640",
+        "mtime": 1780611223,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d",
+        "newline_count": 1866759
+      },
+      {
+        "path": "MTH_2026AA/src/classes_atoms.src.raw",
+        "size": 602938575,
+        "mode": "0o640",
+        "mtime": 1780602217,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff",
+        "newline_count": 4018248
+      },
+      {
+        "path": "MTH_2026AA/src/umlscui.txt",
+        "size": 920815823,
+        "mode": "0o640",
+        "mtime": 1780611362,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "ddefb49edfdd6615d7bb6809baca49dffe2f90fa742da41ab53ba57143aa7c0f",
+        "newline_count": 10755691
+      }
+    ],
+    "insert": [
+      {
+        "path": "MTH_2026AA/insert/attributes.contexts-all.src",
+        "size": 460970251,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+        "newline_count": 1075932
+      },
+      {
+        "path": "MTH_2026AA/insert/attributes.src",
+        "size": 2796291696,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+        "newline_count": 20206954
+      },
+      {
+        "path": "MTH_2026AA/insert/bequeathal.relationships.src",
+        "size": 682893,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+        "newline_count": 7600
+      },
+      {
+        "path": "MTH_2026AA/insert/classes_atoms.src",
+        "size": 555467101,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+        "newline_count": 4018246
+      },
+      {
+        "path": "MTH_2026AA/insert/contexts.src",
+        "size": 312852927,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+        "newline_count": 1118752
+      },
+      {
+        "path": "MTH_2026AA/insert/mergefacts.src",
+        "size": 83696,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+        "newline_count": 1169
+      },
+      {
+        "path": "MTH_2026AA/insert/relationships.src",
+        "size": 771791609,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+        "newline_count": 6404200
+      },
+      {
+        "path": "MTH_2026AA/insert/sources.src",
+        "size": 13996,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2026AA/insert/termgroups.src",
+        "size": 7163,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f",
+        "newline_count": 135
+      },
+      {
+        "path": "MTH_2026AA/insert/MRDOC.RRF",
+        "size": 97400,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "5a4c3fde39135edbad64f388063106711f4a91fc94c5fbcea83dbe5d8325c76b",
+        "newline_count": 1712
+      },
+      {
+        "path": "MTH_2026AA/insert/umlscui.txt",
+        "size": 920815823,
+        "mode": "0o640",
+        "mtime": 1781740804,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "ddefb49edfdd6615d7bb6809baca49dffe2f90fa742da41ab53ba57143aa7c0f",
+        "newline_count": 10755691
+      },
+      {
+        "path": "MTH_2026AA/insert/sty_term_ids",
+        "size": 9398572,
+        "mode": "0o664",
+        "mtime": 1782083228,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "36cc7324aa156bf1e18db6eee579dbf629a5745e698cb7e5b66d540711c21af4",
+        "newline_count": 296179
+      },
+      {
+        "path": "MTH_2026AA/insert/maint/bequeathal.ancestor.relationships.src",
+        "size": 199310,
+        "mode": "0o664",
+        "mtime": 1782125085,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "68d965a4ebf4637c0a6eb1c16fa9fb986cfcfd24842d4cf91405304329330643",
+        "newline_count": 2279
+      },
+      {
+        "path": "MTH_2026AA/insert/maint/bequeathal.atom.relationships.src",
+        "size": 12750,
+        "mode": "0o664",
+        "mtime": 1782125944,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "cb42b6b664dfc179da13022ca802b3a39dd33daf9bf4361a5da5142fd0b29fad",
+        "newline_count": 146
+      },
+      {
+        "path": "MTH_2026AA/insert/reportChecklistResults.txt",
+        "size": 3632,
+        "mode": "0o664",
+        "mtime": 1782138888,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "bd29d4d77de97a3958e249dacc5c2556bbeee0736b5e63f65d4e705aa87b7642",
+        "newline_count": 47
+      }
+    ]
+  },
+  "metadata_summary": {
+    "MTH_2026AA/src/termgroups.src": {
+      "release_tags_seen": {
+        "2025_11_24": 6,
+        "2025_05_06": 6,
+        "2020AA": 46,
+        "2026_03_02": 23,
+        "2025_09_02": 23,
+        "2026AA": 5,
+        "2025AB": 5,
+        "2026_01_09": 16,
+        "2025_08_15": 19,
+        "2025_12_06": 5,
+        "2025_06_24": 5,
+        "2025_09_17": 8,
+        "2025_04_10": 8,
+        "2026_02_05": 9,
+        "2025_08_04": 9,
+        "2026_02_12": 3,
+        "2026_02_04": 1,
+        "2025_02_11": 1,
+        "2026_02_02": 3,
+        "2025_07_07": 3,
+        "2026_01_30": 5,
+        "2025_07_31": 5,
+        "2026_01_28": 3,
+        "2025_08_13": 3,
+        "2026_01_27": 2,
+        "2025_01_30": 2,
+        "2026_02_21": 3,
+        "2025_08_23": 3,
+        "2020_26_03": 1,
+        "2020_25_09": 1
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    },
+    "MTH_2026AA/src/sources.src": {
+      "release_tags_seen": {
+        "2020_26_03": 2,
+        "2020_25_09": 1,
+        "2025_11_24": 4,
+        "2025_05_06": 1,
+        "2026_02_04": 4,
+        "2025_02_11": 1,
+        "2026_01_30": 4,
+        "2025_07_31": 1,
+        "2026_02_21": 5,
+        "2025_08_23": 1,
+        "2026_02_12": 4,
+        "2025_08_15": 2,
+        "2026_01_28": 4,
+        "2025_08_13": 1,
+        "2026_01_27": 4,
+        "2025_01_30": 1,
+        "2026_02_02": 4,
+        "2025_07_07": 1,
+        "2026AA": 3,
+        "2025AB": 1,
+        "2026_02_05": 4,
+        "2025_08_04": 1,
+        "2025_09_17": 4,
+        "2025_04_10": 1,
+        "2026_01_09": 4,
+        "2020AA": 4,
+        "2026_03_02": 3,
+        "2025_09_02": 1,
+        "2025_12_06": 2,
+        "2025_06_24": 1
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    }
+  },
+  "extracted": false,
+  "classification_scope": "Provisional roles by location; code-level input/output review is still required"
+}

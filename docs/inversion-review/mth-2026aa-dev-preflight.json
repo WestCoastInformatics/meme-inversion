@@ -1,0 +1,44 @@
+{
+  "disk": {
+    "total": 214668652544,
+    "used": 102722445312,
+    "free": 111946207232
+  },
+  "memory": [
+    "MemTotal:       32487648 kB",
+    "MemAvailable:   27529144 kB"
+  ],
+  "paths": [
+    {
+      "path": "/site/bin/perl",
+      "kind": "absent"
+    },
+    {
+      "path": "/local/content/MEME/INV_OLD",
+      "kind": "absent"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/INV_OLD",
+      "kind": "absent"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA",
+      "kind": "directory",
+      "bytes": 16384
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB",
+      "kind": "absent"
+    },
+    {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.tgz",
+      "kind": "absent"
+    }
+  ],
+  "source_versions": [
+    "MDR_29_0",
+    "MDR_29_0.tgz",
+    "MTH_2026AA"
+  ],
+  "umls_versions": []
+}

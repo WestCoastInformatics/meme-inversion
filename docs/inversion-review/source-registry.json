@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "design registry; common execution adapters not implemented",
+  "registration_does_not_enable_execution": true,
+  "request_schema": "request.schema.json",
+  "configuration_schema": "configuration.schema.json",
+  "resolution_rules": [
+    "Resolve source by exact canonical registry key; reject unknown or unreviewed registrations before execution",
+    "Require a reviewed adapter, typed source options, source/version case, reference-stage map, runtime and dependency closure",
+    "Freeze registry, adapter, policy, case and artifact identities in the run lock",
+    "Never infer a runnable adapter from the source name, release frequency, directory presence or similarity to another source",
+    "Keep the same common request/configuration fields for every source; add genuine differences through reviewed typed source_options"
+  ],
+  "sources": {
+    "NCI": {
+      "display_name": "NCIt",
+      "common_adapter_implemented": false,
+      "adapter_ref": null,
+      "options_schema_ref": "configuration.schema.json#/$defs/nci_options",
+      "characterization_status": "core comparison completed with separately reviewed fixes",
+      "historical_cases_under_review": [
+        "NCI_2026_10D"
+      ],
+      "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
+      "release_frequency_affects_request_format": false
+    },
+    "SNOMEDCT_US": {
+      "display_name": "SNOMEDCT_US",
+      "common_adapter_implemented": false,
+      "adapter_ref": null,
+      "options_schema_ref": "configuration.schema.json#/$defs/snomed_options",
+      "characterization_status": "unchanged core byte-exact reference reproduction",
+      "historical_cases_under_review": [
+        "SNOMEDCT_US_2026_09_01"
+      ],
+      "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
+      "release_frequency_affects_request_format": false
+    },
+    "MTH": {
+      "display_name": "MTH/UMLS",
+      "common_adapter_implemented": false,
+      "adapter_ref": null,
+      "options_schema_ref": "configuration.schema.json#/$defs/mth_options",
+      "characterization_status": "dependency and archive audit in progress",
+      "historical_cases_under_review": [
+        "MTH_2026AA"
+      ],
+      "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
+      "release_frequency_affects_request_format": false
+    },
+    "MDR": {
+      "display_name": "MDR",
+      "common_adapter_implemented": false,
+      "adapter_ref": null,
+      "options_schema_ref": null,
+      "characterization_status": "production workflow discovery pending",
+      "historical_cases_under_review": [],
+      "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
+      "release_frequency_affects_request_format": false,
+      "discovery_required": [
+        "Identify source-specific scripts, shared libraries, mappings/specifications and actual runtime on meme-edit",
+        "Freeze a matching official archive and identify native/preparation inputs, prior-state dependencies and per-output reference stage",
+        "Establish an unchanged-engine dev replay and independent/source-specific comparison profile before enabling its adapter"
+      ]
+    },
+    "RADLEX": {
+      "display_name": "RADLEX",
+      "common_adapter_implemented": false,
+      "adapter_ref": null,
+      "options_schema_ref": null,
+      "characterization_status": "production workflow discovery pending",
+      "historical_cases_under_review": [],
+      "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
+      "release_frequency_affects_request_format": false,
+      "discovery_required": [
+        "Identify source-specific scripts, shared libraries, mappings/specifications and actual runtime on meme-edit",
+        "Freeze a matching official archive and identify native/preparation inputs, prior-state dependencies and per-output reference stage",
+        "Establish an unchanged-engine dev replay and independent/source-specific comparison profile before enabling its adapter"
+      ]
+    }
+  }
+}

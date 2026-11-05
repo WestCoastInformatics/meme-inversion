@@ -8,6 +8,8 @@ During several production cycles, developers must be able to request an inversio
 
 The first deliverable is a trustworthy replay/comparison apparatus around the existing engines. Parser rewrites follow it. A reference inversion is an observed official result, not an infallible correctness oracle: independent validation and explicit review of intentional corrections are also required.
 
+The common request interface covers an extensible [source registry](source-registry.json), including less frequent MDR and RADLEX inversions. The same source/version/engine/case/stage/profile fields apply to every source. A registration still requires its own production-code capture, runtime/dependency contract, reference-stage mapping and unchanged-engine comparison before execution support is enabled. MDR/RADLEX are discovery-pending; the three initial sources do not define a closed list or a fallback engine for additional sources.
+
 The implementation baseline is a verified snapshot of the operational code on meme-edit, not an earlier project-rework branch. Capture the actual shared and source-specific code, configuration, policies, and runtime dependencies with provenance. The first baseline case must pair that code with a matching official result and preparation state. Older historical cases may need their archived production code to establish unchanged-engine behavior; record that identity separately from the candidate. See the [starting-point decision](assessment.md#implementation-starting-point-operational-code-on-meme-edit).
 
 ## Historical replay is not presumed impossible

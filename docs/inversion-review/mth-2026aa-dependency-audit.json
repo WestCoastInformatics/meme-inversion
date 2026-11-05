@@ -1,0 +1,256 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "umls_object_count": 3984,
+  "umls_total_bytes": 39985122953,
+  "prior_inversion_archive": {
+    "objects": [
+      {
+        "key": "inv/sources/MTH_2025AB.tgz",
+        "bytes": 1614159013,
+        "etag": "\"8dab17a12286117bc1fde5fc5c695ff6-193\"",
+        "last_modified": "2025-11-03T18:37:53+00:00"
+      }
+    ],
+    "total_bytes": 1614159013
+  },
+  "prior_umls_prefix": {
+    "RequestCharged": null,
+    "Prefix": "mr/umls/2025AB/"
+  },
+  "existing_dev_MTH_bytes": 18793508741,
+  "existing_dev_MTH_entries": 147,
+  "candidate_executed": false,
+  "candidate_prepared": false,
+  "current_archive_code_matches_snapshot": true,
+  "current_archive_code_files_compared": 39,
+  "native_input_strategy": "Recover exact archived prepared subset for first core replay; MetamorphoSys generation is separate coverage",
+  "source_registry_additions": {
+    "MDR": {
+      "objects": [
+        {
+          "key": "inv/sources/MDR_17_1.tgz",
+          "bytes": 232143079,
+          "etag": "\"23dfb22241a87df2938d93d602b68f79-28\"",
+          "last_modified": "2022-12-22T15:15:05+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_18_0.tgz",
+          "bytes": 248203172,
+          "etag": "\"b32d0178fa4ac965605242783ffd3d18-30\"",
+          "last_modified": "2022-12-22T15:15:08+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_18_1.tgz",
+          "bytes": 257521951,
+          "etag": "\"4aaa06559e53a1a6db7176f92647de28-31\"",
+          "last_modified": "2022-12-22T15:15:10+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_19_0.tgz",
+          "bytes": 267756720,
+          "etag": "\"c64f05a86933bfa096787185be202876-32\"",
+          "last_modified": "2022-12-22T15:15:15+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_19_1.tgz",
+          "bytes": 259561324,
+          "etag": "\"109d0fcaa0be52245e63e73b74bb3fa3-31\"",
+          "last_modified": "2022-12-22T15:15:15+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_20_0.tgz",
+          "bytes": 260420123,
+          "etag": "\"8bdd71be5bfc1b7d49706057fd3911cf-32\"",
+          "last_modified": "2022-12-22T15:15:15+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_20_1.tgz",
+          "bytes": 376877986,
+          "etag": "\"4198a1c96d0d41183dd429757765c33e-45\"",
+          "last_modified": "2022-12-22T15:15:15+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_21_0.tgz",
+          "bytes": 284333554,
+          "etag": "\"bd7063a994a2383c8841286b26763b07-34\"",
+          "last_modified": "2022-12-22T15:15:15+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_21_1.tgz",
+          "bytes": 280132393,
+          "etag": "\"726a34558746a206c196b477955ea9ac-34\"",
+          "last_modified": "2022-12-22T15:15:24+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_22_0.tgz",
+          "bytes": 241843709,
+          "etag": "\"c65410b23afc69ca0b063a57ff760150-29\"",
+          "last_modified": "2022-12-22T15:15:25+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_22_1.tgz",
+          "bytes": 328728335,
+          "etag": "\"aadd8ee163b90e1a7010e3bdc17aa1b6-40\"",
+          "last_modified": "2022-12-22T15:15:25+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_23_0.tgz",
+          "bytes": 258737266,
+          "etag": "\"809300c53f5737368fd32a85cd3aa646-31\"",
+          "last_modified": "2022-12-22T15:15:26+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_23_1.tgz",
+          "bytes": 349970132,
+          "etag": "\"f9953d9bbbb3dbbe6f8668beafb114ae-42\"",
+          "last_modified": "2022-12-22T15:15:31+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_23_CV19_2020.tgz",
+          "bytes": 264366071,
+          "etag": "\"987ac40cb11c11ab7895b3b1255354b0-32\"",
+          "last_modified": "2022-12-22T15:15:34+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_24_0.tgz",
+          "bytes": 311662280,
+          "etag": "\"3f3f4717e8375ef07d6521af3912d12a-38\"",
+          "last_modified": "2022-12-22T15:15:34+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_24_1.tgz",
+          "bytes": 272327371,
+          "etag": "\"2a1e56ce78200bc37b851722751fe4c6-33\"",
+          "last_modified": "2022-12-22T15:15:36+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_25_0.tgz",
+          "bytes": 367950090,
+          "etag": "\"04b27407de680d975fd178671420962d-44\"",
+          "last_modified": "2022-12-22T15:15:38+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_25_1.tgz",
+          "bytes": 425173789,
+          "etag": "\"bd18050d3120049e18767219a4f7d92d-51\"",
+          "last_modified": "2022-12-22T15:15:43+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_26_0.tgz",
+          "bytes": 236675501,
+          "etag": "\"704b91d25769c95bb897e2bcb942291f-29\"",
+          "last_modified": "2023-03-30T23:23:19+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_26_1.tgz",
+          "bytes": 218056490,
+          "etag": "\"6365976a85c2876db3a4fcdf3efe3c1f-26\"",
+          "last_modified": "2023-09-27T17:02:05+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_27_0.tgz",
+          "bytes": 97767869,
+          "etag": "\"5a8e0a77f951083756033c5a6c1d3ae5-12\"",
+          "last_modified": "2024-03-01T19:23:23+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_27_1.tgz",
+          "bytes": 289322027,
+          "etag": "\"dcf72827f0d9a9671e9ff07ff2d528f8-35\"",
+          "last_modified": "2024-09-13T21:10:24+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_28_0.tgz",
+          "bytes": 346896508,
+          "etag": "\"2ad0abd68547f2a275e5f6ac0627fb98-42\"",
+          "last_modified": "2025-03-12T22:36:40+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_28_1.tgz",
+          "bytes": 298757877,
+          "etag": "\"e2cf074419cf19922b3ec51247339426-36\"",
+          "last_modified": "2025-10-03T22:31:11+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_29_0.tgz",
+          "bytes": 302197586,
+          "etag": "\"46bdd4a4dd0e964b54843337bcc1b73e-37\"",
+          "last_modified": "2026-03-27T17:44:41+00:00"
+        },
+        {
+          "key": "inv/sources/MDR_29_1.tgz",
+          "bytes": 307179117,
+          "etag": "\"265d731694ef8c51eba99049cdeead73-37\"",
+          "last_modified": "2026-10-08T15:57:24+00:00"
+        }
+      ],
+      "total_bytes": 7384562320
+    },
+    "RADLEX": {
+      "objects": [
+        {
+          "key": "inv/sources/RADLEX_082508.tar.gz",
+          "bytes": 2946601,
+          "etag": "\"706dad4cce52d2d18386d5b34c78eae3\"",
+          "last_modified": "2022-12-22T15:30:12+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_3_12.tgz",
+          "bytes": 138567698,
+          "etag": "\"a2c5fe4940b500020f430e37fc3009d4-17\"",
+          "last_modified": "2022-12-22T15:30:12+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_3_13_1.tgz",
+          "bytes": 155049471,
+          "etag": "\"805fa60eff4f1324f7fceb599e82244c-19\"",
+          "last_modified": "2022-12-22T15:30:12+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_3_14.tgz",
+          "bytes": 178932503,
+          "etag": "\"8d89d3e19c62a2988a8d59039e864fd2-22\"",
+          "last_modified": "2022-12-22T15:30:14+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_3_15.tgz",
+          "bytes": 168558705,
+          "etag": "\"a53595dd6ee1a7cee8f7488615bad35a-21\"",
+          "last_modified": "2022-12-22T15:30:15+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_4_0.tgz",
+          "bytes": 151052119,
+          "etag": "\"7a2128a7a8d9d5b007a9c7b2eeb5e2de-19\"",
+          "last_modified": "2022-12-22T15:30:19+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_4_1.tgz",
+          "bytes": 121535613,
+          "etag": "\"a44b1956ee3ec543714818459132f572-15\"",
+          "last_modified": "2022-12-22T15:30:20+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_4_3.tgz",
+          "bytes": 116585150,
+          "etag": "\"2aad3a5425854196ced681acfbec2b1d-14\"",
+          "last_modified": "2026-10-02T17:16:50+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_python_test.tgz",
+          "bytes": 1107,
+          "etag": "\"1e825dd72ed591fc0ad350ffb8dc82f3\"",
+          "last_modified": "2022-12-22T15:30:28+00:00"
+        },
+        {
+          "key": "inv/sources/RADLEX_test.tgz",
+          "bytes": 60362945,
+          "etag": "\"d7982a8f20bba39ede2bad283d356475-8\"",
+          "last_modified": "2022-12-22T15:30:28+00:00"
+        }
+      ],
+      "total_bytes": 1093591912
+    }
+  }
+}
