@@ -1,0 +1,243 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "umls_release": "2026AA",
+  "request": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "umls_release": "2026AA",
+    "objects": [
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRCONSO.RRF",
+        "bytes": 725846020,
+        "etag": "\"aba3448bed6aa5829734f14d076a6ac9-87\"",
+        "last_modified": "2026-06-05T16:48:35+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRREL.RRF",
+        "bytes": 2135135138,
+        "etag": "\"4a5295f0aaaad8de9048e5c601601282-255\"",
+        "last_modified": "2026-06-05T16:49:05+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRSAT.RRF",
+        "bytes": 2498585891,
+        "etag": "\"eb3b2fd07e322baf580fd9adc55f51f5-298\"",
+        "last_modified": "2026-06-05T16:49:17+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRSTY.RRF",
+        "bytes": 146607934,
+        "etag": "\"2be7e2a5afacd578b3ea29ca66060740-18\"",
+        "last_modified": "2026-06-05T16:50:46+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRDEF.RRF",
+        "bytes": 44094496,
+        "etag": "\"a5cd0b12a06c9a2feff79a7c19a3ef06-6\"",
+        "last_modified": "2026-06-05T16:48:41+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRCUI.RRF",
+        "bytes": 107191312,
+        "etag": "\"99550a138b82d0447d51582403f4b6a9-13\"",
+        "last_modified": "2026-06-05T16:48:36+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRCXT.RRF",
+        "bytes": 3659005721,
+        "etag": "\"1e89a706208bfb223e012cec7123312d-437\"",
+        "last_modified": "2026-06-05T16:48:36+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRSAB.RRF",
+        "bytes": 134155,
+        "etag": "\"4eb550473ffb3f74fdc87d377c8a5edc\"",
+        "last_modified": "2026-06-05T16:49:16+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRRANK.RRF",
+        "bytes": 6167,
+        "etag": "\"c69fce01fe86a2c329ed3f89e0d4b061\"",
+        "last_modified": "2026-06-05T16:49:05+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRAUI.RRF",
+        "bytes": 19280660,
+        "etag": "\"815a10665549da1f2e42860dee3a3712-3\"",
+        "last_modified": "2026-06-05T16:48:35+00:00"
+      },
+      {
+        "key": "mr/umls/2026AA/subset3/METASUBSET/MRDOC.RRF",
+        "bytes": 97898,
+        "etag": "\"6da7762a66b415e9c4b2316b204788a4\"",
+        "last_modified": "2026-06-05T16:48:44+00:00"
+      }
+    ]
+  },
+  "files": [
+    {
+      "relative_path": "subset3/METASUBSET/MRCONSO.RRF",
+      "object_identity": {
+        "ContentLength": 725846020,
+        "ETag": "\"aba3448bed6aa5829734f14d076a6ac9-87\"",
+        "LastModified": "2026-06-05T16:48:35+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 725846020,
+        "sha256": "009f2c9e97bc2947522bf8ad76a63f6435923e7c70baecd4303a03ec2062ff3c",
+        "newline_count": 5449965
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRREL.RRF",
+      "object_identity": {
+        "ContentLength": 2135135138,
+        "ETag": "\"4a5295f0aaaad8de9048e5c601601282-255\"",
+        "LastModified": "2026-06-05T16:49:05+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 2135135138,
+        "sha256": "9ffa0eec45a575c00080e319b28fe3d989426206f1babcf495349a5fe18c4a90",
+        "newline_count": 19114268
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRSAT.RRF",
+      "object_identity": {
+        "ContentLength": 2498585891,
+        "ETag": "\"eb3b2fd07e322baf580fd9adc55f51f5-298\"",
+        "LastModified": "2026-06-05T16:49:17+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 2498585891,
+        "sha256": "552edab08be3bcf9cfe21bedf6a4dfd3fec447060d9bec11fbea52bbf768d86d",
+        "newline_count": 26063852
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRSTY.RRF",
+      "object_identity": {
+        "ContentLength": 146607934,
+        "ETag": "\"2be7e2a5afacd578b3ea29ca66060740-18\"",
+        "LastModified": "2026-06-05T16:50:46+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 146607934,
+        "sha256": "8d367ca124fc17f33dd9a6ed22c2c6173d52ff98ec0d4652d65c4678b55a7d54",
+        "newline_count": 2682584
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRDEF.RRF",
+      "object_identity": {
+        "ContentLength": 44094496,
+        "ETag": "\"a5cd0b12a06c9a2feff79a7c19a3ef06-6\"",
+        "LastModified": "2026-06-05T16:48:41+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 44094496,
+        "sha256": "4fa9902a75a94a168b143e42530db9e65355c1cc91274fe5d8ef54ece2ff3b86",
+        "newline_count": 138740
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRCUI.RRF",
+      "object_identity": {
+        "ContentLength": 107191312,
+        "ETag": "\"99550a138b82d0447d51582403f4b6a9-13\"",
+        "LastModified": "2026-06-05T16:48:36+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 107191312,
+        "sha256": "aa1a612da238e8b85060088d63501139203599d7665d0e5fb05b06143c0565f0",
+        "newline_count": 3830553
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRCXT.RRF",
+      "object_identity": {
+        "ContentLength": 3659005721,
+        "ETag": "\"1e89a706208bfb223e012cec7123312d-437\"",
+        "LastModified": "2026-06-05T16:48:36+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 3659005721,
+        "sha256": "1747a5a7c992c990f85cdb88cfaf19f680ee952b7839510555f27e1ba57c9a93",
+        "newline_count": 34565769
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRSAB.RRF",
+      "object_identity": {
+        "ContentLength": 134155,
+        "ETag": "\"4eb550473ffb3f74fdc87d377c8a5edc\"",
+        "LastModified": "2026-06-05T16:49:16+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 134155,
+        "sha256": "2e386c42457741e369cca803146953572ae989cf06dfbba2a897c29bb434de8d",
+        "newline_count": 201
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRRANK.RRF",
+      "object_identity": {
+        "ContentLength": 6167,
+        "ETag": "\"c69fce01fe86a2c329ed3f89e0d4b061\"",
+        "LastModified": "2026-06-05T16:49:05+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 6167,
+        "sha256": "f1efac0d9fe23366659f238b3a6f596e0f5171b2228abb5353aa15a0a0c347f9",
+        "newline_count": 236
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRAUI.RRF",
+      "object_identity": {
+        "ContentLength": 19280660,
+        "ETag": "\"815a10665549da1f2e42860dee3a3712-3\"",
+        "LastModified": "2026-06-05T16:48:35+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 19280660,
+        "sha256": "c78165d55d1b830a2b4f07afde0688a68b70b9212940d9c159d53f098f92420b",
+        "newline_count": 355632
+      }
+    },
+    {
+      "relative_path": "subset3/METASUBSET/MRDOC.RRF",
+      "object_identity": {
+        "ContentLength": 97898,
+        "ETag": "\"6da7762a66b415e9c4b2316b204788a4\"",
+        "LastModified": "2026-06-05T16:48:44+00:00",
+        "VersionId": null
+      },
+      "identity": {
+        "bytes": 97898,
+        "sha256": "29a99d728eb474eb22d5a4052615b70c97e0658a5899538a8fae2d03a284dfef",
+        "newline_count": 1721
+      }
+    }
+  ],
+  "scope": "Archived prepared subset inputs only; not a regenerated MetamorphoSys run or a complete UMLS installation",
+  "aws_profile": "meme",
+  "bucket": "nci-evs-meme",
+  "s3_operations": [
+    "HeadObject",
+    "GetObject via aws s3 cp"
+  ],
+  "started_at": "2026-11-05T15:55:56.614251+00:00",
+  "completed_at": "2026-11-05T15:57:44.943359+00:00"
+}

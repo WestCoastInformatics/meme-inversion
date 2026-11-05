@@ -1,0 +1,1691 @@
+{
+  "version": "MTH_2025AB",
+  "archive_path": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB.tgz",
+  "archive_bytes": 1614159013,
+  "archive_sha256": "624bd3fc17b9b505cbb45332f7dc79a6ae5de14bb1771f93d59b1476372431eb",
+  "member_count": 119,
+  "regular_file_bytes": 8392651612,
+  "entries": [
+    {
+      "path": "MTH_2025AB",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760978135,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2025AB/prev",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760635947,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "../MTH_2025AA"
+    },
+    {
+      "path": "MTH_2025AB/Meta",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760635947,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "/local/content/MEME/MEME5/mr/umls/2025AB/META"
+    },
+    {
+      "path": "MTH_2025AB/env.s",
+      "size": 263,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "7f56e9d6068c0cd6ee8c3a7b37baaf66218fcaaed278d6ad12e61766b6da9277",
+      "newline_count": 13
+    },
+    {
+      "path": "MTH_2025AB/extractlnc.s",
+      "size": 1786,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "fc72417c1fd81c311254ac28ccd2a65a00a3386ec162bec539851dde2184c9bd",
+      "newline_count": 49
+    },
+    {
+      "path": "MTH_2025AB/extractsctus.s",
+      "size": 1436,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "0accc27a56f202963c4dcc3ad44769a180a4ad1dbd9154882d97d8dec0e6eb02",
+      "newline_count": 39
+    },
+    {
+      "path": "MTH_2025AB/fix.mthsab.s",
+      "size": 1021,
+      "mode": "0o755",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "322c5a3e08965fbddc6f78628b04e0528299fdaa789a98f1204a7bddc5b9f0c2",
+      "newline_count": 36
+    },
+    {
+      "path": "MTH_2025AB/initdir.s",
+      "size": 777,
+      "mode": "0o775",
+      "mtime": 1760635944,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "13092b131a3f8ad028ffac7b6e3cdeee88f2e550643516e5e56b8d7513ebe24e",
+      "newline_count": 25
+    },
+    {
+      "path": "MTH_2025AB/make.meme4classes.s",
+      "size": 659,
+      "mode": "0o755",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e4be9fbb346d7adad09ffc5290f789ef345c5276f29f02f26cdb5e1861b9afc6",
+      "newline_count": 16
+    },
+    {
+      "path": "MTH_2025AB/preinvert1.s",
+      "size": 895,
+      "mode": "0o775",
+      "mtime": 1753980595,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "33927c1b9427782184ced1485a5ed602631d3ee8c454ea3900491806ed6fe830",
+      "newline_count": 25
+    },
+    {
+      "path": "MTH_2025AB/preinvert2.s",
+      "size": 2061,
+      "mode": "0o775",
+      "mtime": 1746657006,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "51c582a73a972e70fcb6078798623760dd078a53afaef2ef3f3f4c6b536ddbbe",
+      "newline_count": 55
+    },
+    {
+      "path": "MTH_2025AB/runQA.s",
+      "size": 330,
+      "mode": "0o755",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "cb7337ac819fc4354d5a18fe1941a7addabf4bfd503142dd0a202e2649bf0214",
+      "newline_count": 12
+    },
+    {
+      "path": "MTH_2025AB/updatevsabs.s",
+      "size": 1211,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "f9f1edeb7cd7403e403ccbd3ab8d813194f293687a849b4e6a3acc1e3f7b6d74",
+      "newline_count": 38
+    },
+    {
+      "path": "MTH_2025AB/autoinv.pl",
+      "size": 23309,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d",
+      "newline_count": 513
+    },
+    {
+      "path": "MTH_2025AB/fix.ccs.sf.pl",
+      "size": 144,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "ff7bb5733b3c554fd0c8bfb4f8f3a6a65de2d100eeaafe05777fb2ea4e170a48",
+      "newline_count": 9
+    },
+    {
+      "path": "MTH_2025AB/fix.vsrc.atoms.pl",
+      "size": 482,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "5bedc80feccd922b193d3c0b2f338d446f3bf28621e864ddfef639b42c9d4520",
+      "newline_count": 22
+    },
+    {
+      "path": "MTH_2025AB/genmmsysconfigs.pl",
+      "size": 2475,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "ccc95a44ecf50b23d9fc8a174c535bc4dc99fc00ad97caa8c209017f71e2e627",
+      "newline_count": 79
+    },
+    {
+      "path": "MTH_2025AB/get.saidpts.pl",
+      "size": 1111,
+      "mode": "0o755",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "f7bd7cf278645818e5ed89759f782c01d43ed3507388ed96c03d58cb863237e3",
+      "newline_count": 56
+    },
+    {
+      "path": "MTH_2025AB/guess.ncisources.spec.pl",
+      "size": 1093,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "cdcafcea8d87a4e4ae042b030c154f96df089a951de025a4cbabccfd2aa369b9",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2025AB/make.meme4classes.pl",
+      "size": 668,
+      "mode": "0o755",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "343237b79a7f789a17a959bf718d1d42f7250a89a8af324dcd697e00d688f01a",
+      "newline_count": 31
+    },
+    {
+      "path": "MTH_2025AB/make.sourcestermgroups.pl",
+      "size": 3562,
+      "mode": "0o755",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b293b1eab7e2c01c07d5dda31342efa2f71e909fe94989bfa1f2b8f591350a77",
+      "newline_count": 131
+    },
+    {
+      "path": "MTH_2025AB/mrcxt2raw3.pl",
+      "size": 1756,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "b4d5d287f1e69d93ddae99b4cd3c2bc993c27f40b1668c6090c18ac84e6e374f",
+      "newline_count": 55
+    },
+    {
+      "path": "MTH_2025AB/remove.oldsrcvsabs.pl",
+      "size": 790,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "816bbd6c7bcc600b0f5fb7149598b6ac6bae136a27b2be87a4d1aca231300d29",
+      "newline_count": 26
+    },
+    {
+      "path": "MTH_2025AB/updatevsabs.pl",
+      "size": 1020,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "eef63b30752c2a956b88be52321ec28aa4fd6414bf4b0dbee602b4b256603dc6",
+      "newline_count": 37
+    },
+    {
+      "path": "MTH_2025AB/raw_to_contexts.csh",
+      "size": 5699,
+      "mode": "0o775",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1",
+      "newline_count": 184
+    },
+    {
+      "path": "MTH_2025AB/bigrange.spec",
+      "size": 53,
+      "mode": "0o664",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "77beef0af7c82fb1ee705f0d299091f27d568a2a683d4c567eb16607fe1ad137",
+      "newline_count": 2
+    },
+    {
+      "path": "MTH_2025AB/inv1.spec",
+      "size": 1302,
+      "mode": "0o664",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "adeddeedf73eb97161f1d324f87a89c88ca29f04994c5682401a8782a08fe024",
+      "newline_count": 33
+    },
+    {
+      "path": "MTH_2025AB/inv2.spec",
+      "size": 3422,
+      "mode": "0o664",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "88d6665fcf3e90be9d6206e3e92ec1099496bf43a1a73adb115e1a9e789cbe13",
+      "newline_count": 80
+    },
+    {
+      "path": "MTH_2025AB/inv3.spec",
+      "size": 770,
+      "mode": "0o664",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "184e02a0dcd44e58ebf16ab6c074cc50882d45b7ad4b18e780ac9e1f80c8bd8d",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/ncimid.readme",
+      "size": 2194,
+      "mode": "0o644",
+      "mtime": 1746641078,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "d4c22bee75d3d7ef7e0fa90e1c25fae6a5711efe5b51cd399f3d5c2d92a60f86",
+      "newline_count": 39
+    },
+    {
+      "path": "MTH_2025AB/old",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760636158,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "../MTH_2025AA"
+    },
+    {
+      "path": "MTH_2025AB/runmmsys.s",
+      "size": 4047,
+      "mode": "0o775",
+      "mtime": 1760636745,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e0ba341f66dc6cdeadbad85e3eb8d509a81338b3989e68b5909e3a0988664f47",
+      "newline_count": 92
+    },
+    {
+      "path": "MTH_2025AB/sab.vsab.map.bk",
+      "size": 1350,
+      "mode": "0o664",
+      "mtime": 1760636774,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "336b63826232b1750b6f8318711fc6d099bf8d2f49792b1309676bb8c8b08359",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2025AB/updatevsabs.log",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760647210,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/previnvert1.log",
+      "size": 49,
+      "mode": "0o664",
+      "mtime": 1760647212,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "12dba51e01a77f9751b5aa5c631eeb3b462d84ffaed3f03071bdf0995bd99894",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2025AB/ncisources.spec",
+      "size": 5919,
+      "mode": "0o664",
+      "mtime": 1760647212,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "1bce3303ae8ca68a6c306bb01700f0ec76ba0d51911d816dc4809c389688415a",
+      "newline_count": 197
+    },
+    {
+      "path": "MTH_2025AB/ncisources.spec.guessed",
+      "size": 5919,
+      "mode": "0o664",
+      "mtime": 1760647212,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "1bce3303ae8ca68a6c306bb01700f0ec76ba0d51911d816dc4809c389688415a",
+      "newline_count": 197
+    },
+    {
+      "path": "MTH_2025AB/sab.vsab.map",
+      "size": 1341,
+      "mode": "0o664",
+      "mtime": 1760647204,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "744d0cef15d7dc4247f202250e60860a3aa4cae4013cf2a9f4ec4fa35b9d64d0",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2025AB/p2.log",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760715977,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/ncimid.sources",
+      "size": 2465,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "7e0e6a8bd4b2b0d2ceccb69f545914b4e5b7a261591f6680a27cb04c58de0ec8",
+      "newline_count": 120
+    },
+    {
+      "path": "MTH_2025AB/ncimid.termgroups",
+      "size": 10161,
+      "mode": "0o664",
+      "mtime": 1760715980,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "802f5403b549f214e7056651c50733e0cb3985b25aa3509d8144a3cadcd40888",
+      "newline_count": 472
+    },
+    {
+      "path": "MTH_2025AB/template.prop",
+      "size": 26259,
+      "mode": "0o600",
+      "mtime": 1762164000,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "7e7a457cb7bea9625c0e8445aee06b44b45d60e66c27db711c3b60c7e3a3e397",
+      "newline_count": 128
+    },
+    {
+      "path": "MTH_2025AB/ncirest.prop",
+      "size": 26337,
+      "mode": "0o664",
+      "mtime": 1760715980,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "f3c7acc5784274f65f3348d1ec14f881e2ebc55a6818252ee938eb20a752dae9",
+      "newline_count": 130
+    },
+    {
+      "path": "MTH_2025AB/runmmsys.log",
+      "size": 7214,
+      "mode": "0o664",
+      "mtime": 1760717826,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "f6c00e2b391c5e36df673c7e207d953b6880c1b169b22b5f6348363910a79617",
+      "newline_count": 65
+    },
+    {
+      "path": "MTH_2025AB/METASUBSET3",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760715980,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "/local/content/MEME/MEME5/mr/umls/2025AB/DVDIMAGE/../subset3/METASUBSET"
+    },
+    {
+      "path": "MTH_2025AB/Meta3",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760715980,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "METASUBSET3"
+    },
+    {
+      "path": "MTH_2025AB/README.txt.orig",
+      "size": 6556,
+      "mode": "0o664",
+      "mtime": 1760719888,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "19070b49beb6cb468bc1f3a0b04e9b87c83c8395ef7b64d4f7a605189b266239",
+      "newline_count": 159
+    },
+    {
+      "path": "MTH_2025AB/src_data",
+      "size": 36,
+      "mode": "0o644",
+      "mtime": 1760720381,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "eef1302ba73e81b02540473c374b7f49f92305c76d5f468e8d632fb5cf72a103",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2025AB/invert1.s",
+      "size": 4706,
+      "mode": "0o755",
+      "mtime": 1760720423,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "5dbbe9cb6324ca5941362176686a3605036c57f1cf6bddae4d5007ba0d854cb5",
+      "newline_count": 111
+    },
+    {
+      "path": "MTH_2025AB/invert2.s",
+      "size": 8969,
+      "mode": "0o755",
+      "mtime": 1760720439,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "a315566709e9b111b5c9c0457ec0ca772301d84fe182a8cd2d1cf55cc4074196",
+      "newline_count": 203
+    },
+    {
+      "path": "MTH_2025AB/i1.log",
+      "size": 27,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "4965db1ece457e99d7d6416435cbc50d590a834dbb5656aea9e35013a82f4f1d",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2025AB/rsabs3",
+      "size": 267,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "2b8ad6375725d5a6d83246198e01c4fd2a35cc47347c180f160e628d35f53b39",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2025AB/vsabs.deleted",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/bin",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "."
+    },
+    {
+      "path": "MTH_2025AB/etc",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "symlink",
+      "target": "."
+    },
+    {
+      "path": "MTH_2025AB/qa",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720479,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2025AB/src",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1760731910,
+      "role": "unclassified-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2025AB/src/bin",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": ".."
+    },
+    {
+      "path": "MTH_2025AB/src/Meta",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "../Meta3"
+    },
+    {
+      "path": "MTH_2025AB/src/vsab.updates",
+      "size": 996,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "3f6b969fc299c2298dd941f81e0317869c51a8612b0f78d36b53d2838385cc45",
+      "newline_count": 44
+    },
+    {
+      "path": "MTH_2025AB/src/sabs_updated_umls",
+      "size": 366,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2d43ae8f8481d33c34d43d850f236463c177e7990cf909896822087dafc427f9",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/src/rsabs-updated.umls",
+      "size": 132,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "187a70362185edc805a09c7e7f4e157ac11fb86dab8dbf1ce41b9603fd3dbf20",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/src/vcodes_updated",
+      "size": 174,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "52ed5a0832a893d3811f9d9b7ccbb2bd6ff5fb06198a0deadbe01e331fb6141e",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/src/highranks.txt",
+      "size": 854,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "707ba57491759d41a8a367ea3a1c7911f88f7b64137d10ce44b89ce57abc9779",
+      "newline_count": 45
+    },
+    {
+      "path": "MTH_2025AB/src/termgroups.src",
+      "size": 8115,
+      "mode": "0o664",
+      "mtime": 1760720479,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "d0563a671de323f66523a54132c9b2bee8e801552b54bf62500c3b8fc54e1a50",
+      "newline_count": 154
+    },
+    {
+      "path": "MTH_2025AB/src/src_data",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "../src_data"
+    },
+    {
+      "path": "MTH_2025AB/src/SRCbuilder.log",
+      "size": 390,
+      "mode": "0o664",
+      "mtime": 1760721613,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "0ecec7bb073f20c45c6f9d565bf3d7ed2c146fd27700f74aa924489db26ffb2a",
+      "newline_count": 30
+    },
+    {
+      "path": "MTH_2025AB/src/attr_src",
+      "size": 109,
+      "mode": "0o664",
+      "mtime": 1760721613,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "8f9925c8ce522f232805bd0c2dda202b4013a812b80feefb2695a7f15b345b7c",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2025AB/src/class_src",
+      "size": 142,
+      "mode": "0o664",
+      "mtime": 1760721613,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "4f61c4379e8c558f848fae300d8137c18e1190cc1b26aa710f3dbd4cecd6fca9",
+      "newline_count": 2
+    },
+    {
+      "path": "MTH_2025AB/src/rel_src",
+      "size": 103,
+      "mode": "0o664",
+      "mtime": 1760721613,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e6851941919968fa5235f05ea4dad7119ff42f9bcbc07ec1131202fe651ff166",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2025AB/src/merge_src",
+      "size": 67,
+      "mode": "0o664",
+      "mtime": 1760721613,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3c7e531b0ff77c8d1504196203607d55d0bbbeb8f5a79486771fda30ccfe84e",
+      "newline_count": 1
+    },
+    {
+      "path": "MTH_2025AB/src/inv3.spec",
+      "size": 768,
+      "mode": "0o664",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "8a4cec910922a59b3d1a218347c99ee498ca4c70ac66ec7808a22e400dd09aa3",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/src/MRCONSO.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRCONSO.RRF"
+    },
+    {
+      "path": "MTH_2025AB/src/MRSAT.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRSAT.RRF"
+    },
+    {
+      "path": "MTH_2025AB/src/MRSTY.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRSTY.RRF"
+    },
+    {
+      "path": "MTH_2025AB/src/MRDEF.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRDEF.RRF"
+    },
+    {
+      "path": "MTH_2025AB/src/MRREL.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRREL.RRF"
+    },
+    {
+      "path": "MTH_2025AB/src/MRCUI.RRF",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760720555,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "Meta/MRCUI.RRF"
+    },
+    {
+      "path": "MTH_2025AB/src/auis_nonupdatedSAB_moved",
+      "size": 6000,
+      "mode": "0o664",
+      "mtime": 1760720575,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "349c4366afaa4ea8d9e823ef4bc7cf22779f1f1b534686bcc3ca80304bef5b92",
+      "newline_count": 326
+    },
+    {
+      "path": "MTH_2025AB/src/cui_merges",
+      "size": 63216,
+      "mode": "0o664",
+      "mtime": 1760720577,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "f974abf8c47631c643fcf8d3372500cbd628204658f96dc7f94e80b59af96ad2",
+      "newline_count": 3512
+    },
+    {
+      "path": "MTH_2025AB/src/inv1.spec",
+      "size": 1306,
+      "mode": "0o664",
+      "mtime": 1760720577,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "f4ea8f1aa02314b162ae7d5fef44b6a1993631e01b0cc9f120b38c0b2e60f758",
+      "newline_count": 33
+    },
+    {
+      "path": "MTH_2025AB/src/inv2.spec",
+      "size": 3426,
+      "mode": "0o664",
+      "mtime": 1760720577,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2cb7f80ce9b330865a67412dee83cabe3f7301fabe09dc9e77417976c049559a",
+      "newline_count": 80
+    },
+    {
+      "path": "MTH_2025AB/src/autoinv.log",
+      "size": 545,
+      "mode": "0o664",
+      "mtime": 1760731783,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "fb8c9c64497625a08befcf519734232d7c74fafdf159f43771e4ac03c0cb86cd",
+      "newline_count": 12
+    },
+    {
+      "path": "MTH_2025AB/src/classes_atoms.src",
+      "size": 699894819,
+      "mode": "0o664",
+      "mtime": 1760731910,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "26fc53c0b426fd321151d0d34a7490e2b850daa6e05c2228352ab6a915cc2631",
+      "newline_count": 4941148
+    },
+    {
+      "path": "MTH_2025AB/src/sources.src",
+      "size": 13607,
+      "mode": "0o664",
+      "mtime": 1760720555,
+      "role": "prepared-metadata-input",
+      "kind": "file",
+      "sha256": "dd883d1b55268beb91d10fc302f6ab7a623aeec6c6de16bfed4211fcfe66889f",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/src/aui_said_map",
+      "size": 142536514,
+      "mode": "0o664",
+      "mtime": 1760722347,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "11b9b67db2cfd34e264769c918fe716e28c1780225aca3966ad2a60481aa341d",
+      "newline_count": 4940821
+    },
+    {
+      "path": "MTH_2025AB/src/cui.splitonly.new",
+      "size": 99,
+      "mode": "0o664",
+      "mtime": 1760722341,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "934a0477b6108d365e8705c678b776638fe124959b5cffb688fef2eb104cbea1",
+      "newline_count": 11
+    },
+    {
+      "path": "MTH_2025AB/src/cui_splitonly_said_map",
+      "size": 209,
+      "mode": "0o664",
+      "mtime": 1760722343,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "0e55b679bb2de7af00909966f8a9876af2269dd675fafcfa892cc3fc2f741026",
+      "newline_count": 11
+    },
+    {
+      "path": "MTH_2025AB/src/moved_aui_said_map",
+      "size": 9260,
+      "mode": "0o664",
+      "mtime": 1760722344,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "00e2d2636e66adafabf5850a097dc0091fcdcc6f1cf5eb18b7345eb6c6e09350",
+      "newline_count": 326
+    },
+    {
+      "path": "MTH_2025AB/src/cui_said_map",
+      "size": 41969461,
+      "mode": "0o664",
+      "mtime": 1760722349,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+      "newline_count": 2208919
+    },
+    {
+      "path": "MTH_2025AB/src/rel_cui_said_map",
+      "size": 41969461,
+      "mode": "0o664",
+      "mtime": 1760722349,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+      "newline_count": 2208919
+    },
+    {
+      "path": "MTH_2025AB/src/aui_said_map2",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760722349,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "aui_said_map"
+    },
+    {
+      "path": "MTH_2025AB/src/rel_cui_said_map2",
+      "size": 0,
+      "mode": "0o777",
+      "mtime": 1760722349,
+      "role": "official-inversion-output-or-state",
+      "kind": "symlink",
+      "target": "rel_cui_said_map"
+    },
+    {
+      "path": "MTH_2025AB/src/attributes.src",
+      "size": 3255622923,
+      "mode": "0o664",
+      "mtime": 1760731417,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "9156207d78701a4c3aa96ced9b5b59d9092b2dd39eed7b025c7e0cdf5240d4ee",
+      "newline_count": 22307903
+    },
+    {
+      "path": "MTH_2025AB/src/mergefacts.src",
+      "size": 260147,
+      "mode": "0o664",
+      "mtime": 1760730497,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2da609603cf92bd82258028527ef21e0507f27479a987304ceae4b15f883358c",
+      "newline_count": 3839
+    },
+    {
+      "path": "MTH_2025AB/src/bequeathal.relationships.src",
+      "size": 464643,
+      "mode": "0o664",
+      "mtime": 1760730826,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "bc6f7fe1c671cb7d29ada0f98ad0857275dec1309380a75135d70da9e89dcb59",
+      "newline_count": 5175
+    },
+    {
+      "path": "MTH_2025AB/src/used.vsabs",
+      "size": 342,
+      "mode": "0o664",
+      "mtime": 1760730841,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "d7e650bd8e40f26229b94faafa7098a5883606badba3cef57d87e03e4a4ba5e5",
+      "newline_count": 20
+    },
+    {
+      "path": "MTH_2025AB/src/missing.vsabs",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760730841,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/src/MRDOC.RRF",
+      "size": 97794,
+      "mode": "0o664",
+      "mtime": 1760730841,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "53937af6a4459cd81096d021119820b85b2f97969bdf8cc92409726abb34b692",
+      "newline_count": 1716
+    },
+    {
+      "path": "MTH_2025AB/src/missing.tgs",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760730844,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/src/relationships.src",
+      "size": 831738288,
+      "mode": "0o664",
+      "mtime": 1760730854,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "07c9324b89118e65a50a13b0de550e6145991924d3001ba75e33142ddcd04e04",
+      "newline_count": 6958217
+    },
+    {
+      "path": "MTH_2025AB/src/attributes.src.nocxts.gz",
+      "size": 460915278,
+      "mode": "0o664",
+      "mtime": 1760725256,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "6f3077c8c3df17475bcbf330516db314c8850760afc5912be94fdaea4283c07a",
+      "newline_count": 1699087
+    },
+    {
+      "path": "MTH_2025AB/src/raw3",
+      "size": 0,
+      "mode": "0o775",
+      "mtime": 1760731797,
+      "role": "official-inversion-output-or-state",
+      "kind": "directory"
+    },
+    {
+      "path": "MTH_2025AB/src/src-root.cuis.updated",
+      "size": 189,
+      "mode": "0o664",
+      "mtime": 1760730918,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2fe0c797a1f2f3b8f2b374f2c378c799096915258eaa36471dc5bde0075bf975",
+      "newline_count": 21
+    },
+    {
+      "path": "MTH_2025AB/src/stat_report.log",
+      "size": 150,
+      "mode": "0o664",
+      "mtime": 1760731416,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "8c55f17695f327cb5112e5fbbb7ab3993dbbf3fd6b623391e68ac1701235f903",
+      "newline_count": 15
+    },
+    {
+      "path": "MTH_2025AB/src/attributes.contexts-all.src",
+      "size": 717308066,
+      "mode": "0o664",
+      "mtime": 1760731416,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "0548c23b98d5ea4474c938d7790ef3d6d0c05e33ed7a86e880456c4861cedf30",
+      "newline_count": 1498818
+    },
+    {
+      "path": "MTH_2025AB/src/runQA.log",
+      "size": 2445,
+      "mode": "0o664",
+      "mtime": 1760731498,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "62f0d67c44f3c9498c0045172c80d5e0996a8fe94bee39fa365b15d95616196e",
+      "newline_count": 51
+    },
+    {
+      "path": "MTH_2025AB/src/ERROR_LOG",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760731417,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/src/contexts.src",
+      "size": 408429392,
+      "mode": "0o664",
+      "mtime": 1760731797,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "2caa7ad3c92b204d149f77adc28e84640ae182293fb1785a65489d41bfbf6772",
+      "newline_count": 1652095
+    },
+    {
+      "path": "MTH_2025AB/src/said.ptsaid",
+      "size": 98823000,
+      "mode": "0o664",
+      "mtime": 1760731873,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "789851969f4ccefa5e36ec6eb19146fb918fc0add9d87f563858479ff503f6ad",
+      "newline_count": 4941150
+    },
+    {
+      "path": "MTH_2025AB/src/ptsaid.order",
+      "size": 22126100,
+      "mode": "0o664",
+      "mtime": 1760731876,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "a1953cbe77368f1b5a5fb057e321613473bd6f22e4924569c3035c8adc8f468f",
+      "newline_count": 2212610
+    },
+    {
+      "path": "MTH_2025AB/src/classes_atoms.src.raw",
+      "size": 758441303,
+      "mode": "0o664",
+      "mtime": 1760722239,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "c979ec092d8bd99b5f5bab89a300748c5d75c0d17e789f3c4d7830eb3c983b5b",
+      "newline_count": 4941150
+    },
+    {
+      "path": "MTH_2025AB/src/umlscui.txt",
+      "size": 911764853,
+      "mode": "0o664",
+      "mtime": 1760732026,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "0a173454fa7df00decfb85a33d5b26f72f416f8348d8903d3e55f900ee0f885c",
+      "newline_count": 10654777
+    },
+    {
+      "path": "MTH_2025AB/xm.tofix",
+      "size": 0,
+      "mode": "0o664",
+      "mtime": 1760721306,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "newline_count": 0
+    },
+    {
+      "path": "MTH_2025AB/range3.spec",
+      "size": 55,
+      "mode": "0o664",
+      "mtime": 1760721563,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "171654423834ff9268892014baedc0779a84feea128c53ffdcbc5c027c32c151",
+      "newline_count": 2
+    },
+    {
+      "path": "MTH_2025AB/i2.log",
+      "size": 241,
+      "mode": "0o664",
+      "mtime": 1760731417,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "d0950865574316ff0e0c17dac4183afd843cd2d4c9315e8154df7f7190fc568f",
+      "newline_count": 6
+    },
+    {
+      "path": "MTH_2025AB/QA_SUM.18397.1760731417.tmp",
+      "size": 811,
+      "mode": "0o664",
+      "mtime": 1760731509,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "9c3f8ca2ee869b3489d857cc3062e2f6302fe52d23769c551e4c7031229e5508",
+      "newline_count": 22
+    },
+    {
+      "path": "MTH_2025AB/QA_FILE.18397.1760731417.tmp",
+      "size": 189,
+      "mode": "0o664",
+      "mtime": 1760731509,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "93c3b01c8d8889742c19971153c9effa45dd1af84016f453dd095fc0c56e1de1",
+      "newline_count": 8
+    },
+    {
+      "path": "MTH_2025AB/README.getdatafromnlm.txt",
+      "size": 3353,
+      "mode": "0o664",
+      "mtime": 1760978135,
+      "role": "unclassified-state",
+      "kind": "file",
+      "sha256": "7245be0bc9186ce94cca8dd89be3623e285dc645f626c92d0cbebd1b0bc835d7",
+      "newline_count": 78
+    }
+  ],
+  "stages": {
+    "src": [
+      {
+        "path": "MTH_2025AB/src/vsab.updates",
+        "size": 996,
+        "mode": "0o664",
+        "mtime": 1760720479,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "3f6b969fc299c2298dd941f81e0317869c51a8612b0f78d36b53d2838385cc45",
+        "newline_count": 44
+      },
+      {
+        "path": "MTH_2025AB/src/sabs_updated_umls",
+        "size": 366,
+        "mode": "0o664",
+        "mtime": 1760720479,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2d43ae8f8481d33c34d43d850f236463c177e7990cf909896822087dafc427f9",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2025AB/src/rsabs-updated.umls",
+        "size": 132,
+        "mode": "0o664",
+        "mtime": 1760720479,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "187a70362185edc805a09c7e7f4e157ac11fb86dab8dbf1ce41b9603fd3dbf20",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2025AB/src/vcodes_updated",
+        "size": 174,
+        "mode": "0o664",
+        "mtime": 1760720479,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "52ed5a0832a893d3811f9d9b7ccbb2bd6ff5fb06198a0deadbe01e331fb6141e",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2025AB/src/highranks.txt",
+        "size": 854,
+        "mode": "0o664",
+        "mtime": 1760720479,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "707ba57491759d41a8a367ea3a1c7911f88f7b64137d10ce44b89ce57abc9779",
+        "newline_count": 45
+      },
+      {
+        "path": "MTH_2025AB/src/termgroups.src",
+        "size": 8115,
+        "mode": "0o664",
+        "mtime": 1760720479,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "d0563a671de323f66523a54132c9b2bee8e801552b54bf62500c3b8fc54e1a50",
+        "newline_count": 154
+      },
+      {
+        "path": "MTH_2025AB/src/SRCbuilder.log",
+        "size": 390,
+        "mode": "0o664",
+        "mtime": 1760721613,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "0ecec7bb073f20c45c6f9d565bf3d7ed2c146fd27700f74aa924489db26ffb2a",
+        "newline_count": 30
+      },
+      {
+        "path": "MTH_2025AB/src/attr_src",
+        "size": 109,
+        "mode": "0o664",
+        "mtime": 1760721613,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "8f9925c8ce522f232805bd0c2dda202b4013a812b80feefb2695a7f15b345b7c",
+        "newline_count": 1
+      },
+      {
+        "path": "MTH_2025AB/src/class_src",
+        "size": 142,
+        "mode": "0o664",
+        "mtime": 1760721613,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "4f61c4379e8c558f848fae300d8137c18e1190cc1b26aa710f3dbd4cecd6fca9",
+        "newline_count": 2
+      },
+      {
+        "path": "MTH_2025AB/src/rel_src",
+        "size": 103,
+        "mode": "0o664",
+        "mtime": 1760721613,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e6851941919968fa5235f05ea4dad7119ff42f9bcbc07ec1131202fe651ff166",
+        "newline_count": 1
+      },
+      {
+        "path": "MTH_2025AB/src/merge_src",
+        "size": 67,
+        "mode": "0o664",
+        "mtime": 1760721613,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3c7e531b0ff77c8d1504196203607d55d0bbbeb8f5a79486771fda30ccfe84e",
+        "newline_count": 1
+      },
+      {
+        "path": "MTH_2025AB/src/inv3.spec",
+        "size": 768,
+        "mode": "0o664",
+        "mtime": 1760720555,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "8a4cec910922a59b3d1a218347c99ee498ca4c70ac66ec7808a22e400dd09aa3",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2025AB/src/auis_nonupdatedSAB_moved",
+        "size": 6000,
+        "mode": "0o664",
+        "mtime": 1760720575,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "349c4366afaa4ea8d9e823ef4bc7cf22779f1f1b534686bcc3ca80304bef5b92",
+        "newline_count": 326
+      },
+      {
+        "path": "MTH_2025AB/src/cui_merges",
+        "size": 63216,
+        "mode": "0o664",
+        "mtime": 1760720577,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "f974abf8c47631c643fcf8d3372500cbd628204658f96dc7f94e80b59af96ad2",
+        "newline_count": 3512
+      },
+      {
+        "path": "MTH_2025AB/src/inv1.spec",
+        "size": 1306,
+        "mode": "0o664",
+        "mtime": 1760720577,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "f4ea8f1aa02314b162ae7d5fef44b6a1993631e01b0cc9f120b38c0b2e60f758",
+        "newline_count": 33
+      },
+      {
+        "path": "MTH_2025AB/src/inv2.spec",
+        "size": 3426,
+        "mode": "0o664",
+        "mtime": 1760720577,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2cb7f80ce9b330865a67412dee83cabe3f7301fabe09dc9e77417976c049559a",
+        "newline_count": 80
+      },
+      {
+        "path": "MTH_2025AB/src/autoinv.log",
+        "size": 545,
+        "mode": "0o664",
+        "mtime": 1760731783,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "fb8c9c64497625a08befcf519734232d7c74fafdf159f43771e4ac03c0cb86cd",
+        "newline_count": 12
+      },
+      {
+        "path": "MTH_2025AB/src/classes_atoms.src",
+        "size": 699894819,
+        "mode": "0o664",
+        "mtime": 1760731910,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "26fc53c0b426fd321151d0d34a7490e2b850daa6e05c2228352ab6a915cc2631",
+        "newline_count": 4941148
+      },
+      {
+        "path": "MTH_2025AB/src/sources.src",
+        "size": 13607,
+        "mode": "0o664",
+        "mtime": 1760720555,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "dd883d1b55268beb91d10fc302f6ab7a623aeec6c6de16bfed4211fcfe66889f",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2025AB/src/aui_said_map",
+        "size": 142536514,
+        "mode": "0o664",
+        "mtime": 1760722347,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "11b9b67db2cfd34e264769c918fe716e28c1780225aca3966ad2a60481aa341d",
+        "newline_count": 4940821
+      },
+      {
+        "path": "MTH_2025AB/src/cui.splitonly.new",
+        "size": 99,
+        "mode": "0o664",
+        "mtime": 1760722341,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "934a0477b6108d365e8705c678b776638fe124959b5cffb688fef2eb104cbea1",
+        "newline_count": 11
+      },
+      {
+        "path": "MTH_2025AB/src/cui_splitonly_said_map",
+        "size": 209,
+        "mode": "0o664",
+        "mtime": 1760722343,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "0e55b679bb2de7af00909966f8a9876af2269dd675fafcfa892cc3fc2f741026",
+        "newline_count": 11
+      },
+      {
+        "path": "MTH_2025AB/src/moved_aui_said_map",
+        "size": 9260,
+        "mode": "0o664",
+        "mtime": 1760722344,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "00e2d2636e66adafabf5850a097dc0091fcdcc6f1cf5eb18b7345eb6c6e09350",
+        "newline_count": 326
+      },
+      {
+        "path": "MTH_2025AB/src/cui_said_map",
+        "size": 41969461,
+        "mode": "0o664",
+        "mtime": 1760722349,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+        "newline_count": 2208919
+      },
+      {
+        "path": "MTH_2025AB/src/rel_cui_said_map",
+        "size": 41969461,
+        "mode": "0o664",
+        "mtime": 1760722349,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+        "newline_count": 2208919
+      },
+      {
+        "path": "MTH_2025AB/src/attributes.src",
+        "size": 3255622923,
+        "mode": "0o664",
+        "mtime": 1760731417,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "9156207d78701a4c3aa96ced9b5b59d9092b2dd39eed7b025c7e0cdf5240d4ee",
+        "newline_count": 22307903
+      },
+      {
+        "path": "MTH_2025AB/src/mergefacts.src",
+        "size": 260147,
+        "mode": "0o664",
+        "mtime": 1760730497,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2da609603cf92bd82258028527ef21e0507f27479a987304ceae4b15f883358c",
+        "newline_count": 3839
+      },
+      {
+        "path": "MTH_2025AB/src/bequeathal.relationships.src",
+        "size": 464643,
+        "mode": "0o664",
+        "mtime": 1760730826,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "bc6f7fe1c671cb7d29ada0f98ad0857275dec1309380a75135d70da9e89dcb59",
+        "newline_count": 5175
+      },
+      {
+        "path": "MTH_2025AB/src/used.vsabs",
+        "size": 342,
+        "mode": "0o664",
+        "mtime": 1760730841,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "d7e650bd8e40f26229b94faafa7098a5883606badba3cef57d87e03e4a4ba5e5",
+        "newline_count": 20
+      },
+      {
+        "path": "MTH_2025AB/src/missing.vsabs",
+        "size": 0,
+        "mode": "0o664",
+        "mtime": 1760730841,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "newline_count": 0
+      },
+      {
+        "path": "MTH_2025AB/src/MRDOC.RRF",
+        "size": 97794,
+        "mode": "0o664",
+        "mtime": 1760730841,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "53937af6a4459cd81096d021119820b85b2f97969bdf8cc92409726abb34b692",
+        "newline_count": 1716
+      },
+      {
+        "path": "MTH_2025AB/src/missing.tgs",
+        "size": 0,
+        "mode": "0o664",
+        "mtime": 1760730844,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "newline_count": 0
+      },
+      {
+        "path": "MTH_2025AB/src/relationships.src",
+        "size": 831738288,
+        "mode": "0o664",
+        "mtime": 1760730854,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "07c9324b89118e65a50a13b0de550e6145991924d3001ba75e33142ddcd04e04",
+        "newline_count": 6958217
+      },
+      {
+        "path": "MTH_2025AB/src/attributes.src.nocxts.gz",
+        "size": 460915278,
+        "mode": "0o664",
+        "mtime": 1760725256,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "6f3077c8c3df17475bcbf330516db314c8850760afc5912be94fdaea4283c07a",
+        "newline_count": 1699087
+      },
+      {
+        "path": "MTH_2025AB/src/src-root.cuis.updated",
+        "size": 189,
+        "mode": "0o664",
+        "mtime": 1760730918,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2fe0c797a1f2f3b8f2b374f2c378c799096915258eaa36471dc5bde0075bf975",
+        "newline_count": 21
+      },
+      {
+        "path": "MTH_2025AB/src/stat_report.log",
+        "size": 150,
+        "mode": "0o664",
+        "mtime": 1760731416,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "8c55f17695f327cb5112e5fbbb7ab3993dbbf3fd6b623391e68ac1701235f903",
+        "newline_count": 15
+      },
+      {
+        "path": "MTH_2025AB/src/attributes.contexts-all.src",
+        "size": 717308066,
+        "mode": "0o664",
+        "mtime": 1760731416,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "0548c23b98d5ea4474c938d7790ef3d6d0c05e33ed7a86e880456c4861cedf30",
+        "newline_count": 1498818
+      },
+      {
+        "path": "MTH_2025AB/src/runQA.log",
+        "size": 2445,
+        "mode": "0o664",
+        "mtime": 1760731498,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "62f0d67c44f3c9498c0045172c80d5e0996a8fe94bee39fa365b15d95616196e",
+        "newline_count": 51
+      },
+      {
+        "path": "MTH_2025AB/src/ERROR_LOG",
+        "size": 0,
+        "mode": "0o664",
+        "mtime": 1760731417,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "newline_count": 0
+      },
+      {
+        "path": "MTH_2025AB/src/contexts.src",
+        "size": 408429392,
+        "mode": "0o664",
+        "mtime": 1760731797,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "2caa7ad3c92b204d149f77adc28e84640ae182293fb1785a65489d41bfbf6772",
+        "newline_count": 1652095
+      },
+      {
+        "path": "MTH_2025AB/src/said.ptsaid",
+        "size": 98823000,
+        "mode": "0o664",
+        "mtime": 1760731873,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "789851969f4ccefa5e36ec6eb19146fb918fc0add9d87f563858479ff503f6ad",
+        "newline_count": 4941150
+      },
+      {
+        "path": "MTH_2025AB/src/ptsaid.order",
+        "size": 22126100,
+        "mode": "0o664",
+        "mtime": 1760731876,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "a1953cbe77368f1b5a5fb057e321613473bd6f22e4924569c3035c8adc8f468f",
+        "newline_count": 2212610
+      },
+      {
+        "path": "MTH_2025AB/src/classes_atoms.src.raw",
+        "size": 758441303,
+        "mode": "0o664",
+        "mtime": 1760722239,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "c979ec092d8bd99b5f5bab89a300748c5d75c0d17e789f3c4d7830eb3c983b5b",
+        "newline_count": 4941150
+      },
+      {
+        "path": "MTH_2025AB/src/umlscui.txt",
+        "size": 911764853,
+        "mode": "0o664",
+        "mtime": 1760732026,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "0a173454fa7df00decfb85a33d5b26f72f416f8348d8903d3e55f900ee0f885c",
+        "newline_count": 10654777
+      }
+    ],
+    "insert": []
+  },
+  "metadata_summary": {
+    "MTH_2025AB/src/termgroups.src": {
+      "release_tags_seen": {
+        "2025_06_16": 4,
+        "2025_03_16": 12,
+        "2024_03_28": 12,
+        "2025_05_06": 6,
+        "2024_12_12": 6,
+        "2020AA": 46,
+        "2025_09_02": 23,
+        "2025_03_03": 26,
+        "2025AB": 5,
+        "2025AA": 5,
+        "2025_08_15": 19,
+        "2025_02_03": 16,
+        "2025_06_24": 5,
+        "2024_11_07": 4,
+        "2025_04_10": 8,
+        "2025_10_23": 8,
+        "2025_08_04": 9,
+        "2025_02_05": 9,
+        "2024_12_18": 3,
+        "2025_07_07": 3,
+        "2025_07_31": 5,
+        "2025_01_31": 5,
+        "2025_08_13": 3,
+        "2025_02_06": 3,
+        "2025_01_30": 4,
+        "2025_08_23": 3,
+        "2025_02_22": 3,
+        "2020_25_09": 1,
+        "2020_25_03": 1
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    },
+    "MTH_2025AB/src/sources.src": {
+      "release_tags_seen": {
+        "2020_25_09": 2,
+        "2020_25_03": 1,
+        "2025_06_16": 4,
+        "2025_05_06": 4,
+        "2024_12_12": 1,
+        "2025_07_31": 4,
+        "2025_01_31": 1,
+        "2025_08_23": 5,
+        "2025_02_22": 1,
+        "2025_08_15": 8,
+        "2024_12_18": 1,
+        "2025_08_13": 4,
+        "2025_02_06": 1,
+        "2025_01_30": 5,
+        "2025_07_07": 4,
+        "2025_03_03": 2,
+        "2025AB": 3,
+        "2025AA": 1,
+        "2025_08_04": 4,
+        "2025_02_05": 1,
+        "2025_04_10": 4,
+        "2025_10_23": 1,
+        "2025_02_03": 1,
+        "2025_03_16": 4,
+        "2024_03_28": 1,
+        "2020AA": 4,
+        "2025_09_02": 3,
+        "2025_06_24": 2,
+        "2024_11_07": 1
+      },
+      "scope": "Observed text tags; dependency roles not inferred"
+    }
+  },
+  "extracted": false,
+  "classification_scope": "Provisional roles by location; code-level input/output review is still required"
+}

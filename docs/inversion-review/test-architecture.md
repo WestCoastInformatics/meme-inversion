@@ -14,7 +14,7 @@ The implementation baseline is a verified snapshot of the operational code on me
 
 ## Historical replay is not presumed impossible
 
-Live database/API access is a potential external input, not proof that historical inversions cannot be reproduced. The October NCIt archive has now been frozen and inspected, but no candidate replay has run. Its native inputs and archived preparation metadata are present; code tracing separates the core conversion from later live-lookup QA/documentation steps. See [the case boundary](nci-reference-boundaries.md). Separate queries that influence output from queries used only for validation:
+Live database/API access is a potential external input, not proof that historical inversions cannot be reproduced. NCIt and SNOMED core replays have now completed using frozen preparation metadata; MTH's prepared UMLS subset and prior identity archive have also been recovered. Code tracing separates conversion from input acquisition and later QA/documentation steps. See [the NCIt case boundary](nci-reference-boundaries.md). Separate queries that influence output from queries used only for validation:
 
 | Dependency | Observed use | Reproduction implication |
 |---|---|---|
@@ -24,6 +24,8 @@ Live database/API access is a potential external input, not proof that historica
 | Current source/ID-range QA queries | Legacy QA validates source metadata and ID bounds | Changed responses can change validation results without changing the generated `.src` content |
 
 A complete database clone is unnecessary when the relevant historical values are available as files or captured API responses. Audit the selected case's inputs first. When a specific output-affecting value is absent, determine whether it can be recovered from a preserved export, historical database backup, or unambiguous archived metadata. Record any reconstruction and its provenance. Only then classify the exact remaining replay limitation.
+
+The user clarified on November 5 that reliably preserved inputs are sufficient: regenerating those historical input files is not a prerequisite for replay. Treat a complete, versioned, hash-verified input bundle as a first-class starting point. Saved query responses are evidence of those specific returned values, not an extrapolated reconstruction of the whole database. Prior-version identity maps remain distinct historical inputs. The initial goal is output reproduction from the preserved bundle; future operational migration should capture each new run's inputs automatically. Historical input-generation or database-reconstruction exercises are optional additional coverage when preserved inputs already close the dependency set.
 
 Archived official MRDOC or other derived metadata may help reconstruct a narrow historical lookup fixture. A case using that fixture can test conversion under those supplied definitions, but it does not independently test historical metadata acquisition or certify the definitions themselves. State that coverage boundary explicitly.
 

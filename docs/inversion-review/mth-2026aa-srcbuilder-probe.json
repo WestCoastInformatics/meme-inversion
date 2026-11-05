@@ -1,0 +1,26 @@
+{
+  "exit": 0,
+  "results": [
+    {
+      "file": "class_src",
+      "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+      "matches_official": true
+    },
+    {
+      "file": "attr_src",
+      "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+      "matches_official": true
+    },
+    {
+      "file": "rel_src",
+      "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+      "matches_official": true
+    },
+    {
+      "file": "merge_src",
+      "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+      "matches_official": true
+    }
+  ],
+  "stderr": "769443593"
+}

@@ -4,6 +4,8 @@ Assessment date: November 3, 2026. Scope: NCIt, SNOMEDCT_US, and MTH/UMLS.
 
 Scope extension, November 5: the common request/configuration interface must also accommodate MDR, RADLEX and future registered sources, including infrequent releases. They use the same common fields, with independently reviewed adapters and source contracts. MDR/RADLEX production workflow discovery and baseline replay remain to be done. [Source registry](source-registry.json)
 
+Replay priority clarification, November 5: complete preserved input bundles are sufficient for historical replay. Verify versions, hashes and dependency closure, then reproduce the official output from those inputs. Regenerating already-preserved metadata exports or prepared publisher subsets is additional coverage, not a prerequisite. Future operational runs should capture these inputs automatically. This avoids making reconstruction of an entire historical database or obsolete input-generation runtime a gate when the required answers/files are already archived.
+
 ## Recommendation
 
 Adopt one release lifecycle with three source adapters, explicit baseline dependencies, versioned representation rules, and independently validated output packages. Preserve the working Perl transformations initially. Move operational code out of release directories before replacing transformation logic, then replace components behind proven input/output contracts.
