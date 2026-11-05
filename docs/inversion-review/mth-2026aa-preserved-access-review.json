@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-05T17:10:19.466236+00:00",
+  "running_apparatus_ref": "2c07226af6e241896ff159ccb3e898bc5e9e925f",
+  "run_id": "baseline-core-20261105",
+  "live_adjustment": {
+    "method": "Remove write bits without broadening recorded read/execute access; preserved root restricted to owner",
+    "entries_corrected": 129,
+    "root_mode": "0o500"
+  },
+  "engine_or_candidate_data_changed": false,
+  "description": "The initial preparation removed writes using fixed modes, which could broaden read access inside the preserved tree. During this run the preserved root was restricted to its owner and each entry reset to its recorded original access minus write bits. Future preparation code now preserves original read/execute access; 19 fixtures pass locally and on dev. The immutable running capsule is unchanged.",
+  "remote_receipt": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/baseline-core-20261105/preparation-permissions.json",
+  "dev_fixture_receipt": "mth-2026aa-preservation-fixtures.json"
+}

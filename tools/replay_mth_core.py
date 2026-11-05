@@ -200,6 +200,7 @@ def prepare(package, progress=print):
             raise RuntimeError('Historical replacement baseline mismatch')
         progress('PHASE: verifying the existing dev tree before reversible preservation', flush=True)
         old = tree_manifest(TARGET) if TARGET.exists() else []
+        old_root_mode = TARGET.stat().st_mode & 0o777 if TARGET.exists() else None
         idle()
         if TARGET.exists():
             publish(TARGET, preserved)
@@ -210,16 +211,18 @@ def prepare(package, progress=print):
         result = {'source': 'MTH', 'version': VERSION, 'engine_ref': BASELINE, 'prepared_at': now(),
                   'generated_outputs_seeded': False, 'replacement_baseline': 'MTH_2025AB',
                   'preexisting_dev_preserved': str(preserved) if moved else None, 'preexisting_dev_manifest': old,
+                  'preexisting_dev_root_mode': oct(old_root_mode) if moved else None,
                   'prior_identity_input': package['prior_map'], 'prepared_subset_reference': package['prepared_subset'],
                   'metadata_inputs': package['metadata_inputs'], 'code_files': [{k: v for k, v in x.items() if k != 'data_b64'} for x in package['code_files']]}
         save(TARGET / 'replay-preparation.json', result)
         if moved:
             for item in old:
                 path = preserved / item['path']
-                if item['kind'] == 'file':
-                    path.chmod(0o444)
+                if item['kind'] in {'file', 'directory'}:
+                    path.chmod(int(item['mode'], 8) & ~0o222)
             for base, dirs, files in os.walk(preserved, topdown=False, followlinks=False):
-                Path(base).chmod(0o555)
+                if Path(base) == preserved:
+                    Path(base).chmod(old_root_mode & ~0o222)
         verify_inputs(package)
         return result
     except BaseException:

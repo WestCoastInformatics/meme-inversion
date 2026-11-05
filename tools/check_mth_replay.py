@@ -99,7 +99,8 @@ def check():
                 tar.addfile(member, io.BytesIO(data))
                 metadata.append({'relative_path': relative, 'sha256': hashlib.sha256(data).hexdigest()})
         package = {'engine_ref': replay.BASELINE, 'metadata_inputs': metadata, 'archive_path': str(archive),
-                   'archive_sha256': replay.identity(archive)['sha256'], 'code_files': []}
+                   'archive_sha256': replay.identity(archive)['sha256'], 'code_files': [],
+                   'prior_map': {}, 'prepared_subset': {}}
         def publish(source, destination):
             if source.name.startswith('.MTH_2026AA.prepare-'):
                 raise OSError('simulated candidate publication failure')
@@ -112,6 +113,22 @@ def check():
                 require(not (source_root / 'MTH_2026AA.before-replay-20261105').exists(), 'failed candidate publication leaves no misleading preserved/current pair')
             else:
                 raise AssertionError('Publication failure ignored')
+        target.chmod(0o750)
+        (target / 'src').chmod(0o750)
+        (target / 'src/classes_atoms.src').chmod(0o640)
+        def safe_publish(source, destination):
+            if destination.exists():
+                raise FileExistsError(destination)
+            source.rename(destination)
+        try:
+            with patch.multiple(replay, ROOT=case, TARGET=target), patch.object(replay, 'guard'), patch.object(replay, 'idle'), patch.object(replay, 'restore_prior_map'), patch.object(replay, 'verify_inputs'), patch.object(replay, 'available_memory', return_value=30 * 1024 ** 3), patch.object(replay.shutil, 'disk_usage', return_value=type('Space', (), {'free': 80 * 1024 ** 3})()), patch.object(replay, 'publish', side_effect=safe_publish):
+                result = replay.prepare(package, progress=lambda *a, **k: None)
+            previous = Path(result['preexisting_dev_preserved'])
+            require(previous.stat().st_mode & 0o777 == 0o550 and (previous / 'src/classes_atoms.src').stat().st_mode & 0o777 == 0o440, 'read-only preservation retains restricted original read/execute access')
+            require(not (target / 'src/classes_atoms.src').exists(), 'fresh candidate cannot inherit preexisting generated output')
+        finally:
+            for base, dirs, files in os.walk(case, followlinks=False):
+                Path(base).chmod(0o700)
     return passed
 
 
