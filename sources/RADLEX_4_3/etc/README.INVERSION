@@ -1,0 +1,158 @@
+README.INVERSION
+
+DISCLAIMER:
+
+Data submitted by source providers may vary from version to version, including
+changes in file names and file formats.  The source inversion spec is also 
+subject to change.  It is the responsibility of the inverter to evaluate
+source data and determine how/whether to accomodate changse/additions and
+deletions, and to update the source inversion accordingly.
+
+RSAB: RADLEX 
+
+Last update of this file:  06/17/2026
+Last VSAB inverted using this README: RADLEX_4_3 
+
+Overview:  
+
+A.  Files from source provider
+
+1)  Required files
+	RADLEX.csv -- This file was retrieved from BioPortal (http://bioportal.bioontology.org/ontologies/RADLEX).  
+	RadLex.owl -- not used for the inversion.
+
+2)  Other files provided by source provider
+	None
+
+B.  Scripts and other files required for source inversion 
+	concat.pl
+	make_vb.pl
+	invert_RADLEX.s - wrapper script to build *.src files 
+	   Includes:
+		findQaStats	
+		makeDoc.pl
+		makesrc.pl
+		remove_dup_attributes.pl - removes dup attributes
+		remove_dup_classes.pl - removes dup atoms		
+		remove_dup_rels.pl - removes dup relationships 
+		show-examples.pl 
+   		simple.contexts.pl
+		srcQa.pl
+		stripblanks
+
+C.  Process
+(step-by-step instructions on how to run the inversion)
+
+1.  Retrieve data file from BioPortal (http://bioportal.bioontology.org/ontologies/RADLEX). 
+
+	a. Download Radlex files from BioPortal to GFE.
+	b. From GFE use SecureFX to ftp files to ncias-q3000/tmp
+	c. From ncias-q3000/tmp copy files to the orig/fromprovider directory
+	d. As user quansh, remove downloaded RadLex files from /tmp
+         
+3. Concatenate lines.
+    bin/concat.pl 
+
+4. Change csv file to pipe-delimited file
+	bin/make_vb.pl
+
+5.  Create sources.src by using "dump_src_info.pl [-d <db>] [-r <RSAB> | <SAB>]" and "make.sources.src.pl <filled-in-template> > sources.src".
+
+6.  update termgroups.src and sources.src
+
+7.  update *cfg file
+
+8.  update and run invert_RADLEX.s wrapper script which includes:
+        a. bin/makesrc.pl
+
+        b. Remove duplicate relationships and self-referential rels
+                bin/remove_dup_rels.pl
+                cp ../tmp/relationships_no_dups_no_self_refs.tmp ../src/relationships.src
+	c. Remove duplicates from classes and mergefacts
+		bin/remove_dup_classes.pl
+		cp ../tmp/classes_unique.txt ../src/classes_atoms.src
+		cp ../tmp/mergefacts_new.txt ../src/mergefacts.src
+
+	d. Remove duplicates from attributes
+		bin/remove_dup_attributes.pl
+		cp ../tmp/attributes_unique.txt ../src/attributes.src
+
+        e. $INV_HOME/bin/makeDoc.pl -i ../src
+
+        f. cd ../src
+        g. $INV_HOME/bin/srcQa.pl -c ../etc/*cfg
+        h. $INV_HOME/bin/findQaStats.pl
+ 
+
+D.  Standard steps
+
+1.  Review the ERROR_LOG and QA_FILE
+
+2. Rerun inversion as necessary to fix problems.
+
+Do some conservation of mass.  Start by running $INV_HOME/bin/conservation.s
+
+Complete the si_proposal_<VSAB>.txt and review with NCI.  
+
+Create the SIMS record
+
+Announce that the source is ready for test insertion.
+
+STYs will be created during the insertion process.
+
+6/17/2026 - Default STY process below is OBSOLETE:
+After test insertion:
+	Create default STYs: bin/stys.pl -c ../etc/RADLEX.cfg -i 1
+	(Valid sgtype for -i option:
+	'<0 for said>, <1 for code>, <2 for scui>, <3 for sdui>)
+------------------------
+	Obsolete steps for creating default STYs. (3/19/2021):
+		 create source_atoms.dat in cxt directory:
+			awk -F\| '($3 ~/PT/){print $1"|"$3"|"$4"|"$8"|"$10"|"$11"|SOURCE_CUI|"$2"|"}' ../src/classes_atoms.src > source_atoms.dat
+
+			awk -F\| '($3 ~/OP/){print $1"|"$3"|"$4"|"$8"|"$10"|"$11"|SOURCE_CUI|"$2"|"}' ../src/classes_atoms.src >> source_atoms.dat
+--------------------------
+		 create bt_nt_rels.tmp using 'PAR|isa' entries from src/contexts.src
+		    awk -F\| '($2~/PAR/){print $4"||isa|"$1"|||"}' ../src/contexts.src > bt_nt_rels.dat
+--------------------------
+
+		run treepos.pl
+--------------------------
+
+		1. in the tmp directory: 
+			a. run 'bin/make.par_chd_rels.pl RADLEX_3_15 ../cxt/treepos.dat'
+			 	-creates files: 'all.terms.needing.sty.tmp' and 'par_chd_rels' 
+
+			b. sort -u all.terms.needing.sty.tmp > all.terms.needing.sty.sort.tmp
+
+			c. cut -f1 -d\| ../test/sty_term_ids | sort -u > sty_term_ids.said.tmp
+
+			d. comm -13 sty_term_ids.said.tmp all.terms.needing.sty.sort.tmp > no_sty_term_ids
+
+			e. $INV_HOME_OLD/bin/default.sty-v2.pl > ../tmp/default_sty_term_ids
+
+		2. in the src directory:
+		
+			a.$INV_HOME_OLD/bin/print.stys.meme4-v2.pl RADLEX_<ver> N ../tmp/default_sty_term_ids
+				-this step adds the STY defaults
+				-creates 'attributes.add' file
+				-cat this file to attr*src and then change the 'attributes.add' file name to attributes.add0
+
+			b. $INV_HOME_OLD/bin/print.stys.meme4-v2.pl RADLEX_<ver> N ../test/sty_term_ids
+				-this step adds the 'sty_term_ids' to attributes
+				-creates 'attributes.add' file
+				-cat this file to attr*src
+				_cat this file to attributes.add0 to get a single complete file of STYs 
+				that have been added to attributes.src
+
+		3. notify inserted that default STYs have been created. There is a file of 
+		attributes.add and also the default STYs have been appended to attributes.src.
+
+
+After real insertion:
+resolve SRC-SRC QA counts
+
+D.  Considerations for next inversion:
+
+E.  Inversion changes
+	None
