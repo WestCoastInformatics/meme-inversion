@@ -8,6 +8,7 @@ import re
 from pathlib import Path, PurePosixPath
 import tarfile
 
+CONFIGS = ('etc/nci.cfg', 'etc/sct.cfg', 'etc/MDR.cfg', 'etc/RADLEX.cfg')
 
 def role(path):
     parts = PurePosixPath(path).parts
@@ -55,7 +56,7 @@ def inspect(path, version, progress=None):
                 item['kind'] = 'file'
                 sha = hashlib.sha256()
                 lines = 0
-                capture = bytearray() if normalized in (version + '/etc/nci.cfg', version + '/etc/sct.cfg', version + '/src/sources.src', version + '/src/termgroups.src') and member.size <= 2000000 else None
+                capture = bytearray() if normalized in tuple(version + '/' + name for name in CONFIGS + ('src/sources.src', 'src/termgroups.src')) and member.size <= 2000000 else None
                 handle = tar.extractfile(member)
                 for chunk in iter(lambda: handle.read(4 * 1024 * 1024), b''):
                     sha.update(chunk)
@@ -66,8 +67,8 @@ def inspect(path, version, progress=None):
                 if capture is not None:
                     text = capture.decode('utf-8', errors='replace')
                     summary = {'release_tags_seen': dict(collections.Counter(re.findall(r'20\d{2}(?:_\d{2}(?:_\d{2}|[A-Z])|[A-Z]{2})', text))), 'scope': 'Observed text tags; dependency roles not inferred'}
-                    if normalized.endswith(('/etc/nci.cfg', '/etc/sct.cfg')):
-                        wanted = {'VSAB', 'RSAB', 'VSABOLD', 'Release', 'EngNum', 'EngNumOld', 'SaidStart', 'SaidEnd', 'Atidstart', 'Rlidstart', 'ORIGDIR', 'TEMPDIR', 'SRCDIR', 'ETCDIR'}
+                    if normalized in tuple(version + '/' + name for name in CONFIGS):
+                        wanted = {'VSAB', 'RSAB', 'VSABOLD', 'Release', 'EngNum', 'EngNumOld', 'SaidStart', 'SaidEnd', 'Atidstart', 'Rlidstart', 'AtidStart', 'RlidStart', 'ORIGDIR', 'TEMPDIR', 'SRCDIR', 'ETCDIR', 'MakeRoot', 'MakeTrans', 'HC.RootNodeSaid', 'HC.RootNodeCode', 'HC.RootNodeName'}
                         summary['settings'] = {}
                         for line in text.splitlines():
                             if line.lstrip().startswith('#') or '=' not in line:

@@ -2,7 +2,8 @@
 """Freeze a declared source/version archive with the existing pull helper.
 
 Download only; never extract a completed inversion into the candidate. This
-read-only S3 operation is shared by NCIt/SNOMED/MTH reference preparation.
+read-only S3 operation supports the five reviewed source registrations. Archive
+acquisition does not enable an execution adapter or establish an acceptance case.
 """
 import datetime
 import hashlib
@@ -19,6 +20,12 @@ from inspect_inversion_archive import inspect
 
 ROOT = Path('/local/content/MEME/MEME5/inv/sources')
 PULL = Path('/local/content/MEME/MEME5/ncim/bin/pull_s3.csh')
+SOURCES = frozenset(('NCI', 'SNOMEDCT_US', 'MTH', 'MDR', 'RADLEX'))
+
+
+def validate_release(source, version):
+    if not isinstance(source, str) or source not in SOURCES or not isinstance(version, str) or not re.fullmatch(re.escape(source) + r'_[A-Za-z0-9_]+', version):
+        raise RuntimeError('Invalid source/version')
 
 
 def save(path, data):
@@ -38,8 +45,7 @@ def acquire(request, progress=print):
     if socket.gethostname().split('.')[0] != 'ncias-d3777-c' or pwd.getpwuid(os.getuid()).pw_name != 'tomcata':
         raise RuntimeError('Reference preparation is scoped to tomcata on dev')
     source, version = request['source'], request['version']
-    if source not in {'NCI', 'SNOMEDCT_US', 'MTH'} or not re.fullmatch(re.escape(source) + r'_[A-Za-z0-9_]+', version):
-        raise RuntimeError('Invalid source/version')
+    validate_release(source, version)
     if ROOT.is_symlink() or not ROOT.is_dir() or PULL.is_symlink():
         raise RuntimeError('Unexpected standard path')
     if hashlib.sha256(PULL.read_bytes()).hexdigest() != request['pull_helper_sha256']:
@@ -77,12 +83,12 @@ def acquire(request, progress=print):
                 raise RuntimeError('Insufficient free disk for archive retention')
             progress('PHASE: downloading ' + version + ' without extraction', flush=True)
             process = subprocess.run(['tcsh', '-f', str(PULL), 'inv', version, '--download-only'],
-                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env, timeout=900)
+                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env, timeout=900, umask=0o077)
             if process.returncode:
                 raise RuntimeError('Download failed; partial files retained for inspection: ' + process.stdout.decode(errors='replace'))
             if archive.stat().st_size != identity['ContentLength'] or head() != identity:
                 raise RuntimeError('Downloaded object identity/size changed; file retained for review')
-            archive.chmod(0o444)
+            archive.chmod(0o400)
             downloaded = True
         progress('PHASE: hashing/inventorying ' + version + '; no source folder restored', flush=True)
         audit = inspect(archive, version, progress=lambda count, name: progress('AUDIT: ' + str(count) + ' members', flush=True) if count % 50 == 0 else None)
