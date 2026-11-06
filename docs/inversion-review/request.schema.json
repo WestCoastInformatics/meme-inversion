@@ -47,7 +47,8 @@
     "comparison_profile": {
       "enum": [
         "exact",
-        "semantic-strict"
+        "semantic-strict",
+        "reviewed-corrections"
       ]
     }
   }

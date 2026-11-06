@@ -78,8 +78,15 @@ def check():
     bad = copy.deepcopy(locks[0]);bad['request']['comparison_profile'] = 'exact'
     bad['lock_sha256'] = request.digest({k: v for k, v in bad.items() if k != 'lock_sha256'})
     rejected(lambda: worker.verify_lock(bad), 'Rehashed lock cannot override the case comparison profile')
+    require(worker.correction_profile(locks[3]), 'Corrected MTH case selects its mandatory independent acceptance audit')
+    require(worker.package(locks[3])['apparatus_ref'] == locks[3]['apparatus_ref'], 'MTH audit records the actual common execution apparatus')
+    rejected(lambda: request.select_case({**requests[3], 'comparison_profile': 'exact'}), 'Corrected MTH case cannot be mislabeled as exact reproduction')
+    gated = copy.deepcopy(locks[3])
+    gated['execution_enabled'] = gated['case']['execution_enabled'] = False
+    gated['case_sha256'] = request.digest(gated['case'])
+    gated['lock_sha256'] = request.digest({k: v for k, v in gated.items() if k != 'lock_sha256'})
     with patch.object(worker, 'guard'):
-        rejected(lambda: worker.launch(locks[3]), 'Unreviewed MTH correction acceptance remains execution-gated')
+        rejected(lambda: worker.launch(gated), 'An explicitly gated case remains blocked after audit integration')
     program = remote.bootstrap(locks[0], 'submit')
     compile(program.split("\n", 1)[1].rsplit('\nNCIM_COMMON_REQUEST', 1)[0], '<bootstrap>', 'exec')
     passed.append('Submission script compiles without shell interpolation of request values')

@@ -21,3 +21,9 @@ The corrected conversion completed with clean independent validation. Its first 
 
 
 Of 19,131,022 native attributes, 19,131,021 retain their content and order; one CCS semantic type is removed and one LOINCPARTS semantic type is added from the preserved MRSTY records. All 6,404,200 relationships retain their content, order and generated IDs. Exactly one context row and one context attribute are corrected; the complete expected context files, MD5 values, ordering and regenerated attribute IDs match byte-for-byte. The allocation of every atom is unchanged. This is core correction acceptance; metadata generation, legacy QA/MRDOC, insertion and production promotion remain separate gates.
+
+## Integration with the common interface
+
+The corrected historical case now selects `comparison_profile: reviewed-corrections`. The common worker freezes this audit with the other apparatus, preserves the raw result, and invokes the audit as a bounded offline subprocess before publishing final acceptance. A run/engine/apparatus mismatch, failed core or identity validation, missing report, changed input/output, or failed audit blocks acceptance. The original archive and raw verdict remain separate from the correction acceptance. The full integrated replay is the next validation gate; the earlier standalone replay/audit retain their original apparatus identities.
+
+The integrated acceptance layer has 55 passing fixtures locally and on dev. The 20 native-audit and 20 worker checks also pass in both environments, and 49 local common-request checks pass. Tests cover missing or mismatched evidence, changed files, audit failure, exact-profile isolation and collection of both raw and reviewed results. [Fixture evidence](common-mth-acceptance-fixtures-20261106.json).

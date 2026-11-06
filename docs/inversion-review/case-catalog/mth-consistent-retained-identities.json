@@ -4,7 +4,7 @@
   "version": "MTH_2026AA",
   "case_variant": "consistent-retained-identities",
   "adapter": "mth-2026aa-v1",
-  "execution_enabled": false,
+  "execution_enabled": true,
   "reviewed_engine_refs": [
     "b2611abcf929981628bb2e5051afb450b8525b70"
   ],
@@ -35,14 +35,14 @@
       "end": 773943592,
       "provenance_ref": "sha256:763cc5914e5d2a9091ad50ee339b2e5ba3064283701eb860d478895679911c81"
     },
-    "validation_profile": "sha256:92a9bfa21ede2cc0b6166f390228b93f3b56ac9db9760edc5fafb37b451a0887",
+    "validation_profile": "sha256:34b11ca3a4ccd30e6083b0a84733009af8d92a38957388f4b597a1e3c56bc8df",
     "output_stage": "inversion-src",
     "source_options": {},
     "replay": {
       "case_variant": "consistent-retained-identities",
       "reference_ref": "sha256:fc53beda4b3069b3a6b97223ff71675195ca4e0ec0a217f701acd06ee75abdfd",
       "reference_stage": "inversion-src",
-      "comparison_profile": "exact"
+      "comparison_profile": "reviewed-corrections"
     }
   },
   "artifacts": {
@@ -386,14 +386,6 @@
         "production_reservation": false
       }
     },
-    "sha256:92a9bfa21ede2cc0b6166f390228b93f3b56ac9db9760edc5fafb37b451a0887": {
-      "role": "mandatory-validation",
-      "value": {
-        "profile": "exact",
-        "independent_checks_required": true,
-        "reference_findings_not_waived": true
-      }
-    },
     "sha256:fc53beda4b3069b3a6b97223ff71675195ca4e0ec0a217f701acd06ee75abdfd": {
       "role": "official-generated-output-reference",
       "value": {
@@ -564,6 +556,17 @@
             "bytes": 270
           }
         ]
+      }
+    },
+    "sha256:34b11ca3a4ccd30e6083b0a84733009af8d92a38957388f4b597a1e3c56bc8df": {
+      "role": "mandatory-validation",
+      "value": {
+        "profile": "reviewed-corrections",
+        "independent_checks_required": true,
+        "reference_findings_not_waived": true,
+        "correction_audit": "mth-retained-identities-v1",
+        "all_differences_must_be_predicted": true,
+        "raw_comparison_preserved": true
       }
     }
   },
@@ -2070,7 +2073,7 @@
     "Only reviewed engine revisions and the declared reference stage/profile are executable."
   ],
   "reference_stage": "inversion-src",
-  "comparison_profile": "exact",
+  "comparison_profile": "reviewed-corrections",
   "acquisition": {
     "aws_profile": "meme",
     "archives": [
@@ -3289,5 +3292,8 @@
       "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af"
     }
   ],
-  "execution_gate_reason": "Corrected engine core validation and full native correction audit passed; integrating that correction-audit acceptance profile into the common adapter and validating the integrated case remain pending"
+  "correction_audit": {
+    "profile": "mth-retained-identities-v1",
+    "module": "audit_mth_corrections.py"
+  }
 }

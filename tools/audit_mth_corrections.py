@@ -345,6 +345,7 @@ def audit(package, target, result, run, progress=print):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('package', type=Path);parser.add_argument('target', type=Path);parser.add_argument('run', type=Path)
+    parser.add_argument('--result', type=Path, help='Preserved raw result; defaults to the standalone run result.json')
     args = parser.parse_args();guard()
-    result = json.loads((args.run / 'result.json').read_text())
+    result = json.loads((args.result or args.run / 'result.json').read_text())
     print(json.dumps(audit(json.loads(args.package.read_text()), args.target, result, args.run), indent=2))

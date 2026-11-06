@@ -61,7 +61,7 @@ locations=[pathlib.Path(x) for x in LOCATIONS]
 found=[locations[0].resolve()] if locations[0].is_dir() else sorted({x.resolve() for x in locations[1:] if x.is_dir()})
 if len(found)!=1:raise RuntimeError('No unique run directory')
 root=found[0]
-names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json'] if COLLECT else ['status.json','progress.json']
+names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json'] if COLLECT else ['status.json','progress.json']
 result={'source':SOURCE,'run_id':RUN_ID,'run_directory':str(root),'records':{}}
 for name in names:
  path=root/name
@@ -135,6 +135,8 @@ def main():
         stage = 'comparison'
     elif status == 'converting' and adapter_status == 'complete':
         stage = 'verifying-final-artifacts'
+    elif status in ('complete', 'failed'):
+        stage = status
     print(json.dumps({'saved': args.output, 'run_id': result.get('run_id'), 'status': status,
                       'stage': stage}))
 

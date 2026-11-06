@@ -24,6 +24,8 @@ CONTROL = ROOT / 'qa/replay-requests'
 VERSIONS = {'NCI': ('NCI_2026_10D', 'nci-oct2026-v1'),
             'SNOMEDCT_US': ('SNOMEDCT_US_2026_09_01', 'snomed-sep2026-v1'),
             'MTH': ('MTH_2026AA', 'mth-2026aa-v1')}
+MTH_CORRECTION_ENGINE = 'b2611abcf929981628bb2e5051afb450b8525b70'
+MTH_CORRECTION_AUDIT = {'profile': 'mth-retained-identities-v1', 'module': 'audit_mth_corrections.py'}
 
 
 def canonical(value):
@@ -71,6 +73,23 @@ def relative(name):
     if path.is_absolute() or '..' in path.parts or not path.parts or str(path) != name:
         raise ValueError('Unsafe artifact path: ' + name)
     return name
+
+
+def correction_profile(lock):
+    """A correction verdict is available only for this reviewed producer/case."""
+    request, case = lock['request'], lock['case']
+    if request['comparison_profile'] != 'reviewed-corrections':
+        return False
+    expected = ('MTH', 'MTH_2026AA', 'consistent-retained-identities', MTH_CORRECTION_ENGINE)
+    if tuple(request[key] for key in ('source', 'version', 'case_variant', 'engine_ref')) != expected:
+        raise ValueError('Correction acceptance has no reviewed contract for this source/version/engine')
+    if case.get('correction_audit') != MTH_CORRECTION_AUDIT or lock['runtime_ref'] != '3b125edc1d29f7c7a91673da2a8d752bb0adff44':
+        raise ValueError('The MTH correction audit and production shared runtime must be pinned')
+    if not all(case['legacy_case'].get(key) is True for key in ('execute_source_stages', 'validate_identity_state')):
+        raise ValueError('Corrected producer stages and retained-identity validation are mandatory')
+    if MTH_CORRECTION_AUDIT['module'] not in lock['modules_b64']:
+        raise ValueError('The independent correction audit is missing from the frozen apparatus')
+    return True
 
 
 def verify_lock(lock):
@@ -126,6 +145,7 @@ def verify_lock(lock):
             raise ValueError('Source payload differs')
     if names != set(expected_source) or not names:
         raise ValueError('Source inventory is incomplete')
+    correction_profile(lock)
     return ROOT / 'sources' / request['version']
 
 
@@ -329,6 +349,7 @@ def package(lock):
         data['runtime_already_verified'] = True
     else:
         data.update(run_id=lock['run_id'], engine_ref=request['engine_ref'], runtime_ref=lock['runtime_ref'],
+                    apparatus_ref=lock['apparatus_ref'],
                     code_files=source_files(lock), preserved_directory=request['version'] + '.before-unused-' + lock['run_id'])
     data['runtime_files'] = [{'relative_path': item['repository_path'], 'sha256': item['sha256']} for item in lock['runtime_files']]
     data['apparatus_sha256'] = {name: hashlib.sha256(base64.b64decode(raw)).hexdigest() for name, raw in lock['modules_b64'].items()}
@@ -412,6 +433,67 @@ def verify_after(lock, target, result):
         result['acceptance'] = {**result['acceptance'], 'status': 'DIFFERENCES_REQUIRE_REVIEW', 'requested_profile': 'exact'}
 
 
+def review_corrections(lock, target, run, result):
+    """Preserve raw evidence, then independently adjudicate the exact MTH delta."""
+    if not correction_profile(lock):
+        return
+    expected_identity = {**{key: lock['request'][key] for key in ('source', 'version', 'engine_ref')},
+                         'run_id': lock['run_id']}
+    if any(result.get(key) != value for key, value in expected_identity.items()):
+        raise RuntimeError('Raw correction result does not belong to this requested run')
+    validation = result['comparison']['validation']
+    if not validation.get('passed') or not validation.get('identity_state', {}).get('passed'):
+        raise RuntimeError('Correction acceptance requires clean core and retained-identity validation')
+    if result['acceptance']['status'] != 'DIFFERENCES_REQUIRE_REVIEW':
+        raise RuntimeError('Correction acceptance requires the preserved raw difference verdict')
+    data = package(lock)
+    names = {item['output_name'] for item in data['reference_files']}
+    if len(names) != 23 or set(result['comparison']['files']) != names:
+        raise RuntimeError('The correction audit requires all 23 characterized outputs')
+    raw_path, package_path = run / 'raw-result.json', run / 'correction-audit-package.json'
+    for path, value in ((raw_path, result), (package_path, data)):
+        if path.exists() or path.is_symlink():
+            raise FileExistsError('Correction evidence already exists: ' + str(path))
+        save(path, value)
+        path.chmod(0o444)
+    raw_sha = sha(raw_path)
+    audit_name = MTH_CORRECTION_AUDIT['module']
+    audit_path = Path(__file__).with_name(audit_name)
+    expected_sha = hashlib.sha256(base64.b64decode(lock['modules_b64'][audit_name], validate=True)).hexdigest()
+    require_file(audit_path, expected_sha)
+    metrics = execute([sys.executable, '-B', str(audit_path), str(package_path), str(target), str(run),
+                       '--result', str(raw_path)], cwd=target / 'src',
+                      stdout=run / 'correction-audit.stdout.log', stderr=run / 'correction-audit.stderr.log',
+                      env=os.environ.copy(), timeout=3600,
+                      progress=lambda values: save(run / 'progress.json', {'stage': 'correction-audit', **values}))
+    if metrics['exit_status'] != 0:
+        raise RuntimeError('Independent correction audit failed')
+    save(run / 'correction-audit-execution.json', metrics)
+    (run / 'correction-audit-execution.json').chmod(0o444)
+    report_path = run / 'correction-audit.json'
+    if report_path.is_symlink() or not report_path.is_file():
+        raise RuntimeError('Independent correction audit did not publish a regular report')
+    report = json.loads(report_path.read_text())
+    expected = {'status': 'PASS_REVIEWED_CORRECTIONS', 'engine_ref': data['engine_ref'], 'run_id': lock['run_id'],
+                'conversion_apparatus_ref': lock['apparatus_ref'], 'audit_tool_sha256': expected_sha,
+                'raw_comparison_status': 'DIFFERENCES_REQUIRE_REVIEW', 'independent_validation_passed': True,
+                'raw_comparison_rewritten': False, 'production_eligible': False}
+    if any(report.get(key) != value for key, value in expected.items()):
+        raise RuntimeError('Correction audit identity, scope or verdict differs from this run')
+    require_file(raw_path, raw_sha)
+    import replay_mth_core
+    replay_mth_core.verify_inputs(data, target)
+    for name, entry in result['comparison']['files'].items():
+        require_file(target / 'src' / name, entry['candidate']['sha256'])
+    result['raw_acceptance'] = copy.deepcopy(result['acceptance'])
+    result['raw_result_sha256'] = raw_sha
+    result['correction_audit'] = report
+    result['correction_audit_execution'] = metrics
+    result['acceptance'] = {**result['acceptance'], 'status': 'PASS_REVIEWED_CORRECTIONS',
+                            'requested_profile': 'reviewed-corrections', 'native_derived_correction_audit_passed': True,
+                            'raw_comparison_preserved': True, 'production_eligible': False}
+
+
 def worker(lock_path, receipt_path=None, inherited_lock=None):
     guard()
     lock = json.loads(Path(lock_path).read_text())
@@ -451,6 +533,10 @@ def worker(lock_path, receipt_path=None, inherited_lock=None):
             save(run / 'status.json', state)
             result = convert(lock, target, run, held)
             verify_after(lock, target, result)
+            if correction_profile(lock):
+                state.update(status='auditing')
+                save(run / 'status.json', state)
+                review_corrections(lock, target, run, result)
             result.update(common_request=lock['request'], lock_sha256=lock['lock_sha256'],
                           complete_ID_range_verified=True, apparatus_ref=lock['apparatus_ref'],
                           insertion_executed=False, production_eligible=False)

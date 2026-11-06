@@ -18,7 +18,8 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'compare_mth_core.py', 'acquire_mth_subset.py', 'compare_nci_core.py',
            'acquire_inversion_reference.py', 'inspect_inversion_archive.py',
            'prepare_nci_candidate.py', 'advance_nci_replay.py',
-           'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py')
+           'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
+           'audit_mth_corrections.py')
 ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1'}
 
 
