@@ -61,13 +61,23 @@ locations=[pathlib.Path(x) for x in LOCATIONS]
 found=[locations[0].resolve()] if locations[0].is_dir() else sorted({x.resolve() for x in locations[1:] if x.is_dir()})
 if len(found)!=1:raise RuntimeError('No unique run directory')
 root=found[0]
-names=['status.json','progress.json','launch.json','result.json','preparation.json'] if COLLECT else ['status.json','progress.json']
+names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json'] if COLLECT else ['status.json','progress.json']
 result={'source':SOURCE,'run_id':RUN_ID,'run_directory':str(root),'records':{}}
 for name in names:
  path=root/name
  if path.is_symlink():raise RuntimeError('Unexpected report symlink')
  if path.is_file():result['records'][name]=json.loads(path.read_text())
-if root!=locations[0].resolve():
+if root==locations[0].resolve():
+ adapters=sorted({x.resolve() for x in locations[1:] if x.is_dir()})
+ if len(adapters)>1:raise RuntimeError('No unique inner adapter run')
+ if adapters:
+  adapter=adapters[0]
+  for name,path in [('adapter_progress.json',adapter/'progress.json'),('adapter_active.json',adapter.parents[2]/'replay-active-run.json')]:
+   if path.is_symlink():raise RuntimeError('Unexpected adapter report symlink')
+   if path.is_file():
+    record=json.loads(path.read_text())
+    if name=='adapter_progress.json' or record.get('run_id')==RUN_ID:result['records'][name]=record
+else:
  path=root.parents[2]/'replay-active-run.json'
  if path.is_file():
   active=json.loads(path.read_text())
@@ -119,8 +129,14 @@ def main():
     write_new(args.output, result)
     records = result.get('records', {})
     status = result.get('status') or records.get('status.json', {}).get('status') or records.get('active', {}).get('status')
+    stage = records.get('progress.json', records.get('adapter_progress.json', {})).get('stage')
+    adapter_status = records.get('adapter_active.json', {}).get('status')
+    if status == 'converting' and adapter_status == 'comparing':
+        stage = 'comparison'
+    elif status == 'converting' and adapter_status == 'complete':
+        stage = 'verifying-final-artifacts'
     print(json.dumps({'saved': args.output, 'run_id': result.get('run_id'), 'status': status,
-                      'stage': records.get('progress.json', {}).get('stage')}))
+                      'stage': stage}))
 
 
 if __name__ == '__main__':

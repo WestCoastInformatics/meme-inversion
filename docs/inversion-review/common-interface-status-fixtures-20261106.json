@@ -1,0 +1,72 @@
+{
+  "status": "20 common worker/status checks pass locally and on dev",
+  "local_stdout": "PASS Complete source/runtime inventories accepted\nPASS Rehashed lock with missing source code rejected\nPASS Rehashed lock with substituted runtime path rejected\nPASS Runtime verification failure rejects activation\nPASS Failed activation restores original library and receipt bytes\nPASS Late activation evidence failure rejects operation\nPASS Late activation failure restores library and previous receipt exactly\nPASS Active inversion blocks runtime activation before changes\nPASS Only the characterized shared-library change is activated\nPASS Original runtime bytes and receipt preserved together\nPASS Runtime backup is read-only\nPASS Matching complete runtime is verified without rewriting it\nPASS Unknown installed runtime cannot be replaced implicitly\nPASS Detached worker inherits the runtime lock without an unlocked handoff\nPASS A submitted run identity cannot be reused\nPASS MTH etc-to-dot alias does not duplicate a status result\nPASS Persistent common control status takes precedence over inner adapter status\nPASS Common status includes the actual inner adapter progress\nPASS Actual platform publisher preserves a complete source tree\nPASS Rollback restores exact source bytes, modes and aliases\n20 common worker checks passed\n",
+  "dev": {
+    "host": "ncias-d3777-c.nci.nih-gov",
+    "exit_status": 0,
+    "stdout": "PASS Complete source/runtime inventories accepted\nPASS Rehashed lock with missing source code rejected\nPASS Rehashed lock with substituted runtime path rejected\nPASS Runtime verification failure rejects activation\nPASS Failed activation restores original library and receipt bytes\nPASS Late activation evidence failure rejects operation\nPASS Late activation failure restores library and previous receipt exactly\nPASS Active inversion blocks runtime activation before changes\nPASS Only the characterized shared-library change is activated\nPASS Original runtime bytes and receipt preserved together\nPASS Runtime backup is read-only\nPASS Matching complete runtime is verified without rewriting it\nPASS Unknown installed runtime cannot be replaced implicitly\nPASS Detached worker inherits the runtime lock without an unlocked handoff\nPASS A submitted run identity cannot be reused\nPASS MTH etc-to-dot alias does not duplicate a status result\nPASS Persistent common control status takes precedence over inner adapter status\nPASS Common status includes the actual inner adapter progress\nPASS Actual platform publisher preserves a complete source tree\nPASS Rollback restores exact source bytes, modes and aliases\n20 common worker checks passed\n",
+    "stderr": "",
+    "working_tree_sha256": {
+      "inversion_request.py": "c1fd4cf9d55fc5787d012ffa64a9c433891dc14d520d9cb8579ace51cb21528c",
+      "inversion_remote.py": "b99a6c28eee6d46be8d1f961aa025b9b22f2a1b3f6f5ca7cc2a41df7110f8496",
+      "inversion_worker.py": "891b4f91ff3f1f73069b0d736e1141d5e37d1cef6e469d265bb77d5785cbbc06",
+      "check_inversion_worker.py": "8e15cc81906c31f4379e0b6dd958e9e79a010e02269f8f623a6072bdb4f35ba4",
+      "replay_process.py": "afa0dbafc420ab39c5e81d44167f3af7d0098426be76e1e66e224e17a243eb9c",
+      "replay_mth_core.py": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b",
+      "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+      "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+      "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+      "prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+      "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+      "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+      "run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+      "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+      "acquire_inversion_reference.py": "6d4e6917a64745631cefe3c75b20d62ad366717da5de9d4802df2cbbac5e7146",
+      "inspect_inversion_archive.py": "005a4c82109e9cd2714d0cc74c6446d326c88785843e8bd09517470e0b6ade82"
+    }
+  },
+  "live_status": {
+    "source": "SNOMEDCT_US",
+    "run_id": "common-snomedct-us-1-20261106",
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-snomedct-us-1-20261106",
+    "records": {
+      "status.json": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_09_01",
+        "run_id": "common-snomedct-us-1-20261106",
+        "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "lock_sha256": "86b1c91fe472291c2e8087cc0699c1952e321b3fd9b1a8ed8cbff34f9183f7c4",
+        "started_at": "2026-11-06T21:29:05.659248+00:00",
+        "status": "converting",
+        "preserved_source": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106"
+      },
+      "adapter_progress.json": {
+        "stage": "cleanup",
+        "pid": 141402,
+        "observed_at": "2026-11-06T21:59:41.520810+00:00",
+        "elapsed_seconds": 40,
+        "resident_bytes": 156766208,
+        "available_memory_bytes": 29315932160,
+        "output_bytes": {
+          "attributes.src": 2233753600,
+          "classes_atoms.src": 163029934,
+          "contexts.src": 6220515460,
+          "mergefacts.src": 138634414,
+          "relationships.src": 140346293
+        }
+      },
+      "adapter_active.json": {
+        "run_id": "common-snomedct-us-1-20261106",
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_09_01",
+        "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "started_at": "2026-11-06T21:33:15.074870+00:00",
+        "status": "comparing",
+        "run_directory": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01/etc/qa/replay-runs/common-snomedct-us-1-20261106",
+        "worker_pid": 134316,
+        "core_completed_at": "2026-11-06T22:00:22.677560+00:00"
+      }
+    }
+  },
+  "coverage": "Read-only status/collection improvements; the running inversion remains pinned to its original 181ac6e apparatus"
+}
