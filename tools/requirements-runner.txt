@@ -1,0 +1,8 @@
+# Resolver tested with Python 3.12; remote workers use the dev system Python 3.9
+# and only the standard library. Install in a project-specific virtual environment.
+attrs==26.1.0
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==2026.9.1
+typing_extensions==4.16.0

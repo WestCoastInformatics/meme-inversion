@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "design registry; common execution adapters not implemented",
+  "status": "Common historical-case adapters implemented; execution requires a compatible reviewed case, immutable lock and dev prerequisites",
   "registration_does_not_enable_execution": true,
   "request_schema": "request.schema.json",
   "configuration_schema": "configuration.schema.json",
@@ -14,8 +14,8 @@
   "sources": {
     "NCI": {
       "display_name": "NCIt",
-      "common_adapter_implemented": false,
-      "adapter_ref": null,
+      "common_adapter_implemented": true,
+      "adapter_ref": "../../tools/inversion_worker.py#nci-oct2026-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/nci_options",
       "characterization_status": "core comparison completed with separately reviewed fixes",
       "historical_cases_under_review": [
@@ -26,8 +26,8 @@
     },
     "SNOMEDCT_US": {
       "display_name": "SNOMEDCT_US",
-      "common_adapter_implemented": false,
-      "adapter_ref": null,
+      "common_adapter_implemented": true,
+      "adapter_ref": "../../tools/inversion_worker.py#snomed-sep2026-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/snomed_options",
       "characterization_status": "unchanged core byte-exact reference reproduction",
       "historical_cases_under_review": [
@@ -38,8 +38,8 @@
     },
     "MTH": {
       "display_name": "MTH/UMLS",
-      "common_adapter_implemented": false,
-      "adapter_ref": null,
+      "common_adapter_implemented": true,
+      "adapter_ref": "../../tools/inversion_worker.py#mth-2026aa-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/mth_options",
       "characterization_status": "unchanged-engine exact reproduction; legacy reference-consistency findings remain unwaived",
       "historical_cases_under_review": [

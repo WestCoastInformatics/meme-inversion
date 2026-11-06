@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:ncimeta:inversion-configuration:1",
-  "title": "Proposed common inversion configuration",
-  "description": "One common configuration model across registered inversion sources, including NCI, SNOMEDCT_US, MTH, MDR and RADLEX. Source-specific reviewed profiles supply adapters and typed options. This planning schema does not implement execution or semantic/provenance validation.",
+  "title": "Common inversion configuration",
+  "description": "Validated common contract for isolated replay. Execution additionally requires a reviewed registered source/version case, pinned code and artifact identities, source adapter and dev preflight.",
   "type": "object",
   "additionalProperties": false,
   "required": [

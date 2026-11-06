@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "stable-context-order",
+      "path": "nci-stable-context-order.json"
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "case_variant": "as-produced",
+      "path": "snomedct_us-as-produced.json"
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "as-produced",
+      "path": "mth-as-produced.json"
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "consistent-retained-identities",
+      "path": "mth-consistent-retained-identities.json"
+    }
+  ]
+}

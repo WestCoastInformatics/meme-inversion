@@ -1,0 +1,19 @@
+{
+  "source": "MTH",
+  "run_id": "candidate-consistent-state-20261106",
+  "run_directory": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/candidate-consistent-state-20261106",
+  "records": {
+    "progress.json": {
+      "stage": "attributes-relationships-merges",
+      "observed_at": "2026-11-06T19:22:43.523884+00:00",
+      "pid": 107172,
+      "elapsed_seconds": 1551,
+      "sampled_peak_resident_bytes": 1372573696,
+      "available_memory_bytes": 28321415168,
+      "output_bytes": {
+        "classes_atoms.src": 602938360,
+        "attributes.src": 2050914630
+      }
+    }
+  }
+}

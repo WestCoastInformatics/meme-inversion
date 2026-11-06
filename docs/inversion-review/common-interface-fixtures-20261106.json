@@ -1,0 +1,95 @@
+{
+  "tests": [
+    {
+      "name": "check_inversion_request.py",
+      "exit_status": 0,
+      "stdout": "PASS Common schema resolves NCI/stable-context-order\nPASS Common schema resolves SNOMEDCT_US/as-produced\nPASS Common schema resolves MTH/as-produced\nPASS Common schema resolves MTH/consistent-retained-identities\nPASS Unsupported request rejected: source=UNKNOWN\nPASS Unsupported request rejected: source=MDR\nPASS Unsupported request rejected: source=RADLEX\nPASS Unsupported request rejected: version=NCI_2026_09D\nPASS Unsupported request rejected: case_variant=latest\nPASS Unsupported request rejected: reference_stage=insertion-package\nPASS Unsupported request rejected: comparison_profile=exact\nPASS Unsupported request rejected: engine_ref=<candidate-commit-sha>\nPASS Unsupported request rejected: engine_ref=HEAD; echo bad\nPASS Unknown parameter synonym rejected\nPASS Options from another source rejected\nPASS MTH prepared bundle does not require its historical generator\nPASS MTH publisher preparation requires its MetamorphoSys profile\nPASS Frozen lock round trip: NCI/stable-context-order\nPASS Adapter retains selected engine: NCI/stable-context-order\nPASS Frozen lock round trip: SNOMEDCT_US/as-produced\nPASS Adapter retains selected engine: SNOMEDCT_US/as-produced\nPASS Frozen lock round trip: MTH/as-produced\nPASS Adapter retains selected engine: MTH/as-produced\nPASS Frozen lock round trip: MTH/consistent-retained-identities\nPASS Adapter retains selected engine: MTH/consistent-retained-identities\nPASS MTH candidate source and unchanged shared runtime identities remain separate\nPASS Modified frozen payload rejected: configuration\nPASS Modified frozen payload rejected: code_files\nPASS Modified frozen payload rejected: runtime_files\nPASS Modified frozen payload rejected: case\nPASS Rehashed lock cannot override the case comparison profile\nPASS Unreviewed MTH correction acceptance remains execution-gated\nPASS Submission script compiles without shell interpolation of request values\nPASS Read-only status/collection scripts compile for all three sources\nPASS Duplicate JSON keys rejected\nPASS Existing run lock cannot be overwritten\nPASS Local lock is owner-readable and not writable\nPASS Preparation and source worker share the same held runtime lock\nPASS Another runtime owner cannot enter during the inherited-lock lifetime\nPASS Inherited descriptor from another lock file rejected\nPASS Runtime lock releases after the complete lifecycle\nPASS Existing release needs an explicit previous-source receipt\nPASS Changed predecessor cannot be preserved under an old receipt\nPASS Complete predecessor is retained at a version-specific path\nPASS Preservation masks write access and retains link topology\nPASS Rollback restores original bytes, topology and access modes\n46 common inversion interface checks passed\n",
+      "stderr": "",
+      "sha256": "09ebcea02af2bc7ea261001820af35bd1b7fd4454ac985ab11f4e53c3685a1a9"
+    },
+    {
+      "name": "check_inversion_worker.py",
+      "exit_status": 0,
+      "stdout": "PASS Complete source/runtime inventories accepted\nPASS Rehashed lock with missing source code rejected\nPASS Rehashed lock with substituted runtime path rejected\nPASS Runtime verification failure rejects activation\nPASS Failed activation restores original library and receipt bytes\nPASS Late activation evidence failure rejects operation\nPASS Late activation failure restores library and previous receipt exactly\nPASS Active inversion blocks runtime activation before changes\nPASS Only the characterized shared-library change is activated\nPASS Original runtime bytes and receipt preserved together\nPASS Runtime backup is read-only\nPASS Matching complete runtime is verified without rewriting it\nPASS Unknown installed runtime cannot be replaced implicitly\nPASS Detached worker inherits the runtime lock without an unlocked handoff\nPASS A submitted run identity cannot be reused\nPASS MTH etc-to-dot alias does not duplicate a status result\nPASS Persistent common control record takes precedence over inner adapter record\nPASS Actual platform publisher preserves a complete source tree\nPASS Rollback restores exact source bytes, modes and aliases\n19 common worker checks passed\n",
+      "stderr": "",
+      "sha256": "1018fcaae02f0769ac58c603e0268728b9ef1ada73d63e399d31664e45f3f071"
+    },
+    {
+      "name": "check_mth_replay.py",
+      "exit_status": 0,
+      "stdout": "PASS MTH dialect accepts two reserved SRC IDs and 19-field contexts\nPASS previous-CUI role retained independently from current-CUI role\nPASS attribute targeting an atom removed after map generation is rejected\nPASS blank mapped context node rejects both its context and attribute with explicit endpoint counts\nPASS atom below the complete reserved range rejected\nPASS incorrect attribute digest rejected\nPASS unresolved atom endpoint rejected\nPASS unresolved context path rejected\nPASS nonempty second context tail rejected\nPASS unmapped relationship rejected\nPASS SNOMED 18-field context shape cannot silently replace MTH shape\nPASS CUI_CURRENT/PREVIOUS change cannot pass full-record comparison\nPASS duplicate historical relationship loss detected\nPASS moved AUI identity state regenerated\nPASS prior installed CUI excluded from newly split-only CUI set\nPASS current and moved AUI maps remain distinct\nPASS unverified prior source folder rejected\nPASS late preparation failure restores the original dev path and bytes\nPASS failed candidate publication leaves no misleading preserved/current pair\nPASS read-only preservation retains restricted original read/execute access\nPASS fresh candidate cannot inherit preexisting generated output\n21 MTH replay checks passed\n",
+      "stderr": "",
+      "sha256": "698298e4d76cbc164b21107ef3f4762432962376805695783ff9f4250d75dd1e"
+    },
+    {
+      "name": "check_mth_case_lock.py",
+      "exit_status": 0,
+      "stdout": "PASS Explicit case receives a separate run directory\nPASS Unsafe run identity rejected: '../other'\nPASS Unsafe run identity rejected: '/tmp/other'\nPASS Unsafe run identity rejected: 'bad name'\nPASS Unsafe run identity rejected: ''\nPASS Mutable engine name rejected\nPASS Unreviewed shared runtime rejected\nPASS Complete prior result and every original output verified\nPASS Incomplete prior-output contract rejected\nPASS Active previous inversion cannot be replaced\nPASS Modified prior output cannot be preserved as verified baseline\nPASS Identity recipe comes from the selected source file\nPASS Unknown producer layout fails before execution\n13 MTH case-lock checks passed\n",
+      "stderr": "",
+      "sha256": "0f5fe159873d9683de141fa8b2fc948db1a07f4f07fbfa1bf0c8bfc3020d6665"
+    },
+    {
+      "name": "check_mth_identity_state.py",
+      "exit_status": 0,
+      "stdout": "PASS Retained current and moved identities bind to their actual atoms\nPASS unresolved_retained_atom is rejected\nPASS cui_binding_mismatch is rejected\nPASS aui_binding_mismatch is rejected\nPASS moved_role_mismatch is rejected\nPASS empty_identity is rejected\nPASS Duplicate identity records are rejected\nPASS Late atom deletion cannot leave apparently valid persisted state\n8 MTH identity-state checks passed\n",
+      "stderr": "",
+      "sha256": "bdf654d44a16c53ee114a06829eef3f0bd3d3554a3367aab1b65d804abb05df9"
+    },
+    {
+      "name": "check_snomed_replay.py",
+      "exit_status": 0,
+      "stdout": "PASS eighteen declared conversion/metadata inputs and original attributes reference accepted\nPASS enriched-reference rejected before candidate preparation\nPASS generated-input rejected before candidate preparation\nPASS missing-native rejected before candidate preparation\nPASS all five exact files with passing checks accepted\nPASS reference equality cannot suppress independent validation findings\nPASS only full-record reordering can pass non-exact comparison\nPASS changed IDs or any record content cannot be waived\nPASS incomplete output set rejected\nPASS valid typed records and non-contiguous attribute IDs accepted\nPASS production framework SRC/VSY termgroup accepted\nPASS production ROOT_SOURCE_AUI merge endpoint accepted with root source qualifier\nPASS duplicate attribute ID detected\nPASS dangling description attribute detected\nPASS attribute value digest corruption detected\nPASS missing term type detected\nPASS unmapped relationship detected\nPASS unknown endpoint type detected\nPASS unresolved context path detected\nPASS wrong context child identity detected\nPASS wrong context parent identity detected\nPASS out-of-range atom ID detected\nPASS only declared baseline library installed\nPASS prior library bytes preserved read-only before runtime activation\nPASS late preservation failure leaves installed library unchanged\n25 SNOMED replay checks passed\n",
+      "stderr": "",
+      "sha256": "f23b924668e6ccb42ffce490fd077074edea88d0f790965ea3b4ecc4c4d1393f"
+    },
+    {
+      "name": "check_replay_process.py",
+      "exit_status": 0,
+      "stdout": "PASS successful stage retains exact output and zero exit\nPASS nonzero stage rejected with diagnostic log retained\nPASS capacity reserve stops the private process group\n3 process-control checks passed\n",
+      "stderr": "",
+      "sha256": "8997e7981f91cda2baf42e53f3d98df976924504cbeb4c1e31dbec3c3e90657d"
+    },
+    {
+      "name": "check_core_comparison.py",
+      "exit_status": 0,
+      "stdout": "17 comparison fixtures passed\nPASS reordering preserves duplicates\nPASS duplicate loss detected\nPASS duplicate addition detected\nPASS status change detected\nPASS relationship group change detected\nPASS trailing empty field change detected\nPASS qualifier change detected\nPASS atom text change isolated by field\nPASS configured external root accepted\nPASS declared preferred-term group accepted\nPASS missing preferred-term type rejected\nPASS explicit generated attribute ID view\nPASS attribute value digest corruption detected\nPASS attribute content never discarded\nPASS duplicate generated attribute IDs detected\nPASS unresolved context endpoints and paths detected\nPASS duplicate atom IDs detected\n",
+      "stderr": "",
+      "sha256": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3"
+    },
+    {
+      "name": "check_nci_replay_advance.py",
+      "exit_status": 0,
+      "stdout": "PASS copy failure preserves every original artifact\nPASS failed setup releases its lock\nPASS complete baseline copied before current output reset\nPASS next candidate starts without generated output\nPASS only pinned candidate code installed before launch\nPASS preserved baseline is read-only\nPASS complete baseline copied before current output reset\nPASS next candidate starts without generated output\nPASS shared-runtime original preserved before replacement\nPASS shared-runtime update leaves source code unchanged\nPASS active candidate runtime revision recorded\nPASS preserved baseline is read-only\nPASS copy failure preserves every original artifact\nPASS failed setup releases its lock\nPASS late preservation failure leaves installed runtime unchanged\nPASS declared core profile accepts valid record equivalence\nPASS termgroup cannot be hidden by generated-ID comparison\nPASS duplicate-id cannot be hidden by generated-ID comparison\nPASS attribute-reference cannot be hidden by generated-ID comparison\nPASS non-context-change cannot be hidden by generated-ID comparison\nPASS missing-metadata cannot be hidden by generated-ID comparison\n21 preservation/profile checks passed\n",
+      "stderr": "",
+      "sha256": "6ae72083ac174224480e93e6bd627d714327adb8e4273fa68989fbbd7e63f524"
+    }
+  ],
+  "passed": true,
+  "evidence_kind": "working-tree fixtures before common-interface commit",
+  "checks": 173,
+  "dev_worker_fixtures": {
+    "host": "ncias-d3777-c.nci.nih-gov",
+    "exit_status": 0,
+    "stdout": "PASS Complete source/runtime inventories accepted\nPASS Rehashed lock with missing source code rejected\nPASS Rehashed lock with substituted runtime path rejected\nPASS Runtime verification failure rejects activation\nPASS Failed activation restores original library and receipt bytes\nPASS Late activation evidence failure rejects operation\nPASS Late activation failure restores library and previous receipt exactly\nPASS Active inversion blocks runtime activation before changes\nPASS Only the characterized shared-library change is activated\nPASS Original runtime bytes and receipt preserved together\nPASS Runtime backup is read-only\nPASS Matching complete runtime is verified without rewriting it\nPASS Unknown installed runtime cannot be replaced implicitly\nPASS Detached worker inherits the runtime lock without an unlocked handoff\nPASS A submitted run identity cannot be reused\nPASS MTH etc-to-dot alias does not duplicate a status result\nPASS Persistent common control record takes precedence over inner adapter record\nPASS Actual platform publisher preserves a complete source tree\nPASS Rollback restores exact source bytes, modes and aliases\n19 common worker checks passed\n",
+    "stderr": "",
+    "working_tree_sha256": {
+      "inversion_request.py": "c1fd4cf9d55fc5787d012ffa64a9c433891dc14d520d9cb8579ace51cb21528c",
+      "inversion_remote.py": "a1b364937638baf2002bea5cf4454f7d4d834993869ee22a335b1509cf4b9b37",
+      "inversion_worker.py": "891b4f91ff3f1f73069b0d736e1141d5e37d1cef6e469d265bb77d5785cbbc06",
+      "check_inversion_worker.py": "1018fcaae02f0769ac58c603e0268728b9ef1ada73d63e399d31664e45f3f071",
+      "replay_process.py": "afa0dbafc420ab39c5e81d44167f3af7d0098426be76e1e66e224e17a243eb9c",
+      "replay_mth_core.py": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b",
+      "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+      "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+      "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+      "prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+      "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+      "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+      "run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+      "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+      "acquire_inversion_reference.py": "6d4e6917a64745631cefe3c75b20d62ad366717da5de9d4802df2cbbac5e7146",
+      "inspect_inversion_archive.py": "005a4c82109e9cd2714d0cc74c6446d326c88785843e8bd09517470e0b6ade82"
+    }
+  },
+  "dev_worker_matches_current_files": true
+}

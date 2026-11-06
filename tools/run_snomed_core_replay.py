@@ -13,6 +13,7 @@ import subprocess
 import sys
 import time
 import traceback
+from replay_process import runtime_lock
 
 import compare_snomed_core
 from prepare_snomed_candidate import BASELINE, CORE_NAMES, ROOT, TARGET, VERSION, guard, info, now, require_hash, save, selected_inputs
@@ -65,6 +66,9 @@ def verify_case(package):
 
 def activate_baseline(package):
     """Preserve the current tested library and receipt before restoring Git bytes."""
+    if package.get('runtime_already_verified'):
+        runtime_files(package)
+        return
     require_idle()
     runtime_files(package, before=True)
     previous = RUN / 'runtime-before'
@@ -140,7 +144,7 @@ def isolated(command, stage, stdout_path, timeout=14400):
             'child_max_rss_bytes': resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss * 1024}
 
 
-def worker(package_path):
+def worker(package_path, inherited_lock=None):
     guard()
     package = json.loads(Path(package_path).read_text())
     started = now()
@@ -148,8 +152,7 @@ def worker(package_path):
              'started_at': started, 'status': 'running', 'run_directory': str(RUN), 'worker_pid': os.getpid()}
     save(ACTIVE, state)
     try:
-        with (ROOT / '.replay-runtime.lock').open('a') as lock:
-            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        with runtime_lock(ROOT, inherited_lock):
             verify_case(package)
             if any((TARGET / 'src' / name).exists() for name in CORE_NAMES):
                 raise RuntimeError('Generated outputs already exist; this worker will not overwrite them')

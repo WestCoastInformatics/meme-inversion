@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Execute a dev replay stage offline with bounded resources and retained logs."""
+from contextlib import contextmanager
+import fcntl
 import os
 from pathlib import Path
 import resource
@@ -7,6 +9,24 @@ import shutil
 import signal
 import subprocess
 import time
+
+
+@contextmanager
+def runtime_lock(root, inherited=None):
+    """Keep one shared-runtime lock across preparation, conversion and comparison."""
+    path = Path(root) / '.replay-runtime.lock'
+    if path.is_symlink():
+        raise RuntimeError('Runtime lock must not be a symlink')
+    if inherited is not None:
+        expected, actual = path.stat(), os.fstat(inherited.fileno())
+        if (expected.st_dev, expected.st_ino) != (actual.st_dev, actual.st_ino):
+            raise RuntimeError('Inherited runtime lock belongs to another file')
+        fcntl.flock(inherited, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        yield inherited
+    else:
+        with path.open('a') as handle:
+            fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            yield handle
 
 
 def available_memory():

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:ncimeta:inversion-test-request:1",
-  "title": "Proposed inversion replay request",
-  "description": "Planning contract for a future isolated test runner over a reviewed, extensible source registry. Resolve the source adapter and historical case, validate the candidate commit and freeze all dependencies before execution.",
+  "title": "Common inversion replay request",
+  "description": "Validated common contract for isolated replay. Execution additionally requires a reviewed registered source/version case, pinned code and artifact identities, source adapter and dev preflight.",
   "type": "object",
   "additionalProperties": false,
   "required": [

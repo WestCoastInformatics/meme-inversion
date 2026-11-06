@@ -1,0 +1,2462 @@
+{
+  "schema_version": 1,
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "case_variant": "as-produced",
+  "adapter": "snomed-sep2026-v1",
+  "execution_enabled": true,
+  "reviewed_engine_refs": [
+    "3b125edc1d29f7c7a91673da2a8d752bb0adff44"
+  ],
+  "configuration": {
+    "schema_version": 1,
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "policy_ref": "sha256:44a3446aaac6cbcbfcf430cfa4c46d23205fa29e4cd071c7f2a8628908d6af20",
+    "environment_profile": "sha256:3e9e2f050efa5f88550c820b7713dd3af6c14bf55959a1f82242f14020338e86",
+    "replacement_baseline": {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_03_01"
+    },
+    "comparison_baseline": null,
+    "publisher_history": [],
+    "inputs": {
+      "source_data": [
+        "sha256:a71767cbfd88cc845d0c7904d5d729fe2a0a4e6f3f6d025e347b647930a3c2c1"
+      ],
+      "source_data_stage": "publisher",
+      "reference_ncimeta": "sha256:e3475e6e5e6acd2311245ff7d076c026ff03c640c1308574abca5e3ae45262f7",
+      "identity_state": null,
+      "source_plan": "sha256:922f9e5b96d415d8035c8b98086e327a90416bd12b186aef28311870e6553ffa"
+    },
+    "source_atom_ids": {
+      "start": 777343593,
+      "end": 779143592,
+      "provenance_ref": "sha256:aeba806206c05cdfa7c33a5d1062802f98f63d1b7ef2dd14080d4d15f69b26a9"
+    },
+    "validation_profile": "sha256:92a9bfa21ede2cc0b6166f390228b93f3b56ac9db9760edc5fafb37b451a0887",
+    "output_stage": "inversion-src",
+    "source_options": {
+      "rf2_view": "Snapshot"
+    },
+    "replay": {
+      "case_variant": "as-produced",
+      "reference_ref": "sha256:df8900c3e0901e6a14038e7cb0b44575b634c30d438ec2491dcba373312ef478",
+      "reference_stage": "inversion-src",
+      "comparison_profile": "exact"
+    }
+  },
+  "artifacts": {
+    "sha256:44a3446aaac6cbcbfcf430cfa4c46d23205fa29e4cd071c7f2a8628908d6af20": {
+      "role": "captured-representation-policy",
+      "value": {
+        "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "policy": "Captured source code/configuration, no additional editorial decisions"
+      }
+    },
+    "sha256:3e9e2f050efa5f88550c820b7713dd3af6c14bf55959a1f82242f14020338e86": {
+      "role": "dev-environment",
+      "value": {
+        "host": "ncias-d3777-c",
+        "account": "tomcata",
+        "inversion_root": "/local/content/MEME/MEME5/inv",
+        "network": "disabled during conversion",
+        "storage": "independent dev storage; mirrored paths"
+      }
+    },
+    "sha256:922f9e5b96d415d8035c8b98086e327a90416bd12b186aef28311870e6553ffa": {
+      "role": "reviewed-historical-transition",
+      "value": {
+        "replacement_baseline": {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2026_03_01"
+        },
+        "comparison_baseline": null,
+        "publisher_history": [],
+        "no_additional_history_required": true,
+        "null_comparison_reason": "No prior-release change-detection stage is selected; official current-version output is the replay reference",
+        "null_identity_reason": "Selected conversion uses current native identifiers and declared saved metadata, without prior identity-map consumption",
+        "coverage": "Archived preparation inputs; metadata acquisition, live database QA, insertion and promotion excluded"
+      }
+    },
+    "sha256:aeba806206c05cdfa7c33a5d1062802f98f63d1b7ef2dd14080d4d15f69b26a9": {
+      "role": "isolated-historical-ID-range",
+      "value": {
+        "kind": "captured-sct.cfg",
+        "start": "SaidStart",
+        "end": "SaidEnd",
+        "production_reservation": false
+      }
+    },
+    "sha256:92a9bfa21ede2cc0b6166f390228b93f3b56ac9db9760edc5fafb37b451a0887": {
+      "role": "mandatory-validation",
+      "value": {
+        "profile": "exact",
+        "independent_checks_required": true,
+        "reference_findings_not_waived": true
+      }
+    },
+    "sha256:df8900c3e0901e6a14038e7cb0b44575b634c30d438ec2491dcba373312ef478": {
+      "role": "official-generated-output-reference",
+      "value": {
+        "archive": {
+          "archive_path": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.tgz",
+          "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+          "bucket": "nci-evs-meme",
+          "key": "inv/sources/SNOMEDCT_US_2026_09_01.tgz"
+        },
+        "files": [
+          {
+            "output_name": "classes_atoms.src",
+            "reference_path": "SNOMEDCT_US_2026_09_01/src/classes_atoms.src",
+            "size": 163029934,
+            "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+            "newline_count": 1048850
+          },
+          {
+            "output_name": "attributes.src",
+            "reference_path": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+            "size": 2319449724,
+            "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+            "newline_count": 9324589
+          },
+          {
+            "output_name": "relationships.src",
+            "reference_path": "SNOMEDCT_US_2026_09_01/src/relationships.src",
+            "size": 140346293,
+            "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+            "newline_count": 742425
+          },
+          {
+            "output_name": "mergefacts.src",
+            "reference_path": "SNOMEDCT_US_2026_09_01/src/mergefacts.src",
+            "size": 138634414,
+            "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+            "newline_count": 1048849
+          },
+          {
+            "output_name": "contexts.src",
+            "reference_path": "SNOMEDCT_US_2026_09_01/src/contexts.src",
+            "size": 6220515460,
+            "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+            "newline_count": 20403095
+          }
+        ]
+      }
+    },
+    "sha256:a71767cbfd88cc845d0c7904d5d729fe2a0a4e6f3f6d025e347b647930a3c2c1": {
+      "role": "source-data",
+      "value": [
+        {
+          "legacy_key": "File.INP.CONCEPTS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 32708601,
+          "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+          "newline_count": 543260
+        },
+        {
+          "legacy_key": "File.INP.DESCRIPTIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 233100225,
+          "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+          "newline_count": 1739085
+        },
+        {
+          "legacy_key": "File.INP.RELATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 408144315,
+          "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+          "newline_count": 3647178
+        },
+        {
+          "legacy_key": "File.INP.CONCRETERELS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 4045099,
+          "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+          "newline_count": 37557
+        },
+        {
+          "legacy_key": "File.INP.DEFINITIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 8509782,
+          "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+          "newline_count": 19447
+        },
+        {
+          "legacy_key": "File.INP.REFSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 30481,
+          "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+          "newline_count": 229
+        },
+        {
+          "legacy_key": "File.INP.DESCRFORMAT",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 491,
+          "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+          "newline_count": 4
+        },
+        {
+          "legacy_key": "File.INP.MODULEDEP",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1046,
+          "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+          "newline_count": 9
+        },
+        {
+          "legacy_key": "File.INP.LANGUAGESETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 394245927,
+          "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+          "newline_count": 3383931
+        },
+        {
+          "legacy_key": "File.INP.SIMPLEMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 57698895,
+          "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+          "newline_count": 561572
+        },
+        {
+          "legacy_key": "File.INP.EXTENDEDMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 160201316,
+          "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+          "newline_count": 682229
+        },
+        {
+          "legacy_key": "File.INP.ATTRIBUTES",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 85849760,
+          "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+          "newline_count": 748737
+        },
+        {
+          "legacy_key": "File.INP.SUBSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1995855,
+          "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+          "newline_count": 22726
+        },
+        {
+          "legacy_key": "File.INP.ASSOCIATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 24125967,
+          "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+          "newline_count": 227704
+        }
+      ]
+    },
+    "sha256:e3475e6e5e6acd2311245ff7d076c026ff03c640c1308574abca5e3ae45262f7": {
+      "role": "preserved-reference-metadata",
+      "value": [
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+          "size": 904,
+          "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+          "newline_count": 1
+        },
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+          "size": 828,
+          "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+          "newline_count": 12
+        },
+        {
+          "legacy_key": "File.INP.ICD10META",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 109803,
+          "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+          "newline_count": 18291
+        },
+        {
+          "legacy_key": "File.INP.ICD10CMMETA",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 797093,
+          "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+          "newline_count": 98506
+        }
+      ]
+    }
+  },
+  "legacy_case": {
+    "contract": {
+      "schema_version": 1,
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "environment_profile": "ncias-d3777-c",
+      "status": "replay apparatus implemented and tested locally; candidate preparation/execution pending",
+      "reference_stage": "inversion-src",
+      "reference_file_map": [
+        {
+          "output_name": "classes_atoms.src",
+          "reference_path": "SNOMEDCT_US_2026_09_01/src/classes_atoms.src",
+          "size": 163029934,
+          "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+          "newline_count": 1048850
+        },
+        {
+          "output_name": "attributes.src",
+          "reference_path": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+          "size": 2319449724,
+          "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+          "newline_count": 9324589
+        },
+        {
+          "output_name": "relationships.src",
+          "reference_path": "SNOMEDCT_US_2026_09_01/src/relationships.src",
+          "size": 140346293,
+          "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+          "newline_count": 742425
+        },
+        {
+          "output_name": "mergefacts.src",
+          "reference_path": "SNOMEDCT_US_2026_09_01/src/mergefacts.src",
+          "size": 138634414,
+          "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+          "newline_count": 1048849
+        },
+        {
+          "output_name": "contexts.src",
+          "reference_path": "SNOMEDCT_US_2026_09_01/src/contexts.src",
+          "size": 6220515460,
+          "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+          "newline_count": 20403095
+        }
+      ],
+      "reference": {
+        "archive_path": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.tgz",
+        "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+        "bucket": "nci-evs-meme",
+        "key": "inv/sources/SNOMEDCT_US_2026_09_01.tgz"
+      },
+      "publisher_view": "Snapshot",
+      "replacement_baseline": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_03_01"
+      },
+      "baseline_evidence": "VSABOLD from archived matching configuration; sources.src field-2 verification remains a preparation check",
+      "comparison_baseline": null,
+      "publisher_history": [],
+      "conversion_inputs": [
+        {
+          "legacy_key": "File.INP.CONCEPTS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 32708601,
+          "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+          "newline_count": 543260
+        },
+        {
+          "legacy_key": "File.INP.DESCRIPTIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 233100225,
+          "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+          "newline_count": 1739085
+        },
+        {
+          "legacy_key": "File.INP.RELATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 408144315,
+          "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+          "newline_count": 3647178
+        },
+        {
+          "legacy_key": "File.INP.CONCRETERELS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 4045099,
+          "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+          "newline_count": 37557
+        },
+        {
+          "legacy_key": "File.INP.DEFINITIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 8509782,
+          "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+          "newline_count": 19447
+        },
+        {
+          "legacy_key": "File.INP.REFSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 30481,
+          "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+          "newline_count": 229
+        },
+        {
+          "legacy_key": "File.INP.DESCRFORMAT",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 491,
+          "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+          "newline_count": 4
+        },
+        {
+          "legacy_key": "File.INP.MODULEDEP",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1046,
+          "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+          "newline_count": 9
+        },
+        {
+          "legacy_key": "File.INP.LANGUAGESETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 394245927,
+          "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+          "newline_count": 3383931
+        },
+        {
+          "legacy_key": "File.INP.SIMPLEMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 57698895,
+          "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+          "newline_count": 561572
+        },
+        {
+          "legacy_key": "File.INP.COMPLEXMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iissscRefset_ComplexMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": false,
+          "present": false
+        },
+        {
+          "legacy_key": "File.INP.EXTENDEDMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 160201316,
+          "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+          "newline_count": 682229
+        },
+        {
+          "legacy_key": "File.INP.ATTRIBUTES",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 85849760,
+          "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+          "newline_count": 748737
+        },
+        {
+          "legacy_key": "File.INP.SUBSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1995855,
+          "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+          "newline_count": 22726
+        },
+        {
+          "legacy_key": "File.INP.ASSOCIATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 24125967,
+          "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+          "newline_count": 227704
+        },
+        {
+          "legacy_key": "File.INP.ICD10META",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 109803,
+          "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+          "newline_count": 18291
+        },
+        {
+          "legacy_key": "File.INP.ICD10CMMETA",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 797093,
+          "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+          "newline_count": 98506
+        }
+      ],
+      "archived_metadata_inputs": [
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+          "size": 904,
+          "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+          "newline_count": 1
+        },
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+          "size": 828,
+          "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+          "newline_count": 12
+        }
+      ],
+      "postprocessing": {
+        "script": "bin/rmdanglingattrs.pl",
+        "purpose": "Remove SOURCE_AUI attributes whose description is absent from generated atoms; compare the post-filter inversion result to attributes.orig"
+      },
+      "insertion_enrichment": {
+        "workflow_owner": "data insertion",
+        "provenance": "User confirmed on 2026-11-04 that semantic types are added to original attributes.src during insertion",
+        "original_reference": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+        "enriched_reference": "SNOMEDCT_US_2026_09_01/src/attributes.src",
+        "original_is_exact_prefix": true,
+        "added_rows": 1133725,
+        "added_attribute_names": {
+          "SEMANTIC_TYPE": 1133725
+        },
+        "added_sources": {
+          "E-SNOMEDCT_US_2026_09_01": 1133725
+        },
+        "archived_insertion_related_artifacts": [
+          {
+            "path": "SNOMEDCT_US_2026_09_01/test/sty_term_ids",
+            "size": 37325267,
+            "sha256": "f653d8aaba3bd811d06f691dcde80484065495cf1eba81a00909ada623baa822",
+            "newline_count": 1143286
+          },
+          {
+            "path": "SNOMEDCT_US_2026_09_01/test/new_sty_defaults",
+            "size": 35000493,
+            "sha256": "f2e47bcbdf7cc4ea7dcf41f96c56588041ba8bcf84b97ceda17c1ad366c6af73",
+            "newline_count": 1138465
+          }
+        ],
+        "included_in_inversion_replay": false,
+        "do_not_ignore_semantic_types_generally": "Retain all original records, including the SRC semantic-type record; compare to the correct stage rather than filtering the attribute type away",
+        "workflow_stage_confirmed_by_user": true,
+        "original_file_confirmed_by_archive": true
+      },
+      "unused_legacy_configuration": [
+        "File.INP.STATEDRELS",
+        "File.INP.OldSubset",
+        "File.INP.URCid2Did"
+      ],
+      "prior_source_folder_required_by_inspected_core": false,
+      "metadata_acquisition_or_insertion_can_require_prior_state": true,
+      "code_matches_production_snapshot": true,
+      "candidate_prepared": false,
+      "candidate_executed": false,
+      "capacity_estimate": {
+        "selected_input_bytes": 1411566388,
+        "core_reference_bytes": 8981975825,
+        "minimum_candidate_plus_reference_plus_largest_sort_pair_bytes": 30404982570,
+        "additional_preserved_run_bytes": 8981975825,
+        "memory_benchmark_required": true,
+        "notes": "Disk estimate excludes staging overhead and safety reserve; operational TMP_DIR remains unchanged; no full archive extraction is needed"
+      },
+      "remaining_work": [
+        "Prepare the clean candidate from eighteen declared archived inputs and five Git code/configuration files",
+        "Preserve current NCIt candidate library/receipt, restore and verify all 169 unchanged baseline shared files, then execute RF2 core and documented cleanup offline",
+        "Compare all five outputs, including every ID, qualifier, group and duplicate, against stage-selected references and run independent structure checks",
+        "Keep historical metadata/ICD acquisition, MRDOC/legacy QA and insertion as separately scoped future workflow coverage"
+      ],
+      "artifact_type": "characterization boundary; not yet an implemented common run configuration",
+      "common_configuration_design": "configuration.schema.json",
+      "reference_stage_description": "Inversion output before insertion-time enrichment; attributes.src comparison selects archived attributes.orig explicitly",
+      "case_variant": "as-produced-with-archived-source-metadata-and-ICD-target-inventories",
+      "comparison_profile": "snomed-core-v1: exact bytes or full-record multiset, retaining every field and duplicate; no generated-ID waiver",
+      "apparatus_files": [
+        "tools/prepare_snomed_candidate.py",
+        "tools/run_snomed_core_replay.py",
+        "tools/compare_snomed_core.py",
+        "tools/check_snomed_replay.py"
+      ],
+      "execution_limits": {
+        "network": "disabled for core conversion and cleanup",
+        "perl_address_space_bytes": 23622320128,
+        "preflight_available_memory_bytes": 25769803776,
+        "preflight_free_disk_bytes": 53687091200,
+        "stop_if_available_memory_below_bytes": 2147483648,
+        "stop_if_free_disk_below_bytes": 12884901888,
+        "conversion_timeout_seconds": 14400,
+        "cleanup_timeout_seconds": 1800,
+        "sort_scratch": "standard release tmp directory on disk",
+        "global_TMP_DIR_changed": false
+      },
+      "run_id": "baseline-core-20261104"
+    },
+    "apparatus_ref": "841bdcf60bbfe7537fdbf089687b3554226517e1",
+    "engine_files": [
+      {
+        "relative_path": "bin/invert.s",
+        "sha256": "406a73b3e24e4e980cc8c5d5aaed237a53fd429ef44a667328692b5980934371",
+        "mode": "0o750"
+      },
+      {
+        "relative_path": "bin/invert_rf2.pl",
+        "sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3",
+        "mode": "0o750"
+      },
+      {
+        "relative_path": "bin/rmdanglingattrs.pl",
+        "sha256": "df549de020a643b276259d7de47fc087c0f9a108b96584d26f4b497cc06b0955",
+        "mode": "0o750"
+      },
+      {
+        "relative_path": "etc/README.txt",
+        "sha256": "5cac7aa3e29a17c3dea8922886205900661e83920d5cbd9305b9cb9ca36874d6",
+        "mode": "0o640"
+      },
+      {
+        "relative_path": "etc/sct.cfg",
+        "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3",
+        "mode": "0o750"
+      }
+    ],
+    "runtime_files": [
+      {
+        "relative_path": "ENV/INSTALL.txt",
+        "sha256": "4477ea43037c92e83753d66b54b26cc0db4388bb23650c6a551c7674bceeb5e1",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "ENV/README.txt",
+        "sha256": "e0bf2f6b171d2a4d1c86af9aeb40a31475ac173c2123aeb11c3439aedd8c744d",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "ENV/bin/env.csh",
+        "sha256": "4f64f67e8e171859ec4c8c132acecdc4f2686abe9eba31850b46c7cb8fab2584",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "ENV/bin/env.pl",
+        "sha256": "2bd5418bf853a15368c44a4916a53cd6d131b1e04582fba7d4562f73181edf0d",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "ENV/bin/env.sh",
+        "sha256": "7a51a07155d9c4f1e38be2c472c5b161f2f25cf1b19082b03a739c59fea09d14",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "ENV/etc/env.prop",
+        "sha256": "2804e5936b40022054079b744976aa50e368bc8005072d431f820ff1b4590e9a",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop",
+        "sha256": "5bbf4c6464b39d221052ce38936482441fd2e6488fecc763645d98846b0282d3",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop.midp.cheek",
+        "sha256": "5f662e95891e5e2b35c6f4d57a073e748c0d597cf9e3d23e0b369cf213710f71",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop.midp.chin",
+        "sha256": "4f5fbaf9110acabae31602dcb7d3692bdf33ce45538951116e83f72b928816e4",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop.mrdp.cheek",
+        "sha256": "7a7832bcdc7d3642a6d3c9e04ef65838458fa8fd1182a2137e197cde9880d4c2",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop.mrdp.chin",
+        "sha256": "df0a52b189a9299f5abd6b44e594971e76ffd61bb36c63a06119fb9c52109b37",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop.webapps",
+        "sha256": "b5af66fc2604c9adf1208c08acf739ac1e31e71a27e2bab5602a1803a029b4aa",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "ENV/lib/etc/env.prop_orig",
+        "sha256": "bdabe2f1f4d76dec31d3fb12241fa51ae0ea2b91aa681db8b8f030a0218ccb08",
+        "mode": "0o777"
+      },
+      {
+        "relative_path": "INV/INSTALL.txt",
+        "sha256": "3405b1ccabe1de06fb1c5ba222b251be8c17283d69802cd73efaf276440aae68",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/README.txt",
+        "sha256": "5c1c9b475e436ab2d7eaa1550b2a9dbbfb1b86365d4ee3b3b0e4f3c9862dd33e",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/bin/Config/Properties.pm",
+        "sha256": "b578a65aa5096baf2d074cdf348b1db8d89cc82de93e8cc81a07f0ab3ffd1fa5",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/QA4.pl",
+        "sha256": "47d7c7c040f2cce37542388dccfcc3d06dacb8b37fb4f8e75f6e4db087607e1a",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/QaReason.pl",
+        "sha256": "a3e9e6afdbd4d4dfd75f35a1775cca6309154ccacee9846cd31872eef12123ce",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/SRCbuilder.pl",
+        "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/api_metadata.sh",
+        "sha256": "a3344bef1d2f897c215edb527883a4ba46870dbeb2004a473dd203c4f2a431cd",
+        "mode": "0o755"
+      },
+      {
+        "relative_path": "INV/bin/autoinv.pl",
+        "sha256": "ca0c5614f5eb153c0e5252d6aa6bd4eebb95f10679d0108ab78fb79cd271dc17",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/brit2amer.pl",
+        "sha256": "e91691ec6d36c9a4b3b057e412eb54469857606424e19bc5a2388bc820138607",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/bt_nt_to_treepos.pl",
+        "sha256": "2f71ab995ec7b8357c9f0664f6568a470a60828b933643add44c64cd57c93f1c",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/charCount.pl",
+        "sha256": "1ab56356fbf514209cc5328658b584fd454d6ab74107bf5061e5d2ba40d983c3",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/charfreq.pl",
+        "sha256": "013b7d2d96442e7ff9aa39fd9cbe476bea0555b909f01a28299dd55c486914a2",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/check.mergefacts.s",
+        "sha256": "cec5f2c3cdf650b64a4ac64d238f872c6f755bbe6d021fa10de4dcedeeb90b2a",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/check4britishisms.pl",
+        "sha256": "25d9bc7ff9ad0ea163a2a812a508d5a91002dce158d52c4e5006881ee91df5b7",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/check_sources.pl",
+        "sha256": "cb62e5c788a89816b60d0658adda3f8b43aa59b4a0ce9f92a2b1d0da92d52c18",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/checkfields",
+        "sha256": "ceda6fce5a950946eb2734899670e1d48dea4b80503d906a188c47a067149e21",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/checkfields.pl",
+        "sha256": "d23c4e918f70bd20b492e23547bfa2f9420cc41217fac8392451e50eb649db50",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/checkfields.pl.orig",
+        "sha256": "7a22741b6af6b7c171df74fc4fd6879484fb710205836d54e6a39cb5566e011b",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/countu",
+        "sha256": "fec87282ece5cecc49b06f3073c4d074326c397b84a3180b67949863831cca17",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/create_vsab_dirs.pl",
+        "sha256": "23e8944bb829aaac5195bb392fa620573bc4df551a9518815764b5378bc8497c",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/csv2vb.pl",
+        "sha256": "235a3208c871677bcd88c37d9247e09d0df8ccd52ff3bea829b0fbf5380e80e0",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/current_stys.csh",
+        "sha256": "b7b580a855faa82210c6cc1a70db474387c883d2a23ff9e527d6f3bd07fa0396",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/extract_metadata.sh",
+        "sha256": "ffe99de726151b98da1de4e0e1e6dffb18c2dd9e765c7f035db045dfa46ed921",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/find.cycles.s",
+        "sha256": "fe944d7e2aec2d6f42d8c2735c31bc1b95ec4e3125cc1fc059bda76927a8d3ac",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/findExtIds.pl",
+        "sha256": "cec345f6941c9c3a68e79459b8156bcd27c6d849585bcb62f67f741da2401655",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/findQaStats.pl",
+        "sha256": "980653a0e095ae8302111ac69e84e9fddbd2ded39efa7592995b86a3c1379317",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/findSrcDiffs.pl",
+        "sha256": "efa6b0960e4204a53296eb63e5ee121639e7446f4f284ee738586c0e5b00397f",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/findSrcStats.pl",
+        "sha256": "48c45b04f7ae7b238f155005b295990377ff44f0fbb6e2b73575d54560286829",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/fix_broken_lines.pl",
+        "sha256": "03d581b6fb46248acf9c08e96a8e714b8e19e324a25a85c162641bd98c35ca1a",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/genIndexes.csh",
+        "sha256": "bfdcd5ab2a3a93afc0d673af34d2e84365b2a6bd5ac0a1248b28d96beb365f94",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/grep8.pl",
+        "sha256": "5ff64daa54bab88a62a65b13d6e79db354b5beb0c9a527f8921270c3c3331885",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/guess-encoding.pl",
+        "sha256": "7f8f3c8296b69098513bb775f9f9fd9282fd690396567fcf4feeae11c7df78bf",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/look4utf8.pl",
+        "sha256": "385ebb58fca3f6fd0b6ae3e5f51440cb8c2a33599f270e67d0cb833afedec39f",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/lvg",
+        "sha256": "68543b0fdf7e72dd0c2161c92c5803889d043ca0027b8ebd7fdf912d835d8956",
+        "mode": "0o755"
+      },
+      {
+        "relative_path": "INV/bin/make.par_chd_rels.pl",
+        "sha256": "6603009b8001a5210a96b8a1efdaf4368b4d331e2db84b7bc17280898674515a",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/make.sources.src.pl",
+        "sha256": "a375f14ad4935ef348f6e4bd905d411c93315f37574b6d31ff7151b05445a7e5",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/makeDoc.pl",
+        "sha256": "bfbb19ff0583944b743fed53ca8959b552076ce24408b9baae7c11c755660dd2",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/make_new_valid_files.csh",
+        "sha256": "35816f47519e82cf7d9cb775b906486332d9e3ec628ddc72857c8c595d1ea608",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/matchparens.pl",
+        "sha256": "417a8fba5e94f3042c95be3b6e5bacb8c93076ffa8c14a2de2aefae358848761",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/matchquote.pl",
+        "sha256": "40fbbe23b415cdae2822929fe4796b271d37111aa5328bda3bd0a14311df6ec0",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/print.ancestors.pl",
+        "sha256": "d55ff52b6d67a92eb22b198d5d234f6d9f1757435f7205d0a7bb971b2b991cb9",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/print.contexts.pl",
+        "sha256": "ef23c5890f1c79559f5ebe9895c27f08d4198ebe272fdc066b97795223b68c39",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/print.raw3.to.attributes.pl",
+        "sha256": "5928fa07f0ddcdc41bee494a5d57ec0b7d562c4016fa05b2f8c0a009b4325437",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/printQaUserInfo.pl",
+        "sha256": "de4fca298702d2ec37a7e855dad42be3715a654fd7a4683e2f55ad3c30541e5a",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/raw_to_contexts.csh",
+        "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/readrels.s",
+        "sha256": "cde3dd3fff2de62b20082461e2f62652bdd44c53ca080174c288bd2a6b1bb9f1",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/report.pl",
+        "sha256": "0913ac83647dee85bf3ae994a077d2f18f770b8513c8046a3aab1e3d9084be22",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/show-examples.pl",
+        "sha256": "3f438817256aa829ae104b99df57ab024d3288add8fdf47084e0d11ad401f53b",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/show-forbidden.pl",
+        "sha256": "dd7e2582d812622baaa9e11a594cf145032fff50bebcc6fc70890516d9f5181e",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/show.stys.s",
+        "sha256": "657c3fdcdfa03516b5a49b8b5acda43e03b536982fa39aa33ea4ce009ce017ff",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/showEncodings.pl",
+        "sha256": "17634ab8a8296efadb66962fbc9b7ca0d1dc1acedced662156570aa9aa1d0a6d",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/show_mapset_attrs.pl",
+        "sha256": "8e66deb02815bfbdc5f9f7e70c865763d344d65542a8f310741718feb84ebcd9",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/simple.contexts.pl",
+        "sha256": "d0ed93073f79fed97d9bed84228e9e1c68e59121ff555b550fd4df91f747fc6a",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/srcQa.pl",
+        "sha256": "8fcf021a48d20f188d5510b0af78003984b3ff6f63bdf720276501a156f09730",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/ssl.pl",
+        "sha256": "df67931f61e14ab7f9b015e94d21539768da63154caa4ed10903edd6a6a3e95e",
+        "mode": "0o664"
+      },
+      {
+        "relative_path": "INV/bin/strip.junk.pl",
+        "sha256": "e0b338c7e9e2d3ddae013598077014cf5962c62b6b178bd8cb67bae6c41f8304",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/strip.nonprint.pl",
+        "sha256": "d62cb34d23080c8fc430786b9484aa7b84a09e47d05f7b7f1ce75b441159ea4e",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/strip.pl",
+        "sha256": "1b7fffe182f6be5b9e538eb07e0d5f67fe6629d98c00f63f6ae5ca88dd65d170",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/strip7.pl",
+        "sha256": "b522e753ac277c32bdd054c1576b4a1cfc4511b7b69cee9963a98e918cd231be",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/stripblanks",
+        "sha256": "b010477fbd12256ae3a968a698dd707d73c741801bd81cb53cb7e40fbb0da937",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/stys.pl",
+        "sha256": "bd046edd401536e7736b4a114177b34a30983ffdf7bed0ae9650572487eec040",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/tallyfield",
+        "sha256": "2bb5613a0aa1b35cf40b5f099df0c4b25608359d11c2bb05da21fe956c7eb477",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/tallyfield.pl",
+        "sha256": "18cd732ebf03b72238437e66f78d88a1dfd409294be455cf9ec689232bef2084",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/to-utf8.pl",
+        "sha256": "d97fb11bdd02cf6ca79c61eb776a12e4c3b1e8767c2142a6cda03086031c80a8",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/toLvg.pl",
+        "sha256": "7f1902847f277d1d55baf4dc24ffff13bb7dd93d7195ff2ee1406fb013589cd5",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/treepos2btntrels.pl",
+        "sha256": "298ebea22218461ce641a80d809ab2f00407bd16bc60847fc3a3bcf2c116d713",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/treepos2parchd.pl",
+        "sha256": "6a7f2e2dacb4af7bcfdbc1e2289a2f0dbdcbf1f1ab82bfd8edb6d19a1eeb394f",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/treepos_to_attributes.pl",
+        "sha256": "c68c07d95b7a172273abe1020c4974685ca434b1fec2ecd248495c69f005759b",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/treepos_to_contexts.pl",
+        "sha256": "b114ba441bfeb25e3417fc2072118c12784264c30fb40ed7bff7396bd65927a2",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/bin/txt2meow.pl",
+        "sha256": "c1e2e6ea78076d2c72e243a30f1cebc60a3ed86f51389019affcbce3c134c34b",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/etc/Blocks-4.0.0.txt",
+        "sha256": "9cc457320b30c411dada320d98a8a83b5db551225a598637473c851861e75496",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/CP1252.TXT",
+        "sha256": "222dcc703bd43968953430a247af7c65f3bd17994f397209b25f9fc59f4c812f",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/Forbidden_characters.txt",
+        "sha256": "7d969ae2dae9dc391400a9247dd90aec70182b504d5fb927f71cb00fef531eb8",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/META",
+        "sha256": "b51458d30f294961e0cbd79810bd9b3404c61e71dbe23af0d030ffe48f121d09",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/etc/NamesList.txt",
+        "sha256": "a75073b5572dde6d68c7312bd0334904ca686c9c6594f27eae91dd482db08da5",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/README.INVERSION.generic.txt",
+        "sha256": "aa23be33e683e586f74624c4bbf87c0305bb21ee4c2136a1bbd6aac5b45f3e18",
+        "mode": "0o775"
+      },
+      {
+        "relative_path": "INV/etc/README.QA",
+        "sha256": "9d56915659a354f2672c08bf44a4019a53a9ef63012349ab1705699a29832559",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/README_FILELINKS",
+        "sha256": "09c9445b28406f38229c4b747115a3cc0746ba8f0a01809bae3aa59382790054",
+        "mode": "0o664"
+      },
+      {
+        "relative_path": "INV/etc/attrib.fields",
+        "sha256": "d768c4746fa7c310aa6926f8c29cf195aabca632ef22bd9cea3602bf052d9597",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/brit.amer.map",
+        "sha256": "a7e922bea555871274ec70e7cb6de739f8c28d6bded9d083a238241d94ef4a78",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/brit2amer.map",
+        "sha256": "80d57deda16cfd986b09ecc6ba39149956da3101f03a5fd41e3c9753d84859c5",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/brit2amer.txt",
+        "sha256": "80d57deda16cfd986b09ecc6ba39149956da3101f03a5fd41e3c9753d84859c5",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/char_entities.txt",
+        "sha256": "f0f90c81b6ee38c6f75042a59022fa1dbfc13fbd90d6d5c9bb2a4a77fc939fd9",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/class.fields",
+        "sha256": "269f80d86f76864dd52e020908cd1019618bdc34ee9adafd02202e327363f146",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/entries",
+        "sha256": "b4e1b18bf2b383b1386fcddeeefff054da1cc242be202611087c4a2b3cebc411",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/inv_defaults.cfg",
+        "sha256": "5ff5f66aa4cf49c1715bdb305b02a627e64a04193e3c81750130d969c5e94d96",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/invalidChars.txt",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/merge.fields",
+        "sha256": "b15ba5e405bb312af4317c82b5d0fd63a64f7ea32f507c6affb4e0df7589bf20",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/rels.fields",
+        "sha256": "1ec6220220891143a00fb3215cc2edf4ffddbae1e65f57d507767014d56a6204",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/si_proposal_generic.txt",
+        "sha256": "1da683cd78b1bd2e10c1a19dbbfdf5642ac7695242bbd66b51a88015310e95f9",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/sources.fields",
+        "sha256": "284051067ed2d4b3b0456e17dc0d74540f5e54db77307e55101cb85e78d6268d",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/sources.src.template",
+        "sha256": "8aab7923d52b3d3f2dc7a052257e974d6d325778c5ac42f312d3e5ece4402611",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/spell-list",
+        "sha256": "364b7dc80ee5c05199c767d5851c9b068d5d8e90448117c3f8fb45f26124c397",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/template.mapsetattr",
+        "sha256": "4c5e5cff6270c4a83680155dd71c6d939cc48446e791500236922ae2327f146d",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/termgroups.fields",
+        "sha256": "b309dda36a4d7f4f8d0a36a9eec143a5cfbff6b0e49a9173764cdbe99cb36b94",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/valid_langs",
+        "sha256": "6bb38139be8ee5f99ae273de576a99658dfd1a4479aaf1d3231b7902cb9c191a",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/valid_relas",
+        "sha256": "7d394a687c984c542165b1a53bd42fc92373af15cc8bc0761eafbfcbe7cc1aa8",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/valid_stys",
+        "sha256": "05ef6b8ddc737f57f3c7d0d88179f4532e30a966dd13831ef0c55406d982da36",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/etc/valid_stys.old",
+        "sha256": "610f63e2d107c67f04d92f146c0ddae2acdb2827832f4e0009f7298bd2f1facd",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/biggrin.gif",
+        "sha256": "6bb92fc4e109755707a80a896d99f6b85edfc200954579d24a51c1cfa0e324e0",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/confused.gif",
+        "sha256": "e7e4ff69e15dd326e54c8c4bd2384a1f29fc240dc49e8c4f8181cf6e573c50d3",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/cool.gif",
+        "sha256": "121ef0804d2feb81dce817f58b1969e3986db8785ef29d4ff7528ec3309c50f5",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/eek.gif",
+        "sha256": "63434c6f7883988071fd5eb1c218a0a9a135d76414d6b048bfa55141a924fbbc",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/greenball.gif",
+        "sha256": "61a9b3b5865df7163f5a279b5a5430c0d80ce2e6c239f697d61d2d39e3ef4fda",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/happy.gif",
+        "sha256": "0ccf0bb5b43e19b5d3c0df979496a513a4cde8ec042e7be969ae7345e021c2ee",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/mad.gif",
+        "sha256": "7f59d34789c6c75ed2d550fa431ac14e6441c6c83345ff905c290cf5b0561d4a",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/redball.gif",
+        "sha256": "258c27da66561320b2ff0837bd48992bfbdcbfc326c68eecea31c0754e9a6ae9",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/redface.gif",
+        "sha256": "6fd4117e3b8f7a8b782c8496117b8f2b586db2028335dc529e351f7570d6424c",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/rolleyes.gif",
+        "sha256": "f6b8dbbc6fb2b9dc698eb11303e90bc149aa90427d13d900e1da9a9d7da7cb1a",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/sad.gif",
+        "sha256": "46a0f99f6b725cf11444e0750ce26e6acf398c2a99dd7b2a8daee96ebcffd23c",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/tongue.gif",
+        "sha256": "5925cd2a7322fc2dcb8d7e514163239d62aa4f473697d93958ace74da695747c",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/img/wink.gif",
+        "sha256": "0afde65d7e1e469db6b727f4cda5da52d491abfcb0b1db108caeb08eda068963",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Archives.pm",
+        "sha256": "d25a49a5646610772d17981a20508c1af9a0afb40edde1f70276158d20957d31",
+        "mode": "0o664"
+      },
+      {
+        "relative_path": "INV/lib/Archives.pm.old",
+        "sha256": "6066e92d12f0caf02008bc4b4534503b77503fe960c404cf1b19f9760a796b91",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Atom.pm",
+        "sha256": "4e63041aa0e1468b4c6e23b6205b120f6179009eaa4814534b5119358c2c86e2",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Attribute.pm",
+        "sha256": "2630353024f96215830e0002303406852cefcd9547e4dc6496e819be0c6e8fb1",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Brit2Amer.pm",
+        "sha256": "a17fbea789b8fd31f6300f4a2cc0f7b086c443bf9fedb260f918698385bb5b8a",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/CharCount.pm",
+        "sha256": "82cd866b286f747114d91eb8896ec7b4a59e3ac7b8e6af1d2c15041a3009a68d",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Context.pm",
+        "sha256": "648e39468b9f587b4c7780182d086fb112edd94fe01a992872814b3a0938505e",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Contexts.pm",
+        "sha256": "36f24964c4ec9cc9734e754b83f6e6a6794ad0cdca8ab372911c5df65c433174",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/FldMon.pm",
+        "sha256": "912fa4b88258f76d3d52f914f519ecc0aae45011ca4c7864beb688124498d078",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Hierarchy-nocxtAttrs.pm",
+        "sha256": "5e58cd556e21ac070ab10d31fe881941e5a8615fd43bfa7d65eb53e4ffe80836",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Hierarchy.pm",
+        "sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/IdGen.pm",
+        "sha256": "4dc1dff974b45f446a9927316bec5fab5b117cfd0adac1565fad4c3afe6abbb7",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/LVG.pm",
+        "sha256": "3c10904510beeccaa3742313724239b1ec4bb6e9cbc333d9accd2937c2b20fab",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/LineMon.pm",
+        "sha256": "513f870ea13304537dc18a623217e8be49c7f68f53bb68b1127293617ee19fe3",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Logger.pm",
+        "sha256": "83d70c5aaf87acb66552e731778fd6940901b3ae7dd821a1ab039b92eb40c5fc",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/MakeDoc.pm",
+        "sha256": "48e7fb0333daaedecf77df08c49a762e2aa72f6f23506950ef6bb33cdc7056ad",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Merge.pm",
+        "sha256": "99620c986bef4093db45fad9244ec36daa7b284636fdd17b075301b355f4593c",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Midsvcs.pm",
+        "sha256": "6e28f26a584e3c256566d4e86dcbbd9a1e5d0e416c37999e3176ad37b653c8c7",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/NLMConfig.pm",
+        "sha256": "85d28b8126ebc8786bc141139b42e13f7d7331c81e2da670a0396f048202aebb",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/NLMInv.pm",
+        "sha256": "39452587e8d3a25496e2b4ebf0c8cc16b0026f15eb17e8807d80160816bb8cc6",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QA4.pm",
+        "sha256": "3107359d8465affdf3cc0af6d84977464c71337009a0c51712445748e2059767",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QA4_util.pm",
+        "sha256": "d72c2700cee36e61e162c59279b7d055018bc5d53d982a7cb724036590febb82",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaAtoms.pm",
+        "sha256": "07fe4ebca1428bb9f59257ca0924089264d32ace70e04d2cd289f945317f1d13",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaAttrs.pm",
+        "sha256": "0747942c0f3cf7d10d9494d8b3ae9a5b96ca7c3e17c8b2066f3e6083229d2695",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaCxts.pm",
+        "sha256": "abba721bb1993bd241d53795803dad8741b1b224fcb4ef5292fe6f28b77baf05",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaDocs.pm",
+        "sha256": "8954445ce0c0ef0145202899d5a41572971636d70cafa7873b9e420a0e6fe817",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaMerges.pm",
+        "sha256": "4fd3dbd0ec60b93518ae44a27359ca917ed11a0d72727bba9fd4d6ad5d2967a5",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaRels.pm",
+        "sha256": "d3db8d4fd765df5d8ff959f8a98c94e4fe6b518dbd5a60d29881e18aaba08a17",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaSrcs.pm",
+        "sha256": "88d6dd6a864c079c6582638e059810035d7f9685a9a73d519fb16c1b7d1ef155",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaStats.pm",
+        "sha256": "442aaf898d1ad74b545c023ebac16eb27bc69bd4b4298a102038e79d31406545",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/QaTGs.pm",
+        "sha256": "c5e63984c3235c177c00b476bf53f51bc30bfc9c49df8fb1b7105b6a1bcd3fb9",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/Relation.pm",
+        "sha256": "966be7992d60367afe92f32b141f9e017505b566b4bb9a5dac987236badb4b0e",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/SrcBldr.pm",
+        "sha256": "c49ca5c7a43ff504f7baba7c394fa890675ea3a725e38dd07512c69ea957e1ae",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/SrcDiffs.pm",
+        "sha256": "edc9c8be0f7d41a2b6888ecc759dba7f71b28e695e4c00101ad9e0d4068027f2",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/SrcQa.pm",
+        "sha256": "54ce989deae9f549a0693b5c6a9167f8467d2b5146e97805328dac85181973e8",
+        "mode": "0o664"
+      },
+      {
+        "relative_path": "INV/lib/SrcReport.pm",
+        "sha256": "e5b7ac1cc44837aa705a253d5ef17ebea5a89711cbeffe18685fe9876233bbb7",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/SrcStats.pm",
+        "sha256": "aca6c0a3afd0891b829077888839a6ef3ce319fdd29349f29b53e1f0f30371f2",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/findSrcDefaults.pm",
+        "sha256": "6a323f3be5dad9403cea0ab81b15e475864cc1d8e027fba7514d668ca4ac8821",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/iutl.pm",
+        "sha256": "49c3527b91526ce0f5da0a64c202e834dbad150c3a7ed89cac4f76450cf9afed",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/lucene-core-2.3.1.jar",
+        "sha256": "1e419e7286507bb263d7c8b36ab18cf88208e5152f97a9aa7d8700f62c7b78e9",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/lucene-demos-2.3.1.jar",
+        "sha256": "09b63587408965bf9e3bd46b9cf48b07290bf9d375f092f3aeba754d64e02def",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/lucene_index_gen.jar",
+        "sha256": "81bf108cef2740f31b4dd42f4d9617ad03a7982e36b3028a96e4792e58075791",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/print_inv.022309",
+        "sha256": "00f41c37e1876aa0874d65bd1b5f6d7f82abd2267a528be0ba8fcea3d1008042",
+        "mode": "0o644"
+      },
+      {
+        "relative_path": "INV/lib/print_inv.pm",
+        "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af",
+        "mode": "0o644"
+      }
+    ],
+    "fixtures_passed_on_dev": [
+      "eighteen declared conversion/metadata inputs and original attributes reference accepted",
+      "enriched-reference rejected before candidate preparation",
+      "generated-input rejected before candidate preparation",
+      "missing-native rejected before candidate preparation",
+      "all five exact files with passing checks accepted",
+      "reference equality cannot suppress independent validation findings",
+      "only full-record reordering can pass non-exact comparison",
+      "changed IDs or any record content cannot be waived",
+      "incomplete output set rejected",
+      "valid typed records and non-contiguous attribute IDs accepted",
+      "duplicate attribute ID detected",
+      "dangling description attribute detected",
+      "attribute value digest corruption detected",
+      "missing term type detected",
+      "unmapped relationship detected",
+      "unknown endpoint type detected",
+      "unresolved context path detected",
+      "wrong context child identity detected",
+      "wrong context parent identity detected",
+      "out-of-range atom ID detected",
+      "only declared baseline library installed",
+      "prior library bytes preserved read-only before runtime activation",
+      "late preservation failure leaves installed library unchanged"
+    ]
+  },
+  "known_limits": [
+    "This historical case does not authorize a new release, production allocation, metadata acquisition, database writes, insertion or promotion.",
+    "Only reviewed engine revisions and the declared reference stage/profile are executable."
+  ],
+  "reference_stage": "inversion-src",
+  "comparison_profile": "exact",
+  "acquisition": {
+    "aws_profile": "meme",
+    "archives": [
+      {
+        "archive_path": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.tgz",
+        "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+        "object_identity": {
+          "ContentLength": 2604169969,
+          "ETag": "\"7a8716489dd41548f0589c8626394a92-311\"",
+          "LastModified": "2026-10-20T20:43:07+00:00",
+          "VersionId": null
+        }
+      }
+    ],
+    "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa"
+  },
+  "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "source_files": [
+    {
+      "relative_path": "bin/invert.s",
+      "sha256": "406a73b3e24e4e980cc8c5d5aaed237a53fd429ef44a667328692b5980934371",
+      "mode": "0o750",
+      "kind": "file"
+    },
+    {
+      "relative_path": "bin/invert_rf2.pl",
+      "sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3",
+      "mode": "0o750",
+      "kind": "file"
+    },
+    {
+      "relative_path": "bin/rmdanglingattrs.pl",
+      "sha256": "df549de020a643b276259d7de47fc087c0f9a108b96584d26f4b497cc06b0955",
+      "mode": "0o750",
+      "kind": "file"
+    },
+    {
+      "relative_path": "etc/README.txt",
+      "sha256": "5cac7aa3e29a17c3dea8922886205900661e83920d5cbd9305b9cb9ca36874d6",
+      "mode": "0o640",
+      "kind": "file"
+    },
+    {
+      "relative_path": "etc/sct.cfg",
+      "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3",
+      "mode": "0o750",
+      "kind": "file"
+    }
+  ],
+  "runtime_files": [
+    {
+      "relative_path": "ENV/INSTALL.txt",
+      "mode": "0o644",
+      "sha256": "4477ea43037c92e83753d66b54b26cc0db4388bb23650c6a551c7674bceeb5e1"
+    },
+    {
+      "relative_path": "ENV/README.txt",
+      "mode": "0o644",
+      "sha256": "e0bf2f6b171d2a4d1c86af9aeb40a31475ac173c2123aeb11c3439aedd8c744d"
+    },
+    {
+      "relative_path": "ENV/bin/env.csh",
+      "mode": "0o775",
+      "sha256": "4f64f67e8e171859ec4c8c132acecdc4f2686abe9eba31850b46c7cb8fab2584"
+    },
+    {
+      "relative_path": "ENV/bin/env.pl",
+      "mode": "0o775",
+      "sha256": "2bd5418bf853a15368c44a4916a53cd6d131b1e04582fba7d4562f73181edf0d"
+    },
+    {
+      "relative_path": "ENV/bin/env.sh",
+      "mode": "0o775",
+      "sha256": "7a51a07155d9c4f1e38be2c472c5b161f2f25cf1b19082b03a739c59fea09d14"
+    },
+    {
+      "relative_path": "ENV/etc/env.prop",
+      "mode": "0o644",
+      "sha256": "2804e5936b40022054079b744976aa50e368bc8005072d431f820ff1b4590e9a"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop",
+      "mode": "0o777",
+      "sha256": "5bbf4c6464b39d221052ce38936482441fd2e6488fecc763645d98846b0282d3"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop.midp.cheek",
+      "mode": "0o777",
+      "sha256": "5f662e95891e5e2b35c6f4d57a073e748c0d597cf9e3d23e0b369cf213710f71"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop.midp.chin",
+      "mode": "0o777",
+      "sha256": "4f5fbaf9110acabae31602dcb7d3692bdf33ce45538951116e83f72b928816e4"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop.mrdp.cheek",
+      "mode": "0o777",
+      "sha256": "7a7832bcdc7d3642a6d3c9e04ef65838458fa8fd1182a2137e197cde9880d4c2"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop.mrdp.chin",
+      "mode": "0o777",
+      "sha256": "df0a52b189a9299f5abd6b44e594971e76ffd61bb36c63a06119fb9c52109b37"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop.webapps",
+      "mode": "0o777",
+      "sha256": "b5af66fc2604c9adf1208c08acf739ac1e31e71a27e2bab5602a1803a029b4aa"
+    },
+    {
+      "relative_path": "ENV/lib/etc/env.prop_orig",
+      "mode": "0o777",
+      "sha256": "bdabe2f1f4d76dec31d3fb12241fa51ae0ea2b91aa681db8b8f030a0218ccb08"
+    },
+    {
+      "relative_path": "INV/INSTALL.txt",
+      "mode": "0o644",
+      "sha256": "3405b1ccabe1de06fb1c5ba222b251be8c17283d69802cd73efaf276440aae68"
+    },
+    {
+      "relative_path": "INV/README.txt",
+      "mode": "0o644",
+      "sha256": "5c1c9b475e436ab2d7eaa1550b2a9dbbfb1b86365d4ee3b3b0e4f3c9862dd33e"
+    },
+    {
+      "relative_path": "INV/bin/Config/Properties.pm",
+      "mode": "0o775",
+      "sha256": "b578a65aa5096baf2d074cdf348b1db8d89cc82de93e8cc81a07f0ab3ffd1fa5"
+    },
+    {
+      "relative_path": "INV/bin/QA4.pl",
+      "mode": "0o775",
+      "sha256": "47d7c7c040f2cce37542388dccfcc3d06dacb8b37fb4f8e75f6e4db087607e1a"
+    },
+    {
+      "relative_path": "INV/bin/QaReason.pl",
+      "mode": "0o775",
+      "sha256": "a3e9e6afdbd4d4dfd75f35a1775cca6309154ccacee9846cd31872eef12123ce"
+    },
+    {
+      "relative_path": "INV/bin/SRCbuilder.pl",
+      "mode": "0o775",
+      "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282"
+    },
+    {
+      "relative_path": "INV/bin/api_metadata.sh",
+      "mode": "0o755",
+      "sha256": "a3344bef1d2f897c215edb527883a4ba46870dbeb2004a473dd203c4f2a431cd"
+    },
+    {
+      "relative_path": "INV/bin/autoinv.pl",
+      "mode": "0o775",
+      "sha256": "ca0c5614f5eb153c0e5252d6aa6bd4eebb95f10679d0108ab78fb79cd271dc17"
+    },
+    {
+      "relative_path": "INV/bin/brit2amer.pl",
+      "mode": "0o775",
+      "sha256": "e91691ec6d36c9a4b3b057e412eb54469857606424e19bc5a2388bc820138607"
+    },
+    {
+      "relative_path": "INV/bin/bt_nt_to_treepos.pl",
+      "mode": "0o775",
+      "sha256": "2f71ab995ec7b8357c9f0664f6568a470a60828b933643add44c64cd57c93f1c"
+    },
+    {
+      "relative_path": "INV/bin/charCount.pl",
+      "mode": "0o775",
+      "sha256": "1ab56356fbf514209cc5328658b584fd454d6ab74107bf5061e5d2ba40d983c3"
+    },
+    {
+      "relative_path": "INV/bin/charfreq.pl",
+      "mode": "0o775",
+      "sha256": "013b7d2d96442e7ff9aa39fd9cbe476bea0555b909f01a28299dd55c486914a2"
+    },
+    {
+      "relative_path": "INV/bin/check.mergefacts.s",
+      "mode": "0o775",
+      "sha256": "cec5f2c3cdf650b64a4ac64d238f872c6f755bbe6d021fa10de4dcedeeb90b2a"
+    },
+    {
+      "relative_path": "INV/bin/check4britishisms.pl",
+      "mode": "0o775",
+      "sha256": "25d9bc7ff9ad0ea163a2a812a508d5a91002dce158d52c4e5006881ee91df5b7"
+    },
+    {
+      "relative_path": "INV/bin/check_sources.pl",
+      "mode": "0o775",
+      "sha256": "cb62e5c788a89816b60d0658adda3f8b43aa59b4a0ce9f92a2b1d0da92d52c18"
+    },
+    {
+      "relative_path": "INV/bin/checkfields",
+      "mode": "0o775",
+      "sha256": "ceda6fce5a950946eb2734899670e1d48dea4b80503d906a188c47a067149e21"
+    },
+    {
+      "relative_path": "INV/bin/checkfields.pl",
+      "mode": "0o775",
+      "sha256": "d23c4e918f70bd20b492e23547bfa2f9420cc41217fac8392451e50eb649db50"
+    },
+    {
+      "relative_path": "INV/bin/checkfields.pl.orig",
+      "mode": "0o775",
+      "sha256": "7a22741b6af6b7c171df74fc4fd6879484fb710205836d54e6a39cb5566e011b"
+    },
+    {
+      "relative_path": "INV/bin/countu",
+      "mode": "0o775",
+      "sha256": "fec87282ece5cecc49b06f3073c4d074326c397b84a3180b67949863831cca17"
+    },
+    {
+      "relative_path": "INV/bin/create_vsab_dirs.pl",
+      "mode": "0o775",
+      "sha256": "23e8944bb829aaac5195bb392fa620573bc4df551a9518815764b5378bc8497c"
+    },
+    {
+      "relative_path": "INV/bin/csv2vb.pl",
+      "mode": "0o775",
+      "sha256": "235a3208c871677bcd88c37d9247e09d0df8ccd52ff3bea829b0fbf5380e80e0"
+    },
+    {
+      "relative_path": "INV/bin/current_stys.csh",
+      "mode": "0o775",
+      "sha256": "b7b580a855faa82210c6cc1a70db474387c883d2a23ff9e527d6f3bd07fa0396"
+    },
+    {
+      "relative_path": "INV/bin/extract_metadata.sh",
+      "mode": "0o775",
+      "sha256": "ffe99de726151b98da1de4e0e1e6dffb18c2dd9e765c7f035db045dfa46ed921"
+    },
+    {
+      "relative_path": "INV/bin/find.cycles.s",
+      "mode": "0o775",
+      "sha256": "fe944d7e2aec2d6f42d8c2735c31bc1b95ec4e3125cc1fc059bda76927a8d3ac"
+    },
+    {
+      "relative_path": "INV/bin/findExtIds.pl",
+      "mode": "0o775",
+      "sha256": "cec345f6941c9c3a68e79459b8156bcd27c6d849585bcb62f67f741da2401655"
+    },
+    {
+      "relative_path": "INV/bin/findQaStats.pl",
+      "mode": "0o775",
+      "sha256": "980653a0e095ae8302111ac69e84e9fddbd2ded39efa7592995b86a3c1379317"
+    },
+    {
+      "relative_path": "INV/bin/findSrcDiffs.pl",
+      "mode": "0o775",
+      "sha256": "efa6b0960e4204a53296eb63e5ee121639e7446f4f284ee738586c0e5b00397f"
+    },
+    {
+      "relative_path": "INV/bin/findSrcStats.pl",
+      "mode": "0o775",
+      "sha256": "48c45b04f7ae7b238f155005b295990377ff44f0fbb6e2b73575d54560286829"
+    },
+    {
+      "relative_path": "INV/bin/fix_broken_lines.pl",
+      "mode": "0o775",
+      "sha256": "03d581b6fb46248acf9c08e96a8e714b8e19e324a25a85c162641bd98c35ca1a"
+    },
+    {
+      "relative_path": "INV/bin/genIndexes.csh",
+      "mode": "0o775",
+      "sha256": "bfdcd5ab2a3a93afc0d673af34d2e84365b2a6bd5ac0a1248b28d96beb365f94"
+    },
+    {
+      "relative_path": "INV/bin/grep8.pl",
+      "mode": "0o775",
+      "sha256": "5ff64daa54bab88a62a65b13d6e79db354b5beb0c9a527f8921270c3c3331885"
+    },
+    {
+      "relative_path": "INV/bin/guess-encoding.pl",
+      "mode": "0o775",
+      "sha256": "7f8f3c8296b69098513bb775f9f9fd9282fd690396567fcf4feeae11c7df78bf"
+    },
+    {
+      "relative_path": "INV/bin/look4utf8.pl",
+      "mode": "0o775",
+      "sha256": "385ebb58fca3f6fd0b6ae3e5f51440cb8c2a33599f270e67d0cb833afedec39f"
+    },
+    {
+      "relative_path": "INV/bin/lvg",
+      "mode": "0o755",
+      "sha256": "68543b0fdf7e72dd0c2161c92c5803889d043ca0027b8ebd7fdf912d835d8956"
+    },
+    {
+      "relative_path": "INV/bin/make.par_chd_rels.pl",
+      "mode": "0o775",
+      "sha256": "6603009b8001a5210a96b8a1efdaf4368b4d331e2db84b7bc17280898674515a"
+    },
+    {
+      "relative_path": "INV/bin/make.sources.src.pl",
+      "mode": "0o775",
+      "sha256": "a375f14ad4935ef348f6e4bd905d411c93315f37574b6d31ff7151b05445a7e5"
+    },
+    {
+      "relative_path": "INV/bin/makeDoc.pl",
+      "mode": "0o775",
+      "sha256": "bfbb19ff0583944b743fed53ca8959b552076ce24408b9baae7c11c755660dd2"
+    },
+    {
+      "relative_path": "INV/bin/make_new_valid_files.csh",
+      "mode": "0o775",
+      "sha256": "35816f47519e82cf7d9cb775b906486332d9e3ec628ddc72857c8c595d1ea608"
+    },
+    {
+      "relative_path": "INV/bin/matchparens.pl",
+      "mode": "0o775",
+      "sha256": "417a8fba5e94f3042c95be3b6e5bacb8c93076ffa8c14a2de2aefae358848761"
+    },
+    {
+      "relative_path": "INV/bin/matchquote.pl",
+      "mode": "0o775",
+      "sha256": "40fbbe23b415cdae2822929fe4796b271d37111aa5328bda3bd0a14311df6ec0"
+    },
+    {
+      "relative_path": "INV/bin/print.ancestors.pl",
+      "mode": "0o775",
+      "sha256": "d55ff52b6d67a92eb22b198d5d234f6d9f1757435f7205d0a7bb971b2b991cb9"
+    },
+    {
+      "relative_path": "INV/bin/print.contexts.pl",
+      "mode": "0o775",
+      "sha256": "ef23c5890f1c79559f5ebe9895c27f08d4198ebe272fdc066b97795223b68c39"
+    },
+    {
+      "relative_path": "INV/bin/print.raw3.to.attributes.pl",
+      "mode": "0o775",
+      "sha256": "5928fa07f0ddcdc41bee494a5d57ec0b7d562c4016fa05b2f8c0a009b4325437"
+    },
+    {
+      "relative_path": "INV/bin/printQaUserInfo.pl",
+      "mode": "0o775",
+      "sha256": "de4fca298702d2ec37a7e855dad42be3715a654fd7a4683e2f55ad3c30541e5a"
+    },
+    {
+      "relative_path": "INV/bin/raw_to_contexts.csh",
+      "mode": "0o775",
+      "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1"
+    },
+    {
+      "relative_path": "INV/bin/readrels.s",
+      "mode": "0o775",
+      "sha256": "cde3dd3fff2de62b20082461e2f62652bdd44c53ca080174c288bd2a6b1bb9f1"
+    },
+    {
+      "relative_path": "INV/bin/report.pl",
+      "mode": "0o775",
+      "sha256": "0913ac83647dee85bf3ae994a077d2f18f770b8513c8046a3aab1e3d9084be22"
+    },
+    {
+      "relative_path": "INV/bin/show-examples.pl",
+      "mode": "0o775",
+      "sha256": "3f438817256aa829ae104b99df57ab024d3288add8fdf47084e0d11ad401f53b"
+    },
+    {
+      "relative_path": "INV/bin/show-forbidden.pl",
+      "mode": "0o775",
+      "sha256": "dd7e2582d812622baaa9e11a594cf145032fff50bebcc6fc70890516d9f5181e"
+    },
+    {
+      "relative_path": "INV/bin/show.stys.s",
+      "mode": "0o775",
+      "sha256": "657c3fdcdfa03516b5a49b8b5acda43e03b536982fa39aa33ea4ce009ce017ff"
+    },
+    {
+      "relative_path": "INV/bin/showEncodings.pl",
+      "mode": "0o775",
+      "sha256": "17634ab8a8296efadb66962fbc9b7ca0d1dc1acedced662156570aa9aa1d0a6d"
+    },
+    {
+      "relative_path": "INV/bin/show_mapset_attrs.pl",
+      "mode": "0o775",
+      "sha256": "8e66deb02815bfbdc5f9f7e70c865763d344d65542a8f310741718feb84ebcd9"
+    },
+    {
+      "relative_path": "INV/bin/simple.contexts.pl",
+      "mode": "0o775",
+      "sha256": "d0ed93073f79fed97d9bed84228e9e1c68e59121ff555b550fd4df91f747fc6a"
+    },
+    {
+      "relative_path": "INV/bin/srcQa.pl",
+      "mode": "0o775",
+      "sha256": "8fcf021a48d20f188d5510b0af78003984b3ff6f63bdf720276501a156f09730"
+    },
+    {
+      "relative_path": "INV/bin/ssl.pl",
+      "mode": "0o664",
+      "sha256": "df67931f61e14ab7f9b015e94d21539768da63154caa4ed10903edd6a6a3e95e"
+    },
+    {
+      "relative_path": "INV/bin/strip.junk.pl",
+      "mode": "0o775",
+      "sha256": "e0b338c7e9e2d3ddae013598077014cf5962c62b6b178bd8cb67bae6c41f8304"
+    },
+    {
+      "relative_path": "INV/bin/strip.nonprint.pl",
+      "mode": "0o775",
+      "sha256": "d62cb34d23080c8fc430786b9484aa7b84a09e47d05f7b7f1ce75b441159ea4e"
+    },
+    {
+      "relative_path": "INV/bin/strip.pl",
+      "mode": "0o775",
+      "sha256": "1b7fffe182f6be5b9e538eb07e0d5f67fe6629d98c00f63f6ae5ca88dd65d170"
+    },
+    {
+      "relative_path": "INV/bin/strip7.pl",
+      "mode": "0o775",
+      "sha256": "b522e753ac277c32bdd054c1576b4a1cfc4511b7b69cee9963a98e918cd231be"
+    },
+    {
+      "relative_path": "INV/bin/stripblanks",
+      "mode": "0o775",
+      "sha256": "b010477fbd12256ae3a968a698dd707d73c741801bd81cb53cb7e40fbb0da937"
+    },
+    {
+      "relative_path": "INV/bin/stys.pl",
+      "mode": "0o775",
+      "sha256": "bd046edd401536e7736b4a114177b34a30983ffdf7bed0ae9650572487eec040"
+    },
+    {
+      "relative_path": "INV/bin/tallyfield",
+      "mode": "0o775",
+      "sha256": "2bb5613a0aa1b35cf40b5f099df0c4b25608359d11c2bb05da21fe956c7eb477"
+    },
+    {
+      "relative_path": "INV/bin/tallyfield.pl",
+      "mode": "0o775",
+      "sha256": "18cd732ebf03b72238437e66f78d88a1dfd409294be455cf9ec689232bef2084"
+    },
+    {
+      "relative_path": "INV/bin/to-utf8.pl",
+      "mode": "0o775",
+      "sha256": "d97fb11bdd02cf6ca79c61eb776a12e4c3b1e8767c2142a6cda03086031c80a8"
+    },
+    {
+      "relative_path": "INV/bin/toLvg.pl",
+      "mode": "0o775",
+      "sha256": "7f1902847f277d1d55baf4dc24ffff13bb7dd93d7195ff2ee1406fb013589cd5"
+    },
+    {
+      "relative_path": "INV/bin/treepos2btntrels.pl",
+      "mode": "0o775",
+      "sha256": "298ebea22218461ce641a80d809ab2f00407bd16bc60847fc3a3bcf2c116d713"
+    },
+    {
+      "relative_path": "INV/bin/treepos2parchd.pl",
+      "mode": "0o775",
+      "sha256": "6a7f2e2dacb4af7bcfdbc1e2289a2f0dbdcbf1f1ab82bfd8edb6d19a1eeb394f"
+    },
+    {
+      "relative_path": "INV/bin/treepos_to_attributes.pl",
+      "mode": "0o775",
+      "sha256": "c68c07d95b7a172273abe1020c4974685ca434b1fec2ecd248495c69f005759b"
+    },
+    {
+      "relative_path": "INV/bin/treepos_to_contexts.pl",
+      "mode": "0o775",
+      "sha256": "b114ba441bfeb25e3417fc2072118c12784264c30fb40ed7bff7396bd65927a2"
+    },
+    {
+      "relative_path": "INV/bin/txt2meow.pl",
+      "mode": "0o775",
+      "sha256": "c1e2e6ea78076d2c72e243a30f1cebc60a3ed86f51389019affcbce3c134c34b"
+    },
+    {
+      "relative_path": "INV/etc/Blocks-4.0.0.txt",
+      "mode": "0o644",
+      "sha256": "9cc457320b30c411dada320d98a8a83b5db551225a598637473c851861e75496"
+    },
+    {
+      "relative_path": "INV/etc/CP1252.TXT",
+      "mode": "0o644",
+      "sha256": "222dcc703bd43968953430a247af7c65f3bd17994f397209b25f9fc59f4c812f"
+    },
+    {
+      "relative_path": "INV/etc/Forbidden_characters.txt",
+      "mode": "0o644",
+      "sha256": "7d969ae2dae9dc391400a9247dd90aec70182b504d5fb927f71cb00fef531eb8"
+    },
+    {
+      "relative_path": "INV/etc/META",
+      "mode": "0o775",
+      "sha256": "b51458d30f294961e0cbd79810bd9b3404c61e71dbe23af0d030ffe48f121d09"
+    },
+    {
+      "relative_path": "INV/etc/NamesList.txt",
+      "mode": "0o644",
+      "sha256": "a75073b5572dde6d68c7312bd0334904ca686c9c6594f27eae91dd482db08da5"
+    },
+    {
+      "relative_path": "INV/etc/README.INVERSION.generic.txt",
+      "mode": "0o775",
+      "sha256": "aa23be33e683e586f74624c4bbf87c0305bb21ee4c2136a1bbd6aac5b45f3e18"
+    },
+    {
+      "relative_path": "INV/etc/README.QA",
+      "mode": "0o644",
+      "sha256": "9d56915659a354f2672c08bf44a4019a53a9ef63012349ab1705699a29832559"
+    },
+    {
+      "relative_path": "INV/etc/README_FILELINKS",
+      "mode": "0o664",
+      "sha256": "09c9445b28406f38229c4b747115a3cc0746ba8f0a01809bae3aa59382790054"
+    },
+    {
+      "relative_path": "INV/etc/attrib.fields",
+      "mode": "0o644",
+      "sha256": "d768c4746fa7c310aa6926f8c29cf195aabca632ef22bd9cea3602bf052d9597"
+    },
+    {
+      "relative_path": "INV/etc/brit.amer.map",
+      "mode": "0o644",
+      "sha256": "a7e922bea555871274ec70e7cb6de739f8c28d6bded9d083a238241d94ef4a78"
+    },
+    {
+      "relative_path": "INV/etc/brit2amer.map",
+      "mode": "0o644",
+      "sha256": "80d57deda16cfd986b09ecc6ba39149956da3101f03a5fd41e3c9753d84859c5"
+    },
+    {
+      "relative_path": "INV/etc/brit2amer.txt",
+      "mode": "0o644",
+      "sha256": "80d57deda16cfd986b09ecc6ba39149956da3101f03a5fd41e3c9753d84859c5"
+    },
+    {
+      "relative_path": "INV/etc/char_entities.txt",
+      "mode": "0o644",
+      "sha256": "f0f90c81b6ee38c6f75042a59022fa1dbfc13fbd90d6d5c9bb2a4a77fc939fd9"
+    },
+    {
+      "relative_path": "INV/etc/class.fields",
+      "mode": "0o644",
+      "sha256": "269f80d86f76864dd52e020908cd1019618bdc34ee9adafd02202e327363f146"
+    },
+    {
+      "relative_path": "INV/etc/entries",
+      "mode": "0o644",
+      "sha256": "b4e1b18bf2b383b1386fcddeeefff054da1cc242be202611087c4a2b3cebc411"
+    },
+    {
+      "relative_path": "INV/etc/inv_defaults.cfg",
+      "mode": "0o644",
+      "sha256": "5ff5f66aa4cf49c1715bdb305b02a627e64a04193e3c81750130d969c5e94d96"
+    },
+    {
+      "relative_path": "INV/etc/invalidChars.txt",
+      "mode": "0o644",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "relative_path": "INV/etc/merge.fields",
+      "mode": "0o644",
+      "sha256": "b15ba5e405bb312af4317c82b5d0fd63a64f7ea32f507c6affb4e0df7589bf20"
+    },
+    {
+      "relative_path": "INV/etc/rels.fields",
+      "mode": "0o644",
+      "sha256": "1ec6220220891143a00fb3215cc2edf4ffddbae1e65f57d507767014d56a6204"
+    },
+    {
+      "relative_path": "INV/etc/si_proposal_generic.txt",
+      "mode": "0o644",
+      "sha256": "1da683cd78b1bd2e10c1a19dbbfdf5642ac7695242bbd66b51a88015310e95f9"
+    },
+    {
+      "relative_path": "INV/etc/sources.fields",
+      "mode": "0o644",
+      "sha256": "284051067ed2d4b3b0456e17dc0d74540f5e54db77307e55101cb85e78d6268d"
+    },
+    {
+      "relative_path": "INV/etc/sources.src.template",
+      "mode": "0o644",
+      "sha256": "8aab7923d52b3d3f2dc7a052257e974d6d325778c5ac42f312d3e5ece4402611"
+    },
+    {
+      "relative_path": "INV/etc/spell-list",
+      "mode": "0o644",
+      "sha256": "364b7dc80ee5c05199c767d5851c9b068d5d8e90448117c3f8fb45f26124c397"
+    },
+    {
+      "relative_path": "INV/etc/template.mapsetattr",
+      "mode": "0o644",
+      "sha256": "4c5e5cff6270c4a83680155dd71c6d939cc48446e791500236922ae2327f146d"
+    },
+    {
+      "relative_path": "INV/etc/termgroups.fields",
+      "mode": "0o644",
+      "sha256": "b309dda36a4d7f4f8d0a36a9eec143a5cfbff6b0e49a9173764cdbe99cb36b94"
+    },
+    {
+      "relative_path": "INV/etc/valid_langs",
+      "mode": "0o644",
+      "sha256": "6bb38139be8ee5f99ae273de576a99658dfd1a4479aaf1d3231b7902cb9c191a"
+    },
+    {
+      "relative_path": "INV/etc/valid_relas",
+      "mode": "0o644",
+      "sha256": "7d394a687c984c542165b1a53bd42fc92373af15cc8bc0761eafbfcbe7cc1aa8"
+    },
+    {
+      "relative_path": "INV/etc/valid_stys",
+      "mode": "0o644",
+      "sha256": "05ef6b8ddc737f57f3c7d0d88179f4532e30a966dd13831ef0c55406d982da36"
+    },
+    {
+      "relative_path": "INV/etc/valid_stys.old",
+      "mode": "0o644",
+      "sha256": "610f63e2d107c67f04d92f146c0ddae2acdb2827832f4e0009f7298bd2f1facd"
+    },
+    {
+      "relative_path": "INV/img/biggrin.gif",
+      "mode": "0o644",
+      "sha256": "6bb92fc4e109755707a80a896d99f6b85edfc200954579d24a51c1cfa0e324e0"
+    },
+    {
+      "relative_path": "INV/img/confused.gif",
+      "mode": "0o644",
+      "sha256": "e7e4ff69e15dd326e54c8c4bd2384a1f29fc240dc49e8c4f8181cf6e573c50d3"
+    },
+    {
+      "relative_path": "INV/img/cool.gif",
+      "mode": "0o644",
+      "sha256": "121ef0804d2feb81dce817f58b1969e3986db8785ef29d4ff7528ec3309c50f5"
+    },
+    {
+      "relative_path": "INV/img/eek.gif",
+      "mode": "0o644",
+      "sha256": "63434c6f7883988071fd5eb1c218a0a9a135d76414d6b048bfa55141a924fbbc"
+    },
+    {
+      "relative_path": "INV/img/greenball.gif",
+      "mode": "0o644",
+      "sha256": "61a9b3b5865df7163f5a279b5a5430c0d80ce2e6c239f697d61d2d39e3ef4fda"
+    },
+    {
+      "relative_path": "INV/img/happy.gif",
+      "mode": "0o644",
+      "sha256": "0ccf0bb5b43e19b5d3c0df979496a513a4cde8ec042e7be969ae7345e021c2ee"
+    },
+    {
+      "relative_path": "INV/img/mad.gif",
+      "mode": "0o644",
+      "sha256": "7f59d34789c6c75ed2d550fa431ac14e6441c6c83345ff905c290cf5b0561d4a"
+    },
+    {
+      "relative_path": "INV/img/redball.gif",
+      "mode": "0o644",
+      "sha256": "258c27da66561320b2ff0837bd48992bfbdcbfc326c68eecea31c0754e9a6ae9"
+    },
+    {
+      "relative_path": "INV/img/redface.gif",
+      "mode": "0o644",
+      "sha256": "6fd4117e3b8f7a8b782c8496117b8f2b586db2028335dc529e351f7570d6424c"
+    },
+    {
+      "relative_path": "INV/img/rolleyes.gif",
+      "mode": "0o644",
+      "sha256": "f6b8dbbc6fb2b9dc698eb11303e90bc149aa90427d13d900e1da9a9d7da7cb1a"
+    },
+    {
+      "relative_path": "INV/img/sad.gif",
+      "mode": "0o644",
+      "sha256": "46a0f99f6b725cf11444e0750ce26e6acf398c2a99dd7b2a8daee96ebcffd23c"
+    },
+    {
+      "relative_path": "INV/img/tongue.gif",
+      "mode": "0o644",
+      "sha256": "5925cd2a7322fc2dcb8d7e514163239d62aa4f473697d93958ace74da695747c"
+    },
+    {
+      "relative_path": "INV/img/wink.gif",
+      "mode": "0o644",
+      "sha256": "0afde65d7e1e469db6b727f4cda5da52d491abfcb0b1db108caeb08eda068963"
+    },
+    {
+      "relative_path": "INV/lib/Archives.pm",
+      "mode": "0o664",
+      "sha256": "d25a49a5646610772d17981a20508c1af9a0afb40edde1f70276158d20957d31"
+    },
+    {
+      "relative_path": "INV/lib/Archives.pm.old",
+      "mode": "0o644",
+      "sha256": "6066e92d12f0caf02008bc4b4534503b77503fe960c404cf1b19f9760a796b91"
+    },
+    {
+      "relative_path": "INV/lib/Atom.pm",
+      "mode": "0o644",
+      "sha256": "4e63041aa0e1468b4c6e23b6205b120f6179009eaa4814534b5119358c2c86e2"
+    },
+    {
+      "relative_path": "INV/lib/Attribute.pm",
+      "mode": "0o644",
+      "sha256": "2630353024f96215830e0002303406852cefcd9547e4dc6496e819be0c6e8fb1"
+    },
+    {
+      "relative_path": "INV/lib/Brit2Amer.pm",
+      "mode": "0o644",
+      "sha256": "a17fbea789b8fd31f6300f4a2cc0f7b086c443bf9fedb260f918698385bb5b8a"
+    },
+    {
+      "relative_path": "INV/lib/CharCount.pm",
+      "mode": "0o644",
+      "sha256": "82cd866b286f747114d91eb8896ec7b4a59e3ac7b8e6af1d2c15041a3009a68d"
+    },
+    {
+      "relative_path": "INV/lib/Context.pm",
+      "mode": "0o644",
+      "sha256": "648e39468b9f587b4c7780182d086fb112edd94fe01a992872814b3a0938505e"
+    },
+    {
+      "relative_path": "INV/lib/Contexts.pm",
+      "mode": "0o644",
+      "sha256": "36f24964c4ec9cc9734e754b83f6e6a6794ad0cdca8ab372911c5df65c433174"
+    },
+    {
+      "relative_path": "INV/lib/FldMon.pm",
+      "mode": "0o644",
+      "sha256": "912fa4b88258f76d3d52f914f519ecc0aae45011ca4c7864beb688124498d078"
+    },
+    {
+      "relative_path": "INV/lib/Hierarchy-nocxtAttrs.pm",
+      "mode": "0o644",
+      "sha256": "5e58cd556e21ac070ab10d31fe881941e5a8615fd43bfa7d65eb53e4ffe80836"
+    },
+    {
+      "relative_path": "INV/lib/Hierarchy.pm",
+      "mode": "0o644",
+      "sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0"
+    },
+    {
+      "relative_path": "INV/lib/IdGen.pm",
+      "mode": "0o644",
+      "sha256": "4dc1dff974b45f446a9927316bec5fab5b117cfd0adac1565fad4c3afe6abbb7"
+    },
+    {
+      "relative_path": "INV/lib/LVG.pm",
+      "mode": "0o644",
+      "sha256": "3c10904510beeccaa3742313724239b1ec4bb6e9cbc333d9accd2937c2b20fab"
+    },
+    {
+      "relative_path": "INV/lib/LineMon.pm",
+      "mode": "0o644",
+      "sha256": "513f870ea13304537dc18a623217e8be49c7f68f53bb68b1127293617ee19fe3"
+    },
+    {
+      "relative_path": "INV/lib/Logger.pm",
+      "mode": "0o644",
+      "sha256": "83d70c5aaf87acb66552e731778fd6940901b3ae7dd821a1ab039b92eb40c5fc"
+    },
+    {
+      "relative_path": "INV/lib/MakeDoc.pm",
+      "mode": "0o644",
+      "sha256": "48e7fb0333daaedecf77df08c49a762e2aa72f6f23506950ef6bb33cdc7056ad"
+    },
+    {
+      "relative_path": "INV/lib/Merge.pm",
+      "mode": "0o644",
+      "sha256": "99620c986bef4093db45fad9244ec36daa7b284636fdd17b075301b355f4593c"
+    },
+    {
+      "relative_path": "INV/lib/Midsvcs.pm",
+      "mode": "0o644",
+      "sha256": "6e28f26a584e3c256566d4e86dcbbd9a1e5d0e416c37999e3176ad37b653c8c7"
+    },
+    {
+      "relative_path": "INV/lib/NLMConfig.pm",
+      "mode": "0o644",
+      "sha256": "85d28b8126ebc8786bc141139b42e13f7d7331c81e2da670a0396f048202aebb"
+    },
+    {
+      "relative_path": "INV/lib/NLMInv.pm",
+      "mode": "0o644",
+      "sha256": "39452587e8d3a25496e2b4ebf0c8cc16b0026f15eb17e8807d80160816bb8cc6"
+    },
+    {
+      "relative_path": "INV/lib/QA4.pm",
+      "mode": "0o644",
+      "sha256": "3107359d8465affdf3cc0af6d84977464c71337009a0c51712445748e2059767"
+    },
+    {
+      "relative_path": "INV/lib/QA4_util.pm",
+      "mode": "0o644",
+      "sha256": "d72c2700cee36e61e162c59279b7d055018bc5d53d982a7cb724036590febb82"
+    },
+    {
+      "relative_path": "INV/lib/QaAtoms.pm",
+      "mode": "0o644",
+      "sha256": "07fe4ebca1428bb9f59257ca0924089264d32ace70e04d2cd289f945317f1d13"
+    },
+    {
+      "relative_path": "INV/lib/QaAttrs.pm",
+      "mode": "0o644",
+      "sha256": "0747942c0f3cf7d10d9494d8b3ae9a5b96ca7c3e17c8b2066f3e6083229d2695"
+    },
+    {
+      "relative_path": "INV/lib/QaCxts.pm",
+      "mode": "0o644",
+      "sha256": "abba721bb1993bd241d53795803dad8741b1b224fcb4ef5292fe6f28b77baf05"
+    },
+    {
+      "relative_path": "INV/lib/QaDocs.pm",
+      "mode": "0o644",
+      "sha256": "8954445ce0c0ef0145202899d5a41572971636d70cafa7873b9e420a0e6fe817"
+    },
+    {
+      "relative_path": "INV/lib/QaMerges.pm",
+      "mode": "0o644",
+      "sha256": "4fd3dbd0ec60b93518ae44a27359ca917ed11a0d72727bba9fd4d6ad5d2967a5"
+    },
+    {
+      "relative_path": "INV/lib/QaRels.pm",
+      "mode": "0o644",
+      "sha256": "d3db8d4fd765df5d8ff959f8a98c94e4fe6b518dbd5a60d29881e18aaba08a17"
+    },
+    {
+      "relative_path": "INV/lib/QaSrcs.pm",
+      "mode": "0o644",
+      "sha256": "88d6dd6a864c079c6582638e059810035d7f9685a9a73d519fb16c1b7d1ef155"
+    },
+    {
+      "relative_path": "INV/lib/QaStats.pm",
+      "mode": "0o644",
+      "sha256": "442aaf898d1ad74b545c023ebac16eb27bc69bd4b4298a102038e79d31406545"
+    },
+    {
+      "relative_path": "INV/lib/QaTGs.pm",
+      "mode": "0o644",
+      "sha256": "c5e63984c3235c177c00b476bf53f51bc30bfc9c49df8fb1b7105b6a1bcd3fb9"
+    },
+    {
+      "relative_path": "INV/lib/Relation.pm",
+      "mode": "0o644",
+      "sha256": "966be7992d60367afe92f32b141f9e017505b566b4bb9a5dac987236badb4b0e"
+    },
+    {
+      "relative_path": "INV/lib/SrcBldr.pm",
+      "mode": "0o644",
+      "sha256": "c49ca5c7a43ff504f7baba7c394fa890675ea3a725e38dd07512c69ea957e1ae"
+    },
+    {
+      "relative_path": "INV/lib/SrcDiffs.pm",
+      "mode": "0o644",
+      "sha256": "edc9c8be0f7d41a2b6888ecc759dba7f71b28e695e4c00101ad9e0d4068027f2"
+    },
+    {
+      "relative_path": "INV/lib/SrcQa.pm",
+      "mode": "0o664",
+      "sha256": "54ce989deae9f549a0693b5c6a9167f8467d2b5146e97805328dac85181973e8"
+    },
+    {
+      "relative_path": "INV/lib/SrcReport.pm",
+      "mode": "0o644",
+      "sha256": "e5b7ac1cc44837aa705a253d5ef17ebea5a89711cbeffe18685fe9876233bbb7"
+    },
+    {
+      "relative_path": "INV/lib/SrcStats.pm",
+      "mode": "0o644",
+      "sha256": "aca6c0a3afd0891b829077888839a6ef3ce319fdd29349f29b53e1f0f30371f2"
+    },
+    {
+      "relative_path": "INV/lib/findSrcDefaults.pm",
+      "mode": "0o644",
+      "sha256": "6a323f3be5dad9403cea0ab81b15e475864cc1d8e027fba7514d668ca4ac8821"
+    },
+    {
+      "relative_path": "INV/lib/iutl.pm",
+      "mode": "0o644",
+      "sha256": "49c3527b91526ce0f5da0a64c202e834dbad150c3a7ed89cac4f76450cf9afed"
+    },
+    {
+      "relative_path": "INV/lib/lucene-core-2.3.1.jar",
+      "mode": "0o644",
+      "sha256": "1e419e7286507bb263d7c8b36ab18cf88208e5152f97a9aa7d8700f62c7b78e9"
+    },
+    {
+      "relative_path": "INV/lib/lucene-demos-2.3.1.jar",
+      "mode": "0o644",
+      "sha256": "09b63587408965bf9e3bd46b9cf48b07290bf9d375f092f3aeba754d64e02def"
+    },
+    {
+      "relative_path": "INV/lib/lucene_index_gen.jar",
+      "mode": "0o644",
+      "sha256": "81bf108cef2740f31b4dd42f4d9617ad03a7982e36b3028a96e4792e58075791"
+    },
+    {
+      "relative_path": "INV/lib/print_inv.022309",
+      "mode": "0o644",
+      "sha256": "00f41c37e1876aa0874d65bd1b5f6d7f82abd2267a528be0ba8fcea3d1008042"
+    },
+    {
+      "relative_path": "INV/lib/print_inv.pm",
+      "mode": "0o644",
+      "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af"
+    }
+  ]
+}

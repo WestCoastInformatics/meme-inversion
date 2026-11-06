@@ -19,7 +19,7 @@ import traceback
 
 from acquire_mth_subset import identity, publish
 import compare_mth_core
-from replay_process import execute, available_memory
+from replay_process import execute, available_memory, runtime_lock
 
 ROOT = Path('/local/content/MEME/MEME5/inv')
 VERSION = 'MTH_2026AA'
@@ -330,7 +330,7 @@ mv classes_atoms.final.src classes_atoms.src
 }
 
 
-def worker(package_path):
+def worker(package_path, inherited_lock=None):
     guard()
     package = json.loads(Path(package_path).read_text())
     configure_case(package)
@@ -363,8 +363,7 @@ def worker(package_path):
                 require(TARGET / 'src' / name, expected[name]['sha256'])
                 print('CHECKPOINT: exact ' + name, flush=True)
     try:
-        with (ROOT / '.replay-runtime.lock').open('a') as lock:
-            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        with runtime_lock(ROOT, inherited_lock):
             verify_inputs(package)
             if package.get('execute_source_stages'):
                 identity_script = source_identity_script(TARGET / 'invert2.s')
