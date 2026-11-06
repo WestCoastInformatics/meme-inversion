@@ -1,0 +1,206 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "apparatus_ref": "2c07226af6e241896ff159ccb3e898bc5e9e925f",
+  "run_id": "baseline-core-20261105",
+  "status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+  "completed_at": "2026-11-05T19:00:20.333081+00:00",
+  "acceptance": {
+    "status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+    "all_compared_outputs_exact": true,
+    "all_compared_records_equal": true,
+    "six_core_files_exact": true,
+    "generated_ids_reindexed": false,
+    "ignored_fields": [],
+    "validation_passed": false
+  },
+  "compared_outputs": 23,
+  "files": {
+    "attr_src": {
+      "rows": 1,
+      "bytes": 109,
+      "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/attr_src"
+    },
+    "class_src": {
+      "rows": 2,
+      "bytes": 142,
+      "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/class_src"
+    },
+    "rel_src": {
+      "rows": 1,
+      "bytes": 103,
+      "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/rel_src"
+    },
+    "merge_src": {
+      "rows": 1,
+      "bytes": 67,
+      "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/merge_src"
+    },
+    "auis_nonupdatedSAB_moved": {
+      "rows": 597,
+      "bytes": 11130,
+      "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/auis_nonupdatedSAB_moved"
+    },
+    "cui_merges": {
+      "rows": 571,
+      "bytes": 10278,
+      "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/cui_merges"
+    },
+    "classes_atoms.src": {
+      "rows": 4018246,
+      "bytes": 555467101,
+      "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/classes_atoms.src"
+    },
+    "aui_said_map": {
+      "rows": 4017648,
+      "bytes": 115764330,
+      "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/aui_said_map"
+    },
+    "cui.splitonly.new": {
+      "rows": 30,
+      "bytes": 270,
+      "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/cui.splitonly.new"
+    },
+    "cui_splitonly_said_map": {
+      "rows": 30,
+      "bytes": 570,
+      "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/cui_splitonly_said_map"
+    },
+    "moved_aui_said_map": {
+      "rows": 597,
+      "bytes": 17100,
+      "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/moved_aui_said_map"
+    },
+    "cui_said_map": {
+      "rows": 1906016,
+      "bytes": 36214304,
+      "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/cui_said_map"
+    },
+    "rel_cui_said_map": {
+      "rows": 1906016,
+      "bytes": 36214304,
+      "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/rel_cui_said_map"
+    },
+    "attributes.src": {
+      "rows": 20206954,
+      "bytes": 2796291696,
+      "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/attributes.src"
+    },
+    "mergefacts.src": {
+      "rows": 1169,
+      "bytes": 83696,
+      "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/mergefacts.src"
+    },
+    "bequeathal.relationships.src": {
+      "rows": 7600,
+      "bytes": 682893,
+      "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/bequeathal.relationships.src"
+    },
+    "relationships.src": {
+      "rows": 6404200,
+      "bytes": 771791609,
+      "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/relationships.src"
+    },
+    "src-root.cuis.updated": {
+      "rows": 21,
+      "bytes": 189,
+      "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/src-root.cuis.updated"
+    },
+    "attributes.contexts-all.src": {
+      "rows": 1075932,
+      "bytes": 460970251,
+      "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/attributes.contexts-all.src"
+    },
+    "contexts.src": {
+      "rows": 1118752,
+      "bytes": 312852927,
+      "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/contexts.src"
+    },
+    "said.ptsaid": {
+      "rows": 4018248,
+      "bytes": 80364960,
+      "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/said.ptsaid"
+    },
+    "ptsaid.order": {
+      "rows": 1866759,
+      "bytes": 18667590,
+      "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/ptsaid.order"
+    },
+    "classes_atoms.src.raw": {
+      "rows": 4018248,
+      "bytes": 602938575,
+      "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff",
+      "exact_match": true,
+      "official_reference": "MTH_2026AA/src/classes_atoms.src.raw"
+    }
+  },
+  "validation_findings": {
+    "attributes.src": {
+      "unresolved_atom_reference": 2
+    },
+    "contexts.src": {
+      "unresolved_atom_reference": 2
+    }
+  },
+  "validation_review": "Confirmed legacy data-consistency issues affecting two attribute rows and one context row; no waiver or corrected-pass classification",
+  "conversion_seconds": 8923.38,
+  "total_seconds": 9280.47,
+  "sampled_peak_conversion_process_group_resident_bytes": 2210295808,
+  "process_peak_scope": "Monitored conversion children, not an independently sampled whole-worker/comparison peak",
+  "input_engine_runtime_and_output_hashes_verified_after_run": true,
+  "starting_stage": "prepared",
+  "historical_input_regeneration_required": false,
+  "live_database_queried": false,
+  "insertion_executed": false,
+  "scope": "Final-range core conversion, moved/split CUI/AUI identity maps, bequeathal relationships and contexts from archived prepared subset and metadata. MetamorphoSys generation, source-metadata acquisition, preliminary ID estimation, MRDOC/legacy QA, umlscui.txt and insertion are outside this case.",
+  "result_ref": "mth-2026aa-baseline-result.json",
+  "preservation_review_ref": "mth-2026aa-preserved-access-review.json",
+  "fixtures_ref": "mth-2026aa-preservation-fixtures.json",
+  "reference_findings_ref": "mth-2026aa-reference-findings.json",
+  "next_fix_proposal_ref": "mth-reference-findings.md"
+}

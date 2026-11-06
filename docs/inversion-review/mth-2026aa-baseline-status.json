@@ -1,34 +1,41 @@
 {
-  "sample": 104,
+  "sample": 213,
   "active": {
     "source": "MTH",
     "version": "MTH_2026AA",
     "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
     "run_id": "baseline-core-20261105",
     "started_at": "2026-11-05T16:25:39.863850+00:00",
-    "status": "running",
+    "status": "complete",
     "worker_pid": 341605,
-    "run_directory": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/baseline-core-20261105"
+    "run_directory": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/baseline-core-20261105",
+    "conversion_completed_at": "2026-11-05T18:54:23.248701+00:00",
+    "completed_at": "2026-11-05T19:00:20.333081+00:00",
+    "acceptance_status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
+    "result_path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/baseline-core-20261105/result.json"
   },
   "progress": {
-    "stage": "attributes-relationships-merges",
-    "observed_at": "2026-11-05T17:38:44.263593+00:00",
-    "pid": 350936,
-    "elapsed_seconds": 3725,
-    "sampled_peak_resident_bytes": 2089684992,
-    "available_memory_bytes": 26099015680,
+    "stage": "final-atom-format",
+    "observed_at": "2026-11-05T18:54:16.709476+00:00",
+    "pid": 467979,
+    "elapsed_seconds": 30,
+    "sampled_peak_resident_bytes": 7266304,
+    "available_memory_bytes": 28200132608,
     "output_bytes": {
       "classes_atoms.src": 602938575,
-      "attributes.src": 2335321445,
-      "relationships.src": 468912385
+      "attributes.src": 2796291696,
+      "relationships.src": 771791609,
+      "mergefacts.src": 83696,
+      "bequeathal.relationships.src": 682893,
+      "contexts.src": 312852927
     }
   },
   "worker_tail": [
-    "PHASE: source-metadata-builder",
-    "CHECKPOINT: exact class_src, attr_src, rel_src, merge_src",
-    "PHASE: atoms-and-initial-map",
-    "PHASE: identity-transitions",
-    "CHECKPOINT: exact aui_said_map, cui_said_map, rel_cui_said_map, moved_aui_said_map, cui_splitonly_said_map",
-    "PHASE: attributes-relationships-merges"
+    "COMPARED: contexts.src exact=True",
+    "COMPARED: said.ptsaid exact=True",
+    "COMPARED: ptsaid.order exact=True",
+    "COMPARED: classes_atoms.src.raw exact=True",
+    "PHASE: independent MTH structure checks",
+    "RESULT: REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS"
   ]
 }

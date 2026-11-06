@@ -6,7 +6,7 @@
   "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
   "apparatus_ref": "2c07226af6e241896ff159ccb3e898bc5e9e925f",
   "environment_profile": "ncias-d3777-c",
-  "status": "running",
+  "status": "exact reference reproduction with unresolved validation findings",
   "run_id": "baseline-core-20261105",
   "replacement_baseline": {
     "source": "MTH",
@@ -270,5 +270,9 @@
   "preserved_dev_tree": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-replay-20261105",
   "preparation_permission_note": "Read-only preservation now retains original access bits; the running capsule received an owner-only preserved root and a separate preparation-permissions receipt without changing data.",
   "preservation_review_ref": "mth-2026aa-preserved-access-review.json",
-  "preservation_fixture_ref": "mth-2026aa-preservation-fixtures.json"
+  "preservation_fixture_ref": "mth-2026aa-preservation-fixtures.json",
+  "result_ref": "mth-2026aa-baseline-result.json",
+  "summary_ref": "mth-2026aa-baseline-summary.json",
+  "reference_findings_ref": "mth-2026aa-reference-findings.json",
+  "clean_validation_acceptance": false
 }

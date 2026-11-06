@@ -107,7 +107,8 @@
           "$ref": "#/$defs/nullable_reference"
         },
         "identity_state": {
-          "$ref": "#/$defs/nullable_reference"
+          "$ref": "#/$defs/nullable_reference",
+          "description": "Versioned persistent identity maps or saved source-root anchors required by the selected source/stage contract; distinct from code provenance or a generic prior folder."
         },
         "source_plan": {
           "$ref": "#/$defs/nonempty_reference"

@@ -1,0 +1,11 @@
+{
+  "local_checks_passed": 21,
+  "stdout": "PASS MTH dialect accepts two reserved SRC IDs and 19-field contexts\nPASS previous-CUI role retained independently from current-CUI role\nPASS attribute targeting an atom removed after map generation is rejected\nPASS blank mapped context node rejects both its context and attribute with explicit endpoint counts\nPASS atom below the complete reserved range rejected\nPASS incorrect attribute digest rejected\nPASS unresolved atom endpoint rejected\nPASS unresolved context path rejected\nPASS nonempty second context tail rejected\nPASS unmapped relationship rejected\nPASS SNOMED 18-field context shape cannot silently replace MTH shape\nPASS CUI_CURRENT/PREVIOUS change cannot pass full-record comparison\nPASS duplicate historical relationship loss detected\nPASS moved AUI identity state regenerated\nPASS prior installed CUI excluded from newly split-only CUI set\nPASS current and moved AUI maps remain distinct\nPASS unverified prior source folder rejected\nPASS late preparation failure restores the original dev path and bytes\nPASS failed candidate publication leaves no misleading preserved/current pair\nPASS read-only preservation retains restricted original read/execute access\nPASS fresh candidate cannot inherit preexisting generated output\n21 MTH replay checks passed\n",
+  "check_file_sha256": "698298e4d76cbc164b21107ef3f4762432962376805695783ff9f4250d75dd1e",
+  "comparator_sha256": "77da139f38d38a4e4b44ebe7f4cf8ad319d2b2f31cc0264d440d4b8e20e27992",
+  "comparator_unchanged_from_executed_capsule": true,
+  "earlier_dev_checks_passed": 19,
+  "earlier_dev_receipt": "mth-2026aa-preservation-fixtures.json",
+  "new_cases_executed_on_dev": false,
+  "description": "Two added local negative fixtures reproduce the orphan attribute and blank context-node patterns. Comparator rules and completed full-scan verdict are unchanged."
+}

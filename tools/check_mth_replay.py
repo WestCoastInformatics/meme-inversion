@@ -39,6 +39,22 @@ def check():
         good = validate(rows)
         require(good['passed'], 'MTH dialect accepts two reserved SRC IDs and 19-field contexts')
         require('CUI_PREVIOUS|' in good['files']['bequeathal.relationships.src']['identifier_types_and_qualifiers'], 'previous-CUI role retained independently from current-CUI role')
+        orphan = copy.deepcopy(rows)
+        orphan['attributes.src'][0][1] = '769443592'
+        result = validate(orphan)
+        require(not result['passed'] and result['files']['attributes.src']['violations'].get('unresolved_atom_reference') == 1,
+                'attribute targeting an atom removed after map generation is rejected')
+        blank = copy.deepcopy(rows)
+        blank['attributes.src'][0][1] = ''
+        blank['attributes.src'][0][3] = 'CONTEXT'
+        blank['attributes.src'][0][4] = '1\t::~~SRC_ATOM_ID~~~SRC_ATOM_ID~\tSynthetic Root\tPARTS\t\t'
+        blank['attributes.src'][0][13] = hashlib.md5(blank['attributes.src'][0][4].encode()).hexdigest()
+        blank['contexts.src'][0][0] = ''
+        blank['contexts.src'][0][11] = ''
+        result = validate(blank)
+        require(not result['passed'] and result['files']['attributes.src']['violations'].get('unresolved_atom_reference') == 1
+                and result['files']['contexts.src']['violations'].get('unresolved_atom_reference') == 2,
+                'blank mapped context node rejects both its context and attribute with explicit endpoint counts')
         for problem, name, index, value in [
             ('atom below the complete reserved range', 'classes_atoms.src', 0, '769443590'),
             ('incorrect attribute digest', 'attributes.src', 4, 'different value'),

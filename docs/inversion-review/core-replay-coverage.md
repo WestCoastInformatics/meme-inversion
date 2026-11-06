@@ -1,0 +1,20 @@
+# Core replay coverage and the next migration gate
+
+Updated November 5, 2026. This is the current coverage boundary for the phased [assessment](assessment.md), not production release approval. All execution described here uses the separate dev host and storage at mirrored operational paths.
+
+| Source/case | Evidence established | Remaining boundary |
+|---|---|---|
+| NCI_2026_10D | All three native TREF files exact; unchanged engine exposed one missing FDA PT term type; separate explicit-PT and stable-order candidates pass all five core files under the declared comparison profile | Metadata acquisition, legacy QA/MRDOC, insertion, skipped-month transition cases and broader shared-library regression |
+| SNOMEDCT_US_2026_09_01 | Unchanged core plus original attribute cleanup reproduced all five official files byte-for-byte; corrected independent validator passes a full-file scan with unchanged output hashes | Metadata/ICD inventory generation, legacy QA/MRDOC, insertion and additional RF2/policy cases |
+| MTH_2026AA | All 23 compared outputs exact, including six core files and regenerated state, using preserved inputs and the prior CUI map | Two confirmed consistency issues affect two attributes and one context row; clean validation and reviewed correction candidates remain open |
+| MDR_29_1 / RADLEX_4_3 | Read-only production workflow discovery and separately documented source-code import; common request registry includes both | Matching frozen archive/input/runtime cases, unchanged-engine replays, independent acceptance profiles and common execution adapters |
+
+Detailed results: [NCIt](nci-2026-10d-context-order-summary.json), [SNOMED](snomedct-us-2026-09-01-baseline-summary.json), [MTH result/findings](mth-reference-findings.md), [additional-source contracts](additional-source-contracts.md).
+
+A complete preserved input bundle is sufficient for a historical conversion case. Recreating its input-generation database or MetamorphoSys runtime is optional further coverage. Each case must still prove input identity and closure, generate fresh outputs, compare the appropriate pre-insertion reference members, and apply independent checks. Byte equality establishes compatibility with the reference; it does not adjudicate every representation policy or certify insertion.
+
+The immediate MTH acceptance work is to review the retained-atom/context policy and implement separate correction candidates for the documented reference findings, with regression tests and quantified differences. The common request resolver, immutable run lock and source adapters can then wrap these characterized engines while retaining the independent validation gate. Keep transformations intact while replacing per-case launch plumbing. Resolve exact baselines and starting stages, acquire only declared dependencies through existing S3 conventions, preserve earlier runs, serialize shared-runtime activation, and return one consistent result/report shape. Unknown sources and recognized sources without reviewed adapters must fail before execution.
+
+MDR and RADLEX use the shared Perl framework too. A shared-library change must be exercised against every affected source before production rollout, including less frequent sources. Freeze their historical replay cases rather than wait for the next publisher release. Until those checks exist, keep an affected source on its verified runtime; do not let a shared installation update silently change its behavior. The NCIt ordering fix has passing NCIt evidence, not a completed five-source regression matrix.
+
+After the common interface and appropriate regression cases are established, remove copy-forward code from operational release creation, generate legacy configuration from the common model, and migrate transformation components incrementally. Historical release folders continue supplying declared data and identity state; Git supplies executable code and versioned representation policy.

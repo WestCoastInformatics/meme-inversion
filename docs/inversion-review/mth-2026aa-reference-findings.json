@@ -1,0 +1,187 @@
+{
+  "observed_at": "2026-11-05T19:22:04.858649+00:00",
+  "run_id": "baseline-core-20261105",
+  "all_23_outputs_match_reference": true,
+  "removed_atom_rows": [
+    {
+      "line": 1594812,
+      "fields": [
+        "771038403",
+        "SRC",
+        "SRC/VPT",
+        "V-CCS_2005",
+        "R",
+        "Y",
+        "A",
+        "Clinical Classifications Software, 2005",
+        "N",
+        "",
+        "",
+        "",
+        "ENG",
+        "needs_order_id",
+        "N",
+        "C1541964",
+        "A8298300"
+      ]
+    },
+    {
+      "line": 1594813,
+      "fields": [
+        "771038404",
+        "SRC",
+        "SRC/VAB",
+        "V-CCS_2005",
+        "R",
+        "Y",
+        "A",
+        "CCS_2005",
+        "N",
+        "",
+        "",
+        "",
+        "ENG",
+        "needs_order_id",
+        "N",
+        "C1541964",
+        "A8298289"
+      ]
+    }
+  ],
+  "reference_findings": {
+    "attributes.src": {
+      "row_count": 2,
+      "endpoint_count": 2,
+      "rows": [
+        {
+          "line": 17628814,
+          "fields": [
+            "17628814",
+            "771038403",
+            "C",
+            "SEMANTIC_TYPE",
+            "Intellectual Product",
+            "E-MTH_2026AA",
+            "R",
+            "Y",
+            "N",
+            "N",
+            "SRC_ATOM_ID",
+            "",
+            "",
+            "3d9e88091cf4ebbab774e90c8f6d4052",
+            ""
+          ],
+          "unresolved": [
+            {
+              "field": 2,
+              "value": "771038403",
+              "type": "SRC_ATOM_ID"
+            }
+          ]
+        },
+        {
+          "line": 20206954,
+          "fields": [
+            "20206954",
+            "",
+            "S",
+            "CONTEXT",
+            "1\t::~~SRC_ATOM_ID~~~SRC_ATOM_ID~\tLOINC Root\tLOINCPARTS\t\t",
+            "LNC_2_82",
+            "R",
+            "n",
+            "N",
+            "N",
+            "SRC_ATOM_ID",
+            "",
+            "",
+            "598720f19c615721a431c4ad7cdcc96e",
+            ""
+          ],
+          "unresolved": [
+            {
+              "field": 2,
+              "value": "",
+              "type": "SRC_ATOM_ID"
+            }
+          ]
+        }
+      ]
+    },
+    "contexts.src": {
+      "row_count": 1,
+      "endpoint_count": 2,
+      "rows": [
+        {
+          "line": 1118752,
+          "fields": [
+            "",
+            "PAR",
+            "",
+            "770620428",
+            "LNC_2_82",
+            "LNC_2_82",
+            "",
+            "770620428",
+            "11",
+            "",
+            "",
+            "",
+            "SRC_ATOM_ID",
+            "",
+            "770620428",
+            "SRC_ATOM_ID",
+            "",
+            "",
+            ""
+          ],
+          "unresolved": [
+            {
+              "field": 12,
+              "value": "",
+              "type": "SRC_ATOM_ID"
+            },
+            {
+              "field": 1,
+              "value": "",
+              "type": "SRC_ATOM_ID"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "Read-only audit of completed candidate. Exact output hashes establish identical findings in official reference.",
+  "classification": "Confirmed unresolved references in byte-identical candidate and official inversion output; no validator allowance changed and no finding waived",
+  "issues": [
+    {
+      "id": "MTH-RETAINED-ATOM-CONSISTENCY",
+      "cause": "make.meme4classes.s, called at the end of invert2.s, removes SRC/VPT and SRC/VAB for V-CCS_2005 after dependent output/map generation; a semantic-type attribute still targets removed SAID 771038403.",
+      "affected_rows": {
+        "attributes.src": [
+          17628814
+        ]
+      },
+      "fix_status": "Separate candidate required; apply reviewed atom-retention decisions consistently before maps and dependent rows are finalized."
+    },
+    {
+      "id": "MTH-UNMAPPED-CONTEXT-NODE",
+      "cause": "mrcxt2raw3.pl writes undefined AUI-to-SAID lookup values without rejecting them; downstream formatters preserve a blank LOINCPARTS subject in one CONTEXT attribute and one context row.",
+      "affected_rows": {
+        "attributes.src": [
+          20206954
+        ],
+        "contexts.src": [
+          1118752
+        ]
+      },
+      "native_aui_and_exclusion_intent": "Further native-record/mapping trace and policy review needed; no causal claim about a particular hardcoded CUI exclusion.",
+      "fix_status": "Separate candidate required; missing mappings must receive explicit reject/retain/omit disposition with accounting before output."
+    }
+  ],
+  "followup_origin_trace": {
+    "completed": false,
+    "reason": "Authenticated SSH control sockets had ended; a follow-up read-only request failed hostname resolution. Completed replay, comparison and detailed reference audit were already retained locally."
+  }
+}

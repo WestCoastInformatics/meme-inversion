@@ -1637,7 +1637,7 @@
     "additional_full_graph_seed_check": "not executed: SSH session expired before remote execution"
   },
   "mth_core_replay": {
-    "status": "running",
+    "status": "REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS",
     "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
     "apparatus_ref": "2c07226af6e241896ff159ccb3e898bc5e9e925f",
     "case": "mth-2026aa-baseline-case.json",
@@ -1647,12 +1647,24 @@
     "preserved_inputs_complete": true,
     "historical_input_regeneration_required": false,
     "candidate_executed": true,
-    "comparison_pending": true,
+    "comparison_pending": false,
     "outputs_to_compare": 23,
     "source_files_and_links": 57,
     "shared_runtime_files": 169,
     "prior_map_rows": 2208919,
-    "production_changed": false
+    "production_changed": false,
+    "result": "mth-2026aa-baseline-result.json",
+    "summary": "mth-2026aa-baseline-summary.json",
+    "reference_findings": "mth-2026aa-reference-findings.json",
+    "all_23_outputs_exact": true,
+    "six_core_files_exact": true,
+    "validation_passed": false,
+    "flagged_attribute_rows": 2,
+    "flagged_context_rows": 1,
+    "context_endpoint_flags": 2,
+    "input_engine_runtime_and_output_hashes_verified_after_run": true,
+    "conversion_seconds": 8923.38,
+    "total_seconds": 9280.47
   },
   "additional_source_discovery": {
     "receipt": "additional-sources-production-discovery.json",
@@ -1664,6 +1676,8 @@
     "production_writes": false,
     "common_adapters_enabled": false,
     "replays_completed": false,
-    "code_import_commit": "651d5aa6d534c6bef7ff38096625e9739465fe9c"
+    "code_import_commit": "651d5aa6d534c6bef7ff38096625e9739465fe9c",
+    "production_baseline_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "production_baseline_branch": "baseline/meme-edit-additions-20261105"
   }
 }

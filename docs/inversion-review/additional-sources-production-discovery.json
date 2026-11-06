@@ -1760,5 +1760,14 @@
   },
   "code_import_manifest": "../../baseline/additions-20261105.json",
   "code_import_commit": "651d5aa6d534c6bef7ff38096625e9739465fe9c",
-  "imported_source_files": 30
+  "imported_source_files": 30,
+  "unchanged_engine_baseline": {
+    "ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "branch": "baseline/meme-edit-additions-20261105",
+    "base": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "shared_import_hashes_verified": 169,
+    "source_import_hashes_verified": 30,
+    "worktree_clean": true,
+    "reason": "The toolbox branch includes the reviewed NCIt hierarchy change. This separate baseline keeps production shared-library bytes for unchanged MDR/RADLEX replay."
+  }
 }

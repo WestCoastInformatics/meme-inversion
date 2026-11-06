@@ -33,6 +33,8 @@ Priorities 1 and 2 should start together; validation fixes and the test apparatu
 
 Use [one common configuration model](configuration.md) across every registered source from the start. Shared fields have the same name and meaning; distinct baseline roles remain separate, with a small typed section for genuinely source-specific options. Generate legacy settings through adapters initially, then let migrated components consume the common model directly.
 
+The [current replay coverage and next gate](core-replay-coverage.md) distinguish representative core proof from complete workflow or production approval. Shared-library rollout also needs regression cases for affected infrequent sources such as MDR and RADLEX; their registered status alone does not establish compatibility.
+
 ## Implementation starting point: operational code on meme-edit
 
 The user has explicitly selected the operational code on **meme-edit as the authoritative starting point**. Start a fresh implementation effort from a verified snapshot of that deployment: shared libraries, the source-specific scripts actually used by staff, specifications, mappings, defaults, environment/runtime requirements, and existing archive-tool dependencies. Capture hashes and provenance and establish that snapshot in Git before making modernization changes.
@@ -100,6 +102,8 @@ Scale matters: the inventoried SNOMED `src/contexts.src` is **6,220,515,460 byte
 MTH is a stateful integration workflow, not simply another full-source parser. It combines the full UMLS package and separate full `MRREL.RRF`/`MRSAB.RRF` inputs, UMLS-to-NCI VSAB mappings, source dispositions, current NCImeta source/precedence inventories, MetamorphoSys subset/context generation, and prior CUI/AUI mappings.
 
 `initdir.s` creates the new release and copies scripts/specifications from `prev`. `preinvert1.s` updates VSAB mappings and proposes `ncisources.spec`. `preinvert2.s` captures current NCImeta metadata, configures MetamorphoSys, and creates a derived subset. `invert1.s` builds preliminary atoms and estimates the required range. `invert2.s` rebuilds with the allocated range, derives AUI/CUI maps, handles moved atoms and CUI merges, emits attributes/relationships/bequeathal relationships, builds contexts, and prepares final files. Server-side process QA and insertion follow.
+
+The November 5 prepared-input replay has now reproduced all 23 compared files byte-for-byte, including six core outputs and regenerated state, without input regeneration or live database queries. Independent validation identifies two unresolved-reference issues in three official output rows. These require separate correction candidates and coherent retained-atom/map/context handling before clean acceptance. They reinforce priority 1: exact compatibility and independent validity are separate checks. [Result and proposed corrections](mth-reference-findings.md)
 
 The distinction between `KEEP`, `UPDATE`, `NEW`, `EXCLUDE`, and `REMOVE` is central. A kept source can still participate in moved-AUI/CUI reconciliation; it cannot simply be omitted from all state processing. SNOMEDCT_US is explicitly excluded from the MetamorphoSys REST subset because it is handled separately. These ownership decisions must survive any common framework. [E6](evidence.md#e6-mth-is-a-stateful-source-plan)
 

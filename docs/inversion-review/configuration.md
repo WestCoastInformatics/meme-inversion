@@ -22,7 +22,7 @@ The [proposed schema](configuration.schema.json) and examples for [NCI](configur
 | `inputs.source_data` | References to source packages/files at the declared starting stage | `ORIGDIR`, `File.INP.*`, external UMLS links, preserved prepared subsets/intermediates |
 | `inputs.source_data_stage` | `publisher` generates required preparation data; `prepared` consumes a verified preserved input bundle | Implicit starting points and assumptions that old input-generation runtimes must always run |
 | `inputs.reference_ncimeta` | Frozen NCImeta metadata/inventory bundle used by preparation or QA | Live database/API lookups; SNOMED's separately selected MRCONSO; MTH saved exports |
-| `inputs.identity_state` | Prior persistent identity maps, independently identified | MTH `old/src/cui_said_map` and related identity state |
+| `inputs.identity_state` | Persistent identity maps and saved source-root anchors, independently identified | MTH `old/src/cui_said_map`; MDR/RADLEX `HC.RootNodeSaid` and related identity state |
 | `inputs.source_plan` | Reviewed decisions for this particular transition | NCIt new-subsource decisions; SNOMED metadata decisions; MTH source dispositions |
 | `source_atom_ids.start`, `.end` | Inclusive bounds of the entire permitted SAID range, including generated SRC atoms | `SaidStart`/`SaidEnd`; MTH range specifications plus SRCbuilder offset |
 | `environment_profile` | Named worker/runtime/storage settings, resolved and recorded for the run | ENV files, hardcoded hosts, shared scratch paths |
