@@ -1,6 +1,6 @@
 # Common inversion configuration
 
-Status, November 6, 2026: the common request resolver, frozen historical-case catalog and isolated dev adapters are implemented; integration validation is in progress. The configuration examples remain illustrative, including their artifact references and ID ranges. Executable requests use the separate reviewed case catalog. Current production inverters are unchanged. See [common interface](common-interface.md).
+Status, November 6, 2026: the common request resolver, frozen historical-case catalog and isolated dev adapters are implemented; the first full common-interface SNOMED run passes byte-exact comparison and independent validation. The configuration examples remain illustrative, including their artifact references and ID ranges. Executable requests use the separate reviewed case catalog. Current production inverters are unchanged. See [common interface](common-interface.md).
 
 ## One vocabulary for every registered source
 

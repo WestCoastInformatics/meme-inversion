@@ -29,7 +29,8 @@
       "common_adapter_implemented": true,
       "adapter_ref": "../../tools/inversion_worker.py#snomed-sep2026-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/snomed_options",
-      "characterization_status": "unchanged core byte-exact reference reproduction",
+      "characterization_status": "unchanged core byte-exact reference reproduction; full common-interface lifecycle and collection passed with independent validation",
+      "common_integration_result_ref": "common-snomed-2026-09-01-result.json",
       "historical_cases_under_review": [
         "SNOMEDCT_US_2026_09_01"
       ],
