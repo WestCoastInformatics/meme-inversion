@@ -3288,5 +3288,6 @@
       "mode": "0o644",
       "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af"
     }
-  ]
+  ],
+  "execution_gate_reason": "Corrected engine core validation and full native correction audit passed; integrating that correction-audit acceptance profile into the common adapter and validating the integrated case remain pending"
 }

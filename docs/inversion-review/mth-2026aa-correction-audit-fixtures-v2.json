@@ -1,0 +1,24 @@
+{
+  "status": "20 source-backed audit checks pass locally and on dev",
+  "apparatus_ref": "2e4c52fc52f0e315a576d43202bcfbe7584eab31",
+  "local_stdout": "PASS Complete native-derived old/new map predictions match retained atoms\nPASS A missing retained AUI mapping is rejected\nPASS Native attribute predictions retain STYPE rules, semantic types, definitions and exclusions\nPASS Native relationship predictions preserve duplicate multiplicity and direction/hierarchy rules\nPASS Actual source relationship-normalization stage identified\nPASS Actual unchanged native producer executes for old: \nPASS Actual unchanged native producer executes for new: \nPASS Independent native prediction accounts for the actual producer: attributes.src\nPASS Independent native prediction accounts for the actual producer: relationships.src\nPASS CUI current/previous role changes cannot pass the correction audit\nPASS Loss of one added native duplicate is rejected even after valid renumbering\nPASS Unaccounted generated attribute ID changes rejected\nPASS Preferred helpers change only for removed and unreferenced CCS identities\nPASS Corrected node metadata, MD5, reordered rows and all context attribute IDs predicted exactly\nPASS An additional context content change cannot be waived\nPASS Full attribute suffix verified without loading it into memory\nPASS Completed audit evidence cannot be overwritten\nPASS Source-backed SRCbuilder code/termgroup references accepted with exact counts\nPASS A generated relationship ID reference remains forbidden\nPASS Additional framework references cannot pass the narrow allowance\n20 MTH correction-audit checks passed\n",
+  "dev": {
+    "apparatus_ref": "2e4c52fc52f0e315a576d43202bcfbe7584eab31",
+    "exit_status": 0,
+    "stdout": "PASS Complete native-derived old/new map predictions match retained atoms\nPASS A missing retained AUI mapping is rejected\nPASS Native attribute predictions retain STYPE rules, semantic types, definitions and exclusions\nPASS Native relationship predictions preserve duplicate multiplicity and direction/hierarchy rules\nPASS Actual source relationship-normalization stage identified\nPASS Actual unchanged native producer executes for old: \nPASS Actual unchanged native producer executes for new: \nPASS Independent native prediction accounts for the actual producer: attributes.src\nPASS Independent native prediction accounts for the actual producer: relationships.src\nPASS CUI current/previous role changes cannot pass the correction audit\nPASS Loss of one added native duplicate is rejected even after valid renumbering\nPASS Unaccounted generated attribute ID changes rejected\nPASS Preferred helpers change only for removed and unreferenced CCS identities\nPASS Corrected node metadata, MD5, reordered rows and all context attribute IDs predicted exactly\nPASS An additional context content change cannot be waived\nPASS Full attribute suffix verified without loading it into memory\nPASS Completed audit evidence cannot be overwritten\nPASS Source-backed SRCbuilder code/termgroup references accepted with exact counts\nPASS A generated relationship ID reference remains forbidden\nPASS Additional framework references cannot pass the narrow allowance\n20 MTH correction-audit checks passed\n",
+    "stderr": "",
+    "sha256": {
+      "tools/audit_mth_corrections.py": "78faa0b41dd0c8b082fa71e65ef57f145fa69584c6f4e3a2dd679ab8ee56f761",
+      "tools/check_mth_correction_audit.py": "515cea05ebdf50ab1b36916ab775b028367d58fda3b216b6c753e0d7d5c3521b",
+      "tools/replay_process.py": "afa0dbafc420ab39c5e81d44167f3af7d0098426be76e1e66e224e17a243eb9c",
+      "tools/replay_mth_core.py": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b",
+      "tools/compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+      "tools/acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+      "tools/compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+      "sources/MTH_2026AA/autoinv.pl": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d",
+      "sources/MTH_2026AA/src/inv2.spec": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2",
+      "sources/MTH_2026AA/invert2.s": "56cd786adecc7afd4d729dbbec8de41708f294e15062a305d154fa2ecfb84a5a"
+    }
+  },
+  "first_failed_full_audit_preserved": "mth-2026aa-correction-audit-attempt1.json"
+}

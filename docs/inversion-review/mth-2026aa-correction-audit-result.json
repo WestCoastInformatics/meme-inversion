@@ -1,0 +1,102 @@
+{
+  "status": {
+    "status": "complete",
+    "apparatus_ref": "2e4c52fc52f0e315a576d43202bcfbe7584eab31",
+    "attempt": 2,
+    "operation": "Read-only native/output correction audit; no network or database calls",
+    "started_at": "2026-11-06T21:42:35Z",
+    "exit_status": 0,
+    "elapsed_seconds": 337
+  },
+  "audit": {
+    "status": "PASS_REVIEWED_CORRECTIONS",
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "run_id": "candidate-consistent-state-20261106",
+    "conversion_apparatus_ref": "637af4ea5b83584bd7eb4863c3399742808ae5e5",
+    "audit_tool_sha256": "78faa0b41dd0c8b082fa71e65ef57f145fa69584c6f4e3a2dd679ab8ee56f761",
+    "raw_comparison_status": "DIFFERENCES_REQUIRE_REVIEW",
+    "independent_validation_passed": true,
+    "maps": {
+      "removed_atom_ids": [
+        "771038403",
+        "771038404"
+      ],
+      "restored_identity": [
+        "C1976636",
+        "A32818398",
+        "771405764"
+      ],
+      "final_atoms_exact": true,
+      "full_current_AUI_CUI_and_moved_maps_predicted": true
+    },
+    "attributes": {
+      "old_rows": 19131022,
+      "new_rows": 19131022,
+      "unchanged_content_in_order": 19131021,
+      "removed_native_records": 1,
+      "added_native_records": 1,
+      "every_generated_id_verified": true
+    },
+    "relationships": {
+      "old_rows": 6404200,
+      "new_rows": 6404200,
+      "unchanged_content_in_order": 6404200,
+      "removed_native_records": 0,
+      "added_native_records": 0,
+      "every_generated_id_verified": true
+    },
+    "contexts": {
+      "context_rows_corrected": 1,
+      "context_attributes_corrected": 1,
+      "context_attribute_rows": 1075932,
+      "context_file_predicted_byte_exact": true,
+      "context_attribute_file_predicted_byte_exact": true
+    },
+    "native_changes": [
+      {
+        "native_file": "MRSTY.RRF",
+        "native_line": 863378,
+        "output": "attributes.src",
+        "removed_content": "771038403|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|\n",
+        "added_content": null
+      },
+      {
+        "native_file": "MRSTY.RRF",
+        "native_line": 1063952,
+        "output": "attributes.src",
+        "removed_content": null,
+        "added_content": "771405764|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|\n"
+      }
+    ],
+    "unaffected_outputs_exact": [
+      "attr_src",
+      "auis_nonupdatedSAB_moved",
+      "bequeathal.relationships.src",
+      "class_src",
+      "classes_atoms.src",
+      "cui.splitonly.new",
+      "cui_merges",
+      "cui_splitonly_said_map",
+      "merge_src",
+      "mergefacts.src",
+      "moved_aui_said_map",
+      "rel_src",
+      "src-root.cuis.updated"
+    ],
+    "generated_ID_reference_check": {
+      "no_generated_attribute_or_relationship_ID_references": true,
+      "unchanged_framework_code_references": {
+        "CODE_TERMGROUP|SRC/VPT": 1,
+        "CODE_TERMGROUP|SRC/RPT": 1
+      },
+      "producer_evidence": "INV/bin/SRCbuilder.pl:338; INV/etc/inv_defaults.cfg Relation fields 13/15"
+    },
+    "all_atom_allocations_unchanged": true,
+    "preferred_state_predicted": true,
+    "generated_ID_changes_accounted_for_by_native_insertions_deletions_and_context_reordering": true,
+    "raw_comparison_rewritten": false,
+    "production_eligible": false
+  },
+  "stderr": "",
+  "stdout_tail": "T.RRF\nAUDIT: native dependents in MRSTY.RRF\nAUDIT: native dependents in MRDEF.RRF\nAUDIT: native dependents in MRREL.RRF\n{\n  \"status\": \"PASS_REVIEWED_CORRECTIONS\",\n  \"engine_ref\": \"b2611abcf929981628bb2e5051afb450b8525b70\",\n  \"run_id\": \"candidate-consistent-state-20261106\",\n  \"conversion_apparatus_ref\": \"637af4ea5b83584bd7eb4863c3399742808ae5e5\",\n  \"audit_tool_sha256\": \"78faa0b41dd0c8b082fa71e65ef57f145fa69584c6f4e3a2dd679ab8ee56f761\",\n  \"raw_comparison_status\": \"DIFFERENCES_REQUIRE_REVIEW\",\n  \"independent_validation_passed\": true,\n  \"maps\": {\n    \"removed_atom_ids\": [\n      \"771038403\",\n      \"771038404\"\n    ],\n    \"restored_identity\": [\n      \"C1976636\",\n      \"A32818398\",\n      \"771405764\"\n    ],\n    \"final_atoms_exact\": true,\n    \"full_current_AUI_CUI_and_moved_maps_predicted\": true\n  },\n  \"attributes\": {\n    \"old_rows\": 19131022,\n    \"new_rows\": 19131022,\n    \"unchanged_content_in_order\": 19131021,\n    \"removed_native_records\": 1,\n    \"added_native_records\": 1,\n    \"every_generated_id_verified\": true\n  },\n  \"relationships\": {\n    \"old_rows\": 6404200,\n    \"new_rows\": 6404200,\n    \"unchanged_content_in_order\": 6404200,\n    \"removed_native_records\": 0,\n    \"added_native_records\": 0,\n    \"every_generated_id_verified\": true\n  },\n  \"contexts\": {\n    \"context_rows_corrected\": 1,\n    \"context_attributes_corrected\": 1,\n    \"context_attribute_rows\": 1075932,\n    \"context_file_predicted_byte_exact\": true,\n    \"context_attribute_file_predicted_byte_exact\": true\n  },\n  \"native_changes\": [\n    {\n      \"native_file\": \"MRSTY.RRF\",\n      \"native_line\": 863378,\n      \"output\": \"attributes.src\",\n      \"removed_content\": \"771038403|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|\\n\",\n      \"added_content\": null\n    },\n    {\n      \"native_file\": \"MRSTY.RRF\",\n      \"native_line\": 1063952,\n      \"output\": \"attributes.src\",\n      \"removed_content\": null,\n      \"added_content\": \"771405764|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|\\n\"\n    }\n  ],\n  \"unaffected_outputs_exact\": [\n    \"attr_src\",\n    \"auis_nonupdatedSAB_moved\",\n    \"bequeathal.relationships.src\",\n    \"class_src\",\n    \"classes_atoms.src\",\n    \"cui.splitonly.new\",\n    \"cui_merges\",\n    \"cui_splitonly_said_map\",\n    \"merge_src\",\n    \"mergefacts.src\",\n    \"moved_aui_said_map\",\n    \"rel_src\",\n    \"src-root.cuis.updated\"\n  ],\n  \"generated_ID_reference_check\": {\n    \"no_generated_attribute_or_relationship_ID_references\": true,\n    \"unchanged_framework_code_references\": {\n      \"CODE_TERMGROUP|SRC/VPT\": 1,\n      \"CODE_TERMGROUP|SRC/RPT\": 1\n    },\n    \"producer_evidence\": \"INV/bin/SRCbuilder.pl:338; INV/etc/inv_defaults.cfg Relation fields 13/15\"\n  },\n  \"all_atom_allocations_unchanged\": true,\n  \"preferred_state_predicted\": true,\n  \"generated_ID_changes_accounted_for_by_native_insertions_deletions_and_context_reordering\": true,\n  \"raw_comparison_rewritten\": false,\n  \"production_eligible\": false\n}\n"
+}

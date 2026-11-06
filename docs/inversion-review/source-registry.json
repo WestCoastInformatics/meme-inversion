@@ -41,13 +41,15 @@
       "common_adapter_implemented": true,
       "adapter_ref": "../../tools/inversion_worker.py#mth-2026aa-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/mth_options",
-      "characterization_status": "unchanged-engine exact reproduction; legacy reference-consistency findings remain unwaived",
+      "characterization_status": "unchanged-engine exact reproduction with preserved reference findings; separate corrected engine passes core/identity validation and full native-derived difference audit",
       "historical_cases_under_review": [
         "MTH_2026AA"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
-      "characterization_summary_ref": "mth-2026aa-baseline-summary.json"
+      "characterization_summary_ref": "mth-2026aa-baseline-summary.json",
+      "corrected_characterization_summary_ref": "mth-2026aa-consistency-summary.json",
+      "correction_audit_ref": "mth-2026aa-correction-audit-result.json"
     },
     "MDR": {
       "display_name": "MDR",

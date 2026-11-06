@@ -1,6 +1,6 @@
 # MTH retained identity corrections
 
-Status, November 6, 2026: source fixtures pass locally and on dev; full corrected replay running. No production deployment, insertion or reference waiver.
+Status, November 6, 2026: full corrected replay complete with clean independent core/identity validation. Native-derived difference audit passes with every changed record and generated ID accounted for. The first audit exposed an omitted framework type in its final guard; that attempt is retained alongside the source-backed correction and passing retry. No production deployment, insertion or reference waiver.
 
 ## Confirmed causes
 
@@ -25,3 +25,9 @@ Run `candidate-consistent-state-20261106` uses the same archives, eight saved me
 Acceptance requires the complete comparison, independent file/reference checks, retained-atom identity-state checks, and an explicit explanation of every changed record and generated identifier. A list of potentially affected outputs only defers intermediate exact-hash checkpoints; it does not waive the final comparison. The final atom IDs/content, unrelated history outputs and source metadata should remain stable. Native LOINCPARTS dependencies and records derived from the removed CCS identities must be assessed from the full output, without assuming the correction affects only the original three bad rows.
 
 The original result remains `REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS`. A corrected candidate cannot inherit its exact-match claim or become production eligible merely because independent checks pass.
+
+
+The corrected replay completed at 21:27 UTC on November 6. All six core files and five identity maps pass independent validation. Fourteen of 23 compared files are exact, including final atoms, relationships, mergefacts and bequeathal relationships. Nine differences are retained in the raw `DIFFERENCES_REQUIRE_REVIEW` result. The final attributes file has the same row count and 27 additional bytes; contexts have the same row count and 18 additional bytes. The AUI map removes the two known CCS bindings and restores the native LOINCPARTS binding. [Raw corrected result](mth-2026aa-consistency-result.json), [summary](mth-2026aa-consistency-summary.json), [audit method](mth-correction-audit.md).
+
+
+The independent native-derived correction audit subsequently passed. It predicts the complete retained maps and helpers, one removed CCS semantic-type attribute, one restored LOINCPARTS semantic-type attribute, one corrected context row and its CONTEXT attribute. Every generated-ID shift is explained by those changes and context reordering. All 6,404,200 relationships remain exact. [Passing audit](mth-2026aa-correction-audit-result.json).

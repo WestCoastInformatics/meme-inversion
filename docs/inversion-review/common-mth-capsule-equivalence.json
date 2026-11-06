@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "checks": {
+    "source": true,
+    "version": true,
+    "engine_ref": true,
+    "runtime_ref": true,
+    "archive_path": true,
+    "archive_sha256": true,
+    "prior_archive_path": true,
+    "prior_archive_sha256": true,
+    "prior_map": true,
+    "prepared_subset": true,
+    "metadata_inputs": true,
+    "reference_files": true,
+    "execute_source_stages": true,
+    "validate_identity_state": true,
+    "changed_outputs": true,
+    "all_57_source_code_and_link_entries": true,
+    "all_169_runtime_hashes": true,
+    "bounded_conversion_execute_function_unchanged": true
+  },
+  "executed_engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+  "executed_conversion_apparatus_ref": "637af4ea5b83584bd7eb4863c3399742808ae5e5",
+  "resolved_common_apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+  "scope": "Input/code/runtime/stage-option equivalence, not a second claim of full execution through the common launcher. Run identity, preservation receipt and apparatus packaging intentionally differ."
+}

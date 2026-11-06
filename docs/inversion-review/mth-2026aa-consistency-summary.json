@@ -1,0 +1,52 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "run_id": "candidate-consistent-state-20261106",
+  "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+  "conversion_apparatus_ref": "637af4ea5b83584bd7eb4863c3399742808ae5e5",
+  "started_at": "2026-11-06T18:43:33.157625+00:00",
+  "completed_at": "2026-11-06T21:27:04.198276+00:00",
+  "independent_validation_passed": true,
+  "retained_identity_state_passed": true,
+  "raw_acceptance": {
+    "status": "DIFFERENCES_REQUIRE_REVIEW",
+    "all_compared_outputs_exact": false,
+    "all_compared_records_equal": false,
+    "six_core_files_exact": false,
+    "generated_ids_reindexed": false,
+    "ignored_fields": [],
+    "validation_passed": true
+  },
+  "exact_outputs": [
+    "attr_src",
+    "class_src",
+    "rel_src",
+    "merge_src",
+    "auis_nonupdatedSAB_moved",
+    "cui_merges",
+    "classes_atoms.src",
+    "cui.splitonly.new",
+    "cui_splitonly_said_map",
+    "moved_aui_said_map",
+    "mergefacts.src",
+    "bequeathal.relationships.src",
+    "relationships.src",
+    "src-root.cuis.updated"
+  ],
+  "different_outputs": [
+    "aui_said_map",
+    "cui_said_map",
+    "rel_cui_said_map",
+    "attributes.src",
+    "attributes.contexts-all.src",
+    "contexts.src",
+    "said.ptsaid",
+    "ptsaid.order",
+    "classes_atoms.src.raw"
+  ],
+  "correction_audit": "PASS_REVIEWED_CORRECTIONS",
+  "production_eligible": false,
+  "correction_audit_ref": "mth-2026aa-correction-audit-result.json",
+  "correction_audit_apparatus_ref": "2e4c52fc52f0e315a576d43202bcfbe7584eab31",
+  "all_changed_records_and_generated_ID_shifts_accounted_for": true
+}
