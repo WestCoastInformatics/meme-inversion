@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Contract, provenance, lifecycle and dispatch checks for the common interface."""
+import base64
 import copy
 import fcntl
 import json
 import os
+import subprocess
 from pathlib import Path
 import tempfile
 import sys
@@ -63,6 +65,19 @@ def check():
         return original_blob(ref, name)
     with patch.object(request, 'blob', side_effect=fixture_blob):
         locks = [request.resolve(value, 'fixture-' + str(number)) for number, value in enumerate(requests)]
+    modules = {name: base64.b64decode(raw) for name, raw in locks[0]['modules_b64'].items()}
+    request.validate_module_dependencies(modules)
+    passed.append('Frozen apparatus includes its repository Python import dependencies')
+    incomplete = {name: raw for name, raw in modules.items() if name != 'run_nci_core_replay.py'}
+    rejected(lambda: request.validate_module_dependencies(incomplete), 'Missing NCIt helper rejected before remote preparation')
+    incomplete = {name: raw for name, raw in modules.items() if name != 'replay_process.py'}
+    rejected(lambda: request.validate_module_dependencies(incomplete), 'Missing shared process helper rejected before remote preparation')
+    with tempfile.TemporaryDirectory(prefix='frozen-apparatus-imports-') as temporary:
+        capsule = Path(temporary)
+        for name, raw in modules.items():(capsule / name).write_bytes(raw)
+        program = 'import importlib,sys;sys.path.insert(0,sys.argv[1]);[importlib.import_module(name) for name in sys.argv[2:]];from run_nci_core_replay import info;assert callable(info)'
+        process = subprocess.run([sys.executable, '-I', '-B', '-c', program, str(capsule)] + [Path(name).stem for name in modules], capture_output=True, text=True)
+        require(process.returncode == 0, 'Frozen modules import successfully without the repository or installed helper copies: ' + process.stderr)
     for lock in locks:
         target = worker.verify_lock(lock)
         require(target.name == lock['request']['version'], 'Frozen lock round trip: ' + lock['request']['source'] + '/' + lock['request']['case_variant'])

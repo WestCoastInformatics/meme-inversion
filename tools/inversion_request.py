@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Resolve the common request into an immutable, source-aware dev replay capsule."""
 import argparse
+import ast
 import base64
 import copy
 import hashlib
@@ -19,7 +20,7 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'acquire_inversion_reference.py', 'inspect_inversion_archive.py',
            'prepare_nci_candidate.py', 'advance_nci_replay.py',
            'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
-           'audit_mth_corrections.py')
+           'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py')
 ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1'}
 
 
@@ -82,6 +83,26 @@ def frozen_file(ref, path, mode=None):
             'bytes': len(raw), 'mode': mode, 'data_b64': base64.b64encode(raw).decode()}
 
 
+def validate_module_dependencies(modules):
+    """Reject missing repository Python imports before any remote preparation."""
+    local = {path.stem for path in (ROOT / 'tools').glob('*.py')}
+    missing = set()
+    for name, raw in modules.items():
+        for node in ast.walk(ast.parse(raw, filename=name)):
+            if isinstance(node, ast.Import):
+                names = [alias.name for alias in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                names = [node.module]
+            else:
+                continue
+            for imported in names:
+                dependency = imported.split('.', 1)[0]
+                if dependency in local and dependency + '.py' not in modules:
+                    missing.add(name + ' -> ' + dependency + '.py')
+    if missing:
+        raise ValueError('Frozen apparatus misses local imports: ' + ', '.join(sorted(missing)))
+
+
 def select_case(request):
     validate(request, 'request.schema.json')
     registry = load(DOCS / 'source-registry.json')
@@ -142,6 +163,7 @@ def resolve(request, run_id):
         provenance.append({'repository_path': path, 'sha256': hashlib.sha256(raw).hexdigest()})
         if Path(path).name in MODULES and path.startswith('tools/'):
             modules[Path(path).name] = base64.b64encode(raw).decode()
+    validate_module_dependencies({name: base64.b64decode(raw, validate=True) for name, raw in modules.items()})
     engine = configuration['engine_ref']
     code_files = []
     for item in case['source_files']:

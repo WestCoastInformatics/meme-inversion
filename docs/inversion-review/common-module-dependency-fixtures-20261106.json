@@ -1,0 +1,60 @@
+{
+  "host": "ncias-d3777-c.nci.nih-gov",
+  "tests": {
+    "check_common_mth_acceptance.py": {
+      "exit_status": 0,
+      "stdout": "PASS Declared inputs are reverified after the correction audit\nPASS Only a successful bound audit grants correction acceptance\nPASS Raw comparison and original difference verdict remain unchanged\nPASS The complete raw result is independently preserved read-only\nPASS Accepted result binds the preserved raw result and exact audit report\nPASS Audit package identifies the actual common execution apparatus\nPASS Common collection retrieves raw comparison, independent audit and execution evidence together\nPASS A completed acceptance cannot be rerun over existing evidence\nPASS Correction profile rejects an unreviewed request source\nPASS Correction profile rejects an unreviewed request version\nPASS Correction profile rejects an unreviewed request case_variant\nPASS Correction profile rejects an unreviewed request engine_ref\nPASS Missing correction contract rejected\nPASS Missing frozen audit module rejected\nPASS Retained-identity validation cannot be disabled\nPASS Corrected source stages cannot be replaced with baseline shell fragments\nPASS Correction profile cannot select a different shared runtime\nPASS Failed acceptance remains closed: raw-run-identity\nPASS Rejected raw-run-identity cannot publish an accepted verdict\nPASS Failed acceptance remains closed: core-validation\nPASS Rejected core-validation cannot publish an accepted verdict\nPASS Failed acceptance remains closed: identity-validation\nPASS Rejected identity-validation cannot publish an accepted verdict\nPASS Failed acceptance remains closed: incomplete-outputs\nPASS Rejected incomplete-outputs cannot publish an accepted verdict\nPASS Failed acceptance remains closed: raw-verdict\nPASS Rejected raw-verdict cannot publish an accepted verdict\nPASS Failed acceptance remains closed: child-failure\nPASS Rejected child-failure cannot publish an accepted verdict\nPASS A failed audit retains the complete raw result for investigation\nPASS Failed acceptance remains closed: missing-report\nPASS Rejected missing-report cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-engine\nPASS Rejected wrong-engine cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-run\nPASS Rejected wrong-run cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-apparatus\nPASS Rejected wrong-apparatus cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-tool\nPASS Rejected wrong-tool cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-verdict\nPASS Rejected wrong-verdict cannot publish an accepted verdict\nPASS Failed acceptance remains closed: raw-rewritten\nPASS Rejected raw-rewritten cannot publish an accepted verdict\nPASS Failed acceptance remains closed: production-approval\nPASS Rejected production-approval cannot publish an accepted verdict\nPASS Failed acceptance remains closed: symlink-report\nPASS Rejected symlink-report cannot publish an accepted verdict\nPASS Failed acceptance remains closed: changed-raw-result\nPASS Rejected changed-raw-result cannot publish an accepted verdict\nPASS Failed acceptance remains closed: changed-output\nPASS Rejected changed-output cannot publish an accepted verdict\nPASS Failed acceptance remains closed: changed-input\nPASS Rejected changed-input cannot publish an accepted verdict\nPASS Exact comparison never inherits correction-profile acceptance\n55 common MTH acceptance checks passed\n",
+      "stderr": ""
+    },
+    "check_inversion_worker.py": {
+      "exit_status": 0,
+      "stdout": "PASS Complete source/runtime inventories accepted\nPASS Rehashed lock with missing source code rejected\nPASS Rehashed lock with substituted runtime path rejected\nPASS Runtime verification failure rejects activation\nPASS Failed activation restores original library and receipt bytes\nPASS Late activation evidence failure rejects operation\nPASS Late activation failure restores library and previous receipt exactly\nPASS Active inversion blocks runtime activation before changes\nPASS Only the characterized shared-library change is activated\nPASS Original runtime bytes and receipt preserved together\nPASS Runtime backup is read-only\nPASS Matching complete runtime is verified without rewriting it\nPASS Unknown installed runtime cannot be replaced implicitly\nPASS Detached worker inherits the runtime lock without an unlocked handoff\nPASS A submitted run identity cannot be reused\nPASS Actual NCIt adapter imports its packaged helper and records all five output hashes\nPASS NCIt adapter passes its saved core receipt and comparison to the characterized acceptance rules\nPASS MTH etc-to-dot alias does not duplicate a status result\nPASS Persistent common control status takes precedence over inner adapter status\nPASS Common status includes the actual inner adapter progress\nPASS Actual platform publisher preserves a complete source tree\nPASS Rollback restores exact source bytes, modes and aliases\n22 common worker checks passed\n",
+      "stderr": ""
+    },
+    "check_mth_correction_audit.py": {
+      "exit_status": 0,
+      "stdout": "PASS Complete native-derived old/new map predictions match retained atoms\nPASS A missing retained AUI mapping is rejected\nPASS Native attribute predictions retain STYPE rules, semantic types, definitions and exclusions\nPASS Native relationship predictions preserve duplicate multiplicity and direction/hierarchy rules\nPASS Actual source relationship-normalization stage identified\nPASS Actual unchanged native producer executes for old: \nPASS Actual unchanged native producer executes for new: \nPASS Independent native prediction accounts for the actual producer: attributes.src\nPASS Independent native prediction accounts for the actual producer: relationships.src\nPASS CUI current/previous role changes cannot pass the correction audit\nPASS Loss of one added native duplicate is rejected even after valid renumbering\nPASS Unaccounted generated attribute ID changes rejected\nPASS Preferred helpers change only for removed and unreferenced CCS identities\nPASS Corrected node metadata, MD5, reordered rows and all context attribute IDs predicted exactly\nPASS An additional context content change cannot be waived\nPASS Full attribute suffix verified without loading it into memory\nPASS Completed audit evidence cannot be overwritten\nPASS Source-backed SRCbuilder code/termgroup references accepted with exact counts\nPASS A generated relationship ID reference remains forbidden\nPASS Additional framework references cannot pass the narrow allowance\n20 MTH correction-audit checks passed\n",
+      "stderr": ""
+    },
+    "isolated_module_imports": {
+      "exit_status": 0,
+      "stdout": "16 frozen modules imported",
+      "stderr": ""
+    }
+  },
+  "working_tree_sha256": {
+    "tools/inversion_worker.py": "7330a7b622acb3e808999d36b89af11c51bbac10d6b987c171a2f273f59b596e",
+    "tools/replay_process.py": "afa0dbafc420ab39c5e81d44167f3af7d0098426be76e1e66e224e17a243eb9c",
+    "tools/replay_mth_core.py": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b",
+    "tools/compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "tools/acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "tools/compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "tools/acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "tools/inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "tools/prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+    "tools/advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "tools/prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "tools/run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+    "tools/compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "tools/audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "tools/inversion_request.py": "6d5e35ea09bb010e2324e45ec2dcecfeaced5d0ee81c36c7433e50e64e8e9bcd",
+    "tools/inversion_remote.py": "87a3fe86c7dee015ea336e387f9b6033e8e5810437401186eb8e13ce1ec20002",
+    "tools/check_common_mth_acceptance.py": "f82ec01286bb3c31c83f080677241b9a8bc68ccc533d4b122248820ad45c61be",
+    "tools/check_inversion_worker.py": "3980f2105b617017c3dcb9b58d174a0038707825277ec598accf5462baa290e8",
+    "tools/check_mth_correction_audit.py": "515cea05ebdf50ab1b36916ab775b028367d58fda3b216b6c753e0d7d5c3521b",
+    "sources/MTH_2026AA/autoinv.pl": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d",
+    "sources/MTH_2026AA/invert2.s": "b7e1a238007950fbc753bc6096775c4813ea32dc8e3b38174d54f3d94326ff18",
+    "sources/MTH_2026AA/src/inv2.spec": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2",
+    "tools/run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "tools/check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3"
+  },
+  "free_disk_bytes": 61201678336,
+  "local_checks": {
+    "common_request": 53,
+    "worker": 22,
+    "common_mth_acceptance": 55,
+    "native_correction_audit": 20,
+    "all_passed": true
+  },
+  "scope": "Frozen Python imports and synthetic NCIt adapter entry; this is not a full NCIt inversion."
+}

@@ -135,6 +135,28 @@ def worker(lock_path,receipt_path=None,inherited_lock=None):
                 time.sleep(.1)
             require(handoff.exists() and all(json.loads(handoff.read_text()).values()), 'Detached worker inherits the runtime lock without an unlocked handoff')
             rejected(lambda: worker.launch(lock), 'A submitted run identity cannot be reused')
+            # Exercise the actual NCIt adapter entry with conversion/comparison
+            # stubbed. On dev only the frozen module bundle is on sys.path; this
+            # catches a missing helper before preparing an expensive real case.
+            nci = fixture_lock(libraries, 'fixture-nci-adapter')
+            target = root / 'sources/NCI_2026_10D'
+            for directory in ('bin', 'src', 'etc'):(target / directory).mkdir(parents=True, exist_ok=True)
+            outputs = ['classes_atoms.src', 'attributes.src', 'relationships.src', 'mergefacts.src', 'contexts.src']
+            for name in outputs:(target / 'src' / name).write_bytes(b'fixture output\n')
+            metadata = target / 'src/sources.src';metadata.write_bytes(b'fixture metadata\n')
+            nci['case']['legacy_case'] = {'core_outputs_to_regenerate': [{'path': 'NCI_2026_10D/src/' + name} for name in outputs],
+                                         'archived_metadata_inputs': [{'path': 'NCI_2026_10D/src/sources.src', 'sha256': worker.sha(metadata)}]}
+            run = control / nci['run_id'];run.mkdir()
+            comparison = {'fixture': 'separate comparison result'}
+            with patch.object(worker, 'execute', return_value={'exit_status': 0}), \
+                    patch('compare_nci_core.compare', return_value=comparison), \
+                    patch('advance_nci_replay.verdict', return_value={'status': 'fixture-acceptance'}) as verdict:
+                result = worker.convert(nci, target, run, None)
+            receipt = json.loads((target / 'etc/replay-core.json').read_text())
+            require(len(receipt['comparison']) == 5 and all(item['sha256'] == worker.sha(Path(item['path'])) for item in receipt['comparison']),
+                    'Actual NCIt adapter imports its packaged helper and records all five output hashes')
+            require(receipt['metadata_unchanged'] and result['comparison'] == comparison and verdict.call_count == 1,
+                    'NCIt adapter passes its saved core receipt and comparison to the characterized acceptance rules')
         # Actual Linux atomic publication is exercised on dev. The Mac version
         # injects a publisher only for this filesystem fixture.
         def publish(before, after):
