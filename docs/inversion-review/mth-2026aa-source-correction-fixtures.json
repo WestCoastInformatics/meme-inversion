@@ -1,0 +1,34 @@
+{
+  "observed_at": "2026-11-06T18:12:40.726910+00:00",
+  "tests": [
+    {
+      "test": "check_mth_retained_atoms.py",
+      "exit_status": 0,
+      "stdout": "PASS original production autoinverter execution: \nPASS candidate production autoinverter execution: \nPASS Allocation before filtering reproduces every original raw atom and ID\nPASS Only the intended obsolete SRC atoms are removed\nPASS Every generated AUI mapping targets a retained atom\nPASS Excluded atoms cannot seed downstream CUI/AUI state\nPASS Following atoms keep their historical IDs with allocation gaps\nPASS Similar codes and other sources are retained\nPASS Retained LOINCPARTS atom has its native AUI mapping\nPASS Final production formatter executes\nPASS Final formatter changes layout without changing the retained set or IDs\nPASS Preferred-term input and saved raw atoms use the same retained set\n12 MTH retention checks passed\n",
+      "stderr": ""
+    },
+    {
+      "test": "check_mth_context_identity.py",
+      "exit_status": 0,
+      "stdout": "PASS original actual wrapper mapping step executes\nPASS Legacy wrapper reproduces the LOINCPARTS mapping loss\nPASS candidate actual wrapper mapping step executes\nPASS Corrected wrapper retains the existing LOINCPARTS mapping\nPASS Original producer accepts fully mapped native context records\nPASS Corrected producer preserves exact valid-record serialization\nPASS Root, child, ancestor and self context endpoints all resolve\nPASS subject mapping failure reports the native identifier and fails\nPASS subject mapping failure preserves existing output and cleans staging\nPASS related mapping failure reports the native identifier and fails\nPASS related mapping failure preserves existing output and cleans staging\nPASS nonnumeric mapping failure reports the native identifier and fails\nPASS nonnumeric mapping failure preserves existing output and cleans staging\nPASS Injected sort command executes in the fixture work directory\nPASS Sort failure cannot replace the prior verified context artifact: (7, 'Context sort failed (status 1792)\\n', b'previous verified contexts\\n')\n15 MTH context identity checks passed\n",
+      "stderr": ""
+    }
+  ],
+  "tmp_mounts": [
+    "tmpfs /tmp tmpfs rw,seclabel,nosuid,nodev,noexec,relatime 0 0"
+  ],
+  "passed": true,
+  "sha256": {
+    "sources/MTH_2026AA/inv1.spec": "e172c8055112017f02ba62072c9471a580c0d8a5763183fa0108c1289025d837",
+    "sources/MTH_2026AA/src/inv1.spec": "d37e95597c94056cbd9f7db3ae470eda449898837790ad4035a1c8907d3531a7",
+    "sources/MTH_2026AA/autoinv.pl": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d",
+    "sources/MTH_2026AA/make.meme4classes.s": "d75b547b035082a327a14fb6adf6ddc4c11401094991da2d6c5eea4032e6ccc2",
+    "sources/MTH_2026AA/invert2.s": "b7e1a238007950fbc753bc6096775c4813ea32dc8e3b38174d54f3d94326ff18",
+    "sources/MTH_2026AA/mrcxt2raw3.pl": "5688ff43775cf4a7768f4ab5f2ebe6001f5af855071861e43aa540dd2b2e5494",
+    "tests/check_mth_retained_atoms.py": "9d89018d25e47bd0838014f02c1f86a5c98698b8ab7957c1ea3b22e0d1076db3",
+    "tests/check_mth_context_identity.py": "6f92786e5922bd58fcbd130056587a2a23d08611d4c827cd425bc2b18fc295f8",
+    "production/inv1.spec": "adeddeedf73eb97161f1d324f87a89c88ca29f04994c5682401a8782a08fe024",
+    "production/invert2.s": "56cd786adecc7afd4d729dbbec8de41708f294e15062a305d154fa2ecfb84a5a",
+    "production/mrcxt2raw3.pl": "b4d5d287f1e69d93ddae99b4cd3c2bc993c27f40b1668c6090c18ac84e6e374f"
+  }
+}

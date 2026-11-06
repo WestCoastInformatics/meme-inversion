@@ -1,0 +1,201 @@
+{
+  "preparation": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "prepared_at": "2026-11-06T18:41:45.603372+00:00",
+    "generated_outputs_seeded": false,
+    "replacement_baseline": "MTH_2025AB",
+    "preexisting_dev_preserved": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-consistency-20261106",
+    "preexisting_dev_root_mode": "0o700",
+    "previous_run": {
+      "run_id": "baseline-core-20261105",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "result_sha256": "f96e3e8cba5767a956c93ab5c41cecadb28cf2838ea252174530dd8ad3d339eb",
+      "outputs": [
+        {
+          "output_name": "attr_src",
+          "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad"
+        },
+        {
+          "output_name": "class_src",
+          "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac"
+        },
+        {
+          "output_name": "rel_src",
+          "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40"
+        },
+        {
+          "output_name": "merge_src",
+          "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d"
+        },
+        {
+          "output_name": "auis_nonupdatedSAB_moved",
+          "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8"
+        },
+        {
+          "output_name": "cui_merges",
+          "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94"
+        },
+        {
+          "output_name": "classes_atoms.src",
+          "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd"
+        },
+        {
+          "output_name": "aui_said_map",
+          "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5"
+        },
+        {
+          "output_name": "cui.splitonly.new",
+          "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556"
+        },
+        {
+          "output_name": "cui_splitonly_said_map",
+          "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0"
+        },
+        {
+          "output_name": "moved_aui_said_map",
+          "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68"
+        },
+        {
+          "output_name": "cui_said_map",
+          "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26"
+        },
+        {
+          "output_name": "rel_cui_said_map",
+          "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26"
+        },
+        {
+          "output_name": "attributes.src",
+          "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8"
+        },
+        {
+          "output_name": "mergefacts.src",
+          "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33"
+        },
+        {
+          "output_name": "bequeathal.relationships.src",
+          "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff"
+        },
+        {
+          "output_name": "relationships.src",
+          "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111"
+        },
+        {
+          "output_name": "src-root.cuis.updated",
+          "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e"
+        },
+        {
+          "output_name": "attributes.contexts-all.src",
+          "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe"
+        },
+        {
+          "output_name": "contexts.src",
+          "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c"
+        },
+        {
+          "output_name": "said.ptsaid",
+          "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f"
+        },
+        {
+          "output_name": "ptsaid.order",
+          "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d"
+        },
+        {
+          "output_name": "classes_atoms.src.raw",
+          "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff"
+        }
+      ]
+    },
+    "prior_identity_input": {
+      "path": "MTH_2025AB/src/cui_said_map",
+      "size": 41969461,
+      "mode": "0o664",
+      "mtime": 1760722349,
+      "role": "official-inversion-output-or-state",
+      "kind": "file",
+      "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+      "newline_count": 2208919
+    },
+    "metadata_inputs": [
+      {
+        "relative_path": "src/sources.src",
+        "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef"
+      },
+      {
+        "relative_path": "src/termgroups.src",
+        "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f"
+      },
+      {
+        "relative_path": "src/vsab.updates",
+        "sha256": "2ec5d1ddf6da8ef5bd81dc251c586972c4ca2cbfd64e160418a636e8f9f2c686"
+      },
+      {
+        "relative_path": "src/sabs_updated_umls",
+        "sha256": "17159f125a7c0fc36798d127ccac80298b46ab9c7b910d8e4cf477aca35a1987"
+      },
+      {
+        "relative_path": "src/rsabs-updated.umls",
+        "sha256": "c06c5abc8f1ee35cf7a46849fb8ecf381949d600a7bee66c8ec1d7af60368bd0"
+      },
+      {
+        "relative_path": "src/vcodes_updated",
+        "sha256": "7743a79759f07a33051ea059e4f9e9024e179aa431d576475fe4eadd4b822dad"
+      },
+      {
+        "relative_path": "ncimid.sources",
+        "sha256": "059038919f1a9a076cb55213c8cc64e65f0d81491d41b5ceebb3f320f0ce3f32"
+      },
+      {
+        "relative_path": "ncimid.termgroups",
+        "sha256": "ae222dbd75728487631a65e607726addc4318f62802815e174b7bc824c84a470"
+      }
+    ],
+    "preserved_manifest_entries": 147,
+    "code_file_entries": 57
+  },
+  "launch": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "run_id": "candidate-consistent-state-20261106",
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "worker_pid": 105400,
+    "status": "worker-launched",
+    "run_directory": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/candidate-consistent-state-20261106",
+    "worker_log": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/candidate-consistent-state-20261106/worker.log",
+    "launched_at": "2026-11-06T18:43:33.087798+00:00",
+    "apparatus_sha256": {
+      "replay_mth_core.py": "501e1fb77a82348f6f0c114682e1cf45d83010e5a52b3af688bae7bcf39bb2e5",
+      "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+      "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+      "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+      "replay_process.py": "87ca8b95ac74b07e8fccb3c28370a79447814dc0dfc4b37583f7dbac1b3390ce"
+    }
+  },
+  "fixture_checks": [
+    {
+      "name": "check_mth_case_lock.py",
+      "exit_status": 0,
+      "stdout": "PASS Explicit case receives a separate run directory\nPASS Unsafe run identity rejected: '../other'\nPASS Unsafe run identity rejected: '/tmp/other'\nPASS Unsafe run identity rejected: 'bad name'\nPASS Unsafe run identity rejected: ''\nPASS Mutable engine name rejected\nPASS Unreviewed shared runtime rejected\nPASS Complete prior result and every original output verified\nPASS Incomplete prior-output contract rejected\nPASS Active previous inversion cannot be replaced\nPASS Modified prior output cannot be preserved as verified baseline\nPASS Identity recipe comes from the selected source file\nPASS Unknown producer layout fails before execution\n13 MTH case-lock checks passed\n",
+      "stderr": ""
+    },
+    {
+      "name": "check_mth_identity_state.py",
+      "exit_status": 0,
+      "stdout": "PASS Retained current and moved identities bind to their actual atoms\nPASS unresolved_retained_atom is rejected\nPASS cui_binding_mismatch is rejected\nPASS aui_binding_mismatch is rejected\nPASS moved_role_mismatch is rejected\nPASS empty_identity is rejected\nPASS Duplicate identity records are rejected\nPASS Late atom deletion cannot leave apparently valid persisted state\n8 MTH identity-state checks passed\n",
+      "stderr": ""
+    },
+    {
+      "name": "check_mth_replay.py",
+      "exit_status": 0,
+      "stdout": "PASS MTH dialect accepts two reserved SRC IDs and 19-field contexts\nPASS previous-CUI role retained independently from current-CUI role\nPASS attribute targeting an atom removed after map generation is rejected\nPASS blank mapped context node rejects both its context and attribute with explicit endpoint counts\nPASS atom below the complete reserved range rejected\nPASS incorrect attribute digest rejected\nPASS unresolved atom endpoint rejected\nPASS unresolved context path rejected\nPASS nonempty second context tail rejected\nPASS unmapped relationship rejected\nPASS SNOMED 18-field context shape cannot silently replace MTH shape\nPASS CUI_CURRENT/PREVIOUS change cannot pass full-record comparison\nPASS duplicate historical relationship loss detected\nPASS moved AUI identity state regenerated\nPASS prior installed CUI excluded from newly split-only CUI set\nPASS current and moved AUI maps remain distinct\nPASS unverified prior source folder rejected\nPASS late preparation failure restores the original dev path and bytes\nPASS failed candidate publication leaves no misleading preserved/current pair\nPASS read-only preservation retains restricted original read/execute access\nPASS fresh candidate cannot inherit preexisting generated output\n21 MTH replay checks passed\n",
+      "stderr": ""
+    },
+    {
+      "name": "check_replay_process.py",
+      "exit_status": 0,
+      "stdout": "PASS successful stage retains exact output and zero exit\nPASS nonzero stage rejected with diagnostic log retained\nPASS capacity reserve stops the private process group\n3 process-control checks passed\n",
+      "stderr": ""
+    }
+  ]
+}
