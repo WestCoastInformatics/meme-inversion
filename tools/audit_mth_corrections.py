@@ -229,6 +229,32 @@ def sorted_file(source, output, scratch, stable_subject=False):
     subprocess.run(command + [str(source), '-o', str(output)], env=dict(os.environ, LC_ALL='C'), check=True, timeout=3600)
 
 
+def generated_id_reference_check(validation, framework_relationships):
+    """Exclude generated-ID references while retaining exact framework code refs.
+
+    SRCbuilder.pl:338 emits the version/root relationship using CODE_TERMGROUP
+    with SRC/VPT and SRC/RPT qualifiers. These are code identities, not generated
+    attribute/relationship IDs. Require exactly the types/counts in the unchanged
+    frozen rel_src input; do not add a general unknown-type allowance.
+    """
+    allowed = {'CUI', 'CUI_CURRENT', 'CUI_PREVIOUS', 'SRC_ATOM_ID'}
+    framework = Counter()
+    with framework_relationships.open('rb') as handle:
+        for raw in handle:
+            f = raw.rstrip(b'\n').split(b'|')
+            require(len(f) == 19, 'Unexpected framework relationship layout')
+            for kind, qualifier in ((f[12], f[13]), (f[14], f[15])):
+                require(kind == b'CODE_TERMGROUP' and qualifier in (b'SRC/VPT', b'SRC/RPT'), 'Unreviewed framework reference type')
+                framework[(kind + b'|' + qualifier).decode()] += 1
+    for name, item in validation['files'].items():
+        extra = {key: count for key, count in item['identifier_types_and_qualifiers'].items() if key.split('|', 1)[0] not in allowed}
+        require(extra == dict(framework) if name == 'relationships.src' else not extra,
+                'Unreviewed reference type could depend on generated attribute/relationship IDs: ' + name)
+    return {'no_generated_attribute_or_relationship_ID_references': True,
+            'unchanged_framework_code_references': dict(framework),
+            'producer_evidence': 'INV/bin/SRCbuilder.pl:338; INV/etc/inv_defaults.cfg Relation fields 13/15'}
+
+
 def contexts(reference, candidate, scratch, native_count):
     unsorted, expected = scratch / 'contexts.unsorted', scratch / 'contexts.expected'
     changed = 0
@@ -300,9 +326,7 @@ def audit(package, target, result, run, progress=print):
                    'contexts.src', 'attributes.contexts-all.src'}
         unaffected = [name for name in found if name not in changed]
         require(all(sha(reference / name) == sha(candidate / name) for name in unaffected), 'An unrelated reference output changed')
-        allowed = {'CUI', 'CUI_CURRENT', 'CUI_PREVIOUS', 'SRC_ATOM_ID'}
-        require(all(set(key.split('|', 1)[0] for key in item['identifier_types_and_qualifiers']).issubset(allowed)
-                    for item in result['comparison']['validation']['files'].values()), 'Unreviewed reference type could depend on generated attribute/relationship IDs')
+        id_reference_check = generated_id_reference_check(result['comparison']['validation'], reference / 'rel_src')
         for name, entry in result['comparison']['files'].items():
             require(sha(candidate / name) == entry['candidate']['sha256'], 'Output changed after the full comparison')
         report = {'status': 'PASS_REVIEWED_CORRECTIONS', 'engine_ref': package['engine_ref'], 'run_id': package['run_id'],
@@ -310,6 +334,7 @@ def audit(package, target, result, run, progress=print):
                   'raw_comparison_status': result['acceptance']['status'], 'independent_validation_passed': True,
                   'maps': maps, 'attributes': attr_result, 'relationships': rel_result, 'contexts': context_result,
                   'native_changes': traces, 'unaffected_outputs_exact': sorted(unaffected),
+                  'generated_ID_reference_check': id_reference_check,
                   'all_atom_allocations_unchanged': True, 'preferred_state_predicted': True,
                   'generated_ID_changes_accounted_for_by_native_insertions_deletions_and_context_reordering': True,
                   'raw_comparison_rewritten': False, 'production_eligible': False}

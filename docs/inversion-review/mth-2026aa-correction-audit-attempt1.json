@@ -1,0 +1,13 @@
+{
+  "status": {
+    "status": "failed",
+    "apparatus_ref": "8dc9738b3c72e80214b470fa17f9a66702285d29",
+    "operation": "Read-only native/output correction audit; no network or database calls",
+    "started_at": "2026-11-06T21:27:24Z",
+    "exit_status": 1,
+    "elapsed_seconds": 331
+  },
+  "audit": null,
+  "stderr": "Traceback (most recent call last):\n  File \"/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/candidate-consistent-state-20261106/correction-audit-apparatus/audit_mth_corrections.py\", line 325, in <module>\n    print(json.dumps(audit(json.loads(args.package.read_text()), args.target, result, args.run), indent=2))\n  File \"/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/candidate-consistent-state-20261106/correction-audit-apparatus/audit_mth_corrections.py\", line 304, in audit\n    require(all(set(key.split('|', 1)[0] for key in item['identifier_types_and_qualifiers']).issubset(allowed)\n  File \"/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/candidate-consistent-state-20261106/correction-audit-apparatus/audit_mth_corrections.py\", line 30, in require\n    raise RuntimeError(message)\nRuntimeError: Unreviewed reference type could depend on generated attribute/relationship IDs\n",
+  "stdout_tail": "AUDIT: native dependents in MRSAT.RRF\nAUDIT: native dependents in MRSTY.RRF\nAUDIT: native dependents in MRDEF.RRF\nAUDIT: native dependents in MRREL.RRF\n"
+}

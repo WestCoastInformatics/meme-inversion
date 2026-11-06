@@ -129,6 +129,17 @@ def check():
         except FileExistsError:pass
         else:raise AssertionError('Audit report was overwritten')
         require(report.read_bytes() == original and not report.stat().st_mode & 0o222, 'Completed audit evidence cannot be overwritten')
+        framework = base / 'framework-relations.src'
+        framework.write_bytes(b'1|S|V-MTH_2026AA|BT|has_version|V-MTH|SRC|SRC|R|Y|N|N|CODE_TERMGROUP|SRC/VPT|CODE_TERMGROUP|SRC/RPT|||\n')
+        validation = {'files': {'relationships.src': {'identifier_types_and_qualifiers': {'CODE_TERMGROUP|SRC/VPT': 1, 'CODE_TERMGROUP|SRC/RPT': 1, 'SRC_ATOM_ID|': 2}},
+                                'attributes.src': {'identifier_types_and_qualifiers': {'SRC_ATOM_ID|': 1}}}}
+        result = audit.generated_id_reference_check(validation, framework)
+        require(result['no_generated_attribute_or_relationship_ID_references'], 'Source-backed SRCbuilder code/termgroup references accepted with exact counts')
+        validation['files']['relationships.src']['identifier_types_and_qualifiers']['SRC_REL_ID|'] = 1
+        rejected(lambda: audit.generated_id_reference_check(validation, framework), 'A generated relationship ID reference remains forbidden')
+        del validation['files']['relationships.src']['identifier_types_and_qualifiers']['SRC_REL_ID|']
+        validation['files']['relationships.src']['identifier_types_and_qualifiers']['CODE_TERMGROUP|SRC/VPT'] = 2
+        rejected(lambda: audit.generated_id_reference_check(validation, framework), 'Additional framework references cannot pass the narrow allowance')
     return values
 
 
