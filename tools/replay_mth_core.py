@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import pwd
+import re
 import shutil
 import socket
 import subprocess
@@ -24,11 +25,56 @@ ROOT = Path('/local/content/MEME/MEME5/inv')
 VERSION = 'MTH_2026AA'
 TARGET = ROOT / 'sources' / VERSION
 RUN_ID = 'baseline-core-20261105'
+DEFAULT_RUN_ID = RUN_ID
 RUN = TARGET / 'qa/replay-runs' / RUN_ID
 ACTIVE = TARGET / 'replay-active-run.json'
 BASELINE = '3b125edc1d29f7c7a91673da2a8d752bb0adff44'
 METADATA = {'src/sources.src', 'src/termgroups.src', 'src/vsab.updates', 'src/sabs_updated_umls',
             'src/rsabs-updated.umls', 'src/vcodes_updated', 'ncimid.sources', 'ncimid.termgroups'}
+
+
+def configure_case(package):
+    """Select one immutable run capsule without altering the historical cases."""
+    global RUN_ID, RUN
+    run_id = package.get('run_id', DEFAULT_RUN_ID)
+    if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,79}', run_id):
+        raise RuntimeError('Invalid replay run identity')
+    if not re.fullmatch(r'[0-9a-f]{40}', package['engine_ref']):
+        raise RuntimeError('An immutable engine commit is required')
+    if package.get('runtime_ref', BASELINE) != BASELINE:
+        raise RuntimeError('This MTH case retains the production shared runtime')
+    RUN_ID = run_id
+    RUN = TARGET / 'qa/replay-runs' / run_id
+
+
+def verify_previous_run(package):
+    previous = package.get('previous_run')
+    if not previous:
+        raise RuntimeError('Existing replay needs an explicit preserved-run contract')
+    state = json.loads(ACTIVE.read_text())
+    if state.get('status') != 'complete' or state.get('run_id') != previous['run_id'] or state.get('engine_ref') != previous['engine_ref']:
+        raise RuntimeError('The previous completed run does not match the preservation contract')
+    if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,79}', previous['run_id']):
+        raise RuntimeError('Invalid prior run identity')
+    require(TARGET / 'qa/replay-runs' / previous['run_id'] / 'result.json', previous['result_sha256'])
+    names = [item['output_name'] for item in previous['outputs']]
+    if len(names) != len(set(names)) or set(names) != {item['output_name'] for item in package['reference_files']}:
+        raise RuntimeError('Every previous reference output must be verified before preservation')
+    for item in previous['outputs']:
+        if Path(item['output_name']).name != item['output_name']:
+            raise RuntimeError('Invalid previous output name')
+        require(TARGET / 'src' / item['output_name'], item['sha256'])
+
+
+def source_identity_script(path):
+    """Run the selected producer's identity section, using pinned aliases."""
+    text = path.read_text()
+    begin = '    $INV_HOME_OLD/bin/autoinv.pl ../range$subset.spec inv1.spec >>& autoinv.log\n'
+    end = '    ln -s aui_said_map aui_said_map2'
+    if text.count(begin) != 1 or text.count(end) != 1:
+        raise RuntimeError('Unknown production identity-stage layout')
+    fragment = text.split(begin, 1)[1].split(end, 1)[0]
+    return 'set subset=3\n' + fragment
 
 
 def now():
@@ -77,7 +123,7 @@ def idle():
 
 def verify_inputs(package, target=None):
     target = TARGET if target is None else target
-    if package['engine_ref'] != BASELINE or len(package['runtime_files']) != 169:
+    if package.get('runtime_ref', BASELINE) != BASELINE or len(package['runtime_files']) != 169:
         raise RuntimeError('The complete unchanged shared production runtime is required')
     for item in package['runtime_files']:
         require(ROOT / item['relative_path'], item['sha256'])
@@ -152,14 +198,21 @@ def tree_manifest(root):
 def prepare(package, progress=print):
     guard()
     idle()
-    if package['engine_ref'] != BASELINE or {x['relative_path'] for x in package['metadata_inputs']} != METADATA:
-        raise RuntimeError('The reviewed production engine and eight preparation metadata inputs are required')
+    if not re.fullmatch(r'[0-9a-f]{40}', package['engine_ref']) or {x['relative_path'] for x in package['metadata_inputs']} != METADATA:
+        raise RuntimeError('A pinned engine and eight preparation metadata inputs are required')
     if shutil.disk_usage(ROOT).free < 45 * 1024 ** 3 or available_memory() < 24 * 1024 ** 3:
         raise RuntimeError('Insufficient replay capacity reserve')
     require(Path(package['archive_path']), package['archive_sha256'])
-    preserved = ROOT / 'sources/MTH_2026AA.before-replay-20261105'
-    if preserved.exists() or (TARGET / 'replay-preparation.json').exists():
-        raise RuntimeError('A preserved/current replay already exists; nothing overwritten')
+    preserved_name = package.get('preserved_directory', 'MTH_2026AA.before-replay-20261105')
+    if not re.fullmatch(r'MTH_2026AA\.before-[A-Za-z0-9_.-]+', preserved_name):
+        raise RuntimeError('Invalid preserved source directory')
+    preserved = ROOT / 'sources' / preserved_name
+    if preserved.exists():
+        raise RuntimeError('Preserved source directory already exists; nothing overwritten')
+    if (TARGET / 'replay-preparation.json').exists():
+        verify_previous_run(package)
+    elif package.get('previous_run'):
+        raise RuntimeError('The declared previous replay is absent')
     restore_prior_map(package)
     staging = Path(tempfile.mkdtemp(prefix='.MTH_2026AA.prepare-', dir=str(ROOT / 'sources')))
     moved = False
@@ -208,10 +261,11 @@ def prepare(package, progress=print):
             if tree_manifest(preserved) != old:
                 raise RuntimeError('Existing dev tree changed during preservation')
         publish(staging, TARGET)
-        result = {'source': 'MTH', 'version': VERSION, 'engine_ref': BASELINE, 'prepared_at': now(),
+        result = {'source': 'MTH', 'version': VERSION, 'engine_ref': package['engine_ref'], 'prepared_at': now(),
                   'generated_outputs_seeded': False, 'replacement_baseline': 'MTH_2025AB',
                   'preexisting_dev_preserved': str(preserved) if moved else None, 'preexisting_dev_manifest': old,
                   'preexisting_dev_root_mode': oct(old_root_mode) if moved else None,
+                  'previous_run': package.get('previous_run'),
                   'prior_identity_input': package['prior_map'], 'prepared_subset_reference': package['prepared_subset'],
                   'metadata_inputs': package['metadata_inputs'], 'code_files': [{k: v for k, v in x.items() if k != 'data_b64'} for x in package['code_files']]}
         save(TARGET / 'replay-preparation.json', result)
@@ -279,7 +333,9 @@ mv classes_atoms.final.src classes_atoms.src
 def worker(package_path):
     guard()
     package = json.loads(Path(package_path).read_text())
-    state = {'source': 'MTH', 'version': VERSION, 'engine_ref': BASELINE, 'run_id': RUN_ID,
+    configure_case(package)
+    identity_script = None
+    state = {'source': 'MTH', 'version': VERSION, 'engine_ref': package['engine_ref'], 'run_id': RUN_ID,
              'started_at': now(), 'status': 'running', 'worker_pid': os.getpid(), 'run_directory': str(RUN)}
     save(ACTIVE, state)
     stages = {}
@@ -298,12 +354,20 @@ def worker(package_path):
     def checkpoint(names):
         expected = {x['output_name']: x for x in package['reference_files']}
         for name in names:
-            require(TARGET / 'src' / name, expected[name]['sha256'])
-        print('CHECKPOINT: exact ' + ', '.join(names), flush=True)
+            if name in package.get('changed_outputs', []):
+                path = TARGET / 'src' / name
+                if path.is_symlink() or not path.is_file() or path.stat().st_size == 0:
+                    raise RuntimeError('Expected candidate output is missing: ' + name)
+                print('CHECKPOINT: candidate output retained for full comparison: ' + name, flush=True)
+            else:
+                require(TARGET / 'src' / name, expected[name]['sha256'])
+                print('CHECKPOINT: exact ' + name, flush=True)
     try:
         with (ROOT / '.replay-runtime.lock').open('a') as lock:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
             verify_inputs(package)
+            if package.get('execute_source_stages'):
+                identity_script = source_identity_script(TARGET / 'invert2.s')
             idle()
             if any((TARGET / 'src' / name).exists() for name in compare_mth_core.WIDTHS):
                 raise RuntimeError('This candidate already has generated output')
@@ -325,7 +389,10 @@ def worker(package_path):
                 os.replace(saved_metadata, source_metadata)
             checkpoint(['class_src', 'attr_src', 'rel_src', 'merge_src'])
             stage('atoms-and-initial-map', ['/usr/bin/perl', str(TARGET / 'autoinv.pl'), '../range3.spec', 'inv1.spec'])
-            shell('identity-transitions')
+            if identity_script is not None:
+                stage('identity-transitions', ['/bin/tcsh', '-ef', '-c', identity_script])
+            else:
+                shell('identity-transitions')
             checkpoint(['aui_said_map', 'cui_said_map', 'rel_cui_said_map', 'moved_aui_said_map', 'cui_splitonly_said_map'])
             stage('attributes-relationships-merges', ['/usr/bin/perl', str(TARGET / 'autoinv.pl'), 'inv2.spec'])
             stage('bequeathal-relationships', ['/usr/bin/perl', str(TARGET / 'autoinv.pl'), 'inv3.spec'])
@@ -342,15 +409,18 @@ def worker(package_path):
                 shutil.copyfileobj(source, out, 4194304)
             stage('contexts', ['/bin/tcsh', '-f', str(TARGET / 'raw_to_contexts.csh'), 'raw3'])
             shell('context-tails')
-            stage('preferred-term-order-map', ['/usr/bin/perl', str(TARGET / 'get.saidpts.pl')], TARGET / 'src/said.ptsaid')
-            shell('final-atom-format')
+            if package.get('execute_source_stages'):
+                stage('preferred-term-and-final-atoms', ['/bin/tcsh', '-ef', str(TARGET / 'make.meme4classes.s')])
+            else:
+                stage('preferred-term-order-map', ['/usr/bin/perl', str(TARGET / 'get.saidpts.pl')], TARGET / 'src/said.ptsaid')
+                shell('final-atom-format')
             state.update(status='comparing', conversion_completed_at=now())
             save(ACTIVE, state)
             comparison = compare_mth_core.compare(package, TARGET, RUN, save)
             verify_inputs(package)
             for name, item in comparison['files'].items():
                 require(TARGET / 'src' / name, item['candidate']['sha256'])
-            result = {'source': 'MTH', 'version': VERSION, 'engine_ref': BASELINE, 'run_id': RUN_ID,
+            result = {'source': 'MTH', 'version': VERSION, 'engine_ref': package['engine_ref'], 'run_id': RUN_ID,
                       'stages': stages, 'comparison': comparison, 'acceptance': comparison['acceptance'],
                       'started_at': state['started_at'], 'completed_at': now(),
                       'input_engine_runtime_and_output_hashes_verified_after_run': True,
@@ -367,9 +437,12 @@ def worker(package_path):
 
 
 def launch(package, modules):
+    configure_case(package)
     guard()
     verify_inputs(package)
     idle()
+    if package.get('execute_source_stages'):
+        source_identity_script(TARGET / 'invert2.s')
     if RUN.exists() or ACTIVE.exists():
         raise RuntimeError('Run evidence already exists; deliberate preservation required before another attempt')
     RUN.mkdir(parents=True)
@@ -391,6 +464,6 @@ def launch(package, modules):
     with (RUN / 'worker.log').open('xb') as log:
         process = subprocess.Popen([sys.executable, '-B', str(entry)], stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
                                    start_new_session=True, close_fds=True)
-    return {'source': 'MTH', 'version': VERSION, 'run_id': RUN_ID, 'engine_ref': BASELINE, 'worker_pid': process.pid,
+    return {'source': 'MTH', 'version': VERSION, 'run_id': RUN_ID, 'engine_ref': package['engine_ref'], 'worker_pid': process.pid,
             'status': 'worker-launched', 'run_directory': str(RUN), 'worker_log': str(RUN / 'worker.log'),
             'launched_at': now(), 'apparatus_sha256': package['apparatus_sha256']}

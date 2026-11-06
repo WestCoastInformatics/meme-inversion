@@ -17,6 +17,56 @@ WIDTHS = {'classes_atoms.src': 15, 'attributes.src': 15, 'relationships.src': 19
           'mergefacts.src': 13, 'bequeathal.relationships.src': 19, 'contexts.src': 19}
 
 
+def identity_state(directory):
+    """Check persisted identity outputs against the final retained atom set."""
+    directory = Path(directory)
+    with (directory / 'classes_atoms.src').open('rb') as handle:
+        retained = {row.split(b'|', 1)[0] for row in handle}
+    bindings, raw_problems = {}, Counter()
+    with (directory / 'classes_atoms.src.raw').open('rb') as handle:
+        for row in handle:
+            fields = row.removesuffix(b'\n').split(b'|')
+            if len(fields) != 17:
+                raw_problems['field_count'] += 1
+                continue
+            raw_problems['duplicate_atom_id'] += fields[0] in bindings
+            bindings[fields[0]] = (fields[15], fields[16], fields[14])
+    raw_problems['raw_atoms_not_retained'] = len(bindings.keys() - retained)
+    raw_problems['retained_atoms_without_raw_binding'] = len(retained - bindings.keys())
+    files = {}
+    for name, width in [('aui_said_map', 3), ('moved_aui_said_map', 3), ('cui_said_map', 2),
+                        ('rel_cui_said_map', 2), ('cui_splitonly_said_map', 2)]:
+        problems, seen, rows = Counter(), set(), 0
+        path = directory / name
+        if path.is_symlink() or not path.is_file():
+            files[name] = {'rows': 0, 'violations': {'missing_or_nonregular': 1}}
+            continue
+        with path.open('rb') as handle:
+            for row in handle:
+                rows += 1
+                problems['duplicate_record'] += row in seen
+                seen.add(row)
+                fields = row.removesuffix(b'\n').split(b'|')
+                if len(fields) != width:
+                    problems['field_count'] += 1
+                    continue
+                problems['empty_identity'] += any(not value for value in fields)
+                said = fields[-1]
+                if said not in retained or said not in bindings:
+                    problems['unresolved_retained_atom'] += 1
+                    continue
+                cui, aui, moved = bindings[said]
+                problems['cui_binding_mismatch'] += fields[-2] != cui
+                if width == 3:
+                    problems['aui_binding_mismatch'] += fields[0] != aui
+                    problems['moved_role_mismatch'] += moved != (b'Y' if name == 'moved_aui_said_map' else b'N')
+        files[name] = {'rows': rows, 'violations': {key: count for key, count in problems.items() if count}}
+    raw_problems = {key: count for key, count in raw_problems.items() if count}
+    return {'passed': not raw_problems and all(not value['violations'] for value in files.values()),
+            'raw_binding_violations': raw_problems, 'files': files,
+            'scope': 'Current persisted AUI/CUI maps reference final retained atoms with matching native CUI/AUI and moved roles. Prior/current CUI transition semantics remain separately compared.'}
+
+
 def structure(paths, bounds):
     """Check the observed MTH dialect, keeping CUI roles and both context tails."""
     atoms = set()
@@ -124,6 +174,10 @@ def compare(package, target, run, save, progress=print):
             raise RuntimeError('Required reference files missing')
         progress('PHASE: independent MTH structure checks', flush=True)
         validation = structure({name: target / 'src' / name for name in WIDTHS}, (769443591, 773943592))
+        if package.get('validate_identity_state'):
+            progress('PHASE: retained-atom identity-state checks', flush=True)
+            validation['identity_state'] = identity_state(target / 'src')
+            validation['passed'] = validation['passed'] and validation['identity_state']['passed']
         exact = all(x['exact_match'] for x in files.values())
         equal = all(x['exact_match'] or x.get('full_record_multiset', {}).get('equal_preserving_multiplicity') for x in files.values())
         status = ('PASS_EXACT' if exact else 'PASS_RECORD_EQUIVALENT') if equal and validation['passed'] else ('REFERENCE_REPRODUCED_WITH_VALIDATION_FINDINGS' if equal else 'DIFFERENCES_REQUIRE_REVIEW')
