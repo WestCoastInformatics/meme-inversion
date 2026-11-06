@@ -1,0 +1,26 @@
+{
+  "host": "ncias-d3777-c.nci.nih-gov",
+  "tests": {
+    "check_reference_acquisition.py": {
+      "exit_status": 0,
+      "stdout": "PASS Reviewed acquisition source accepted: NCI\nPASS Reviewed acquisition source accepted: SNOMEDCT_US\nPASS Reviewed acquisition source accepted: MTH\nPASS Reviewed acquisition source accepted: MDR\nPASS Reviewed acquisition source accepted: RADLEX\nPASS Invalid source/version rejected: ('UNKNOWN', 'UNKNOWN_1')\nPASS Invalid source/version rejected: ('MDR', 'RADLEX_4_3')\nPASS Invalid source/version rejected: ('MDR', 'MDR_../x')\nPASS Invalid source/version rejected: ('MDR', 'MDR_1;echo')\nPASS Invalid source/version rejected: ('MDR', 'MDR_1\\n')\nPASS Invalid source/version rejected: ([], 'MDR_1')\nPASS Invalid source/version rejected: ('MDR', None)\nPASS MDR freezes archive and imported producer hashes\nPASS MDR archive is owner-only and never extracted\nPASS MDR inventory never publishes inactive script content\nPASS MDR saved external root identity is visible as configuration evidence\nPASS MDR pre/post-insertion attribute stages remain distinct\nPASS MDR frozen cache is reused without silently selecting a new S3 object\nPASS MDR altered cached archive is rejected\nPASS MDR failure preserves receipt and releases the acquisition lock\nPASS MDR rejects changed-object\nPASS MDR failure never restores a source tree: changed-object\nPASS MDR rejects duplicate-member\nPASS MDR failure never restores a source tree: duplicate-member\nPASS MDR rejects unreceipted-cache\nPASS MDR failure never restores a source tree: unreceipted-cache\nPASS MDR ambiguous cache does not trigger a replacement download\nPASS MDR rejects missing-frozen-cache\nPASS MDR failure never restores a source tree: missing-frozen-cache\nPASS MDR ambiguous cache does not trigger a replacement download\nPASS RADLEX freezes archive and imported producer hashes\nPASS RADLEX archive is owner-only and never extracted\nPASS RADLEX inventory never publishes inactive script content\nPASS RADLEX saved external root identity is visible as configuration evidence\nPASS RADLEX pre/post-insertion attribute stages remain distinct\nPASS RADLEX frozen cache is reused without silently selecting a new S3 object\nPASS RADLEX altered cached archive is rejected\nPASS RADLEX failure preserves receipt and releases the acquisition lock\nPASS RADLEX rejects changed-object\nPASS RADLEX failure never restores a source tree: changed-object\nPASS RADLEX rejects duplicate-member\nPASS RADLEX failure never restores a source tree: duplicate-member\nPASS RADLEX rejects unreceipted-cache\nPASS RADLEX failure never restores a source tree: unreceipted-cache\nPASS RADLEX ambiguous cache does not trigger a replacement download\nPASS RADLEX rejects missing-frozen-cache\nPASS RADLEX failure never restores a source tree: missing-frozen-cache\nPASS RADLEX ambiguous cache does not trigger a replacement download\n48 reference acquisition checks passed\n",
+      "stderr": ""
+    },
+    "check_attribute_stage_review.py": {
+      "exit_status": 0,
+      "stdout": "PASS Exact original bytes plus semantic-type-only additions establish the archive stage relation\nPASS Legitimate original semantic types remain in the comparison reference\nPASS Stage review neither executes nor extracts a candidate\nPASS Identical files do not acquire a claim that semantic types were appended\nPASS Unverified stage boundary rejected: changed-prefix\nPASS Unverified stage boundary rejected: additional-non-sty\nPASS Unverified stage boundary rejected: malformed-suffix\nPASS Unverified stage boundary rejected: missing-original\nPASS Unverified stage boundary rejected: symlink-original\nPASS Unverified stage boundary rejected: split-record-boundary\nPASS Unverified stage boundary rejected: empty-original\nPASS Changed frozen archive rejected\nPASS Actual original member bytes are checked against the inventory\n13 attribute-stage review checks passed\n",
+      "stderr": ""
+    }
+  },
+  "working_tree_sha256": {
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "check_reference_acquisition.py": "2991da20d29e7824aa8e8eb972159d57d2562c051511ee7b7ffbf935d407f7b4",
+    "check_attribute_stage_review.py": "abd96580e114569d7981439e93392868685d185250b9adb2c2591f6794e2340c"
+  },
+  "local_checks": {
+    "attribute_stage_review": 13,
+    "reference_acquisition": 48,
+    "all_passed": true
+  }
+}
