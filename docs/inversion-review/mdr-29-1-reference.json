@@ -1,0 +1,353 @@
+{
+  "source": "MDR",
+  "version": "MDR_29_1",
+  "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+  "bucket": "nci-evs-meme",
+  "key": "inv/sources/MDR_29_1.tgz",
+  "aws_profile": "meme",
+  "archive_path": "/local/content/MEME/MEME5/inv/sources/MDR_29_1.tgz",
+  "object_identity": {
+    "ContentLength": 307179117,
+    "ETag": "\"265d731694ef8c51eba99049cdeead73-37\"",
+    "LastModified": "2026-10-08T15:57:24+00:00",
+    "VersionId": null
+  },
+  "archive_sha256": "c708d25ece1e2d0c4d57d53dc1c9a96f9562c2850dd81aadf2ab09b06d899cff",
+  "archive_bytes": 307179117,
+  "downloaded_this_run": true,
+  "archive_read_only": true,
+  "member_count": 106,
+  "regular_file_bytes": 2742701865,
+  "code_comparison": [
+    {
+      "path": "MDR_29_1/bin/get.versions4mdr.s",
+      "expected_sha256": "e788924e0e37fd1f1052afb9e52c6240a8d50568ffec592e83308133e4b2aea5",
+      "archive_sha256": "e788924e0e37fd1f1052afb9e52c6240a8d50568ffec592e83308133e4b2aea5",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/bin/invert_mdr.pl",
+      "expected_sha256": "4f32f980561594f1018d7ea2c5d6e5c46fb4a9751e9302b5b2f7de11db4356be",
+      "archive_sha256": "4f32f980561594f1018d7ea2c5d6e5c46fb4a9751e9302b5b2f7de11db4356be",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/bin/invert_mdr.s",
+      "expected_sha256": "f92e6535c7c77e90800dd9af250d8b1931dbf8bf2f6bca36b5470c871fdf9766",
+      "archive_sha256": "f92e6535c7c77e90800dd9af250d8b1931dbf8bf2f6bca36b5470c871fdf9766",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/bin/stys.pl",
+      "expected_sha256": "e13652cb4691d7af57a7d9bd075cf232290fbea920118d951da99c886157b74f",
+      "archive_sha256": "e13652cb4691d7af57a7d9bd075cf232290fbea920118d951da99c886157b74f",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/bin/append_atn.pl",
+      "expected_sha256": "d10702fc7c1736c0803f27bcdbaa22e6afefed48bda75e6124bd089f5158a00d",
+      "archive_sha256": "d10702fc7c1736c0803f27bcdbaa22e6afefed48bda75e6124bd089f5158a00d",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/etc/MDR.cfg",
+      "expected_sha256": "8f03510bb145661f5d7d0d25a4fb74bc81424c114eb94b02b5949d59a526a30c",
+      "archive_sha256": "8f03510bb145661f5d7d0d25a4fb74bc81424c114eb94b02b5949d59a526a30c",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/etc/README.INVERSION",
+      "expected_sha256": "0bf989a067a18004525b7d2a17c3d03ead750115645abf8226c82ae63b40caf8",
+      "archive_sha256": "0bf989a067a18004525b7d2a17c3d03ead750115645abf8226c82ae63b40caf8",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/src/sources.src",
+      "expected_sha256": "2f1b35d40463e0cab89f0f33d064e24664c2b701891810b9ab98097b4238ac0d",
+      "archive_sha256": "2f1b35d40463e0cab89f0f33d064e24664c2b701891810b9ab98097b4238ac0d",
+      "matches_snapshot": true
+    },
+    {
+      "path": "MDR_29_1/src/termgroups.src",
+      "expected_sha256": "fdaceb394a3b21eb0f0bc49c5737a65a2591a93de5d80b64352527d39429703b",
+      "archive_sha256": "fdaceb394a3b21eb0f0bc49c5737a65a2591a93de5d80b64352527d39429703b",
+      "matches_snapshot": true
+    }
+  ],
+  "code_comparison_performed": true,
+  "code_matches_snapshot": true,
+  "stages": {
+    "src": [
+      {
+        "path": "MDR_29_1/src/sources.src",
+        "size": 859,
+        "mode": "0o640",
+        "mtime": 1790276293,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "2f1b35d40463e0cab89f0f33d064e24664c2b701891810b9ab98097b4238ac0d",
+        "newline_count": 1
+      },
+      {
+        "path": "MDR_29_1/src/termgroups.src",
+        "size": 606,
+        "mode": "0o640",
+        "mtime": 1790276324,
+        "role": "prepared-metadata-input",
+        "kind": "file",
+        "sha256": "fdaceb394a3b21eb0f0bc49c5737a65a2591a93de5d80b64352527d39429703b",
+        "newline_count": 15
+      },
+      {
+        "path": "MDR_29_1/src/classes_atoms.src",
+        "size": 12633021,
+        "mode": "0o640",
+        "mtime": 1790279946,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "ff007d381397a650f996ed80214e54cabfd517548cd179295b4355c8f76d6d75",
+        "newline_count": 122629
+      },
+      {
+        "path": "MDR_29_1/src/relationships.src",
+        "size": 31093019,
+        "mode": "0o640",
+        "mtime": 1790279946,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "e7046ad38c12f7a30c6e32818e39e914d492414c55fe530698ff3ede4d8dbe49",
+        "newline_count": 290097
+      },
+      {
+        "path": "MDR_29_1/src/mergefacts.src",
+        "size": 2715516,
+        "mode": "0o640",
+        "mtime": 1790279946,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "9409575c52b379e874d7a6b287b72aa692253811b1bf19f88b0107ef83d03e2e",
+        "newline_count": 37472
+      },
+      {
+        "path": "MDR_29_1/src/contexts.src",
+        "size": 191499397,
+        "mode": "0o640",
+        "mtime": 1790280225,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "3538158814d1a6c3a4698e627e6e5a2ad8f5b63c07534514953145fdd49bd8e5",
+        "newline_count": 1883398
+      },
+      {
+        "path": "MDR_29_1/src/MRDOC.RRF",
+        "size": 4739,
+        "mode": "0o640",
+        "mtime": 1790280324,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "7eb0bafd619b7289961ce5f158d19d519bee913b045b092c4b3a655ac0b789bc",
+        "newline_count": 80
+      },
+      {
+        "path": "MDR_29_1/src/qaStats.src",
+        "size": 13242,
+        "mode": "0o640",
+        "mtime": 1790281646,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "650319fa61745158c9ef58bba0c85b7bc3ce5f10c6d98a073fa1c04051e8be2c",
+        "newline_count": 163
+      },
+      {
+        "path": "MDR_29_1/src/attributes.orig",
+        "size": 473425883,
+        "mode": "0o640",
+        "mtime": 1790283035,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "c16a452bfe2e94485b960d4fa4dc35a6780d11df25dcf8fd2af97b3f45ee3770",
+        "newline_count": 2424867
+      },
+      {
+        "path": "MDR_29_1/src/attributes.src",
+        "size": 488468558,
+        "mode": "0o640",
+        "mtime": 1791470476,
+        "role": "official-inversion-output-or-state",
+        "kind": "file",
+        "sha256": "f32d3106d720a4458d740cc7554cf44a8fa191cb793de65134937ac81df15124",
+        "newline_count": 2549664
+      }
+    ],
+    "insert": [
+      {
+        "path": "MDR_29_1/insert/attributes.src",
+        "size": 482847451,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "768023a31c543a5d43f1000536da4369e6ff2e28ff86694d7450581af0488a00",
+        "newline_count": 2515258
+      },
+      {
+        "path": "MDR_29_1/insert/classes_atoms.src",
+        "size": 12575978,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "cbc76d09792d3d241949e0f32e7d13157af6f4b4afc15874c8f1622d216c3928",
+        "newline_count": 122069
+      },
+      {
+        "path": "MDR_29_1/insert/contexts.src",
+        "size": 189799232,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "30cb575f6311eb8b738affdcb2c9a084a26909cef61f077c69969be60eda6829",
+        "newline_count": 1866339
+      },
+      {
+        "path": "MDR_29_1/insert/mergefacts.src",
+        "size": 2703160,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "a3f3301ad02fafb7de06f3c2fb84b2e1677df9fa47d41ecde7c0251a23252f89",
+        "newline_count": 37302
+      },
+      {
+        "path": "MDR_29_1/insert/qaStats.src",
+        "size": 13243,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "c1ed5bc02dfcfcac68b32284a6c7d458eb12a784cffdc9e75218efb6d6af1359",
+        "newline_count": 163
+      },
+      {
+        "path": "MDR_29_1/insert/relationships.src",
+        "size": 30959414,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "247c1d15070a6bcba332a85e91af3039a1c734299f55863c4ca25aa64646f12f",
+        "newline_count": 288852
+      },
+      {
+        "path": "MDR_29_1/insert/sources.src",
+        "size": 855,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "a960b0dd95d75925bff74a29ef5b4116cc2bee812019ad4197916e6214c7a730",
+        "newline_count": 1
+      },
+      {
+        "path": "MDR_29_1/insert/termgroups.src",
+        "size": 606,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "307bfb6a2be02ff88453dfdc6cd8b2a52360227cad9d9f85b2344a8fa73e4920",
+        "newline_count": 15
+      },
+      {
+        "path": "MDR_29_1/insert/MRDOC.RRF",
+        "size": 4739,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "2b0121e610b3dc6b8bb46d7fd14c78c2fddcc5fbd232ad62b96707286dae9c81",
+        "newline_count": 80
+      },
+      {
+        "path": "MDR_29_1/insert/sty_term_ids",
+        "size": 3915774,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "6dcb861ca89e94ceecf18e4f7f4fd9512e84da486cb0fd953c2ddac34ab12afe",
+        "newline_count": 124238
+      },
+      {
+        "path": "MDR_29_1/insert/reportChecklistResults.txt",
+        "size": 313,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "667a70a5810e419e8cc47615639918e68e015de5bab79bf0ff503fbcc843e219",
+        "newline_count": 7
+      },
+      {
+        "path": "MDR_29_1/insert/new_sty_defaults",
+        "size": 3708340,
+        "mode": "0o640",
+        "mtime": 1790269053,
+        "role": "archived-insert-state-needs-version-review",
+        "kind": "file",
+        "sha256": "c96ee1247f7f2b2f52ebfd16c38c22ab7d695bc55ab73ed62a3198d0ae5881c4",
+        "newline_count": 124919
+      }
+    ]
+  },
+  "metadata_summary": {
+    "MDR_29_1/etc/MDR.cfg": {
+      "release_tags_seen": {},
+      "scope": "Observed text tags; dependency roles not inferred",
+      "settings": {
+        "VSAB": "MDR_29_1",
+        "RSAB": "MDR",
+        "SaidStart": "777143593",
+        "SaidEnd": "777343592",
+        "AtidStart": "1",
+        "RlidStart": "1",
+        "File.TINS.StyTermIds": "../etc/sty_term_ids",
+        "HC.RootNodeCode": "V-MDR",
+        "HC.RootNodeSaid": "124407941",
+        "HC.RootNodeName": "MedDRA",
+        "ORIGDIR": "../orig/fromprovider/MedAscii",
+        "File.INP.SOC": "<ORIGDIR>/soc.asc",
+        "File.INP.ISOC": "<ORIGDIR>/intl_ord.asc",
+        "File.INP.HLGT": "<ORIGDIR>/hlgt.asc",
+        "File.INP.HLT": "<ORIGDIR>/hlt.asc",
+        "File.INP.PT": "<ORIGDIR>/pt.asc",
+        "File.INP.LT": "<ORIGDIR>/llt.asc",
+        "File.INP.SMQL": "<ORIGDIR>/smq_list.asc",
+        "File.INP.SMQC": "<ORIGDIR>/smq_content.asc",
+        "File.INP.SOC2HLGT": "<ORIGDIR>/soc_hlgt.asc",
+        "File.INP.HLGT2HLT": "<ORIGDIR>/hlgt_hlt.asc",
+        "File.INP.HLT2PT": "<ORIGDIR>/hlt_pt.asc",
+        "File.INP.MDHIER": "<ORIGDIR>/mdhier.asc",
+        "File.INP.ABBRS": "../etc/MG_Abbreviations",
+        "File.INP.StyTermIds": "../src/sty_term_ids"
+      }
+    },
+    "MDR_29_1/src/sources.src": {
+      "release_tags_seen": {},
+      "scope": "Observed text tags; dependency roles not inferred"
+    },
+    "MDR_29_1/src/termgroups.src": {
+      "release_tags_seen": {},
+      "scope": "Observed text tags; dependency roles not inferred"
+    }
+  },
+  "inventory_path": "/local/content/MEME/MEME5/inv/sources/MDR_29_1.tgz.inventory.json",
+  "receipt_path": "/local/content/MEME/MEME5/inv/sources/MDR_29_1.tgz.reference.json",
+  "source_directory_exists": false,
+  "extracted": false,
+  "candidate_executed": false,
+  "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+  "completed_at": "2026-11-06T23:40:35.588564+00:00"
+}

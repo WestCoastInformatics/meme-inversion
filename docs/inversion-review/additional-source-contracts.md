@@ -25,7 +25,7 @@ The RADLEX wrapper cleanup is part of the production result, not generic compari
 
 ## Prior data, insertion and the common request
 
-Both folders contain `src/attributes.orig` and a larger `src/attributes.src`. Both runbooks explicitly move default semantic-type generation into insertion (MDR README lines 188–192; RADLEX README lines 101–107). This suggests the same stage distinction established for SNOMED, but the new sources still need archive/content verification. Bind each reference member explicitly; do not assume that every `attributes.orig` has the same provenance or filter all semantic types.
+Both folders contain `src/attributes.orig` and a larger `src/attributes.src`. Both runbooks explicitly move default semantic-type generation into insertion (MDR README lines 188–192; RADLEX README lines 101–107). Archive/content verification on November 6 now confirms the stage distinction described below. Bind each reference member explicitly; do not assume that every `attributes.orig` has the same provenance or filter all semantic types.
 
 Source/termgroup metadata preparation can query the database through `dump_src_info.pl`. Its saved results are sufficient conversion inputs when verified. A database used for later QA or insertion has a different role. Prior release folders used for change comparison, historical identity state, and inherited code must remain distinct; the code-copy relationship creates no automatic data dependency.
 
@@ -36,3 +36,21 @@ The [registry](source-registry.json) recognizes `MDR` and `RADLEX`. Requests use
 For MDR, a preserved historical code/version bundle can be named through `publisher_history`; it does not require staging every older MDR release folder. The abbreviation/translation tables should be captured as versioned representation inputs under `policy_ref`, rather than copied untracked from a prior release. RADLEX's CSV preparation/escaping and cleanup rules likewise belong to versioned code/policy. A prepared-input case must identify which of those stages already produced its starting bundle. These are mappings into the common vocabulary, not additional aliases for common parameters.
 
 For each source, the next characterization case should freeze the matching S3 archive, verify the imported production code, preserved input closure and actual runtime, establish the pre-insertion output map, then execute an unchanged-engine replay and source-specific validation on dev. These are additional coverage cases; their infrequent schedules do not require a different request interface or block implementing the three initially characterized sources.
+
+## Frozen archives and verified attribute stages, November 6
+
+The existing download-only S3 helper retrieved both matching archives without restoring a source folder or running a candidate. Their object identities and complete archive/member hashes are frozen. New cached archives are owner-readable only; the inventory records hashes rather than inactive-script contents. All nine imported MDR files and all 21 RADLEX files match their original production-capture hashes, including the original bytes of the separately redacted MDR runbook. This verifies the archive/code relationship without publishing its removed access examples. [MDR reference](mdr-29-1-reference.json), [MDR inventory](mdr-29-1-archive-inventory.json), [RADLEX reference](radlex-4-3-reference.json), [RADLEX inventory](radlex-4-3-archive-inventory.json).
+
+The shared archive inspector now verifies an attribute-stage relationship by hashing the entire archive before and after reading, checking both actual attribute members against their frozen inventory, and requiring the original bytes to be the exact complete prefix of the final file. Every additional row must be a 15-field `SEMANTIC_TYPE` attribute. It retains semantic types already present in the original file. Thirteen stage-review fixtures and 48 acquisition fixtures pass locally and on dev. [Stage-check fixtures](attribute-stage-fixtures-20261106.json), [acquisition fixtures](reference-acquisition-fixtures-20261106.json).
+
+| Verified archive boundary | MDR_29_1 | RADLEX_4_3 |
+|---|---:|---:|
+| Pre-insertion `src/attributes.orig` rows | 2,424,867 | 59,774 |
+| Semantic types already in that original file | 1 | 1 |
+| Later appended semantic-type rows | 124,797 | 69,672 |
+| Final archived `src/attributes.src` rows | 2,549,664 | 129,446 |
+| Declared starting input files identified | 16 | 3 |
+
+The MDR starting bundle contains 12 English ASCII files, saved abbreviations, preserved code/version history and the two source/termgroup metadata files. RADLEX uses its preserved prepared pipe file plus those two metadata files. The RADLEX archive also proves that its cleaned atoms, relationships, merges and pre-insertion attributes exactly match the corresponding wrapper cleanup outputs in `tmp`. Those cleanup steps belong in the candidate execution, with no comparison normalization to hide them. [Actual stage/input review](additional-source-stage-review-20261106.json).
+
+These are frozen reference/input and workflow-stage findings. Neither source has been replayed or independently validated yet. Before enabling common execution, finish runtime/input-consumer tracing, persistent-root checks, complete ID-bound evidence (RADLEX's captured configuration has a start but no end), the reviewed source options/configuration and the unchanged-engine candidate/comparison apparatus. The reference-input acquisition support recognizes these sources; their conversion adapters remain disabled.

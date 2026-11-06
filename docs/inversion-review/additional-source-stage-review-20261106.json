@@ -1,0 +1,231 @@
+{
+  "apparatus_ref": "5786a0ca817be0411bedebd5b6d045ee9a28f031",
+  "archive_freeze_apparatus_ref": "1e7f3b51c210053ac830969e471935dea77f938d",
+  "stage_review_tool_sha256": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+  "records": {
+    "MDR_29_1": {
+      "attribute_stage_relation": {
+        "status": "PRE_INSERTION_PREFIX_VERIFIED",
+        "archive_sha256": "c708d25ece1e2d0c4d57d53dc1c9a96f9562c2850dd81aadf2ab09b06d899cff",
+        "original_member": "MDR_29_1/src/attributes.orig",
+        "final_member": "MDR_29_1/src/attributes.src",
+        "original_bytes": 473425883,
+        "original_rows": 2424867,
+        "final_rows": 2549664,
+        "original_sha256": "c16a452bfe2e94485b960d4fa4dc35a6780d11df25dcf8fd2af97b3f45ee3770",
+        "final_sha256": "f32d3106d720a4458d740cc7554cf44a8fa191cb793de65134937ac81df15124",
+        "appended_rows": 124797,
+        "appended_attribute_names": {
+          "SEMANTIC_TYPE": 124797
+        },
+        "original_attribute_names": {
+          "SEMANTIC_TYPE": 1,
+          "INTL_SOC_SORT_ORDER": 27,
+          "PRIMARY_SOC": 27504,
+          "SMQ_LEVEL": 230,
+          "DEFINITION": 230,
+          "SMQ_SOURCE": 190,
+          "SMQ_STATUS": 230,
+          "SMQ_ALGORITHM": 230,
+          "SMQ_NOTE": 97,
+          "SMQ_TERM_LEVEL": 58933,
+          "SMQ_TERM_SCOPE": 197108,
+          "SMQ_TERM_CAT": 197108,
+          "SMQ_TERM_WEIGHT": 197108,
+          "SMQ_TERM_STATUS": 197108,
+          "SMQ_TERM_ADDVERSION": 197108,
+          "SMQ_TERM_LMVERSION": 197108,
+          "PRIMARY_PATH": 27504,
+          "CONTEXT": 189520,
+          "PT_IN_VERSION": 937523
+        },
+        "original_field_counts": {
+          "15": 2424867
+        },
+        "original_prefix_byte_exact": true,
+        "original_semantic_types_retained": 1,
+        "candidate_executed": false,
+        "scope": "Frozen archive stage relationship only; candidate replay and independent semantic validation remain separate."
+      },
+      "declared_starting_bundle": [
+        {
+          "relative_path": "orig/fromprovider/MedAscii/soc.asc",
+          "bytes": 1497,
+          "sha256": "8ea5321b4ca0bdb04aa6aa8e8adc59be84b503860abe99c058ce3c72c8bb7007",
+          "newline_count": 27
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/intl_ord.asc",
+          "bytes": 378,
+          "sha256": "d3cbc2be7f93383ac7379d5bbd6ee9addf15b10f9d6a84648a696f191a47f7ee",
+          "newline_count": 27
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlgt.asc",
+          "bytes": 18420,
+          "sha256": "61d4695b88a342a46d799e9a781f8284725febedeff25739eeb1bfd0bc57edd6",
+          "newline_count": 337
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlt.asc",
+          "bytes": 88135,
+          "sha256": "d6fbe049e08c608224c8167d040123d91f6370d1aacef582bb65de89c72b0f31",
+          "newline_count": 1739
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/pt.asc",
+          "bytes": 1443300,
+          "sha256": "351b93cd438bd8b60c05875129231ab19edf724f7e96df96c3883a83b3eefe31",
+          "newline_count": 27504
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/llt.asc",
+          "bytes": 5319842,
+          "sha256": "a7f9c97a277d75ab76938d08c245e8ff64c5a4934a9b0d29d1175af942af281a",
+          "newline_count": 91499
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/smq_list.asc",
+          "bytes": 302254,
+          "sha256": "9dbf4a545236947627e9ae78231b163109d49ccc08ae275479d2a345196c31e2",
+          "newline_count": 230
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/smq_content.asc",
+          "bytes": 3922159,
+          "sha256": "c8c0c02d343834659be35ac4adbcdc42b9bdec0102d4e0e305f13e917fbd9ddf",
+          "newline_count": 98554
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/soc_hlgt.asc",
+          "bytes": 7080,
+          "sha256": "aa1743b673333615a443693e95af8dccf6342f3c75ecc02df8bc3a1df58afe9c",
+          "newline_count": 354
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlgt_hlt.asc",
+          "bytes": 35140,
+          "sha256": "6e71acac7fa6166b9a6e3cdefbb93e42c9cd05515951b3ebf4d255dd6984fe5c",
+          "newline_count": 1757
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/hlt_pt.asc",
+          "bytes": 809100,
+          "sha256": "a75767c981837a02aa92e4fa2565acfcea4d10a4565de65ab1275484b43df156",
+          "newline_count": 40455
+        },
+        {
+          "relative_path": "orig/fromprovider/MedAscii/mdhier.asc",
+          "bytes": 7952187,
+          "sha256": "d3c133c4e794ce343913bb43cd754b0659ca589e3514d665f6414ea4c2255797",
+          "newline_count": 42778
+        },
+        {
+          "relative_path": "etc/MG_Abbreviations",
+          "bytes": 565,
+          "sha256": "8dcc8497508e0d3c21b70fc26a18cca64c36eb998d92afbbccf9acb766c16145",
+          "newline_count": 19
+        },
+        {
+          "relative_path": "orig/mdr_by_version.txt",
+          "bytes": 13994293,
+          "sha256": "6ccb8398d16f84c040889370ebbf2ff41271feca2b404f4334161cbb9551fa2a",
+          "newline_count": 937523
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 859,
+          "sha256": "2f1b35d40463e0cab89f0f33d064e24664c2b701891810b9ab98097b4238ac0d",
+          "newline_count": 1
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 606,
+          "sha256": "fdaceb394a3b21eb0f0bc49c5737a65a2591a93de5d80b64352527d39429703b",
+          "newline_count": 15
+        }
+      ],
+      "archived_cleanup_relationships": {},
+      "source_folder_restored": false
+    },
+    "RADLEX_4_3": {
+      "attribute_stage_relation": {
+        "status": "PRE_INSERTION_PREFIX_VERIFIED",
+        "archive_sha256": "eea5a5d34b6c91fb42c54879d0f2ce43fb380981b69b4fb3c8b4290079221a34",
+        "original_member": "RADLEX_4_3/src/attributes.orig",
+        "final_member": "RADLEX_4_3/src/attributes.src",
+        "original_bytes": 59898056,
+        "original_rows": 59774,
+        "final_rows": 129446,
+        "original_sha256": "08d30a4cc5c2c534c7a9be6fbed8377ed0928ea2e7a53414357a2d7db0ab3435",
+        "final_sha256": "093e83ed931600db54740c0064777acb971214b285b0187d79a94004b6ef016f",
+        "appended_rows": 69672,
+        "appended_attribute_names": {
+          "SEMANTIC_TYPE": 69672
+        },
+        "original_attribute_names": {
+          "SEMANTIC_TYPE": 1,
+          "DEFINITION": 3840,
+          "COMMENT": 1931,
+          "CITE": 3114,
+          "RADLEX_VERSION_OF_CLASS_CHANGE": 2427,
+          "DATE_CREATED": 989,
+          "REPLACED_BY": 442,
+          "MISSPELLING_OF_TERM": 36,
+          "UNSANCTIONED_TERM": 93,
+          "PREFERRED_NAME_GERMAN": 1,
+          "CONTEXT": 46900
+        },
+        "original_field_counts": {
+          "15": 59774
+        },
+        "original_prefix_byte_exact": true,
+        "original_semantic_types_retained": 1,
+        "candidate_executed": false,
+        "scope": "Frozen archive stage relationship only; candidate replay and independent semantic validation remain separate."
+      },
+      "declared_starting_bundle": [
+        {
+          "relative_path": "orig/radlex_pipe.txt",
+          "bytes": 16332047,
+          "sha256": "e0e069dfc135425e29a76feb8e8f173250227f246fa7418a4b2249c3dfe1a759",
+          "newline_count": 46901
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 707,
+          "sha256": "fe3a3c3e1337fc9fb6f75985a4fd3f11750b505f96157b59a5d8ae726233d3b1",
+          "newline_count": 1
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 193,
+          "sha256": "4b7c3bae5294af646c4f0b44d5423dc730cea6765567f5a4850301e5b6e9db98",
+          "newline_count": 5
+        }
+      ],
+      "archived_cleanup_relationships": {
+        "src/classes_atoms.src": {
+          "archived_cleanup_member": "tmp/classes_unique.txt",
+          "sha256_equal": true
+        },
+        "src/relationships.src": {
+          "archived_cleanup_member": "tmp/relationships_no_dups_no_self_refs.tmp",
+          "sha256_equal": true
+        },
+        "src/mergefacts.src": {
+          "archived_cleanup_member": "tmp/mergefacts_new.txt",
+          "sha256_equal": true
+        },
+        "src/attributes.orig": {
+          "archived_cleanup_member": "tmp/attributes_unique.txt",
+          "sha256_equal": true
+        }
+      },
+      "source_folder_restored": false
+    }
+  },
+  "candidate_executed": false,
+  "runtime_changed": false,
+  "semantic_validation_complete": false
+}

@@ -1,0 +1,36 @@
+{
+  "request": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "case_variant": "consistent-retained-identities",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "reviewed-corrections",
+    "schema_version": 1,
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70"
+  },
+  "run_id": "common-mth-corrections-20261106",
+  "apparatus_ref": "e3b24ecd966294010f438d4c76b1b8e766b9e82a",
+  "lock_sha256": "2c987e8d4333f2567e21f4b67686ee2a772171d0279d042505a299bcd44f6842",
+  "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "runtime_verification": {
+    "status": "runtime-already-matches",
+    "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "files_verified": 169
+  },
+  "launch": {
+    "run_id": "common-mth-corrections-20261106",
+    "worker_pid": 229458,
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-corrections-20261106",
+    "launched_at": "2026-11-06T23:13:37.428077+00:00",
+    "lock_sha256": "2c987e8d4333f2567e21f4b67686ee2a772171d0279d042505a299bcd44f6842"
+  },
+  "previous_source_receipt_sha256": "048c61ca09c1ad109f6222997320045abc9d3aa0b004ccce2d972ed33ab43f8a",
+  "previous_source_manifest_entries": 166,
+  "code_entries": 57,
+  "runtime_files": 169,
+  "declared_prior_identity_version": "MTH_2025AB",
+  "comparison_reference": "Official MTH_2026AA archive; unchanged raw comparison plus mandatory native-derived correction audit",
+  "execution_status": "launched; completion not yet established",
+  "insertion_executed": false,
+  "production_eligible": false
+}

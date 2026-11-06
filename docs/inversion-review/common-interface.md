@@ -24,6 +24,8 @@ For example, save this as `request.json`:
 
 Run these commands from a checkout of the review branch `test/inversion-replay-toolbox` (or a later integration containing its committed apparatus). The original workspace on `main` can contain documentation mirrors without that committed apparatus.
 
+The selected engine commits must also be available in local Git. The MTH producer correction is on the separate `fix/mth-consistent-identity-state` branch at `b2611ab`; the runner branch stages its files from that commit, rather than incorporating those source edits into the runner's own source tree. Publishing the runner branch alone does not publish a separate, unreachable engine commit.
+
 Install [the pinned resolver dependencies](../../tools/requirements-runner.txt) in a local Python 3.12 virtual environment. Remote execution uses the dev server's Python 3.9 standard library. Then:
 
 ```sh
@@ -93,3 +95,5 @@ The previous canonical dev tree was verified and preserved at `SNOMEDCT_US_2026_
 
 
 The live integration run exposed a status-reader gap: the outer lifecycle state covered execution/comparison, but the adapter's progress was hidden. The reader now includes the actual inner adapter progress and active phase, while keeping the persistent common control record authoritative. It reports comparison and final artifact verification explicitly. Twenty worker/status fixtures pass locally and on dev, and a live read confirms the comparison phase. This observer change does not alter a running capsule. [Status evidence](common-interface-status-fixtures-20261106.json).
+
+A later readiness review found that the initial capsule omitted NCIt's `run_nci_core_replay.py` helper and the fixture dependency imported by the captured legacy advancement module. Both are now explicitly packaged. The resolver rejects missing repository Python imports before remote preparation. All 16 frozen modules import in isolation locally and on dev; a synthetic execution of the actual NCIt adapter entry records all five output hashes and calls its characterized acceptance rules. There are now 53 local request checks and 22 worker checks locally/on dev. This is packaging/adapter coverage; the complete NCIt common-launcher run remains pending. The in-flight MTH capsule retains its original committed apparatus identity. [Dependency and adapter evidence](common-module-dependency-fixtures-20261106.json).

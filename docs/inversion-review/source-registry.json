@@ -57,14 +57,16 @@
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "production workflow inspected; unchanged-engine replay and acceptance profile pending",
-      "historical_cases_under_review": [],
+      "characterization_status": "production code matches frozen official archive; pre-insertion attribute boundary and 16 starting inputs verified; unchanged-engine replay and independent acceptance pending",
+      "historical_cases_under_review": [
+        "MDR_29_1"
+      ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Verify imported code identities and resolve the actual selected runtime; no historical variant or default runtime assumed",
-        "Freeze a matching official S3 archive and verify the declared input bundle and per-output reference stage",
-        "Establish unchanged-engine dev replay and independent/source-specific validation before enabling its common adapter"
+        "Complete active input-consumer/runtime tracing and persistent-root validation; retain verified production runtime and saved identity anchors",
+        "Establish complete ID-bound provenance, typed source options and a reviewed case without inferring missing values",
+        "Run the unchanged engine on fresh dev outputs with exact per-output archive references and independent validation before enabling its common adapter"
       ],
       "production_versions_inspected": [
         "MDR_29_1"
@@ -73,21 +75,26 @@
       "workflow_contract_ref": "additional-source-contracts.md",
       "production_code_import_ref": "../../baseline/additions-20261105.json",
       "production_code_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
-      "production_code_branch": "baseline/meme-edit-additions-20261105"
+      "production_code_branch": "baseline/meme-edit-additions-20261105",
+      "frozen_reference_ref": "mdr-29-1-reference.json",
+      "archive_inventory_ref": "mdr-29-1-archive-inventory.json",
+      "reference_stage_review_ref": "additional-source-stage-review-20261106.json"
     },
     "RADLEX": {
       "display_name": "RADLEX",
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "production workflow inspected; unchanged-engine replay and acceptance profile pending",
-      "historical_cases_under_review": [],
+      "characterization_status": "production code matches frozen official archive; pre-insertion attribute boundary and 3 starting inputs verified; unchanged-engine replay and independent acceptance pending",
+      "historical_cases_under_review": [
+        "RADLEX_4_3"
+      ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Verify imported code identities and resolve the actual selected runtime; no historical variant or default runtime assumed",
-        "Freeze a matching official S3 archive and verify the declared input bundle and per-output reference stage",
-        "Establish unchanged-engine dev replay and independent/source-specific validation before enabling its common adapter"
+        "Complete active input-consumer/runtime tracing and persistent-root validation; retain verified production runtime and saved identity anchors",
+        "Establish complete ID-bound provenance, typed source options and a reviewed case without inferring missing values",
+        "Run the unchanged engine on fresh dev outputs with exact per-output archive references and independent validation before enabling its common adapter"
       ],
       "production_versions_inspected": [
         "RADLEX_4_3"
@@ -96,7 +103,10 @@
       "workflow_contract_ref": "additional-source-contracts.md",
       "production_code_import_ref": "../../baseline/additions-20261105.json",
       "production_code_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
-      "production_code_branch": "baseline/meme-edit-additions-20261105"
+      "production_code_branch": "baseline/meme-edit-additions-20261105",
+      "frozen_reference_ref": "radlex-4-3-reference.json",
+      "archive_inventory_ref": "radlex-4-3-archive-inventory.json",
+      "reference_stage_review_ref": "additional-source-stage-review-20261106.json"
     }
   }
 }
