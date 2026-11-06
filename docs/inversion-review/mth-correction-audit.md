@@ -1,0 +1,20 @@
+# Independent MTH correction audit
+
+The corrected MTH run retains the raw archive comparison and its original verdict. A separate audit must explain every permitted difference; passing structural checks alone does not establish that the differences are correct.
+
+The audit uses the frozen official archive's 23 selected output/state files and the same preserved native RRF inputs. Reference outputs are extracted into a temporary QA directory after conversion. They are never seeded into the candidate inversion.
+
+The checks cover:
+
+1. Original atom allocations are byte-identical, including the two deliberately unused CCS IDs. Final atoms are byte-identical to the official final atom file. Retained raw atoms exclude exactly the two known `SRC` / `V-CCS_2005` records.
+2. Complete old and new AUI/CUI maps are predicted from those native allocations and unchanged split/moved state. The old prediction must match the official maps before the new prediction is trusted. The new maps must be complete, including the retained LOINCPARTS identity.
+3. Native MRSAT, MRSTY, MRDEF and MRREL records predict the exact dependent record additions/deletions. Relationship direction, hierarchy exclusions, CUI roles, normalization, attribute hashes and duplicate multiplicity are retained. Every other native output record must remain in its original order.
+4. Every generated native attribute/relationship ID is checked against the complete sequential allocation. Added/deleted native records account for ID shifts; unrelated field changes cannot pass as renumbering.
+5. The blank-node context and its CONTEXT attribute are transformed into the known retained identity. Native identity metadata and MD5 are corrected, ordering is reproduced, and the entire expected context/attribute files—including generated attribute IDs—must match the candidate byte-for-byte.
+6. Preferred helpers may change only for the two removed CCS atoms and their now-unreferenced preferred target. All other compared files remain exact. The audit also checks that typed output references cannot depend on the generated attribute/relationship IDs being reassigned.
+
+The separate `PASS_REVIEWED_CORRECTIONS` result is available only if every check passes. It does not rewrite a raw `DIFFERENCES_REQUIRE_REVIEW` comparison or approve production insertion. Completed audit reports are published once and made read-only; failed attempts retain their logs.
+
+Seventeen regression checks pass locally and on dev, including independent predictions compared against the actual unchanged MTH Perl producer and its captured relationship-normalization stage. They reject a missing retained mapping, lost duplicate, changed CUI role, unexplained generated ID, additional context change and replacement of an existing audit report. [Fixture evidence](mth-2026aa-correction-audit-fixtures.json)
+
+Full-dataset execution is pending completion of `candidate-consistent-state-20261106`. The existing original baseline and its three invalid rows remain preserved as historical evidence.

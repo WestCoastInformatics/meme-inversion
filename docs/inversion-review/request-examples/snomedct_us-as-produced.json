@@ -1,0 +1,9 @@
+{
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "case_variant": "as-produced",
+  "reference_stage": "inversion-src",
+  "comparison_profile": "exact",
+  "schema_version": 1,
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44"
+}

@@ -22,6 +22,8 @@ For example, save this as `request.json`:
 }
 ```
 
+Run these commands from a checkout of the review branch `test/inversion-replay-toolbox` (or a later integration containing its committed apparatus). The original workspace on `main` can contain documentation mirrors without that committed apparatus.
+
 Install [the pinned resolver dependencies](../../tools/requirements-runner.txt) in a local Python 3.12 virtual environment. Remote execution uses the dev server's Python 3.9 standard library. Then:
 
 ```sh
@@ -57,4 +59,4 @@ The reference is selected per output, not by assuming the archive is one workflo
 
 `exact` cannot inherit a more permissive adapter verdict. NCIt's `semantic-strict` case retains its reviewed detailed rules for context ordering and generated CONTEXT attribute IDs; atom/relationship/merge content, duplicate counts, ID allocation checks and independent validation remain mandatory. MTH's original validation findings remain visible even when all official files match exactly. The correction case cannot acquire a passing verdict just by matching its own first run.
 
-The first adapters stage already characterized legacy settings. General new-release configuration generation, policy extraction, metadata acquisition, legacy database QA, MDR/RADLEX characterization and production release management are subsequent work. Full replay through this new common launcher is a separate integration gate; completed characterization runs retain their original apparatus identities and are not relabeled as common-run executions.
+The first adapters stage already characterized legacy settings. General new-release configuration generation, policy extraction, metadata acquisition, legacy database QA, MDR/RADLEX characterization and production release management are subsequent work. Four real request locks have now been resolved and verified from committed apparatus `181ac6e`; see [resolution evidence](common-interface-resolution-20261106.json) and [executable request examples](request-examples/). Full replay through this new common launcher is a separate integration gate; completed characterization runs retain their original apparatus identities and are not relabeled as common-run executions.

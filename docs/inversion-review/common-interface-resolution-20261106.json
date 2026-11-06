@@ -1,0 +1,61 @@
+{
+  "status": "four immutable locks resolved and verified from committed apparatus",
+  "cases": [
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "stable-context-order",
+      "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+      "case_sha256": "e373ac1451a52f70e81b6f77bb8f3633a561834664143b0bb5d93de4f479d738",
+      "lock_sha256": "5479bb2c9394fc39d8c74547fad8474ccdb1f9882893effa28fcb96e4e50c0f9",
+      "run_id": "common-nci-0-20261106",
+      "code_files": 20,
+      "runtime_files": 169,
+      "execution_enabled": true
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "case_variant": "as-produced",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+      "case_sha256": "731d3eff0fbe4b74f636acdd771befa7a84d9a292179639cd37cc850431d3c89",
+      "lock_sha256": "86b1c91fe472291c2e8087cc0699c1952e321b3fd9b1a8ed8cbff34f9183f7c4",
+      "run_id": "common-snomedct-us-1-20261106",
+      "code_files": 5,
+      "runtime_files": 169,
+      "execution_enabled": true
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "as-produced",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+      "case_sha256": "d481f6e8c38427c1137fc8cb2170d22c183641d6db5da7363ca3c07b4b33aad4",
+      "lock_sha256": "916eaae8ff2d1e79261264be68591d3d6c7ee20444be4e59aaf6d922692d6c6e",
+      "run_id": "common-mth-2-20261106",
+      "code_files": 57,
+      "runtime_files": 169,
+      "execution_enabled": true
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "consistent-retained-identities",
+      "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+      "case_sha256": "6eb439a55bdd9de8ee06a79d66c6e87377799d95047afc51627153cfcf343474",
+      "lock_sha256": "221dcc858d4225de66e3d395003e70199a814930671f83dda89025f3420ce996",
+      "run_id": "common-mth-3-20261106",
+      "code_files": 57,
+      "runtime_files": 169,
+      "execution_enabled": false
+    }
+  ]
+}

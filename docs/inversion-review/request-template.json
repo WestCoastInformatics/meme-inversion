@@ -3,7 +3,7 @@
   "source": "NCI",
   "version": "NCI_2026_10D",
   "engine_ref": "<candidate-commit-sha>",
-  "case_variant": "as-produced",
+  "case_variant": "stable-context-order",
   "reference_stage": "inversion-src",
   "comparison_profile": "semantic-strict"
 }
