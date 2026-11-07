@@ -428,6 +428,11 @@ def verify_after(lock, target, result):
         raise RuntimeError('Atoms outside the complete declared historical ID range: ' + str(bad))
     # A profile called exact can never inherit a broader adapter verdict.
     files = result['comparison']['files']
+    for name, item in files.items():
+        if Path(name).name != name:
+            raise RuntimeError('Unexpected compared output name')
+        require_file(target / 'src' / name, item['candidate']['sha256'])
+    result['compared_output_hashes_verified_after_run'] = True
     exact = all(item.get('exact_match', item.get('raw_exact_match', False)) for item in files.values())
     if lock['request']['comparison_profile'] == 'exact' and not exact:
         result['acceptance'] = {**result['acceptance'], 'status': 'DIFFERENCES_REQUIRE_REVIEW', 'requested_profile': 'exact'}

@@ -143,9 +143,15 @@ def worker(lock_path,receipt_path=None,inherited_lock=None):
             for directory in ('bin', 'src', 'etc'):(target / directory).mkdir(parents=True, exist_ok=True)
             outputs = ['classes_atoms.src', 'attributes.src', 'relationships.src', 'mergefacts.src', 'contexts.src']
             for name in outputs:(target / 'src' / name).write_bytes(b'fixture output\n')
+            (target / 'src/classes_atoms.src').write_bytes(b'100|fixture atom\n')
+            (target / 'bin/invert_NCI.pl').write_bytes(b'fixture')
             metadata = target / 'src/sources.src';metadata.write_bytes(b'fixture metadata\n')
+            archive = root / 'sources/NCI_2026_10D.tgz';archive.write_bytes(b'fixture archive bytes')
+            nci['configuration']['source_atom_ids'] = {'start': 100, 'end': 101}
             nci['case']['legacy_case'] = {'core_outputs_to_regenerate': [{'path': 'NCI_2026_10D/src/' + name} for name in outputs],
-                                         'archived_metadata_inputs': [{'path': 'NCI_2026_10D/src/sources.src', 'sha256': worker.sha(metadata)}]}
+                                         'archived_metadata_inputs': [{'path': 'NCI_2026_10D/src/sources.src', 'sha256': worker.sha(metadata)}],
+                                         'reference': {'archive_path': str(archive), 'archive_sha256': worker.sha(archive)},
+                                         'native_inputs': [], 'preparation_reference_files': []}
             run = control / nci['run_id'];run.mkdir()
             comparison = {'fixture': 'separate comparison result'}
             with patch.object(worker, 'execute', return_value={'exit_status': 0}), \
@@ -157,6 +163,16 @@ def worker(lock_path,receipt_path=None,inherited_lock=None):
                     'Actual NCIt adapter imports its packaged helper and records all five output hashes')
             require(receipt['metadata_unchanged'] and result['comparison'] == comparison and verdict.call_count == 1,
                     'NCIt adapter passes its saved core receipt and comparison to the characterized acceptance rules')
+            checked = {'core': {}, 'comparison': {'files': {name: {'candidate': {'sha256': worker.sha(target / 'src' / name)}, 'exact_match': True} for name in outputs}},
+                       'acceptance': {'status': 'fixture-acceptance'}}
+            worker.verify_after(nci, target, checked)
+            require(checked['compared_output_hashes_verified_after_run'], 'Common final verification rechecks every compared output hash')
+            for path, label in [(target / 'src/attributes.src', 'Changed output after comparison'),
+                                (metadata, 'Changed declared metadata input'), (target / 'bin/invert_NCI.pl', 'Changed engine file'),
+                                (archive, 'Changed official reference archive')]:
+                before = path.read_bytes();path.write_bytes(before + b'changed')
+                rejected(lambda: worker.verify_after(nci, target, copy.deepcopy(checked)), label + ' rejects final acceptance')
+                path.write_bytes(before)
         # Actual Linux atomic publication is exercised on dev. The Mac version
         # injects a publisher only for this filesystem fixture.
         def publish(before, after):
