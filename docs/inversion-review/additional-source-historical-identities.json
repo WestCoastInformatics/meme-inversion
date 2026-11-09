@@ -1,0 +1,75 @@
+{
+  "MDR_29_1": {
+    "atom_ids": {
+      "unique": 122629,
+      "duplicates": 0,
+      "minimum": 777143593,
+      "maximum": 777266221,
+      "sorted_identifier_sha256": "21f5979b0ed445c278199287dc87e2f56edd8a4fd88dc82ae236430e3aac075c"
+    },
+    "termgroups": {
+      "SRC/VPT": 1,
+      "SRC/VAB": 1,
+      "MDR_29_1/OS": 27,
+      "MDR_29_1/AB": 27,
+      "MDR_29_1/HG": 337,
+      "MDR_29_1/HT": 1739,
+      "MDR_29_1/PT": 27504,
+      "MDR_29_1/OL": 9375,
+      "MDR_29_1/LLT": 82124,
+      "MDR_29_1/SMQ": 230,
+      "MDR_29_1/MTH_HG": 62,
+      "MDR_29_1/MTH_HT": 197,
+      "MDR_29_1/MTH_SMQ": 67,
+      "MDR_29_1/MTH_PT": 186,
+      "MDR_29_1/MTH_LLT": 613,
+      "MDR_29_1/MTH_OL": 138,
+      "MDR_29_1/MTH_OS": 1
+    },
+    "saved_external_root_in_current_atoms": false,
+    "metadata": {
+      "source": "MDR_29_1",
+      "replacement_baseline": "MDR_29_0"
+    },
+    "archive_sha256": "c708d25ece1e2d0c4d57d53dc1c9a96f9562c2850dd81aadf2ab09b06d899cff"
+  },
+  "RADLEX_4_3": {
+    "atom_ids": {
+      "unique": 69022,
+      "duplicates": 0,
+      "minimum": 767743593,
+      "maximum": 767813671,
+      "sorted_identifier_sha256": "4ae7fdbe2b185ac05c6e4cf56d12d232bf5937abcd49dd59bc48e9a1f32d8dcf"
+    },
+    "termgroups": {
+      "SRC/VPT": 1,
+      "SRC/VAB": 1,
+      "RADLEX_4_3/PT": 45988,
+      "RADLEX_4_3/SY": 21879,
+      "RADLEX_4_3/OP": 940,
+      "RADLEX_4_3/ACR": 139,
+      "RADLEX_4_3/IS": 74
+    },
+    "saved_external_root_in_current_atoms": false,
+    "metadata": {
+      "source": "RADLEX_4_3",
+      "replacement_baseline": "RADLEX_4_1"
+    },
+    "archive_sha256": "eea5a5d34b6c91fb42c54879d0f2ce43fb380981b69b4fb3c8b4290079221a34",
+    "complete_raw_allocation_proof": {
+      "member_rows": {
+        "RADLEX_4_3/tmp/classes_dupes.txt": 1057,
+        "RADLEX_4_3/src/classes_atoms.src": 69022
+      },
+      "member_sha256": {
+        "RADLEX_4_3/tmp/classes_dupes.txt": "fa5557efdcaefd936e0461315ac91e7bca9d027bf0e179846f29094e9490e90e",
+        "RADLEX_4_3/src/classes_atoms.src": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c"
+      },
+      "raw_unique_allocated_ids": 70079,
+      "minimum": 767743593,
+      "maximum": 767813671,
+      "complete_contiguous_allocations": true,
+      "production_reservation_end_assessed": false
+    }
+  }
+}

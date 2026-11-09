@@ -1,0 +1,908 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+  "run_id": "common-mth-corrections-20261106",
+  "stages": {
+    "identity-preparation": {
+      "exit_status": 0,
+      "seconds": 7.66,
+      "sampled_peak_process_group_resident_bytes": 3211264,
+      "minimum_available_memory_bytes": 29685927936,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "source-metadata-builder": {
+      "exit_status": 0,
+      "seconds": 0.02,
+      "sampled_peak_process_group_resident_bytes": 4964352,
+      "minimum_available_memory_bytes": 29681565696,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "atoms-and-initial-map": {
+      "exit_status": 0,
+      "seconds": 744.8,
+      "sampled_peak_process_group_resident_bytes": 6500352,
+      "minimum_available_memory_bytes": 29631516672,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "identity-transitions": {
+      "exit_status": 0,
+      "seconds": 9.41,
+      "sampled_peak_process_group_resident_bytes": 1314816,
+      "minimum_available_memory_bytes": 29683523584,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "attributes-relationships-merges": {
+      "exit_status": 0,
+      "seconds": 7615.57,
+      "sampled_peak_process_group_resident_bytes": 2210246656,
+      "minimum_available_memory_bytes": 27343286272,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "bequeathal-relationships": {
+      "exit_status": 0,
+      "seconds": 345.79,
+      "sampled_peak_process_group_resident_bytes": 6205440,
+      "minimum_available_memory_bytes": 29622386688,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "relationship-normalization": {
+      "exit_status": 0,
+      "seconds": 7.4,
+      "sampled_peak_process_group_resident_bytes": 3215360,
+      "minimum_available_memory_bytes": 29630447616,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "context-roots": {
+      "exit_status": 0,
+      "seconds": 2.49,
+      "sampled_peak_process_group_resident_bytes": 3215360,
+      "minimum_available_memory_bytes": 29630701568,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "raw-contexts": {
+      "exit_status": 0,
+      "seconds": 212.38,
+      "sampled_peak_process_group_resident_bytes": 804597760,
+      "minimum_available_memory_bytes": 28756938752,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "context-attributes": {
+      "exit_status": 0,
+      "seconds": 133.81,
+      "sampled_peak_process_group_resident_bytes": 8916992,
+      "minimum_available_memory_bytes": 29566160896,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "contexts": {
+      "exit_status": 0,
+      "seconds": 147.25,
+      "sampled_peak_process_group_resident_bytes": 33234944,
+      "minimum_available_memory_bytes": 29506420736,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "context-tails": {
+      "exit_status": 0,
+      "seconds": 0.53,
+      "sampled_peak_process_group_resident_bytes": 3203072,
+      "minimum_available_memory_bytes": 29654556672,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "preferred-term-and-final-atoms": {
+      "exit_status": 0,
+      "seconds": 75.86,
+      "sampled_peak_process_group_resident_bytes": 597504000,
+      "minimum_available_memory_bytes": 29063946240,
+      "network": "disabled",
+      "address_space_limit_bytes_per_child": 23622320128
+    }
+  },
+  "comparison": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "files": {
+      "attr_src": {
+        "reference": {
+          "bytes": 109,
+          "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+          "newline_count": 1
+        },
+        "candidate": {
+          "bytes": 109,
+          "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+          "newline_count": 1
+        },
+        "reference_member": "MTH_2026AA/src/attr_src",
+        "exact_match": true
+      },
+      "class_src": {
+        "reference": {
+          "bytes": 142,
+          "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+          "newline_count": 2
+        },
+        "candidate": {
+          "bytes": 142,
+          "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+          "newline_count": 2
+        },
+        "reference_member": "MTH_2026AA/src/class_src",
+        "exact_match": true
+      },
+      "rel_src": {
+        "reference": {
+          "bytes": 103,
+          "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+          "newline_count": 1
+        },
+        "candidate": {
+          "bytes": 103,
+          "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+          "newline_count": 1
+        },
+        "reference_member": "MTH_2026AA/src/rel_src",
+        "exact_match": true
+      },
+      "merge_src": {
+        "reference": {
+          "bytes": 67,
+          "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+          "newline_count": 1
+        },
+        "candidate": {
+          "bytes": 67,
+          "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+          "newline_count": 1
+        },
+        "reference_member": "MTH_2026AA/src/merge_src",
+        "exact_match": true
+      },
+      "auis_nonupdatedSAB_moved": {
+        "reference": {
+          "bytes": 11130,
+          "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+          "newline_count": 597
+        },
+        "candidate": {
+          "bytes": 11130,
+          "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+          "newline_count": 597
+        },
+        "reference_member": "MTH_2026AA/src/auis_nonupdatedSAB_moved",
+        "exact_match": true
+      },
+      "cui_merges": {
+        "reference": {
+          "bytes": 10278,
+          "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+          "newline_count": 571
+        },
+        "candidate": {
+          "bytes": 10278,
+          "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+          "newline_count": 571
+        },
+        "reference_member": "MTH_2026AA/src/cui_merges",
+        "exact_match": true
+      },
+      "classes_atoms.src": {
+        "reference": {
+          "bytes": 555467101,
+          "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+          "newline_count": 4018246
+        },
+        "candidate": {
+          "bytes": 555467101,
+          "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+          "newline_count": 4018246
+        },
+        "reference_member": "MTH_2026AA/src/classes_atoms.src",
+        "exact_match": true
+      },
+      "aui_said_map": {
+        "reference": {
+          "bytes": 115764330,
+          "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5",
+          "newline_count": 4017648
+        },
+        "candidate": {
+          "bytes": 115764303,
+          "sha256": "47449f178be6d20ccb9ef7c486fcc993835904b8838c7a7cad0effb91f7a371a",
+          "newline_count": 4017647
+        },
+        "reference_member": "MTH_2026AA/src/aui_said_map",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 4017646,
+          "reference_only_rows": 2,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "A8298289|C1541964|771038404",
+              "A8298300|C1541964|771038403"
+            ],
+            "candidate_only": [
+              "A32818398|C1976636|771405764"
+            ]
+          }
+        }
+      },
+      "cui.splitonly.new": {
+        "reference": {
+          "bytes": 270,
+          "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+          "newline_count": 30
+        },
+        "candidate": {
+          "bytes": 270,
+          "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+          "newline_count": 30
+        },
+        "reference_member": "MTH_2026AA/src/cui.splitonly.new",
+        "exact_match": true
+      },
+      "cui_splitonly_said_map": {
+        "reference": {
+          "bytes": 570,
+          "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+          "newline_count": 30
+        },
+        "candidate": {
+          "bytes": 570,
+          "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+          "newline_count": 30
+        },
+        "reference_member": "MTH_2026AA/src/cui_splitonly_said_map",
+        "exact_match": true
+      },
+      "moved_aui_said_map": {
+        "reference": {
+          "bytes": 17100,
+          "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+          "newline_count": 597
+        },
+        "candidate": {
+          "bytes": 17100,
+          "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+          "newline_count": 597
+        },
+        "reference_member": "MTH_2026AA/src/moved_aui_said_map",
+        "exact_match": true
+      },
+      "cui_said_map": {
+        "reference": {
+          "bytes": 36214304,
+          "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+          "newline_count": 1906016
+        },
+        "candidate": {
+          "bytes": 36214304,
+          "sha256": "a0cc275900ac52fc31b847bc30d762a19ff2bab798daa32c7d544ee0e38a2c70",
+          "newline_count": 1906016
+        },
+        "reference_member": "MTH_2026AA/src/cui_said_map",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1906015,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "C1541964|771038403"
+            ],
+            "candidate_only": [
+              "C1976636|771405764"
+            ]
+          }
+        }
+      },
+      "rel_cui_said_map": {
+        "reference": {
+          "bytes": 36214304,
+          "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+          "newline_count": 1906016
+        },
+        "candidate": {
+          "bytes": 36214304,
+          "sha256": "a0cc275900ac52fc31b847bc30d762a19ff2bab798daa32c7d544ee0e38a2c70",
+          "newline_count": 1906016
+        },
+        "reference_member": "MTH_2026AA/src/rel_cui_said_map",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1906015,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "C1541964|771038403"
+            ],
+            "candidate_only": [
+              "C1976636|771405764"
+            ]
+          }
+        }
+      },
+      "attributes.src": {
+        "reference": {
+          "bytes": 2796291696,
+          "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+          "newline_count": 20206954
+        },
+        "candidate": {
+          "bytes": 2796291723,
+          "sha256": "4f58be933c5a1e64bde1486b41ea03e3fb4fb290d2ec3868087c1afd3eb9eeeb",
+          "newline_count": 20206954
+        },
+        "reference_member": "MTH_2026AA/src/attributes.src",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 19287583,
+          "reference_only_rows": 919371,
+          "candidate_only_rows": 919371,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "17628814|771038403|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|",
+              "17628815|771038405|C|SEMANTIC_TYPE|Finding|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||d60fa52f375e62bd2309f7040bc53665|",
+              "17628816|771038406|C|SEMANTIC_TYPE|Organic Chemical|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||c593a332b19da2e7028b43295f41be14|"
+            ],
+            "candidate_only": [
+              "17628814|771038405|C|SEMANTIC_TYPE|Finding|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||d60fa52f375e62bd2309f7040bc53665|",
+              "17628815|771038406|C|SEMANTIC_TYPE|Organic Chemical|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||c593a332b19da2e7028b43295f41be14|",
+              "17628816|771038406|C|SEMANTIC_TYPE|Pharmacologic Substance|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||f2d6dd6b0e78d83a64d168510c54ee04|"
+            ]
+          }
+        }
+      },
+      "mergefacts.src": {
+        "reference": {
+          "bytes": 83696,
+          "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+          "newline_count": 1169
+        },
+        "candidate": {
+          "bytes": 83696,
+          "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+          "newline_count": 1169
+        },
+        "reference_member": "MTH_2026AA/src/mergefacts.src",
+        "exact_match": true
+      },
+      "bequeathal.relationships.src": {
+        "reference": {
+          "bytes": 682893,
+          "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+          "newline_count": 7600
+        },
+        "candidate": {
+          "bytes": 682893,
+          "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+          "newline_count": 7600
+        },
+        "reference_member": "MTH_2026AA/src/bequeathal.relationships.src",
+        "exact_match": true
+      },
+      "relationships.src": {
+        "reference": {
+          "bytes": 771791609,
+          "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+          "newline_count": 6404200
+        },
+        "candidate": {
+          "bytes": 771791609,
+          "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+          "newline_count": 6404200
+        },
+        "reference_member": "MTH_2026AA/src/relationships.src",
+        "exact_match": true
+      },
+      "src-root.cuis.updated": {
+        "reference": {
+          "bytes": 189,
+          "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+          "newline_count": 21
+        },
+        "candidate": {
+          "bytes": 189,
+          "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+          "newline_count": 21
+        },
+        "reference_member": "MTH_2026AA/src/src-root.cuis.updated",
+        "exact_match": true
+      },
+      "attributes.contexts-all.src": {
+        "reference": {
+          "bytes": 460970251,
+          "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+          "newline_count": 1075932
+        },
+        "candidate": {
+          "bytes": 460970278,
+          "sha256": "db3409bf5ff2fe12aa55fd153fea65e0b82326e19d6f177a13f0732484622053",
+          "newline_count": 1075932
+        },
+        "reference_member": "MTH_2026AA/src/attributes.contexts-all.src",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 346478,
+          "reference_only_rows": 729454,
+          "candidate_only_rows": 729454,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "19477501|771405765|S|CONTEXT|1\t::~771405765~SRC_ATOM_ID~~771405765~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tReason for discontinuation of anti-infective phrophylaxis medication:Type:Pt:^Patient:Nom:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||e2db3dbac7468762b642d29446e82e3f|",
+              "19477502|771405772|S|CONTEXT|1\t::~771405772~SRC_ATOM_ID~~771405772~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tHIV ART medication dose number taken/Medication dose number prescribed:NFr:Pt:^Patient:Qn:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||d7f6f31fb78941e4159e16ebf14605c0|",
+              "19477503|771405778|S|CONTEXT|1\t::~771405778~SRC_ATOM_ID~~771405778~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tDegree of adherence to co-trimoxazole:Find:Pt:^Patient:Ord:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||d87b6305bc41b5c803a4afaf7438b8b8|"
+            ],
+            "candidate_only": [
+              "19477501|771405764|S|CONTEXT|1\t::~771405764~SRC_ATOM_ID~~771405764~SRC_ATOM_ID~\tLOINC Root\tLOINCPARTS\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||e94fc82940d4ad3e9472443c08d9dd7c|",
+              "19477502|771405765|S|CONTEXT|1\t::~771405765~SRC_ATOM_ID~~771405765~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tReason for discontinuation of anti-infective phrophylaxis medication:Type:Pt:^Patient:Nom:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||e2db3dbac7468762b642d29446e82e3f|",
+              "19477503|771405772|S|CONTEXT|1\t::~771405772~SRC_ATOM_ID~~771405772~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tHIV ART medication dose number taken/Medication dose number prescribed:NFr:Pt:^Patient:Qn:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||d7f6f31fb78941e4159e16ebf14605c0|"
+            ]
+          }
+        }
+      },
+      "contexts.src": {
+        "reference": {
+          "bytes": 312852927,
+          "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+          "newline_count": 1118752
+        },
+        "candidate": {
+          "bytes": 312852945,
+          "sha256": "67953ce44f1e2a959af90f4c2dd420d7db88c8e4ac96bd09e18bcd9c14508538",
+          "newline_count": 1118752
+        },
+        "reference_member": "MTH_2026AA/src/contexts.src",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1118751,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "|PAR||770620428|LNC_2_82|LNC_2_82||770620428|11||||SRC_ATOM_ID||770620428|SRC_ATOM_ID|||"
+            ],
+            "candidate_only": [
+              "771405764|PAR||770620428|LNC_2_82|LNC_2_82||770620428|11|||771405764|SRC_ATOM_ID||770620428|SRC_ATOM_ID|||"
+            ]
+          }
+        }
+      },
+      "said.ptsaid": {
+        "reference": {
+          "bytes": 80364960,
+          "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f",
+          "newline_count": 4018248
+        },
+        "candidate": {
+          "bytes": 80364920,
+          "sha256": "f6e7f6f089881b800b293f6a1de1135a9459b923bc1726490267b2b7c17027a2",
+          "newline_count": 4018246
+        },
+        "reference_member": "MTH_2026AA/src/said.ptsaid",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 4018246,
+          "reference_only_rows": 2,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "771038403|771038403",
+              "771038404|771038403"
+            ],
+            "candidate_only": []
+          }
+        }
+      },
+      "ptsaid.order": {
+        "reference": {
+          "bytes": 18667590,
+          "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d",
+          "newline_count": 1866759
+        },
+        "candidate": {
+          "bytes": 18667580,
+          "sha256": "08ad72c29a462b401e7870afe710e475f173b131139bca80f1fe98c984f277b5",
+          "newline_count": 1866758
+        },
+        "reference_member": "MTH_2026AA/src/ptsaid.order",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1866758,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "771038403"
+            ],
+            "candidate_only": []
+          }
+        }
+      },
+      "classes_atoms.src.raw": {
+        "reference": {
+          "bytes": 602938575,
+          "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff",
+          "newline_count": 4018248
+        },
+        "candidate": {
+          "bytes": 602938360,
+          "sha256": "559e9547153018252a8071a2b3dd436b0dfbc4e9c28d6a3fdb62beacd41a001a",
+          "newline_count": 4018246
+        },
+        "reference_member": "MTH_2026AA/src/classes_atoms.src.raw",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 4018246,
+          "reference_only_rows": 2,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "771038403|SRC|SRC/VPT|V-CCS_2005|R|Y|A|Clinical Classifications Software, 2005|N||||ENG|needs_order_id|N|C1541964|A8298300",
+              "771038404|SRC|SRC/VAB|V-CCS_2005|R|Y|A|CCS_2005|N||||ENG|needs_order_id|N|C1541964|A8298289"
+            ],
+            "candidate_only": []
+          }
+        }
+      }
+    },
+    "validation": {
+      "atom_ids": {
+        "unique": 4018246,
+        "duplicates": 0,
+        "out_of_range": 0
+      },
+      "files": {
+        "classes_atoms.src": {
+          "rows": 4018246,
+          "field_counts": {
+            "15": 4018246
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {}
+        },
+        "attributes.src": {
+          "rows": 20206954,
+          "field_counts": {
+            "15": 20206954
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 20206954
+          }
+        },
+        "relationships.src": {
+          "rows": 6404200,
+          "field_counts": {
+            "19": 6404200
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "CODE_TERMGROUP|SRC/VPT": 1,
+            "CODE_TERMGROUP|SRC/RPT": 1,
+            "SRC_ATOM_ID|": 12180406,
+            "CUI_CURRENT|": 627992
+          }
+        },
+        "mergefacts.src": {
+          "rows": 1169,
+          "field_counts": {
+            "13": 1169
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 599,
+            "CUI_CURRENT|": 1168,
+            "CUI|": 571
+          }
+        },
+        "bequeathal.relationships.src": {
+          "rows": 7600,
+          "field_counts": {
+            "19": 7600
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "CUI_CURRENT|": 7600,
+            "CUI_PREVIOUS|": 7600
+          }
+        },
+        "contexts.src": {
+          "rows": 1118752,
+          "field_counts": {
+            "19": 1118752
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 4475008
+          }
+        }
+      },
+      "passed": true,
+      "scope": "Observed MTH field widths and context tails, UTF-8, unique generated IDs, reserved atom bounds including two SRC atoms, attribute digests and current SRC_ATOM_ID references/paths. CUI, CUI_CURRENT and CUI_PREVIOUS remain distinct; database identity/domain validation and legacy QA are separate coverage.",
+      "identity_state": {
+        "passed": true,
+        "raw_binding_violations": {},
+        "files": {
+          "aui_said_map": {
+            "rows": 4017647,
+            "violations": {}
+          },
+          "moved_aui_said_map": {
+            "rows": 597,
+            "violations": {}
+          },
+          "cui_said_map": {
+            "rows": 1906016,
+            "violations": {}
+          },
+          "rel_cui_said_map": {
+            "rows": 1906016,
+            "violations": {}
+          },
+          "cui_splitonly_said_map": {
+            "rows": 30,
+            "violations": {}
+          }
+        },
+        "scope": "Current persisted AUI/CUI maps reference final retained atoms with matching native CUI/AUI and moved roles. Prior/current CUI transition semantics remain separately compared."
+      }
+    },
+    "acceptance": {
+      "status": "DIFFERENCES_REQUIRE_REVIEW",
+      "all_compared_outputs_exact": false,
+      "all_compared_records_equal": false,
+      "six_core_files_exact": false,
+      "generated_ids_reindexed": false,
+      "ignored_fields": [],
+      "validation_passed": true
+    },
+    "scope": "Final-range core conversion, moved/split CUI/AUI identity maps, bequeathal relationships and contexts from archived prepared subset and metadata. MetamorphoSys generation, source-metadata acquisition, preliminary ID estimation, MRDOC/legacy QA, umlscui.txt and insertion are outside this case."
+  },
+  "acceptance": {
+    "status": "PASS_REVIEWED_CORRECTIONS",
+    "all_compared_outputs_exact": false,
+    "all_compared_records_equal": false,
+    "six_core_files_exact": false,
+    "generated_ids_reindexed": false,
+    "ignored_fields": [],
+    "validation_passed": true,
+    "requested_profile": "reviewed-corrections",
+    "native_derived_correction_audit_passed": true,
+    "raw_comparison_preserved": true,
+    "production_eligible": false
+  },
+  "started_at": "2026-11-06T23:18:31.304818+00:00",
+  "completed_at": "2026-11-09T17:56:46.545565+00:00",
+  "input_engine_runtime_and_output_hashes_verified_after_run": true,
+  "apparatus_sha256": {
+    "inversion_worker.py": "7330a7b622acb3e808999d36b89af11c51bbac10d6b987c171a2f273f59b596e",
+    "replay_process.py": "afa0dbafc420ab39c5e81d44167f3af7d0098426be76e1e66e224e17a243eb9c",
+    "replay_mth_core.py": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "6d4e6917a64745631cefe3c75b20d62ad366717da5de9d4802df2cbbac5e7146",
+    "inspect_inversion_archive.py": "005a4c82109e9cd2714d0cc74c6446d326c88785843e8bd09517470e0b6ade82",
+    "prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69"
+  },
+  "insertion_executed": false,
+  "raw_acceptance": {
+    "status": "DIFFERENCES_REQUIRE_REVIEW",
+    "all_compared_outputs_exact": false,
+    "all_compared_records_equal": false,
+    "six_core_files_exact": false,
+    "generated_ids_reindexed": false,
+    "ignored_fields": [],
+    "validation_passed": true
+  },
+  "raw_result_sha256": "048255e917ba6248cc5b30bba603970c50a34a0ff605385883ec532bca51265e",
+  "correction_audit": {
+    "status": "PASS_REVIEWED_CORRECTIONS",
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "run_id": "common-mth-corrections-20261106",
+    "conversion_apparatus_ref": "e3b24ecd966294010f438d4c76b1b8e766b9e82a",
+    "audit_tool_sha256": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "raw_comparison_status": "DIFFERENCES_REQUIRE_REVIEW",
+    "independent_validation_passed": true,
+    "maps": {
+      "removed_atom_ids": [
+        "771038403",
+        "771038404"
+      ],
+      "restored_identity": [
+        "C1976636",
+        "A32818398",
+        "771405764"
+      ],
+      "final_atoms_exact": true,
+      "full_current_AUI_CUI_and_moved_maps_predicted": true
+    },
+    "attributes": {
+      "old_rows": 19131022,
+      "new_rows": 19131022,
+      "unchanged_content_in_order": 19131021,
+      "removed_native_records": 1,
+      "added_native_records": 1,
+      "every_generated_id_verified": true
+    },
+    "relationships": {
+      "old_rows": 6404200,
+      "new_rows": 6404200,
+      "unchanged_content_in_order": 6404200,
+      "removed_native_records": 0,
+      "added_native_records": 0,
+      "every_generated_id_verified": true
+    },
+    "contexts": {
+      "context_rows_corrected": 1,
+      "context_attributes_corrected": 1,
+      "context_attribute_rows": 1075932,
+      "context_file_predicted_byte_exact": true,
+      "context_attribute_file_predicted_byte_exact": true
+    },
+    "native_changes": [
+      {
+        "native_file": "MRSTY.RRF",
+        "native_line": 863378,
+        "output": "attributes.src",
+        "removed_content": "771038403|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|\n",
+        "added_content": null
+      },
+      {
+        "native_file": "MRSTY.RRF",
+        "native_line": 1063952,
+        "output": "attributes.src",
+        "removed_content": null,
+        "added_content": "771405764|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|\n"
+      }
+    ],
+    "unaffected_outputs_exact": [
+      "attr_src",
+      "auis_nonupdatedSAB_moved",
+      "bequeathal.relationships.src",
+      "class_src",
+      "classes_atoms.src",
+      "cui.splitonly.new",
+      "cui_merges",
+      "cui_splitonly_said_map",
+      "merge_src",
+      "mergefacts.src",
+      "moved_aui_said_map",
+      "rel_src",
+      "src-root.cuis.updated"
+    ],
+    "generated_ID_reference_check": {
+      "no_generated_attribute_or_relationship_ID_references": true,
+      "unchanged_framework_code_references": {
+        "CODE_TERMGROUP|SRC/VPT": 1,
+        "CODE_TERMGROUP|SRC/RPT": 1
+      },
+      "producer_evidence": "INV/bin/SRCbuilder.pl:338; INV/etc/inv_defaults.cfg Relation fields 13/15"
+    },
+    "all_atom_allocations_unchanged": true,
+    "preferred_state_predicted": true,
+    "generated_ID_changes_accounted_for_by_native_insertions_deletions_and_context_reordering": true,
+    "raw_comparison_rewritten": false,
+    "production_eligible": false
+  },
+  "correction_audit_execution": {
+    "exit_status": 0,
+    "seconds": 325.66,
+    "sampled_peak_process_group_resident_bytes": 899825664,
+    "minimum_available_memory_bytes": 27820363776,
+    "network": "disabled",
+    "namespace_user": "current",
+    "address_space_limit_bytes_per_child": 23622320128
+  },
+  "review_id": "common-mth-audit-review-20261109",
+  "parent_run_id": "common-mth-corrections-20261106",
+  "parent_result_completed_at": "2026-11-07T02:02:00.627710+00:00",
+  "conversion_apparatus_ref": "e3b24ecd966294010f438d4c76b1b8e766b9e82a",
+  "audit_apparatus_ref": "dd97ddc272a48c9194aca58b8ca9e878f9d7188a",
+  "audit_apparatus_provenance": [
+    {
+      "repository_path": "tools/inversion_worker.py",
+      "sha256": "73f4858eff9e02deb57a24799ff26ab62ca0f3a8505c69bfb05f3df817d2e6c2"
+    },
+    {
+      "repository_path": "tools/replay_process.py",
+      "sha256": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9"
+    },
+    {
+      "repository_path": "tools/replay_mth_core.py",
+      "sha256": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b"
+    },
+    {
+      "repository_path": "tools/compare_mth_core.py",
+      "sha256": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98"
+    },
+    {
+      "repository_path": "tools/acquire_mth_subset.py",
+      "sha256": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812"
+    },
+    {
+      "repository_path": "tools/compare_nci_core.py",
+      "sha256": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f"
+    },
+    {
+      "repository_path": "tools/acquire_inversion_reference.py",
+      "sha256": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9"
+    },
+    {
+      "repository_path": "tools/inspect_inversion_archive.py",
+      "sha256": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908"
+    },
+    {
+      "repository_path": "tools/prepare_nci_candidate.py",
+      "sha256": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3"
+    },
+    {
+      "repository_path": "tools/advance_nci_replay.py",
+      "sha256": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87"
+    },
+    {
+      "repository_path": "tools/prepare_snomed_candidate.py",
+      "sha256": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d"
+    },
+    {
+      "repository_path": "tools/run_snomed_core_replay.py",
+      "sha256": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc"
+    },
+    {
+      "repository_path": "tools/compare_snomed_core.py",
+      "sha256": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21"
+    },
+    {
+      "repository_path": "tools/audit_mth_corrections.py",
+      "sha256": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69"
+    },
+    {
+      "repository_path": "tools/run_nci_core_replay.py",
+      "sha256": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4"
+    },
+    {
+      "repository_path": "tools/check_core_comparison.py",
+      "sha256": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3"
+    }
+  ],
+  "original_common_run_status": "failed",
+  "common_request": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "case_variant": "consistent-retained-identities",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "reviewed-corrections",
+    "schema_version": 1,
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70"
+  },
+  "lock_sha256": "2c987e8d4333f2567e21f4b67686ee2a772171d0279d042505a299bcd44f6842",
+  "mode": "correction-audit-only",
+  "production_eligible": false
+}

@@ -11,7 +11,8 @@ import sys
 from inversion_request import ADAPTERS, audit_review_capsule, digest, load, write_new
 
 HOST = 'ncias-d3777-c.nci.nih.gov'
-SOURCES = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01', 'MTH': 'MTH_2026AA'}
+SOURCES = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01', 'MTH': 'MTH_2026AA',
+           'MDR': 'MDR_29_1', 'RADLEX': 'RADLEX_4_3'}
 
 
 def bootstrap(lock, operation, previous=None):

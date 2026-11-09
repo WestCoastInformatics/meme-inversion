@@ -1,0 +1,50 @@
+{
+  "status.json": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "run_id": "common-mth-audit-review-20261109",
+    "parent_run_id": "common-mth-corrections-20261106",
+    "started_at": "2026-11-09T17:49:06.574821+00:00",
+    "status": "complete",
+    "mode": "correction-audit-only",
+    "audit_apparatus_ref": "dd97ddc272a48c9194aca58b8ca9e878f9d7188a",
+    "acceptance": {
+      "status": "PASS_REVIEWED_CORRECTIONS",
+      "all_compared_outputs_exact": false,
+      "all_compared_records_equal": false,
+      "six_core_files_exact": false,
+      "generated_ids_reindexed": false,
+      "ignored_fields": [],
+      "validation_passed": true,
+      "requested_profile": "reviewed-corrections",
+      "native_derived_correction_audit_passed": true,
+      "raw_comparison_preserved": true,
+      "production_eligible": false
+    },
+    "completed_at": "2026-11-09T17:56:46.547430+00:00"
+  },
+  "launch.json": {
+    "run_id": "common-mth-audit-review-20261109",
+    "parent_run_id": "common-mth-corrections-20261106",
+    "worker_pid": 1145253,
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-audit-review-20261109",
+    "launched_at": "2026-11-09T17:49:06.503745+00:00",
+    "capsule_sha256": "560e1c7442559f2c30f5699e0f4286524beae248bb21cd92db8e01df4eed12a7",
+    "mode": "correction-audit-only"
+  },
+  "parent-records.json": {
+    "case.lock.json": "06b9cecf7ca4747ee4d4093d6826aaa4ee34447efde68c615be6dae2151d2761",
+    "raw-result.json": "048255e917ba6248cc5b30bba603970c50a34a0ff605385883ec532bca51265e",
+    "status.json": "53ac3d54fd2e6bdfb248bbaaab43198089b732306ad191620c7a9689cfbe1919"
+  },
+  "correction-audit-execution.json": {
+    "exit_status": 0,
+    "seconds": 325.66,
+    "sampled_peak_process_group_resident_bytes": 899825664,
+    "minimum_available_memory_bytes": 27820363776,
+    "network": "disabled",
+    "namespace_user": "current",
+    "address_space_limit_bytes_per_child": 23622320128
+  },
+  "scope": "Audit-only review of the completed common conversion; original common-job failure retained, no conversion rerun or production approval."
+}

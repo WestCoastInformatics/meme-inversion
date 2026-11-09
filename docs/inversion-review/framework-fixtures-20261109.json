@@ -1,0 +1,85 @@
+{
+  "checks": {
+    "preparation": [
+      "MDR starts from exact declared inputs and Git code, without official outputs",
+      "MDR existing candidate cannot be overwritten",
+      "MDR rejects missing-input",
+      "MDR rejects seeded-output",
+      "MDR rejects wrong-version",
+      "MDR rejects missing-script",
+      "MDR frozen input mutation fails closed",
+      "RADLEX starts from exact declared inputs and Git code, without official outputs",
+      "RADLEX existing candidate cannot be overwritten",
+      "RADLEX rejects missing-input",
+      "RADLEX rejects seeded-output",
+      "RADLEX rejects wrong-version",
+      "RADLEX rejects missing-script",
+      "RADLEX frozen input mutation fails closed",
+      "Capsule mutation is rejected before launch"
+    ],
+    "comparison": [
+      "All five exact files pass with independent validation",
+      "Only the saved external source root is accepted outside newly generated atoms",
+      "Complete context rows and proved CONTEXT-only ID permutation are equivalent",
+      "Original semantic types remain in the core comparison",
+      "Unreviewed change rejected: atom-content",
+      "Unreviewed change rejected: lost-duplicate",
+      "Unreviewed change rejected: non-context-id",
+      "Unreviewed change rejected: qualifier",
+      "Unreviewed change rejected: context-endpoint",
+      "Byte equality retains independent reference findings: orphan",
+      "Byte equality retains independent reference findings: duplicate-aid",
+      "Byte equality retains independent reference findings: unknown-termgroup",
+      "Generated-ID references prevent attribute-ID equivalence"
+    ]
+  },
+  "frozen_module_imports": 20,
+  "radlex_allocated_id_proof": {
+    "member_rows": {
+      "RADLEX_4_3/tmp/classes_dupes.txt": 1057,
+      "RADLEX_4_3/src/classes_atoms.src": 69022
+    },
+    "member_sha256": {
+      "RADLEX_4_3/tmp/classes_dupes.txt": "fa5557efdcaefd936e0461315ac91e7bca9d027bf0e179846f29094e9490e90e",
+      "RADLEX_4_3/src/classes_atoms.src": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c"
+    },
+    "raw_unique_allocated_ids": 70079,
+    "minimum": 767743593,
+    "maximum": 767813671,
+    "complete_contiguous_allocations": true,
+    "production_reservation_end_assessed": false
+  },
+  "free_disk_gib": 51.71,
+  "target_exists": {
+    "MDR_29_1": false,
+    "RADLEX_4_3": false
+  },
+  "environment": {
+    "INV_HOME": "/local/content/MEME/MEME5/inv/INV",
+    "INV_HOME_OLD": "/local/content/MEME/MEME5/inv/INV_OLD",
+    "ENV_HOME": "/local/content/MEME/MEME5/inv/ENV",
+    "LC_COLLATE": "C"
+  },
+  "tested_module_sha256": {
+    "inversion_worker.py": "73f4858eff9e02deb57a24799ff26ab62ca0f3a8505c69bfb05f3df817d2e6c2",
+    "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "replay_mth_core.py": "25e518e0c39df7b908e9c8115b5717223e217b3b55a9aa3527ce614e8a562553",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "replay_framework_core.py": "66183dd33c3de06fc63dc62e206bc26aab643f781278ad8a7385bb1a402f6904",
+    "compare_framework_core.py": "8123f6c14099946c7ecd07d495ae562ef5f54b86c448e66abad305ab0645fa8d",
+    "check_framework_preparation.py": "550b6d6569b600bd946069d2883df1b7183aa3a91302830f9c77bb8bc3238a35",
+    "check_framework_comparison.py": "d2dcbd083422b03abdf98dad681285b6e55aa66d2772e8025c2ea0f5a879a459"
+  }
+}

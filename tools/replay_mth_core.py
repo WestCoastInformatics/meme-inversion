@@ -109,7 +109,8 @@ def guard():
 
 
 def idle():
-    names = {'autoinv.pl', 'SRCbuilder.pl', 'mrcxt2raw3.pl', 'invert_NCI.pl', 'invert_rf2.pl', 'invert2.s'}
+    names = {'autoinv.pl', 'SRCbuilder.pl', 'mrcxt2raw3.pl', 'invert_NCI.pl', 'invert_rf2.pl', 'invert2.s',
+             'invert_mdr.pl', 'append_atn.pl', 'makesrc.pl', 'remove_dup_rels.pl', 'remove_dup_classes.pl', 'remove_dup_attributes.pl'}
     for entry in Path('/proc').iterdir():
         if not entry.name.isdigit():
             continue
