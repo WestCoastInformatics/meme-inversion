@@ -3295,5 +3295,14 @@
   "correction_audit": {
     "profile": "mth-retained-identities-v1",
     "module": "audit_mth_corrections.py"
+  },
+  "capacity_profile": {
+    "id": "mth-2026aa-core-v1",
+    "minimum_free_disk_gib": 45,
+    "measured_native_tree_bytes": 10536967996,
+    "native_tree_allowance_gib": 16,
+    "comparison_or_audit_scratch_allowance_gib": 12,
+    "per_stage_reserve_gib": 12,
+    "scope": "45 GiB conservative preflight aligns with the existing MTH adapter guard; no deletion of older trees."
   }
 }

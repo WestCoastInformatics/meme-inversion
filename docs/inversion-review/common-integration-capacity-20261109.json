@@ -1,0 +1,55 @@
+{
+  "free_disk_gib": 47.722,
+  "mth_regular_file_bytes": 10536967996,
+  "mth_largest_files": [
+    [
+      "src/raw3/newsources.raw3",
+      3037136474
+    ],
+    [
+      "src/attributes.src",
+      2796291723
+    ],
+    [
+      "src/relationships.before-normalization.src",
+      797041847
+    ],
+    [
+      "src/relationships.src",
+      771791609
+    ],
+    [
+      "src/classes_atoms.unfiltered.raw",
+      602938575
+    ],
+    [
+      "src/classes_atoms.src.raw",
+      602938360
+    ],
+    [
+      "src/classes_atoms.src",
+      555467101
+    ],
+    [
+      "src/attributes.contexts-all.src",
+      460970278
+    ],
+    [
+      "src/contexts.src",
+      312852945
+    ],
+    [
+      "src/contexts.before-tail.src",
+      310615441
+    ],
+    [
+      "src/aui_said_map",
+      115764303
+    ],
+    [
+      "src/said.ptsaid",
+      80364920
+    ]
+  ],
+  "mth_files": 109
+}

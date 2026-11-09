@@ -154,6 +154,24 @@ def runtime(lock):
         require_file(ROOT / item['repository_path'], item['sha256'])
 
 
+def capacity(lock):
+    """Use only reviewed case budgets; retain the per-stage 12 GiB reserve."""
+    profile=lock['case'].get('capacity_profile')
+    minimum=50
+    if profile is not None:
+        reviewed={('MTH','MTH_2026AA','mth-2026aa-core-v1'):45,
+                  ('NCI','NCI_2026_10D','nci-oct2026-core-v1'):18,
+                  ('MDR','MDR_29_1','mdr-29-1-core-v1'):20,
+                  ('RADLEX','RADLEX_4_3','radlex-4-3-core-v1'):18}
+        key=(lock['request']['source'],lock['request']['version'],profile.get('id'))
+        minimum=reviewed.get(key)
+        if minimum is None or profile.get('minimum_free_disk_gib')!=minimum:
+            raise RuntimeError('Unreviewed source/version capacity profile')
+    if available_memory()<24*1024**3 or shutil.disk_usage(ROOT).free<minimum*1024**3:
+        raise RuntimeError('Dev capacity reserve is unavailable')
+    return {'minimum_free_disk_gib':minimum,'per_stage_reserve_gib':12}
+
+
 def activate_runtime(lock):
     """Switch the one characterized shared-library difference while dev is idle."""
     guard()
@@ -628,8 +646,7 @@ def worker(lock_path, receipt_path=None, inherited_lock=None):
         with runtime_lock(ROOT, inherited_lock) as held:
             idle()
             runtime(lock)
-            if available_memory() < 24 * 1024 ** 3 or shutil.disk_usage(ROOT).free < 50 * 1024 ** 3:
-                raise RuntimeError('Dev capacity reserve is unavailable')
+            capacity(lock)
             if target.is_symlink():
                 raise RuntimeError('Source directory must not be a symlink')
             acquire_inputs(lock, run)
@@ -682,8 +699,7 @@ def launch(lock, previous_receipt=None):
         runtime(lock)
         if target.exists() and previous_receipt is None:
             raise RuntimeError('Existing source requires an inspect-current receipt')
-        if available_memory() < 24 * 1024 ** 3 or shutil.disk_usage(ROOT).free < 50 * 1024 ** 3:
-            raise RuntimeError('Dev capacity reserve is unavailable')
+        capacity(lock)
         CONTROL.mkdir(parents=True, exist_ok=True)
         run = CONTROL / lock['run_id']
         run.mkdir()  # no reuse or overwrite, including failed attempts

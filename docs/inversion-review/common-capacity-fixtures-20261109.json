@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Default 50 GiB guard remains enforced",
+    "Reviewed MTH profile accepts measured available space",
+    "Unreviewed capacity override rejected: minimum_free_disk_gib",
+    "Unreviewed capacity override rejected: id",
+    "Capacity profile cannot move to another source",
+    "MTH minimum remains enforced below 45 GiB"
+  ]
+}
