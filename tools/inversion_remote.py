@@ -134,7 +134,7 @@ def main():
         command.add_argument('--output', required=True)
     for name in ('status', 'collect'):
         command = commands.add_parser(name)
-        command.add_argument('--source', choices=tuple(ADAPTERS), required=True)
+        command.add_argument('--source', choices=tuple(SOURCES), required=True)
         command.add_argument('--run-id', required=True)
         command.add_argument('--output', required=True)
     review = commands.add_parser('retry-mth-audit', help='Review completed MTH output in a new run; preserve the original failure')
