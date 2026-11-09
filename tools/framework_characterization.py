@@ -23,7 +23,7 @@ def build(source,run_id,variant='as-produced',seed=None,previous_receipt=None):
     ids=load(DOCS/'additional-source-historical-identities.json')[version]
     additions=load(ROOT/'baseline/additions-20261105.json')
     apparatus=commit('HEAD');modules={};hashes={};provenance=[]
-    names=MODULES+('replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py','mdr_correction_runtime.py')
+    names=tuple(dict.fromkeys(MODULES+('replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py','mdr_correction_runtime.py')))
     paths=['tools/'+name for name in names]+['tools/framework_characterization.py',
         'docs/inversion-review/'+stem+'-reference.json','docs/inversion-review/'+stem+'-archive-inventory.json',
         'docs/inversion-review/additional-source-stage-review-20261106.json',

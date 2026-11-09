@@ -93,6 +93,17 @@ def check():
         source = lock['request']['source']
         engine = package.get('contract', package)['engine_ref']
         require(engine == lock['request']['engine_ref'], 'Adapter retains selected engine: ' + source + '/' + lock['request']['case_variant'])
+    for source,variant,option in [('MDR','consistent-history-context',{'language':'JPN'}),('RADLEX','as-produced',{'language':'ENG'})]:
+        selected=next(x for x in locks if x['request']['source']==source and x['request']['case_variant']==variant)
+        config=copy.deepcopy(selected['configuration']);config['source_options']=option
+        rejected(lambda: request.validate(config,'configuration.schema.json'),'Unreviewed '+source+' source options rejected')
+    radlex=next(x for x in locks if x['request']['source']=='RADLEX')
+    bad=copy.deepcopy(radlex);bad['configuration']['source_atom_ids']['bound_kind']='reserved-historical-range'
+    bad['case']['configuration']=copy.deepcopy(bad['configuration']);bad['case_sha256']=request.digest(bad['case']);bad['lock_sha256']=request.digest({k:v for k,v in bad.items() if k!='lock_sha256'})
+    rejected(lambda:worker.verify_lock(bad),'RADLEX emitted-ID evidence cannot be relabeled as a production reservation')
+    mdr=next(x for x in locks if x['request']['source']=='MDR')
+    require(worker.correction_profile(mdr),'MDR selects its mandatory complete-record correction audit')
+    require(worker.package(mdr)['runtime_ref']!=worker.package(radlex)['runtime_ref'],'MDR correction runtime and unchanged RADLEX runtime remain independently pinned')
     require(locks[2]['runtime_ref'] != locks[3]['request']['engine_ref'] and locks[3]['runtime_ref'] == locks[2]['runtime_ref'], 'MTH candidate source and unchanged shared runtime identities remain separate')
     for part in ('configuration', 'code_files', 'runtime_files', 'case'):
         bad = copy.deepcopy(locks[0])
@@ -113,10 +124,10 @@ def check():
     program = remote.bootstrap(locks[0], 'submit')
     compile(program.split("\n", 1)[1].rsplit('\nNCIM_COMMON_REQUEST', 1)[0], '<bootstrap>', 'exec')
     passed.append('Submission script compiles without shell interpolation of request values')
-    for source in ('NCI', 'SNOMEDCT_US', 'MTH'):
+    for source in request.ADAPTERS:
         program = remote.read_program(source, 'fixture-case', True)
         compile(program.split('\n', 1)[1].rsplit('\nNCIM_COMMON_READ', 1)[0], '<read>', 'exec')
-    passed.append('Read-only status/collection scripts compile for all three sources')
+    passed.append('Read-only status/collection scripts compile for all five sources')
     with tempfile.TemporaryDirectory(prefix='common-inversion-') as temporary:
         root = Path(temporary)
         malformed = root / 'malformed.json'

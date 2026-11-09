@@ -23,9 +23,12 @@ ROOT = Path('/local/content/MEME/MEME5/inv')
 CONTROL = ROOT / 'qa/replay-requests'
 VERSIONS = {'NCI': ('NCI_2026_10D', 'nci-oct2026-v1'),
             'SNOMEDCT_US': ('SNOMEDCT_US_2026_09_01', 'snomed-sep2026-v1'),
-            'MTH': ('MTH_2026AA', 'mth-2026aa-v1')}
+            'MTH': ('MTH_2026AA', 'mth-2026aa-v1'),
+            'MDR':('MDR_29_1','mdr-29-1-v1'),'RADLEX':('RADLEX_4_3','radlex-4-3-v1')}
 MTH_CORRECTION_ENGINE = 'b2611abcf929981628bb2e5051afb450b8525b70'
 MTH_CORRECTION_AUDIT = {'profile': 'mth-retained-identities-v1', 'module': 'audit_mth_corrections.py'}
+MDR_CORRECTION_ENGINE='dd7ae6610557074c1b7b66690538a0591987d056'
+MDR_CORRECTION_AUDIT={'profile':'mdr-history-context-v1','module':'audit_mdr_corrections.py'}
 
 
 def canonical(value):
@@ -80,6 +83,13 @@ def correction_profile(lock):
     request, case = lock['request'], lock['case']
     if request['comparison_profile'] != 'reviewed-corrections':
         return False
+    if request['source']=='MDR':
+        expected=('MDR','MDR_29_1','consistent-history-context',MDR_CORRECTION_ENGINE)
+        if tuple(request[key] for key in ('source','version','case_variant','engine_ref'))!=expected or case.get('correction_audit')!=MDR_CORRECTION_AUDIT or lock['runtime_ref']!='bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09':
+            raise ValueError('Unreviewed MDR correction source/runtime/audit contract')
+        if MDR_CORRECTION_AUDIT['module'] not in lock['modules_b64']:raise ValueError('Independent MDR audit is missing')
+        if lock['configuration']['source_options']!={'language':'ENG'}:raise ValueError('Only the reviewed English MDR path is supported')
+        return True
     expected = ('MTH', 'MTH_2026AA', 'consistent-retained-identities', MTH_CORRECTION_ENGINE)
     if tuple(request[key] for key in ('source', 'version', 'case_variant', 'engine_ref')) != expected:
         raise ValueError('Correction acceptance has no reviewed contract for this source/version/engine')
@@ -145,6 +155,15 @@ def verify_lock(lock):
             raise ValueError('Source payload differs')
     if names != set(expected_source) or not names:
         raise ValueError('Source inventory is incomplete')
+    if request['source'] in ('MDR','RADLEX'):
+        data=case['legacy_case'];bounds=config['source_atom_ids']
+        if (bounds['start'],bounds['end'])!=(data['source_atom_ids']['start'],data['source_atom_ids']['end']):raise ValueError('Framework ID bounds differ from reviewed inputs')
+        if config['replacement_baseline']!={'source':request['source'],'version':data['replacement_baseline']} or config['inputs']['source_data_stage']!=data['starting_stage']:
+            raise ValueError('Framework input stage/replacement baseline differs')
+        if request['source']=='MDR':
+            if config['source_options']!={'language':'ENG'} or bounds.get('bound_kind')!='reserved-historical-range':raise ValueError('Unreviewed MDR language/ID provenance')
+        elif config['source_options']!={} or bounds.get('bound_kind')!='historical-emitted-range' or data['source_atom_ids']['production_reservation_end_assessed']:
+            raise ValueError('RADLEX emitted bounds cannot imply a production reservation')
     correction_profile(lock)
     return ROOT / 'sources' / request['version']
 
@@ -365,12 +384,16 @@ def package(lock):
         data['contract'].update(run_id=lock['run_id'], engine_ref=request['engine_ref'])
         data['code_files'] = source_files(lock)
         data['runtime_already_verified'] = True
-    else:
+    elif request['source']=='MTH':
         data.update(run_id=lock['run_id'], engine_ref=request['engine_ref'], runtime_ref=lock['runtime_ref'],
                     apparatus_ref=lock['apparatus_ref'],
                     code_files=source_files(lock), preserved_directory=request['version'] + '.before-unused-' + lock['run_id'])
+    else:
+        data.update(run_id=lock['run_id'],engine_ref=request['engine_ref'],runtime_ref=lock['runtime_ref'],apparatus_ref=lock['apparatus_ref'],
+                    case_variant=request['case_variant'],code_files=source_files(lock),schema_version=1,artifact_type='ncimeta-framework-characterization')
     data['runtime_files'] = [{'relative_path': item['repository_path'], 'sha256': item['sha256']} for item in lock['runtime_files']]
     data['apparatus_sha256'] = {name: hashlib.sha256(base64.b64decode(raw)).hexdigest() for name, raw in lock['modules_b64'].items()}
+    if request['source'] in ('MDR','RADLEX'):data['capsule_sha256']=digest(data)
     return data
 
 
@@ -383,6 +406,9 @@ def prepare(lock, target):
     if source == 'SNOMEDCT_US':
         import prepare_snomed_candidate
         return prepare_snomed_candidate.prepare(data['contract'], data['code_files'])
+    if source in ('MDR','RADLEX'):
+        import replay_framework_core
+        return replay_framework_core.prepare(data)
     import replay_mth_core
     replay_mth_core.configure_case(data)
     return replay_mth_core.prepare(data)
@@ -410,6 +436,12 @@ def convert(lock, target, run, held_lock):
         replay.RUN_ID = lock['run_id']
         replay.RUN = target / 'etc/qa/replay-runs' / lock['run_id']
         replay.ACTIVE = target / 'etc/replay-active-run.json'
+    elif source in ('MDR','RADLEX'):
+        import replay_framework_core as framework
+        inner=target/'etc/qa/replay-runs'/lock['run_id'];inner.mkdir(parents=True)
+        request_path=inner/'common-adapter-package.json';save(request_path,data);request_path.chmod(0o444)
+        framework.worker(request_path,inherited_lock=held_lock,prepared_by_common=True,audit_corrections=False)
+        return json.loads((inner/'result.json').read_text())
     else:
         import replay_mth_core as replay
         replay.configure_case(data)
@@ -429,6 +461,9 @@ def verify_after(lock, target, result):
         for item in data['native_inputs'] + data['archived_metadata_inputs'] + data['preparation_reference_files']:
             require_file(ROOT / 'sources' / item['path'], item['sha256'])
         result['core']['metadata_unchanged'] = True
+    elif lock['request']['source'] in ('MDR','RADLEX'):
+        import replay_framework_core
+        replay_framework_core.verify_inputs(package(lock),target)
     for item in source_files(lock):
         path = target / item['relative_path']
         if item.get('kind') == 'symlink':
@@ -457,22 +492,29 @@ def verify_after(lock, target, result):
 
 
 def review_corrections(lock, target, run, result):
-    """Preserve raw evidence, then independently adjudicate the exact MTH delta."""
+    """Preserve raw evidence, then independently adjudicate the reviewed delta."""
     if not correction_profile(lock):
         return
     expected_identity = {**{key: lock['request'][key] for key in ('source', 'version', 'engine_ref')},
                          'run_id': lock['run_id']}
     if any(result.get(key) != value for key, value in expected_identity.items()):
         raise RuntimeError('Raw correction result does not belong to this requested run')
-    validation = result['comparison']['validation']
-    if not validation.get('passed') or not validation.get('identity_state', {}).get('passed'):
-        raise RuntimeError('Correction acceptance requires clean core and retained-identity validation')
+    is_mdr=lock['request']['source']=='MDR'
+    if is_mdr:
+        validation=result['comparison']['structure']['candidate']
+        if not validation.get('checks_passed') or not result['comparison']['files']['attributes.src']['attribute_diagnostics']['positive_unique_ids']:
+            raise RuntimeError('MDR corrections require clean candidate validation and unique positive attribute IDs')
+    else:
+        validation = result['comparison']['validation']
+        if not validation.get('passed') or not validation.get('identity_state', {}).get('passed'):
+            raise RuntimeError('Correction acceptance requires clean core and retained-identity validation')
     if result['acceptance']['status'] != 'DIFFERENCES_REQUIRE_REVIEW':
         raise RuntimeError('Correction acceptance requires the preserved raw difference verdict')
     data = package(lock)
     names = {item['output_name'] for item in data['reference_files']}
-    if len(names) != 23 or set(result['comparison']['files']) != names:
-        raise RuntimeError('The correction audit requires all 23 characterized outputs')
+    required=5 if is_mdr else 23
+    if len(names) != required or set(result['comparison']['files']) != names:
+        raise RuntimeError('The correction audit requires all '+str(required)+' characterized outputs')
     raw_path, package_path = run / 'raw-result.json', run / 'correction-audit-package.json'
     for path, value in ((raw_path, result), (package_path, data)):
         if path.exists() or path.is_symlink():
@@ -480,7 +522,7 @@ def review_corrections(lock, target, run, result):
         save(path, value)
         path.chmod(0o444)
     raw_sha = sha(raw_path)
-    audit_name = MTH_CORRECTION_AUDIT['module']
+    audit_name = (MDR_CORRECTION_AUDIT if is_mdr else MTH_CORRECTION_AUDIT)['module']
     audit_path = Path(__file__).with_name(audit_name)
     expected_sha = hashlib.sha256(base64.b64decode(lock['modules_b64'][audit_name], validate=True)).hexdigest()
     require_file(audit_path, expected_sha)
@@ -504,8 +546,14 @@ def review_corrections(lock, target, run, result):
     if any(report.get(key) != value for key, value in expected.items()):
         raise RuntimeError('Correction audit identity, scope or verdict differs from this run')
     require_file(raw_path, raw_sha)
-    import replay_mth_core
-    replay_mth_core.verify_inputs(data, target)
+    if is_mdr:
+        if report.get('runtime_ref')!=lock['runtime_ref'] or report.get('expected_attribute_sha256')!=result['comparison']['files']['attributes.src']['candidate']['sha256']:
+            raise RuntimeError('MDR audit must predict the complete attribute file for the selected runtime')
+        import replay_framework_core
+        replay_framework_core.verify_inputs(data,target)
+    else:
+        import replay_mth_core
+        replay_mth_core.verify_inputs(data, target)
     for name, entry in result['comparison']['files'].items():
         require_file(target / 'src' / name, entry['candidate']['sha256'])
     result['raw_acceptance'] = copy.deepcopy(result['acceptance'])
@@ -676,6 +724,8 @@ def worker(lock_path, receipt_path=None, inherited_lock=None):
             result.update(common_request=lock['request'], lock_sha256=lock['lock_sha256'],
                           complete_ID_range_verified=True, apparatus_ref=lock['apparatus_ref'],
                           insertion_executed=False, production_eligible=False)
+            result['ID_range_verification_scope']={'bound_kind':lock['configuration']['source_atom_ids'].get('bound_kind','reserved-historical-range'),
+                                                   'new_production_allocation_performed':False}
             save(run / 'result.json', result)
             state.update(status='complete', acceptance=result['acceptance'], completed_at=now())
             save(run / 'status.json', state)

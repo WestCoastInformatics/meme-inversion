@@ -20,8 +20,10 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'acquire_inversion_reference.py', 'inspect_inversion_archive.py',
            'prepare_nci_candidate.py', 'advance_nci_replay.py',
            'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
-           'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py')
-ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1'}
+           'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py',
+           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py')
+ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1',
+            'MDR':'mdr-29-1-v1','RADLEX':'radlex-4-3-v1'}
 
 
 def canonical(value):

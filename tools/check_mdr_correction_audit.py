@@ -38,9 +38,9 @@ def check():
                 for output,raw in files.items():
                     member='MDR_29_1/src/'+('attributes.orig' if output=='attributes.src' else output);info=tarfile.TarInfo(member);info.size=len(raw);handle.addfile(info,io.BytesIO(raw));references.append({'path':member,'output_name':output,'sha256':hashlib.sha256(raw).hexdigest(),'newline_count':raw.count(b'\n')})
             for output,raw in files.items():(target/'src'/output).write_bytes(mutate(corrected) if output=='attributes.src' else raw)
-            package={'source':'MDR','version':'MDR_29_1','case_variant':'consistent-history-context','engine_ref':'fixture','runtime_ref':'fixture','run_id':name,'root_atom_id':99,
+            package={'source':'MDR','version':'MDR_29_1','case_variant':'consistent-history-context','engine_ref':'fixture','runtime_ref':'fixture','apparatus_ref':'fixture','run_id':name,'root_atom_id':99,
                      'source_atom_ids':{'start':100,'end':103,'provenance_kind':'synthetic','production_reservation_end_assessed':True},'archive_path':str(archive),'archive_sha256':compare.file_info(archive)['sha256'],'reference_files':references,'starting_stage':'fixture'}
-            comparison=compare.compare(package,target,run,progress=lambda *args,**kwargs:None);raw={'comparison':comparison}
+            comparison=compare.compare(package,target,run,progress=lambda *args,**kwargs:None);raw={'comparison':comparison,'acceptance':comparison['acceptance']}
             with patch.object(audit,'EXPECTED_COUNTS',(2,3,2)):
                 if name=='allowed':
                     result=audit.audit(package,target,run,raw);assert result['status']=='PASS_REVIEWED_CORRECTIONS' and result['context_attributes_predicted_with_exact_ids']==3

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "source": "RADLEX",
+  "version": "RADLEX_4_3",
+  "case_variant": "stable-context-order",
+  "reference_stage": "inversion-src",
+  "comparison_profile": "semantic-strict",
+  "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8"
+}

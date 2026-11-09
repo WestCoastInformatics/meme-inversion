@@ -24,6 +24,7 @@ ROOT = Path('/local/content/MEME/MEME5/inv')
 ENGINE = '36f1e10aeadb9faa184fd386573f82e6dd9b53c8'
 MDR_ENGINE = 'dd7ae6610557074c1b7b66690538a0591987d056'
 MDR_RUNTIME = 'bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09'
+PRODUCTION_RUNTIME = '3b125edc1d29f7c7a91673da2a8d752bb0adff44'
 CASES = {'MDR': ('MDR_29_1', 777143593, 124407941, 'V-MDR'),
          'RADLEX': ('RADLEX_4_3', 767743593, 116482203, 'V-RADLEX')}
 SCRIPTS = {'MDR': ['invert_mdr.pl', 'append_atn.pl'],
@@ -58,6 +59,11 @@ def guard(package, target):
     if expected!=(package['version'],package['source_atom_ids']['start'],package['root_atom_id'],package['root_code']) or package['engine_ref']!=engine:
         raise RuntimeError('Unreviewed source/version/engine/identity contract')
     if corrected and (package['source']!='MDR' or package.get('runtime_ref')!=MDR_RUNTIME or package.get('perl_hash_seed') not in ('1','12345')):raise RuntimeError('Unreviewed corrected MDR runtime/seed')
+    variant=package.get('case_variant','as-produced')
+    if variant not in ('as-produced','consistent-history-context','stable-context-order'):raise RuntimeError('Unknown framework case variant')
+    if variant=='stable-context-order' and package['source']!='RADLEX':raise RuntimeError('Unreviewed stable-runtime source')
+    runtime=MDR_RUNTIME if corrected or variant=='stable-context-order' else PRODUCTION_RUNTIME
+    if package.get('runtime_ref',PRODUCTION_RUNTIME)!=runtime:raise RuntimeError('Unreviewed source/case runtime')
     if len(package['input_files'])!=len(INPUTS[package['source']]) or {x['relative_path'] for x in package['input_files']}!=INPUTS[package['source']]:
         raise RuntimeError('The complete reviewed starting input set is required')
     required_code={'bin/'+name for name in SCRIPTS[package['source']]} | {'etc/'+('MDR.cfg' if package['source']=='MDR' else 'RADLEX.cfg')}
@@ -201,7 +207,7 @@ def prepare(package, progress=print):
         if staging.exists():shutil.rmtree(staging)
 
 
-def worker(package_path, inherited_lock=None):
+def worker(package_path, inherited_lock=None, *, prepared_by_common=False, audit_corrections=True):
     package=json.loads(Path(package_path).read_text());verify_capsule(package);target=ROOT/'sources'/package['version']
     run=Path(package_path).parent;active=target/'etc/replay-active-run.json'
     state={'source':package['source'],'version':package['version'],'engine_ref':package['engine_ref'],'run_id':package['run_id'],
@@ -231,8 +237,10 @@ def worker(package_path, inherited_lock=None):
     try:
         with runtime_lock(ROOT,inherited_lock):
             from replay_mth_core import idle
-            idle();capacity(package)
+            idle()
+            if not prepared_by_common:capacity(package)
             preserved=None
+            if prepared_by_common and package.get('previous_source_receipt'):raise RuntimeError('Common preparation already owns source preservation')
             if package.get('previous_source_receipt'):
                 from inversion_worker import preserve as preserve_source,restore as restore_source
                 receipt=package['previous_source_receipt']
@@ -240,12 +248,14 @@ def worker(package_path, inherited_lock=None):
                 if record['filename'] not in ('result.json','status.json'):raise RuntimeError('Unexpected previous control record')
                 require(ROOT/'qa/replay-requests'/receipt['previous_run_id']/record['filename'],record['sha256'])
                 preserved=preserve_source(target,package['run_id'],receipt,before_publish=idle)
-            try:preparation=prepare(package)
-            except BaseException:
-                if preserved and not target.exists():restore_source(preserved,target,receipt)
-                raise
-            prepared=True;preparation['preserved_source']=str(preserved) if preserved else None
-            save(run/'preparation.json',preparation);state_save()
+            if not prepared_by_common:
+                try:preparation=prepare(package)
+                except BaseException:
+                    if preserved and not target.exists():restore_source(preserved,target,receipt)
+                    raise
+                preparation['preserved_source']=str(preserved) if preserved else None
+                save(run/'preparation.json',preparation)
+            prepared=True;state_save()
             verify_inputs(package,target)
             if any((target/'src'/name).exists() for name in comparison.OUTPUTS):raise RuntimeError('Candidate already contains generated outputs')
             for script in SCRIPTS[package['source']]:stage('syntax-'+script,script,True)
@@ -266,8 +276,9 @@ def worker(package_path, inherited_lock=None):
                     'stages':stages,'preserved_stage_outputs':snapshots,'comparison':result,'acceptance':result['acceptance'],
                     'input_engine_runtime_and_output_hashes_verified_after_run':True,'completed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
                     'capsule_sha256':package['capsule_sha256'],'apparatus_ref':package['apparatus_ref'],
-                    'common_adapter_integration_executed':False,'insertion_executed':False,'production_eligible':False}
-            if package.get('case_variant')=='consistent-history-context':
+                    'common_adapter_integration_executed':prepared_by_common,'runtime_ref':package.get('runtime_ref',PRODUCTION_RUNTIME),
+                    'insertion_executed':False,'production_eligible':False}
+            if package.get('case_variant')=='consistent-history-context' and audit_corrections:
                 save(run/'raw-result.json',result);(run/'raw-result.json').chmod(0o400)
                 from audit_mdr_corrections import audit
                 state.update(status='auditing');state_save()

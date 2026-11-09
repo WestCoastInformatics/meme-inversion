@@ -55,9 +55,9 @@
     },
     "MDR": {
       "display_name": "MDR",
-      "common_adapter_implemented": false,
-      "adapter_ref": null,
-      "options_schema_ref": null,
+      "common_adapter_implemented": true,
+      "adapter_ref": "../../tools/inversion_worker.py#mdr-29-1-v1",
+      "options_schema_ref": "configuration.schema.json#/$defs/mdr_options",
       "characterization_status": "original unchanged-engine differences retained; separate corrected source plus stable runtime passes exact complete-record correction prediction and two fresh full-run byte-identical replays under different hash seeds",
       "historical_cases_under_review": [
         "MDR_29_1"
@@ -83,13 +83,14 @@
       "characterization_result_ref": "mdr-29-1-fresh-characterization-result.json",
       "characterization_summary_ref": "additional-source-characterization-summary.json",
       "corrected_characterization_summary_ref": "mdr-29-1-correction-summary.json",
-      "corrected_final_verification_ref": "mdr-29-1-final-verification.json"
+      "corrected_final_verification_ref": "mdr-29-1-final-verification.json",
+      "common_integration_status": "Adapter/case implementation under test; complete common run pending"
     },
     "RADLEX": {
       "display_name": "RADLEX",
-      "common_adapter_implemented": false,
-      "adapter_ref": null,
-      "options_schema_ref": null,
+      "common_adapter_implemented": true,
+      "adapter_ref": "../../tools/inversion_worker.py#radlex-4-3-v1",
+      "options_schema_ref": "configuration.schema.json#/$defs/radlex_options",
       "characterization_status": "fresh unchanged-engine prepared-input conversion plus all production cleanup stages passed declared strict equivalence and independent validation; full common-adapter lifecycle remains pending",
       "historical_cases_under_review": [
         "RADLEX_4_3"
@@ -113,7 +114,8 @@
       "archive_inventory_ref": "radlex-4-3-archive-inventory.json",
       "reference_stage_review_ref": "additional-source-stage-review-20261106.json",
       "characterization_result_ref": "radlex-4-3-fresh-characterization-result.json",
-      "characterization_summary_ref": "additional-source-characterization-summary.json"
+      "characterization_summary_ref": "additional-source-characterization-summary.json",
+      "common_integration_status": "Adapter/case implementation under test; complete common run pending"
     }
   }
 }

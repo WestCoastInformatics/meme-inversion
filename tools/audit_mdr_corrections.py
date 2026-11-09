@@ -96,8 +96,21 @@ def audit(package,target,run,raw):
     for name,item in files.items():
         if file_info(target/'src'/name)!=item['candidate']:raise RuntimeError('Candidate changed during audit')
     return {'status':'PASS_REVIEWED_CORRECTIONS','run_id':package['run_id'],'engine_ref':package['engine_ref'],'runtime_ref':package['runtime_ref'],
+            'conversion_apparatus_ref':package['apparatus_ref'],'audit_tool_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            'raw_comparison_status':raw['acceptance']['status'],'independent_validation_passed':True,'raw_comparison_rewritten':False,
             'expected_attribute_sha256':expected.hexdigest(),'ordinary_attributes_unchanged':ordinary,'context_attributes_predicted_with_exact_ids':contexts,
             'sibling_lists_reordered_to_stable_root_id_order':changed_sibling_lists,'history_attributes_predicted_from_preserved_native_input':history,
             'archived_history_digest_findings_explained':reference_bad_history,'resolved_source_relationship_attribute_references':rel_references,
             'ignored_fields':[],'output_rewritten':False,'production_eligible':False,
             'scope':'All five core outputs; exact predicted corrected attributes including generated IDs; raw official comparison retained. Repeatability requires separately recorded full runs.'}
+
+
+if __name__=='__main__':
+    import argparse
+    from replay_framework_core import verify_capsule,save
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('package',type=Path);parser.add_argument('target',type=Path);parser.add_argument('run',type=Path);parser.add_argument('--result',required=True,type=Path);args=parser.parse_args()
+    package=json.loads(args.package.read_text());verify_capsule(package)
+    output=args.run/'correction-audit.json'
+    if output.exists() or output.is_symlink():raise FileExistsError('Preserve the existing audit before another review')
+    report=audit(package,args.target,args.run,json.loads(args.result.read_text()));save(output,report)
+    print(report['status'])

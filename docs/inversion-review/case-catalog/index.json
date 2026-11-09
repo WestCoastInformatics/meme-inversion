@@ -24,6 +24,24 @@
       "version": "MTH_2026AA",
       "case_variant": "consistent-retained-identities",
       "path": "mth-consistent-retained-identities.json"
+    },
+    {
+      "source": "MDR",
+      "version": "MDR_29_1",
+      "case_variant": "consistent-history-context",
+      "path": "mdr-consistent-history-context.json"
+    },
+    {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "case_variant": "as-produced",
+      "path": "radlex-as-produced.json"
+    },
+    {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "case_variant": "stable-context-order",
+      "path": "radlex-stable-context-order.json"
     }
   ]
 }

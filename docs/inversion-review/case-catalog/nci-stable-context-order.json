@@ -1444,5 +1444,11 @@
       "mode": "0o644",
       "sha256": "e50600b305d567b20046088d2f4f7e989aea391453efc1932c3908128b3015af"
     }
-  ]
+  ],
+  "capacity_profile": {
+    "id": "nci-oct2026-core-v1",
+    "minimum_free_disk_gib": 18,
+    "per_stage_reserve_gib": 12,
+    "native_and_scratch_allowance_gib": 6
+  }
 }

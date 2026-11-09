@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "source": "MDR",
+  "version": "MDR_29_1",
+  "case_variant": "consistent-history-context",
+  "reference_stage": "inversion-src",
+  "comparison_profile": "reviewed-corrections",
+  "engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056"
+}

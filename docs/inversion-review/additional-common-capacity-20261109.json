@@ -1,0 +1,89 @@
+{
+  "NCI_2026_10D": {
+    "bytes": 3356690513,
+    "largest": [
+      [
+        "etc/qa/replay-runs/baseline-core-20261103/src/attributes.src",
+        306298097
+      ],
+      [
+        "etc/qa/replay-runs/explicit-pt-core-20261104/src/attributes.src",
+        306298097
+      ],
+      [
+        "src/attributes.src",
+        306298097
+      ],
+      [
+        "etc/qa/replay-runs/baseline-core-20261103/src/contexts.src",
+        270665435
+      ],
+      [
+        "etc/qa/replay-runs/explicit-pt-core-20261104/src/contexts.src",
+        270665435
+      ],
+      [
+        "src/contexts.src",
+        270665435
+      ]
+    ]
+  },
+  "MDR_29_1": {
+    "bytes": 745887628,
+    "largest": [
+      [
+        "src/attributes.src",
+        473425883
+      ],
+      [
+        "src/contexts.src",
+        191499397
+      ],
+      [
+        "src/relationships.src",
+        31093019
+      ],
+      [
+        "orig/mdr_by_version.txt",
+        13994293
+      ],
+      [
+        "src/classes_atoms.src",
+        12633021
+      ],
+      [
+        "orig/fromprovider/MedAscii/mdhier.asc",
+        7952187
+      ]
+    ]
+  },
+  "RADLEX_4_3": {
+    "bytes": 181794633,
+    "largest": [
+      [
+        "src/attributes.src",
+        59898056
+      ],
+      [
+        "tmp/attributes_unique.txt",
+        59898056
+      ],
+      [
+        "orig/radlex_pipe.txt",
+        16332047
+      ],
+      [
+        "src/contexts.src",
+        11105738
+      ],
+      [
+        "src/classes_atoms.src",
+        7719732
+      ],
+      [
+        "tmp/classes_unique.txt",
+        7719732
+      ]
+    ]
+  }
+}

@@ -116,7 +116,7 @@
       }
     },
     "source_atom_ids": {
-      "description": "Inclusive complete SAID range, including SRC atoms. Semantic checks verify ordering, capacity and evidence; adapters translate legacy offsets.",
+      "description": "Inclusive permitted historical bounds, including SRC atoms. Provenance distinguishes preserved reservation bounds from observed emitted bounds; no new production allocation is implied.",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -135,6 +135,13 @@
         },
         "provenance_ref": {
           "$ref": "#/$defs/nonempty_reference"
+        },
+        "bound_kind": {
+          "enum": [
+            "reserved-historical-range",
+            "historical-emitted-range"
+          ],
+          "description": "Distinguish preserved historical reservation evidence from emitted-ID bounds that do not establish a production reservation end."
         }
       }
     },
@@ -267,6 +274,44 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "MDR"
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "then": {
+        "properties": {
+          "source_options": {
+            "$ref": "#/$defs/mdr_options"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source": {
+            "const": "RADLEX"
+          }
+        },
+        "required": [
+          "source"
+        ]
+      },
+      "then": {
+        "properties": {
+          "source_options": {
+            "$ref": "#/$defs/radlex_options"
+          }
+        }
+      }
     }
   ],
   "$defs": {
@@ -333,6 +378,23 @@
           "description": "Required when generating an MTH subset from publisher inputs; not required to consume a frozen prepared subset."
         }
       }
+    },
+    "mdr_options": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "language"
+      ],
+      "properties": {
+        "language": {
+          "const": "ENG",
+          "description": "Only the captured active English conversion path is reviewed."
+        }
+      }
+    },
+    "radlex_options": {
+      "type": "object",
+      "additionalProperties": false
     }
   }
 }
