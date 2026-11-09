@@ -65,7 +65,7 @@
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Integrate the verified corrected historical case and typed options into the common execution interface, then test its complete lifecycle.",
+        "Complete and collect the common execution lifecycle for the implemented corrected historical case and typed options.",
         "Keep source engine dd7ae66 and stable runtime bfda2ce pinned together for corrected MDR; other sources remain on their reviewed runtimes until separately tested.",
         "Keep metadata generation, general new-release configuration, legacy database QA, insertion and production release approval separately scoped."
       ],
@@ -99,7 +99,7 @@
       "release_frequency_affects_request_format": false,
       "discovery_required": [
         "Obtain production reservation-end evidence for new releases; the historical emitted-ID bound is proved but is not a production allocation. Trace the upstream CSV preparation producer if publisher-input coverage is requested.",
-        "Integrate the characterized source into a reviewed common case and typed source options, then test the complete common lifecycle; registration and source-specific execution do not enable the common adapter.",
+        "Complete and collect the implemented common historical cases on both reviewed shared runtimes; registration alone does not establish execution coverage.",
         "Keep upstream metadata generation, legacy database QA, insertion and production release approval separately scoped."
       ],
       "production_versions_inspected": [

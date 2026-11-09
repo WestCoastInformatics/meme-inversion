@@ -1,0 +1,438 @@
+{
+  "status": "PASS_BOUNDED_CODE_IMPACT_REVIEW",
+  "runtime_change": {
+    "original_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "stable_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "verified_file_count_per_runtime": 169,
+    "changed_files": [
+      "INV/lib/Hierarchy.pm"
+    ],
+    "original_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+    "stable_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "method": "Hierarchy::dumpCxtsAttrs",
+    "before": "foreach $nd (keys ( %{$parRef} )) {",
+    "after": "foreach $nd (sort keys ( %{$parRef} )) {",
+    "no_other_runtime_byte_or_manifest_mode_changes": true
+  },
+  "sources": {
+    "NCI": {
+      "version": "NCI_2026_10D",
+      "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "entry_point": {
+        "path": "sources/NCI_2026_10D/bin/invert_NCI.pl",
+        "ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+        "sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a"
+      },
+      "active_changed_method_call_sites": [
+        {
+          "line": 1109,
+          "text": "$$HierRef->dumpCxtsAttrs(\\$rootCxt,     # obj to dump root cxt"
+        }
+      ],
+      "complete_native_changed_runtime_regression_required": true,
+      "impact": "Active context writer calls the changed method"
+    },
+    "MDR": {
+      "version": "MDR_29_1",
+      "engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+      "entry_point": {
+        "path": "sources/MDR_29_1/bin/invert_mdr.pl",
+        "ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+        "sha256": "4d0154b27a84278410efebce6690ae875bb3404b518d3bce51675460fcb3e10a"
+      },
+      "active_changed_method_call_sites": [
+        {
+          "line": 1122,
+          "text": "$$Hier->dumpCxtsAttrs(\\$rootCxt,      # obj to dump root cxt"
+        },
+        {
+          "line": 1132,
+          "text": "$$Hier->dumpCxtsAttrs(\\$rootCxt,      # obj to dump root cxt"
+        }
+      ],
+      "complete_native_changed_runtime_regression_required": true,
+      "impact": "Active context writer calls the changed method"
+    },
+    "RADLEX": {
+      "version": "RADLEX_4_3",
+      "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "entry_point": {
+        "path": "sources/RADLEX_4_3/bin/makesrc.pl",
+        "ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+        "sha256": "7b0b770eb57be8c9a8849c5f20f0c560c49c654350ea1b36d9e30a3d6b52e657"
+      },
+      "active_changed_method_call_sites": [
+        {
+          "line": 92,
+          "text": "$$HierRef->dumpCxtsAttrs(\\$rootCxt, \\$parCxt, 0, \\$contextAttr, \\%said2name, 0, \\%said2sgid, 0, 1);"
+        }
+      ],
+      "complete_native_changed_runtime_regression_required": true,
+      "impact": "Active context writer calls the changed method"
+    },
+    "SNOMEDCT_US": {
+      "version": "SNOMEDCT_US_2026_09_01",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "entry_point": {
+        "path": "sources/SNOMEDCT_US_2026_09_01/bin/invert_rf2.pl",
+        "ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3"
+      },
+      "active_changed_method_call_sites": [],
+      "complete_native_changed_runtime_regression_required": false,
+      "impact": "Selected core uses its own context writer and unchanged Hierarchy accessors",
+      "custom_writer_evidence": [
+        {
+          "line": 180,
+          "text": "&dumpCxts;"
+        },
+        {
+          "line": 1476,
+          "text": "sub dumpCxts {"
+        },
+        {
+          "line": 1481,
+          "text": "$$HierRef->prepareCxts;"
+        },
+        {
+          "line": 1493,
+          "text": "foreach $said (sort keys %{$parRef}) {"
+        }
+      ],
+      "commented_legacy_call": [
+        {
+          "line": 1550,
+          "text": "#  $$HierRef->dumpCxtsAttrs(\\$ContextPAR,   # obj to dump root cxt"
+        }
+      ]
+    },
+    "MTH": {
+      "version": "MTH_2026AA",
+      "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "entry_point": {
+        "path": "sources/MTH_2026AA/autoinv.pl",
+        "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+        "sha256": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d"
+      },
+      "active_changed_method_call_sites": [],
+      "complete_native_changed_runtime_regression_required": false,
+      "impact": "Selected autoinv/specification and raw-context pipeline has no Hierarchy dependency",
+      "source_entries_checked": 57,
+      "source_closure": [
+        {
+          "path": "sources/MTH_2026AA/METASUBSET3",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "07150cff2e6df7c7db0a9fceed57c2afc4f954517888c38317fe50101bc00bce"
+        },
+        {
+          "path": "sources/MTH_2026AA/Meta",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "e63bd0c969590b7d1e527ccbec4d3966c21c4306cb9548a1fe0afd3ac2f1251d"
+        },
+        {
+          "path": "sources/MTH_2026AA/Meta3",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "7bbe2fa7b932d9d3283e10de2e81181a547bfa382d01027e4f12a0a63d7c3dcf"
+        },
+        {
+          "path": "sources/MTH_2026AA/autoinv.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d"
+        },
+        {
+          "path": "sources/MTH_2026AA/bigrange.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "77beef0af7c82fb1ee705f0d299091f27d568a2a683d4c567eb16607fe1ad137"
+        },
+        {
+          "path": "sources/MTH_2026AA/bin",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8"
+        },
+        {
+          "path": "sources/MTH_2026AA/env.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "7f56e9d6068c0cd6ee8c3a7b37baaf66218fcaaed278d6ad12e61766b6da9277"
+        },
+        {
+          "path": "sources/MTH_2026AA/etc",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8"
+        },
+        {
+          "path": "sources/MTH_2026AA/extractlnc.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "fc72417c1fd81c311254ac28ccd2a65a00a3386ec162bec539851dde2184c9bd"
+        },
+        {
+          "path": "sources/MTH_2026AA/extractsctus.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "0accc27a56f202963c4dcc3ad44769a180a4ad1dbd9154882d97d8dec0e6eb02"
+        },
+        {
+          "path": "sources/MTH_2026AA/fix.ccs.sf.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "ff7bb5733b3c554fd0c8bfb4f8f3a6a65de2d100eeaafe05777fb2ea4e170a48"
+        },
+        {
+          "path": "sources/MTH_2026AA/fix.mthsab.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "322c5a3e08965fbddc6f78628b04e0528299fdaa789a98f1204a7bddc5b9f0c2"
+        },
+        {
+          "path": "sources/MTH_2026AA/fix.vsrc.atoms.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "5bedc80feccd922b193d3c0b2f338d446f3bf28621e864ddfef639b42c9d4520"
+        },
+        {
+          "path": "sources/MTH_2026AA/genmmsysconfigs.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "ccc95a44ecf50b23d9fc8a174c535bc4dc99fc00ad97caa8c209017f71e2e627"
+        },
+        {
+          "path": "sources/MTH_2026AA/get.saidpts.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "f7bd7cf278645818e5ed89759f782c01d43ed3507388ed96c03d58cb863237e3"
+        },
+        {
+          "path": "sources/MTH_2026AA/guess.ncisources.spec.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "cdcafcea8d87a4e4ae042b030c154f96df089a951de025a4cbabccfd2aa369b9"
+        },
+        {
+          "path": "sources/MTH_2026AA/initdir.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "65f05cb5fa3543d0d39af29d4e6b6bf1e7ee28094369d305fa192f2180ece904"
+        },
+        {
+          "path": "sources/MTH_2026AA/inv1.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "e172c8055112017f02ba62072c9471a580c0d8a5763183fa0108c1289025d837"
+        },
+        {
+          "path": "sources/MTH_2026AA/inv2.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "88d6665fcf3e90be9d6206e3e92ec1099496bf43a1a73adb115e1a9e789cbe13"
+        },
+        {
+          "path": "sources/MTH_2026AA/inv3.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "184e02a0dcd44e58ebf16ab6c074cc50882d45b7ad4b18e780ac9e1f80c8bd8d"
+        },
+        {
+          "path": "sources/MTH_2026AA/invert1.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "abd7971efdf0d01091d0d23918ea8d1ab037706c70494be99aaa2d08e3090840"
+        },
+        {
+          "path": "sources/MTH_2026AA/invert2.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "b7e1a238007950fbc753bc6096775c4813ea32dc8e3b38174d54f3d94326ff18"
+        },
+        {
+          "path": "sources/MTH_2026AA/make.meme4classes.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "343237b79a7f789a17a959bf718d1d42f7250a89a8af324dcd697e00d688f01a"
+        },
+        {
+          "path": "sources/MTH_2026AA/make.meme4classes.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "d75b547b035082a327a14fb6adf6ddc4c11401094991da2d6c5eea4032e6ccc2"
+        },
+        {
+          "path": "sources/MTH_2026AA/make.sourcestermgroups.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "b293b1eab7e2c01c07d5dda31342efa2f71e909fe94989bfa1f2b8f591350a77"
+        },
+        {
+          "path": "sources/MTH_2026AA/mrcxt2raw3.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "5688ff43775cf4a7768f4ab5f2ebe6001f5af855071861e43aa540dd2b2e5494"
+        },
+        {
+          "path": "sources/MTH_2026AA/ncimid.readme",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "d4c22bee75d3d7ef7e0fa90e1c25fae6a5711efe5b51cd399f3d5c2d92a60f86"
+        },
+        {
+          "path": "sources/MTH_2026AA/ncirest.prop",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "9f99f8b0f7f2b8f16497d72be0b342715ac5f33bf20f0995c69663d7963af9b9"
+        },
+        {
+          "path": "sources/MTH_2026AA/ncisources.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "770d49565cb8f04e9aa4d2747d009c2fbda8c886e5e17f87030438cc2dbc79e2"
+        },
+        {
+          "path": "sources/MTH_2026AA/old",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "6860277fdc29102cecd57327a3c6e34a3c72ed0e78aa1e9eab37187ab672a591"
+        },
+        {
+          "path": "sources/MTH_2026AA/preinvert1.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "33927c1b9427782184ced1485a5ed602631d3ee8c454ea3900491806ed6fe830"
+        },
+        {
+          "path": "sources/MTH_2026AA/preinvert2.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "51c582a73a972e70fcb6078798623760dd078a53afaef2ef3f3f4c6b536ddbbe"
+        },
+        {
+          "path": "sources/MTH_2026AA/prev",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "6860277fdc29102cecd57327a3c6e34a3c72ed0e78aa1e9eab37187ab672a591"
+        },
+        {
+          "path": "sources/MTH_2026AA/range3.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "e5eee6e149ee5e9653fb9001bb92eacdc02aa794f209d44391eb27a3f5ff51f9"
+        },
+        {
+          "path": "sources/MTH_2026AA/raw_to_contexts.csh",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1"
+        },
+        {
+          "path": "sources/MTH_2026AA/remove.oldsrcvsabs.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "816bbd6c7bcc600b0f5fb7149598b6ac6bae136a27b2be87a4d1aca231300d29"
+        },
+        {
+          "path": "sources/MTH_2026AA/runQA.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "cb7337ac819fc4354d5a18fe1941a7addabf4bfd503142dd0a202e2649bf0214"
+        },
+        {
+          "path": "sources/MTH_2026AA/runmmsys.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "06a56c1a94b53874f848ced55d8a2ba59be929b0791bbb3517602661f703f0ff"
+        },
+        {
+          "path": "sources/MTH_2026AA/sab.vsab.map",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "3b47bacc4e48c7c51a4a8c6f0e96fd1ab98656afa50d18de8469be7e2b865b02"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/MRCONSO.RRF",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "3b36f95428159b7e67717f488059e55a8a770261843625473d85196da5f344dd"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/MRCUI.RRF",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "3d82f69beb16974f809b38fc3cd30fee6711f372fb73cbcbccb0ba9036aa9598"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/MRDEF.RRF",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "319838c061b11759542fad7be84fe62e908346a8bd1fd792960c6cb96b36751b"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/MRREL.RRF",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "8ead08b2e4d94ef0450b7f2cf54f754367d67756c46dc099c45c56678b0ad97c"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/MRSAT.RRF",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "b37f022c4a392b535c0b0130809613a771a2233118a13f2eb8cc6b9701d946c8"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/MRSTY.RRF",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "c877ac488853a818eb6981a3b37ce1de505455a8cfb387a30544f459df9a4c58"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/Meta",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "341c42ba7579f9e0c96c7421e08a39948ff3800f653bf1fa02194af41439abda"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/aui_said_map2",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "e801900b36eb5acada92efb0da61d9642d498665770c5ba97f9ca9513ab6bec1"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/bin",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "5ec1f7e700f37c3d0b2981d04855fc34b94aaa15457b05ca571817442d228f81"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/inv1.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "d37e95597c94056cbd9f7db3ae470eda449898837790ad4035a1c8907d3531a7"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/inv2.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/inv3.spec",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "d51bc362cd1c1f194bc3171cf3a028216c706ed274f2d67c387990da328a2738"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/rel_cui_said_map2",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "53aa3ba4945ae7e8d778e22e2a0ab737fb9b019224d432a955aa2060b23f7629"
+        },
+        {
+          "path": "sources/MTH_2026AA/src/src_data",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "abf573d0d5cb526cbf418f5a263fd11785310786b8feede31c9990aece9efff1"
+        },
+        {
+          "path": "sources/MTH_2026AA/src_data",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "fb3e47382e911af3177216a193bb6166471243a6f44abfffcc8a6554d332937c"
+        },
+        {
+          "path": "sources/MTH_2026AA/template.prop",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "108c195b01be7b92d8ad5f91a5cd142c475997f5bb960ba2ec68981b0b914d07"
+        },
+        {
+          "path": "sources/MTH_2026AA/updatevsabs.pl",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "eef63b30752c2a956b88be52321ec28aa4fd6414bf4b0dbee602b4b256603dc6"
+        },
+        {
+          "path": "sources/MTH_2026AA/updatevsabs.s",
+          "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "sha256": "f9f1edeb7cd7403e403ccbd3ab8d813194f293687a849b4e6a3acc1e3f7b6d74"
+        }
+      ],
+      "selected_runtime_entry_points": [
+        {
+          "path": "INV/bin/SRCbuilder.pl",
+          "ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282"
+        },
+        {
+          "path": "INV/bin/print.raw3.to.attributes.pl",
+          "ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "sha256": "5928fa07f0ddcdc41bee494a5d57ec0b7d562c4016fa05b2f8c0a009b4325437"
+        },
+        {
+          "path": "ENV/bin/env.pl",
+          "ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "sha256": "2bd5418bf853a15368c44a4916a53cd6d131b1e04582fba7d4562f73181edf0d"
+        }
+      ],
+      "adapter": {
+        "path": "tools/replay_mth_core.py",
+        "ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+        "sha256": "25e518e0c39df7b908e9c8115b5717223e217b3b55a9aa3527ce614e8a562553"
+      }
+    }
+  },
+  "limits": [
+    "Applies only to the exact captured source cases, runtime pair and selected core execution paths.",
+    "This static evidence is not a general dynamic Perl dependency proof.",
+    "Affected NCI, MDR and RADLEX still require complete native executions and independent comparison.",
+    "Does not claim an alternate-runtime SNOMED or MTH full execution, metadata QA or insertion coverage."
+  ]
+}
