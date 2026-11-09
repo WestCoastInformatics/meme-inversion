@@ -499,6 +499,120 @@ def review_corrections(lock, target, run, result):
                             'raw_comparison_preserved': True, 'production_eligible': False}
 
 
+def verify_audit_review(capsule):
+    unsigned = {key: value for key, value in capsule.items() if key != 'capsule_sha256'}
+    if capsule.get('capsule_sha256') != digest(unsigned) or capsule.get('artifact_type') != 'ncimeta-mth-audit-review' or capsule.get('schema_version') != 1:
+        raise ValueError('Invalid audit review capsule')
+    for key in ('parent_run_id', 'review_id'):
+        if not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,70}', capsule[key]):
+            raise ValueError('Invalid audit review identity')
+    if capsule['parent_run_id'] == capsule['review_id'] or not re.fullmatch(r'[0-9a-f]{40}', capsule['apparatus_ref']):
+        raise ValueError('A new review identity and pinned apparatus are required')
+
+
+def audit_parent(parent_id):
+    parent = CONTROL / parent_id
+    if parent.is_symlink() or not parent.is_dir():
+        raise RuntimeError('Expected a regular parent control directory')
+    names = ('case.lock.json', 'raw-result.json', 'status.json')
+    if any((parent / name).is_symlink() or not (parent / name).is_file() for name in names):
+        raise RuntimeError('Parent lock, completed raw result and failed status are required')
+    lock, raw, state = (json.loads((parent / name).read_text()) for name in names)
+    target = verify_lock(lock)
+    if lock['run_id'] != parent_id or not correction_profile(lock):
+        raise RuntimeError('Parent is not the reviewed MTH correction case')
+    if state.get('status') != 'failed' or 'correction-audit' not in state.get('error', ''):
+        raise RuntimeError('Only a failed correction audit can be retried by this operation')
+    if not raw['comparison']['validation']['passed'] or not raw['comparison']['validation']['identity_state']['passed']:
+        raise RuntimeError('Completed clean core/identity validation is required before audit retry')
+    expected = {key: lock['request'][key] for key in ('source', 'version', 'engine_ref')}
+    expected['run_id'] = parent_id
+    if any(raw.get(key) != value for key, value in expected.items()) or raw.get('acceptance', {}).get('status') != 'DIFFERENCES_REQUIRE_REVIEW':
+        raise RuntimeError('Parent raw result identity or verdict differs from its correction case')
+    output_names = {item['output_name'] for item in lock['case']['legacy_case']['reference_files']}
+    if len(output_names) != 23 or set(raw['comparison']['files']) != output_names or raw.get('input_engine_runtime_and_output_hashes_verified_after_run') is not True:
+        raise RuntimeError('Completed verification of all 23 parent outputs is required')
+    return lock, raw, target, {name: sha(parent / name) for name in names}
+
+
+def install_apparatus(run, capsule):
+    apparatus = run / 'apparatus';apparatus.mkdir()
+    hashes = {Path(item['repository_path']).name: item['sha256'] for item in capsule['provenance'] if item['repository_path'].startswith('tools/')}
+    for name, encoded in capsule['modules_b64'].items():
+        if Path(name).name != name or not name.endswith('.py'):
+            raise ValueError('Invalid apparatus name')
+        raw = base64.b64decode(encoded, validate=True)
+        if hashlib.sha256(raw).hexdigest() != hashes.get(name):
+            raise ValueError('Apparatus differs from frozen provenance')
+        (apparatus / name).write_bytes(raw);(apparatus / name).chmod(0o444)
+    return apparatus
+
+
+def launch_audit_review(capsule):
+    """Retry only the audit in a new control directory; never change the failed run."""
+    guard();verify_audit_review(capsule)
+    run = CONTROL / capsule['review_id']
+    if run.exists() or run.is_symlink():
+        raise FileExistsError('Review identity already exists')
+    with runtime_lock(ROOT) as held:
+        idle()
+        lock, raw, target, snapshot = audit_parent(capsule['parent_run_id'])
+        runtime(lock)
+        if available_memory() < 24 * 1024 ** 3 or shutil.disk_usage(ROOT).free < 50 * 1024 ** 3:
+            raise RuntimeError('Dev capacity reserve is unavailable')
+        run.mkdir()
+        apparatus = install_apparatus(run, capsule)
+        request = run / 'review-request.json';save(request, capsule);request.chmod(0o444)
+        save(run / 'parent-records.json', snapshot);(run / 'parent-records.json').chmod(0o444)
+        entry = run / 'worker.py'
+        entry.write_text('import os,sys\nsys.dont_write_bytecode=True\nsys.path.insert(0,' + repr(str(apparatus)) + ')\n'
+                         'from inversion_worker import audit_review_worker\nwith os.fdopen(' + str(held.fileno()) + ", 'a') as held:\n audit_review_worker(" + repr(str(request)) + ',inherited_lock=held)\n')
+        entry.chmod(0o444)
+        save(run / 'status.json', {'status': 'launching', 'source': 'MTH', 'run_id': capsule['review_id'], 'parent_run_id': capsule['parent_run_id'], 'mode': 'correction-audit-only'})
+        with (run / 'worker.log').open('xb') as out:
+            process = subprocess.Popen([sys.executable, '-B', '-u', str(entry)], stdin=subprocess.DEVNULL,
+                                       stdout=out, stderr=subprocess.STDOUT, start_new_session=True,
+                                       close_fds=True, pass_fds=(held.fileno(),))
+        result = {'run_id': capsule['review_id'], 'parent_run_id': capsule['parent_run_id'], 'worker_pid': process.pid,
+                  'run_directory': str(run), 'launched_at': now(), 'capsule_sha256': capsule['capsule_sha256'], 'mode': 'correction-audit-only'}
+        save(run / 'launch.json', result)
+        return result
+
+
+def audit_review_worker(request_path, inherited_lock=None):
+    guard()
+    capsule = json.loads(Path(request_path).read_text());verify_audit_review(capsule)
+    run = Path(request_path).parent
+    state = {'source': 'MTH', 'version': 'MTH_2026AA', 'run_id': capsule['review_id'], 'parent_run_id': capsule['parent_run_id'],
+             'started_at': now(), 'status': 'auditing', 'mode': 'correction-audit-only', 'audit_apparatus_ref': capsule['apparatus_ref']}
+    save(run / 'status.json', state)
+    try:
+        with runtime_lock(ROOT, inherited_lock):
+            idle()
+            lock, raw, target, snapshot = audit_parent(capsule['parent_run_id'])
+            if snapshot != json.loads((run / 'parent-records.json').read_text()):
+                raise RuntimeError('Parent records changed after review launch')
+            import replay_mth_core
+            replay_mth_core.verify_inputs(package(lock), target)
+            verify_after(lock, target, copy.deepcopy(raw))
+            result = copy.deepcopy(raw)
+            review_corrections(lock, target, run, result)
+            if result['raw_result_sha256'] != snapshot['raw-result.json'] or audit_parent(capsule['parent_run_id'])[3] != snapshot:
+                raise RuntimeError('Original parent result or failure changed during review')
+            result.update(review_id=capsule['review_id'], parent_run_id=capsule['parent_run_id'],
+                          parent_result_completed_at=raw['completed_at'], completed_at=now(),
+                          conversion_apparatus_ref=lock['apparatus_ref'], audit_apparatus_ref=capsule['apparatus_ref'],
+                          audit_apparatus_provenance=capsule['provenance'], original_common_run_status='failed',
+                          common_request=lock['request'], lock_sha256=lock['lock_sha256'],
+                          mode='correction-audit-only', insertion_executed=False, production_eligible=False)
+            save(run / 'result.json', result)
+            state.update(status='complete', acceptance=result['acceptance'], completed_at=now())
+            save(run / 'status.json', state)
+    except BaseException as error:
+        state.update(status='failed', error=str(error), completed_at=now());save(run / 'status.json', state)
+        traceback.print_exc();raise
+
+
 def worker(lock_path, receipt_path=None, inherited_lock=None):
     guard()
     lock = json.loads(Path(lock_path).read_text())

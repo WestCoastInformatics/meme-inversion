@@ -103,6 +103,28 @@ def validate_module_dependencies(modules):
         raise ValueError('Frozen apparatus misses local imports: ' + ', '.join(sorted(missing)))
 
 
+def audit_review_capsule(parent_run_id, review_id):
+    for value in (parent_run_id, review_id):
+        if not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,70}', value):
+            raise ValueError('Invalid parent/review run identity')
+    if parent_run_id == review_id:
+        raise ValueError('Audit review needs a new identity; the failed run is preserved')
+    ref = commit('HEAD')
+    modules, provenance = {}, []
+    for name in MODULES:
+        path = 'tools/' + name
+        raw = blob(ref, path)
+        if raw != (ROOT / path).read_bytes():
+            raise ValueError('Commit apparatus changes before review: ' + path)
+        modules[name] = base64.b64encode(raw).decode()
+        provenance.append({'repository_path': path, 'sha256': hashlib.sha256(raw).hexdigest()})
+    validate_module_dependencies({name: base64.b64decode(raw) for name, raw in modules.items()})
+    result = {'schema_version': 1, 'artifact_type': 'ncimeta-mth-audit-review', 'parent_run_id': parent_run_id,
+              'review_id': review_id, 'apparatus_ref': ref, 'modules_b64': modules, 'provenance': provenance}
+    result['capsule_sha256'] = digest(result)
+    return result
+
+
 def select_case(request):
     validate(request, 'request.schema.json')
     registry = load(DOCS / 'source-registry.json')

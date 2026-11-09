@@ -75,6 +75,18 @@ The worker holds the same runtime lock from preparation through comparison, incl
 
 All data, code and output paths retain `/local/content/MEME/MEME5/...` and the canonical source/version layout. One explicit addition is `/local/content/MEME/MEME5/inv/qa/replay-requests/<run-id>` for persistent request/control evidence. Those records must survive replacement of a release directory. The inner legacy run records remain at their original source-specific QA paths. This addition does not relocate source data or inversion outputs.
 
+## Retry only a failed MTH correction audit
+
+The common interface can review an already completed corrected MTH conversion in a separately named audit-only run:
+
+```sh
+python3 -B tools/inversion_remote.py --socket /path/to/dev.sock retry-mth-audit --parent-run-id common-mth-corrections-20261106 --review-id common-mth-audit-review-20261109 --output audit-review-launch.json
+python3 -B tools/inversion_remote.py --socket /path/to/dev.sock status --source MTH --run-id common-mth-audit-review-20261109 --output audit-review-status.json
+python3 -B tools/inversion_remote.py --socket /path/to/dev.sock collect --source MTH --run-id common-mth-audit-review-20261109 --output audit-review-result.json
+```
+
+This operation requires the reviewed correction case, a failed audit status, all 23 completed outputs and clean core/identity validation. It freezes a new audit apparatus, pins the parent lock/raw-result/failed-status hashes and rechecks the source, inputs, runtime and outputs before auditing. The detached retry inherits the same global runtime lock. It preserves the parent raw result byte-for-byte and never regenerates or replaces source data. The result records conversion and audit apparatus identities separately, retains `original_common_run_status: failed`, and cannot approve insertion or production promotion. Existing review identities cannot be reused. Seventeen recovery checks pass locally/on dev, with 57 local request checks and real namespace tests. [Recovery evidence](audit-review-fixtures-20261109.json).
+
 ## Comparison and coverage
 
 The reference is selected per output, not by assuming the archive is one workflow stage. NCIt uses October `src`; SNOMED uses `src/attributes.orig` before insertion enrichment; MTH uses its frozen six core outputs plus identity/history/helper outputs. The reference archive is never restored wholesale as the candidate. MTH prepared subset inputs and prior MTH_2025AB identity state are explicit dependencies; regeneration of those preserved inputs is not required.

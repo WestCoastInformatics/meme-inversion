@@ -65,6 +65,14 @@ def check():
         return original_blob(ref, name)
     with patch.object(request, 'blob', side_effect=fixture_blob):
         locks = [request.resolve(value, 'fixture-' + str(number)) for number, value in enumerate(requests)]
+        review = request.audit_review_capsule('parent-mth-run', 'review-mth-run')
+    worker.verify_audit_review(review)
+    passed.append('Audit-only review freezes a separately identified committed apparatus')
+    rejected(lambda: request.audit_review_capsule('parent-mth-run', 'parent-mth-run'), 'Audit review cannot overwrite its failed parent identity')
+    rejected(lambda: request.audit_review_capsule('../parent', 'review-mth-run'), 'Unsafe parent run identity rejected before review')
+    program = remote.bootstrap_review(review)
+    compile(program.split('\n', 1)[1].rsplit('\nNCIM_COMMON_REVIEW', 1)[0], '<review-bootstrap>', 'exec')
+    passed.append('Audit-review bootstrap compiles without interpolated shell commands')
     modules = {name: base64.b64decode(raw) for name, raw in locks[0]['modules_b64'].items()}
     request.validate_module_dependencies(modules)
     passed.append('Frozen apparatus includes its repository Python import dependencies')

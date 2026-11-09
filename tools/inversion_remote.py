@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 
-from inversion_request import ADAPTERS, digest, load, write_new
+from inversion_request import ADAPTERS, audit_review_capsule, digest, load, write_new
 
 HOST = 'ncias-d3777-c.nci.nih.gov'
 SOURCES = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01', 'MTH': 'MTH_2026AA'}
@@ -45,6 +45,26 @@ with tempfile.TemporaryDirectory(prefix='ncim-request-') as temporary:
     return "python3 -B - <<'NCIM_COMMON_REQUEST'\n" + program + '\nNCIM_COMMON_REQUEST\nexit\n'
 
 
+def bootstrap_review(capsule):
+    payload = base64.b64encode(json.dumps(capsule).encode()).decode()
+    program = """import base64,hashlib,json,pathlib,sys,tempfile
+capsule=json.loads(base64.b64decode(PAYLOAD))
+hashes={pathlib.Path(x['repository_path']).name:x['sha256'] for x in capsule['provenance']}
+with tempfile.TemporaryDirectory(prefix='ncim-audit-review-') as temporary:
+ root=pathlib.Path(temporary)
+ for name,encoded in capsule['modules_b64'].items():
+  if pathlib.Path(name).name!=name or not name.endswith('.py'):raise ValueError('Invalid apparatus path')
+  raw=base64.b64decode(encoded,validate=True)
+  if hashlib.sha256(raw).hexdigest()!=hashes.get(name):raise ValueError('Apparatus differs')
+  (root/name).write_bytes(raw)
+ sys.path.insert(0,str(root));sys.dont_write_bytecode=True
+ from inversion_worker import launch_audit_review
+ result=launch_audit_review(capsule)
+ print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_REPLAY_RESULT',flush=True)
+""".replace('PAYLOAD', repr(payload))
+    return "python3 -B - <<'NCIM_COMMON_REVIEW'\n" + program + '\nNCIM_COMMON_REVIEW\nexit\n'
+
+
 def read_program(source, run_id, collect):
     if source not in SOURCES or not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,70}', run_id):
         raise ValueError('Invalid source or run identity')
@@ -61,7 +81,7 @@ locations=[pathlib.Path(x) for x in LOCATIONS]
 found=[locations[0].resolve()] if locations[0].is_dir() else sorted({x.resolve() for x in locations[1:] if x.is_dir()})
 if len(found)!=1:raise RuntimeError('No unique run directory')
 root=found[0]
-names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json'] if COLLECT else ['status.json','progress.json']
+names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json','parent-records.json'] if COLLECT else ['status.json','progress.json']
 result={'source':SOURCE,'run_id':RUN_ID,'run_directory':str(root),'records':{}}
 for name in names:
  path=root/name
@@ -116,6 +136,10 @@ def main():
         command.add_argument('--source', choices=tuple(ADAPTERS), required=True)
         command.add_argument('--run-id', required=True)
         command.add_argument('--output', required=True)
+    review = commands.add_parser('retry-mth-audit', help='Review completed MTH output in a new run; preserve the original failure')
+    review.add_argument('--parent-run-id', required=True)
+    review.add_argument('--review-id', required=True)
+    review.add_argument('--output', required=True)
     args = parser.parse_args()
     if Path(args.output).exists():
         raise ValueError('Output already exists; previous evidence is never overwritten')
@@ -123,6 +147,8 @@ def main():
         lock = load(args.lock)
         previous = load(args.previous_receipt) if getattr(args, 'previous_receipt', None) else None
         program = bootstrap(lock, args.command, previous)
+    elif args.command == 'retry-mth-audit':
+        program = bootstrap_review(audit_review_capsule(args.parent_run_id, args.review_id))
     else:
         program = read_program(args.source, args.run_id, args.command == 'collect')
     result = remote(program, args.socket, args.account)
