@@ -1,0 +1,92 @@
+{
+  "source": "MDR",
+  "version": "MDR_29_1",
+  "run_id": "mdr-baseline-20261109",
+  "status": "DIFFERENCES_REQUIRE_REVIEW",
+  "candidate_modified": false,
+  "attribute_rows": 2424867,
+  "aligned_changed_attribute_names": {
+    "CONTEXT": 189516,
+    "PT_IN_VERSION": 937523
+  },
+  "aligned_changed_fields_by_attribute_name": {
+    "CONTEXT": {
+      "1": 189515,
+      "4": 189516,
+      "13": 189516
+    },
+    "PT_IN_VERSION": {
+      "4": 937523
+    }
+  },
+  "history_line_endings": {
+    "input_rows": 937523,
+    "input_crlf_rows": 937523,
+    "rows": 937523,
+    "reference_values_with_carriage_return": 0,
+    "candidate_values_with_carriage_return": 937523,
+    "reference_row_equals_candidate_after_removing_value_carriage_returns_only": 937523,
+    "same_recorded_digest": 937523,
+    "reference_digest_matches_value_with_carriage_return": 937523
+  },
+  "other_non_context_rows_changed": 0,
+  "context_content_differences": {
+    "reference_only": 27,
+    "candidate_only": 27,
+    "affected_subject_ids": [
+      777143595,
+      777143597,
+      777143599,
+      777143601,
+      777143603,
+      777143605,
+      777143607,
+      777143609,
+      777143611,
+      777143613,
+      777143615,
+      777143617,
+      777143619,
+      777143621,
+      777143623,
+      777143625,
+      777143627,
+      777143629,
+      777143631,
+      777143633,
+      777143635,
+      777143637,
+      777143639,
+      777143641,
+      777143643,
+      777143645,
+      777143647
+    ],
+    "changed_tab_components": {
+      "5": 27
+    },
+    "only_sibling_list_order_changed": 27,
+    "only_child_list_order_changed": 0,
+    "same_sibling_name_multiset": 27,
+    "non_value_non_digest_fields_equal_excluding_generated_aid": 27
+  },
+  "scope": "Read-only diagnosis; no comparison waiver, output rewrite or production eligibility. Historical postprocessing cause is inferred, not an established operator history.",
+  "diagnostic_code": {
+    "repository_path": "tools/diagnose_mdr_characterization.py",
+    "sha256": "9a55bd65257a5db9727a3f3a4bb1df1dba5ce5c1dc202c0aafbdad986a5a6c70",
+    "scope": "Exact read-only program body executed against the completed dev MDR run; wrapper only supplied SSH and captured its JSON."
+  },
+  "source_ordering_trace": {
+    "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "source_path": "sources/MDR_29_1/bin/invert_mdr.pl:1099",
+    "runtime_paths": [
+      "INV/lib/Hierarchy.pm:getRoots",
+      "INV/lib/Hierarchy.pm:setRoot",
+      "INV/lib/Hierarchy.pm:getSiblings",
+      "INV/lib/Hierarchy.pm:dumpCxtsAttrs"
+    ],
+    "observed_code": "getRoots iterates unsorted hash keys; setRoot retains that order as root children; getSiblings retains child order; dumpCxtsAttrs joins sibling names into attribute values.",
+    "scope": "Code trace plus measured 27 sibling-list permutations; no controlled full-release multiseed experiment was run."
+  }
+}

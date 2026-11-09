@@ -50,23 +50,24 @@
       "release_frequency_affects_request_format": false,
       "characterization_summary_ref": "mth-2026aa-baseline-summary.json",
       "corrected_characterization_summary_ref": "mth-2026aa-consistency-summary.json",
-      "correction_audit_ref": "mth-2026aa-correction-audit-result.json"
+      "correction_audit_ref": "mth-2026aa-correction-audit-result.json",
+      "common_audit_recovery_result_ref": "common-mth-2026aa-audit-review-result.json"
     },
     "MDR": {
       "display_name": "MDR",
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "production code matches frozen official archive; pre-insertion attribute boundary and 16 starting inputs verified; unchanged-engine replay and independent acceptance pending",
+      "characterization_status": "fresh unchanged-engine conversion/comparison completed; atoms/relationships/merges exact and context record multiset equal; history CR/digest discrepancy plus 27 sibling-list order differences remain under review",
       "historical_cases_under_review": [
         "MDR_29_1"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Complete active input-consumer/runtime tracing and persistent-root validation; retain verified production runtime and saved identity anchors",
-        "Establish complete ID-bound provenance, typed source options and a reviewed case without inferring missing values",
-        "Run the unchanged engine on fresh dev outputs with exact per-output archive references and independent validation before enabling its common adapter"
+        "Resolve explicit history line-ending/digest policy and deterministic hierarchy sibling presentation; preserve the observed raw reference differences and findings.",
+        "Integrate the characterized source into a reviewed common case and typed source options, then test the complete common lifecycle; registration and source-specific execution do not enable the common adapter.",
+        "Keep upstream metadata generation, legacy database QA, insertion and production release approval separately scoped."
       ],
       "production_versions_inspected": [
         "MDR_29_1"
@@ -78,23 +79,25 @@
       "production_code_branch": "baseline/meme-edit-additions-20261105",
       "frozen_reference_ref": "mdr-29-1-reference.json",
       "archive_inventory_ref": "mdr-29-1-archive-inventory.json",
-      "reference_stage_review_ref": "additional-source-stage-review-20261106.json"
+      "reference_stage_review_ref": "additional-source-stage-review-20261106.json",
+      "characterization_result_ref": "mdr-29-1-fresh-characterization-result.json",
+      "characterization_summary_ref": "additional-source-characterization-summary.json"
     },
     "RADLEX": {
       "display_name": "RADLEX",
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "production code matches frozen official archive; pre-insertion attribute boundary and 3 starting inputs verified; unchanged-engine replay and independent acceptance pending",
+      "characterization_status": "fresh unchanged-engine prepared-input conversion plus all production cleanup stages passed declared strict equivalence and independent validation; full common-adapter lifecycle remains pending",
       "historical_cases_under_review": [
         "RADLEX_4_3"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Complete active input-consumer/runtime tracing and persistent-root validation; retain verified production runtime and saved identity anchors",
-        "Establish complete ID-bound provenance, typed source options and a reviewed case without inferring missing values",
-        "Run the unchanged engine on fresh dev outputs with exact per-output archive references and independent validation before enabling its common adapter"
+        "Obtain production reservation-end evidence for new releases; the historical emitted-ID bound is proved but is not a production allocation. Trace the upstream CSV preparation producer if publisher-input coverage is requested.",
+        "Integrate the characterized source into a reviewed common case and typed source options, then test the complete common lifecycle; registration and source-specific execution do not enable the common adapter.",
+        "Keep upstream metadata generation, legacy database QA, insertion and production release approval separately scoped."
       ],
       "production_versions_inspected": [
         "RADLEX_4_3"
@@ -106,7 +109,9 @@
       "production_code_branch": "baseline/meme-edit-additions-20261105",
       "frozen_reference_ref": "radlex-4-3-reference.json",
       "archive_inventory_ref": "radlex-4-3-archive-inventory.json",
-      "reference_stage_review_ref": "additional-source-stage-review-20261106.json"
+      "reference_stage_review_ref": "additional-source-stage-review-20261106.json",
+      "characterization_result_ref": "radlex-4-3-fresh-characterization-result.json",
+      "characterization_summary_ref": "additional-source-characterization-summary.json"
     }
   }
 }

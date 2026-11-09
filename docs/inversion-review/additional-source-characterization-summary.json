@@ -1,0 +1,93 @@
+{
+  "completed_at": "2026-11-09T18:36:22.481606+00:00",
+  "host": "ncias-d3777-c",
+  "account": "tomcata",
+  "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+  "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "apparatus_ref": "0a47a3d9d11ec6004249232cfdeb42b7bcfbf5ea",
+  "cases": {
+    "MDR": {
+      "version": "MDR_29_1",
+      "run_id": "mdr-baseline-20261109",
+      "status": "DIFFERENCES_REQUIRE_REVIEW",
+      "all_five_exact": false,
+      "independent_checks": {
+        "reference": false,
+        "candidate": true
+      },
+      "files": {
+        "classes_atoms.src": {
+          "exact": true,
+          "reference_rows": 122629,
+          "candidate_rows": 122629
+        },
+        "attributes.src": {
+          "exact": false,
+          "reference_rows": 2424867,
+          "candidate_rows": 2424867
+        },
+        "relationships.src": {
+          "exact": true,
+          "reference_rows": 290097,
+          "candidate_rows": 290097
+        },
+        "mergefacts.src": {
+          "exact": true,
+          "reference_rows": 37472,
+          "candidate_rows": 37472
+        },
+        "contexts.src": {
+          "exact": false,
+          "reference_rows": 1883398,
+          "candidate_rows": 1883398
+        }
+      },
+      "input_code_runtime_output_hashes_verified_after_run": true,
+      "result_ref": "mdr-29-1-fresh-characterization-result.json"
+    },
+    "RADLEX": {
+      "version": "RADLEX_4_3",
+      "run_id": "radlex-baseline-20261109",
+      "status": "PASS_EQUIVALENT",
+      "all_five_exact": false,
+      "independent_checks": {
+        "reference": true,
+        "candidate": true
+      },
+      "files": {
+        "classes_atoms.src": {
+          "exact": true,
+          "reference_rows": 69022,
+          "candidate_rows": 69022
+        },
+        "attributes.src": {
+          "exact": false,
+          "reference_rows": 59774,
+          "candidate_rows": 59774
+        },
+        "relationships.src": {
+          "exact": true,
+          "reference_rows": 44859,
+          "candidate_rows": 44859
+        },
+        "mergefacts.src": {
+          "exact": true,
+          "reference_rows": 22093,
+          "candidate_rows": 22093
+        },
+        "contexts.src": {
+          "exact": false,
+          "reference_rows": 46899,
+          "candidate_rows": 46899
+        }
+      },
+      "input_code_runtime_output_hashes_verified_after_run": true,
+      "result_ref": "radlex-4-3-fresh-characterization-result.json"
+    }
+  },
+  "inverter_source_code_modified": false,
+  "common_adapter_integration_executed": false,
+  "production_eligible": false,
+  "insertion_executed": false,
+  "stopping_boundary": "Both requested fresh inversions and comparisons completed; stop before source fixes, additional inversions or common-adapter enablement."
+}

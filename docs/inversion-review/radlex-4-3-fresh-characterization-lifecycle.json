@@ -1,0 +1,200 @@
+{
+  "source": "RADLEX",
+  "run_id": "radlex-baseline-20261109",
+  "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/radlex-baseline-20261109",
+  "records": {
+    "status.json": {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "run_id": "radlex-baseline-20261109",
+      "started_at": "2026-11-09T18:33:12.128967+00:00",
+      "status": "complete",
+      "worker_pid": 1162325,
+      "conversion_completed_at": "2026-11-09T18:36:12.414128+00:00",
+      "acceptance_status": "PASS_EQUIVALENT",
+      "completed_at": "2026-11-09T18:36:22.481606+00:00"
+    },
+    "progress.json": {
+      "stage": "remove-duplicate-attributes",
+      "pid": 1166236,
+      "elapsed_seconds": 0,
+      "sampled_peak_resident_bytes": 5713920,
+      "available_memory_bytes": 27591753728
+    },
+    "launch.json": {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "run_id": "radlex-baseline-20261109",
+      "worker_pid": 1162325,
+      "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/radlex-baseline-20261109",
+      "capsule_sha256": "9d652f634ed86250a42027ba0081d7404d22df027680625ed3c271787d895b01",
+      "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "apparatus_ref": "0a47a3d9d11ec6004249232cfdeb42b7bcfbf5ea",
+      "launched_at": "2026-11-09T18:33:12.043134+00:00",
+      "scope": "Fresh source-specific baseline characterization, not a completed common-adapter integration"
+    },
+    "preparation.json": {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "input_files": [
+        {
+          "relative_path": "orig/radlex_pipe.txt",
+          "bytes": 16332047,
+          "sha256": "e0e069dfc135425e29a76feb8e8f173250227f246fa7418a4b2249c3dfe1a759",
+          "newline_count": 46901
+        },
+        {
+          "relative_path": "src/sources.src",
+          "bytes": 707,
+          "sha256": "fe3a3c3e1337fc9fb6f75985a4fd3f11750b505f96157b59a5d8ae726233d3b1",
+          "newline_count": 1
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "bytes": 193,
+          "sha256": "4b7c3bae5294af646c4f0b44d5423dc730cea6765567f5a4850301e5b6e9db98",
+          "newline_count": 5
+        }
+      ],
+      "code_files": [
+        {
+          "relative_path": "bin/concat.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "b25ff7b72ede6e39a192df94ce096cc2e64c286f9ddfbeec46b346143702e90b"
+        },
+        {
+          "relative_path": "bin/default.sty-v2.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "3e8d85c8a2aa922543bf115b4c22c6ded6fefebd69adb3985cf80db1daa826d7"
+        },
+        {
+          "relative_path": "bin/find_dup_sys.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "b9cd653a16ec6a6f35edb11d2bc9bb057314148f9cd6a49539c1f76cae378095"
+        },
+        {
+          "relative_path": "bin/id_mismatched_code_merges.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "95a6cce57a768e038e9bde64fb22ca8f8b56f382646d56f545cef7e0d8e82163"
+        },
+        {
+          "relative_path": "bin/invert_RADLEX.s",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "2c3a1358e2adda20ffc9b51298eccdd54711ba3d0a708745108bf10e265008a1"
+        },
+        {
+          "relative_path": "bin/make.par_chd_rels.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "8bb8a769aaa30255535dfb9056978a645bc1b81df4cbffb0598e41caca9b2790"
+        },
+        {
+          "relative_path": "bin/make_vb.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "c9d4330efe20cac983ae6a76a9dc84e68ce9af63e35774b6f01cccd10edc73a1"
+        },
+        {
+          "relative_path": "bin/makesrc.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "7b0b770eb57be8c9a8849c5f20f0c560c49c654350ea1b36d9e30a3d6b52e657"
+        },
+        {
+          "relative_path": "bin/multi_relas_same_code.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "95f4147d136e5b3eaceb2f1059a1b951aca78aab3544a618f4b2c506306fffec"
+        },
+        {
+          "relative_path": "bin/no_sty_term_ids.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "a38024da4ec5cf3f469b1df82b749d72f4c926c695a6f814e90c5683e0c3866c"
+        },
+        {
+          "relative_path": "bin/print.stys.meme4-v2.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "c8dab9beeaa8143d3cbd17c39ed62f30ac3ed18f8e279ad0a0824c756f6ef4c8"
+        },
+        {
+          "relative_path": "bin/remove_cycles.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "701194e4aa02cccb701ce6cec69c1c72ac01388a18ec8040daf3a627b8b803a5"
+        },
+        {
+          "relative_path": "bin/remove_dup_attributes.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "1db96f50c93da37cb7a8a23c6feaef4b407cea24752e0d0e95f4ddffa68a53c2"
+        },
+        {
+          "relative_path": "bin/remove_dup_classes.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "ece1d4bff1013386d055bd909eb5486a6cb5d98bd97062a1ec7c7e2fb83948ed"
+        },
+        {
+          "relative_path": "bin/remove_dup_rels.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "d8303f5f81913433d4584d4a982d21d2fb9d1d3c539f8f49218e80cabb53e571"
+        },
+        {
+          "relative_path": "bin/stys.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "6299a72110421ef3ba2ea1187063d08e836c7e5d579b9bc2fe5e47f8a4111d0c"
+        },
+        {
+          "relative_path": "bin/treepos.pl",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "0982df2f7bf54e02370bc9ef2ca24b502ccbaef09df06dc2d16c55e8a9244bec"
+        },
+        {
+          "relative_path": "etc/RADLEX.cfg",
+          "kind": "file",
+          "mode": "0o644",
+          "sha256": "69151d88721479d4b7651287757c7f9a964687f31e63aa24a40222366c36c60d"
+        },
+        {
+          "relative_path": "etc/README.INVERSION",
+          "kind": "file",
+          "mode": "0o755",
+          "sha256": "797054c44b308ec8f410d0b879b099ca4c6b39fef886a5c372b5c6b09e97d1fc"
+        }
+      ],
+      "starting_stage": "prepared",
+      "replacement_baseline": "RADLEX_4_1",
+      "saved_external_root": {
+        "said": 116482203,
+        "code": "V-RADLEX"
+      },
+      "generated_outputs_seeded": false,
+      "insertion_executed": false,
+      "prepared_at": "2026-11-09T18:33:14.924324+00:00"
+    }
+  },
+  "launch": {
+    "source": "RADLEX",
+    "version": "RADLEX_4_3",
+    "run_id": "radlex-baseline-20261109",
+    "worker_pid": 1162325,
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/radlex-baseline-20261109",
+    "capsule_sha256": "9d652f634ed86250a42027ba0081d7404d22df027680625ed3c271787d895b01",
+    "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "apparatus_ref": "0a47a3d9d11ec6004249232cfdeb42b7bcfbf5ea",
+    "launched_at": "2026-11-09T18:33:12.043134+00:00",
+    "scope": "Fresh source-specific baseline characterization, not a completed common-adapter integration"
+  }
+}
