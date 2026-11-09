@@ -1,0 +1,209 @@
+{
+  "source": {
+    "checks": [
+      "Actual appender produces clean values and matching digests: lf",
+      "Actual appender produces clean values and matching digests: crlf",
+      "Actual appender produces clean values and matching digests: mixed-eof",
+      "LF, CRLF and mixed endings/no final newline produce identical attribute bytes",
+      "Unexpected embedded carriage returns reject the input",
+      "Actual corrected MDR hierarchy function and stable serializers produce identical context/attribute bytes for four hash seeds",
+      "Stable ordering preserves every multiple-root/multiple-parent hierarchy record and sibling pair",
+      "Production serializer control still exposes generated-ID/order variation"
+    ],
+    "hash_seed_fixture": {
+      "production-serializer": [
+        {
+          "seed": "1",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "8cefdcc31886f8a3d223e8cf8d7e7b02c908d4871bfa23cc0d3240ca22e5a642",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "60697d01c25188b994ac83e7eb15e6fb887bfcf0c34c3c1de5fd9383fc79f170",
+            "record_multiset_sha256": "bd871eed204b00fb3e250f94a554fdb5823bcf1db2d816ed2d0fa00d1d240f43"
+          }
+        },
+        {
+          "seed": "2",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "762ed3dbd67a943d1c27dffb3212033fb3252613a7fdb801eaf7958d4eb1de17",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "1da3707b3a43f303176494884ecbcf6bd990cc496ad2a9f6f68416bef92e7659",
+            "record_multiset_sha256": "c7d8999919d2b1fc6be26586d8f86aaf24695661f55afe44d7dbc688292b7598"
+          }
+        },
+        {
+          "seed": "17",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "f21b645b5cafe547ebc1726c513b615b793cb65136bf4068a92b5f988cb8fa00",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "2fe1b7a04a4568e63c00b511d59bb1f75ca7845c27365acd2877c992100f1e87",
+            "record_multiset_sha256": "640f3289a81bc8ea404449bafac5d2286fe8b66ead5bfb0a1d185582af7ca123"
+          }
+        },
+        {
+          "seed": "12345",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "cd6175a43642b829ea4162b5408228dd017f501260a583d818c975f258a86270",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "d4b252fe6fa1bab1e56198f2b288beea15009b743b2dbb48c85e28d23492a77c",
+            "record_multiset_sha256": "735808c575c6526fd0dea548935b895f154df523dd58d668bae45ae2a7f13638"
+          }
+        }
+      ],
+      "stable-serializer": [
+        {
+          "seed": "1",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "14837be41fead80c66c6d71de52d4521150e2f7894dec05522f5e816d78ea78e",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "ba9c3e6ff7fa6e83056cec4deeae34878ea9dee4c787f253ef126ab5ca8c3496",
+            "record_multiset_sha256": "11890e48f4edffb21364b8263a80232ef176f0f872358cb95b23044d9f0355fe"
+          }
+        },
+        {
+          "seed": "2",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "14837be41fead80c66c6d71de52d4521150e2f7894dec05522f5e816d78ea78e",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "ba9c3e6ff7fa6e83056cec4deeae34878ea9dee4c787f253ef126ab5ca8c3496",
+            "record_multiset_sha256": "11890e48f4edffb21364b8263a80232ef176f0f872358cb95b23044d9f0355fe"
+          }
+        },
+        {
+          "seed": "17",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "14837be41fead80c66c6d71de52d4521150e2f7894dec05522f5e816d78ea78e",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "ba9c3e6ff7fa6e83056cec4deeae34878ea9dee4c787f253ef126ab5ca8c3496",
+            "record_multiset_sha256": "11890e48f4edffb21364b8263a80232ef176f0f872358cb95b23044d9f0355fe"
+          }
+        },
+        {
+          "seed": "12345",
+          "perl_version": "v5.32.1",
+          "contexts": {
+            "rows": 15,
+            "sha256": "14837be41fead80c66c6d71de52d4521150e2f7894dec05522f5e816d78ea78e",
+            "record_multiset_sha256": "beaab0e5a7e4887aae1a1a4d89e6cf6ba529506bc4587be990ce31947f448a22"
+          },
+          "attributes": {
+            "rows": 13,
+            "sha256": "ba9c3e6ff7fa6e83056cec4deeae34878ea9dee4c787f253ef126ab5ca8c3496",
+            "record_multiset_sha256": "11890e48f4edffb21364b8263a80232ef176f0f872358cb95b23044d9f0355fe"
+          }
+        }
+      ]
+    },
+    "candidate_source_paths": "/tmp/mdr-correction-fixtures-rqh0_2iy/candidate",
+    "stable_hierarchy_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "production_hierarchy_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0"
+  },
+  "runtime": [
+    "Original shared library is preserved read-only before activation",
+    "All 169 production runtime hashes and exact previous metadata/modes are restored",
+    "Failed activation restores original library and receipt bytes",
+    "Failed restoration retains matching active library and metadata",
+    "Unknown installed runtime is rejected before replacement"
+  ],
+  "preparation": [
+    "MDR starts from exact declared inputs and Git code, without official outputs",
+    "MDR existing candidate cannot be overwritten",
+    "MDR rejects missing-input",
+    "MDR rejects seeded-output",
+    "MDR rejects wrong-version",
+    "MDR rejects missing-script",
+    "MDR frozen input mutation fails closed",
+    "RADLEX starts from exact declared inputs and Git code, without official outputs",
+    "RADLEX existing candidate cannot be overwritten",
+    "RADLEX rejects missing-input",
+    "RADLEX rejects seeded-output",
+    "RADLEX rejects wrong-version",
+    "RADLEX rejects missing-script",
+    "RADLEX frozen input mutation fails closed",
+    "Capsule mutation is rejected before launch"
+  ],
+  "comparison": [
+    "All five exact files pass with independent validation",
+    "Only the saved external source root is accepted outside newly generated atoms",
+    "Complete context rows and proved CONTEXT-only ID permutation are equivalent",
+    "Original semantic types remain in the core comparison",
+    "Unreviewed change rejected: atom-content",
+    "Unreviewed change rejected: lost-duplicate",
+    "Unreviewed change rejected: non-context-id",
+    "Unreviewed change rejected: qualifier",
+    "Unreviewed change rejected: context-endpoint",
+    "Byte equality retains independent reference findings: orphan",
+    "Byte equality retains independent reference findings: duplicate-aid",
+    "Byte equality retains independent reference findings: unknown-termgroup",
+    "Generated-ID references prevent attribute-ID equivalence"
+  ],
+  "free_disk_gib": 50.42,
+  "correction_audit": [
+    "Exact native-derived history corrections and complete generated context ID prediction pass",
+    "Original raw difference/reference-digest verdict remains unchanged",
+    "Audit rejects unrelated-value",
+    "Audit rejects wrong-generated-id",
+    "Audit rejects missing-history"
+  ],
+  "tested_modules_sha256": {
+    "inversion_worker.py": "73f4858eff9e02deb57a24799ff26ab62ca0f3a8505c69bfb05f3df817d2e6c2",
+    "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "replay_mth_core.py": "25e518e0c39df7b908e9c8115b5717223e217b3b55a9aa3527ce614e8a562553",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "replay_framework_core.py": "2753d997bdcfe6f29036287fccd39f1bd01340697aa9ddf399acfa4aba95f06c",
+    "compare_framework_core.py": "8123f6c14099946c7ecd07d495ae562ef5f54b86c448e66abad305ab0645fa8d",
+    "audit_mdr_corrections.py": "f1901936b28d9b156544af2932e2252a78048d1548f9f5f432b972416348b60c",
+    "mdr_correction_runtime.py": "856459d95d5b46daf8149f4bc7eb63dc122138d2232256d7f4fd8bea28961e9d",
+    "check_mdr_corrections.py": "6313092e4fa13fe8f48755422469266af1ff59220e04099302c556d3f53b9968",
+    "check_mdr_runtime.py": "57c307973752b153a6ec2b02a259b8085eaeba88af0630a57086420257fd30f6",
+    "check_framework_preparation.py": "550b6d6569b600bd946069d2883df1b7183aa3a91302830f9c77bb8bc3238a35",
+    "check_framework_comparison.py": "d2dcbd083422b03abdf98dad681285b6e55aa66d2772e8025c2ea0f5a879a459",
+    "check_mdr_correction_audit.py": "4bead2783b5255e658df3d2a5db2f6d6ecf4de41cad5a451e7926abe28d2cbe7"
+  }
+}

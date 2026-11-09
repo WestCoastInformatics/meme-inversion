@@ -22,6 +22,8 @@ from replay_process import available_memory, execute, runtime_lock
 
 ROOT = Path('/local/content/MEME/MEME5/inv')
 ENGINE = '36f1e10aeadb9faa184fd386573f82e6dd9b53c8'
+MDR_ENGINE = 'dd7ae6610557074c1b7b66690538a0591987d056'
+MDR_RUNTIME = 'bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09'
 CASES = {'MDR': ('MDR_29_1', 777143593, 124407941, 'V-MDR'),
          'RADLEX': ('RADLEX_4_3', 767743593, 116482203, 'V-RADLEX')}
 SCRIPTS = {'MDR': ['invert_mdr.pl', 'append_atn.pl'],
@@ -51,8 +53,11 @@ def guard(package, target):
     if socket.gethostname().split('.')[0]!='ncias-d3777-c' or pwd.getpwuid(os.getuid()).pw_name!='tomcata':
         raise RuntimeError('Framework replay requires tomcata on dev')
     expected=CASES.get(package['source'])
-    if expected!=(package['version'],package['source_atom_ids']['start'],package['root_atom_id'],package['root_code']) or package['engine_ref']!=ENGINE:
+    corrected=package.get('case_variant')=='consistent-history-context'
+    engine=MDR_ENGINE if corrected and package['source']=='MDR' else ENGINE
+    if expected!=(package['version'],package['source_atom_ids']['start'],package['root_atom_id'],package['root_code']) or package['engine_ref']!=engine:
         raise RuntimeError('Unreviewed source/version/engine/identity contract')
+    if corrected and (package['source']!='MDR' or package.get('runtime_ref')!=MDR_RUNTIME or package.get('perl_hash_seed') not in ('1','12345')):raise RuntimeError('Unreviewed corrected MDR runtime/seed')
     if len(package['input_files'])!=len(INPUTS[package['source']]) or {x['relative_path'] for x in package['input_files']}!=INPUTS[package['source']]:
         raise RuntimeError('The complete reviewed starting input set is required')
     required_code={'bin/'+name for name in SCRIPTS[package['source']]} | {'etc/'+('MDR.cfg' if package['source']=='MDR' else 'RADLEX.cfg')}
@@ -73,8 +78,26 @@ def verify_capsule(package):
     guard(package,ROOT/'sources'/package['version'])
 
 
-def capacity():
-    if available_memory()<24*1024**3 or shutil.disk_usage(ROOT).free<50*1024**3:raise RuntimeError('Dev capacity reserve is unavailable')
+def capacity(package=None):
+    # Measured MDR retained outputs are <1.2 GiB/run; comparison scratch <6 GiB.
+    # The bounded correction case keeps 12 GiB reserve plus an 8 GiB work budget.
+    minimum=20 if package and package.get('case_variant')=='consistent-history-context' else 50
+    if available_memory()<24*1024**3 or shutil.disk_usage(ROOT).free<minimum*1024**3:raise RuntimeError('Dev capacity reserve is unavailable')
+
+
+def inspect_previous(package,expected_run):
+    verify_capsule(package);target=ROOT/'sources'/package['version']
+    if package['source']!='MDR':raise RuntimeError('Correction preservation is scoped to MDR')
+    from inversion_worker import idle,manifest,digest
+    with runtime_lock(ROOT):
+        idle();state=json.loads((target/'etc/replay-active-run.json').read_text())
+        if state.get('status')!='complete' or state.get('run_id')!=expected_run:raise RuntimeError('Previous completed MDR run differs')
+        result_path=ROOT/'qa/replay-requests'/expected_run/'result.json';result=json.loads(result_path.read_text())
+        if result['run_id']!=expected_run or result['engine_ref']!=state['engine_ref']:raise RuntimeError('Previous MDR result differs')
+        for name,item in result['comparison']['files'].items():require(target/'src'/name,item['candidate']['sha256'])
+        receipt={'source':'MDR','version':target.name,'root_mode':oct(target.stat().st_mode&0o777),'manifest':manifest(target),
+                 'previous_run_id':expected_run,'previous_result_sha256':sha(result_path)}
+        receipt['receipt_sha256']=digest(receipt);return receipt
 
 
 def launch(package):
@@ -84,8 +107,9 @@ def launch(package):
     if (ROOT/'qa').is_symlink() or control.is_symlink():raise RuntimeError('Unexpected control path symlink')
     with runtime_lock(ROOT) as held:
         from replay_mth_core import idle
-        idle();capacity()
-        if target.exists():raise RuntimeError('Characterization requires an absent candidate directory; preserve existing work separately')
+        idle();capacity(package)
+        if target.exists() and not package.get('previous_source_receipt'):raise RuntimeError('Existing candidate requires an immutable preservation receipt')
+        if package.get('previous_source_receipt') and package.get('case_variant')!='consistent-history-context':raise RuntimeError('Only reviewed corrected MDR cases may preserve a predecessor')
         for item in package['runtime_files']:require(ROOT/relative(item['relative_path']),item['sha256'])
         require(Path(package['archive_path']),package['archive_sha256'])
         control.mkdir(parents=True,exist_ok=True);run=control/package['run_id'];run.mkdir()
@@ -187,7 +211,9 @@ def worker(package_path, inherited_lock=None):
     def stage(name,script,syntax=False):
         print('PHASE: '+name,flush=True)
         command=['/usr/bin/perl']+(['-c'] if syntax else [])+[str(target/'bin'/script)]
-        stages[name]=execute(command,cwd=target/'bin',stdout=run/(name+'.stdout.log'),stderr=run/(name+'.stderr.log'),env=os.environ.copy(),
+        env=os.environ.copy()
+        if package.get('perl_hash_seed'):env.update(PERL_HASH_SEED=package['perl_hash_seed'],PERL_PERTURB_KEYS='2')
+        stages[name]=execute(command,cwd=target/'bin',stdout=run/(name+'.stdout.log'),stderr=run/(name+'.stderr.log'),env=env,
                              progress=lambda metrics:save(run/'progress.json',{'stage':name,**metrics}),timeout=3600)
         save(run/'stages.json',stages)
     def preserve(name,label):
@@ -202,8 +228,19 @@ def worker(package_path, inherited_lock=None):
     try:
         with runtime_lock(ROOT,inherited_lock):
             from replay_mth_core import idle
-            idle();capacity()
-            preparation=prepare(package);prepared=True;save(run/'preparation.json',preparation);state_save()
+            idle();capacity(package)
+            preserved=None
+            if package.get('previous_source_receipt'):
+                from inversion_worker import preserve,restore
+                receipt=package['previous_source_receipt']
+                require(ROOT/'qa/replay-requests'/receipt['previous_run_id']/'result.json',receipt['previous_result_sha256'])
+                preserved=preserve(target,package['run_id'],receipt,before_publish=idle)
+            try:preparation=prepare(package)
+            except BaseException:
+                if preserved and not target.exists():restore(preserved,target,receipt)
+                raise
+            prepared=True;preparation['preserved_source']=str(preserved) if preserved else None
+            save(run/'preparation.json',preparation);state_save()
             verify_inputs(package,target)
             if any((target/'src'/name).exists() for name in comparison.OUTPUTS):raise RuntimeError('Candidate already contains generated outputs')
             for script in SCRIPTS[package['source']]:stage('syntax-'+script,script,True)
@@ -225,6 +262,16 @@ def worker(package_path, inherited_lock=None):
                     'input_engine_runtime_and_output_hashes_verified_after_run':True,'completed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
                     'capsule_sha256':package['capsule_sha256'],'apparatus_ref':package['apparatus_ref'],
                     'common_adapter_integration_executed':False,'insertion_executed':False,'production_eligible':False}
+            if package.get('case_variant')=='consistent-history-context':
+                save(run/'raw-result.json',result);(run/'raw-result.json').chmod(0o400)
+                from audit_mdr_corrections import audit
+                state.update(status='auditing');state_save()
+                reviewed=audit(package,target,run,result);save(run/'correction-audit.json',reviewed)
+                result['correction_audit']=reviewed;result['raw_acceptance']=result['acceptance']
+                result['acceptance']={'status':reviewed['status'],'raw_official_comparison_status':result['raw_acceptance']['status'],'all_five_exact':False,'independent_checks_passed':True}
+                result['runtime_ref']=package['runtime_ref'];result['perl_hash_seed']=package['perl_hash_seed']
+                verify_inputs(package,target)
+                for name,item in result['comparison']['files'].items():require(target/'src'/name,item['candidate']['sha256'])
             save(run/'result.json',result);state.update(status='complete',acceptance_status=result['acceptance']['status'],completed_at=result['completed_at']);state_save()
             print('RESULT: '+result['acceptance']['status'],flush=True)
     except BaseException as error:
