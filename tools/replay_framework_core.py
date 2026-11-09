@@ -91,12 +91,15 @@ def inspect_previous(package,expected_run):
     from inversion_worker import idle,manifest,digest
     with runtime_lock(ROOT):
         idle();state=json.loads((target/'etc/replay-active-run.json').read_text())
-        if state.get('status')!='complete' or state.get('run_id')!=expected_run:raise RuntimeError('Previous completed MDR run differs')
-        result_path=ROOT/'qa/replay-requests'/expected_run/'result.json';result=json.loads(result_path.read_text())
-        if result['run_id']!=expected_run or result['engine_ref']!=state['engine_ref']:raise RuntimeError('Previous MDR result differs')
-        for name,item in result['comparison']['files'].items():require(target/'src'/name,item['candidate']['sha256'])
+        if state.get('status') not in ('complete','failed') or state.get('run_id')!=expected_run:raise RuntimeError('Previous terminal MDR run differs')
+        filename='result.json' if state['status']=='complete' else 'status.json'
+        result_path=ROOT/'qa/replay-requests'/expected_run/filename;result=json.loads(result_path.read_text())
+        if result['run_id']!=expected_run or result['engine_ref']!=state['engine_ref']:raise RuntimeError('Previous MDR control record differs')
+        if state['status']=='complete':
+            for name,item in result['comparison']['files'].items():require(target/'src'/name,item['candidate']['sha256'])
+        elif result.get('status')!='failed' or result.get('error')!=state.get('error'):raise RuntimeError('Previous failure evidence differs')
         receipt={'source':'MDR','version':target.name,'root_mode':oct(target.stat().st_mode&0o777),'manifest':manifest(target),
-                 'previous_run_id':expected_run,'previous_result_sha256':sha(result_path)}
+                 'previous_run_id':expected_run,'previous_control_record':{'filename':filename,'sha256':sha(result_path)}}
         receipt['receipt_sha256']=digest(receipt);return receipt
 
 
@@ -231,13 +234,15 @@ def worker(package_path, inherited_lock=None):
             idle();capacity(package)
             preserved=None
             if package.get('previous_source_receipt'):
-                from inversion_worker import preserve,restore
+                from inversion_worker import preserve as preserve_source,restore as restore_source
                 receipt=package['previous_source_receipt']
-                require(ROOT/'qa/replay-requests'/receipt['previous_run_id']/'result.json',receipt['previous_result_sha256'])
-                preserved=preserve(target,package['run_id'],receipt,before_publish=idle)
+                record=receipt.get('previous_control_record') or {'filename':'result.json','sha256':receipt['previous_result_sha256']}
+                if record['filename'] not in ('result.json','status.json'):raise RuntimeError('Unexpected previous control record')
+                require(ROOT/'qa/replay-requests'/receipt['previous_run_id']/record['filename'],record['sha256'])
+                preserved=preserve_source(target,package['run_id'],receipt,before_publish=idle)
             try:preparation=prepare(package)
             except BaseException:
-                if preserved and not target.exists():restore(preserved,target,receipt)
+                if preserved and not target.exists():restore_source(preserved,target,receipt)
                 raise
             prepared=True;preparation['preserved_source']=str(preserved) if preserved else None
             save(run/'preparation.json',preparation);state_save()
