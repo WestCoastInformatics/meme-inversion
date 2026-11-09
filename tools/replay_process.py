@@ -73,14 +73,17 @@ def group_resident(group):
     return total
 
 
-def execute(command, *, cwd, stdout, stderr, env, progress, timeout=14400):
+def execute(command, *, cwd, stdout, stderr, env, progress, timeout=14400, namespace_user='root'):
+    if namespace_user not in ('root', 'current'):
+        raise ValueError('Unsupported user-namespace mapping')
     started = time.monotonic()
     peak = 0
     minimum_available = available_memory()
     def limit():
         resource.setrlimit(resource.RLIMIT_AS, (22 * 1024 ** 3, 22 * 1024 ** 3))
     with Path(stdout).open('xb') as out, Path(stderr).open('xb') as err:
-        process = subprocess.Popen(['unshare', '--user', '--map-root-user', '--net'] + command,
+        mapping = '--map-root-user' if namespace_user == 'root' else '--map-current-user'
+        process = subprocess.Popen(['unshare', '--user', mapping, '--net'] + command,
                                    cwd=cwd, env=env, stdin=subprocess.DEVNULL, stdout=out, stderr=err,
                                    start_new_session=True, preexec_fn=limit)
         try:
@@ -102,7 +105,8 @@ def execute(command, *, cwd, stdout, stderr, env, progress, timeout=14400):
             stop(process)
     result = {'exit_status': process.returncode, 'seconds': round(time.monotonic() - started, 2),
               'sampled_peak_process_group_resident_bytes': peak, 'minimum_available_memory_bytes': minimum_available,
-              'network': 'disabled', 'address_space_limit_bytes_per_child': 22 * 1024 ** 3}
+              'network': 'disabled', 'namespace_user': namespace_user,
+              'address_space_limit_bytes_per_child': 22 * 1024 ** 3}
     if process.returncode:
         raise RuntimeError('Stage exited ' + str(process.returncode) + '; see ' + str(stderr))
     return result

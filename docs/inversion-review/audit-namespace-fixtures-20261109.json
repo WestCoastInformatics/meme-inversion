@@ -1,0 +1,60 @@
+{
+  "tests": {
+    "check_audit_namespace.py": {
+      "exit_status": 0,
+      "stdout": "PASS root mapping retains separate network namespace\nPASS Actual audit guard rejects mapped root identity\nPASS current mapping retains separate network namespace\nPASS Actual audit guard accepts preserved tomcata identity offline\n4 audit namespace integration checks passed\n",
+      "stderr": ""
+    },
+    "check_replay_process.py": {
+      "exit_status": 0,
+      "stdout": "PASS successful stage retains exact output and zero exit\nPASS nonzero stage rejected with diagnostic log retained\nPASS capacity reserve stops the private process group\nPASS current-user namespace is explicitly selected and recorded\nPASS unknown namespace mapping rejected before any stage starts\n5 process-control checks passed\n",
+      "stderr": ""
+    },
+    "check_common_mth_acceptance.py": {
+      "exit_status": 0,
+      "stdout": "PASS Declared inputs are reverified after the correction audit\nPASS Only a successful bound audit grants correction acceptance\nPASS Raw comparison and original difference verdict remain unchanged\nPASS The complete raw result is independently preserved read-only\nPASS Accepted result binds the preserved raw result and exact audit report\nPASS Audit package identifies the actual common execution apparatus\nPASS Common collection retrieves raw comparison, independent audit and execution evidence together\nPASS A completed acceptance cannot be rerun over existing evidence\nPASS Correction profile rejects an unreviewed request source\nPASS Correction profile rejects an unreviewed request version\nPASS Correction profile rejects an unreviewed request case_variant\nPASS Correction profile rejects an unreviewed request engine_ref\nPASS Missing correction contract rejected\nPASS Missing frozen audit module rejected\nPASS Retained-identity validation cannot be disabled\nPASS Corrected source stages cannot be replaced with baseline shell fragments\nPASS Correction profile cannot select a different shared runtime\nPASS Failed acceptance remains closed: raw-run-identity\nPASS Rejected raw-run-identity cannot publish an accepted verdict\nPASS Failed acceptance remains closed: core-validation\nPASS Rejected core-validation cannot publish an accepted verdict\nPASS Failed acceptance remains closed: identity-validation\nPASS Rejected identity-validation cannot publish an accepted verdict\nPASS Failed acceptance remains closed: incomplete-outputs\nPASS Rejected incomplete-outputs cannot publish an accepted verdict\nPASS Failed acceptance remains closed: raw-verdict\nPASS Rejected raw-verdict cannot publish an accepted verdict\nPASS Failed acceptance remains closed: child-failure\nPASS Rejected child-failure cannot publish an accepted verdict\nPASS A failed audit retains the complete raw result for investigation\nPASS Failed acceptance remains closed: missing-report\nPASS Rejected missing-report cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-engine\nPASS Rejected wrong-engine cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-run\nPASS Rejected wrong-run cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-apparatus\nPASS Rejected wrong-apparatus cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-tool\nPASS Rejected wrong-tool cannot publish an accepted verdict\nPASS Failed acceptance remains closed: wrong-verdict\nPASS Rejected wrong-verdict cannot publish an accepted verdict\nPASS Failed acceptance remains closed: raw-rewritten\nPASS Rejected raw-rewritten cannot publish an accepted verdict\nPASS Failed acceptance remains closed: production-approval\nPASS Rejected production-approval cannot publish an accepted verdict\nPASS Failed acceptance remains closed: symlink-report\nPASS Rejected symlink-report cannot publish an accepted verdict\nPASS Failed acceptance remains closed: changed-raw-result\nPASS Rejected changed-raw-result cannot publish an accepted verdict\nPASS Failed acceptance remains closed: changed-output\nPASS Rejected changed-output cannot publish an accepted verdict\nPASS Failed acceptance remains closed: changed-input\nPASS Rejected changed-input cannot publish an accepted verdict\nPASS Exact comparison never inherits correction-profile acceptance\n55 common MTH acceptance checks passed\n",
+      "stderr": ""
+    }
+  },
+  "working_tree_sha256": {
+    "inversion_worker.py": "5ed5ed19c26cbcfd1bc1c81a1b946f3eb40b7e36fe2278998de88fe57e061898",
+    "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "replay_mth_core.py": "564d629803b3af57d231cbe22613e7a75224d736e9fff37ae5c45a031eb4189b",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "prepare_nci_candidate.py": "e3b68218ba0ea83e63b80832898d35e814be7f4db1fb5546a7f262af4aeacec3",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "aa8d9874151b053b4155455ebd9e057b500a5cd31a855b46585df7bfcc34998d",
+    "run_snomed_core_replay.py": "8895883048d4625f49fd12be674eefb454e61cd9981afb351f237799240c4bdc",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "check_audit_namespace.py": "41b223a1517212c7609a334fbf46a2867ac22c9884bd979c6c633ed32c64c7b7",
+    "check_replay_process.py": "ff019051ea1d77516af17cbd807652a2ddbff7e3ca0ca2721170439a5b612f32",
+    "check_common_mth_acceptance.py": "71667ef3d195ab46ba0658090f93b118022ee6a768ce5bc16d56e1f369ee925b",
+    "inversion_remote.py": "87a3fe86c7dee015ea336e387f9b6033e8e5810437401186eb8e13ce1ec20002",
+    "inversion_request.py": "6d5e35ea09bb010e2324e45ec2dcecfeaced5d0ee81c36c7433e50e64e8e9bcd"
+  },
+  "archived_proposal_range_evidence": {
+    "MDR_29_1": [],
+    "RADLEX_4_3": []
+  },
+  "environment_paths": {
+    "INV_HOME": "/local/content/MEME/MEME5/inv/INV",
+    "INV_HOME_OLD": "/local/content/MEME/MEME5/inv/INV_OLD",
+    "ENV_HOME": "/local/content/MEME/MEME5/inv/ENV",
+    "SRC_ROOT": "/local/content/MEME/MEME5/inv/sources",
+    "TMP_DIR": "/tmp",
+    "LC_COLLATE": "C"
+  },
+  "local_checks": {
+    "process_control": 5,
+    "mth_acceptance": 55,
+    "all_passed": true
+  },
+  "namespace_checks_executed_on": "dev Linux only; actual user/network namespaces and the real audit account guard"
+}

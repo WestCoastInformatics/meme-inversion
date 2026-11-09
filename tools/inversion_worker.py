@@ -469,7 +469,7 @@ def review_corrections(lock, target, run, result):
     metrics = execute([sys.executable, '-B', str(audit_path), str(package_path), str(target), str(run),
                        '--result', str(raw_path)], cwd=target / 'src',
                       stdout=run / 'correction-audit.stdout.log', stderr=run / 'correction-audit.stderr.log',
-                      env=os.environ.copy(), timeout=3600,
+                      env=os.environ.copy(), timeout=3600, namespace_user='current',
                       progress=lambda values: save(run / 'progress.json', {'stage': 'correction-audit', **values}))
     if metrics['exit_status'] != 0:
         raise RuntimeError('Independent correction audit failed')

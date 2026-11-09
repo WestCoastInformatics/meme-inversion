@@ -70,6 +70,7 @@ def check():
             assert command[-2:] == ['--result', str(run / 'raw-result.json')]
             assert json.loads((run / 'raw-result.json').read_text()) == original
             assert options['timeout'] == 3600
+            assert options['namespace_user'] == 'current'
             options['progress']({'elapsed_seconds': 1})
             audit.save_report(run / 'correction-audit.json', report)
             return {'exit_status': 0, 'network': 'disabled'}
