@@ -1,0 +1,42 @@
+{
+  "status": "PASS_DETERMINISTIC_REPLAY",
+  "source": "MDR",
+  "version": "MDR_29_1",
+  "engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+  "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "run_ids": [
+    "mdr-corrections-v2-seed1-20261109",
+    "mdr-corrections-v2-seed12345-20261109"
+  ],
+  "seeds": [
+    "1",
+    "12345"
+  ],
+  "files": {
+    "classes_atoms.src": {
+      "bytes": 12633021,
+      "sha256": "ff007d381397a650f996ed80214e54cabfd517548cd179295b4355c8f76d6d75",
+      "newline_count": 122629
+    },
+    "attributes.src": {
+      "bytes": 473425883,
+      "sha256": "27fac4ee718da4cc5d0ca875905dff2be00a4503f162034022c64ddd2e45a494",
+      "newline_count": 2424867
+    },
+    "relationships.src": {
+      "bytes": 31093019,
+      "sha256": "e7046ad38c12f7a30c6e32818e39e914d492414c55fe530698ff3ede4d8dbe49",
+      "newline_count": 290097
+    },
+    "mergefacts.src": {
+      "bytes": 2715516,
+      "sha256": "9409575c52b379e874d7a6b287b72aa692253811b1bf19f88b0107ef83d03e2e",
+      "newline_count": 37472
+    },
+    "contexts.src": {
+      "bytes": 191499397,
+      "sha256": "d0b53fca88712927334a12cecd7d0c7af3c79b56248390bfee5db743948dff3f",
+      "newline_count": 1883398
+    }
+  }
+}

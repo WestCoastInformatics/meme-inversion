@@ -1,0 +1,77 @@
+{
+  "status": "PASS_REVIEWED_CORRECTIONS_AND_REPEATABILITY",
+  "source": "MDR",
+  "version": "MDR_29_1",
+  "engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+  "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "apparatus_ref": "ace23c2256cbaf611fcb216b5815989cf4184a5a",
+  "completed_at": "2026-11-09T21:04:25.964150+00:00",
+  "run_ids": [
+    "mdr-corrections-v2-seed1-20261109",
+    "mdr-corrections-v2-seed12345-20261109"
+  ],
+  "hash_seeds": [
+    "1",
+    "12345"
+  ],
+  "all_five_byte_identical_between_fresh_runs": true,
+  "five_output_files": {
+    "classes_atoms.src": {
+      "bytes": 12633021,
+      "sha256": "ff007d381397a650f996ed80214e54cabfd517548cd179295b4355c8f76d6d75",
+      "newline_count": 122629
+    },
+    "attributes.src": {
+      "bytes": 473425883,
+      "sha256": "27fac4ee718da4cc5d0ca875905dff2be00a4503f162034022c64ddd2e45a494",
+      "newline_count": 2424867
+    },
+    "relationships.src": {
+      "bytes": 31093019,
+      "sha256": "e7046ad38c12f7a30c6e32818e39e914d492414c55fe530698ff3ede4d8dbe49",
+      "newline_count": 290097
+    },
+    "mergefacts.src": {
+      "bytes": 2715516,
+      "sha256": "9409575c52b379e874d7a6b287b72aa692253811b1bf19f88b0107ef83d03e2e",
+      "newline_count": 37472
+    },
+    "contexts.src": {
+      "bytes": 191499397,
+      "sha256": "d0b53fca88712927334a12cecd7d0c7af3c79b56248390bfee5db743948dff3f",
+      "newline_count": 1883398
+    }
+  },
+  "correction_audit": {
+    "status": "PASS_REVIEWED_CORRECTIONS",
+    "run_id": "mdr-corrections-v2-seed12345-20261109",
+    "engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+    "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "expected_attribute_sha256": "27fac4ee718da4cc5d0ca875905dff2be00a4503f162034022c64ddd2e45a494",
+    "ordinary_attributes_unchanged": 1297824,
+    "context_attributes_predicted_with_exact_ids": 189520,
+    "sibling_lists_reordered_to_stable_root_id_order": 27,
+    "history_attributes_predicted_from_preserved_native_input": 937523,
+    "archived_history_digest_findings_explained": 937523,
+    "resolved_source_relationship_attribute_references": 1182648,
+    "ignored_fields": [],
+    "output_rewritten": false,
+    "production_eligible": false,
+    "scope": "All five core outputs; exact predicted corrected attributes including generated IDs; raw official comparison retained. Repeatability requires separately recorded full runs."
+  },
+  "baseline_raw_comparison_status": "DIFFERENCES_REQUIRE_REVIEW",
+  "baseline_raw_evidence_unchanged": true,
+  "candidate_independent_validation_passed": true,
+  "restored_runtime_files_verified": 169,
+  "source_branch": "fix/mdr-consistent-history-context",
+  "test_branch": "test/inversion-replay-toolbox",
+  "common_adapter_integration_executed": false,
+  "production_eligible": false,
+  "insertion_executed": false,
+  "result_refs": [
+    "mdr-29-1-corrected-seed1-result.json",
+    "mdr-29-1-corrected-seed12345-result.json"
+  ],
+  "final_verification_ref": "mdr-29-1-final-verification.json",
+  "scope": "MDR_29_1 core conversion and history append; upstream metadata generation, legacy QA/insertion and production promotion remain separate."
+}

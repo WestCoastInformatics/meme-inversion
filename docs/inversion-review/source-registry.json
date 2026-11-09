@@ -58,16 +58,16 @@
       "common_adapter_implemented": false,
       "adapter_ref": null,
       "options_schema_ref": null,
-      "characterization_status": "fresh unchanged-engine conversion/comparison completed; atoms/relationships/merges exact and context record multiset equal; history CR/digest discrepancy plus 27 sibling-list order differences remain under review",
+      "characterization_status": "original unchanged-engine differences retained; separate corrected source plus stable runtime passes exact complete-record correction prediction and two fresh full-run byte-identical replays under different hash seeds",
       "historical_cases_under_review": [
         "MDR_29_1"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Resolve explicit history line-ending/digest policy and deterministic hierarchy sibling presentation; preserve the observed raw reference differences and findings.",
-        "Integrate the characterized source into a reviewed common case and typed source options, then test the complete common lifecycle; registration and source-specific execution do not enable the common adapter.",
-        "Keep upstream metadata generation, legacy database QA, insertion and production release approval separately scoped."
+        "Integrate the verified corrected historical case and typed options into the common execution interface, then test its complete lifecycle.",
+        "Keep source engine dd7ae66 and stable runtime bfda2ce pinned together for corrected MDR; other sources remain on their reviewed runtimes until separately tested.",
+        "Keep metadata generation, general new-release configuration, legacy database QA, insertion and production release approval separately scoped."
       ],
       "production_versions_inspected": [
         "MDR_29_1"
@@ -81,7 +81,9 @@
       "archive_inventory_ref": "mdr-29-1-archive-inventory.json",
       "reference_stage_review_ref": "additional-source-stage-review-20261106.json",
       "characterization_result_ref": "mdr-29-1-fresh-characterization-result.json",
-      "characterization_summary_ref": "additional-source-characterization-summary.json"
+      "characterization_summary_ref": "additional-source-characterization-summary.json",
+      "corrected_characterization_summary_ref": "mdr-29-1-correction-summary.json",
+      "corrected_final_verification_ref": "mdr-29-1-final-verification.json"
     },
     "RADLEX": {
       "display_name": "RADLEX",

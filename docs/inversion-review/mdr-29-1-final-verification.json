@@ -1,0 +1,56 @@
+{
+  "status": "PASS_FULL_VERIFICATION",
+  "source": "MDR",
+  "version": "MDR_29_1",
+  "run_ids": [
+    "mdr-corrections-v2-seed1-20261109",
+    "mdr-corrections-v2-seed12345-20261109"
+  ],
+  "hash_seeds": [
+    "1",
+    "12345"
+  ],
+  "engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+  "runtime_ref_during_runs": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "execution_apparatus_refs": [
+    "ace23c2256cbaf611fcb216b5815989cf4184a5a",
+    "ace23c2256cbaf611fcb216b5815989cf4184a5a"
+  ],
+  "all_five_byte_identical_between_fresh_runs": true,
+  "files": {
+    "classes_atoms.src": {
+      "bytes": 12633021,
+      "sha256": "ff007d381397a650f996ed80214e54cabfd517548cd179295b4355c8f76d6d75",
+      "newline_count": 122629
+    },
+    "attributes.src": {
+      "bytes": 473425883,
+      "sha256": "27fac4ee718da4cc5d0ca875905dff2be00a4503f162034022c64ddd2e45a494",
+      "newline_count": 2424867
+    },
+    "relationships.src": {
+      "bytes": 31093019,
+      "sha256": "e7046ad38c12f7a30c6e32818e39e914d492414c55fe530698ff3ede4d8dbe49",
+      "newline_count": 290097
+    },
+    "mergefacts.src": {
+      "bytes": 2715516,
+      "sha256": "9409575c52b379e874d7a6b287b72aa692253811b1bf19f88b0107ef83d03e2e",
+      "newline_count": 37472
+    },
+    "contexts.src": {
+      "bytes": 191499397,
+      "sha256": "d0b53fca88712927334a12cecd7d0c7af3c79b56248390bfee5db743948dff3f",
+      "newline_count": 1883398
+    }
+  },
+  "input_and_code_hashes_rechecked_in_both_trees": true,
+  "generated_attribute_id_reference_dependencies": false,
+  "original_baseline_and_failed_attempt_unchanged": true,
+  "restored_runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "restored_runtime_files_verified": 169,
+  "production_eligible": false,
+  "insertion_executed": false,
+  "scope": "Bounded MDR_29_1 corrected core replay; common-adapter integration and production release remain separate.",
+  "verification_code_sha256": "26ba57eb5149315d0c66c6e4155297e7c7b538e3b5cb1ad4263590d35bbd5bc5"
+}
