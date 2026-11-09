@@ -36,7 +36,9 @@ close (CLASS);
 open (ATN, "<../orig/mdr_by_version.txt") || die "can't open ATN\n";
 
 while (<ATN>){
-	chomp;
+	# Normalize record endings before constructing the value and its digest.
+	s/\r?\n\z//;
+	die "Unexpected carriage return in history at line $.\n" if /\r/;
 	@fields=split(/\|/);
 	if ($hash{$fields[0]}){
 		$attr_id++;
