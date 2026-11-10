@@ -11,6 +11,7 @@ import os
 from pathlib import Path, PurePosixPath
 import pwd
 import re
+import shutil
 import socket
 import stat
 import tarfile
@@ -21,6 +22,36 @@ from replay_process import runtime_lock
 ROOT = Path('/local/content/MEME/MEME5/inv')
 VERSIONS = ('NCI_2026_10D', 'SNOMEDCT_US_2026_09_01', 'MTH_2026AA', 'MDR_29_1', 'RADLEX_4_3')
 NAME = re.compile('(?:' + '|'.join(re.escape(x) for x in VERSIONS) + r')\.before-[A-Za-z0-9][A-Za-z0-9._-]{0,150}')
+FREE_DISK_RESERVE = 8 * 1024 ** 3
+DISK_CHECK_INTERVAL = 1024 ** 2
+
+
+class _ReservedOutput:
+    """Bound compressed writes between fixed free-space checks."""
+    def __init__(self, raw):
+        self.raw = raw
+        self.remaining = 0
+        self.failed = False
+
+    def write(self, data):
+        if self.failed:
+            raise RuntimeError('Retained-source compression stopped at the fixed 8 GiB free-disk reserve')
+        if len(data) > self.remaining or self.remaining == 0:
+            # Keep one interval of headroom in addition to this write so that
+            # bytes emitted before the next check cannot consume the reserve.
+            if shutil.disk_usage(ROOT).free < FREE_DISK_RESERVE + DISK_CHECK_INTERVAL + len(data):
+                self.failed = True
+                raise RuntimeError('Retained-source compression stopped at the fixed 8 GiB free-disk reserve')
+            self.remaining = DISK_CHECK_INTERVAL
+        count = self.raw.write(data)
+        self.remaining -= count
+        return count
+
+    def flush(self):
+        return self.raw.flush()
+
+    def tell(self):
+        return self.raw.tell()
 
 
 def canonical(value):
@@ -264,7 +295,7 @@ def _write_archive(source, path, manifest):
     items = [{'path': '.', 'type': 'directory', 'mode': manifest['root_mode'], 'mtime_ns': manifest['root_mtime_ns']}] + manifest['entries']
     rootfd = os.open(source, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
     try:
-        with path.open('xb') as raw, gzip.GzipFile(filename='', fileobj=raw, mode='wb', compresslevel=1, mtime=0) as compressed, tarfile.open(fileobj=compressed, mode='w', format=tarfile.PAX_FORMAT) as archive:
+        with path.open('xb') as raw, gzip.GzipFile(filename='', fileobj=_ReservedOutput(raw), mode='wb', compresslevel=1, mtime=0) as compressed, tarfile.open(fileobj=compressed, mode='w', format=tarfile.PAX_FORMAT) as archive:
             for item in items:
                 member = tarfile.TarInfo(item['path']);member.mode = item['mode']
                 member.mtime = item['mtime_ns'] // 10 ** 9

@@ -113,6 +113,22 @@ def check():
         info = (source / 'data').stat()
         os.utime(source / 'data', ns=(info.st_atime_ns + 1000000000, info.st_mtime_ns))
         good(retain.retire(source=source, **args(result))['status'] == 'RETIRED_VERIFIED_EXPANDED_COPY', 'Atime/ctime-only changes do not falsely invalidate unchanged source contents')
+    with fixture() as (root, source, external):
+        expected = retain._tree(source)
+        with patch.object(retain.shutil, 'disk_usage', return_value=SimpleNamespace(free=retain.FREE_DISK_RESERVE)):
+            rejects(lambda: archive(root, source), 'Insufficient initial free space stops compression at the fixed reserve')
+        namespace = root / 'qa/retained-source-archives/fixture'
+        good(retain._tree(source) == expected and not (namespace / 'archive-receipt.json').exists(), 'Initial reserve failure leaves source untouched and creates no verified receipt')
+    with fixture() as (root, source, external):
+        source.chmod(0o755)
+        (source / 'incompressible').write_bytes(os.urandom(3 * retain.DISK_CHECK_INTERVAL))
+        (source / 'incompressible').chmod(0o444);source.chmod(0o555)
+        expected = retain._tree(source)
+        with patch.object(retain.shutil, 'disk_usage', side_effect=[SimpleNamespace(free=100 * 1024 ** 3), SimpleNamespace(free=retain.FREE_DISK_RESERVE)]):
+            rejects(lambda: archive(root, source), 'Falling free space is detected during compressed output rather than only at startup')
+        namespace = root / 'qa/retained-source-archives/fixture'
+        good((namespace / 'tree.tar.gz').exists() and not (namespace / 'archive-receipt.json').exists()
+             and retain._tree(source) == expected, 'Mid-compression reserve failure retains partial archive and unchanged expanded source')
     for name in ('archive', 'receipt', 'manifest'):
         with fixture() as (root, source, external):
             result = archive(root, source)
