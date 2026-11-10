@@ -101,3 +101,7 @@ A common configuration is useful before any parser rewrite:
 4. Replace internals incrementally; migrated components read the same common model directly. Retire the corresponding legacy translations only after their acceptance gates pass.
 
 The first resolver and dev runner implement the common request and frozen configuration for the reviewed historical cases. They stage captured, pinned legacy settings rather than generate new-release `.cfg`/`.spec` files from arbitrary overrides. General configuration translation and new-release preparation remain later migration work. This keeps representation changes separate from the initial lifecycle interface.
+
+## Implemented NCIt generator pilot
+
+The [NCIt generator](nci-configuration-generation.md) renders compatibility settings from this common configuration and separately versioned policy/data artifacts. A full October replay explicitly replacing August passes with all five output hashes unchanged. Source code is loaded from the canonical Git package; no previous release executable is copied. Native export filenames, saved root identity and complete historical ID bounds are explicitly bound. This validates the NCIt pilot; other source generators, upstream new-release preparation and production eligibility remain separate.

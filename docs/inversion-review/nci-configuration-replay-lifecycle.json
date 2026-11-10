@@ -1,0 +1,342 @@
+{
+  "status.json": {
+    "source": "NCI",
+    "version": "NCI_2026_10D",
+    "run_id": "common-nci-generated-20261109",
+    "engine_ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+    "lock_sha256": "092546bcbe54f0d712b40dace58c129126d832a4ade4b060e6db3a5eae7b1ee1",
+    "started_at": "2026-11-10T06:04:00.207414+00:00",
+    "status": "complete",
+    "preserved_source": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.before-common-nci-generated-20261109",
+    "acceptance": {
+      "status": "PASS_EQUIVALENT",
+      "checks": {
+        "core_exit_zero": true,
+        "metadata_unchanged": true,
+        "atoms_exact": true,
+        "relationships_exact": true,
+        "merges_exact": true,
+        "context_multiset_equal": true,
+        "attribute_content_equal": true,
+        "structural_checks": true,
+        "termgroups_valid": true,
+        "metadata_matches_reference": true,
+        "attribute_ids_unique_and_contiguous": true,
+        "same_attribute_id_span": true,
+        "non_context_attributes_exact": true,
+        "no_attribute_id_or_unknown_reference_types": true
+      },
+      "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+      "scope": "Five generated core src outputs with archived source metadata; not full release eligibility"
+    },
+    "completed_at": "2026-11-10T06:44:01.097987+00:00"
+  },
+  "progress.json": {
+    "stage": "conversion",
+    "pid": 1768218,
+    "elapsed_seconds": 2252,
+    "sampled_peak_resident_bytes": 825950208,
+    "available_memory_bytes": 27838435328
+  },
+  "launch.json": {
+    "run_id": "common-nci-generated-20261109",
+    "worker_pid": 1767399,
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-nci-generated-20261109",
+    "launched_at": "2026-11-10T06:03:59.830405+00:00",
+    "lock_sha256": "092546bcbe54f0d712b40dace58c129126d832a4ade4b060e6db3a5eae7b1ee1"
+  },
+  "preparation.json": {
+    "source": "NCI",
+    "version": "NCI_2026_10D",
+    "engine_ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+    "environment_profile": "ncias-d3777-c",
+    "case_variant": "generated-configuration",
+    "reference_stage": "inversion-src",
+    "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+    "candidate_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D",
+    "inputs": [
+      {
+        "relative_path": "orig/fromprovider/annotationDeclaration-20261026.txt",
+        "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda",
+        "bytes": 8502
+      },
+      {
+        "relative_path": "orig/fromprovider/classDeclaration-20261026.txt",
+        "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec",
+        "bytes": 157230668
+      },
+      {
+        "relative_path": "orig/fromprovider/objectDeclaration-20261026.txt",
+        "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+        "bytes": 4934
+      },
+      {
+        "relative_path": "orig/fromprovider/relations-20261026.txt",
+        "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f",
+        "bytes": 14705566
+      },
+      {
+        "relative_path": "orig/fromprovider/hierarchy-20261026.txt",
+        "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b",
+        "bytes": 3596568
+      },
+      {
+        "relative_path": "src/sources.src",
+        "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+        "bytes": 44614
+      },
+      {
+        "relative_path": "src/termgroups.src",
+        "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+        "bytes": 6038
+      }
+    ],
+    "code": [
+      {
+        "relative_path": "bin/create_rolegroups.pl",
+        "sha256": "314705f60d7742480013b4a9b71a1fd91e8d9b4851b6ab73dd2a3b5410c80703"
+      },
+      {
+        "relative_path": "bin/create_tref.pl",
+        "sha256": "fa7e6eff83b78bf8a83ab9e4b37c4ec55fd06832143508609b5e6e5e10ee8c21"
+      },
+      {
+        "relative_path": "bin/delete_dup_tref_lines.pl",
+        "sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272"
+      },
+      {
+        "relative_path": "bin/invert_NCI.pl",
+        "sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a"
+      }
+    ],
+    "stages": [
+      {
+        "name": "role-groups",
+        "args": [
+          "/usr/bin/perl",
+          "create_rolegroups.pl",
+          "../orig/fromprovider/relations-20261026.txt"
+        ],
+        "status": 0,
+        "started_at": "2026-11-10T06:04:26.219031+00:00",
+        "completed_at": "2026-11-10T06:04:26.789263+00:00",
+        "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-role-groups.log",
+        "network": "disabled"
+      },
+      {
+        "name": "sort-role-groups",
+        "args": [
+          "/usr/bin/sort",
+          "../tmp/rolegroups.tmp",
+          "-o",
+          "../tmp/rolegroups.sorted.tmp"
+        ],
+        "status": 0,
+        "started_at": "2026-11-10T06:04:26.790721+00:00",
+        "completed_at": "2026-11-10T06:04:26.804131+00:00",
+        "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-sort-role-groups.log",
+        "network": "disabled"
+      },
+      {
+        "name": "repeated-role-groups",
+        "args": [
+          "/usr/bin/uniq",
+          "-d",
+          "../tmp/rolegroups.sorted.tmp"
+        ],
+        "status": 0,
+        "started_at": "2026-11-10T06:04:26.808852+00:00",
+        "completed_at": "2026-11-10T06:04:26.823189+00:00",
+        "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-repeated-role-groups.log",
+        "network": "disabled"
+      },
+      {
+        "name": "create-tref",
+        "args": [
+          "/usr/bin/perl",
+          "create_tref.pl",
+          "../orig/fromprovider/annotationDeclaration-20261026.txt",
+          "../orig/fromprovider/objectDeclaration-20261026.txt",
+          "../orig/fromprovider/classDeclaration-20261026.txt",
+          "../orig/fromprovider/relations-20261026.txt",
+          "../orig/fromprovider/hierarchy-20261026.txt"
+        ],
+        "status": 0,
+        "started_at": "2026-11-10T06:04:26.824660+00:00",
+        "completed_at": "2026-11-10T06:04:33.615983+00:00",
+        "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-create-tref.log",
+        "network": "disabled"
+      },
+      {
+        "name": "deduplicate-tref",
+        "args": [
+          "/usr/bin/perl",
+          "delete_dup_tref_lines.pl"
+        ],
+        "status": 0,
+        "started_at": "2026-11-10T06:04:33.617409+00:00",
+        "completed_at": "2026-11-10T06:04:43.320813+00:00",
+        "log": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/etc/qa/replay-deduplicate-tref.log",
+        "network": "disabled"
+      }
+    ],
+    "core_inverter_executed": false,
+    "insertion_preparation_executed": false,
+    "coverage": "Native/TREF preparation with archived source metadata; metadata acquisition, QA, insertion excluded",
+    "configuration_generation": {
+      "profile": "nci-properties-v1",
+      "preparation_arguments": {
+        "role-groups": [
+          "../orig/fromprovider/relations-20261026.txt"
+        ],
+        "create-tref": [
+          "../orig/fromprovider/annotationDeclaration-20261026.txt",
+          "../orig/fromprovider/objectDeclaration-20261026.txt",
+          "../orig/fromprovider/classDeclaration-20261026.txt",
+          "../orig/fromprovider/relations-20261026.txt",
+          "../orig/fromprovider/hierarchy-20261026.txt"
+        ]
+      },
+      "bindings": {
+        "source": "NCI",
+        "version": "NCI_2026_10D",
+        "engine_ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+        "replacement_baseline": {
+          "source": "NCI",
+          "version": "NCI_2026_08E"
+        },
+        "comparison_baseline": null,
+        "publisher_history": [],
+        "source_atom_ids": {
+          "start": 781548593,
+          "end": 782351845,
+          "provenance_ref": "sha256:b9264d4cff9bc37601132f3a5128214d6e1acc522f9fde6fb33c9d22a2e9cb6b",
+          "bound_kind": "historical-emitted-range"
+        },
+        "identity_state": {
+          "root_atom_id": 31926003,
+          "root_code": "V-NCI",
+          "root_name": "National Cancer Institute Thesaurus",
+          "provenance": {
+            "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+            "path": "sources/NCI_2026_10D/etc/nci.cfg",
+            "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a"
+          },
+          "role": "Saved external root; not inferred from current database or prior folder"
+        },
+        "native_inputs": {
+          "annotationDeclaration": {
+            "relative_path": "orig/fromprovider/annotationDeclaration-20261026.txt",
+            "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda"
+          },
+          "objectDeclaration": {
+            "relative_path": "orig/fromprovider/objectDeclaration-20261026.txt",
+            "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b"
+          },
+          "classDeclaration": {
+            "relative_path": "orig/fromprovider/classDeclaration-20261026.txt",
+            "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec"
+          },
+          "relations": {
+            "relative_path": "orig/fromprovider/relations-20261026.txt",
+            "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f"
+          },
+          "hierarchy": {
+            "relative_path": "orig/fromprovider/hierarchy-20261026.txt",
+            "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b"
+          }
+        },
+        "metadata_inputs": [
+          {
+            "path": "NCI_2026_10D/src/sources.src",
+            "size": 44614,
+            "mode": "0o644",
+            "mtime": 1793646753,
+            "role": "prepared-metadata-input",
+            "kind": "file",
+            "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+            "newline_count": 60
+          },
+          {
+            "path": "NCI_2026_10D/src/termgroups.src",
+            "size": 6038,
+            "mode": "0o644",
+            "mtime": 1793646807,
+            "role": "prepared-metadata-input",
+            "kind": "file",
+            "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+            "newline_count": 130
+          }
+        ],
+        "policy_ref": "sha256:3809b9b045348241b458858f5219966c8ab890033c0281b247694e44a85ffd56"
+      },
+      "template": {
+        "repository_path": "engines/nci/nci.cfg.in",
+        "sha256": "22dc27f973c28395ca09acde76751e0e8bf18e822d4a4135d596591ac8c7b6e8",
+        "bytes": 10794,
+        "mode": null
+      },
+      "files": [
+        {
+          "relative_path": "etc/nci.cfg",
+          "mode": "0o444",
+          "sha256": "d1953f35d1da650bb985ece0e048aac20084c9588c27eba6dcf09c13585736d4"
+        }
+      ]
+    },
+    "reference_atom_id_evidence": {
+      "rows": 803253,
+      "unique_ids": 803253,
+      "minimum": 781548593,
+      "maximum": 782351845,
+      "contiguous": true,
+      "scope": "Observed official output IDs for isolated replay; not a production allocation receipt"
+    },
+    "candidate_prepared_at": "2026-11-10T06:04:26.218054+00:00",
+    "src_seed_files": [
+      "sources.src",
+      "termgroups.src"
+    ],
+    "status": "native-preparation-matches-reference",
+    "preparation_comparison": [
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/orig/MRCONSO.TREF",
+        "bytes": 37716189,
+        "sha256": "a171923ff9742453d5a10a65eb0964b4cad14fc693e05044f27846601f58cb25",
+        "newline_count": 807904,
+        "expected_sha256": "a171923ff9742453d5a10a65eb0964b4cad14fc693e05044f27846601f58cb25",
+        "exact_match": true
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/orig/MRREL.TREF",
+        "bytes": 81439975,
+        "sha256": "1f8d61641f84849c0f877ddd3d57b1b37a458902cccf65b8a0507018ae3c2390",
+        "newline_count": 1503707,
+        "expected_sha256": "1f8d61641f84849c0f877ddd3d57b1b37a458902cccf65b8a0507018ae3c2390",
+        "exact_match": true
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/orig/MRSAT.TREF",
+        "bytes": 102525470,
+        "sha256": "ce0d0b353d25d54bde22349fa33ecfbb43502ebf0f368bd718fa71d230692e71",
+        "newline_count": 1115038,
+        "expected_sha256": "ce0d0b353d25d54bde22349fa33ecfbb43502ebf0f368bd718fa71d230692e71",
+        "exact_match": true
+      }
+    ],
+    "preparation_matches_reference": true,
+    "core_outputs_present": [],
+    "completed_at": "2026-11-10T06:04:44.152094+00:00"
+  },
+  "acquisition.json": {
+    "archives": [
+      {
+        "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz",
+        "sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+        "downloaded_this_run": false
+      }
+    ],
+    "aws_profile": "meme",
+    "generated_outputs_restored": false
+  }
+}

@@ -6,6 +6,8 @@ Scope extension, November 5: the common request/configuration interface must als
 
 Replay priority clarification, November 5: complete preserved input bundles are sufficient for historical replay. Verify versions, hashes and dependency closure, then reproduce the official output from those inputs. Regenerating already-preserved metadata exports or prepared publisher subsets is additional coverage, not a prerequisite. Future operational runs should capture these inputs automatically. This avoids making reconstruction of an entire historical database or obsolete input-generation runtime a gate when the required answers/files are already archived.
 
+Implementation update, November 10: the [NCIt configuration generator pilot](nci-configuration-generation.md) passes a full October/August replay with unchanged outputs. It selects canonical Git code and generates legacy settings from the common model; production deployment and the other generators remain later steps.
+
 ## Recommendation
 
 Adopt one release lifecycle with independently reviewed source adapters, explicit baseline dependencies, versioned representation rules, and independently validated output packages. Preserve the working Perl transformations initially. Move operational code out of release directories before replacing transformation logic, then replace components behind proven input/output contracts.

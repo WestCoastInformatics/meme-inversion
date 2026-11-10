@@ -2,6 +2,8 @@
 
 Status, November 9, 2026: historical adapters and accepted full common executions exist for NCIt, SNOMEDCT_US, MTH, MDR and RADLEX. Six executions cover those five sources, including both RADLEX runtimes. Their retained artifacts and the 169 restored original runtime files pass the [final independent verification](common-matrix-final-verification-20261109.json). Production is unchanged. This interface executes reviewed historical cases; new-release configuration generation, live ID allocation, insertion and production promotion remain later work.
 
+The subsequent [NCIt generated-configuration integration](nci-configuration-generation.md) also passes: canonical Git code and common-model settings produce the same five output hashes. It is separate evidence after the six-case baseline matrix, with its own final verification and preserved predecessor.
+
 ## One request and configuration
 
 The operator supplies seven fields from [request.schema.json](request.schema.json):
@@ -18,7 +20,7 @@ The operator supplies seven fields from [request.schema.json](request.schema.jso
 }
 ```
 
-The resolver selects an exact reviewed source/version/case, resolves the engine to a full Git commit, validates the common configuration and freezes code, runtime, inputs, references and apparatus. The [case catalog](case-catalog/index.json) and [request examples](request-examples/) include NCIt October 2026 with PT/order fixes; unchanged SNOMED September 2026; original/corrected MTH 2026AA; corrected MDR 29.1; and original/stable-runtime RADLEX 4.3. The original MTH case retains its reference findings; the completed integrations below identify the actual cases executed.
+The resolver selects an exact reviewed source/version/case, resolves the engine to a full Git commit, validates the common configuration and freezes code, runtime, inputs, references and apparatus. The [case catalog](case-catalog/index.json) and [request examples](request-examples/) include NCIt October 2026 with PT/order fixes and a generated-configuration case; unchanged SNOMED September 2026; original/corrected MTH 2026AA; corrected MDR 29.1; and original/stable-runtime RADLEX 4.3. The original MTH case retains its reference findings; the completed integrations below identify the actual cases executed.
 
 All sources use the same names for replacement/comparison baselines, source-data stage, saved identity, publisher history, source atom bounds and reference stage. Genuine differences use typed `source_options`: the reviewed SNOMED case requires `rf2_view: Snapshot`, MDR requires `language: ENG`, and these NCI/MTH/RADLEX cases use empty options. Unknown fields, duplicate JSON keys, placeholders, unsupported profiles, unreviewed engines and unsupported cases fail before execution. Registering another source does not enable an adapter by itself.
 

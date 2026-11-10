@@ -1,0 +1,150 @@
+{
+  "status": "PASS_GENERATED_CONFIGURATION_FINAL_VERIFICATION",
+  "verified_at": "2026-11-10T16:04:00.591884+00:00",
+  "run_id": "common-nci-generated-20261109",
+  "lock_sha256": "092546bcbe54f0d712b40dace58c129126d832a4ade4b060e6db3a5eae7b1ee1",
+  "apparatus_ref": "397b2f371cec2446e8401da4304d5879765d7b42",
+  "source_engine_ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+  "canonical_Git_code_files_verified": 4,
+  "frozen_apparatus_modules_verified": 20,
+  "generated_configuration": {
+    "profile": "nci-properties-v1",
+    "preparation_arguments": {
+      "role-groups": [
+        "../orig/fromprovider/relations-20261026.txt"
+      ],
+      "create-tref": [
+        "../orig/fromprovider/annotationDeclaration-20261026.txt",
+        "../orig/fromprovider/objectDeclaration-20261026.txt",
+        "../orig/fromprovider/classDeclaration-20261026.txt",
+        "../orig/fromprovider/relations-20261026.txt",
+        "../orig/fromprovider/hierarchy-20261026.txt"
+      ]
+    },
+    "bindings": {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "engine_ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+      "replacement_baseline": {
+        "source": "NCI",
+        "version": "NCI_2026_08E"
+      },
+      "comparison_baseline": null,
+      "publisher_history": [],
+      "source_atom_ids": {
+        "start": 781548593,
+        "end": 782351845,
+        "provenance_ref": "sha256:b9264d4cff9bc37601132f3a5128214d6e1acc522f9fde6fb33c9d22a2e9cb6b",
+        "bound_kind": "historical-emitted-range"
+      },
+      "identity_state": {
+        "root_atom_id": 31926003,
+        "root_code": "V-NCI",
+        "root_name": "National Cancer Institute Thesaurus",
+        "provenance": {
+          "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+          "path": "sources/NCI_2026_10D/etc/nci.cfg",
+          "sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a"
+        },
+        "role": "Saved external root; not inferred from current database or prior folder"
+      },
+      "native_inputs": {
+        "annotationDeclaration": {
+          "relative_path": "orig/fromprovider/annotationDeclaration-20261026.txt",
+          "sha256": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda"
+        },
+        "objectDeclaration": {
+          "relative_path": "orig/fromprovider/objectDeclaration-20261026.txt",
+          "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b"
+        },
+        "classDeclaration": {
+          "relative_path": "orig/fromprovider/classDeclaration-20261026.txt",
+          "sha256": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec"
+        },
+        "relations": {
+          "relative_path": "orig/fromprovider/relations-20261026.txt",
+          "sha256": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f"
+        },
+        "hierarchy": {
+          "relative_path": "orig/fromprovider/hierarchy-20261026.txt",
+          "sha256": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b"
+        }
+      },
+      "metadata_inputs": [
+        {
+          "path": "NCI_2026_10D/src/sources.src",
+          "size": 44614,
+          "mode": "0o644",
+          "mtime": 1793646753,
+          "role": "prepared-metadata-input",
+          "kind": "file",
+          "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+          "newline_count": 60
+        },
+        {
+          "path": "NCI_2026_10D/src/termgroups.src",
+          "size": 6038,
+          "mode": "0o644",
+          "mtime": 1793646807,
+          "role": "prepared-metadata-input",
+          "kind": "file",
+          "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+          "newline_count": 130
+        }
+      ],
+      "policy_ref": "sha256:3809b9b045348241b458858f5219966c8ab890033c0281b247694e44a85ffd56"
+    },
+    "template": {
+      "repository_path": "engines/nci/nci.cfg.in",
+      "sha256": "22dc27f973c28395ca09acde76751e0e8bf18e822d4a4135d596591ac8c7b6e8",
+      "bytes": 10794,
+      "mode": null
+    },
+    "files": [
+      {
+        "relative_path": "etc/nci.cfg",
+        "mode": "0o444",
+        "sha256": "d1953f35d1da650bb985ece0e048aac20084c9588c27eba6dcf09c13585736d4"
+      }
+    ]
+  },
+  "all_three_TREF_references_exact": true,
+  "all_five_files_equal_previous_accepted_candidate": true,
+  "files": {
+    "attributes.src": {
+      "bytes": 306298097,
+      "sha256": "4de548599a0ce63d52feda7089e8cf6b39f51e1d0d5794654d04a954c68fb80c",
+      "newline_count": 1265611
+    },
+    "relationships.src": {
+      "bytes": 169343929,
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+      "newline_count": 1228468
+    },
+    "mergefacts.src": {
+      "bytes": 44631179,
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+      "newline_count": 595089
+    },
+    "contexts.src": {
+      "bytes": 270665435,
+      "sha256": "cf07ee100571de00a5f43a7c3d83465a24c7346beab018149dfc1bdaf33baf92",
+      "newline_count": 1185069
+    },
+    "classes_atoms.src": {
+      "bytes": 86815706,
+      "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+      "newline_count": 803253
+    }
+  },
+  "entire_previous_source_tree_verified": true,
+  "preserved_previous_source": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.before-common-nci-generated-20261109",
+  "preserved_manifest_entries": 62,
+  "restored_runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "restored_runtime_files_verified": 169,
+  "insertion_executed": false,
+  "production_eligible": false,
+  "scope": "Generated settings and canonical Git package at standard dev paths; unchanged complete historical core output and preservation of the previous dev tree. No new-release production eligibility or original metadata-receipt byte identity claim.",
+  "verification_program_sha256": "6c570046bb99df942720ed05cc519fadff3cb078046e217b948557058e782304",
+  "verification_program_ref": "../../tools/evidence/verify_nci_generated_20261109.sh"
+}

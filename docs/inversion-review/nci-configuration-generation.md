@@ -1,6 +1,6 @@
 # NCIt configuration generation
 
-The first generator case uses the verified October 2026 inputs and explicit August replacement. Local property, plan-binding and real Perl fixtures pass; a fresh full common replay is the remaining integration gate. Production remains unchanged.
+Completed November 10, 2026: the first generator case uses the verified October 2026 inputs and explicit August replacement. Its fresh full common replay passes, all three regenerated TREF files and all five core output hashes match the accepted candidate, and the final retained-data/runtime verification passes. Production remains unchanged.
 
 ## Code, policy and release data
 
@@ -41,3 +41,11 @@ The lock includes separate source-code and generated-setting provenance, the pin
 The independent golden check compares every effective October property with the captured verified configuration. Real Perl fixtures use different dated filenames and verify exact TREF/role-group serialization. A synthetic later plan renders different source/subsource versions and a skipped-month baseline without changing code; it is not an executed or approved future release.
 
 This delivers the NCIt generator and a bounded October compatibility case. Only reviewed historical source/version cases can execute through the common interface. New-release metadata acquisition, source/subsource policy decisions, production allocation/eligibility, legacy QA/insertion, and configuration generators for the other sources remain separate work. Standard server paths are retained.
+
+## Completed integration evidence
+
+The [full common result](nci-configuration-replay-result.json) records source engine `2a22938` and apparatus `397b2f3`. Preparation generated read-only settings at the normal `etc/nci.cfg`, selected four code files from `engines/nci` in Git and regenerated all three TREF files exactly. The [equivalence proof](nci-configuration-replay-equivalence.json) confirms all five `.src` hashes match the prior accepted stable run. No executable was read from the prior release tree.
+
+The [dev fixtures](nci-configuration-dev-fixtures-20261109.json) pass 37 generator checks, 27 worker checks, all 20 module imports and four Perl syntax checks. The actual native `NLMConfig` parser resolves all 290 properties identically for the captured and generated settings. The common request/lock suite passes 80 local checks, including missing/changed generated recipes and substituted package paths.
+
+The native job completed while the client VPN/SSH connection was unavailable. Reconnection collected that same detached job; it did not regenerate or resubmit it. The controller then [restored the original runtime](nci-configuration-runtime-restoration.json). The [final read-only verification](nci-configuration-final-verification.json) rechecked the generated file, four Git code files, frozen inputs/archive, three TREF references, both copies of all five core outputs, the complete preserved previous dev tree and all 169 restored original runtime files. The [exact executed verifier](../../tools/evidence/verify_nci_generated_20261109.sh) is retained with its SHA256. The prior tree remains at `NCI_2026_10D.before-common-nci-generated-20261109`; historical reports keep their original identities. Runtime metadata has a new restoration receipt.

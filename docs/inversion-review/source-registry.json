@@ -25,7 +25,11 @@
       "release_frequency_affects_request_format": false,
       "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
       "common_integration_result_ref": "common-nci-2026-10d-result.json",
-      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json",
+      "configuration_generator_ref": "../../tools/nci_configuration.py",
+      "canonical_code_package_ref": "../../engines/nci/README.md",
+      "configuration_generation_result_ref": "nci-configuration-replay-result.json",
+      "configuration_generation_verification_ref": "nci-configuration-final-verification.json"
     },
     "SNOMEDCT_US": {
       "display_name": "SNOMEDCT_US",
