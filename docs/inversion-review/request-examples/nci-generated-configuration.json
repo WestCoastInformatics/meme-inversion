@@ -1,0 +1,9 @@
+{
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "case_variant": "generated-configuration",
+  "reference_stage": "inversion-src",
+  "comparison_profile": "semantic-strict",
+  "schema_version": 1,
+  "engine_ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b"
+}

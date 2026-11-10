@@ -170,7 +170,8 @@ if __name__ == '__main__':
                 raise ValueError('Duplicate JSON key: ' + key)
             result[key] = value
         return result
-    lock = json.loads(args.lock.read_text(), object_pairs_hook=unique)
+    lock = json.loads(args.lock.read_text(), object_pairs_hook=unique,
+                      parse_constant=lambda value: (_ for _ in ()).throw(ValueError('Invalid JSON constant: ' + value)))
     if lock['lock_sha256'] != digest({key: value for key, value in lock.items() if key != 'lock_sha256'}):
         raise ValueError('Run lock changed')
     recipe = from_lock(lock)

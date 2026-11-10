@@ -42,6 +42,12 @@
       "version": "RADLEX_4_3",
       "case_variant": "stable-context-order",
       "path": "radlex-stable-context-order.json"
+    },
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "generated-configuration",
+      "path": "nci-generated-configuration.json"
     }
   ]
 }

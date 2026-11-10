@@ -155,7 +155,7 @@ def verify_lock(lock):
             raise ValueError('Source payload differs')
     if names != set(expected_source) or not names:
         raise ValueError('Source inventory is incomplete')
-    if case.get('configuration_generation') or 'configuration_generation' in lock:
+    if (request['source'] == 'NCI' and request['case_variant'] == 'generated-configuration') or case.get('configuration_generation') or 'configuration_generation' in lock:
         if request['source'] != 'NCI' or request['case_variant'] != 'generated-configuration' or case.get('source_package') != 'engines/nci':
             raise ValueError('Unreviewed generated-configuration case')
         if any(x.get('repository_path') != 'engines/nci/' + x['relative_path'] for x in lock['code_files']):
