@@ -8,6 +8,8 @@ The common field is still `inputs.source_plan`. Its artifact contains the [typed
 
 Every plan explicitly provides `new_subsources`, `new_termgroups`, `property_updates` and `historical_exceptions`, including empty arrays/objects when applicable. An established subsource stays in generated versioned metadata without emitting its root again. Catalog membership describes known representation; the reviewer determines which roots/termgroups are new to the selected NCImeta transition. A newly accepted definition should be retained in the versioned catalog for subsequent releases; this is a reviewed data/policy change, not an executable copy-forward step.
 
+Use the catalog-promotion preview to retain the entire definition, including source aliases, RSSN settings, term-type mappings and explicit token bindings. Carrying only the source/termgroup rows would lose the bindings needed by a long source name or new term type in the following release.
+
 A new subsource specifies complete named metadata fields, publisher aliases, its insertion position and root preferred/short names. A new termgroup specifies the six actual loader fields, insertion position and native term types. Only reviewed new term-type mappings may extend the existing compatibility policy; conflicting existing mappings are rejected. Planned token bindings handle long source names and term types without adding regular-expression branches to Perl.
 
 Because the legacy TREF format concatenates publisher source and term type, a new binding must not collide with another new binding or any existing native source/type pair. Required official/root names cannot be empty or whitespace.
@@ -23,9 +25,12 @@ Use [the source-plan request](request-examples/nci-source-plan.json), keeping th
 ```sh
 python3 -B tools/inversion_request.py resolve docs/inversion-review/request-examples/nci-source-plan.json --run-id nci-source-plan-preview --output source-plan.lock.json
 python3 -B tools/nci_configuration.py source-plan.lock.json --output-dir source-plan-preview
+python3 -B tools/nci_configuration.py source-plan.lock.json --metadata-policy-preview next-metadata-policy.json
 ```
 
 The preview creates the five read-only files and their binding receipt in a fresh directory. It does not stage server data or execute an inversion. Submission, status and collection use the existing [common lifecycle](common-interface.md#dev-lifecycle).
+
+The separate metadata-policy preview produces a new read-only catalog candidate for review and a Git policy change. Established-source/termgroup rankings refer to the selected next transition's replacement version. It preserves all mappings needed when the next plan's addition arrays are empty, and does not carry historical exceptions into the next release. It neither updates a repository/server file in place nor asserts that an insertion occurred. Root-state decisions must still follow the actual reviewed NCImeta transition.
 
 An interactive assistant or future skill can explain discovery findings and draft a plan for review. The same deterministic resolver, generator and validation gates apply to interactive and unattended execution; the assistant does not supply undeclared mappings or declare a release production-ready.
 

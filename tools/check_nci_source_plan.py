@@ -131,6 +131,13 @@ def check():
     new_type = copy.deepcopy(empty)
     new_type['new_termgroups'] = [{'metadata': {'termgroup_name': 'NCI_{{release}}/NEWTYPE', 'low_termgroup': 'NCI_{{release}}/SY', 'suppressible_flag': 'N', 'exclude_flag': 'N', 'norm_exclude_flag': 'N', 'tty': 'NEWTYPE'}, 'after_termgroup': 'NCI_{{release}}/SY', 'input_ttys': ['NEWTYPE']}]
     new_type['property_updates'] = {'in2tty.NEWTYPE': 'NEWTYPE'}
+    shadow = copy.deepcopy(new_type);shadow['property_updates'] = {'in2tty.AQS': 'NEWTYPE'};shadow['new_termgroups'][0]['input_ttys'] = ['AQS']
+    reject(lambda: recipe(shadow), 'A new mapping cannot reinterpret existing AQS atoms through another mapping family')
+    shadow = copy.deepcopy(new_type);shadow['property_updates'] = {'in2tty.PT': 'NEWTYPE'};shadow['new_termgroups'][0]['input_ttys'] = ['PT']
+    reject(lambda: recipe(shadow), 'A new mapping cannot shadow built-in preferred-term behavior')
+    reordered = copy.deepcopy(new_type);extra = copy.deepcopy(reordered['new_termgroups'][0]);extra['metadata'].update(termgroup_name='NCI_{{release}}/SECOND', tty='SECOND');extra.update(after_termgroup='NCI_{{release}}/NEWTYPE', input_ttys=['SECOND']);reordered['new_termgroups'].append(extra);reordered['property_updates']['in2tty.SECOND'] = 'SECOND'
+    reverse = copy.deepcopy(reordered);reverse['property_updates'] = dict(reversed(list(reverse['property_updates'].items())))
+    good(recipe(reordered) == recipe(reverse), 'Reordering an unordered decision map cannot change generated file bytes')
     long_source = copy.deepcopy(october);long_source['historical_exceptions'] = []
     addition = long_source['new_subsources'][0]
     addition['metadata'] = {key: value.replace('BLOODPAC', 'LONG_NEW_SOURCE') for key, value in addition['metadata'].items()}
@@ -152,6 +159,22 @@ def check():
     multiple['new_subsources'][1]['after_source'] = 'BLOODPAC'
     multiple['new_termgroups'] += copy.deepcopy(long_source['new_termgroups'])
     multiple['new_termgroups'][2]['after_termgroup'] = 'BLOODPAC_{{release}}/SY'
+    c, _, template, model_file, _ = fixture()
+    model = plans.load(base64.b64decode(model_file['data_b64']))
+    root_identity = generated['bindings']['identity_state']
+    base_props = configuration.properties(configuration.render_template(c, template, root_identity))
+    next_config = copy.deepcopy(c);next_config.update(version='NCI_2026_12A', replacement_baseline={'source': 'NCI', 'version': 'NCI_2026_10D'})
+    next_plan = copy.deepcopy(empty);next_plan.update(version=next_config['version'], replacement_baseline=next_config['replacement_baseline'])
+    next_props = configuration.properties(configuration.render_template(next_config, template, root_identity))
+    def following_release(first_plan):
+        promoted = plans.promote_model(c, first_plan, model, base_props)
+        future = plans.generate(next_config, next_plan, promoted, next_props)
+        files = [plans.file_record('etc/nci.cfg', ''.join(key + ' = ' + value + '\n' for key, value in future['properties'].items()).encode())] + future['files']
+        return promoted, {'files': files}
+    promoted_long, following_long = following_release(long_source)
+    promoted_type, following_type = following_release(new_type)
+    good(['LONG_NEW_SOURCE', 'PT'] in promoted_long['termgroup_bindings'] and promoted_long['property_bindings']['vsab.LONG_NEW_SOURCE'] == 'LONG_NEW_SOURCE_{{release}}', 'Promotion retains the complete source alias and token bindings as versioned data')
+    good(promoted_type['property_bindings']['in2tty.NEWTYPE'] == 'NEWTYPE' and ['NCI', 'NEWTYPE'] in promoted_type['termgroup_bindings'], 'Promotion retains new term-type policy without repeating new-release flags')
     with tempfile.TemporaryDirectory(prefix='nci-source-plan-check-') as temporary:
         root = Path(temporary)
         baseline = root / 'captured.pl';baseline.write_bytes(subprocess.check_output(['git', 'show', 'bfda2ce:sources/NCI_2026_10D/bin/invert_NCI.pl'], cwd=ROOT))
@@ -168,6 +191,10 @@ def check():
         good([x[3] for x in roots] == [b'V-BLOODPAC'] * 3 + [b'V-LONG_NEW_SOURCE'] * 3 and all(int(y[0]) == int(x[0]) + 1 for x, y in zip(roots, roots[1:])), 'Multiple additions preserve the declared root order and consecutive SRC identities')
         output = execute(root / 'newtype', recipe(new_type), '|New term type|C1||NCINEWTYPE||\n')
         good(b'|NCI_2026_10D/NEWTYPE|' in output['classes_atoms.src'], 'Actual Perl emits a newly planned term type on an existing source')
+        output = execute(root / 'following-long', following_long, '|Long source in next release|C1||LONG_NEW_SOURCEPT|EXT2|\n')
+        good(b'|LONG_NEW_SOURCE_2026_12A/PT|' in output['classes_atoms.src'] and b'|SRC/RPT|' not in output['classes_atoms.src'], 'Actual following-release Perl run retains a long established source with no repeated root')
+        output = execute(root / 'following-type', following_type, '|New type in next release|C1||NCINEWTYPE||\n')
+        good(b'|NCI_2026_12A/NEWTYPE|' in output['classes_atoms.src'] and b'|SRC/RPT|' not in output['classes_atoms.src'], 'Actual following-release Perl run retains a promoted term type with empty addition arrays')
         native = root / 'native';native.mkdir()
         text = 'C1|P108|Alpha\nC1|P90|Alpha|P383|PT|P384|FDA\n'
         discovery_recipe = copy.deepcopy(generated);discovery_recipe['source_plan']['historical_exceptions'] = []

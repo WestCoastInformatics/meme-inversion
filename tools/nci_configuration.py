@@ -52,6 +52,17 @@ def artifact(artifacts, reference, role):
     return item['value']
 
 
+def render_template(config, template, root):
+    values = {'release': release(config['version']), 'source_atom_ids.start': str(config['source_atom_ids']['start']), 'identity_state.root_atom_id': str(root['root_atom_id'])}
+    text = base64.b64decode(template['data_b64'], validate=True).decode()
+    if set(re.findall(r'\{\{([^{}]+)\}\}', text)) != set(values):
+        raise ValueError('Unreviewed or incomplete template parameters')
+    text = re.sub(r'\{\{([^{}]+)\}\}', lambda match: values[match[1]], text)
+    if '{{' in text or '}}' in text:
+        raise ValueError('Unresolved template parameter')
+    return text.encode()
+
+
 def generate(config, artifacts, template, metadata_model=None):
     if config['source'] != 'NCI' or config['source_options'] != {} or config['inputs']['source_data_stage'] != 'publisher':
         raise ValueError('Unsupported NCIt configuration/options/input stage')
@@ -104,14 +115,7 @@ def generate(config, artifacts, template, metadata_model=None):
             raise ValueError('Metadata model bytes changed')
     elif len(metadata) != 2 or {x['path'] for x in metadata} != {config['version'] + '/src/' + x for x in ('sources.src', 'termgroups.src')}:
         raise ValueError('The two declared source metadata files are required')
-    values = {'release': current, 'source_atom_ids.start': str(bounds['start']), 'identity_state.root_atom_id': str(root['root_atom_id'])}
-    text = raw.decode()
-    if set(re.findall(r'\{\{([^{}]+)\}\}', text)) != set(values):
-        raise ValueError('Unreviewed or incomplete template parameters')
-    text = re.sub(r'\{\{([^{}]+)\}\}', lambda match: values[match[1]], text)
-    if '{{' in text or '}}' in text:
-        raise ValueError('Unresolved template parameter')
-    rendered = text.encode()
+    rendered = render_template(config, template, root)
     props = properties(rendered)
     source_plan = None
     if planned:
@@ -199,7 +203,9 @@ def receipt(recipe):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('lock', type=Path)
-    parser.add_argument('--output-dir', required=True, type=Path)
+    output = parser.add_mutually_exclusive_group(required=True)
+    output.add_argument('--output-dir', type=Path)
+    output.add_argument('--metadata-policy-preview', type=Path)
     args = parser.parse_args()
     def unique(pairs):
         result = {}
@@ -213,6 +219,23 @@ if __name__ == '__main__':
     if lock['lock_sha256'] != digest({key: value for key, value in lock.items() if key != 'lock_sha256'}):
         raise ValueError('Run lock changed')
     recipe = from_lock(lock)
+    if args.metadata_policy_preview:
+        if recipe['profile'] != nci_source_plan.PROFILE:
+            raise ValueError('Metadata-policy promotion requires a reviewed source plan')
+        config = lock['configuration']
+        model = nci_source_plan.load(base64.b64decode(recipe['metadata_model']['data_b64']))
+        plan = lock['case']['artifacts'][config['inputs']['source_plan']]['value']
+        base_properties = properties(render_template(config, recipe['template'], recipe['bindings']['identity_state']))
+        promoted = nci_source_plan.promote_model(config, plan, model, base_properties)
+        promoted['provenance'].update(base_model_file_sha256=recipe['metadata_model']['sha256'], base_engine_ref=config['engine_ref'],
+            input_lock_apparatus_ref=lock['apparatus_ref'], generator_sha256={
+                'nci_configuration.py': sha(Path(__file__).read_bytes()),
+                'nci_source_plan.py': sha(Path(nci_source_plan.__file__).read_bytes())})
+        with args.metadata_policy_preview.open('x') as handle:
+            json.dump(promoted, handle, indent=2, ensure_ascii=False, sort_keys=True);handle.write('\n')
+        args.metadata_policy_preview.chmod(0o444)
+        print(json.dumps({'metadata_policy_preview': str(args.metadata_policy_preview), 'requires_review': True, 'installed_state_updated': False}))
+        raise SystemExit(0)
     args.output_dir.mkdir()  # never replace an existing rendered plan
     for item in recipe['files']:
         path = args.output_dir / item['relative_path'];path.parent.mkdir(parents=True, exist_ok=True)

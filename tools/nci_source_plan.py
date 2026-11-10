@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Render reviewed NCIt metadata/additions and reject unreviewed native values."""
 import base64
+import copy
 import hashlib
 import json
 from pathlib import Path
@@ -125,6 +126,15 @@ def generate(config, plan, model, properties):
         if key in props and props[key] != value:
             raise ValueError('Addition conflicts with existing representation policy: ' + key)
         props[key] = value
+    for key, value in sorted(model.get('property_bindings', {}).items()):
+        key = render(key, variables);value = render(value, variables)
+        if not (key.startswith(('vsab.', 'rsab.', 'in2tty.', 'in2Otty.', 'inl2tty.')) or key.endswith('.RSSN')):
+            raise ValueError('Unreviewed persistent metadata-policy property')
+        bind(key, value)
+        if key.startswith('rsab.'):
+            source = identifier(value)
+            if "'" + source + "'" not in props['CFG2RSAB']:
+                props['CFG2RSAB'] += ", '" + source + "'"
     for addition in plan['new_subsources']:
         keys(addition, ('metadata', 'after_source', 'publisher_names', 'root'), 'new subsource')
         entry = row(addition['metadata'], SOURCE_FIELDS, variables)
@@ -155,9 +165,11 @@ def generate(config, plan, model, properties):
             props['CFG2RSAB'] += ", '" + source + "'"
     if not isinstance(plan['property_updates'], dict):
         raise ValueError('Typed term-type mappings required')
-    for key, value in plan['property_updates'].items():
+    for key, value in sorted(plan['property_updates'].items()):
         if not re.fullmatch(r'(in2tty|in2Otty|inl2tty)\.[A-Za-z0-9_-]+', key):
             raise ValueError('Only explicit new term-type mappings are allowed')
+        if key not in props and key.split('.', 1)[1] in {x[1] for x in model['publisher_termgroups']}:
+            raise ValueError('Release additions cannot reinterpret an existing native term type')
         bind(key, identifier(value))
     declared = {tuple(x) for x in model['publisher_termgroups']}
     native_tokens = {}
@@ -166,6 +178,16 @@ def generate(config, plan, model, properties):
         if token in native_tokens and native_tokens[token] != (alias, incoming):
             raise ValueError('Existing publisher termgroups have an ambiguous TREF token')
         native_tokens[token] = (alias, incoming)
+    for binding in model.get('termgroup_bindings', []):
+        if not isinstance(binding, list) or len(binding) != 2:
+            raise ValueError('Invalid persistent publisher binding')
+        alias, incoming = binding;text(alias);identifier(incoming)
+        if (alias, incoming) not in declared:
+            raise ValueError('Persistent binding lacks its declared publisher termgroup')
+        mapped = props['VSAB'] if alias == props['RSAB'] else props.get('vsab.' + alias)
+        if mapped not in {x['source_name'] for x in sources}:
+            raise ValueError('Persistent binding lacks source metadata')
+        tokens[alias + incoming] = (alias, incoming)
     added_groups = set()
     for addition in plan['new_termgroups']:
         keys(addition, ('metadata', 'after_termgroup', 'input_ttys'), 'new termgroup')
@@ -229,6 +251,55 @@ def generate(config, plan, model, properties):
             'publisher_properties': model['publisher_properties'], 'publisher_labels': model['publisher_labels'],
             'relationship_roles': model['relationship_roles'],
             'new_subsources': [x[0] for x in roots], 'new_termgroups': len(plan['new_termgroups'])}
+
+
+def promote_model(config, plan, model, base_properties):
+    """Draft the complete next catalog, without asserting insertion/root state."""
+    generated = generate(config, plan, model, base_properties)
+    result = copy.deepcopy(model)
+    current = config['version'].removeprefix('NCI_')
+    variables = {'release': current,
+                 'replacement_release': config['replacement_baseline']['version'].removeprefix('NCI_')}
+    source_rows = {x['stripped_source']: copy.deepcopy(x) for x in model['sources']}
+    for addition in plan['new_subsources']:
+        entry = copy.deepcopy(addition['metadata']);source = entry['stripped_source']
+        entry.update(source_name=source + '_{{release}}', normalized_source=source + '_{{release}}',
+                     version='{{release}}', low_source=source + '_{{replacement_release}}')
+        source_rows[source] = entry
+    def group_key(entry):
+        name = render(entry['termgroup_name'], variables)
+        vsab, tty = name.rsplit('/', 1)
+        return vsab.removesuffix('_' + current) + '/' + tty
+    group_rows = {group_key(x): copy.deepcopy(x) for x in model['termgroups']}
+    for addition in plan['new_termgroups']:
+        entry = copy.deepcopy(addition['metadata']);key = group_key(entry);source, tty = key.rsplit('/', 1)
+        entry.update(termgroup_name=source + '_{{release}}/' + tty,
+                     low_termgroup=source + '_{{replacement_release}}/' + tty)
+        group_rows[key] = entry
+    files = {x['relative_path']: base64.b64decode(x['data_b64']).decode() for x in generated['files']}
+    result['sources'] = [source_rows[line.split('|')[4]] for line in files['src/sources.src'].splitlines()]
+    result['termgroups'] = [group_rows[group_key({'termgroup_name': line.split('|')[0]})]
+                            for line in files['src/termgroups.src'].splitlines()]
+    bindings = dict(model.get('property_bindings', {}))
+    for key, value in generated['properties'].items():
+        if not (key.startswith(('vsab.', 'rsab.', 'in2tty.', 'in2Otty.', 'inl2tty.')) or key.endswith('.RSSN')):
+            continue
+        if base_properties.get(key) == value:
+            continue
+        if key.endswith('_' + current + '.RSSN'):
+            key = key.removesuffix('_' + current + '.RSSN') + '_{{release}}.RSSN'
+        if key.startswith('vsab.') and value.endswith('_' + current):
+            value = value.removesuffix('_' + current) + '_{{release}}'
+        bindings[key] = value
+    result['property_bindings'] = bindings
+    result['termgroup_bindings'] = [line.split('\t')[1:] for line in files[TOKENS].splitlines()]
+    result['publisher_termgroups'] = generated['publisher_termgroups']
+    result['provenance'] = {'origin': 'Review candidate derived from a validated release plan; not an insertion receipt',
+        'base_model_content_sha256': sha(json.dumps(model, sort_keys=True, separators=(',', ':')).encode()),
+        'source_plan_content_sha256': sha(json.dumps(plan, sort_keys=True, separators=(',', ':')).encode()),
+        'prepared_for': config['version'], 'requires_review': True, 'installed_state_updated': False,
+        'base_provenance': copy.deepcopy(model.get('provenance', {}))}
+    return result
 
 
 def discover(recipe, target):
