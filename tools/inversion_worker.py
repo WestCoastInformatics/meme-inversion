@@ -155,6 +155,15 @@ def verify_lock(lock):
             raise ValueError('Source payload differs')
     if names != set(expected_source) or not names:
         raise ValueError('Source inventory is incomplete')
+    if case.get('configuration_generation') or 'configuration_generation' in lock:
+        if request['source'] != 'NCI' or request['case_variant'] != 'generated-configuration' or case.get('source_package') != 'engines/nci':
+            raise ValueError('Unreviewed generated-configuration case')
+        if any(x.get('repository_path') != 'engines/nci/' + x['relative_path'] for x in lock['code_files']):
+            raise ValueError('Canonical source package path differs')
+        import nci_configuration
+        nci_configuration.from_lock(lock)
+    elif 'source_package' in case:
+        raise ValueError('A canonical package requires its generated configuration contract')
     if request['source'] in ('MDR','RADLEX'):
         data=case['legacy_case'];bounds=config['source_atom_ids']
         if (bounds['start'],bounds['end'])!=(data['source_atom_ids']['start'],data['source_atom_ids']['end']):raise ValueError('Framework ID bounds differ from reviewed inputs')
@@ -379,6 +388,8 @@ def package(lock):
     request = lock['request']
     if request['source'] == 'NCI':
         data.update(run_id=lock['run_id'], engine_ref=request['engine_ref'], preparation_engine_ref=request['engine_ref'])
+        if 'configuration_generation' in lock:
+            data['generated_configuration'] = copy.deepcopy(lock['configuration_generation'])
         return data
     if request['source'] == 'SNOMEDCT_US':
         data['contract'].update(run_id=lock['run_id'], engine_ref=request['engine_ref'])
@@ -430,7 +441,11 @@ def convert(lock, target, run, held_lock):
                 'comparison': [info(target / 'src' / Path(item['path']).name) for item in data['core_outputs_to_regenerate']]}
         save(target / 'etc/replay-core.json', core)
         comparison = compare_nci_core.compare(data)
-        return {'core': core, 'comparison': comparison, 'acceptance': verdict(core, comparison)}
+        result = {'core': core, 'comparison': comparison, 'acceptance': verdict(core, comparison)}
+        if 'configuration_generation' in lock:
+            import nci_configuration
+            result['configuration_generation'] = nci_configuration.receipt(lock['configuration_generation'])
+        return result
     if source == 'SNOMEDCT_US':
         import run_snomed_core_replay as replay
         replay.RUN_ID = lock['run_id']
@@ -461,6 +476,11 @@ def verify_after(lock, target, result):
         for item in data['native_inputs'] + data['archived_metadata_inputs'] + data['preparation_reference_files']:
             require_file(ROOT / 'sources' / item['path'], item['sha256'])
         result['core']['metadata_unchanged'] = True
+        if 'configuration_generation' in lock:
+            import nci_configuration
+            generated = nci_configuration.from_lock(lock)
+            nci_configuration.verify_metadata(generated, target)
+            nci_configuration.verify_files(generated, target)
     elif lock['request']['source'] in ('MDR','RADLEX'):
         import replay_framework_core
         replay_framework_core.verify_inputs(package(lock),target)

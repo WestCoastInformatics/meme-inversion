@@ -21,7 +21,7 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'prepare_nci_candidate.py', 'advance_nci_replay.py',
            'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
            'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py',
-           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py')
+           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py', 'nci_configuration.py')
 ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1',
             'MDR':'mdr-29-1-v1','RADLEX':'radlex-4-3-v1'}
 
@@ -192,7 +192,10 @@ def resolve(request, run_id):
     code_files = []
     for item in case['source_files']:
         record = copy.deepcopy(item)
-        path = 'sources/' + request['version'] + '/' + item['relative_path']
+        prefix = case.get('source_package', 'sources/' + request['version'])
+        if 'source_package' in case and (request['source'] != 'NCI' or prefix != 'engines/nci' or not case.get('configuration_generation')):
+            raise ValueError('Unreviewed canonical source package')
+        path = prefix + '/' + item['relative_path']
         if item['kind'] == 'symlink':
             if blob(engine, path).decode() != item['target']:
                 raise ValueError('Captured source link differs from selected Git engine')
@@ -216,6 +219,14 @@ def resolve(request, run_id):
             'runtime_files': runtime_files,
             'runtime_ref': runtime_ref, 'execution_enabled': case['execution_enabled'],
             'network': 'disabled during conversion', 'insertion_executed': False}
+    if case.get('configuration_generation'):
+        import nci_configuration
+        spec = case['configuration_generation']
+        template = frozen_file(engine, spec['repository_path'])
+        if template['sha256'] != spec['sha256']:
+            raise ValueError('Template differs from reviewed source policy')
+        lock['configuration_generation'] = nci_configuration.generate(configuration, case['artifacts'], template)
+        nci_configuration.from_lock(lock)
     lock['lock_sha256'] = digest(lock)
     return lock
 

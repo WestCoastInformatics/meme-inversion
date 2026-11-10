@@ -1,0 +1,44 @@
+{
+  "source": "NCI",
+  "captured_engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "source_files": [
+    {
+      "path": "engines/nci/bin/invert_NCI.pl",
+      "captured_path": "sources/NCI_2026_10D/bin/invert_NCI.pl",
+      "captured_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "captured_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+      "package_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
+      "change": "unchanged bytes"
+    },
+    {
+      "path": "engines/nci/bin/create_rolegroups.pl",
+      "captured_path": "sources/NCI_2026_10D/bin/create_rolegroups.pl",
+      "captured_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "captured_sha256": "fe043606aff626e87d87bfd72885435b732ed60cd8e69e84595909d344719ecb",
+      "package_sha256": "314705f60d7742480013b4a9b71a1fd91e8d9b4851b6ab73dd2a3b5410c80703",
+      "change": "explicit native input arguments only"
+    },
+    {
+      "path": "engines/nci/bin/create_tref.pl",
+      "captured_path": "sources/NCI_2026_10D/bin/create_tref.pl",
+      "captured_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "captured_sha256": "929230080198176550bf940451eec6ab8217feab6ad2f9ac1a9c8821213f8362",
+      "package_sha256": "fa7e6eff83b78bf8a83ab9e4b37c4ec55fd06832143508609b5e6e5e10ee8c21",
+      "change": "explicit native input arguments only"
+    },
+    {
+      "path": "engines/nci/bin/delete_dup_tref_lines.pl",
+      "captured_path": "sources/NCI_2026_10D/bin/delete_dup_tref_lines.pl",
+      "captured_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "captured_sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272",
+      "package_sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272",
+      "change": "unchanged bytes"
+    }
+  ],
+  "configuration_template": {
+    "captured_path": "sources/NCI_2026_10D/etc/nci.cfg",
+    "captured_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
+    "policy": "Retain every effective property, including existing spelling/casing; replace only release suffix, atom start and saved hierarchy root ID. Comments and whitespace are presentation only."
+  },
+  "not_in_package": "Unused historical wrappers, QA scripts and .orig backups remain in the captured baseline; this package contains only the executed core/preparation closure."
+}

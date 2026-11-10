@@ -72,6 +72,7 @@ def prepare(contract, code_files, progress=print):
               'core_inverter_executed': False, 'insertion_preparation_executed': False,
               'coverage': 'Native/TREF preparation with archived source metadata; metadata acquisition, QA, insertion excluded'}
     staging = Path(tempfile.mkdtemp(prefix='.' + VERSION + '.prepare-', dir=str(ROOT)))
+    generated = contract.get('generated_configuration')
     atom_ids = set()
     atom_rows = 0
     atom_invalid_ids = 0
@@ -115,7 +116,7 @@ def prepare(contract, code_files, progress=print):
         if len(result['inputs']) != len(allowed) or atom_invalid_ids or not atom_ids:
             raise RuntimeError('Incomplete input or historical-ID evidence')
         for f in code_files:
-            relative = PurePosixPath(f['path']).relative_to('sources/' + VERSION)
+            relative = PurePosixPath(f.get('relative_path') or str(PurePosixPath(f['path']).relative_to('sources/' + VERSION)))
             path = staging / str(relative)
             if path.exists() or '..' in relative.parts or relative.parts[0] not in ('bin', 'etc'):
                 raise RuntimeError('Unexpected code bundle path')
@@ -126,6 +127,21 @@ def prepare(contract, code_files, progress=print):
             path.write_bytes(raw)
             path.chmod(int(f['mode'], 8))
             result['code'].append({'relative_path': str(relative), 'sha256': f['sha256']})
+        if generated is not None:
+            import nci_configuration
+            nci_configuration.verify_metadata(generated, staging)
+            for item in generated['files']:
+                if item['relative_path'] != 'etc/nci.cfg':
+                    raise ValueError('Unreviewed generated output path')
+                raw = base64.b64decode(item['data_b64'], validate=True)
+                if hashlib.sha256(raw).hexdigest() != item['sha256']:
+                    raise ValueError('Generated configuration payload changed')
+                path = staging / item['relative_path']
+                with path.open('xb') as handle:
+                    handle.write(raw)
+                path.chmod(int(item['mode'], 8))
+            nci_configuration.verify_files(generated, staging)
+            result['configuration_generation'] = nci_configuration.receipt(generated)
         if {x.name for x in (staging / 'src').iterdir()} != {'sources.src', 'termgroups.src'}:
             raise RuntimeError('Candidate was seeded with undeclared generated output')
         result['reference_atom_id_evidence'] = {'rows': atom_rows, 'unique_ids': len(atom_ids),
@@ -171,10 +187,11 @@ def prepare(contract, code_files, progress=print):
         if status != 0:
             raise RuntimeError('Preparation stage failed: ' + name + '; see ' + str(log))
 
-    stage('role-groups', ['/usr/bin/perl', 'create_rolegroups.pl'])
+    arguments = generated['preparation_arguments'] if generated is not None else {}
+    stage('role-groups', ['/usr/bin/perl', 'create_rolegroups.pl'] + arguments.get('role-groups', []))
     stage('sort-role-groups', ['/usr/bin/sort', '../tmp/rolegroups.tmp', '-o', '../tmp/rolegroups.sorted.tmp'])
     stage('repeated-role-groups', ['/usr/bin/uniq', '-d', '../tmp/rolegroups.sorted.tmp'], target / 'orig/rels_needing_relgrp.txt')
-    stage('create-tref', ['/usr/bin/perl', 'create_tref.pl'])
+    stage('create-tref', ['/usr/bin/perl', 'create_tref.pl'] + arguments.get('create-tref', []))
     stage('deduplicate-tref', ['/usr/bin/perl', 'delete_dup_tref_lines.pl'])
     comparisons = []
     for f in contract['preparation_reference_files']:
@@ -190,5 +207,7 @@ def prepare(contract, code_files, progress=print):
     for f in result['inputs']:
         if file_info(target / f['relative_path'])['sha256'] != f['sha256']:
             raise RuntimeError('A declared input was modified during native preparation')
+    if generated is not None:
+        nci_configuration.verify_files(generated, target)
     save(target / 'etc/replay-case.json', result)
     return result
