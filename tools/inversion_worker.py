@@ -155,12 +155,15 @@ def verify_lock(lock):
             raise ValueError('Source payload differs')
     if names != set(expected_source) or not names:
         raise ValueError('Source inventory is incomplete')
-    if (request['source'] == 'NCI' and request['case_variant'] == 'generated-configuration') or case.get('configuration_generation') or 'configuration_generation' in lock:
-        if request['source'] != 'NCI' or request['case_variant'] != 'generated-configuration' or case.get('source_package') != 'engines/nci':
+    if (request['source'] == 'NCI' and request['case_variant'] in ('generated-configuration', 'source-plan')) or case.get('configuration_generation') or 'configuration_generation' in lock:
+        if request['source'] != 'NCI' or request['case_variant'] not in ('generated-configuration', 'source-plan') or case.get('source_package') != 'engines/nci':
             raise ValueError('Unreviewed generated-configuration case')
         if any(x.get('repository_path') != 'engines/nci/' + x['relative_path'] for x in lock['code_files']):
             raise ValueError('Canonical source package path differs')
         import nci_configuration
+        expected_profile = 'nci-properties-v1' if request['case_variant'] == 'generated-configuration' else 'nci-source-plan-v1'
+        if case['configuration_generation']['profile'] != expected_profile:
+            raise ValueError('NCIt case variant differs from the reviewed generator profile')
         nci_configuration.from_lock(lock)
     elif 'source_package' in case:
         raise ValueError('A canonical package requires its generated configuration contract')
@@ -445,6 +448,9 @@ def convert(lock, target, run, held_lock):
         if 'configuration_generation' in lock:
             import nci_configuration
             result['configuration_generation'] = nci_configuration.receipt(lock['configuration_generation'])
+            if lock['configuration_generation']['profile'] == 'nci-source-plan-v1':
+                result['source_plan_preflight'] = json.loads((run / 'preparation.json').read_text())['source_plan_preflight']
+                result['release_readiness'] = 'Historical compatibility only; declared findings require review before operational use'
         return result
     if source == 'SNOMEDCT_US':
         import run_snomed_core_replay as replay

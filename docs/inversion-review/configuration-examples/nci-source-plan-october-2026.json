@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "replacement_baseline": {
+    "source": "NCI",
+    "version": "NCI_2026_08E"
+  },
+  "comparison_baseline": null,
+  "publisher_history": [],
+  "new_subsources": [
+    {
+      "metadata": {
+        "source_name": "BLOODPAC_{{release}}",
+        "low_source": "CELLOSAURUS_{{release}}",
+        "restriction_level": "0",
+        "normalized_source": "BLOODPAC_{{release}}",
+        "stripped_source": "BLOODPAC",
+        "version": "{{release}}",
+        "source_family": "NCI",
+        "official_name": "Blood Profiling Atlas in Cancer Terminology",
+        "nlm_contact": "",
+        "acquisition_contact": "Lyubov Remennik, Center for Bioinformatics, National Cancer Institute, 9609 Medical Center Dr., Rockville MD 20850; phone: 240-276-6793; email: lyubov.remennik@nih.gov",
+        "content_contact": "Lyubov Remennik;;Center for Bioinformatics, National Cancer Institute;9609 Medical Center Dr.;;Rockville;MD;USA;20850;240-276-6793;;lyubov.remennik@nih.gov;;",
+        "license_contact": "Lyubov Remennik;;Center for Bioinformatics, National Cancer Institute;9609 Medical Center Dr.;;Rockville;MD;USA;20850;240-276-6793;;lyubov.remennik@nih.gov;;",
+        "inverter": "quansh@mail.nih.gov",
+        "context_type": "",
+        "url": "https://www.bloodpac.org",
+        "language": "ENG",
+        "citation": ";;;;BLOODPAC Consortium;;;;;;;;;;;;;;;;",
+        "license_info": "",
+        "character_set": "UTF-8",
+        "rel_directionality_flag": ""
+      },
+      "after_source": "BioC",
+      "publisher_names": [
+        "BLOODPAC"
+      ],
+      "root": {
+        "preferred_term": "Blood Profiling Atlas in Cancer Terminology",
+        "short_name": "Blood Profiling Atlas in Cancer Terminology"
+      }
+    }
+  ],
+  "new_termgroups": [
+    {
+      "metadata": {
+        "termgroup_name": "BLOODPAC_{{release}}/PT",
+        "low_termgroup": "BLOODPAC_{{release}}/SY",
+        "suppressible_flag": "N",
+        "exclude_flag": "N",
+        "norm_exclude_flag": "N",
+        "tty": "PT"
+      },
+      "after_termgroup": "BioC_{{release}}/SY",
+      "input_ttys": [
+        "PT"
+      ]
+    },
+    {
+      "metadata": {
+        "termgroup_name": "BLOODPAC_{{release}}/SY",
+        "low_termgroup": "CELLOSAURUS_{{release}}/SY",
+        "suppressible_flag": "N",
+        "exclude_flag": "N",
+        "norm_exclude_flag": "N",
+        "tty": "SY"
+      },
+      "after_termgroup": "BLOODPAC_{{release}}/PT",
+      "input_ttys": [
+        "SY"
+      ]
+    }
+  ],
+  "property_updates": {},
+  "historical_exceptions": [
+    {
+      "reason": "The frozen October producer has no mapping for this native source label. Preserve its existing behavior only for a bounded historical compatibility replay; no release eligibility or corrected mapping is claimed.",
+      "version": "NCI_2026_10D",
+      "native_sha256": {
+        "annotationDeclaration-20261026.txt": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda",
+        "classDeclaration-20261026.txt": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec",
+        "hierarchy-20261026.txt": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b",
+        "objectDeclaration-20261026.txt": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+        "relations-20261026.txt": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f"
+      },
+      "kind": "unmapped-publisher-source",
+      "identifier": "CTCAE 6.0"
+    },
+    {
+      "kind": "unverified-termgroup-ranking",
+      "identifier": "CELLOSAURUS_2026_10D/SY",
+      "reason": "The preserved October BLOODPAC/SY low-termgroup selection is not defined in its metadata bundle. Preserve this exact historical input choice for comparison; existence in the insertion database is not established. A new release requires a validated ranking target.",
+      "version": "NCI_2026_10D",
+      "native_sha256": {
+        "annotationDeclaration-20261026.txt": "340973f5f9a7ed160c4a9901871ba5fb5db3167c6d3c9a2ef619596d85aaafda",
+        "classDeclaration-20261026.txt": "58cfbff81a1fd579ebd49c47af09d035d670ff04439dc0f6f3ee4625599475ec",
+        "hierarchy-20261026.txt": "9c1e68493354a5116b1f95f6e301abfac69c4f3a3757c3efc8349e54ab28f71b",
+        "objectDeclaration-20261026.txt": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+        "relations-20261026.txt": "9876e4609ff2ddc17b7ac055ee1a1d10b181942338d27da7ac86b92203770d5f"
+      }
+    }
+  ]
+}

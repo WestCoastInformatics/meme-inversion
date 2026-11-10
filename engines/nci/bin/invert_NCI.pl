@@ -98,6 +98,8 @@ our ($said1, $said2, $atn, $atv, $rel_grp, $srui);
 our ($misc_ID1,$misc_ID2,$misc_ID3);
 our ($miscAtom1,$miscAtom2,$miscAtom3);
 our ($misc_merge);
+our @plannedSubsources;
+our %plannedTermgroups;
 
 
 
@@ -181,6 +183,7 @@ sub init {
   $miscAtom1 = new Atom();
   $miscAtom2 = new Atom();
   $miscAtom3 = new Atom();
+  loadSourcePlan();
 
 
 }
@@ -197,7 +200,6 @@ sub process {
   $Inv->prTime("Done SRC building");
   
   $Inv->prTime("processSubsourceAtoms");
-  $Inv->prTime("Edit and un-comment processSubsourceAtoms if there is a new subsource");
   
   &processSubsourceAtoms;
   &processNCIPT;
@@ -250,7 +252,10 @@ while (<MRCON>){
 		  #$str =  trim1($string);
 		  $str = iutl->cleanLine($string);
 		  #if ($str ne $string) {print "$str|$string\n"};
-        if($sabtty=~/(ACC-AHA)(..)/){
+        if (exists $plannedTermgroups{$sabtty}) {
+                ($sab, $tty) = @{$plannedTermgroups{$sabtty}};
+        }
+        elsif($sabtty=~/(ACC-AHA)(..)/){
                 $sab=$1;
                 $tty=$2;
         }
@@ -440,7 +445,10 @@ while (<MRCON>){
         ($null,$string,$cui,$null,$sabtty,$origcode) = split(/\|/);
 		  #$str =  trim1($string);
 		  $str = iutl->cleanLine($string);
-        if($sabtty=~/(ACC-AHA)(..)/){
+        if (exists $plannedTermgroups{$sabtty}) {
+                ($sab, $tty) = @{$plannedTermgroups{$sabtty}};
+        }
+        elsif($sabtty=~/(ACC-AHA)(..)/){
                 $sab=$1;
                 $tty=$2;
         }
@@ -1118,37 +1126,50 @@ sub processContext{
     ###################################################################
 }
 #---------------------------------------------------------------
-sub processSubsourceAtoms {
- print "in processNewSubSource\n";
-  my ($misc_ID);
-    #create RPT, RAB, RSSN atoms for all of the sub-sources
-    # because NCI is an existing source and we dont want to overwrite the NCI ROOT information we are doing this step manually
-    # for next release make sure to take this informations out
-   #BLOODPAC
-   $miscAtom1->dumpAtom({str => 'Blood Profiling Atlas in Cancer Terminology', code => 'V-BLOODPAC', tty => 'RPT', vsab => 'SRC'});
-   $misc_ID1 = $miscAtom1->getLastId();
-   $miscAtom2->dumpAtom({str => 'BLOODPAC', code => 'V-BLOODPAC', tty => 'RAB', vsab => 'SRC'});
-   $misc_ID2 = $miscAtom2->getLastId();
-   $miscAtom3->dumpAtom({str => 'Blood Profiling Atlas in Cancer Terminology', code =>'V-BLOODPAC', tty => 'SSN', vsab => 'SRC'});
-   $misc_ID3 = $miscAtom3->getLastId();
-  
-   $tgRel->dumpRel({sgId1 => 'V-MTH', sgId2 => 'V-BLOODPAC', rel => 'RT', rela => '', sgQual1 => 'SRC', sgQual2 => 'SRC', vsab => 'SRC', sl=> 'SRC'});
-   $misc_merge->dumpMerge({sgId1 => $misc_ID1, sgId2 => $misc_ID2,mergeSet => 'NCI-SRC',sgType1 => 'SRC_ATOM_ID',sgType2 => 'SRC_ATOM_ID',vsab =>'SRC'});
-   $misc_merge->dumpMerge({sgId1 => $misc_ID1, sgId2 => $misc_ID3,mergeSet => 'NCI-SRC',sgType1 => 'SRC_ATOM_ID',sgType2 => 'SRC_ATOM_ID',vsab =>'SRC'});
-   $Attribute -> dumpAttr ({sgId => $misc_ID1, lvl => 'C', atn => "SEMANTIC_TYPE", atv => "Intellectual Product", vsab => "SRC", sgType => 'SRC_ATOM_ID', sgQual => ""});
+sub loadSourcePlan {
+  my $roots = $$Cfg->getReqEle('NCI.SourcePlan.Roots');
+  my $tokens = $$Cfg->getReqEle('NCI.SourcePlan.Termgroups');
+  my %seen;
+  open(my $rf, '<:encoding(UTF-8)', $roots) or die "Cannot read reviewed subsource plan: $roots\n";
+  while (my $line = <$rf>) {
+    chomp $line;
+    my @fields = split(/\t/, $line, -1);
+    die "Invalid or duplicate planned subsource\n" unless @fields == 3
+      && $fields[0] =~ /^[A-Za-z0-9][A-Za-z0-9_.-]*$/
+      && length($fields[1]) && length($fields[2]) && !$seen{$fields[0]}++
+      && $line !~ /[\r\x00|]/;
+    push @plannedSubsources, \@fields;
+  }
+  close($rf) or die "Cannot finish subsource plan\n";
+  open(my $tf, '<:encoding(UTF-8)', $tokens) or die "Cannot read reviewed termgroup plan: $tokens\n";
+  while (my $line = <$tf>) {
+    chomp $line;
+    my @fields = split(/\t/, $line, -1);
+    die "Invalid or duplicate planned termgroup\n" unless @fields == 3
+      && length($fields[1]) && $fields[2] =~ /^[A-Za-z0-9][A-Za-z0-9_.-]*$/
+      && $fields[0] eq $fields[1].$fields[2] && !exists($plannedTermgroups{$fields[0]})
+      && $line !~ /[\r\x00|]/;
+    $plannedTermgroups{$fields[0]} = [$fields[1], $fields[2]];
+  }
+  close($tf) or die "Cannot finish termgroup plan\n";
+}
 
-   #ICD-10   
-   #$miscAtom1->dumpAtom({str => 'International Classification of Diseases, 10th Edition' , code => 'V-ICD-10', tty => 'RPT', vsab => 'SRC'});
-   #$misc_ID1 = $miscAtom1->getLastId();
-   #$miscAtom2->dumpAtom({str => 'ICD-10', code => 'V-ICD-10', tty => 'RAB', vsab => 'SRC'});
-   #$misc_ID2 = $miscAtom2->getLastId();
-   #$miscAtom3->dumpAtom({str => 'International Classification of Diseases, 10th Edition', code =>'V-ICD-10', tty => 'SSN', vsab => 'SRC'});
-   #$misc_ID3 = $miscAtom3->getLastId();
-  
-   #$tgRel->dumpRel({sgId1 => 'V-MTH', sgId2 => 'V-ICD-10', rel => 'RT', rela => '', sgQual1 => 'SRC', sgQual2 => 'SRC', vsab => 'SRC', sl=> 'SRC'});
-   #$misc_merge->dumpMerge({sgId1 => $misc_ID1, sgId2 => $misc_ID2,mergeSet => 'NCI-SRC',sgType1 => 'SRC_ATOM_ID',sgType2 => 'SRC_ATOM_ID',vsab =>'SRC'});
-   #$misc_merge->dumpMerge({sgId1 => $misc_ID1, sgId2 => $misc_ID3,mergeSet => 'NCI-SRC',sgType1 => 'SRC_ATOM_ID',sgType2 => 'SRC_ATOM_ID',vsab =>'SRC'});
-   #$Attribute -> dumpAttr ({sgId => $misc_ID1, lvl => 'C', atn => "SEMANTIC_TYPE", atv => "Intellectual Product", vsab => "SRC", sgType => 'SRC_ATOM_ID', sgQual => ""});
+sub processSubsourceAtoms {
+  # Ordered, reviewed additions only. Empty plans emit no root records.
+  foreach my $entry (@plannedSubsources) {
+    my ($source, $preferred, $short) = @$entry;
+    my $code = 'V-'.$source;
+    $miscAtom1->dumpAtom({str => $preferred, code => $code, tty => 'RPT', vsab => 'SRC'});
+    my $primary = $miscAtom1->getLastId();
+    $miscAtom2->dumpAtom({str => $source, code => $code, tty => 'RAB', vsab => 'SRC'});
+    my $abbreviation = $miscAtom2->getLastId();
+    $miscAtom3->dumpAtom({str => $short, code => $code, tty => 'SSN', vsab => 'SRC'});
+    my $short_id = $miscAtom3->getLastId();
+    $tgRel->dumpRel({sgId1 => 'V-MTH', sgId2 => $code, rel => 'RT', rela => '', sgQual1 => 'SRC', sgQual2 => 'SRC', vsab => 'SRC', sl => 'SRC'});
+    $misc_merge->dumpMerge({sgId1 => $primary, sgId2 => $abbreviation, mergeSet => 'NCI-SRC', sgType1 => 'SRC_ATOM_ID', sgType2 => 'SRC_ATOM_ID', vsab => 'SRC'});
+    $misc_merge->dumpMerge({sgId1 => $primary, sgId2 => $short_id, mergeSet => 'NCI-SRC', sgType1 => 'SRC_ATOM_ID', sgType2 => 'SRC_ATOM_ID', vsab => 'SRC'});
+    $Attribute->dumpAttr({sgId => $primary, lvl => 'C', atn => 'SEMANTIC_TYPE', atv => 'Intellectual Product', vsab => 'SRC', sgType => 'SRC_ATOM_ID', sgQual => ''});
+  }
 }
 #
 #----------------------------------

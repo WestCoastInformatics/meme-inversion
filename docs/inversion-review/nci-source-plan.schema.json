@@ -1,0 +1,327 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ncimeta:nci-source-plan:1",
+  "title": "Reviewed NCIt release source plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source",
+    "version",
+    "replacement_baseline",
+    "comparison_baseline",
+    "publisher_history",
+    "new_subsources",
+    "new_termgroups",
+    "property_updates",
+    "historical_exceptions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "source": {
+      "const": "NCI"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^NCI_[0-9]{4}_(0[1-9]|1[0-2])[A-Z]$"
+    },
+    "replacement_baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "version"
+      ],
+      "properties": {
+        "source": {
+          "const": "NCI"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^NCI_[0-9]{4}_(0[1-9]|1[0-2])[A-Z]$"
+        }
+      }
+    },
+    "comparison_baseline": {
+      "type": "null"
+    },
+    "publisher_history": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "new_subsources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metadata",
+          "after_source",
+          "publisher_names",
+          "root"
+        ],
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_name",
+              "low_source",
+              "restriction_level",
+              "normalized_source",
+              "stripped_source",
+              "version",
+              "source_family",
+              "official_name",
+              "nlm_contact",
+              "acquisition_contact",
+              "content_contact",
+              "license_contact",
+              "inverter",
+              "context_type",
+              "url",
+              "language",
+              "citation",
+              "license_info",
+              "character_set",
+              "rel_directionality_flag"
+            ],
+            "properties": {
+              "source_name": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "low_source": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "restriction_level": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "normalized_source": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "stripped_source": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "source_family": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "official_name": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "nlm_contact": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "acquisition_contact": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "content_contact": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "license_contact": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "inverter": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "context_type": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "language": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "citation": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "license_info": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "character_set": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "rel_directionality_flag": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              }
+            }
+          },
+          "after_source": {
+            "type": "string",
+            "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+          },
+          "publisher_names": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+            }
+          },
+          "root": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "preferred_term",
+              "short_name"
+            ],
+            "properties": {
+              "preferred_term": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "short_name": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "new_termgroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metadata",
+          "after_termgroup",
+          "input_ttys"
+        ],
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "termgroup_name",
+              "low_termgroup",
+              "suppressible_flag",
+              "exclude_flag",
+              "norm_exclude_flag",
+              "tty"
+            ],
+            "properties": {
+              "termgroup_name": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "low_termgroup": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "suppressible_flag": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "exclude_flag": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "norm_exclude_flag": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              },
+              "tty": {
+                "type": "string",
+                "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+              }
+            }
+          },
+          "after_termgroup": {
+            "type": "string",
+            "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+          },
+          "input_ttys": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+            }
+          }
+        }
+      }
+    },
+    "property_updates": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^(in2tty|in2Otty|inl2tty)\\.[A-Za-z0-9_-]+$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+      }
+    },
+    "historical_exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "identifier",
+          "reason",
+          "version",
+          "native_sha256"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "unmapped-publisher-source",
+              "unverified-termgroup-ranking"
+            ]
+          },
+          "identifier": {
+            "type": "string",
+            "pattern": "^[^|\\r\\n\\t\\u0000]*$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^NCI_[0-9]{4}_(0[1-9]|1[0-2])[A-Z]$"
+          },
+          "native_sha256": {
+            "type": "object",
+            "minProperties": 5,
+            "maxProperties": 5,
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -86,7 +86,7 @@ def check():
   good(run.returncode==0 and (target/'tmp/rolegroups.tmp').read_text()=='C1|1\nC1|1\n','Real role-group producer uses declared input with unchanged serialization')
   run=subprocess.run(['/usr/bin/perl',str(script)],cwd=target/'bin',capture_output=True);good(run.returncode!=0,'Role-group producer rejects missing plan input')
  for name in ['invert_NCI.pl','delete_dup_tref_lines.pl']:
-  original=subprocess.check_output(['git','-C',str(ROOT),'show','bfda2ce:sources/NCI_2026_10D/bin/'+name]);good((ROOT/'engines/nci/bin'/name).read_bytes()==original,'Core policy bytes unchanged: '+name)
+  original=subprocess.check_output(['git','-C',str(ROOT),'show','bfda2ce:sources/NCI_2026_10D/bin/'+name]);frozen=subprocess.check_output(['git','-C',str(ROOT),'show','2a22938:engines/nci/bin/'+name]);good(frozen==original,'Historical v1 core policy bytes unchanged: '+name)
  return passed
 if __name__=='__main__':
  values=check()

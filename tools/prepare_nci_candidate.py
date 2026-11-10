@@ -57,10 +57,12 @@ def prepare(contract, code_files, progress=print):
         raise RuntimeError('Unexpected frozen-reference location')
     if file_info(archive)['sha256'] != contract['reference']['archive_sha256']:
         raise RuntimeError('Frozen archive hash differs from the reviewed reference')
-    allowed = {x['path']: x for x in contract['native_inputs'] + contract['archived_metadata_inputs']}
+    generated = contract.get('generated_configuration')
+    planned = generated is not None and generated['profile'] == 'nci-source-plan-v1'
+    allowed = {x['path']: x for x in contract['native_inputs'] + ([] if planned else contract['archived_metadata_inputs'])}
     metadata_names = {VERSION + '/src/sources.src', VERSION + '/src/termgroups.src'}
     native_names = {x['path'] for x in contract['native_inputs']}
-    if len(allowed) != 7 or len(native_names) != 5 or set(allowed) - native_names != metadata_names or not all(x.startswith(VERSION + '/orig/fromprovider/') for x in native_names):
+    if len(allowed) != (5 if planned else 7) or len(native_names) != 5 or set(allowed) - native_names != (set() if planned else metadata_names) or not all(x.startswith(VERSION + '/orig/fromprovider/') for x in native_names):
         raise RuntimeError('The initial candidate must contain five native and two metadata inputs only')
     if os.environ.get('INV_HOME') != '/local/content/MEME/MEME5/inv/INV' or os.environ.get('LC_COLLATE') != 'C':
         raise RuntimeError('The configured inversion environment must be active')
@@ -72,7 +74,6 @@ def prepare(contract, code_files, progress=print):
               'core_inverter_executed': False, 'insertion_preparation_executed': False,
               'coverage': 'Native/TREF preparation with archived source metadata; metadata acquisition, QA, insertion excluded'}
     staging = Path(tempfile.mkdtemp(prefix='.' + VERSION + '.prepare-', dir=str(ROOT)))
-    generated = contract.get('generated_configuration')
     atom_ids = set()
     atom_rows = 0
     atom_invalid_ids = 0
@@ -129,9 +130,10 @@ def prepare(contract, code_files, progress=print):
             result['code'].append({'relative_path': str(relative), 'sha256': f['sha256']})
         if generated is not None:
             import nci_configuration
-            nci_configuration.verify_metadata(generated, staging)
+            if not planned:
+                nci_configuration.verify_metadata(generated, staging)
             for item in generated['files']:
-                if item['relative_path'] != 'etc/nci.cfg':
+                if item['relative_path'] not in ({'etc/nci.cfg', 'src/sources.src', 'src/termgroups.src', 'etc/new-subsources.tsv', 'etc/planned-termgroups.tsv'} if planned else {'etc/nci.cfg'}):
                     raise ValueError('Unreviewed generated output path')
                 raw = base64.b64decode(item['data_b64'], validate=True)
                 if hashlib.sha256(raw).hexdigest() != item['sha256']:
@@ -141,6 +143,11 @@ def prepare(contract, code_files, progress=print):
                     handle.write(raw)
                 path.chmod(int(item['mode'], 8))
             nci_configuration.verify_files(generated, staging)
+            nci_configuration.verify_metadata(generated, staging)
+            if planned:
+                import nci_source_plan
+                result['source_plan_preflight'] = nci_source_plan.discover(generated, staging)
+                result['coverage'] = 'Native/TREF preparation and reviewed metadata/SRC-addition generation; upstream acquisition, legacy QA and insertion excluded'
             result['configuration_generation'] = nci_configuration.receipt(generated)
         if {x.name for x in (staging / 'src').iterdir()} != {'sources.src', 'termgroups.src'}:
             raise RuntimeError('Candidate was seeded with undeclared generated output')

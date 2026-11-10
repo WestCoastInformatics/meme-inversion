@@ -7,8 +7,8 @@
       "captured_path": "sources/NCI_2026_10D/bin/invert_NCI.pl",
       "captured_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
       "captured_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
-      "package_sha256": "7104befd5e16f8b92f2a34209e23b1fac3698e579c06417d63c46760f0b5355a",
-      "change": "unchanged bytes"
+      "package_sha256": "1569df18709119d7224e6cd47f7c9cb7c048c60774bca02626fcec716fe7c5ca",
+      "change": "Replace one-off root emission with ordered reviewed data and recognize explicitly planned new termgroup tokens; preserve all other producer branches"
     },
     {
       "path": "engines/nci/bin/create_rolegroups.pl",
@@ -40,5 +40,11 @@
     "captured_sha256": "4c40b1c95e9d1ddfa78e0e743484147c9d1817c0aa9f2b4ac26535a74187653a",
     "policy": "Retain every effective property, including existing spelling/casing; replace only release suffix, atom start and saved hierarchy root ID. Comments and whitespace are presentation only."
   },
-  "not_in_package": "Unused historical wrappers, QA scripts and .orig backups remain in the captured baseline; this package contains only the executed core/preparation closure."
+  "not_in_package": "Unused historical wrappers, QA scripts and .orig backups remain in the captured baseline; this package contains only the executed core/preparation closure.",
+  "metadata_model": {
+    "path": "engines/nci/metadata-policy.json",
+    "sha256": "2981f620511d64a23a319109d00cf2535e3b2fc8111a3d7b6f4009e42db80e5e",
+    "origin": "Captured preparation metadata with provenance in the model; known representation catalog, not a live installed-source inventory",
+    "release_specific_additions": "Reviewed inputs.source_plan; defaults describe established sources and termgroups"
+  }
 }

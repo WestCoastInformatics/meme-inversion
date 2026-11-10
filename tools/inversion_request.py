@@ -21,7 +21,7 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'prepare_nci_candidate.py', 'advance_nci_replay.py',
            'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
            'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py',
-           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py', 'nci_configuration.py')
+           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py', 'nci_configuration.py', 'nci_source_plan.py')
 ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1',
             'MDR':'mdr-29-1-v1','RADLEX':'radlex-4-3-v1'}
 
@@ -164,6 +164,8 @@ def select_case(request):
     for ref in filter(None, refs):
         if ref not in case['artifacts'] or ref != 'sha256:' + digest(case['artifacts'][ref]['value']):
             raise ValueError('An artifact reference has no verified content identity: ' + str(ref))
+    if request['source'] == 'NCI' and request['case_variant'] == 'source-plan':
+        validate(case['artifacts'][configuration['inputs']['source_plan']]['value'], 'nci-source-plan.schema.json')
     return case, configuration, name
 
 
@@ -178,6 +180,8 @@ def resolve(request, run_id):
         'baseline/manifest.json', 'docs/inversion-review/mth-2026aa-baseline-case.json'] + [
         'docs/inversion-review/' + name for name in ('request.schema.json', 'configuration.schema.json',
         'source-registry.json', 'case-catalog/index.json', 'case-catalog/' + case_name)]
+    if request['source'] == 'NCI' and request['case_variant'] == 'source-plan':
+        paths.append('docs/inversion-review/nci-source-plan.schema.json')
     provenance = []
     modules = {}
     for path in paths:
@@ -225,7 +229,12 @@ def resolve(request, run_id):
         template = frozen_file(engine, spec['repository_path'])
         if template['sha256'] != spec['sha256']:
             raise ValueError('Template differs from reviewed source policy')
-        lock['configuration_generation'] = nci_configuration.generate(configuration, case['artifacts'], template)
+        metadata = None
+        if 'metadata_repository_path' in spec:
+            metadata = frozen_file(engine, spec['metadata_repository_path'])
+            if metadata['sha256'] != spec['metadata_sha256']:
+                raise ValueError('Metadata model differs from the reviewed case')
+        lock['configuration_generation'] = nci_configuration.generate(configuration, case['artifacts'], template, metadata)
         nci_configuration.from_lock(lock)
     lock['lock_sha256'] = digest(lock)
     return lock

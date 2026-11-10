@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import nci_source_plan
 
 PROFILE = 'nci-properties-v1'
 PACKAGE = 'engines/nci'
@@ -51,7 +52,7 @@ def artifact(artifacts, reference, role):
     return item['value']
 
 
-def generate(config, artifacts, template):
+def generate(config, artifacts, template, metadata_model=None):
     if config['source'] != 'NCI' or config['source_options'] != {} or config['inputs']['source_data_stage'] != 'publisher':
         raise ValueError('Unsupported NCIt configuration/options/input stage')
     current = release(config['version'])
@@ -63,7 +64,8 @@ def generate(config, artifacts, template):
     if config['output_stage'] != 'inversion-src' or config['publisher_history'] or config['comparison_baseline'] is not None:
         raise ValueError('This core profile has no additional history/change-detection stages')
     policy = artifact(artifacts, config['policy_ref'], 'nci-representation-policy')
-    if policy['profile'] != PROFILE or policy['engine_ref'] != config['engine_ref']:
+    planned = policy['profile'] == nci_source_plan.PROFILE
+    if policy['profile'] not in (PROFILE, nci_source_plan.PROFILE) or policy['engine_ref'] != config['engine_ref']:
         raise ValueError('Policy/source engine differs')
     raw = base64.b64decode(template['data_b64'], validate=True)
     if template['repository_path'] != PACKAGE + '/nci.cfg.in' or template['repository_path'] != policy['template_repository_path'] or sha(raw) != template['sha256'] or template['sha256'] != policy['template_sha256']:
@@ -77,7 +79,7 @@ def generate(config, artifacts, template):
         raise ValueError('Complete ID bounds differ from their evidence')
     if bounds.get('bound_kind') != 'historical-emitted-range' or proof['production_reservation'] is not False:
         raise ValueError('This profile consumes observed historical IDs, not a new production reservation')
-    plan = artifact(artifacts, config['inputs']['source_plan'], 'reviewed-historical-transition')
+    plan = artifact(artifacts, config['inputs']['source_plan'], 'reviewed-nci-source-plan' if planned else 'reviewed-historical-transition')
     for key in ('replacement_baseline', 'comparison_baseline', 'publisher_history'):
         if plan[key] != config[key]:
             raise ValueError('Release plan differs: ' + key)
@@ -93,8 +95,14 @@ def generate(config, artifacts, template):
         inputs[match[1]] = {'relative_path': path.relative_to(config['version']).as_posix(), 'sha256': item['sha256']}
     if set(inputs) != set(ROLES) or len(native) != 5:
         raise ValueError('All five distinct native input roles are required')
-    metadata = artifact(artifacts, config['inputs']['reference_ncimeta'], 'preserved-reference-metadata')
-    if len(metadata) != 2 or {x['path'] for x in metadata} != {config['version'] + '/src/' + x for x in ('sources.src', 'termgroups.src')}:
+    metadata = artifact(artifacts, config['inputs']['reference_ncimeta'], 'reviewed-nci-metadata-model' if planned else 'preserved-reference-metadata')
+    if planned:
+        if not metadata_model or metadata_model['repository_path'] != PACKAGE + '/metadata-policy.json' or metadata_model['repository_path'] != metadata['repository_path'] or metadata_model['sha256'] != metadata['sha256']:
+            raise ValueError('Missing or substituted reviewed metadata model')
+        model_raw = base64.b64decode(metadata_model['data_b64'], validate=True)
+        if sha(model_raw) != metadata_model['sha256']:
+            raise ValueError('Metadata model bytes changed')
+    elif len(metadata) != 2 or {x['path'] for x in metadata} != {config['version'] + '/src/' + x for x in ('sources.src', 'termgroups.src')}:
         raise ValueError('The two declared source metadata files are required')
     values = {'release': current, 'source_atom_ids.start': str(bounds['start']), 'identity_state.root_atom_id': str(root['root_atom_id'])}
     text = raw.decode()
@@ -105,37 +113,63 @@ def generate(config, artifacts, template):
         raise ValueError('Unresolved template parameter')
     rendered = text.encode()
     props = properties(rendered)
+    source_plan = None
+    if planned:
+        source_plan = nci_source_plan.generate(config, plan, nci_source_plan.load(model_raw), props)
+        if any(x['native_sha256'] != {PurePosixPath(item['relative_path']).name: item['sha256'] for item in inputs.values()} for x in source_plan['historical_exceptions']):
+            raise ValueError('Historical exception differs from the complete native input manifest')
+        # Preserve all effective legacy properties and append only reviewed additions.
+        props = source_plan['properties']
+        rendered = ''.join(key + ' = ' + value + '\n' for key, value in props.items()).encode()
     if props['VSAB'] != config['version'] or props['RSAB'] != config['source'] or props['HC.RootNodeCode'] != root['root_code'] or props['HC.RootNodeName'] != root['root_name']:
         raise ValueError('Generated source/root properties differ from the plan')
     paths = {key: '../' + item['relative_path'] for key, item in inputs.items()}
-    return {'profile': PROFILE, 'template': template,
+    result = {'profile': policy['profile'], 'template': template,
             'files': [{'relative_path': 'etc/nci.cfg', 'mode': '0o444', 'sha256': sha(rendered), 'data_b64': base64.b64encode(rendered).decode()}],
             'preparation_arguments': {'role-groups': [paths['relations']], 'create-tref': [paths[role] for role in ROLES]},
             'bindings': {'source': config['source'], 'version': config['version'], 'engine_ref': config['engine_ref'],
                          'replacement_baseline': prior, 'comparison_baseline': config['comparison_baseline'], 'publisher_history': config['publisher_history'],
                          'source_atom_ids': bounds, 'identity_state': root, 'native_inputs': inputs,
-                         'metadata_inputs': metadata, 'policy_ref': config['policy_ref']}}
+                         'metadata_inputs': [] if planned else metadata, 'policy_ref': config['policy_ref']}}
+    if planned:
+        result.update(metadata_model=metadata_model, source_plan=source_plan)
+        result['files'] += source_plan['files']
+    return result
 
 
 def from_lock(lock):
     spec = lock['case'].get('configuration_generation')
     recipe = lock.get('configuration_generation')
-    if not spec or not recipe or spec['profile'] != PROFILE:
+    if not spec or not recipe or spec['profile'] not in (PROFILE, nci_source_plan.PROFILE) or spec['profile'] != recipe['profile']:
         raise ValueError('Missing reviewed configuration-generation contract')
     if any(recipe['template'][key] != spec[key] for key in ('repository_path', 'sha256')):
         raise ValueError('Frozen template differs from reviewed case')
-    expected = generate(lock['configuration'], lock['case']['artifacts'], recipe['template'])
+    expected = generate(lock['configuration'], lock['case']['artifacts'], recipe['template'], recipe.get('metadata_model'))
     if recipe != expected:
         raise ValueError('Generated compatibility settings or bindings changed')
     legacy = lock['case']['legacy_case']
     native = {lock['configuration']['version'] + '/' + x['relative_path']: x['sha256'] for x in expected['bindings']['native_inputs'].values()}
-    if native != {x['path']: x['sha256'] for x in legacy['native_inputs']} or expected['bindings']['metadata_inputs'] != legacy['archived_metadata_inputs'] or legacy['replacement_baseline'] != lock['configuration']['replacement_baseline']:
+    metadata = expected['bindings']['metadata_inputs']
+    if expected['profile'] == nci_source_plan.PROFILE:
+        if recipe['metadata_model']['repository_path'] != spec['metadata_repository_path'] or recipe['metadata_model']['sha256'] != spec['metadata_sha256']:
+            raise ValueError('Frozen metadata model differs from reviewed case')
+        # Historical metadata is an independent expected result, never a seed file.
+        metadata = [{'path': lock['configuration']['version'] + '/' + x['relative_path'], 'sha256': x['sha256']} for x in expected['files'] if x['relative_path'].startswith('src/')]
+        if {x['path']: x['sha256'] for x in metadata} != {x['path']: x['sha256'] for x in legacy['archived_metadata_inputs']}:
+            raise ValueError('Generated metadata differs from the historical compatibility oracle')
+    if native != {x['path']: x['sha256'] for x in legacy['native_inputs']} or (expected['profile'] == PROFILE and metadata != legacy['archived_metadata_inputs']) or legacy['replacement_baseline'] != lock['configuration']['replacement_baseline']:
         raise ValueError('Legacy preparation inputs/baseline differ from the common plan')
     return expected
 
 
 def verify_metadata(recipe, target):
     bindings = recipe['bindings']
+    if recipe['profile'] == nci_source_plan.PROFILE:
+        for item in recipe['files']:
+            if item['relative_path'].startswith('src/'):
+                path = target / item['relative_path']
+                if path.is_symlink() or not path.is_file() or sha(path.read_bytes()) != item['sha256']:
+                    raise ValueError('Generated source metadata changed')
     for item in bindings['metadata_inputs']:
         path = target / PurePosixPath(item['path']).relative_to(bindings['version'])
         if path.is_symlink() or not path.is_file() or sha(path.read_bytes()) != item['sha256']:
@@ -153,9 +187,13 @@ def verify_files(recipe, target):
 
 
 def receipt(recipe):
-    return {**{key: value for key, value in recipe.items() if key not in ('template', 'files')},
+    result = {**{key: value for key, value in recipe.items() if key not in ('template', 'files', 'metadata_model', 'source_plan')},
             'template': {key: value for key, value in recipe['template'].items() if key != 'data_b64'},
             'files': [{key: value for key, value in item.items() if key != 'data_b64'} for item in recipe['files']]}
+    if 'metadata_model' in recipe:
+        result['metadata_model'] = {key: value for key, value in recipe['metadata_model'].items() if key != 'data_b64'}
+        result['source_plan'] = {key: recipe['source_plan'][key] for key in ('new_subsources', 'new_termgroups', 'historical_exceptions')}
+    return result
 
 
 if __name__ == '__main__':
