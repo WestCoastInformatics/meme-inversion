@@ -214,7 +214,7 @@ def generate(config, plan, model, properties):
              file_record(TOKENS, ''.join('\t'.join((key, *value)) + '\n' for key, value in sorted(tokens.items())).encode())]
     props['NCI.SourcePlan.Roots'] = '../' + ROOTS
     props['NCI.SourcePlan.Termgroups'] = '../' + TOKENS
-    return {'files': files, 'properties': props, 'publisher_termgroups': sorted(declared),
+    return {'files': files, 'properties': props, 'publisher_termgroups': [list(x) for x in sorted(declared)],
             'source_names': sorted(source_names), 'historical_exceptions': plan['historical_exceptions'],
             'publisher_properties': model['publisher_properties'], 'publisher_labels': model['publisher_labels'],
             'relationship_roles': model['relationship_roles'],

@@ -87,7 +87,7 @@ def check():
         process = subprocess.run([sys.executable, '-I', '-B', '-c', program, str(capsule)] + [Path(name).stem for name in modules], capture_output=True, text=True)
         require(process.returncode == 0, 'Frozen modules import successfully without the repository or installed helper copies: ' + process.stderr)
     for lock in locks:
-        target = worker.verify_lock(lock)
+        target = worker.verify_lock(json.loads(json.dumps(lock)))
         require(target.name == lock['request']['version'], 'Frozen lock round trip: ' + lock['request']['source'] + '/' + lock['request']['case_variant'])
         package = worker.package(lock)
         source = lock['request']['source']

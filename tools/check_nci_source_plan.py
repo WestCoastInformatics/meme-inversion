@@ -78,6 +78,13 @@ def check():
             raise AssertionError(label)
     generated = recipe()
     reference = json.loads((ROOT / 'docs/inversion-review/case-catalog/nci-generated-configuration.json').read_text())
+    c, a, t, m, _ = fixture()
+    lock = {'configuration': c, 'case': {'artifacts': a, 'legacy_case': reference['legacy_case'],
+            'configuration_generation': {'profile': plans.PROFILE, 'repository_path': t['repository_path'],
+                'sha256': t['sha256'], 'metadata_repository_path': m['repository_path'], 'metadata_sha256': m['sha256']}},
+            'configuration_generation': generated}
+    saved = json.loads(json.dumps(lock))
+    good(configuration.from_lock(saved) == saved['configuration_generation'], 'Saved JSON lock round trip preserves the exact generated plan, model and metadata recipe')
     expected = {Path(x['path']).name: x['sha256'] for x in reference['legacy_case']['archived_metadata_inputs']}
     for item in generated['files']:
         if item['relative_path'].startswith('src/'):
