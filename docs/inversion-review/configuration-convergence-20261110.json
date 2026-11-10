@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "PASS_OFFLINE_CONFIGURATION_CONVERGENCE",
+  "date": "2026-11-10",
+  "base_ref": "31539b67117c272133b40f66a661d1c10ee6cb7d",
+  "integration_parent_ref": "5679d5a792a6ca0569029434b413c0b95a115011",
+  "parallel_source_commits": {
+    "NCI": "2b51d94eb1b53d13cbc3ec41875968d043f33052",
+    "SNOMEDCT_US": "6cbb8f15dbfe9b9ccd412f8d7a1ef03f9f22a2dc",
+    "MTH": "e0e5e18fd479e188a641e597a77834b835737bcf"
+  },
+  "preview_interface": "tools/inversion_configuration.py LOCK --output-dir FRESH_DIRECTORY",
+  "common_configuration_schema_changed": false,
+  "common_request_schema_changed": false,
+  "common_resolver_changed": false,
+  "common_worker_changed": false,
+  "existing_historical_cases_validated": 9,
+  "registered_sources": [
+    "NCI",
+    "SNOMEDCT_US",
+    "MTH",
+    "MDR",
+    "RADLEX"
+  ],
+  "checks_passed": 472,
+  "suites": [
+    {
+      "program": "tools/check_inversion_request.py",
+      "checks_passed": 89,
+      "program_sha256": "ada4402641d06a446e57d9498ba97e1e6a15fb261958141cb849830d94cb5d96",
+      "raw_log_sha256": "11faca8bada55467c25cffc18ed6da2e75651de281ce624c3706975bdf208fc8"
+    },
+    {
+      "program": "tools/check_inversion_worker.py",
+      "checks_passed": 27,
+      "program_sha256": "c43f9153ef5b1b9594f9efc330e9817e17c080ae0a8e1da9fb06b7a4e3c172c4",
+      "raw_log_sha256": "6b9f077022efd582a76f202749d4f15259e8a4667ce9277bad73598c2b670a07"
+    },
+    {
+      "program": "tools/check_nci_configuration.py",
+      "checks_passed": 37,
+      "program_sha256": "8d33126cb8ac220e2a5a055c5e8d2bfa4ef0f0f918ccd9556c9b78e5ea86f8e8",
+      "raw_log_sha256": "065d4f8727e2bb661d1be0c3b9de8757e8bf5f2b718b1176734fcb6d7d796ff0"
+    },
+    {
+      "program": "tools/check_nci_source_plan.py",
+      "checks_passed": 52,
+      "program_sha256": "a3e1d0a7b9ac2833db622f7e3bab6731b8a9f8ca0ddfcca8c7e37392b38e182d",
+      "raw_log_sha256": "02868a08291a6f27caa6462151b592c4809603a560052006c9d99939edecd171"
+    },
+    {
+      "program": "tools/check_nci_release_preflight.py",
+      "checks_passed": 49,
+      "program_sha256": "dfbddfbf3069366f3b7c23e7b6a69beb99489032a8b8b82afd845a25af88d6df",
+      "raw_log_sha256": "a94f295c59447a0103acd67521d1b54defdb3dbeb27f990c1331db017e548687"
+    },
+    {
+      "program": "tools/check_snomed_configuration.py",
+      "checks_passed": 56,
+      "program_sha256": "5334143a90b5ecf1df11a7b30259a4bfc1096227da87a5c1e21388c6ee94cb87",
+      "raw_log_sha256": "ab39e5e9302ab7cf3051cab67d5726550d62415fdaa074c1e611d3f34aafa72e"
+    },
+    {
+      "program": "tools/check_mth_configuration.py",
+      "checks_passed": 68,
+      "program_sha256": "ad6d88c07f00b1d5dae65483ade5296e782c761327a4542f8fd37e85ad98a8a5",
+      "raw_log_sha256": "ed53fab563e493f9914eab579a1f4fd363d804fdebf71e022998761c8d69be8e"
+    },
+    {
+      "program": "tools/check_inversion_configuration.py",
+      "checks_passed": 94,
+      "program_sha256": "0ee96a70205e53acf5aff400c59261915b0e1fbfbab4a9c8652c3632f12eef98",
+      "raw_log_sha256": "57f5e77e21d860eca94957849bb9ffc0c0ba21d0dc8c0984e3277a8b3e7b3cdc"
+    }
+  ],
+  "generator_files": [
+    {
+      "repository_path": "tools/inversion_configuration.py",
+      "sha256": "b3383f80320ff95686833629e4f440ed492e9c681cfd458969f88246b5f79cc8"
+    },
+    {
+      "repository_path": "tools/nci_release_preflight.py",
+      "sha256": "c50df83d2bea34ba62e1765b7ee05f334c440bc0656ff77375e0966f6e219439"
+    },
+    {
+      "repository_path": "tools/snomed_configuration.py",
+      "sha256": "aca1092c5ddefce2a3559fa88face62cb7c17ac9ba09e7aa82b260e2b596fa58"
+    },
+    {
+      "repository_path": "tools/mth_configuration.py",
+      "sha256": "23bfcfc81679f8c0aca3e4bb240191f7a545862f0ddfdb23a2f46f516d411c90"
+    }
+  ],
+  "source_results": {
+    "NCI": {
+      "status": "PASS_SYNTHETIC_INSTALLED_STATE_PREFLIGHT_FIXTURES",
+      "real_snapshot_acquired": false,
+      "both_historical_findings_remain_blocking": true,
+      "guide": "nci-release-preflight.md"
+    },
+    "SNOMEDCT_US": {
+      "status": "PASS_BYTE_EXACT_CAPTURED_CONFIGURATION_PREVIEW",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "generated_files": 1,
+      "guide": "snomed-configuration-generation.md"
+    },
+    "MTH": {
+      "status": "PASS_BYTE_EXACT_CAPTURED_SETTINGS_PREVIEW",
+      "version": "MTH_2026AA",
+      "generated_files": 7,
+      "source_decisions": 201,
+      "vsab_mappings": 44,
+      "actual_frozen_Perl_ID_fixture_passed": true,
+      "guide": "mth-configuration-generation.md"
+    }
+  },
+  "full_native_inversions_started": 0,
+  "server_changes": false,
+  "new_worker_environments": false,
+  "large_inversion_execution": "serialized through unchanged global runtime lock",
+  "production_eligible": false,
+  "next_gates": [
+    "Freeze reviewed SNOMED/MTH generated-settings execution cases and run serialized dev inversions with official comparisons and mandatory audits.",
+    "Acquire reviewed NCImeta installed-state capture for operational preparation; synthetic fixtures are not database evidence.",
+    "Resolve CTCAE 6.0 representation and validate preserved CELLOSAURUS/SY ranking policy.",
+    "Extend prepared MTH source decisions and publisher-history contracts before arbitrary new-release creation.",
+    "Preserve MDR/RADLEX compatibility; their configuration-preview adapters remain unimplemented."
+  ]
+}

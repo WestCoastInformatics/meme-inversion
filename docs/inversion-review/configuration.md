@@ -104,10 +104,30 @@ The first resolver and dev runner implement the common request and frozen config
 
 ## Implemented NCIt generator pilot
 
-The [NCIt generator](nci-configuration-generation.md) renders compatibility settings from this common configuration and separately versioned policy/data artifacts. A full October replay explicitly replacing August passes with all five output hashes unchanged. Source code is loaded from the canonical Git package; no previous release executable is copied. Native export filenames, saved root identity and complete historical ID bounds are explicitly bound. This validates the NCIt pilot; other source generators, upstream new-release preparation and production eligibility remain separate.
+The [NCIt generator](nci-configuration-generation.md) renders compatibility settings from this common configuration and separately versioned policy/data artifacts. A full October replay explicitly replacing August passes with all five output hashes unchanged. Source code is loaded from the canonical Git package; no previous release executable is copied. Native export filenames, saved root identity and complete historical ID bounds are explicitly bound. This validates the NCIt pilot; native execution with other source generators, upstream new-release preparation and production eligibility remain separate. Bounded offline previews for SNOMED and MTH are described below.
 
 ## Implemented NCIt source-plan extension
 
 The [source-plan profile](nci-source-plan.md) also generates `sources.src`, `termgroups.src` and the explicit optional SRC-root/termgroup inputs. `inputs.source_plan` records reviewed additions or empty lists; `inputs.reference_ncimeta` selects the exact reviewed metadata model derived from preserved preparation data. That model describes representation, not a live installed-root inventory. Its catalog-promotion preview preserves aliases and term-type bindings for a following release without repeating new-root decisions or copying executable folders.
 
 The full August-to-October historical transition passes with five unchanged core hashes, three exact TREF files and two exact metadata files. The [verification](nci-source-plan-final-verification.json) retains two declared historical findings. Arbitrary operational releases still require a reviewed case, appropriate frozen metadata/root-state inventory, resolved representation/ranking choices and production allocation/eligibility. The common request and field vocabulary are unchanged.
+
+## Parallel source previews and installed-state preflight
+
+The [parallel terminology increment](parallel-configuration-development.md) adds one offline preview command over these same common locks. The [SNOMED adapter](snomed-configuration-generation.md) generates the captured compatibility configuration exactly; the [MTH adapter](mth-configuration-generation.md) renders the three effective specifications and final range while retaining three declared source-policy data files. These are bounded historical previews, with independent golden settings checks; they are not newly enabled worker execution cases or arbitrary release generators.
+
+The [NCIt release preflight](nci-release-preflight.md) separately checks a supplied, content-bound installed-state snapshot against planned sources/termgroups and ranking targets. Representation catalog membership is not installed state. Its snapshot is explicit preview evidence, not an inferred historical database or a replacement for the existing historical metadata-model artifact. Historical CTCAE 6.0 and external ranking findings remain blocking for operational use.
+
+No new common configuration fields were required. The additional precision belongs in typed, source-aware artifact contracts:
+
+| Common role | NCIt | SNOMEDCT_US | MTH/UMLS |
+|---|---|---|---|
+| `replacement_baseline` | Explicit inserted predecessor, including skipped months | Explicit predecessor; preserved metadata/qualifier semantics | Last inserted MTH; prior CUI identity |
+| `publisher_history` | No additional history for the reviewed October core case | No additional history for the reviewed Snapshot core case | No additional files for the prepared case; publisher-previous selection separately traced in frozen producer evidence |
+| `inputs.source_data` | Five publisher exports | Fourteen RF2 Snapshot members | Eleven preserved prepared RRF inputs |
+| `inputs.reference_ncimeta` | Reviewed representation model; installed-state evidence remains separately supplied to preview | Two saved metadata files and two ICD target inventories | Eight preserved metadata roles |
+| `inputs.identity_state` | Saved hierarchy-root identity, distinct from installed source roots | Explicit null for this core | Prior inserted-version CUI map and archive identity |
+| `inputs.source_plan` | Typed optional additions and representation decisions | Reviewed historical transition; fresh metadata decisions remain later work | Reviewed transition plus pinned disposition/VSAB files exposed in preview; no new dispositions inferred |
+| `source_atom_ids` | Complete observed historical range, not a production allocation | Captured complete historical range | Complete range; legacy base is `start + 2`, SRCbuilder uses `start` |
+
+The source-specific previews preserve these distinctions instead of adding a generic previous-version setting. MDR/RADLEX retain the same schema and reviewed replay support. Full inversions remain serialized under the existing runtime lock; separate worker environments are deferred. Preview settings must pass a newly frozen generated-settings case, native dev replay and official comparison before joining the execution path.

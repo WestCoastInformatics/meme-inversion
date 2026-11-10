@@ -40,3 +40,9 @@ The [source-plan extension](nci-source-plan.md) replaces the hardcoded BLOODPAC 
 The current validation/catalog-promotion code passes 205 local checks and recomputes the exact executed recipe. Actual following-release Perl fixtures confirm that promoted long-source and term-type bindings work with empty addition lists. The post-replay validation/promotion revision is recorded separately; the native receipt is not relabeled.
 
 `CTCAE 6.0` has no captured mapping, and the preserved BLOODPAC/SY low-termgroup target is absent from its metadata bundle. Those declared, input-bound historical findings are retained for compatibility, not waived for operational use. Fresh baseline/root inventory, arbitrary release registration, source removals, production allocation, legacy QA and insertion remain later gates.
+
+## Parallel configuration development completed November 10
+
+The [parallel source tracks](parallel-configuration-development.md) add SNOMED/MTH offline settings previews and an NCIt installed-state preflight through one common command. All 472 checks pass, including independent captured-settings comparisons, actual Perl MTH allocation/range fixtures, blocked NCIt historical findings and all nine unchanged historical lock variants. The [convergence report](configuration-convergence-20261110.json) records exact scope and code/test hashes.
+
+This increment performs no full native inversion and adds no worker execution cases. Existing native results above retain their original source/apparatus identities. Next, freeze each generated-settings execution contract and run serialized dev replays with official comparisons and mandatory audits. A real reviewed installed-state capture, resolved metadata findings and operational ID allocation remain required for new-release eligibility. No separate worker environments were created.

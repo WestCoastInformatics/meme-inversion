@@ -16,6 +16,8 @@ The initial import establishes code provenance; later replay evidence is recorde
 
 ## Characterization and replay tools
 
+The [parallel terminology configuration increment](docs/inversion-review/parallel-configuration-development.md) adds a common offline preview command for NCIt, SNOMED and MTH, plus NCIt installed-state preflight. SNOMED's configuration and MTH's seven preview files match their captured historical settings exactly. The 472 checks include all nine historical locks and MDR/RADLEX compatibility. No new worker execution cases, full native runs or server changes are claimed; large inversions remain serialized.
+
 This branch adds the development replay/comparison apparatus and review evidence to the production-derived code. NCIt's explicit PT assignment (`0de8ca2`) and stable hierarchy emission (`bfda2ce`) remain separate ancestor commits. The reviewed MTH (`b2611ab`) and MDR (`dd7ae66`) corrections are merged with their original histories intact. The untouched production snapshots/tags and original replay results remain the baseline.
 
 The [NCIt source-plan pilot](docs/inversion-review/nci-source-plan.md) now generates metadata and optional subsource/termgroup additions from reviewed data. A fresh full October dev replay reproduces the preceding accepted five core hashes exactly; all three TREF and both metadata references match. The catalog-promotion preview retains new bindings for following releases without repeated roots or executable copy-forward. The 205 local checks and independent restored-runtime/previous-tree verification pass. Two explicit historical preparation findings remain unresolved; production eligibility is separate.

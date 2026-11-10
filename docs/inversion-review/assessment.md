@@ -8,6 +8,8 @@ Replay priority clarification, November 5: complete preserved input bundles are 
 
 Implementation update, November 10: the [NCIt configuration generator pilot](nci-configuration-generation.md) passes a full October/August replay with unchanged outputs. It selects canonical Git code and generates legacy settings from the common model; production deployment and the other generators remain later steps.
 
+Parallel development update, November 10: [bounded SNOMED/MTH offline previews and NCIt installed-state preflight](parallel-configuration-development.md) now share one preview command and the existing common field vocabulary. The 472 checks pass; historical settings and accepted case identities are preserved. No new native execution is claimed. Large-job execution remains serialized on the existing dev worker; separate worker environments are deferred.
+
 ## Recommendation
 
 Adopt one release lifecycle with independently reviewed source adapters, explicit baseline dependencies, versioned representation rules, and independently validated output packages. Preserve the working Perl transformations initially. Move operational code out of release directories before replacing transformation logic, then replace components behind proven input/output contracts.
