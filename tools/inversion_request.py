@@ -21,7 +21,8 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'prepare_nci_candidate.py', 'advance_nci_replay.py',
            'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
            'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py',
-           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py', 'nci_configuration.py', 'nci_source_plan.py')
+           'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py', 'nci_configuration.py', 'nci_source_plan.py',
+           'snomed_configuration.py', 'mth_configuration.py')
 ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1',
             'MDR':'mdr-29-1-v1','RADLEX':'radlex-4-3-v1'}
 
@@ -224,18 +225,27 @@ def resolve(request, run_id):
             'runtime_ref': runtime_ref, 'execution_enabled': case['execution_enabled'],
             'network': 'disabled during conversion', 'insertion_executed': False}
     if case.get('configuration_generation'):
-        import nci_configuration
         spec = case['configuration_generation']
-        template = frozen_file(engine, spec['repository_path'])
-        if template['sha256'] != spec['sha256']:
-            raise ValueError('Template differs from reviewed source policy')
-        metadata = None
-        if 'metadata_repository_path' in spec:
-            metadata = frozen_file(engine, spec['metadata_repository_path'])
-            if metadata['sha256'] != spec['metadata_sha256']:
-                raise ValueError('Metadata model differs from the reviewed case')
-        lock['configuration_generation'] = nci_configuration.generate(configuration, case['artifacts'], template, metadata)
-        nci_configuration.from_lock(lock)
+        if request['source'] == 'NCI':
+            import nci_configuration
+            template = frozen_file(engine, spec['repository_path'])
+            if template['sha256'] != spec['sha256']:
+                raise ValueError('Template differs from reviewed source policy')
+            metadata = None
+            if 'metadata_repository_path' in spec:
+                metadata = frozen_file(engine, spec['metadata_repository_path'])
+                if metadata['sha256'] != spec['metadata_sha256']:
+                    raise ValueError('Metadata model differs from the reviewed case')
+            lock['configuration_generation'] = nci_configuration.generate(configuration, case['artifacts'], template, metadata)
+            nci_configuration.from_lock(lock)
+        elif request['source'] == 'SNOMEDCT_US' and spec['profile'] == 'snomed-properties-v1':
+            import snomed_configuration
+            lock['configuration_generation'] = snomed_configuration.execution_recipe_from_lock(lock, verify_checksum=False)
+        elif request['source'] == 'MTH' and spec['profile'] == 'mth-prepared-spec-v1':
+            import mth_configuration
+            lock['configuration_generation'] = mth_configuration.execution_recipe(configuration, case, code_files)
+        else:
+            raise ValueError('Unreviewed generated-configuration source/profile')
     lock['lock_sha256'] = digest(lock)
     return lock
 

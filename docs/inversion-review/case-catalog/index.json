@@ -54,6 +54,18 @@
       "version": "NCI_2026_10D",
       "case_variant": "source-plan",
       "path": "nci-source-plan.json"
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "case_variant": "generated-configuration",
+      "path": "snomed-generated-configuration.json"
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "generated-configuration",
+      "path": "mth-generated-configuration.json"
     }
   ]
 }

@@ -90,7 +90,8 @@ def correction_profile(lock):
         if MDR_CORRECTION_AUDIT['module'] not in lock['modules_b64']:raise ValueError('Independent MDR audit is missing')
         if lock['configuration']['source_options']!={'language':'ENG'}:raise ValueError('Only the reviewed English MDR path is supported')
         return True
-    expected = ('MTH', 'MTH_2026AA', 'consistent-retained-identities', MTH_CORRECTION_ENGINE)
+    variant = 'generated-configuration' if case.get('configuration_generation', {}).get('profile') == 'mth-prepared-spec-v1' else 'consistent-retained-identities'
+    expected = ('MTH', 'MTH_2026AA', variant, MTH_CORRECTION_ENGINE)
     if tuple(request[key] for key in ('source', 'version', 'case_variant', 'engine_ref')) != expected:
         raise ValueError('Correction acceptance has no reviewed contract for this source/version/engine')
     if case.get('correction_audit') != MTH_CORRECTION_AUDIT or lock['runtime_ref'] != '3b125edc1d29f7c7a91673da2a8d752bb0adff44':
@@ -155,8 +156,9 @@ def verify_lock(lock):
             raise ValueError('Source payload differs')
     if names != set(expected_source) or not names:
         raise ValueError('Source inventory is incomplete')
-    if (request['source'] == 'NCI' and request['case_variant'] in ('generated-configuration', 'source-plan')) or case.get('configuration_generation') or 'configuration_generation' in lock:
-        if request['source'] != 'NCI' or request['case_variant'] not in ('generated-configuration', 'source-plan') or case.get('source_package') != 'engines/nci':
+    generated = case.get('configuration_generation') or 'configuration_generation' in lock or request['case_variant'] == 'generated-configuration'
+    if request['source'] == 'NCI' and (generated or request['case_variant'] == 'source-plan'):
+        if request['case_variant'] not in ('generated-configuration', 'source-plan') or case.get('source_package') != 'engines/nci':
             raise ValueError('Unreviewed generated-configuration case')
         if any(x.get('repository_path') != 'engines/nci/' + x['relative_path'] for x in lock['code_files']):
             raise ValueError('Canonical source package path differs')
@@ -165,6 +167,18 @@ def verify_lock(lock):
         if case['configuration_generation']['profile'] != expected_profile:
             raise ValueError('NCIt case variant differs from the reviewed generator profile')
         nci_configuration.from_lock(lock)
+    elif generated:
+        if request['case_variant'] != 'generated-configuration' or not case.get('configuration_generation') or 'configuration_generation' not in lock or 'source_package' in case:
+            raise ValueError('Missing or unreviewed generated-configuration contract')
+        profile = case['configuration_generation']['profile']
+        if request['source'] == 'SNOMEDCT_US' and profile == 'snomed-properties-v1':
+            import snomed_configuration
+            snomed_configuration.execution_recipe_from_lock(lock)
+        elif request['source'] == 'MTH' and profile == 'mth-prepared-spec-v1':
+            import mth_configuration
+            mth_configuration.execution_recipe_from_lock(lock)
+        else:
+            raise ValueError('Unreviewed generated-configuration source/profile')
     elif 'source_package' in case:
         raise ValueError('A canonical package requires its generated configuration contract')
     if request['source'] in ('MDR','RADLEX'):
@@ -394,6 +408,10 @@ def package(lock):
         if 'configuration_generation' in lock:
             data['generated_configuration'] = copy.deepcopy(lock['configuration_generation'])
         return data
+    if 'configuration_generation' in lock:
+        data['generated_configuration'] = copy.deepcopy(lock['configuration_generation'])
+        data['configuration_generation_inputs'] = {'configuration': copy.deepcopy(lock['configuration']),
+                                                  'artifacts': copy.deepcopy(lock['case']['artifacts'])}
     if request['source'] == 'SNOMEDCT_US':
         data['contract'].update(run_id=lock['run_id'], engine_ref=request['engine_ref'])
         data['code_files'] = source_files(lock)
@@ -419,7 +437,9 @@ def prepare(lock, target):
         return prepare_nci_candidate.prepare(data, source_files(lock))
     if source == 'SNOMEDCT_US':
         import prepare_snomed_candidate
-        return prepare_snomed_candidate.prepare(data['contract'], data['code_files'])
+        return prepare_snomed_candidate.prepare(data['contract'], data['code_files'],
+            generated_configuration=data.get('generated_configuration'),
+            configuration_generation_inputs=data.get('configuration_generation_inputs'))
     if source in ('MDR','RADLEX'):
         import replay_framework_core
         return replay_framework_core.prepare(data)
@@ -471,7 +491,14 @@ def convert(lock, target, run, held_lock):
     save(request_path, data)
     request_path.chmod(0o444)
     replay.worker(request_path, inherited_lock=held_lock)
-    return json.loads((replay.RUN / 'result.json').read_text())
+    result = json.loads((replay.RUN / 'result.json').read_text())
+    if 'configuration_generation' in lock:
+        if source == 'SNOMEDCT_US':
+            import snomed_configuration as generation
+        else:
+            import mth_configuration as generation
+        result['configuration_generation'] = generation.receipt(lock['configuration_generation'])
+    return result
 
 
 def verify_after(lock, target, result):
@@ -490,6 +517,15 @@ def verify_after(lock, target, result):
     elif lock['request']['source'] in ('MDR','RADLEX'):
         import replay_framework_core
         replay_framework_core.verify_inputs(package(lock),target)
+    if 'configuration_generation' in lock and lock['request']['source'] in ('SNOMEDCT_US', 'MTH'):
+        if lock['request']['source'] == 'SNOMEDCT_US':
+            import snomed_configuration
+            generated = snomed_configuration.execution_recipe_from_lock(lock)
+            snomed_configuration.verify_generated(generated, target)
+        else:
+            import mth_configuration
+            mth_configuration.execution_recipe_from_lock(lock)
+            mth_configuration.verify_generated(package(lock), target)
     for item in source_files(lock):
         path = target / item['relative_path']
         if item.get('kind') == 'symlink':

@@ -1,0 +1,9 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "case_variant": "generated-configuration",
+  "reference_stage": "inversion-src",
+  "comparison_profile": "reviewed-corrections",
+  "schema_version": 1,
+  "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70"
+}
