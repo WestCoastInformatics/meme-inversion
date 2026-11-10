@@ -1104,7 +1104,10 @@ sub readHierInfo{
   $rtCd = $$Cfg->getEle('HC.RootNodeCode');
   $rtSaid = $$Cfg->getEle('HC.RootNodeSaid');
 
-  $$Hier->setRoot($rtSaid);
+  # Preserve a stable root-child order for sibling lists in CONTEXT values.
+  foreach my $root (sort $$Hier->getRoots()) {
+    $$Hier->addParChild($rtSaid, $root);
+  }
   $said2name{"$rtSaid"} = $rtNm;
   $said2sgid{"$rtSaid"} = $rtCd;
   
