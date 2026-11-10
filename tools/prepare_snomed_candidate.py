@@ -97,9 +97,15 @@ def publish(staging, target):
         raise OSError(error, os.strerror(error))
 
 
-def prepare(contract, code_files, progress=print):
+def prepare(contract, code_files, progress=print, generated_configuration=None, configuration_generation_inputs=None):
     guard()
     allowed = selected_inputs(contract)
+    if generated_configuration is not None:
+        import snomed_configuration
+        snomed_configuration.validate_execution_recipe(generated_configuration, configuration_generation_inputs,
+                                                       contract=contract, code_files=code_files)
+    elif configuration_generation_inputs is not None:
+        raise ValueError('Configuration-generation inputs require a generated recipe')
     if TARGET.exists() or TARGET.is_symlink():
         raise RuntimeError('Candidate already exists; no replacement is permitted')
     archive = Path(contract['reference']['archive_path'])
@@ -146,11 +152,25 @@ def prepare(contract, code_files, progress=print):
             raw = base64.b64decode(item['data_b64'], validate=True)
             if hashlib.sha256(raw).hexdigest() != item['sha256']:
                 raise RuntimeError('Source code bundle hash mismatch')
+            if generated_configuration is not None and item['relative_path'] == 'etc/sct.cfg':
+                # The captured cfg is the immutable template/oracle, not a seed
+                # file.  Only the recomputed recipe writes the operational cfg.
+                result['configuration_templates'] = [{k: item[k] for k in ['relative_path', 'sha256', 'mode']}]
+                continue
             path = staging / item['relative_path']
             with path.open('xb') as out:
                 out.write(raw)
             path.chmod(int(item['mode'], 8))
             result['code'].append({k: item[k] for k in ['relative_path', 'sha256', 'mode']})
+        if generated_configuration is not None:
+            for item in generated_configuration['files']:
+                path = staging / item['relative_path']
+                with path.open('xb') as out:
+                    out.write(base64.b64decode(item['data_b64'], validate=True))
+                path.chmod(int(item['mode'], 8))
+            snomed_configuration.verify_generated(generated_configuration, staging)
+            result['configuration_generation'] = snomed_configuration.receipt(generated_configuration)
+            result['configuration_seeded_from_code_files'] = False
         sources = (staging / 'src/sources.src').read_text().splitlines()
         if len(sources) != 1 or sources[0].split('|')[:2] != [VERSION, 'SNOMEDCT_US_2026_03_01']:
             raise RuntimeError('Historical source/replacement metadata does not agree with the selected case')
