@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "status": "MISSING_INSTALLED_STATE_EVIDENCE",
+  "reviewed_repository_ref": "3a0b5ef462f4fda45d442ee4b8a3056a32b35fab",
+  "snapshot_acquired": false,
+  "assembler_implemented": false,
+  "server_access_performed": false,
+  "database_or_api_calls_performed": false,
+  "production_eligible": false,
+  "evidence": [
+    {
+      "repository_path": "ENV/etc/env.prop",
+      "sha256": "2804e5936b40022054079b744976aa50e368bc8005072d431f820ff1b4590e9a",
+      "line_ranges": [
+        [
+          21,
+          24
+        ]
+      ],
+      "finding": "Operational INV_HOME, INV_HOME_OLD and MEME_HOME paths; no credentials collected."
+    },
+    {
+      "repository_path": "INV/bin/api_metadata.sh",
+      "sha256": "a3344bef1d2f897c215edb527883a4ba46870dbeb2004a473dd203c4f2a431cd",
+      "line_ranges": [
+        [
+          58,
+          62
+        ],
+        [
+          151,
+          155
+        ],
+        [
+          170,
+          174
+        ]
+      ],
+      "finding": "Current-source endpoint and RSAB/VSAB transformation; temporary raw payload cleanup; no source-root or complete termgroup export."
+    },
+    {
+      "repository_path": "INV/lib/QaSrcs.pm",
+      "sha256": "88d6dd6a864c079c6582638e059810035d7f9685a9a73d519fb16c1b7d1ef155",
+      "line_ranges": [
+        [
+          83,
+          94
+        ],
+        [
+          151,
+          152
+        ],
+        [
+          197,
+          204
+        ]
+      ],
+      "finding": "Live current-source metadata used for low_source validation."
+    },
+    {
+      "repository_path": "INV/lib/QaAtoms.pm",
+      "sha256": "07fe4ebca1428bb9f59257ca0924089264d32ace70e04d2cd289f945317f1d13",
+      "line_ranges": [
+        [
+          69,
+          80
+        ],
+        [
+          610,
+          623
+        ]
+      ],
+      "finding": "Current-source membership used for root checks; .src RPT/VPT parsing is not an installed root exporter."
+    },
+    {
+      "repository_path": "INV/lib/QaTGs.pm",
+      "sha256": "c5e63984c3235c177c00b476bf53f51bc30bfc9c49df8fb1b7105b6a1bcd3fb9",
+      "line_ranges": [
+        [
+          48,
+          81
+        ],
+        [
+          236,
+          237
+        ],
+        [
+          269,
+          277
+        ]
+      ],
+      "finding": "Historical database low-termgroup lookup and checks are commented out after M5 migration."
+    },
+    {
+      "repository_path": "sources/NCI_2026_10D/etc/README.INVERSION",
+      "sha256": "262843be0ba81b5bc75f3ce1acf0f43fbc8bf2da534c052fcdd7ffe604931508",
+      "line_ranges": [
+        [
+          23,
+          31
+        ]
+      ],
+      "finding": "Dump template, edit it, render sources.src; copy and update termgroups.src."
+    },
+    {
+      "repository_path": "INV/bin/make.sources.src.pl",
+      "sha256": "a375f14ad4935ef348f6e4bd905d411c93315f37574b6d31ff7151b05445a7e5",
+      "line_ranges": [
+        [
+          8,
+          24
+        ],
+        [
+          27,
+          55
+        ]
+      ],
+      "finding": "Source-template renderer; no database query."
+    },
+    {
+      "repository_path": "INV/etc/sources.src.template",
+      "sha256": "8aab7923d52b3d3f2dc7a052257e974d6d325778c5ac42f312d3e5ece4402611",
+      "line_ranges": [
+        [
+          13,
+          32
+        ]
+      ],
+      "finding": "Twenty preparation fields including source family; not proof of installation or DB column semantics."
+    },
+    {
+      "repository_path": "INV/bin/SRCbuilder.pl",
+      "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282",
+      "line_ranges": [
+        [
+          225,
+          235
+        ]
+      ],
+      "finding": "Generated SRC/RPT atom receives source atom ID and V-source code; not installed export."
+    },
+    {
+      "repository_path": "sources/NCI_2026_10D/bin/nci_2017_06d.csh",
+      "sha256": "c2b7052017daed5eaf6bb389569a9dc934d0ddc09fa8f6802f920ad8a7892b85",
+      "line_ranges": [
+        [
+          1085,
+          1094
+        ]
+      ],
+      "finding": "Old semantic-type query distinguishes source_row_id and local_row_id; not a verified M5 SRC-root exporter."
+    },
+    {
+      "repository_path": "INV/bin/extract_metadata.sh",
+      "sha256": "ffe99de726151b98da1de4e0e1e6dffb18c2dd9e765c7f035db045dfa46ed921",
+      "line_ranges": [
+        [
+          66,
+          94
+        ]
+      ],
+      "finding": "Extracts generic RELA/expanded-form/TTY metadata only."
+    },
+    {
+      "repository_path": "docs/inversion-review/nci-2026-10d-archive-inventory.json",
+      "sha256": "3ec3cf90f787cf9ea07e636579127f5c923198034f5dab9b61987a2bd1df1484",
+      "line_ranges": [
+        [
+          636,
+          655
+        ],
+        [
+          1010,
+          1029
+        ],
+        [
+          1260,
+          1273
+        ]
+      ],
+      "finding": "Archive contains src and insert metadata, with multiple release tags; roles cannot be inferred from folder existence."
+    }
+  ],
+  "missing_repository_producers": [
+    "INV/bin/dump_src_info.pl",
+    "INV_OLD/bin/dump_src_info.pl"
+  ],
+  "gaps": [
+    {
+      "id": "source-export-producer",
+      "missing": "Actual dump_src_info.pl producer and its supporting code/runtime, original unedited export and capture provenance.",
+      "affected_fields": [
+        "sources",
+        "capture"
+      ]
+    },
+    {
+      "id": "installed-src-root-identity",
+      "missing": "Working installed SRC/RPT exporter with explicit source atom ID semantics and any backend-local-to-source ID mapping, plus real sample and scope.",
+      "affected_fields": [
+        "source_roots",
+        "capture"
+      ]
+    },
+    {
+      "id": "installed-termgroups",
+      "missing": "Working complete installed VSAB/TTY export, including required external ranking targets; generic TTY definitions and disabled legacy SQL are insufficient.",
+      "affected_fields": [
+        "termgroups",
+        "complete_for.termgroups"
+      ]
+    },
+    {
+      "id": "transition-policy",
+      "missing": "Reviewed source-family classifications and active replacement_sources for the selected NCImeta transition; no suffix/database-family column is inferred.",
+      "affected_fields": [
+        "sources.source_family",
+        "replacement_sources",
+        "scope"
+      ]
+    },
+    {
+      "id": "consistent-state",
+      "missing": "Supported frozen-state identity or consistent multi-export capture mechanism and evidence of completeness for the required scope.",
+      "affected_fields": [
+        "capture",
+        "complete_for"
+      ]
+    }
+  ],
+  "targeted_server_reads": [
+    "/local/content/MEME/MEME5/inv/INV_OLD/bin/dump_src_info.pl",
+    "/local/content/MEME/MEME5/inv/INV/bin/dump_src_info.pl",
+    "/local/content/MEME/MEME5/ncim/bin/dump_table.pl"
+  ],
+  "targeted_filename_listing_directories": [
+    "/local/content/MEME/MEME5/ncim/bin",
+    "/local/content/MEME/MEME5/inv/INV_OLD/bin",
+    "/local/content/MEME/MEME5/inv/INV/bin"
+  ],
+  "filename_patterns": [
+    "*src*",
+    "*source*",
+    "*termgroup*",
+    "*metadata*",
+    "*root*",
+    "*export*",
+    "*dump*"
+  ],
+  "limitations": [
+    "Hashes bind reviewed repository bytes; they do not prove installed-state completeness.",
+    "Read producer code and provenance before executing an export; no new SQL is proposed.",
+    "Current installed state must not be relabeled reconstructed October state.",
+    "CTCAE 6.0 representation and CELLOSAURUS/SY ranking remain unresolved reviewed decisions."
+  ]
+}
