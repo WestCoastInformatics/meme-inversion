@@ -1,0 +1,94 @@
+{
+  "completed_at": "2026-11-10T18:49:14.325168+00:00",
+  "actual_git_head": "98920a3afdcd4ca6ecc56abe7841422389da5299",
+  "suites": [
+    {
+      "suite": "request",
+      "command": [
+        "/Users/shapirod2/Code/workspace-meme-inversion/.baseline-private/20261106-request-interface-venv/bin/python",
+        "-B",
+        "tools/check_inversion_request.py"
+      ],
+      "exit_status": 0,
+      "checks": 89,
+      "summary": [
+        "89 common inversion interface checks passed"
+      ]
+    },
+    {
+      "suite": "source-plan",
+      "command": [
+        "python3",
+        "-B",
+        "tools/check_nci_source_plan.py"
+      ],
+      "exit_status": 0,
+      "checks": 52,
+      "summary": [
+        "52 NCIt source-plan checks passed"
+      ]
+    },
+    {
+      "suite": "previous-generator",
+      "command": [
+        "python3",
+        "-B",
+        "tools/check_nci_configuration.py"
+      ],
+      "exit_status": 0,
+      "checks": 37,
+      "summary": [
+        "37 NCIt configuration generation checks passed"
+      ]
+    },
+    {
+      "suite": "worker",
+      "command": [
+        "python3",
+        "-B",
+        "tools/check_inversion_worker.py"
+      ],
+      "exit_status": 0,
+      "checks": 27,
+      "summary": [
+        "27 common worker checks passed"
+      ]
+    }
+  ],
+  "total_checks": 205,
+  "status": "PASS_LOCAL_INTERFACE_AND_SOURCE_PLAN_FIXTURES",
+  "actual_native_source_engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+  "actual_native_apparatus_ref": "0df06fa39ad36733a0f786db4ac4139b81f8aea4",
+  "post_native_recipe_equivalence_ref": "nci-source-plan-post-replay-equivalence.json",
+  "test_script_sha256": {
+    "check_inversion_request.py": "ada4402641d06a446e57d9498ba97e1e6a15fb261958141cb849830d94cb5d96",
+    "check_nci_source_plan.py": "a3e1d0a7b9ac2833db622f7e3bab6731b8a9f8ca0ddfcca8c7e37392b38e182d",
+    "check_nci_configuration.py": "8d33126cb8ac220e2a5a055c5e8d2bfa4ef0f0f918ccd9556c9b78e5ea86f8e8",
+    "check_inversion_worker.py": "c43f9153ef5b1b9594f9efc330e9817e17c080ae0a8e1da9fb06b7a4e3c172c4"
+  },
+  "cli_previews": {
+    "saved_JSON_lock_resolved": true,
+    "all_five_readonly_files_exact_to_executed_recipe": true,
+    "catalog_promotion_includes_persistent_bindings": true,
+    "catalog_promotion_does_not_assert_insertion": true
+  },
+  "setup_retries": [
+    {
+      "attempt": "Initial controller bootstrap",
+      "apparatus_ref": "34b5865292492b206b195e4365e1e6e17859e28a",
+      "result": "FAILED_BEFORE_WORKER_LAUNCH",
+      "cause": "One generated vocabulary collection used Python tuples, which changed representation on JSON save/load and caused recipe verification to reject the lock.",
+      "effect": "Only failed bootstrap apparatus files were staged; no source tree preservation, runtime activation or native worker occurred.",
+      "fix_ref": "0df06fa39ad36733a0f786db4ac4139b81f8aea4",
+      "regression": "Every common lock now round-trips through saved JSON before verification; source-plan recipe JSON round-trip has an independent fixture.",
+      "retained_controller_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-nci-source-plan-20261110.controller"
+    },
+    {
+      "attempt": "Direct compressed stdin transport",
+      "result": "SUDO_FORM_REJECTED_BEFORE_SERVER_WRITES",
+      "cause": "The direct su -c form requires authentication under server policy.",
+      "resolution": "Use the existing working sudo su - tomcata route with chunked compressed payload; no alternate sudo policy or credentials were used."
+    }
+  ],
+  "scope": "Local fixtures and CLI preview/promotion plus separate full dev core evidence. Does not relabel the executed native apparatus as the later validation/catalog-promotion revision."
+}

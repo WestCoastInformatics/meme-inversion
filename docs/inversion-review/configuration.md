@@ -105,3 +105,9 @@ The first resolver and dev runner implement the common request and frozen config
 ## Implemented NCIt generator pilot
 
 The [NCIt generator](nci-configuration-generation.md) renders compatibility settings from this common configuration and separately versioned policy/data artifacts. A full October replay explicitly replacing August passes with all five output hashes unchanged. Source code is loaded from the canonical Git package; no previous release executable is copied. Native export filenames, saved root identity and complete historical ID bounds are explicitly bound. This validates the NCIt pilot; other source generators, upstream new-release preparation and production eligibility remain separate.
+
+## Implemented NCIt source-plan extension
+
+The [source-plan profile](nci-source-plan.md) also generates `sources.src`, `termgroups.src` and the explicit optional SRC-root/termgroup inputs. `inputs.source_plan` records reviewed additions or empty lists; `inputs.reference_ncimeta` selects the exact reviewed metadata model derived from preserved preparation data. That model describes representation, not a live installed-root inventory. Its catalog-promotion preview preserves aliases and term-type bindings for a following release without repeating new-root decisions or copying executable folders.
+
+The full August-to-October historical transition passes with five unchanged core hashes, three exact TREF files and two exact metadata files. The [verification](nci-source-plan-final-verification.json) retains two declared historical findings. Arbitrary operational releases still require a reviewed case, appropriate frozen metadata/root-state inventory, resolved representation/ranking choices and production allocation/eligibility. The common request and field vocabulary are unchanged.

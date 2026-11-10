@@ -1,0 +1,58 @@
+{
+  "status": "PASS_SOURCE_PLAN_HISTORICAL_COMPATIBILITY",
+  "source": "NCI",
+  "version": "NCI_2026_10D",
+  "replacement_baseline": {
+    "source": "NCI",
+    "version": "NCI_2026_08E"
+  },
+  "run_id": "common-nci-source-plan-v2-20261110",
+  "source_engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+  "actual_native_apparatus_ref": "0df06fa39ad36733a0f786db4ac4139b81f8aea4",
+  "current_validation_and_catalog_promotion_ref": "98920a3afdcd4ca6ecc56abe7841422389da5299",
+  "conversion_seconds": 2201.23,
+  "all_five_core_files_byte_exact_to_previous_accepted_candidate": true,
+  "all_three_TREF_files_match_archive": true,
+  "both_generated_metadata_files_match_archive": true,
+  "five_publisher_files_only_seeded_candidate": true,
+  "new_subsources": [
+    "BLOODPAC"
+  ],
+  "new_termgroups": 2,
+  "local_checks_passed": 205,
+  "previous_tree_verified_entries": 47,
+  "restored_original_runtime_files_verified": 169,
+  "historical_findings": [
+    {
+      "kind": "unverified-termgroup-ranking",
+      "identifier": "CELLOSAURUS_2026_10D/SY",
+      "reason": "The preserved October BLOODPAC/SY low-termgroup selection is not defined in its metadata bundle. Preserve this exact historical input choice for comparison; existence in the insertion database is not established. A new release requires a validated ranking target."
+    },
+    {
+      "kind": "unmapped-publisher-source",
+      "identifier": "CTCAE 6.0",
+      "reason": "The frozen October producer has no mapping for this native source label. Preserve its existing behavior only for a bounded historical compatibility replay; no release eligibility or corrected mapping is claimed."
+    }
+  ],
+  "producer_and_policy_blobs_unchanged_since_native_launch": true,
+  "generated_recipe_identical_under_current_validation_and_catalog_code": true,
+  "insertion_executed": false,
+  "production_eligible": false,
+  "references": {
+    "result": "nci-source-plan-replay-result.json",
+    "preparation": "nci-source-plan-preparation.json",
+    "final_verification": "nci-source-plan-final-verification.json",
+    "local_fixtures": "nci-source-plan-fixtures-20261110.json",
+    "post_native_equivalence": "nci-source-plan-post-replay-equivalence.json",
+    "controller": "nci-source-plan-controller.json"
+  },
+  "remaining_gates": [
+    "Resolve the CTCAE 6.0 mapping and validate the preserved external low-termgroup selection before operational use.",
+    "Acquire/reconcile a frozen NCImeta metadata and installed-root inventory for arbitrary new releases; catalog membership is not insertion state.",
+    "New release case registration, production ID allocation, source removals, legacy database QA, insertion and deployment remain separate."
+  ],
+  "retention_refs": {
+    "source_engine_tag": "replay-engine/nci-source-plan-b6c60b4",
+    "actual_native_apparatus_tag": "replay-apparatus/nci-source-plan-0df06fa"
+  }
+}

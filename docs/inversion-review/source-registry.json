@@ -29,7 +29,13 @@
       "configuration_generator_ref": "../../tools/nci_configuration.py",
       "canonical_code_package_ref": "../../engines/nci/README.md",
       "configuration_generation_result_ref": "nci-configuration-replay-result.json",
-      "configuration_generation_verification_ref": "nci-configuration-final-verification.json"
+      "configuration_generation_verification_ref": "nci-configuration-final-verification.json",
+      "source_plan_generator_ref": "../../tools/nci_source_plan.py",
+      "source_plan_schema_ref": "nci-source-plan.schema.json",
+      "source_plan_guide_ref": "nci-source-plan.md",
+      "source_plan_summary_ref": "nci-source-plan-summary.json",
+      "source_plan_final_verification_ref": "nci-source-plan-final-verification.json",
+      "source_plan_status": "PASS: full October historical compatibility with two declared findings; metadata/SRC additions and following-release catalog promotion verified; operational eligibility remains separate"
     },
     "SNOMEDCT_US": {
       "display_name": "SNOMEDCT_US",

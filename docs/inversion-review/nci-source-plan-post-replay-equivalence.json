@@ -1,0 +1,39 @@
+{
+  "status": "PASS_POST_REPLAY_RECIPE_AND_LIFECYCLE_VERIFICATION",
+  "actual_native_apparatus_ref": "0df06fa39ad36733a0f786db4ac4139b81f8aea4",
+  "current_validation_and_promotion_ref": "98920a3afdcd4ca6ecc56abe7841422389da5299",
+  "source_engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+  "full_generation_recipe_identical": true,
+  "current_saved_lock_preview_matches_all_five_executed_file_hashes": true,
+  "source_package_and_policy_blobs_unchanged": true,
+  "promotion_is_review_candidate_only": true,
+  "new_catalog_has_60_sources_130_termgroups": true,
+  "new_catalog_retains_BLOODPAC_bindings": true,
+  "changes_after_native_launch": "Additional invalid-input rejection, stable map ordering and a separate metadata-catalog promotion preview. No new native run or newer native apparatus identity is claimed.",
+  "producer_and_policy_blobs": [
+    {
+      "path": "engines/nci/bin/create_rolegroups.pl",
+      "sha256": "314705f60d7742480013b4a9b71a1fd91e8d9b4851b6ab73dd2a3b5410c80703"
+    },
+    {
+      "path": "engines/nci/bin/create_tref.pl",
+      "sha256": "fa7e6eff83b78bf8a83ab9e4b37c4ec55fd06832143508609b5e6e5e10ee8c21"
+    },
+    {
+      "path": "engines/nci/bin/delete_dup_tref_lines.pl",
+      "sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272"
+    },
+    {
+      "path": "engines/nci/bin/invert_NCI.pl",
+      "sha256": "1569df18709119d7224e6cd47f7c9cb7c048c60774bca02626fcec716fe7c5ca"
+    },
+    {
+      "path": "engines/nci/nci.cfg.in",
+      "sha256": "22dc27f973c28395ca09acde76751e0e8bf18e822d4a4135d596591ac8c7b6e8"
+    },
+    {
+      "path": "engines/nci/metadata-policy.json",
+      "sha256": "2981f620511d64a23a319109d00cf2535e3b2fc8111a3d7b6f4009e42db80e5e"
+    }
+  ]
+}

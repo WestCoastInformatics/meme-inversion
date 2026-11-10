@@ -1,0 +1,11 @@
+{
+  "status": "runtime-activated",
+  "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "activated_at": "2026-11-10T18:42:44.739877+00:00",
+  "source": "RADLEX",
+  "lock_sha256": "0d7090f53d9c67ec241b379948516f496aae27ca74dce55b60e47c0a7df18eaf",
+  "preserved_runtime": "/local/content/MEME/MEME5/inv/qa/replay-requests/nci-source-plan-v2-restore-20261110.runtime-before",
+  "previous_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+  "sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+  "files_verified": 169
+}

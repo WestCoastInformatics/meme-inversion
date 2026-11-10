@@ -1,0 +1,132 @@
+{
+  "launch": {
+    "run_id": "common-nci-source-plan-v2-20261110",
+    "controller_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-nci-source-plan-v2-20261110.controller",
+    "controller_pid": 1988321,
+    "controller_sha256": "56909e7a9993e9feb7fd162ffdef13eb46776a000a4a54b4f1abffc24ef401df",
+    "source_engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+    "apparatus_ref": "0df06fa39ad36733a0f786db4ac4139b81f8aea4",
+    "lock_sha256": "6fba98b73f86e429890fe7f12a8e91bc4475e7913b41edabf09782902c4d8026",
+    "frozen_modules_imported": 21,
+    "restoration_runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44"
+  },
+  "status": {
+    "run_id": "common-nci-source-plan-v2-20261110",
+    "status": "complete",
+    "started_at": "2026-11-10T18:03:11.251597+00:00",
+    "engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+    "apparatus_ref": "0df06fa39ad36733a0f786db4ac4139b81f8aea4",
+    "updated_at": "2026-11-10T18:42:44.799591+00:00",
+    "worker_pid": 1988327,
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-nci-source-plan-v2-20261110",
+    "worker_status": {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "run_id": "common-nci-source-plan-v2-20261110",
+      "engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+      "lock_sha256": "6fba98b73f86e429890fe7f12a8e91bc4475e7913b41edabf09782902c4d8026",
+      "started_at": "2026-11-10T18:03:17.598611+00:00",
+      "status": "complete",
+      "preserved_source": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.before-common-nci-source-plan-v2-20261110",
+      "acceptance": {
+        "status": "PASS_EQUIVALENT",
+        "checks": {
+          "core_exit_zero": true,
+          "metadata_unchanged": true,
+          "atoms_exact": true,
+          "relationships_exact": true,
+          "merges_exact": true,
+          "context_multiset_equal": true,
+          "attribute_content_equal": true,
+          "structural_checks": true,
+          "termgroups_valid": true,
+          "metadata_matches_reference": true,
+          "attribute_ids_unique_and_contiguous": true,
+          "same_attribute_id_span": true,
+          "non_context_attributes_exact": true,
+          "no_attribute_id_or_unknown_reference_types": true
+        },
+        "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+        "scope": "Five generated core src outputs with archived source metadata; not full release eligibility"
+      },
+      "completed_at": "2026-11-10T18:42:41.353608+00:00"
+    },
+    "worker_progress": {
+      "stage": "conversion",
+      "pid": 1988566,
+      "elapsed_seconds": 2192,
+      "sampled_peak_resident_bytes": 826425344,
+      "available_memory_bytes": 27727933440
+    },
+    "acceptance": {
+      "status": "PASS_EQUIVALENT",
+      "checks": {
+        "core_exit_zero": true,
+        "metadata_unchanged": true,
+        "atoms_exact": true,
+        "relationships_exact": true,
+        "merges_exact": true,
+        "context_multiset_equal": true,
+        "attribute_content_equal": true,
+        "structural_checks": true,
+        "termgroups_valid": true,
+        "metadata_matches_reference": true,
+        "attribute_ids_unique_and_contiguous": true,
+        "same_attribute_id_span": true,
+        "non_context_attributes_exact": true,
+        "no_attribute_id_or_unknown_reference_types": true
+      },
+      "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+      "scope": "Five generated core src outputs with archived source metadata; not full release eligibility"
+    },
+    "restored_original_runtime_files_verified": 169,
+    "completed_at": "2026-11-10T18:42:44.799571+00:00"
+  },
+  "worker_status": {
+    "source": "NCI",
+    "version": "NCI_2026_10D",
+    "run_id": "common-nci-source-plan-v2-20261110",
+    "engine_ref": "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+    "lock_sha256": "6fba98b73f86e429890fe7f12a8e91bc4475e7913b41edabf09782902c4d8026",
+    "started_at": "2026-11-10T18:03:17.598611+00:00",
+    "status": "complete",
+    "preserved_source": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.before-common-nci-source-plan-v2-20261110",
+    "acceptance": {
+      "status": "PASS_EQUIVALENT",
+      "checks": {
+        "core_exit_zero": true,
+        "metadata_unchanged": true,
+        "atoms_exact": true,
+        "relationships_exact": true,
+        "merges_exact": true,
+        "context_multiset_equal": true,
+        "attribute_content_equal": true,
+        "structural_checks": true,
+        "termgroups_valid": true,
+        "metadata_matches_reference": true,
+        "attribute_ids_unique_and_contiguous": true,
+        "same_attribute_id_span": true,
+        "non_context_attributes_exact": true,
+        "no_attribute_id_or_unknown_reference_types": true
+      },
+      "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+      "scope": "Five generated core src outputs with archived source metadata; not full release eligibility"
+    },
+    "completed_at": "2026-11-10T18:42:41.353608+00:00"
+  },
+  "acquisition": {
+    "archives": [
+      {
+        "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D.tgz",
+        "sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+        "downloaded_this_run": false
+      }
+    ],
+    "aws_profile": "meme",
+    "generated_outputs_restored": false
+  },
+  "controller_repository_path": "tools/evidence/run_nci_source_plan_20261110.py",
+  "controller_file_sha256": "56909e7a9993e9feb7fd162ffdef13eb46776a000a4a54b4f1abffc24ef401df",
+  "verifier_repository_path": "tools/evidence/verify_nci_source_plan_20261110.py",
+  "verifier_file_sha256": "181ee6fe2ddbc9aa352d6c90596c501a4ce83561f8b55ef8644dc023a8988337"
+}

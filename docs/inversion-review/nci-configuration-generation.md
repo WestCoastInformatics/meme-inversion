@@ -2,6 +2,8 @@
 
 Completed November 10, 2026: the first generator case uses the verified October 2026 inputs and explicit August replacement. Its fresh full common replay passes, all three regenerated TREF files and all five core output hashes match the accepted candidate, and the final retained-data/runtime verification passes. Production remains unchanged.
 
+The subsequent [source-plan extension](nci-source-plan.md) generates metadata and optional additions as well. This page and its original `generated-configuration` case retain their historical identities; the new case is `source-plan`.
+
 ## Code, policy and release data
 
 `engines/nci` is the release-independent Git package. Its [provenance](../../engines/nci/provenance.json) ties the four executed scripts to the verified `bfda2ce` producer. Core inversion and TREF deduplication retain identical bytes. The two preparation scripts accept declared filenames as arguments and reject absent arguments; they have no dated fallback. Historical snapshots and unused wrappers stay in the baseline history.

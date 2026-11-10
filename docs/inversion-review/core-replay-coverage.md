@@ -30,3 +30,13 @@ This completes the five-source historical core framework boundary. General new-r
 ## NCIt generator pilot completed November 10
 
 A subsequent [generated-configuration replay](nci-configuration-generation.md) replaces source-folder code/configuration copying with four canonical Git scripts and a read-only configuration rendered from the common model. All 290 effective native settings agree with the verified configuration; all three TREF files and all five core output hashes are unchanged. The [separate final verification](nci-configuration-final-verification.json) also confirms the entire previous dev tree and restored original runtime. The earlier six-case matrix remains dated evidence; its previous NCIt candidate is now retained under `NCI_2026_10D.before-common-nci-generated-20261109`. Other sources' generators and general operational release creation remain later gates.
+
+## NCIt optional source/termgroup plans completed November 10
+
+The [source-plan extension](nci-source-plan.md) replaces the hardcoded BLOODPAC emitter and archived-metadata seeding with reviewed data, generated metadata and an explicit ordered root list. The [fresh full run](nci-source-plan-summary.json), using source engine `b6c60b4` and apparatus `0df06fa`, passes with all five core files byte-exact to the preceding accepted generator candidate, all three TREF files exact and both generated metadata files equal to their independent archive hashes. Only five publisher files seed the new candidate.
+
+[Independent final verification](nci-source-plan-final-verification.json) rehashes all compared files, frozen code, native/archive inputs, generated files, the entire 47-entry preserved prior tree and all 169 restored original runtime hashes. The prior candidate now lives at `NCI_2026_10D.before-common-nci-source-plan-v2-20261110`. The existing matrix and earlier receipts retain their dated identities. Runtime metadata has a new restoration receipt.
+
+The current validation/catalog-promotion code passes 205 local checks and recomputes the exact executed recipe. Actual following-release Perl fixtures confirm that promoted long-source and term-type bindings work with empty addition lists. The post-replay validation/promotion revision is recorded separately; the native receipt is not relabeled.
+
+`CTCAE 6.0` has no captured mapping, and the preserved BLOODPAC/SY low-termgroup target is absent from its metadata bundle. Those declared, input-bound historical findings are retained for compatibility, not waived for operational use. Fresh baseline/root inventory, arbitrary release registration, source removals, production allocation, legacy QA and insertion remain later gates.
