@@ -160,6 +160,12 @@ def generate(config, plan, model, properties):
             raise ValueError('Only explicit new term-type mappings are allowed')
         bind(key, identifier(value))
     declared = {tuple(x) for x in model['publisher_termgroups']}
+    native_tokens = {}
+    for alias, incoming in declared:
+        token = alias + incoming
+        if token in native_tokens and native_tokens[token] != (alias, incoming):
+            raise ValueError('Existing publisher termgroups have an ambiguous TREF token')
+        native_tokens[token] = (alias, incoming)
     added_groups = set()
     for addition in plan['new_termgroups']:
         keys(addition, ('metadata', 'after_termgroup', 'input_ttys'), 'new termgroup')
@@ -182,6 +188,8 @@ def generate(config, plan, model, properties):
                 raise ValueError('New native term type lacks its reviewed output mapping')
             for alias in aliases:
                 token = alias + incoming
+                if token in native_tokens and native_tokens[token] != (alias, incoming):
+                    raise ValueError('New termgroup would reroute an existing TREF token')
                 if token in tokens and tokens[token] != (alias, incoming):
                     raise ValueError('Ambiguous native source/term-type concatenation')
                 tokens[token] = (alias, incoming)

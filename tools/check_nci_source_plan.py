@@ -137,6 +137,14 @@ def check():
         addition['metadata'] = {key: value.replace('BLOODPAC', 'LONG_NEW_SOURCE') for key, value in addition['metadata'].items()}
         addition['after_termgroup'] = addition['after_termgroup'].replace('BLOODPAC', 'LONG_NEW_SOURCE')
     long_source['new_termgroups'][1]['metadata']['low_termgroup'] = 'CELLOSAURUS_{{release}}/PT'
+    collision = copy.deepcopy(long_source)
+    collision['new_subsources'][0]['metadata'] = {key: value.replace('LONG_NEW_SOURCE', 'CPTA') for key, value in collision['new_subsources'][0]['metadata'].items()}
+    collision['new_subsources'][0]['publisher_names'] = ['CPTA']
+    for entry in collision['new_termgroups']:
+        entry['metadata'] = {key: value.replace('LONG_NEW_SOURCE', 'CPTA') for key, value in entry['metadata'].items()}
+        entry['after_termgroup'] = entry['after_termgroup'].replace('LONG_NEW_SOURCE', 'CPTA')
+    entry = copy.deepcopy(collision['new_termgroups'][-1]);entry['metadata'].update(termgroup_name='CPTA_{{release}}/CAB', tty='CAB');entry.update(after_termgroup='CPTA_{{release}}/SY', input_ttys=['CAB']);collision['new_termgroups'].append(entry);collision['property_updates'] = {'in2tty.CAB': 'CAB'}
+    reject(lambda: recipe(collision), 'An ambiguous new concatenation cannot reroute existing CPTAC/AB native terms')
     multiple = copy.deepcopy(october)
     multiple['new_subsources'].append(copy.deepcopy(long_source['new_subsources'][0]))
     multiple['new_subsources'][1]['after_source'] = 'BLOODPAC'
