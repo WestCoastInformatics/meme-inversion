@@ -57,3 +57,24 @@ The final line follows the actual `autoinv.pl` consumer, which increments the ba
 Run `python3 -B tools/check_mth_configuration.py`. The 68 checks include independent captured Git file goldens for both engines, common configuration and saved-lock agreement, JSON round trips, input immutability, incomplete or rebound metadata/native/identity inputs, source-disposition errors and separate `old`/`prev` failures. An actual frozen Perl consumer processes a tiny input with the generated atom spec and range, proves the emitted ID and verifies range exhaustion. Only `SourceDir` is relocated into the temporary test fixture.
 
 The [fixture record](mth-configuration-fixtures-20261110.json) distinguishes these local fixture executions from a complete native inversion. The next execution gate is a separately identified, serialized dev replay using the generated settings, followed by the existing official comparison and native-derived correction audit. No full inversion, MetamorphoSys run, source metadata regeneration, database QA, ID reservation, insertion, deployment or operational release approval is performed by this preview. General new-release preparation remains later work.
+
+## Generated settings in the native prepared-input runner
+
+The separate `mth-prepared-spec-v1` execution profile connects those seven settings/data files to the existing final-range prepared-input runner. The original `mth-prepared-spec-preview-v1` profile and historical nongenerated cases retain their identities and behavior. A generated recipe describes construction inputs; the actual native outcome belongs to its separately identified worker result.
+
+The resolver calls `execution_recipe(configuration, case, code_files)` before completing the common lock. A reviewed case must explicitly select `configuration_generation: {"profile": "mth-prepared-spec-v1"}`. `execution_recipe_from_lock(lock)` rechecks the frozen case identity and exact recipe after resolution. Both builders continue to distinguish original from corrected source-engine policies. Common case registration, correction-audit enforcement and final lock verification remain the responsibility of the common resolver/worker.
+
+The native package transports two fields:
+
+```text
+generated_configuration          complete frozen execution recipe
+configuration_generation_inputs  {configuration, artifacts}
+```
+
+The existing pinned `code_files` inventory supplies template producers and independent historical hash oracles. During preparation, `stage_code_files` skips the seven corresponding descriptors in its source-copy path and writes their generated recipe bytes with exact `0o444` modes. It preserves the original descriptors unchanged, including their original modes, as evidence. All other source code and captured link topology follow the existing Git staging path. Metadata/native packages and the replacement CUI map remain separate inputs and are checked against the generation bindings before staging.
+
+`verify_generated` recomputes the recipe and verifies all seven file hashes and exact modes. It rejects writable files, changed read-only modes, modified contents, symlinks and mismatched dependency bindings. Full `verify_inputs` calls this gate before conversion and after comparison. Preparation and native results retain the compact `configuration_generation` receipt, including recipe hash, generated file inventory and all construction bindings. The SRCbuilder argument comes from the recipe's independently checked allocation binding when generation is selected.
+
+Run `python3 -B tools/check_mth_generated_execution.py` for the [57 generated-execution fixtures](mth-generated-execution-fixtures-20261110.json). They exercise actual staging and actual staged Perl consumption, saved-lock and package mutation rejection before candidate writes, read-only verification before/after the fixture conversion, and the unchanged nongenerated staging route. The existing 68 preview fixtures and 62 replay/case-lock/identity/correction-audit checks also pass.
+
+These local fixtures do not claim a new full MTH inversion. The generated case still needs its serialized dev execution, official output comparison and existing native-derived correction audit before its native acceptance can be recorded. No live database access, production allocation, insertion or deployment is introduced by this runner extension.

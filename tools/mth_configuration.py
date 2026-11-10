@@ -12,6 +12,7 @@ from pathlib import PurePosixPath
 import re
 
 PROFILE = 'mth-prepared-spec-preview-v1'
+EXECUTION_PROFILE = 'mth-prepared-spec-v1'
 VERSION = 'MTH_2026AA'
 PREVIOUS = 'MTH_2025AB'
 ENGINES = {'3b125edc1d29f7c7a91673da2a8d752bb0adff44',
@@ -305,3 +306,48 @@ def preview_from_lock(lock):
         if any(item.get(key) != value for key, value in expected[name].items()):
             raise ValueError('MTH frozen file differs from reviewed descriptor: ' + name)
     return generate(config, case['artifacts'], {name: frozen[name] for name in TEMPLATE_NAMES})
+
+
+def execution_recipe(config, case, code_files):
+    """Build the reviewed execution recipe before a final lock checksum exists.
+
+    The same independently frozen effective specs remain compatibility oracles;
+    the execution recipe has its own identity, separate from offline previews.
+    """
+    if case.get('configuration_generation') != {'profile': EXECUTION_PROFILE}:
+        raise ValueError('Missing reviewed MTH generated-execution contract')
+    result = preview_from_lock({'configuration': config, 'case': case,
+                                'case_sha256': digest(case), 'code_files': code_files})
+    return for_execution(result)
+
+
+def for_execution(preview):
+    """Assign the separate execution profile without claiming a native outcome."""
+    if preview.get('profile') != PROFILE:
+        raise ValueError('Expected MTH preview recipe before execution binding')
+    result = copy.deepcopy(preview)
+    result['profile'] = EXECUTION_PROFILE
+    result['coverage'].pop('native_inversion_executed')
+    result['coverage']['native_conversion'] = 'separate worker execution; outcome recorded in run result'
+    return result
+
+
+def execution_recipe_from_lock(lock):
+    """Verify the exact resolved recipe against its frozen construction inputs."""
+    if lock.get('case_sha256') != digest(lock['case']):
+        raise ValueError('Frozen MTH configuration-generation case changed')
+    expected = execution_recipe(lock['configuration'], lock['case'], lock['code_files'])
+    if lock.get('configuration_generation') != expected:
+        raise ValueError('Frozen MTH configuration-generation recipe changed')
+    return expected
+
+
+def receipt(recipe):
+    """Return a compact receipt while retaining all generation input bindings."""
+    if recipe.get('profile') not in {PROFILE, EXECUTION_PROFILE}:
+        raise ValueError('Unknown MTH configuration-generation profile')
+    result = copy.deepcopy(recipe)
+    result['recipe_sha256'] = digest(recipe)
+    result['files'] = [{key: value for key, value in item.items() if key != 'data_b64'}
+                       for item in recipe['files']]
+    return result
