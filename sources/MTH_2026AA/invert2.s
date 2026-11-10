@@ -92,9 +92,8 @@ foreach subset (3)
     setenv LANG C
     echo "start `date`" >autoinv.log
     $INV_HOME_OLD/bin/autoinv.pl ../range$subset.spec inv1.spec >>& autoinv.log
-    mv aui_said_map{,.orig}
-    grep -v C1976636 aui_said_map.orig >aui_said_map
-    rm -f aui_said_map.orig
+    # Every retained atom keeps its AUI mapping, including LOINCPARTS.
+    # Atom exclusions are applied consistently by inv1.spec before this step.
     awk -F\| '$3=="Y"{print $2}' aui_said_map |sort -u -o cuis.withmovedaui
     awk -F\| '$3=="N"{print $2}' aui_said_map |sort -u |comm -23 cuis.withmovedaui - >cui.splitonly
     cut -d\| -f1 ../old/src/cui_said_map |sort |comm -23 cui.splitonly - >cui.splitonly.new

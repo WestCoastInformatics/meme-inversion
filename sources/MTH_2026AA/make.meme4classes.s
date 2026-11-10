@@ -10,7 +10,6 @@ cp -p classes_atoms.src classes_atoms.src.raw
 #make.meme4classes.pl >classes_atoms.src
 #gzip classes_atoms3.src classes_atoms.src.raw
 
-# edited the following to remove the V-CCS_2005 SRC lines that an mmsys bug
-# leaves in MRCONSO, probably because they share a SF (source family) with
-# CCS_10, which is included
-sed 's/|[^|]*\(|[^|]*\)|[^|]*$/\1/' classes_atoms.src.raw |grep -v SRC/V...V-CCS_2005 >! classes_atoms.src
+# inv1.spec applies atom retention before identity-map generation. This step
+# only converts the retained raw atom layout to the insertion atom layout.
+sed 's/|[^|]*\(|[^|]*\)|[^|]*$/\1/' classes_atoms.src.raw >! classes_atoms.src
