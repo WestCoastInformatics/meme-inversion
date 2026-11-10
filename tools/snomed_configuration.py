@@ -10,10 +10,11 @@ import copy
 import datetime
 import hashlib
 import json
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
 import re
 
 PROFILE = 'snomed-properties-preview-v1'
+EXECUTION_PROFILE = 'snomed-properties-v1'
 CAPTURED_VERSION = 'SNOMEDCT_US_2026_09_01'
 CAPTURED_ENGINE = '3b125edc1d29f7c7a91673da2a8d752bb0adff44'
 TEMPLATE_PATH = 'sources/' + CAPTURED_VERSION + '/etc/sct.cfg'
@@ -234,10 +235,10 @@ def generate(config, artifacts, template):
                                 'New-release allocation, legacy QA, insertion and production approval']}
 
 
-def preview_from_lock(lock):
-    """Render from the frozen cfg payload; never read working-tree/server files."""
+def _recipe_from_lock(lock, verify_checksum=True):
+    """Validate source bindings; resolver may call before adding the final hash."""
     if (lock.get('schema_version') != 1 or lock.get('artifact_type') != 'ncimeta-dev-replay-lock' or
-            lock.get('lock_sha256') != digest({k: v for k, v in lock.items() if k != 'lock_sha256'})):
+            (verify_checksum and lock.get('lock_sha256') != digest({k: v for k, v in lock.items() if k != 'lock_sha256'}))):
         raise ValueError('Unsupported or changed common lock')
     case, config = lock['case'], lock['configuration']
     if (lock['case_sha256'] != digest(case) or config != case['configuration'] or
@@ -266,3 +267,89 @@ def preview_from_lock(lock):
             {x['path']: x['sha256'] for x in legacy['archived_metadata_inputs']}):
         raise ValueError('Generated settings differ from the declared legacy input/baseline contract')
     return recipe
+
+
+def preview_from_lock(lock):
+    """Render a preview-only recipe, including for a generated execution case."""
+    return _recipe_from_lock(lock)
+
+
+def execution_recipe(config, artifacts, template):
+    """Render the bounded historical recipe used by the reviewed dev worker."""
+    if (config.get('version') != CAPTURED_VERSION or
+            config.get('replacement_baseline') != {'source': 'SNOMEDCT_US', 'version': 'SNOMEDCT_US_2026_03_01'}):
+        raise ValueError('Only the reviewed September/March historical generation transition is supported')
+    recipe = generate(config, artifacts, template)
+    recipe.update(profile=EXECUTION_PROFILE, scope='historical-generated-configuration', execution_enabled=True)
+    recipe['remaining_gates'] = ['Full native replay, strict official comparison and independent validation',
+                               'New-release metadata/state acquisition, allocation, legacy QA, insertion and production approval']
+    return recipe
+
+
+def execution_recipe_from_lock(lock, verify_checksum=True):
+    """Build/recompute a generated recipe; the shared caller verifies the full lock.
+
+    ``verify_checksum=False`` is only for resolver construction, before its final
+    hash is attached.  The default additionally checks the completed checksum.
+    Neither route relaxes the source case, template, artifact or recipe checks.
+    """
+    preview = _recipe_from_lock(lock, verify_checksum=verify_checksum)
+    case, config, request = lock['case'], lock['configuration'], lock['request']
+    spec = {'profile': EXECUTION_PROFILE, 'repository_path': TEMPLATE_PATH, 'sha256': TEMPLATE_SHA256}
+    if (case.get('configuration_generation') != spec or case.get('case_variant') != 'generated-configuration' or
+            request.get('case_variant') != 'generated-configuration' or
+            config.get('replay', {}).get('case_variant') != 'generated-configuration' or
+            case.get('execution_enabled') is not True or lock.get('execution_enabled') is not True):
+        raise ValueError('No reviewed executable SNOMED configuration-generation case')
+    recipe = execution_recipe(config, case['artifacts'], preview['template'])
+    if 'configuration_generation' in lock and lock['configuration_generation'] != recipe:
+        raise ValueError('Frozen SNOMED generated recipe differs from recomputation')
+    return recipe
+
+
+def validate_execution_recipe(recipe, generation_inputs, contract=None, code_files=None):
+    """Recompute worker transport against common inputs and the selected contract."""
+    if not isinstance(generation_inputs, dict) or set(generation_inputs) != {'configuration', 'artifacts'}:
+        raise ValueError('Missing or additional SNOMED configuration-generation inputs')
+    expected = execution_recipe(generation_inputs['configuration'], generation_inputs['artifacts'], recipe['template'])
+    if recipe != expected:
+        raise ValueError('Transported SNOMED generated recipe differs from recomputation')
+    if contract is not None:
+        bindings = recipe['bindings']
+        wanted = bindings['native_inputs'] + bindings['metadata_inputs']
+        declared = [x for x in contract['conversion_inputs'] if x['required']] + contract['archived_metadata_inputs']
+        identity = lambda items: {x['path']: (x['sha256'], x['size'], x['newline_count']) for x in items}
+        if (contract['source'] != bindings['source'] or contract['version'] != bindings['version'] or
+                contract['engine_ref'] != bindings['engine_ref'] or
+                contract['replacement_baseline'] != bindings['replacement_baseline'] or
+                contract['comparison_baseline'] != bindings['comparison_baseline'] or
+                contract['publisher_history'] != bindings['publisher_history'] or
+                len(declared) != len(wanted) or identity(declared) != identity(wanted)):
+            raise ValueError('Generated configuration does not bind the selected conversion contract')
+    if code_files is not None:
+        templates = [item for item in code_files if item.get('relative_path') == 'etc/sct.cfg']
+        if (len(templates) != 1 or templates[0].get('sha256') != recipe['template']['sha256'] or
+                sha(base64.b64decode(templates[0]['data_b64'], validate=True)) != recipe['template']['sha256']):
+            raise ValueError('Captured cfg template identity differs from generated settings')
+    return expected
+
+
+def verify_generated(recipe, target):
+    """Verify the exact generated cfg and its read-only mode before/after use."""
+    if (recipe.get('profile') != EXECUTION_PROFILE or len(recipe.get('files', [])) != 1 or
+            recipe['files'][0].get('relative_path') != 'etc/sct.cfg' or
+            recipe['files'][0].get('mode') != '0o444'):
+        raise ValueError('Unexpected SNOMED generated file contract')
+    item = recipe['files'][0]
+    raw = base64.b64decode(item['data_b64'], validate=True)
+    path = Path(target) / 'etc/sct.cfg'
+    if (sha(raw) != item['sha256'] or Path(target).is_symlink() or path.parent.is_symlink() or path.is_symlink() or not path.is_file() or
+            sha(path.read_bytes()) != item['sha256'] or path.stat().st_mode & 0o777 != 0o444):
+        raise ValueError('Generated SNOMED settings changed or are not read-only')
+
+
+def receipt(recipe):
+    """Retain identities/bindings without embedding configuration payload bytes."""
+    return {**{key: copy.deepcopy(value) for key, value in recipe.items() if key not in ('template', 'files')},
+            'template': {key: value for key, value in recipe['template'].items() if key != 'data_b64'},
+            'files': [{key: value for key, value in item.items() if key != 'data_b64'} for item in recipe['files']]}

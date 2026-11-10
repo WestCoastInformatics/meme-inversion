@@ -60,8 +60,25 @@ def verify_case(package):
     require_hash(Path(contract['reference']['archive_path']), contract['reference']['archive_sha256'])
     for name, item in selected_inputs(contract).items():
         require_hash(ROOT / 'sources' / name, item['sha256'])
+    verify_generated_configuration(package)
     for item in package['code_files']:
+        if package.get('generated_configuration') is not None and item['relative_path'] == 'etc/sct.cfg':
+            continue
         require_hash(TARGET / item['relative_path'], item['sha256'])
+
+
+def verify_generated_configuration(package):
+    """Recompute the transported recipe and inspect the actual operational cfg."""
+    recipe = package.get('generated_configuration')
+    inputs = package.get('configuration_generation_inputs')
+    if recipe is None:
+        if inputs is not None:
+            raise ValueError('Configuration-generation inputs require a recipe')
+        return
+    import snomed_configuration
+    snomed_configuration.validate_execution_recipe(recipe, inputs, contract=package['contract'],
+                                                   code_files=package['code_files'])
+    snomed_configuration.verify_generated(recipe, TARGET)
 
 
 def activate_baseline(package):
@@ -175,6 +192,7 @@ def worker(package_path, inherited_lock=None):
             save(TARGET / 'etc/replay-core.json', core)
             if core['exit_status']:
                 raise RuntimeError('Original RF2 converter exited nonzero; outputs and logs retained')
+            verify_generated_configuration(package)
             for name in CORE_NAMES:
                 path = TARGET / 'src' / name
                 if path.is_symlink() or not path.is_file() or not path.stat().st_size:
@@ -189,6 +207,10 @@ def worker(package_path, inherited_lock=None):
             if core['cleanup_exit_status']:
                 save(TARGET / 'etc/replay-core.json', core)
                 raise RuntimeError('Original dangling-attribute cleanup exited nonzero')
+            verify_generated_configuration(package)
+            if package.get('generated_configuration') is not None:
+                import snomed_configuration
+                core['configuration_generation'] = snomed_configuration.receipt(package['generated_configuration'])
             core['files'] = {name: info(TARGET / 'src' / name) for name in sorted(CORE_NAMES)}
             core['attribute_cleanup_removed_rows'] = core['before_attribute_cleanup']['newline_count'] - core['files']['attributes.src']['newline_count']
             core['completed_at'] = now()
@@ -205,6 +227,8 @@ def worker(package_path, inherited_lock=None):
                       'comparison': comparison, 'acceptance': comparison['acceptance'],
                       'inputs_engine_runtime_and_outputs_verified_after_run': True, 'insertion_executed': False,
                       'apparatus_sha256': package['apparatus_sha256']}
+            if package.get('generated_configuration') is not None:
+                result['configuration_generation'] = core['configuration_generation']
             save(RUN / 'result.json', result)
             state.update(status='complete', acceptance_status=result['acceptance']['status'], completed_at=result['completed_at'], result_path=str(RUN / 'result.json'))
             save(ACTIVE, state)
