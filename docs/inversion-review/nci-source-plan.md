@@ -10,9 +10,24 @@ Every plan explicitly provides `new_subsources`, `new_termgroups`, `property_upd
 
 A new subsource specifies complete named metadata fields, publisher aliases, its insertion position and root preferred/short names. A new termgroup specifies the six actual loader fields, insertion position and native term types. Only reviewed new term-type mappings may extend the existing compatibility policy; conflicting existing mappings are rejected. Planned token bindings handle long source names and term types without adding regular-expression branches to Perl.
 
+Because the legacy TREF format concatenates publisher source and term type, a new binding must not collide with another new binding or any existing native source/type pair. Required official/root names cannot be empty or whitespace.
+
 `low_source` and `low_termgroup` are explicit ranking decisions. They can refer to another member of the current batch. Established-source defaults use the explicitly selected replacement release; no previous calendar month is inferred. Validation rejects duplicate identities/decisions, missing metadata, bad flags, inconsistent source/TTY identities, missing anchors, unknown/cyclic ranking targets, a new definition referring to its nonexistent prior identity, and an ID range too small even for required SRC atoms. Common historical bounds are not production ID reservations.
 
 The producer reads the generated ordered root list. Each new subsource emits the same RPT, RAB, SSN, relationship, two merges and semantic-type attribute as the characterized October producer, at the same point in allocation. Empty lists emit none. New subsource/termgroup decisions require no script edits or comment toggles.
+
+## Preview through the common interface
+
+Use [the source-plan request](request-examples/nci-source-plan.json), keeping the same seven request fields as every other source. In the isolated runner environment:
+
+```sh
+python3 -B tools/inversion_request.py resolve docs/inversion-review/request-examples/nci-source-plan.json --run-id nci-source-plan-preview --output source-plan.lock.json
+python3 -B tools/nci_configuration.py source-plan.lock.json --output-dir source-plan-preview
+```
+
+The preview creates the five read-only files and their binding receipt in a fresh directory. It does not stage server data or execute an inversion. Submission, status and collection use the existing [common lifecycle](common-interface.md#dev-lifecycle).
+
+An interactive assistant or future skill can explain discovery findings and draft a plan for review. The same deterministic resolver, generator and validation gates apply to interactive and unattended execution; the assistant does not supply undeclared mappings or declare a release production-ready.
 
 ## Discovery and immutable preparation
 

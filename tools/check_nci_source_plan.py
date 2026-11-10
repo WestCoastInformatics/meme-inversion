@@ -112,6 +112,8 @@ def check():
         ('injected field delimiter', lambda p: p['new_subsources'][0]['root'].update(short_name='bad|name')),
         ('unresolved template value', lambda p: p['new_subsources'][0]['metadata'].update(low_source='{{unknown}}')),
         ('missing root name', lambda p: p['new_subsources'][0]['root'].update(short_name='')),
+        ('blank root name', lambda p: p['new_subsources'][0]['root'].update(preferred_term='   ')),
+        ('missing official source name', lambda p: p['new_subsources'][0]['metadata'].update(official_name='')),
         ('new source without termgroups', lambda p: p.update(new_termgroups=[])),
         ('unmapped new input type', lambda p: p['new_termgroups'][0].update(input_ttys=['NEWTYPE'])),
         ('changed existing representation', lambda p: p['property_updates'].update({'in2tty.AB': 'SY'})),

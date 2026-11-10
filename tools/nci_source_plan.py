@@ -139,13 +139,13 @@ def generate(config, plan, model, properties):
         if not isinstance(names, list) or not names or len(names) != len(set(names)):
             raise ValueError('Unique publisher aliases required')
         for name in names:
-            if not text(name) or any(x in name for x in "='\""):
+            if not text(name).strip() or any(x in name for x in "='\""):
                 raise ValueError('Invalid publisher alias')
             bind('vsab.' + name, entry['source_name'])
             bind('rsab.' + name, source)
         short = text(addition['root']['short_name'])
         preferred = text(addition['root']['preferred_term'])
-        if not preferred or not short:
+        if not preferred.strip() or not short.strip():
             raise ValueError('Complete root names required')
         bind(entry['source_name'] + '.RSSN', short)
         insert(sources, entry, identifier(addition['after_source']), 'stripped_source')
@@ -197,6 +197,8 @@ def generate(config, plan, model, properties):
         insert(groups, entry, render(addition['after_termgroup'], variables), 'termgroup_name')
     source_names = {x['source_name'] for x in sources}
     for entry in sources:
+        if not entry['official_name'].strip():
+            raise ValueError('Source metadata needs an official name')
         if entry['source_name'] != entry['normalized_source'] or entry['source_name'] != entry['stripped_source'] + '_' + variables['release'] or entry['version'] != variables['release'] or entry['source_family'] != 'NCI' or entry['restriction_level'] not in ('0', '1', '2', '3'):
             raise ValueError('Inconsistent source metadata identity')
     for entry in groups:
