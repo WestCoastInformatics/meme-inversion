@@ -48,6 +48,12 @@
       "version": "NCI_2026_10D",
       "case_variant": "generated-configuration",
       "path": "nci-generated-configuration.json"
+    },
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "source-plan",
+      "path": "nci-source-plan.json"
     }
   ]
 }

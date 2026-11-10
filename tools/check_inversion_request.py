@@ -110,6 +110,18 @@ def check():
         bad['case_sha256'] = request.digest(bad['case'])
         bad['lock_sha256'] = request.digest({key:value for key,value in bad.items() if key != 'lock_sha256'})
         rejected(lambda: worker.verify_lock(bad), 'Rehashed NCIt lock rejects ' + label)
+    planned = next(item for item in locks if item['request']['case_variant'] == 'source-plan')
+    require(len(planned['configuration_generation']['files']) == 5 and planned['configuration_generation']['bindings']['metadata_inputs'] == [], 'Source-plan case generates metadata and plan files without archived metadata seeds')
+    require(len(planned['configuration_generation']['source_plan']['historical_exceptions']) == 2, 'Source-plan case retains both bounded historical findings')
+    for label, mutate in [
+        ('substituted metadata model', lambda item: item['configuration_generation']['metadata_model'].update(data_b64='e30=')),
+        ('changed metadata bytes', lambda item: item['configuration_generation']['files'][1].update(data_b64='Y2hhbmdlZA==')),
+        ('hidden historical finding', lambda item: item['configuration_generation']['source_plan'].update(historical_exceptions=[])),
+        ('downgraded profile', lambda item: item['case']['configuration_generation'].update(profile='nci-properties-v1')),
+    ]:
+        bad = copy.deepcopy(planned);mutate(bad)
+        bad['case_sha256'] = request.digest(bad['case']);bad['lock_sha256'] = request.digest({key:value for key,value in bad.items() if key != 'lock_sha256'})
+        rejected(lambda: worker.verify_lock(bad), 'Source-plan lock rejects ' + label)
     radlex=next(x for x in locks if x['request']['source']=='RADLEX')
     bad=copy.deepcopy(radlex);bad['configuration']['source_atom_ids']['bound_kind']='reserved-historical-range'
     bad['case']['configuration']=copy.deepcopy(bad['configuration']);bad['case_sha256']=request.digest(bad['case']);bad['lock_sha256']=request.digest({k:v for k,v in bad.items() if k!='lock_sha256'})
