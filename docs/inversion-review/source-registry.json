@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "Common historical-case adapters implemented; execution requires a compatible reviewed case, immutable lock and dev prerequisites",
+  "status": "All five sources have implemented common historical adapters and accepted full common runs; arbitrary new releases require reviewed configuration and case contracts",
   "registration_does_not_enable_execution": true,
   "request_schema": "request.schema.json",
   "configuration_schema": "configuration.schema.json",
@@ -17,12 +17,15 @@
       "common_adapter_implemented": true,
       "adapter_ref": "../../tools/inversion_worker.py#nci-oct2026-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/nci_options",
-      "characterization_status": "core comparison completed with separately reviewed fixes",
+      "characterization_status": "Reviewed PT/order candidate passes official strict equivalence; full common run passes and all five hashes match the earlier stable candidate",
       "historical_cases_under_review": [
         "NCI_2026_10D"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
-      "release_frequency_affects_request_format": false
+      "release_frequency_affects_request_format": false,
+      "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
+      "common_integration_result_ref": "common-nci-2026-10d-result.json",
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
     },
     "SNOMEDCT_US": {
       "display_name": "SNOMEDCT_US",
@@ -35,14 +38,16 @@
         "SNOMEDCT_US_2026_09_01"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
-      "release_frequency_affects_request_format": false
+      "release_frequency_affects_request_format": false,
+      "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
     },
     "MTH": {
       "display_name": "MTH/UMLS",
       "common_adapter_implemented": true,
       "adapter_ref": "../../tools/inversion_worker.py#mth-2026aa-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/mth_options",
-      "characterization_status": "unchanged-engine exact reproduction with preserved reference findings; separate corrected engine passes core/identity validation and full native-derived difference audit",
+      "characterization_status": "Original reference findings retained; corrected source passes one uninterrupted common conversion/comparison/native-derived audit with all23 hashes matching earlier corrected output",
       "historical_cases_under_review": [
         "MTH_2026AA"
       ],
@@ -51,22 +56,24 @@
       "characterization_summary_ref": "mth-2026aa-baseline-summary.json",
       "corrected_characterization_summary_ref": "mth-2026aa-consistency-summary.json",
       "correction_audit_ref": "mth-2026aa-correction-audit-result.json",
-      "common_audit_recovery_result_ref": "common-mth-2026aa-audit-review-result.json"
+      "common_audit_recovery_result_ref": "common-mth-2026aa-audit-review-result.json",
+      "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
+      "common_integration_result_ref": "common-mth-2026aa-clean-result.json",
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
     },
     "MDR": {
       "display_name": "MDR",
       "common_adapter_implemented": true,
       "adapter_ref": "../../tools/inversion_worker.py#mdr-29-1-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/mdr_options",
-      "characterization_status": "original unchanged-engine differences retained; separate corrected source plus stable runtime passes exact complete-record correction prediction and two fresh full-run byte-identical replays under different hash seeds",
+      "characterization_status": "Original differences retained; corrected source passes two hash-seed full replays, the full common lifecycle and complete native-derived attribute/ID prediction; all five common output hashes match those corrected runs",
       "historical_cases_under_review": [
         "MDR_29_1"
       ],
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "discovery_required": [
-        "Complete and collect the common execution lifecycle for the implemented corrected historical case and typed options.",
-        "Keep source engine dd7ae66 and stable runtime bfda2ce pinned together for corrected MDR; other sources remain on their reviewed runtimes until separately tested.",
+        "Keep corrected source engine dd7ae66 and stable runtime bfda2ce pinned together; changes outside the reviewed source/runtime pair require new regression evidence.",
         "Keep metadata generation, general new-release configuration, legacy database QA, insertion and production release approval separately scoped."
       ],
       "production_versions_inspected": [
@@ -84,14 +91,16 @@
       "characterization_summary_ref": "additional-source-characterization-summary.json",
       "corrected_characterization_summary_ref": "mdr-29-1-correction-summary.json",
       "corrected_final_verification_ref": "mdr-29-1-final-verification.json",
-      "common_integration_status": "Adapter/case implementation under test; complete common run pending"
+      "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
+      "common_integration_result_ref": "common-mdr-29-1-result.json",
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
     },
     "RADLEX": {
       "display_name": "RADLEX",
       "common_adapter_implemented": true,
       "adapter_ref": "../../tools/inversion_worker.py#radlex-4-3-v1",
       "options_schema_ref": "configuration.schema.json#/$defs/radlex_options",
-      "characterization_status": "fresh unchanged-engine prepared-input conversion plus all production cleanup stages passed declared strict equivalence and independent validation; full common-adapter lifecycle remains pending",
+      "characterization_status": "Fresh full common generation plus all three cleanup stages passes strict equivalence and independent checks on both original and stable-order shared runtimes",
       "historical_cases_under_review": [
         "RADLEX_4_3"
       ],
@@ -99,8 +108,7 @@
       "release_frequency_affects_request_format": false,
       "discovery_required": [
         "Obtain production reservation-end evidence for new releases; the historical emitted-ID bound is proved but is not a production allocation. Trace the upstream CSV preparation producer if publisher-input coverage is requested.",
-        "Complete and collect the implemented common historical cases on both reviewed shared runtimes; registration alone does not establish execution coverage.",
-        "Keep upstream metadata generation, legacy database QA, insertion and production release approval separately scoped."
+        "Keep upstream metadata generation, general new-release configuration, legacy database QA, insertion and production release approval separately scoped."
       ],
       "production_versions_inspected": [
         "RADLEX_4_3"
@@ -115,7 +123,10 @@
       "reference_stage_review_ref": "additional-source-stage-review-20261106.json",
       "characterization_result_ref": "radlex-4-3-fresh-characterization-result.json",
       "characterization_summary_ref": "additional-source-characterization-summary.json",
-      "common_integration_status": "Adapter/case implementation under test; complete common run pending"
+      "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
+      "common_integration_result_ref": "common-radlex-4-3-stable-result.json",
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json",
+      "common_original_runtime_integration_result_ref": "common-radlex-4-3-baseline-result.json"
     }
   }
 }

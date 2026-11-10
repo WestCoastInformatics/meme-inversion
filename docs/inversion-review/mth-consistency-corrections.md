@@ -2,6 +2,8 @@
 
 Status, November 6, 2026: full corrected replay complete with clean independent core/identity validation. Native-derived difference audit passes with every changed record and generated ID accounted for. The first audit exposed an omitted framework type in its final guard; that attempt is retained alongside the source-backed correction and passing retry. No production deployment, insertion or reference waiver.
 
+The later [clean common integration](common-mth-2026aa-clean-result.json) also passes its mandatory audit in one uninterrupted lifecycle, with all 23 output hashes matching the earlier corrected replay. [Current five-source coverage](core-replay-coverage.md).
+
 ## Confirmed causes
 
 The unchanged production replay matched all 23 official files. Its three invalid rows have two causes; exact reproduction and valid output are separate gates.

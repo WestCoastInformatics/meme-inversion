@@ -1,0 +1,36 @@
+{
+  "run_id": "common-nci-stable-20261109",
+  "source": "NCI",
+  "status": "PASS_EQUIVALENT",
+  "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+  "lock_sha256": "9eeb7e56736c4c64ff9caaa4e523e723acaea9d1cca9e761620b05f476eeda6d",
+  "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "files": {
+    "attributes.src": {
+      "bytes": 306298097,
+      "sha256": "4de548599a0ce63d52feda7089e8cf6b39f51e1d0d5794654d04a954c68fb80c",
+      "newline_count": 1265611
+    },
+    "relationships.src": {
+      "bytes": 169343929,
+      "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+      "newline_count": 1228468
+    },
+    "mergefacts.src": {
+      "bytes": 44631179,
+      "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+      "newline_count": 595089
+    },
+    "contexts.src": {
+      "bytes": 270665435,
+      "sha256": "cf07ee100571de00a5f43a7c3d83465a24c7346beab018149dfc1bdaf33baf92",
+      "newline_count": 1185069
+    },
+    "classes_atoms.src": {
+      "bytes": 86815706,
+      "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+      "newline_count": 803253
+    }
+  },
+  "all_five_hashes_match_prior_stable_candidate": true
+}

@@ -1,14 +1,10 @@
 # Common historical replay interface
 
-Status, November 9, 2026: historical-case adapters are implemented for all five sources; full integrations are being completed. SNOMED September 2026 has a passing common run. Production is unchanged. This first interface runs the characterized historical cases with their pinned legacy settings. It does not prepare arbitrary new releases, assign production IDs, execute insertion or promote a candidate.
+Status, November 9, 2026: historical adapters and accepted full common executions exist for NCIt, SNOMEDCT_US, MTH, MDR and RADLEX. Six executions cover those five sources, including both RADLEX runtimes. Their retained artifacts and the 169 restored original runtime files pass the [final independent verification](common-matrix-final-verification-20261109.json). Production is unchanged. This interface executes reviewed historical cases; new-release configuration generation, live ID allocation, insertion and production promotion remain later work.
 
 ## One request and configuration
 
-The operator supplies the seven fields in [request.schema.json](request.schema.json). The resolver selects one exact source/version/case, resolves the engine to a full Git commit, validates the complete common configuration, and freezes the case, dependency manifests, source code, shared runtime and apparatus. Unknown fields, aliases such as `previous_version`, unsupported profiles, unreviewed revisions and unsupported cases fail before execution. Duplicate JSON keys and placeholders are rejected.
-
-The [case catalog](case-catalog/index.json) contains NCIt October 2026 with the reviewed PT/order fixes; unchanged SNOMED September 2026; unchanged and corrected MTH 2026AA; corrected MDR 29.1; and unchanged/stable-runtime RADLEX 4.3. The corrected MTH conversion completed through the common launcher; its first audit failed at startup, and a separately recorded audit-only recovery passed. The original failed job is preserved. The MDR/RADLEX common adapters reuse their verified generation and cleanup stages. Their complete common-interface runs remain pending until executed and collected.
-
-For example, save this as `request.json`:
+The operator supplies seven fields from [request.schema.json](request.schema.json):
 
 ```json
 {
@@ -22,20 +18,22 @@ For example, save this as `request.json`:
 }
 ```
 
-Run these commands from a checkout of the review branch `test/inversion-replay-toolbox` (or a later integration containing its committed apparatus). The original workspace on `main` can contain documentation mirrors without that committed apparatus.
+The resolver selects an exact reviewed source/version/case, resolves the engine to a full Git commit, validates the common configuration and freezes code, runtime, inputs, references and apparatus. The [case catalog](case-catalog/index.json) and [request examples](request-examples/) include NCIt October 2026 with PT/order fixes; unchanged SNOMED September 2026; original/corrected MTH 2026AA; corrected MDR 29.1; and original/stable-runtime RADLEX 4.3. The original MTH case retains its reference findings; the completed integrations below identify the actual cases executed.
 
-The selected engine commits must also be available in local Git. The MTH producer correction is on the separate `fix/mth-consistent-identity-state` branch at `b2611ab`; the runner branch stages its files from that commit, rather than incorporating those source edits into the runner's own source tree. Publishing the runner branch alone does not publish a separate, unreachable engine commit.
+All sources use the same names for replacement/comparison baselines, source-data stage, saved identity, publisher history, source atom bounds and reference stage. Genuine differences use typed `source_options`: the reviewed SNOMED case requires `rf2_view: Snapshot`, MDR requires `language: ENG`, and these NCI/MTH/RADLEX cases use empty options. Unknown fields, duplicate JSON keys, placeholders, unsupported profiles, unreviewed engines and unsupported cases fail before execution. Registering another source does not enable an adapter by itself.
 
-Install [the pinned resolver dependencies](../../tools/requirements-runner.txt) in a local Python 3.12 virtual environment. Remote execution uses the dev server's Python 3.9 standard library. Then:
+Use the review branch `test/inversion-replay-toolbox` or an integration containing its committed apparatus. Source engines are separate pinned revisions: production capture `3b125ed`/additional capture `36f1e10`, NCIt PT/order candidate `bfda2ce`, MTH correction `b2611ab`, and MDR correction `dd7ae66`. The required engine commits must exist in local Git. Publishing the runner branch alone does not publish an otherwise unreachable source-engine commit. Earlier prototype automations do not define these contracts.
+
+Install [the pinned resolver dependencies](../../tools/requirements-runner.txt) in an isolated Python 3.12 environment; remote workers use dev Python 3.9 and its standard library. From the review checkout:
 
 ```sh
 python3 -B tools/inversion_request.py resolve request.json --run-id sct-replay-001 --output case.lock.json
 python3 -B tools/inversion_request.py show case.lock.json
 ```
 
-The resolver requires committed apparatus, schemas and case files; uncommitted worktree bytes cannot be labeled as code from HEAD. A lock file is created once, owner-readable and non-writable. Its content digest detects subsequent changes. This is integrity/provenance evidence within the trusted repository/account workflow, not a cryptographic signature or an authorization boundary against someone who controls that account.
+The resolver requires committed apparatus, schemas and case files; uncommitted bytes cannot be labeled as HEAD. Locks are created once, owner-readable and non-writable, with a content digest and frozen provenance. These provide integrity evidence within the trusted repository/account workflow, not a cryptographic signature against an account owner.
 
-## Data flow
+## Data and code roles
 
 ```mermaid
 flowchart LR
@@ -45,19 +43,23 @@ flowchart LR
     Resolver --> Lock[Immutable run lock]
     Lock --> Worker[Dev worker]
     Inputs[Declared native or prepared inputs] --> Worker
-    Prior[Prior-release data and identity state] --> Worker
+    Prior[Prior data and identity state] --> Worker
     Worker --> Adapter[Source adapter and captured engine]
     Adapter --> Fresh[Fresh src outputs]
-    Fresh --> Checks[Independent validation and comparison]
-    Official[Frozen official output references] --> Checks
+    Fresh --> Checks[Independent checks and comparison]
+    Official[Frozen official references] --> Checks
     Checks --> Report[Report and retained evidence]
 ```
 
-Executable code comes from Git. A prior release contributes only its declared data or identity dependencies. An official current-version output contributes comparison evidence. An existing dev run of that same version is preserved separately before replacement.
+Git supplies executable code. Prior releases contribute only declared data or identity dependencies. Official current-version outputs supply comparison evidence. The existing dev tree of that same version is a separate predecessor to preserve. It is not the replacement baseline or the comparison oracle. NCIt's reviewed October case explicitly replaces August; no calendar-month inference is used. MTH requires its saved 2025AB CUI map and preserved prepared subset. MDR uses its saved publisher history inventory rather than an inferred prior folder dependency.
+
+References are selected per output. NCIt uses October `src`; SNOMED, MDR and RADLEX use pre-insertion `src/attributes.orig`, retaining their original semantic type. MTH compares 23 characterized core/state/helper outputs. The `insert` folder is not the oracle. Completed official outputs are not seeded into fresh candidates. A preserved, hash-verified input bundle is sufficient; recreating its historical database or input-generation runtime is optional additional coverage.
+
+RADLEX's `source_atom_ids.bound_kind` is `historical-emitted-range`. The known emitted IDs do not establish a production reservation end, and the worker rejects that relabeling. No case makes a new production allocation.
 
 ## Dev lifecycle
 
-Use an existing authenticated SSH control socket; no password is placed in a command or configuration. `--socket` below means that socket's actual local path.
+Use an authenticated SSH control socket. No password belongs in a request or command.
 
 ```sh
 python3 -B tools/inversion_remote.py --socket /path/to/dev.sock inspect-current case.lock.json --output previous-source.json
@@ -67,77 +69,42 @@ python3 -B tools/inversion_remote.py --socket /path/to/dev.sock status --source 
 python3 -B tools/inversion_remote.py --socket /path/to/dev.sock collect --source SNOMEDCT_US --run-id sct-replay-001 --output result-001.json
 ```
 
-`inspect-current` is needed only when the canonical release folder already exists. Its previous-source receipt concerns the existing dev run of this same version; it is separate from `replacement_baseline`, `comparison_baseline` and prior-release identity inputs. It pins that predecessor's files, links and access modes; an unfinished run or changed predecessor is rejected. `submit` preserves the verified tree at `<version>.before-<run-id>` and stages a fresh candidate using Git code and declared input artifacts. Successful preservation masks write access while retaining existing read/execute restrictions. A preparation failure restores the old canonical tree if no new candidate was published; partial published candidates and their logs remain available for investigation. Run IDs, preserved folders, local evidence files and control records are never reused or overwritten.
+When the canonical release folder exists, `inspect-current` pins its complete file/link/mode manifest. `submit` preserves the verified tree at `<version>.before-<run-id>`, masks write access while retaining existing access restrictions, and stages fresh Git code plus declared inputs. Preservation/preparation occurs once. An unfinished or changed predecessor is rejected. If preparation fails before publishing a candidate, the previous canonical tree can be restored; published partial candidates and logs remain evidence. Run IDs, preservation destinations, local evidence files and control records cannot be reused or overwritten.
 
-Runtime activation is a separate explicit operation under the same global dev lock. It supports only the characterized original/stable-order `Hierarchy.pm` pair, verifies all 169 runtime files and preserves the previous bytes/receipt. Other runtime differences require review. An active inversion blocks activation and submission. No production path or host is accepted.
+The worker holds one global runtime lock from preparation through conversion, comparison and any mandatory audit. Runtime activation uses the same lock and supports only the reviewed original/stable-order `Hierarchy.pm` pair. It verifies all 169 runtime files and preserves previous bytes and receipts. Other changes require review. Active inversions block activation/submission; the host/account guards reject production execution.
 
-The worker holds the same runtime lock from preparation through comparison, including the handoff from launcher to worker and calls into the source adapters. Conversion processes have network disabled, bounded memory/time, disk/memory reserves and retained stdout/stderr. Archived input acquisition is the separate network-enabled step, using the existing download-only S3 helper and `meme` profile. Cached files are verified by their frozen hashes; a changed archive or prepared bundle cannot silently replace the selected input. A missing archive with a retained reference receipt remains subject to the existing acquisition tool's conservative restore guard and requires reconciliation rather than implicit re-freezing.
+Native stages run offline with bounded time/address space, retained stdout/stderr and a 12 GiB disk/2 GiB memory reserve. Reviewed free-space floors are NCI 18 GiB, MTH 45 GiB, MDR 20 GiB and RADLEX 18 GiB; unreviewed profiles retain the 50 GiB default. Initial memory remains 24 GiB. These source/version-specific budgets preserve older trees and do not change stage reserves. [MTH measurements](common-integration-capacity-20261109.json), [additional-source measurements](additional-common-capacity-20261109.json).
 
-All data, code and output paths retain `/local/content/MEME/MEME5/...` and the canonical source/version layout. One explicit addition is `/local/content/MEME/MEME5/inv/qa/replay-requests/<run-id>` for persistent request/control evidence. Those records must survive replacement of a release directory. The inner legacy run records remain at their original source-specific QA paths. This addition does not relocate source data or inversion outputs.
+Archive acquisition is a separate network-enabled step using the existing download-only S3 helper and `meme` profile. Cached archives and prepared bundles must match frozen hashes. A missing archive with an existing reference receipt requires reconciliation through the acquisition tool's conservative guard; it is not silently re-frozen.
 
-## Retry only a failed MTH correction audit
+Data/code paths remain `/local/content/MEME/MEME5/...` with canonical release folders. Persistent common controls live at the explicit additional path `/local/content/MEME/MEME5/inv/qa/replay-requests/<run-id>`, outside a replaceable release tree. Inner source-specific QA paths remain intact. `collect` retrieves JSON reports, raw correction evidence and execution receipts; generated `.src` files remain in the standard dev `sources/<version>/src` folder.
 
-The common interface can review an already completed corrected MTH conversion in a separately named audit-only run:
+## Comparison and correction acceptance
+
+`exact` cannot inherit a more permissive adapter verdict. NCIt's `semantic-strict` profile requires exact atoms/relationships/merges, complete context records, proved generated CONTEXT-ID correspondence, duplicate counts, equal allocation spans and independent validation. RADLEX also requires exact atoms/relationships/merges and complete context/attribute equivalence under its reviewed ID mapping. Mandatory fields cannot be ignored merely to obtain a pass.
+
+Corrected MTH/MDR use `reviewed-corrections`. The worker first preserves the complete raw `DIFFERENCES_REQUIRE_REVIEW` result as read-only `raw-result.json`. It runs the pinned native-input-derived audit offline under the same runtime lock, retaining the current `tomcata` account in the network namespace. The report must bind this run, engine, runtime where applicable, apparatus, audit code and original raw verdict. Inputs and output hashes are verified again after the audit. Missing/changed reports, unpredicted records or IDs, bad validation, changed raw evidence and changed outputs cannot produce acceptance.
+
+MTH requires all 23 characterized outputs and clean core/retained-identity checks. MDR requires all five outputs, positive unique attribute IDs and prediction of the entire attribute file, including every generated ID. Their [MTH correction contract](mth-correction-audit.md) and [MDR correction contract](mdr-consistency-corrections.md) preserve original baseline differences and failed attempts. A historical reference match alone does not certify correctness or insertion eligibility.
+
+## Reconnect and audit-only recovery
+
+A client VPN/SSH interruption does not itself make a detached server job fail. Reauthenticate a control socket, then call `status`/`collect` for the original source/run ID and reconcile its lock identity. Do not resubmit it to obtain a new job. NCIt actually completed during a connection interruption; reconnection collected the original passing job and resumed the remaining queue without regeneration. [Observed recovery](common-client-reconnection-20261109.json).
+
+A failed MTH audit has a separate, narrowly scoped recovery command:
 
 ```sh
 python3 -B tools/inversion_remote.py --socket /path/to/dev.sock retry-mth-audit --parent-run-id common-mth-corrections-20261106 --review-id common-mth-audit-review-20261109 --output audit-review-launch.json
-python3 -B tools/inversion_remote.py --socket /path/to/dev.sock status --source MTH --run-id common-mth-audit-review-20261109 --output audit-review-status.json
-python3 -B tools/inversion_remote.py --socket /path/to/dev.sock collect --source MTH --run-id common-mth-audit-review-20261109 --output audit-review-result.json
 ```
 
-This operation requires the reviewed correction case, a failed audit status, all 23 completed outputs and clean core/identity validation. It freezes a new audit apparatus, pins the parent lock/raw-result/failed-status hashes and rechecks the source, inputs, runtime and outputs before auditing. The detached retry inherits the same global runtime lock. It preserves the parent raw result byte-for-byte and never regenerates or replaces source data. The result records conversion and audit apparatus identities separately, retains `original_common_run_status: failed`, and cannot approve insertion or production promotion. Existing review identities cannot be reused. Seventeen recovery checks pass locally/on dev, with 57 local request checks and real namespace tests. [Recovery evidence](audit-review-fixtures-20261109.json).
+This requires the reviewed correction case, a failed audit status, all 23 completed outputs and clean core/identity validation. It freezes a new audit apparatus and parent evidence, rechecks all frozen inputs/runtime/outputs, preserves the parent raw comparison and failed status, and performs no native conversion. Existing review IDs cannot be reused. [Recovery result](common-mth-2026aa-audit-review-result.json), [fixtures](audit-review-fixtures-20261109.json). The later `common-mth-clean-20261109` passed one uninterrupted full lifecycle and did not need this recovery.
 
-## Comparison and coverage
+## Verified coverage
 
-The reference is selected per output, not by assuming the archive is one workflow stage. NCIt uses October `src`; SNOMED uses `src/attributes.orig` before insertion enrichment; MTH uses its frozen six core outputs plus identity/history/helper outputs. The reference archive is never restored wholesale as the candidate. MTH prepared subset inputs and prior MTH_2025AB identity state are explicit dependencies; regeneration of those preserved inputs is not required.
+The [coverage table](core-replay-coverage.md) links six accepted common executions. SNOMED passes byte-exact comparison. NCIt passes official strict equivalence, with all five hashes equal to the earlier stable candidate. Corrected MTH/MDR pass independent complete correction audits and repeat their previously verified output hashes. Both RADLEX runtime cases pass strict equivalence and all original cleanup stages. The final scan rehashes 48 compared files across the six retained trees, frozen inputs/archives/code/modules, unchanged raw correction evidence and all 169 restored original runtime files. The runtime metadata has a new restoration receipt; its old JSON byte identity is not claimed.
 
-`exact` cannot inherit a more permissive adapter verdict. NCIt's `semantic-strict` case retains its reviewed detailed rules for context ordering and generated CONTEXT attribute IDs; atom/relationship/merge content, duplicate counts, ID allocation checks and independent validation remain mandatory. MTH's original validation findings remain visible even when all official files match exactly. The corrected MTH case uses the separate `reviewed-corrections` profile. It cannot acquire a passing verdict just by matching its own first run.
+The [shared-runtime matrix](shared-runtime-regression-matrix-20261109.json) records actual changed-library runs for NCIt, MDR and RADLEX. Its [reproducible code-impact check](shared-runtime-code-impact-20261109.json), run with `python3 -B tools/check_shared_runtime_impact.py`, proves that the sole byte difference in the 169-file pair sorts nodes inside `Hierarchy::dumpCxtsAttrs`. The selected SNOMED writer has its own context output, with the old shared call commented out. MTH's selected pipeline has no dependency on that method. Those two rows retain original-runtime common integration plus inspected code-path evidence; no alternate-runtime full execution is claimed. The executions retain their actual, differing apparatus revisions.
 
-For `reviewed-corrections`, the common worker preserves the complete original `DIFFERENCES_REQUIRE_REVIEW` result as read-only `raw-result.json`, then runs the pinned [native-derived MTH audit](mth-correction-audit.md) offline under the same runtime lock, with bounded memory/time and retained logs. All 23 characterized outputs, clean core/identity validation and the exact reviewed source/runtime revisions are mandatory. After the audit, input and output hashes are verified again. A successful report must identify this run, engine, apparatus and audit code before the common result can report `PASS_REVIEWED_CORRECTIONS`. The raw comparison remains unchanged. `collect` retrieves the raw result, correction audit and execution evidence alongside the final report. Audit failure leaves a failed common run with retained raw evidence; it cannot fall back to exact or semantic acceptance.
+The [dev fixture evidence](common-five-source-fixtures-20261109.json) covers all 19 packaged modules and four added frozen requests: 14 additional-source orchestration/acceptance checks, 55 MTH acceptance checks, 27 common-worker checks, six capacity checks, 13 comparison checks, 15 preparation checks and five independent MDR-audit checks. The real MDR offline CLI probe predicted the complete preserved corrected attribute file. Four later [actual namespace checks](common-idle-namespace-verification-20261109.json) verified isolated networking, mapped-root rejection and current-account acceptance. Stub-native fixtures are distinguished from full executions.
 
-The first adapters stage already characterized legacy settings. General new-release configuration generation, policy extraction, metadata acquisition, legacy database QA and production release management are subsequent work. The original four request locks were resolved and verified from committed apparatus `181ac6e`; see [resolution evidence](common-interface-resolution-20261106.json) and [executable request examples](request-examples/). The [MTH capsule-equivalence check](common-mth-capsule-equivalence.json) confirms that its common adapter resolves the same 57 code/link entries, 169 runtime hashes, frozen inputs and stage options as the executed correction capsule. This establishes translation coverage without relabeling the earlier execution. Earlier characterization runs retain their original apparatus identities and are not relabeled as common-run executions. NCIt still requires a complete common-launcher integration run. MTH has completed conversion and separate audit recovery; a single uninterrupted common run through its audit remains unproved.
-
-## First completed common-interface run
-
-`common-snomedct-us-1-20261106` completed on the separate dev server at 22:08 UTC on November 6. The request selected unchanged production engine `3b125ed`; the executed apparatus was `181ac6e`. The complete lifecycle took approximately 39 minutes, including preparation, fresh conversion, cleanup, comparison and final verification.
-
-All five outputs match the frozen official references byte for byte: classes/atoms (1,048,850 rows), attributes (9,324,589), relationships (742,425), merge facts (1,048,849), and contexts (20,403,095). Attributes use the pre-insertion `src/attributes.orig` reference. Independent structure checks pass, with no ignored columns or reindexed identifiers. Inputs, source code, all 169 shared runtime files and outputs were verified again afterward. The result is `PASS_EXACT` for this bounded core case, with `production_eligible: false` and no insertion. [Full result](common-snomed-2026-09-01-result.json).
-
-The previous canonical dev tree was verified and preserved at `SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106`. The candidate started from Git code and 18 declared input files; generated outputs were not restored as candidate inputs. The selected archive was already cached and its frozen hash was verified. A subsequent actual `collect` command retrieved the completed JSON reports and matched the controller's result, preparation and acquisition receipts. [Lifecycle and collection evidence](common-snomed-2026-09-01-lifecycle.json). Collection retrieves reports; the generated `.src` files remain at the standard dev release path.
-
-
-The live integration run exposed a status-reader gap: the outer lifecycle state covered execution/comparison, but the adapter's progress was hidden. The reader now includes the actual inner adapter progress and active phase, while keeping the persistent common control record authoritative. It reports comparison and final artifact verification explicitly. Twenty worker/status fixtures pass locally and on dev, and a live read confirms the comparison phase. This observer change does not alter a running capsule. [Status evidence](common-interface-status-fixtures-20261106.json).
-
-A later readiness review found that the initial capsule omitted NCIt's `run_nci_core_replay.py` helper and the fixture dependency imported by the captured legacy advancement module. Both are now explicitly packaged. The resolver rejects missing repository Python imports before remote preparation. All 16 frozen modules import in isolation locally and on dev; a synthetic execution of the actual NCIt adapter entry records all five output hashes and calls its characterized acceptance rules. This is packaging/adapter coverage; the complete NCIt common-launcher run remains pending. The in-flight MTH capsule retains its original committed apparatus identity. [Dependency and adapter evidence](common-module-dependency-fixtures-20261106.json).
-
-Common final verification now explicitly rehashes every compared output after comparison, alongside the declared input, engine, runtime and range checks. There are 53 local request checks and 27 worker checks locally/on dev, including rejection of output, metadata, engine or reference changes. The 55 MTH acceptance and 20 native-audit checks also pass, and actual live MTH status retrieval reports its running adapter stage. [Final verification evidence](common-final-verification-fixtures-20261106.json). These later apparatus changes do not replace the code frozen into a running or completed capsule.
-
-## Corrected MTH conversion and audit recovery, November 9
-
-The common conversion `common-mth-corrections-20261106` completed on November 7 UTC. Its 23 output hashes match the earlier corrected characterization, with clean independent core and identity checks. The audit then failed before inspecting data because its network-isolated process mapped the account to root, conflicting with the dev/tomcata guard. The guard remains enforced; the audit now preserves the current account inside its isolated network namespace. The [original failure](common-mth-2026aa-audit-startup-failure.json) is retained.
-
-The separately named `common-mth-audit-review-20261109` completed at 17:56:46 UTC with `PASS_REVIEWED_CORRECTIONS`. It reused the completed conversion without rerunning or replacing source data, verified every frozen output, and preserved the parent raw comparison and failed status. The report distinguishes conversion apparatus `e3b24ec` from recovery apparatus `dd97ddc`. [Recovered audit result](common-mth-2026aa-audit-review-result.json), [lifecycle](common-mth-2026aa-audit-review-lifecycle.json). This establishes acceptance of this conversion plus recorded recovery; it does not relabel the original common job as successful or claim a single uninterrupted lifecycle.
-
-## Reviewed capacity for the MTH integration replay
-
-The retained MTH tree measures 10,536,967,996 bytes and the 23 compared outputs total 5,788,343,974 bytes. The reviewed MTH case now aligns the outer preflight with its existing adapter guard at 45 GiB free, using a 16 GiB native-tree allowance, 12 GiB comparison-or-audit scratch allowance and the unchanged 12 GiB per-stage reserve. Available dev space was 47.722 GiB; older trees are retained. Other cases keep the default 50 GiB guard unless their own source/version profile is explicitly reviewed. Six local/dev capacity fixtures reject unknown, lowered and cross-source profiles. [Measured footprint](common-integration-capacity-20261109.json), [capacity fixtures](common-capacity-fixtures-20261109.json).
-
-## MDR and RADLEX common cases
-
-The operator still supplies the same seven request fields. [MDR corrected example](request-examples/mdr-consistent-history-context.json), [RADLEX production-runtime example](request-examples/radlex-as-produced.json), [RADLEX stable-runtime example](request-examples/radlex-stable-context-order.json). Each resolves the same configuration names for replacement/comparison baselines, source-data stage, saved identity, publisher history, source atom bounds and reference stage. MDR's only typed source option is the reviewed English `language: ENG`; RADLEX accepts an empty options object. Unknown options and wrong source/version/case combinations fail before preparation.
-
-MDR's publisher ASCII data, saved history inventory, abbreviation policy, saved metadata and external root identity are separately referenced artifacts. RADLEX starts at its preserved prepared pipe-delimited input. Its `source_atom_ids.bound_kind` is `historical-emitted-range`: the known historical IDs do not establish a production reservation end. The common worker rejects relabeling them as reserved bounds. Both use the verified pre-insertion `attributes.orig` reference, preserving the original semantic type.
-
-Preparation and predecessor preservation occur once in the common lifecycle. The native adapters then execute generation, MDR history append or RADLEX's three original cleanups under the same inherited runtime lock. MDR leaves its raw comparison unchanged for a mandatory outer correction audit, run offline in a current-user namespace using the same protected evidence/report binding as MTH. Unverified corrections, wrong runtime or complete-file predictions, changed raw evidence, and changed outputs cannot produce acceptance. Its final report must predict the entire attribute file including generated IDs. Cases remain dev-only and production-ineligible.
-
-The reviewed NCI/MDR/RADLEX floors are 18/20/18 GiB free, retaining the existing 12 GiB stage reserve. Measured current trees are approximately 3.36/0.75/0.18 GB respectively, with NCI's figure including earlier QA output copies. Native/scratch allowances are 6/8/6 GiB. [Measured source footprints](additional-common-capacity-20261109.json). This does not delete old folders or infer data dependencies from their presence.
-
-Local verification currently passes 71 common request/contract checks, 14 additional-source orchestration/acceptance checks, 55 MTH acceptance checks, and the existing independent comparison/preparation/audit checks. The additional-source orchestration tests use stub native stages with real snapshots, copies, hashes and control IO; actual common inversions remain a separate integration gate. The in-flight clean MTH run retains its previously frozen apparatus `71be359`; these later adapter changes do not alter that run.
-
-The [dev fixture run](common-five-source-fixtures-20261109.json) verifies all 19 packaged modules and four additional frozen requests from apparatus `7de0761`. It passes 14 additional-source, 55 MTH acceptance, 27 common-worker, six capacity, 13 comparison, 15 preparation and five independent MDR-audit checks. A real offline invocation of the new MDR audit CLI against the preserved corrected output predicts the complete attributes file, including its generated IDs. That read-only probe does not constitute a fresh conversion. The runtime-locking namespace fixtures and four native common runs are queued behind the active clean MTH integration.
-
-## Scope of the shared runtime change
-
-The [versioned code-impact check](shared-runtime-code-impact-20261109.json), reproducible with `python3 -B tools/check_shared_runtime_impact.py`, verifies both complete 169-file runtime manifests. Their sole byte difference sorts node iteration in `Hierarchy::dumpCxtsAttrs`. NCIt, MDR and RADLEX call that method in their selected core writers and require actual full native regression runs on the stable runtime. The selected SNOMED writer implements its own sorted context output; its old call to the changed shared method is commented out. The MTH specification/autoinv/raw-context pipeline has no dependency on that method in the captured execution path.
-
-This is bounded evidence for the exact reviewed cases and runtime pair. It does not claim alternate-runtime full executions of SNOMED or MTH, or coverage of other releases, metadata QA or insertion. The regression matrix must distinguish executed affected cases from inspected unaffected paths, and retain the original production runtime until each source has its declared evidence.
+General new-release configuration generation, upstream metadata/ICD/CSV/subset preparation, live production reservations, legacy database QA/MRDOC, insertion and production release management remain later gates. The next migration step removes operational executable copy-forward by selecting pinned Git code and generating legacy settings from the common configuration. See the [assessment](assessment.md) and [current coverage](core-replay-coverage.md).

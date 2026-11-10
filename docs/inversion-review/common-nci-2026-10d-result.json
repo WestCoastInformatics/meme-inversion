@@ -1,0 +1,599 @@
+{
+  "core": {
+    "source": "NCI",
+    "version": "NCI_2026_10D",
+    "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "run_id": "common-nci-stable-20261109",
+    "exit_status": 0,
+    "conversion": {
+      "exit_status": 0,
+      "seconds": 2211.33,
+      "sampled_peak_process_group_resident_bytes": 826810368,
+      "minimum_available_memory_bytes": 27868999680,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "metadata_unchanged": true,
+    "comparison": [
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/classes_atoms.src",
+        "bytes": 86815706,
+        "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+        "newline_count": 803253
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/attributes.src",
+        "bytes": 306298097,
+        "sha256": "4de548599a0ce63d52feda7089e8cf6b39f51e1d0d5794654d04a954c68fb80c",
+        "newline_count": 1265611
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/relationships.src",
+        "bytes": 169343929,
+        "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+        "newline_count": 1228468
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/mergefacts.src",
+        "bytes": 44631179,
+        "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+        "newline_count": 595089
+      },
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_10D/src/contexts.src",
+        "bytes": 270665435,
+        "sha256": "cf07ee100571de00a5f43a7c3d83465a24c7346beab018149dfc1bdaf33baf92",
+        "newline_count": 1185069
+      }
+    ]
+  },
+  "comparison": {
+    "source": "NCI",
+    "version": "NCI_2026_10D",
+    "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "run_id": "common-nci-stable-20261109",
+    "reference_stage": "inversion-src",
+    "archive_sha256": "c2332760cc014ddf462b5824b2b1ad720ca844871046753ed14d58fef5526bee",
+    "started_at": "2026-11-10T01:28:43.790749+00:00",
+    "core_exit_status": 0,
+    "files": {
+      "attributes.src": {
+        "reference": {
+          "bytes": 306298097,
+          "sha256": "1fe0990bd7ce36529e8e16a2ade0353a3ac5aac4df95a0c078fdb83e32fc7920",
+          "newline_count": 1265611
+        },
+        "candidate": {
+          "bytes": 306298097,
+          "sha256": "4de548599a0ce63d52feda7089e8cf6b39f51e1d0d5794654d04a954c68fb80c",
+          "newline_count": 1265611
+        },
+        "exact_match": false,
+        "row_multiset": {
+          "equal_rows": 796204,
+          "reference_only_rows": 469407,
+          "candidate_only_rows": 469407,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "1000000|781658008|S|CONTEXT|4\t::~~~~~~\tNational Cancer Institute Thesaurus~Disease, Disorder or Finding~Disease or Disorder~Disorder by Site~Hematopoietic and Lymphatic System Disorder~Hematopoietic and Lymphoid Cell Disorder~Non-Neoplastic Hematopoietic and Lymphoid Cell Disorder~Non-Neoplastic Lymphoproliferative Disorder\tCutaneous Reactive T-Cell Rich Lymphoid Proliferation\t\t|NCI_2026_10D|R|n|N|N|SRC_ATOM_ID|||712688a4e7fc77f2e1bb5ba973e83a93|",
+              "1000001|781658008|S|CONTEXT|5\t::~~~~~~\tNational Cancer Institute Thesaurus~Disease, Disorder or Finding~Disease or Disorder~Non-Neoplastic Disorder~Non-Neoplastic Disorder by Site~Non-Neoplastic Hematopoietic and Lymphoid Cell Disorder~Non-Neoplastic Lymphoproliferative Disorder\tCutaneous Reactive T-Cell Rich Lymphoid Proliferation\t\t|NCI_2026_10D|R|n|N|N|SRC_ATOM_ID|||4fa020a061083424f7acf637dfcd545a|",
+              "1000002|781658008|S|CONTEXT|6\t::~~~~~~\tNational Cancer Institute Thesaurus~Disease, Disorder or Finding~Disease or Disorder~Disorder by Site~Hematopoietic and Lymphatic System Disorder~Hematopoietic and Lymphoid Cell Disorder~Lymphoproliferative Disorder~Non-Neoplastic Lymphoproliferative Disorder\tCutaneous Reactive T-Cell Rich Lymphoid Proliferation\t\t|NCI_2026_10D|R|n|N|N|SRC_ATOM_ID|||758722228957c61b65da244242f16ea7|"
+            ],
+            "candidate_only": [
+              "1000000|781642316|S|CONTEXT|1\t::~~~~~~\tNational Cancer Institute Thesaurus~Chemotherapy Regimen or Agent Combination~Chemo/immuno/hormone Therapy Regimen~Regimen Used to Treat Pre-malignant Disorder~Regimen Used to Treat Castleman disease\tAnakinra Regimen\t\t|NCI_2026_10D|R|n|N|N|SRC_ATOM_ID|||8852b78e1e40d50ea469330fbb0b6f9d|",
+              "1000001|781642316|S|CONTEXT|2\t::~~~~~~\tNational Cancer Institute Thesaurus~Chemotherapy Regimen or Agent Combination~Chemo/immuno/hormone Therapy Regimen~Regimen Used to Treat Hematopoietic and Lymphoid Cell Neoplasm~Regimen Used to Treat Histiocytic and Dendritic Cell Neoplasm\tAnakinra Regimen\t\t|NCI_2026_10D|R|n|N|N|SRC_ATOM_ID|||a505b5fe57f440232f90f4fe7ec6c930|",
+              "1000002|781642317|S|CONTEXT|1\t::~~~~~~\tNational Cancer Institute Thesaurus~Property or Attribute~Qualifier~General Qualifier\tDetected Finding\t\t|NCI_2026_10D|R|n|N|N|SRC_ATOM_ID|||6c23557028aef88696b185a06411cb3c|"
+            ]
+          },
+          "reference_sorted_sha256": "bc9c172fe75d2e95a294b1b1976dc0cadb5783b613d9c11e3745622b864d9fa9",
+          "candidate_sorted_sha256": "7d19af9cc3586c426321c09ac04643914e0aece37c48cad5b211ec3e621a7d37"
+        },
+        "reference_id_view": {
+          "rows": 1265611,
+          "unique_ids": 1265611,
+          "duplicate_ids": 0,
+          "invalid_ids": 0,
+          "minimum_id": 1,
+          "maximum_id": 1265611,
+          "attribute_names": {
+            "SEMANTIC_TYPE": 225246,
+            "CAS_Registry": 22396,
+            "FDA_UNII_Code": 24282,
+            "Contributing_Source": 157257,
+            "DEFINITION": 235753,
+            "PDQ_Open_Trial_Search_ID": 6963,
+            "PDQ_Closed_Trial_Search_ID": 6961,
+            "NCI_Drug_Dictionary_ID": 9318,
+            "Neoplastic_Status": 15867,
+            "PubMedID_Primary_Reference": 1130,
+            "OMIM_Number": 19498,
+            "Swiss_Prot": 6490,
+            "FDA_Table": 1692,
+            "Chemical_Formula": 10816,
+            "NSC_Number": 2273,
+            "Publish_Value_Set": 2522,
+            "Term_Browser_Value_Set_Description": 1648,
+            "Value_Set_Pair": 1609,
+            "Extensible_List": 1581,
+            "CHEBI_ID": 3640,
+            "Accepted_Therapeutic_Use_For": 830,
+            "Design_Note": 9666,
+            "GenBank_Accession_Number": 6758,
+            "HGNC_ID": 6541,
+            "EntrezGene_ID": 6562,
+            "INFOODS": 198,
+            "USDA_ID": 129,
+            "Unit": 317,
+            "miRBase_ID": 234,
+            "NCBI_Taxon_ID": 2226,
+            "SNP_ID": 519,
+            "ClinVar_Variation_ID": 496,
+            "Gene_Encodes_Product": 1938,
+            "ICD-O-3_Code": 1215,
+            "US_Recommended_Intake": 42,
+            "Tolerable_Level": 27,
+            "Nutrient": 53,
+            "Micronutrient": 30,
+            "MGI_Accession_ID": 154,
+            "Use_For": 340,
+            "Homologous_Gene": 202,
+            "PID_ID": 181,
+            "Essential_Amino_Acid": 11,
+            "KEGG_ID": 228,
+            "Macronutrient": 23,
+            "Essential_Fatty_Acid": 6,
+            "BioCarta_ID": 334,
+            "Relative_Enzyme_Activity": 1,
+            "CONTEXT": 469408
+          },
+          "non_context_rows": 796203,
+          "non_context_full_record_sha256": "3863073075e43f59313494a3116ddd849c965da08c4a36cd12f874a125b7f607"
+        },
+        "candidate_id_view": {
+          "rows": 1265611,
+          "unique_ids": 1265611,
+          "duplicate_ids": 0,
+          "invalid_ids": 0,
+          "minimum_id": 1,
+          "maximum_id": 1265611,
+          "attribute_names": {
+            "SEMANTIC_TYPE": 225246,
+            "CAS_Registry": 22396,
+            "FDA_UNII_Code": 24282,
+            "Contributing_Source": 157257,
+            "DEFINITION": 235753,
+            "PDQ_Open_Trial_Search_ID": 6963,
+            "PDQ_Closed_Trial_Search_ID": 6961,
+            "NCI_Drug_Dictionary_ID": 9318,
+            "Neoplastic_Status": 15867,
+            "PubMedID_Primary_Reference": 1130,
+            "OMIM_Number": 19498,
+            "Swiss_Prot": 6490,
+            "FDA_Table": 1692,
+            "Chemical_Formula": 10816,
+            "NSC_Number": 2273,
+            "Publish_Value_Set": 2522,
+            "Term_Browser_Value_Set_Description": 1648,
+            "Value_Set_Pair": 1609,
+            "Extensible_List": 1581,
+            "CHEBI_ID": 3640,
+            "Accepted_Therapeutic_Use_For": 830,
+            "Design_Note": 9666,
+            "GenBank_Accession_Number": 6758,
+            "HGNC_ID": 6541,
+            "EntrezGene_ID": 6562,
+            "INFOODS": 198,
+            "USDA_ID": 129,
+            "Unit": 317,
+            "miRBase_ID": 234,
+            "NCBI_Taxon_ID": 2226,
+            "SNP_ID": 519,
+            "ClinVar_Variation_ID": 496,
+            "Gene_Encodes_Product": 1938,
+            "ICD-O-3_Code": 1215,
+            "US_Recommended_Intake": 42,
+            "Tolerable_Level": 27,
+            "Nutrient": 53,
+            "Micronutrient": 30,
+            "MGI_Accession_ID": 154,
+            "Use_For": 340,
+            "Homologous_Gene": 202,
+            "PID_ID": 181,
+            "Essential_Amino_Acid": 11,
+            "KEGG_ID": 228,
+            "Macronutrient": 23,
+            "Essential_Fatty_Acid": 6,
+            "BioCarta_ID": 334,
+            "Relative_Enzyme_Activity": 1,
+            "CONTEXT": 469408
+          },
+          "non_context_rows": 796203,
+          "non_context_full_record_sha256": "3863073075e43f59313494a3116ddd849c965da08c4a36cd12f874a125b7f607"
+        },
+        "content_multiset_excluding_generated_attribute_id": {
+          "equal_rows": 1265611,
+          "reference_only_rows": 0,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": true,
+          "samples": {
+            "reference_only": [],
+            "candidate_only": []
+          },
+          "reference_sorted_sha256": "18bf6f3c92fb05d584e09653ebb5c2c079ea83e081b4b83dada0ef09799b6fee",
+          "candidate_sorted_sha256": "18bf6f3c92fb05d584e09653ebb5c2c079ea83e081b4b83dada0ef09799b6fee"
+        },
+        "excluded_field": "source_attribute_id (column 1) only; raw mismatch retained"
+      },
+      "relationships.src": {
+        "reference": {
+          "bytes": 169343929,
+          "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+          "newline_count": 1228468
+        },
+        "candidate": {
+          "bytes": 169343929,
+          "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+          "newline_count": 1228468
+        },
+        "exact_match": true
+      },
+      "mergefacts.src": {
+        "reference": {
+          "bytes": 44631179,
+          "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+          "newline_count": 595089
+        },
+        "candidate": {
+          "bytes": 44631179,
+          "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+          "newline_count": 595089
+        },
+        "exact_match": true
+      },
+      "contexts.src": {
+        "reference": {
+          "bytes": 270665435,
+          "sha256": "2a2778c7a375d69058cd2891d570dc44845028491f82c9f0a401c0a18676667e",
+          "newline_count": 1185069
+        },
+        "candidate": {
+          "bytes": 270665435,
+          "sha256": "cf07ee100571de00a5f43a7c3d83465a24c7346beab018149dfc1bdaf33baf92",
+          "newline_count": 1185069
+        },
+        "exact_match": false,
+        "row_multiset": {
+          "equal_rows": 1185069,
+          "reference_only_rows": 0,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": true,
+          "samples": {
+            "reference_only": [],
+            "candidate_only": []
+          },
+          "reference_sorted_sha256": "04ea30f103706c0fbe64cd13e8c18f22e6a66f526eeae5dd99f204765e07e341",
+          "candidate_sorted_sha256": "04ea30f103706c0fbe64cd13e8c18f22e6a66f526eeae5dd99f204765e07e341"
+        }
+      },
+      "classes_atoms.src": {
+        "reference": {
+          "bytes": 86815706,
+          "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+          "newline_count": 803253
+        },
+        "candidate": {
+          "bytes": 86815706,
+          "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+          "newline_count": 803253
+        },
+        "exact_match": true,
+        "aligned_differences": {
+          "changed_positions": 0,
+          "changed_fields": {},
+          "samples": []
+        }
+      }
+    },
+    "other_reference_src": [
+      {
+        "file": "qaStats.src",
+        "reference_bytes": 70162,
+        "reference_sha256": "38ac4a86a51cd25ccb9fdeea9464a93749d297527e0939c3661a397f59290582",
+        "reference_rows": 868,
+        "candidate_present": false,
+        "role": "excluded-stage-artifact"
+      },
+      {
+        "file": "sources.src",
+        "reference_bytes": 44614,
+        "reference_sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+        "reference_rows": 60,
+        "candidate_present": true,
+        "role": "declared-metadata-input",
+        "candidate": {
+          "bytes": 44614,
+          "sha256": "03fb45e1b3d12bbf67dc8ff6fca0934a361ac82d4eb8ba966422b5de76bef2a6",
+          "newline_count": 60
+        },
+        "exact_match": true
+      },
+      {
+        "file": "termgroups.src",
+        "reference_bytes": 6038,
+        "reference_sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+        "reference_rows": 130,
+        "candidate_present": true,
+        "role": "declared-metadata-input",
+        "candidate": {
+          "bytes": 6038,
+          "sha256": "e58a1ebdb0c3ea8ac2617657dfc19df68f757ea6a506681730bccf4f92e249ab",
+          "newline_count": 130
+        },
+        "exact_match": true
+      }
+    ],
+    "fixture_checks": [],
+    "candidate_modified": false,
+    "insert_in_scope": false,
+    "structure": {
+      "reference": {
+        "atom_ids": {
+          "unique": 803253,
+          "duplicates": 0,
+          "minimum": 781548593,
+          "maximum": 782351845
+        },
+        "external_root_atom_id": 31926003,
+        "files": {
+          "attributes.src": {
+            "rows": 1265611,
+            "field_counts": {
+              "15": 1265611
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 469469,
+              "SOURCE_CUI": 796142
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "relationships.src": {
+            "rows": 1228468,
+            "field_counts": {
+              "19": 1228468
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "CODE_SOURCE": 122,
+              "SOURCE_CUI": 2456814
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "mergefacts.src": {
+            "rows": 595089,
+            "field_counts": {
+              "13": 595089
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 1190178
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "contexts.src": {
+            "rows": 1185069,
+            "field_counts": {
+              "18": 1185069
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SOURCE_CUI": 2370120,
+              "SRC_ATOM_ID": 14890791
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "classes_atoms.src": {
+            "rows": 803253,
+            "field_counts": {
+              "15": 803253
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {},
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          }
+        },
+        "termgroup_validation": {
+          "enabled": true,
+          "unknown_termgroups": {},
+          "passed": true,
+          "framework_termgroups": [
+            "SRC/RAB",
+            "SRC/RPT",
+            "SRC/SSN",
+            "SRC/VAB",
+            "SRC/VPT"
+          ],
+          "framework_evidence": "Pinned INV/lib/QaTGs.pm:402-409"
+        },
+        "checks_passed": true,
+        "scope": "Structure, attribute value digests, current SRC_ATOM_ID references, optional declared/framework termgroups; not complete domain validation"
+      },
+      "candidate": {
+        "atom_ids": {
+          "unique": 803253,
+          "duplicates": 0,
+          "minimum": 781548593,
+          "maximum": 782351845
+        },
+        "external_root_atom_id": 31926003,
+        "files": {
+          "classes_atoms.src": {
+            "rows": 803253,
+            "field_counts": {
+              "15": 803253
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {},
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "attributes.src": {
+            "rows": 1265611,
+            "field_counts": {
+              "15": 1265611
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 469469,
+              "SOURCE_CUI": 796142
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "relationships.src": {
+            "rows": 1228468,
+            "field_counts": {
+              "19": 1228468
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "CODE_SOURCE": 122,
+              "SOURCE_CUI": 2456814
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "mergefacts.src": {
+            "rows": 595089,
+            "field_counts": {
+              "13": 595089
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 1190178
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "contexts.src": {
+            "rows": 1185069,
+            "field_counts": {
+              "18": 1185069
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SOURCE_CUI": 2370120,
+              "SRC_ATOM_ID": 14890791
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          }
+        },
+        "termgroup_validation": {
+          "enabled": true,
+          "unknown_termgroups": {},
+          "passed": true,
+          "framework_termgroups": [
+            "SRC/RAB",
+            "SRC/RPT",
+            "SRC/SSN",
+            "SRC/VAB",
+            "SRC/VPT"
+          ],
+          "framework_evidence": "Pinned INV/lib/QaTGs.pm:402-409"
+        },
+        "checks_passed": true,
+        "scope": "Structure, attribute value digests, current SRC_ATOM_ID references, optional declared/framework termgroups; not complete domain validation"
+      }
+    },
+    "status": "differences-characterized; review-required",
+    "completed_at": "2026-11-10T01:30:08.888471+00:00"
+  },
+  "acceptance": {
+    "status": "PASS_EQUIVALENT",
+    "checks": {
+      "core_exit_zero": true,
+      "metadata_unchanged": true,
+      "atoms_exact": true,
+      "relationships_exact": true,
+      "merges_exact": true,
+      "context_multiset_equal": true,
+      "attribute_content_equal": true,
+      "structural_checks": true,
+      "termgroups_valid": true,
+      "metadata_matches_reference": true,
+      "attribute_ids_unique_and_contiguous": true,
+      "same_attribute_id_span": true,
+      "non_context_attributes_exact": true,
+      "no_attribute_id_or_unknown_reference_types": true
+    },
+    "comparison_profile": "nci-core-v1: exact atoms/relationships/merges; full context multiset; attribute row-ID diagnostic with unique equal allocations and no attribute-ID references",
+    "scope": "Five generated core src outputs with archived source metadata; not full release eligibility"
+  },
+  "compared_output_hashes_verified_after_run": true,
+  "common_request": {
+    "source": "NCI",
+    "version": "NCI_2026_10D",
+    "case_variant": "stable-context-order",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "semantic-strict",
+    "schema_version": 1,
+    "engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09"
+  },
+  "lock_sha256": "9eeb7e56736c4c64ff9caaa4e523e723acaea9d1cca9e761620b05f476eeda6d",
+  "complete_ID_range_verified": true,
+  "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+  "insertion_executed": false,
+  "production_eligible": false,
+  "ID_range_verification_scope": {
+    "bound_kind": "reserved-historical-range",
+    "new_production_allocation_performed": false
+  }
+}

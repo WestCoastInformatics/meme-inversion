@@ -1,0 +1,368 @@
+{
+  "status": "PASS_RETAINED_COMMON_MATRIX_VERIFICATION",
+  "verified_at": "2026-11-10T04:17:58.628041+00:00",
+  "cases": [
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "run_id": "common-mth-clean-20261109",
+      "candidate_directory": "MTH_2026AA",
+      "status": "PASS_REVIEWED_CORRECTIONS",
+      "source_engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "runtime_ref_during_execution": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "71be3596be0215635d25203ffa553b045432ec0d",
+      "lock_sha256": "c96b1a2b61711c92588a5a5dc2f47cd6cbf74ef90b427267e89bce8421ed4e90",
+      "code_entries_verified": 57,
+      "input_files_verified": 20,
+      "apparatus_modules_verified": 16,
+      "compared_output_files_verified": 23,
+      "files": {
+        "attr_src": {
+          "bytes": 109,
+          "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+          "newline_count": 1
+        },
+        "class_src": {
+          "bytes": 142,
+          "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+          "newline_count": 2
+        },
+        "rel_src": {
+          "bytes": 103,
+          "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+          "newline_count": 1
+        },
+        "merge_src": {
+          "bytes": 67,
+          "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+          "newline_count": 1
+        },
+        "auis_nonupdatedSAB_moved": {
+          "bytes": 11130,
+          "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+          "newline_count": 597
+        },
+        "cui_merges": {
+          "bytes": 10278,
+          "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+          "newline_count": 571
+        },
+        "classes_atoms.src": {
+          "bytes": 555467101,
+          "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+          "newline_count": 4018246
+        },
+        "aui_said_map": {
+          "bytes": 115764303,
+          "sha256": "47449f178be6d20ccb9ef7c486fcc993835904b8838c7a7cad0effb91f7a371a",
+          "newline_count": 4017647
+        },
+        "cui.splitonly.new": {
+          "bytes": 270,
+          "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+          "newline_count": 30
+        },
+        "cui_splitonly_said_map": {
+          "bytes": 570,
+          "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+          "newline_count": 30
+        },
+        "moved_aui_said_map": {
+          "bytes": 17100,
+          "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+          "newline_count": 597
+        },
+        "cui_said_map": {
+          "bytes": 36214304,
+          "sha256": "a0cc275900ac52fc31b847bc30d762a19ff2bab798daa32c7d544ee0e38a2c70",
+          "newline_count": 1906016
+        },
+        "rel_cui_said_map": {
+          "bytes": 36214304,
+          "sha256": "a0cc275900ac52fc31b847bc30d762a19ff2bab798daa32c7d544ee0e38a2c70",
+          "newline_count": 1906016
+        },
+        "attributes.src": {
+          "bytes": 2796291723,
+          "sha256": "4f58be933c5a1e64bde1486b41ea03e3fb4fb290d2ec3868087c1afd3eb9eeeb",
+          "newline_count": 20206954
+        },
+        "mergefacts.src": {
+          "bytes": 83696,
+          "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+          "newline_count": 1169
+        },
+        "bequeathal.relationships.src": {
+          "bytes": 682893,
+          "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+          "newline_count": 7600
+        },
+        "relationships.src": {
+          "bytes": 771791609,
+          "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+          "newline_count": 6404200
+        },
+        "src-root.cuis.updated": {
+          "bytes": 189,
+          "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+          "newline_count": 21
+        },
+        "attributes.contexts-all.src": {
+          "bytes": 460970278,
+          "sha256": "db3409bf5ff2fe12aa55fd153fea65e0b82326e19d6f177a13f0732484622053",
+          "newline_count": 1075932
+        },
+        "contexts.src": {
+          "bytes": 312852945,
+          "sha256": "67953ce44f1e2a959af90f4c2dd420d7db88c8e4ac96bd09e18bcd9c14508538",
+          "newline_count": 1118752
+        },
+        "said.ptsaid": {
+          "bytes": 80364920,
+          "sha256": "f6e7f6f089881b800b293f6a1de1135a9459b923bc1726490267b2b7c17027a2",
+          "newline_count": 4018246
+        },
+        "ptsaid.order": {
+          "bytes": 18667580,
+          "sha256": "08ad72c29a462b401e7870afe710e475f173b131139bca80f1fe98c984f277b5",
+          "newline_count": 1866758
+        },
+        "classes_atoms.src.raw": {
+          "bytes": 602938360,
+          "sha256": "559e9547153018252a8071a2b3dd436b0dfbc4e9c28d6a3fdb62beacd41a001a",
+          "newline_count": 4018246
+        }
+      },
+      "result_sha256": "d7283ce4665250d4531fe82d2f3e73d6d698052998086ec8f961dcd8eb2a251b",
+      "raw_correction_evidence_preserved": true
+    },
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "run_id": "common-nci-stable-20261109",
+      "candidate_directory": "NCI_2026_10D",
+      "status": "PASS_EQUIVALENT",
+      "source_engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "runtime_ref_during_execution": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+      "lock_sha256": "9eeb7e56736c4c64ff9caaa4e523e723acaea9d1cca9e761620b05f476eeda6d",
+      "code_entries_verified": 20,
+      "input_files_verified": 10,
+      "apparatus_modules_verified": 19,
+      "compared_output_files_verified": 5,
+      "files": {
+        "attributes.src": {
+          "bytes": 306298097,
+          "sha256": "4de548599a0ce63d52feda7089e8cf6b39f51e1d0d5794654d04a954c68fb80c",
+          "newline_count": 1265611
+        },
+        "relationships.src": {
+          "bytes": 169343929,
+          "sha256": "cfe48e903be0cc9309bc7c5f4bd897fb598029bb2b1f02e29775e2077909173e",
+          "newline_count": 1228468
+        },
+        "mergefacts.src": {
+          "bytes": 44631179,
+          "sha256": "1f7d144160f7856a4add4e6e25d330dccf8615ac83854fe39bbbd13b55fa009d",
+          "newline_count": 595089
+        },
+        "contexts.src": {
+          "bytes": 270665435,
+          "sha256": "cf07ee100571de00a5f43a7c3d83465a24c7346beab018149dfc1bdaf33baf92",
+          "newline_count": 1185069
+        },
+        "classes_atoms.src": {
+          "bytes": 86815706,
+          "sha256": "e830bbe5462b947de749aa3a8713fa83d61558f5933c1e64d0e1b7c7889e8142",
+          "newline_count": 803253
+        }
+      },
+      "result_sha256": "9ff2f075e73b660836eeeceac8abb94e2032f564101f3a8dcb23f8c8138ff8b5",
+      "raw_correction_evidence_preserved": false
+    },
+    {
+      "source": "MDR",
+      "version": "MDR_29_1",
+      "run_id": "common-mdr-corrected-20261109",
+      "candidate_directory": "MDR_29_1",
+      "status": "PASS_REVIEWED_CORRECTIONS",
+      "source_engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+      "runtime_ref_during_execution": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+      "lock_sha256": "6f28a3d9df9386e45dedb0493c11a86bf4b49e90423e417c8bdbd9dd4eb80dc2",
+      "code_entries_verified": 7,
+      "input_files_verified": 16,
+      "apparatus_modules_verified": 19,
+      "compared_output_files_verified": 5,
+      "files": {
+        "classes_atoms.src": {
+          "bytes": 12633021,
+          "sha256": "ff007d381397a650f996ed80214e54cabfd517548cd179295b4355c8f76d6d75",
+          "newline_count": 122629
+        },
+        "attributes.src": {
+          "bytes": 473425883,
+          "sha256": "27fac4ee718da4cc5d0ca875905dff2be00a4503f162034022c64ddd2e45a494",
+          "newline_count": 2424867
+        },
+        "relationships.src": {
+          "bytes": 31093019,
+          "sha256": "e7046ad38c12f7a30c6e32818e39e914d492414c55fe530698ff3ede4d8dbe49",
+          "newline_count": 290097
+        },
+        "mergefacts.src": {
+          "bytes": 2715516,
+          "sha256": "9409575c52b379e874d7a6b287b72aa692253811b1bf19f88b0107ef83d03e2e",
+          "newline_count": 37472
+        },
+        "contexts.src": {
+          "bytes": 191499397,
+          "sha256": "d0b53fca88712927334a12cecd7d0c7af3c79b56248390bfee5db743948dff3f",
+          "newline_count": 1883398
+        }
+      },
+      "result_sha256": "ccd16f257f9ca49c5ffbc0de3e46a9c1889215861991a3126dd6ab0e76b28f09",
+      "raw_correction_evidence_preserved": true
+    },
+    {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "run_id": "common-radlex-baseline-20261109",
+      "candidate_directory": "RADLEX_4_3.before-common-radlex-stable-20261109",
+      "status": "PASS_EQUIVALENT",
+      "source_engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "runtime_ref_during_execution": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+      "lock_sha256": "04881724a38ba94f2b4f83369db8a35b83ae12e3b12a7f82929edf57c96b7c03",
+      "code_entries_verified": 19,
+      "input_files_verified": 3,
+      "apparatus_modules_verified": 19,
+      "compared_output_files_verified": 5,
+      "files": {
+        "classes_atoms.src": {
+          "bytes": 7719732,
+          "sha256": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c",
+          "newline_count": 69022
+        },
+        "attributes.src": {
+          "bytes": 59898056,
+          "sha256": "0fdef65dea274563075263fb482502eabc1ada1178e5fe6ea98afbb43acde9f3",
+          "newline_count": 59774
+        },
+        "relationships.src": {
+          "bytes": 5402904,
+          "sha256": "71aa8529489224e7fc0057c345950f5911494513e609eaee74a20da69bd3017d",
+          "newline_count": 44859
+        },
+        "mergefacts.src": {
+          "bytes": 1679062,
+          "sha256": "7a36d855ca5f2f9fb612b17423d970bae8b4adcb031df1c78911ef6c68df82a9",
+          "newline_count": 22093
+        },
+        "contexts.src": {
+          "bytes": 11105738,
+          "sha256": "bf383f55965515708e84f906de208da163227ead8909f47042e021f0a92537a8",
+          "newline_count": 46899
+        }
+      },
+      "result_sha256": "43f7d8dc22ca04ccffff810e25f8c9e900fdc8ece8a25f52fa66197d0d57d64b",
+      "raw_correction_evidence_preserved": false
+    },
+    {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "run_id": "common-radlex-stable-20261109",
+      "candidate_directory": "RADLEX_4_3",
+      "status": "PASS_EQUIVALENT",
+      "source_engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "runtime_ref_during_execution": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+      "lock_sha256": "6ca1d5c0688ad7e9114fe8565e424c0922474926f795279baa0798f5706b45d5",
+      "code_entries_verified": 19,
+      "input_files_verified": 3,
+      "apparatus_modules_verified": 19,
+      "compared_output_files_verified": 5,
+      "files": {
+        "classes_atoms.src": {
+          "bytes": 7719732,
+          "sha256": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c",
+          "newline_count": 69022
+        },
+        "attributes.src": {
+          "bytes": 59898056,
+          "sha256": "7e86e2ca9c3256ff22c3979552351d85e890ce00dba86c71bb16abc1dd2b2075",
+          "newline_count": 59774
+        },
+        "relationships.src": {
+          "bytes": 5402904,
+          "sha256": "71aa8529489224e7fc0057c345950f5911494513e609eaee74a20da69bd3017d",
+          "newline_count": 44859
+        },
+        "mergefacts.src": {
+          "bytes": 1679062,
+          "sha256": "7a36d855ca5f2f9fb612b17423d970bae8b4adcb031df1c78911ef6c68df82a9",
+          "newline_count": 22093
+        },
+        "contexts.src": {
+          "bytes": 11105738,
+          "sha256": "b977eebe1b4ec9602a2634df667651bc40e9084319727a8274601f6181956e17",
+          "newline_count": 46899
+        }
+      },
+      "result_sha256": "172266dcf0e2892c5bffa5c64a1dc817a3a3346688d7d6ba737b6c0301f4c1e5",
+      "raw_correction_evidence_preserved": false
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "run_id": "common-snomedct-us-1-20261106",
+      "candidate_directory": "SNOMEDCT_US_2026_09_01",
+      "status": "PASS_EXACT",
+      "source_engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "runtime_ref_during_execution": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+      "lock_sha256": "86b1c91fe472291c2e8087cc0699c1952e321b3fd9b1a8ed8cbff34f9183f7c4",
+      "code_entries_verified": 5,
+      "input_files_verified": 18,
+      "apparatus_modules_verified": 13,
+      "compared_output_files_verified": 5,
+      "files": {
+        "classes_atoms.src": {
+          "bytes": 163029934,
+          "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+          "newline_count": 1048850
+        },
+        "relationships.src": {
+          "bytes": 140346293,
+          "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+          "newline_count": 742425
+        },
+        "mergefacts.src": {
+          "bytes": 138634414,
+          "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+          "newline_count": 1048849
+        },
+        "contexts.src": {
+          "bytes": 6220515460,
+          "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+          "newline_count": 20403095
+        },
+        "attributes.src": {
+          "bytes": 2319449724,
+          "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+          "newline_count": 9324589
+        }
+      },
+      "result_sha256": "a9cd26594b556bc38d0febd5a00228a301e3326792367207623a97d216e6d883",
+      "raw_correction_evidence_preserved": false
+    }
+  ],
+  "restored_runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "restored_runtime_files_verified": 169,
+  "runtime_receipt_sha256": "be3bcbc8c22104b769a85bc77bf4f5fc62e4c91981e81e9f89734c711d872d26",
+  "insertion_executed": false,
+  "production_eligible": false,
+  "scope": "Six historical common executions across five sources; current retained candidate bytes, frozen inputs/code/apparatus and unchanged raw correction evidence; original shared runtime bytes restored. No claim of original runtime receipt byte identity.",
+  "verification_program_sha256": "f22bca0644f9afcc3fefa9d61e383b3f11f85c3876cdc50818342e441ea2006c",
+  "verification_program_ref": "../../tools/evidence/verify_common_matrix_20261109.sh"
+}

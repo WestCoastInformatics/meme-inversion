@@ -1,0 +1,35 @@
+{
+  "run_id": "common-radlex-stable-20261109",
+  "source": "RADLEX",
+  "status": "PASS_EQUIVALENT",
+  "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+  "lock_sha256": "6ca1d5c0688ad7e9114fe8565e424c0922474926f795279baa0798f5706b45d5",
+  "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+  "files": {
+    "classes_atoms.src": {
+      "bytes": 7719732,
+      "sha256": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c",
+      "newline_count": 69022
+    },
+    "attributes.src": {
+      "bytes": 59898056,
+      "sha256": "7e86e2ca9c3256ff22c3979552351d85e890ce00dba86c71bb16abc1dd2b2075",
+      "newline_count": 59774
+    },
+    "relationships.src": {
+      "bytes": 5402904,
+      "sha256": "71aa8529489224e7fc0057c345950f5911494513e609eaee74a20da69bd3017d",
+      "newline_count": 44859
+    },
+    "mergefacts.src": {
+      "bytes": 1679062,
+      "sha256": "7a36d855ca5f2f9fb612b17423d970bae8b4adcb031df1c78911ef6c68df82a9",
+      "newline_count": 22093
+    },
+    "contexts.src": {
+      "bytes": 11105738,
+      "sha256": "b977eebe1b4ec9602a2634df667651bc40e9084319727a8274601f6181956e17",
+      "newline_count": 46899
+    }
+  }
+}

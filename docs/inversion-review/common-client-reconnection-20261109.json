@@ -1,0 +1,20 @@
+{
+  "source": "NCI",
+  "run_id": "common-nci-stable-20261109",
+  "event": "Client VPN/SSH connection ended while the detached server worker was running",
+  "original_worker_pid": 1601781,
+  "server_job_restarted": false,
+  "server_terminal_status": "complete",
+  "server_completed_at": "2026-11-10T01:30:14.714592+00:00",
+  "acceptance": "PASS_EQUIVALENT",
+  "recovery_actions": [
+    "User reconnected NIH VPN and authenticated a new SSH control session",
+    "Read the same persistent common run and verified its frozen lock identity",
+    "Collected the original completed result and resumed the remaining queue without resubmitting NCIt"
+  ],
+  "all_five_output_hashes_match_prior_stable_candidate": true,
+  "resumed_controller_pid": 89974,
+  "credentials_recorded": false,
+  "production_eligible": false,
+  "scope": "Actual client reconnection and report collection; no regeneration or relabeling of the original server job"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS_REVIEWED_CORRECTIONS",
+  "single_uninterrupted_common_run": true,
+  "all_23_output_hashes_match_previous_corrected_run": true,
+  "run_id": "common-mth-clean-20261109",
+  "apparatus_ref": "71be3596be0215635d25203ffa553b045432ec0d",
+  "lock_sha256": "c96b1a2b61711c92588a5a5dc2f47cd6cbf74ef90b427267e89bce8421ed4e90"
+}

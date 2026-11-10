@@ -1,12 +1,12 @@
 # Common inversion configuration
 
-Status, November 6, 2026: the common request resolver, frozen historical-case catalog and isolated dev adapters are implemented; the first full common-interface SNOMED run passes byte-exact comparison and independent validation. The configuration examples remain illustrative, including their artifact references and ID ranges. Executable requests use the separate reviewed case catalog. Current production inverters are unchanged. See [common interface](common-interface.md).
+Status, November 9, 2026: the common request resolver, reviewed historical-case catalog and isolated dev adapters are implemented for all five sources. Six full common executions and the final retained-artifact verification pass; see [current coverage](core-replay-coverage.md). The configuration examples remain illustrative, including their artifact references and ID ranges. Executable requests use the separate reviewed case catalog. Current production inverters are unchanged. See [common interface](common-interface.md).
 
 ## One vocabulary for every registered source
 
 Use one configuration model across registered sources, including NCIt (`NCI`), `SNOMEDCT_US`, `MTH`, `MDR`, and `RADLEX`. A run uses one `inversion.json` in the same format regardless of source or release frequency. Shared defaults and source profiles belong in Git; operators provide the release and reviewed decisions rather than maintain independently named configurations. The important constraint is one schema and one meaning for each common field.
 
-The [source registry](source-registry.json) separates recognition from execution support. The request/schema accept a canonical source key rather than hardcode a three-source enum; the resolver must require a reviewed registered adapter, typed options, historical case, runtime/dependency closure and comparison profile. Registry recognition alone cannot make a source runnable. Freeze those identities in the run lock. MDR and RADLEX production code and workflow boundaries have now been inspected and captured; their unchanged-engine replays and acceptance profiles remain pending. See [their discovery contracts](additional-source-contracts.md). No release-specific options or conversion engine are assumed for them. The initial common adapters compose the characterized engines and preserve their narrow source/version guards. New releases and sources require reviewed cases before execution.
+The [source registry](source-registry.json) separates recognition from execution support. The request/schema accept a canonical source key rather than hardcode a three-source enum; the resolver must require a reviewed registered adapter, typed options, historical case, runtime/dependency closure and comparison profile. Registry recognition alone cannot make a source runnable. Freeze those identities in the run lock. MDR and RADLEX production code and workflow boundaries are captured; their historical replays, reviewed acceptance profiles and complete common integrations are verified. See [their discovery contracts](additional-source-contracts.md). MDR's reviewed English option and RADLEX's prepared-input/ID-provenance contract are explicit in the case catalog. The initial common adapters compose the characterized engines and preserve their narrow source/version guards. New releases and sources require reviewed cases before execution.
 
 The [common schema](configuration.schema.json) and examples for [NCI](configuration-examples/nci.json), [SNOMEDCT_US](configuration-examples/snomedct_us.json), and [MTH](configuration-examples/mth.json) make the contract concrete. JSON keeps this consistent with the existing test request. YAML could be an authoring convenience later, provided it produces exactly the same validated model.
 
@@ -25,6 +25,7 @@ The [common schema](configuration.schema.json) and examples for [NCI](configurat
 | `inputs.identity_state` | Persistent identity maps and saved source-root anchors, independently identified | MTH `old/src/cui_said_map`; MDR/RADLEX `HC.RootNodeSaid` and related identity state |
 | `inputs.source_plan` | Reviewed decisions for this particular transition | NCIt new-subsource decisions; SNOMED metadata decisions; MTH source dispositions |
 | `source_atom_ids.start`, `.end` | Inclusive bounds of the entire permitted SAID range, including generated SRC atoms | `SaidStart`/`SaidEnd`; MTH range specifications plus SRCbuilder offset |
+| `source_atom_ids.bound_kind` | Distinguishes reserved historical bounds from a proved historical emitted-ID range; neither makes a new production allocation | Implicit assumptions that an observed maximum proves a reservation end |
 | `environment_profile` | Named worker/runtime/storage settings, resolved and recorded for the run | ENV files, hardcoded hosts, shared scratch paths |
 | `validation_profile` | Versioned mandatory checks and output expectations | Differing QA scripts, copied lists, broad informal waivers |
 
@@ -46,7 +47,7 @@ Avoid a generic `previous_version`. The following is a valid NCIt transition sha
 }
 ```
 
-This illustrates October replacing August while September is used only for comparison. It is not a finding about the exact preparation of an archived October result. An actual replay must use its verified historical inputs. Comparison can instead use August, and September need never be inserted or retrieved if no declared stage needs it. An empty history array means no additional publisher-history inputs are required by the reviewed plan; it must not cause the runner to infer the previous month.
+This illustrates October replacing August while September is used only for optional comparison. The executed October case verifies the August replacement and does not require that September comparison. Each replay uses its verified historical inputs. Comparison can instead use August, and September need never be inserted or retrieved if no declared stage needs it. An empty history array means no additional publisher-history inputs are required by the reviewed plan; it must not cause the runner to infer the previous month.
 
 Likewise, SNOMED's legacy `Release = Snapshot` describes an RF2 view. MTH's `release = 2026AA` describes a publisher release. Those values must not share one field just because the scripts use similar names. The former becomes `source_options.rf2_view`; the latter is derived from the exact `version` and checked against publisher metadata. Publisher dates and filename suffixes should be read from the native artifact manifest or derived by a tested adapter, rather than entered repeatedly under different names.
 
@@ -88,7 +89,7 @@ Configuration selects required source versions and dependency roles. It does not
 
 Reject unknown fields, unsupported schema versions, and options belonging to another source. Require an explicit null for an inapplicable baseline/input; omission must not silently mean "use latest." Before execution, additionally validate source/version compatibility, baseline roles, required history, artifact existence/hashes, range order/capacity/evidence, runtime availability, and reference-stage compatibility. JSON Schema alone cannot establish these semantic or provenance checks.
 
-Start this work with the isolated test apparatus and canonical-code inventory, across all three sources.
+Start this work with the isolated test apparatus and canonical-code inventory, across every registered source.
 
 That inventory starts from the verified operational deployment on meme-edit. The translation targets are the scripts/configuration actually used there, rather than the earlier project automation branches. See the [implementation starting-point decision](assessment.md#implementation-starting-point-operational-code-on-meme-edit).
 

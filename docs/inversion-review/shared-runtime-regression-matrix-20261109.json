@@ -1,0 +1,176 @@
+{
+  "status": "PASS_BOUNDED_SHARED_RUNTIME_REGRESSION_MATRIX",
+  "runtime_change": {
+    "original_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "stable_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "verified_file_count_per_runtime": 169,
+    "changed_files": [
+      "INV/lib/Hierarchy.pm"
+    ],
+    "original_sha256": "cf48727df7cebb3eb2b24510211c652519097b45a17381dae08ffe6b046732f0",
+    "stable_sha256": "0546741f832945df7c1230b8433058e6ceaea20d398f10d894a4131f67db07e5",
+    "method": "Hierarchy::dumpCxtsAttrs",
+    "before": "foreach $nd (keys ( %{$parRef} )) {",
+    "after": "foreach $nd (sort keys ( %{$parRef} )) {",
+    "no_other_runtime_byte_or_manifest_mode_changes": true
+  },
+  "code_impact_ref": "shared-runtime-code-impact-20261109.json",
+  "retained_artifact_verification_ref": "common-matrix-final-verification-20261109.json",
+  "sources": {
+    "NCI": {
+      "version": "NCI_2026_10D",
+      "changed_method_in_selected_core_path": true,
+      "impact_review": "Active context writer calls the changed method",
+      "coverage": "full native changed-runtime regression and independent comparison",
+      "common_runs": [
+        {
+          "source": "NCI",
+          "version": "NCI_2026_10D",
+          "run_id": "common-nci-stable-20261109",
+          "candidate_directory": "NCI_2026_10D",
+          "status": "PASS_EQUIVALENT",
+          "source_engine_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+          "runtime_ref_during_execution": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+          "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+          "lock_sha256": "9eeb7e56736c4c64ff9caaa4e523e723acaea9d1cca9e761620b05f476eeda6d",
+          "code_entries_verified": 20,
+          "input_files_verified": 10,
+          "apparatus_modules_verified": 19,
+          "compared_output_files_verified": 5,
+          "result_sha256": "9ff2f075e73b660836eeeceac8abb94e2032f564101f3a8dcb23f8c8138ff8b5",
+          "raw_correction_evidence_preserved": false,
+          "result_ref": "common-nci-2026-10d-result.json"
+        }
+      ]
+    },
+    "MDR": {
+      "version": "MDR_29_1",
+      "changed_method_in_selected_core_path": true,
+      "impact_review": "Active context writer calls the changed method",
+      "coverage": "full native changed-runtime regression and independent comparison",
+      "common_runs": [
+        {
+          "source": "MDR",
+          "version": "MDR_29_1",
+          "run_id": "common-mdr-corrected-20261109",
+          "candidate_directory": "MDR_29_1",
+          "status": "PASS_REVIEWED_CORRECTIONS",
+          "source_engine_ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+          "runtime_ref_during_execution": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+          "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+          "lock_sha256": "6f28a3d9df9386e45dedb0493c11a86bf4b49e90423e417c8bdbd9dd4eb80dc2",
+          "code_entries_verified": 7,
+          "input_files_verified": 16,
+          "apparatus_modules_verified": 19,
+          "compared_output_files_verified": 5,
+          "result_sha256": "ccd16f257f9ca49c5ffbc0de3e46a9c1889215861991a3126dd6ab0e76b28f09",
+          "raw_correction_evidence_preserved": true,
+          "result_ref": "common-mdr-29-1-result.json"
+        }
+      ]
+    },
+    "RADLEX": {
+      "version": "RADLEX_4_3",
+      "changed_method_in_selected_core_path": true,
+      "impact_review": "Active context writer calls the changed method",
+      "coverage": "full native changed-runtime regression and independent comparison",
+      "common_runs": [
+        {
+          "source": "RADLEX",
+          "version": "RADLEX_4_3",
+          "run_id": "common-radlex-baseline-20261109",
+          "candidate_directory": "RADLEX_4_3.before-common-radlex-stable-20261109",
+          "status": "PASS_EQUIVALENT",
+          "source_engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+          "runtime_ref_during_execution": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+          "lock_sha256": "04881724a38ba94f2b4f83369db8a35b83ae12e3b12a7f82929edf57c96b7c03",
+          "code_entries_verified": 19,
+          "input_files_verified": 3,
+          "apparatus_modules_verified": 19,
+          "compared_output_files_verified": 5,
+          "result_sha256": "43f7d8dc22ca04ccffff810e25f8c9e900fdc8ece8a25f52fa66197d0d57d64b",
+          "raw_correction_evidence_preserved": false,
+          "result_ref": "common-radlex-4-3-baseline-result.json"
+        },
+        {
+          "source": "RADLEX",
+          "version": "RADLEX_4_3",
+          "run_id": "common-radlex-stable-20261109",
+          "candidate_directory": "RADLEX_4_3",
+          "status": "PASS_EQUIVALENT",
+          "source_engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+          "runtime_ref_during_execution": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+          "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+          "lock_sha256": "6ca1d5c0688ad7e9114fe8565e424c0922474926f795279baa0798f5706b45d5",
+          "code_entries_verified": 19,
+          "input_files_verified": 3,
+          "apparatus_modules_verified": 19,
+          "compared_output_files_verified": 5,
+          "result_sha256": "172266dcf0e2892c5bffa5c64a1dc817a3a3346688d7d6ba737b6c0301f4c1e5",
+          "raw_correction_evidence_preserved": false,
+          "result_ref": "common-radlex-4-3-stable-result.json"
+        }
+      ]
+    },
+    "SNOMEDCT_US": {
+      "version": "SNOMEDCT_US_2026_09_01",
+      "changed_method_in_selected_core_path": false,
+      "impact_review": "Selected core uses its own context writer and unchanged Hierarchy accessors",
+      "coverage": "inspected unaffected core path plus original-runtime common integration",
+      "common_runs": [
+        {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2026_09_01",
+          "run_id": "common-snomedct-us-1-20261106",
+          "candidate_directory": "SNOMEDCT_US_2026_09_01",
+          "status": "PASS_EXACT",
+          "source_engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "runtime_ref_during_execution": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "apparatus_ref": "181ac6e9141665749e035c5ab79034f0da8da4ad",
+          "lock_sha256": "86b1c91fe472291c2e8087cc0699c1952e321b3fd9b1a8ed8cbff34f9183f7c4",
+          "code_entries_verified": 5,
+          "input_files_verified": 18,
+          "apparatus_modules_verified": 13,
+          "compared_output_files_verified": 5,
+          "result_sha256": "a9cd26594b556bc38d0febd5a00228a301e3326792367207623a97d216e6d883",
+          "raw_correction_evidence_preserved": false,
+          "result_ref": "common-snomed-2026-09-01-result.json"
+        }
+      ]
+    },
+    "MTH": {
+      "version": "MTH_2026AA",
+      "changed_method_in_selected_core_path": false,
+      "impact_review": "Selected autoinv/specification and raw-context pipeline has no Hierarchy dependency",
+      "coverage": "inspected unaffected core path plus original-runtime common integration",
+      "common_runs": [
+        {
+          "source": "MTH",
+          "version": "MTH_2026AA",
+          "run_id": "common-mth-clean-20261109",
+          "candidate_directory": "MTH_2026AA",
+          "status": "PASS_REVIEWED_CORRECTIONS",
+          "source_engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+          "runtime_ref_during_execution": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+          "apparatus_ref": "71be3596be0215635d25203ffa553b045432ec0d",
+          "lock_sha256": "c96b1a2b61711c92588a5a5dc2f47cd6cbf74ef90b427267e89bce8421ed4e90",
+          "code_entries_verified": 57,
+          "input_files_verified": 20,
+          "apparatus_modules_verified": 16,
+          "compared_output_files_verified": 23,
+          "result_sha256": "d7283ce4665250d4531fe82d2f3e73d6d698052998086ec8f961dcd8eb2a251b",
+          "raw_correction_evidence_preserved": true,
+          "result_ref": "common-mth-2026aa-clean-result.json"
+        }
+      ]
+    }
+  },
+  "all_affected_sources_have_full_native_changed_runtime_runs": true,
+  "all_five_sources_have_accepted_common_historical_cases": true,
+  "all_cases_ran_with_one_apparatus_revision": false,
+  "full_changed_runtime_execution_claimed_for_unaffected_sources": false,
+  "insertion_executed": false,
+  "production_eligible": false,
+  "scope": "Captured historical core cases and the exact original/stable-order runtime pair. Excludes new releases, metadata acquisition, legacy database QA, insertion and production migration."
+}

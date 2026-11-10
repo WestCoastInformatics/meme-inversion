@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "root mapping retains separate network namespace",
+    "Actual audit guard rejects mapped root identity",
+    "current mapping retains separate network namespace",
+    "Actual audit guard accepts preserved tomcata identity offline"
+  ],
+  "scope": "Actual root/current mappings tested after the common MTH run released the global runtime lock"
+}

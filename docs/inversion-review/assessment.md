@@ -2,7 +2,7 @@
 
 Assessment date: November 3, 2026. Scope: NCIt, SNOMEDCT_US, and MTH/UMLS.
 
-Scope extension, November 5: the common request/configuration interface must also accommodate MDR, RADLEX and future registered sources, including infrequent releases. They use the same common fields, with independently reviewed adapters and source contracts. MDR_29_1 and RADLEX_4_3 production workflows have now been inspected and their source code captured with provenance; their dev replays and acceptance profiles remain to be done. [Discovery contracts](additional-source-contracts.md) [Source registry](source-registry.json)
+Scope extension, November 5: the common request/configuration interface must also accommodate MDR, RADLEX and future registered sources, including infrequent releases. They use the same common fields, with independently reviewed adapters and source contracts. MDR_29_1 and RADLEX_4_3 production workflows have now been inspected and their source code captured with provenance; their historical dev replays, acceptance profiles and full common-interface integrations are complete. The [current coverage](core-replay-coverage.md) and [shared-runtime matrix](shared-runtime-regression-matrix-20261109.json) distinguish the completed historical core work from the remaining production migration. [Discovery contracts](additional-source-contracts.md) [Source registry](source-registry.json)
 
 Replay priority clarification, November 5: complete preserved input bundles are sufficient for historical replay. Verify versions, hashes and dependency closure, then reproduce the official output from those inputs. Regenerating already-preserved metadata exports or prepared publisher subsets is additional coverage, not a prerequisite. Future operational runs should capture these inputs automatically. This avoids making reconstruction of an entire historical database or obsolete input-generation runtime a gate when the required answers/files are already archived.
 
@@ -226,7 +226,7 @@ Characterize and correct the confirmed field-monitor defect and MTH source-plan 
 
 **Timing: immediate, together with priority 1. Owners: inversion lead and adapter maintainers.**
 
-Inventory deployed source-specific scripts, specifications, mappings, shared defaults, and interpreter requirements for all three workflows. Import operational code into Git with provenance to its source folder, then review differences before choosing canonical versions. Do not bulk-select the newest copy: October NCIt's changes include release data that should become configuration. Retain the original release code in historical archives for reproduction while future runs select pinned code packages.
+Inventory deployed source-specific scripts, specifications, mappings, shared defaults, and interpreter requirements for every registered workflow. Import operational code into Git with provenance to its source folder, then review differences before choosing canonical versions. Do not bulk-select the newest copy: October NCIt's changes include release data that should become configuration. Retain the original release code in historical archives for reproduction while future runs select pinned code packages.
 
 Use the verified meme-edit production snapshot as this import's source, following the [implementation starting-point decision](#implementation-starting-point-operational-code-on-meme-edit). Establish a clean implementation branch from it; earlier project rework branches do not supply the foundation.
 

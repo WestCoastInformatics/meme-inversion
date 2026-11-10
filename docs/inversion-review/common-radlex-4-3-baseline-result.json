@@ -1,0 +1,596 @@
+{
+  "source": "RADLEX",
+  "version": "RADLEX_4_3",
+  "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+  "run_id": "common-radlex-baseline-20261109",
+  "stages": {
+    "syntax-makesrc.pl": {
+      "exit_status": 0,
+      "seconds": 0.08,
+      "sampled_peak_process_group_resident_bytes": 5730304,
+      "minimum_available_memory_bytes": 28639772672,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "syntax-remove_dup_rels.pl": {
+      "exit_status": 0,
+      "seconds": 0.03,
+      "sampled_peak_process_group_resident_bytes": 6209536,
+      "minimum_available_memory_bytes": 28635656192,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "syntax-remove_dup_classes.pl": {
+      "exit_status": 0,
+      "seconds": 0.01,
+      "sampled_peak_process_group_resident_bytes": 0,
+      "minimum_available_memory_bytes": 28635140096,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "syntax-remove_dup_attributes.pl": {
+      "exit_status": 0,
+      "seconds": 0.01,
+      "sampled_peak_process_group_resident_bytes": 0,
+      "minimum_available_memory_bytes": 28634624000,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "inversion": {
+      "exit_status": 0,
+      "seconds": 171.25,
+      "sampled_peak_process_group_resident_bytes": 79183872,
+      "minimum_available_memory_bytes": 28547764224,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "remove-duplicate-relationships": {
+      "exit_status": 0,
+      "seconds": 0.53,
+      "sampled_peak_process_group_resident_bytes": 6209536,
+      "minimum_available_memory_bytes": 28631433216,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "remove-duplicate-atoms-and-merges": {
+      "exit_status": 0,
+      "seconds": 0.28,
+      "sampled_peak_process_group_resident_bytes": 5722112,
+      "minimum_available_memory_bytes": 28626255872,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "remove-duplicate-attributes": {
+      "exit_status": 0,
+      "seconds": 0.38,
+      "sampled_peak_process_group_resident_bytes": 5734400,
+      "minimum_available_memory_bytes": 28636286976,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    }
+  },
+  "preserved_stage_outputs": {
+    "before-cleanup.classes_atoms.src": {
+      "bytes": 7830892,
+      "sha256": "7c0e6aea0351cba64f871af2d4e9d1943952b31fd20ce55b6034e922b38b169f",
+      "newline_count": 70079
+    },
+    "before-cleanup.attributes.src": {
+      "bytes": 59899071,
+      "sha256": "ff6e9086fd29ca492fa042506c204c8c49550f00d462b9657bc631cbc1a191ca",
+      "newline_count": 59782
+    },
+    "before-cleanup.relationships.src": {
+      "bytes": 10075593,
+      "sha256": "f36406a8a4b9697ac93c3ca14e52dce00d22e5724d4ae1ec8b1eeaffa0e56dbd",
+      "newline_count": 83604
+    },
+    "before-cleanup.mergefacts.src": {
+      "bytes": 1759394,
+      "sha256": "88d148a0c40d060a9f43efddad7f845970ef74abf15d9ba3fd75336c3abda724",
+      "newline_count": 23150
+    }
+  },
+  "comparison": {
+    "source": "RADLEX",
+    "version": "RADLEX_4_3",
+    "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "run_id": "common-radlex-baseline-20261109",
+    "reference_stage": "inversion-src",
+    "files": {
+      "classes_atoms.src": {
+        "reference_member": "RADLEX_4_3/src/classes_atoms.src",
+        "reference": {
+          "bytes": 7719732,
+          "sha256": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c",
+          "newline_count": 69022
+        },
+        "candidate": {
+          "bytes": 7719732,
+          "sha256": "c065ff76011cecef27fd8ace98f8274603b205e0215b5088743e637c0c7d5f2c",
+          "newline_count": 69022
+        },
+        "exact_match": true
+      },
+      "attributes.src": {
+        "reference_member": "RADLEX_4_3/src/attributes.orig",
+        "reference": {
+          "bytes": 59898056,
+          "sha256": "08d30a4cc5c2c534c7a9be6fbed8377ed0928ea2e7a53414357a2d7db0ab3435",
+          "newline_count": 59774
+        },
+        "candidate": {
+          "bytes": 59898056,
+          "sha256": "0fdef65dea274563075263fb482502eabc1ada1178e5fe6ea98afbb43acde9f3",
+          "newline_count": 59774
+        },
+        "exact_match": false,
+        "row_multiset": {
+          "equal_rows": 12877,
+          "reference_only_rows": 46897,
+          "candidate_only_rows": 46897,
+          "equal_preserving_multiplicity": false,
+          "reference_sorted_sha256": "425673634b5c27573b91da0f30e9362ae4fd3783f4873c4b81cb795f4a973024",
+          "candidate_sorted_sha256": "1992b334259540c09524817bc41c6bb01bdbd8adbb8d266c5527a21037935e27"
+        },
+        "attribute_diagnostics": {
+          "reference": {
+            "rows": 59774,
+            "unique_ids": 59774,
+            "duplicate_ids": 0,
+            "invalid_ids": 0,
+            "minimum_id": 1,
+            "maximum_id": 59782,
+            "attribute_names": {
+              "SEMANTIC_TYPE": 1,
+              "DEFINITION": 3840,
+              "COMMENT": 1931,
+              "CITE": 3114,
+              "RADLEX_VERSION_OF_CLASS_CHANGE": 2427,
+              "DATE_CREATED": 989,
+              "REPLACED_BY": 442,
+              "MISSPELLING_OF_TERM": 36,
+              "UNSANCTIONED_TERM": 93,
+              "PREFERRED_NAME_GERMAN": 1,
+              "CONTEXT": 46900
+            },
+            "non_context_rows": 12874,
+            "non_context_full_record_sha256": "c3993078c81af64be1450d7f85143750defc2ab73a5ea7582cc051e649669832"
+          },
+          "candidate": {
+            "rows": 59774,
+            "unique_ids": 59774,
+            "duplicate_ids": 0,
+            "invalid_ids": 0,
+            "minimum_id": 1,
+            "maximum_id": 59782,
+            "attribute_names": {
+              "SEMANTIC_TYPE": 1,
+              "DEFINITION": 3840,
+              "COMMENT": 1931,
+              "CITE": 3114,
+              "RADLEX_VERSION_OF_CLASS_CHANGE": 2427,
+              "DATE_CREATED": 989,
+              "REPLACED_BY": 442,
+              "MISSPELLING_OF_TERM": 36,
+              "UNSANCTIONED_TERM": 93,
+              "PREFERRED_NAME_GERMAN": 1,
+              "CONTEXT": 46900
+            },
+            "non_context_rows": 12874,
+            "non_context_full_record_sha256": "c3993078c81af64be1450d7f85143750defc2ab73a5ea7582cc051e649669832"
+          },
+          "identifier_sets": [
+            {
+              "unique": 59774,
+              "duplicates": 0,
+              "invalid": 0,
+              "minimum": 1,
+              "maximum": 59782,
+              "sorted_identifier_sha256": "3bc6ff9841685eef9aa72d6efccca9e3fe9b682674c8c3ca40fcf858f7e8458b"
+            },
+            {
+              "unique": 59774,
+              "duplicates": 0,
+              "invalid": 0,
+              "minimum": 1,
+              "maximum": 59782,
+              "sorted_identifier_sha256": "3bc6ff9841685eef9aa72d6efccca9e3fe9b682674c8c3ca40fcf858f7e8458b"
+            }
+          ],
+          "content_multiset_excluding_generated_attribute_id": {
+            "equal_rows": 59774,
+            "reference_only_rows": 0,
+            "candidate_only_rows": 0,
+            "equal_preserving_multiplicity": true,
+            "reference_sorted_sha256": "dc4ab568be45d7190f6df38fafb06fc81b48dd993234d313e63c9b8735b0aea4",
+            "candidate_sorted_sha256": "dc4ab568be45d7190f6df38fafb06fc81b48dd993234d313e63c9b8735b0aea4"
+          },
+          "same_kept_identifier_set": true,
+          "non_context_full_records_exact": true,
+          "positive_unique_ids": true
+        }
+      },
+      "relationships.src": {
+        "reference_member": "RADLEX_4_3/src/relationships.src",
+        "reference": {
+          "bytes": 5402904,
+          "sha256": "71aa8529489224e7fc0057c345950f5911494513e609eaee74a20da69bd3017d",
+          "newline_count": 44859
+        },
+        "candidate": {
+          "bytes": 5402904,
+          "sha256": "71aa8529489224e7fc0057c345950f5911494513e609eaee74a20da69bd3017d",
+          "newline_count": 44859
+        },
+        "exact_match": true
+      },
+      "mergefacts.src": {
+        "reference_member": "RADLEX_4_3/src/mergefacts.src",
+        "reference": {
+          "bytes": 1679062,
+          "sha256": "7a36d855ca5f2f9fb612b17423d970bae8b4adcb031df1c78911ef6c68df82a9",
+          "newline_count": 22093
+        },
+        "candidate": {
+          "bytes": 1679062,
+          "sha256": "7a36d855ca5f2f9fb612b17423d970bae8b4adcb031df1c78911ef6c68df82a9",
+          "newline_count": 22093
+        },
+        "exact_match": true
+      },
+      "contexts.src": {
+        "reference_member": "RADLEX_4_3/src/contexts.src",
+        "reference": {
+          "bytes": 11105738,
+          "sha256": "fa1a5dade54b66aa59c81d32a48d7121579a414628b5e85ff9456836c59f8785",
+          "newline_count": 46899
+        },
+        "candidate": {
+          "bytes": 11105738,
+          "sha256": "bf383f55965515708e84f906de208da163227ead8909f47042e021f0a92537a8",
+          "newline_count": 46899
+        },
+        "exact_match": false,
+        "row_multiset": {
+          "equal_rows": 46899,
+          "reference_only_rows": 0,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": true,
+          "reference_sorted_sha256": "b977eebe1b4ec9602a2634df667651bc40e9084319727a8274601f6181956e17",
+          "candidate_sorted_sha256": "b977eebe1b4ec9602a2634df667651bc40e9084319727a8274601f6181956e17"
+        }
+      }
+    },
+    "archive_sha256": "eea5a5d34b6c91fb42c54879d0f2ce43fb380981b69b4fb3c8b4290079221a34",
+    "starting_stage": "prepared",
+    "started_at": "2026-11-10T04:09:05.401799+00:00",
+    "candidate_modified": false,
+    "insertion_executed": false,
+    "structure": {
+      "reference": {
+        "atom_ids": {
+          "unique": 69022,
+          "duplicates": 0,
+          "minimum": 767743593,
+          "maximum": 767813671
+        },
+        "external_root_atom_id": 116482203,
+        "files": {
+          "classes_atoms.src": {
+            "rows": 69022,
+            "field_counts": {
+              "15": 69022
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {},
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "relationships.src": {
+            "rows": 44859,
+            "field_counts": {
+              "19": 44859
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "CODE_SOURCE": 2,
+              "SOURCE_CUI": 89716
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "mergefacts.src": {
+            "rows": 22093,
+            "field_counts": {
+              "13": 22093
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 44186
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "contexts.src": {
+            "rows": 46899,
+            "field_counts": {
+              "18": 46899
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "CODE_SOURCE": 93797,
+              "SRC_ATOM_ID": 638529
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "attributes.src": {
+            "rows": 59774,
+            "field_counts": {
+              "15": 59774
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 46901,
+              "SOURCE_CUI": 12873
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          }
+        },
+        "termgroup_validation": {
+          "enabled": true,
+          "unknown_termgroups": {},
+          "passed": true,
+          "framework_termgroups": [
+            "SRC/RAB",
+            "SRC/RPT",
+            "SRC/SSN",
+            "SRC/VAB",
+            "SRC/VPT"
+          ],
+          "framework_evidence": "Pinned INV/lib/QaTGs.pm:402-409"
+        },
+        "checks_passed": true,
+        "scope": "Structure, attribute value digests, current SRC_ATOM_ID references, optional declared/framework termgroups; not complete domain validation; fixed historical ID bounds and saved external root anchor. Production reservation/domain/database QA remain separately scoped.",
+        "atom_identifier_set": {
+          "unique": 69022,
+          "duplicates": 0,
+          "invalid": 0,
+          "minimum": 767743593,
+          "maximum": 767813671,
+          "sorted_identifier_sha256": "4ae7fdbe2b185ac05c6e4cf56d12d232bf5937abcd49dd59bc48e9a1f32d8dcf"
+        },
+        "historical_identifier_bounds": {
+          "start": 767743593,
+          "end": 767813671,
+          "provenance_kind": "captured SaidStart plus observed historical emitted-ID upper bound; production reservation end unknown",
+          "production_reservation_end_assessed": false
+        },
+        "identifier_bounds_passed": true
+      },
+      "candidate": {
+        "atom_ids": {
+          "unique": 69022,
+          "duplicates": 0,
+          "minimum": 767743593,
+          "maximum": 767813671
+        },
+        "external_root_atom_id": 116482203,
+        "files": {
+          "classes_atoms.src": {
+            "rows": 69022,
+            "field_counts": {
+              "15": 69022
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {},
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "attributes.src": {
+            "rows": 59774,
+            "field_counts": {
+              "15": 59774
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 46901,
+              "SOURCE_CUI": 12873
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "relationships.src": {
+            "rows": 44859,
+            "field_counts": {
+              "19": 44859
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "CODE_SOURCE": 2,
+              "SOURCE_CUI": 89716
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "mergefacts.src": {
+            "rows": 22093,
+            "field_counts": {
+              "13": 22093
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "SRC_ATOM_ID": 44186
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          },
+          "contexts.src": {
+            "rows": 46899,
+            "field_counts": {
+              "18": 46899
+            },
+            "invalid_utf8_rows": 0,
+            "missing_final_newline_rows": 0,
+            "nul_rows": 0,
+            "nonempty_trailing_field_rows": 0,
+            "attribute_digest_mismatches": 0,
+            "identifier_types": {
+              "CODE_SOURCE": 93797,
+              "SRC_ATOM_ID": 638529
+            },
+            "unresolved_src_atom_references": 0,
+            "unresolved_reference_samples": []
+          }
+        },
+        "termgroup_validation": {
+          "enabled": true,
+          "unknown_termgroups": {},
+          "passed": true,
+          "framework_termgroups": [
+            "SRC/RAB",
+            "SRC/RPT",
+            "SRC/SSN",
+            "SRC/VAB",
+            "SRC/VPT"
+          ],
+          "framework_evidence": "Pinned INV/lib/QaTGs.pm:402-409"
+        },
+        "checks_passed": true,
+        "scope": "Structure, attribute value digests, current SRC_ATOM_ID references, optional declared/framework termgroups; not complete domain validation; fixed historical ID bounds and saved external root anchor. Production reservation/domain/database QA remain separately scoped.",
+        "atom_identifier_set": {
+          "unique": 69022,
+          "duplicates": 0,
+          "invalid": 0,
+          "minimum": 767743593,
+          "maximum": 767813671,
+          "sorted_identifier_sha256": "4ae7fdbe2b185ac05c6e4cf56d12d232bf5937abcd49dd59bc48e9a1f32d8dcf"
+        },
+        "historical_identifier_bounds": {
+          "start": 767743593,
+          "end": 767813671,
+          "provenance_kind": "captured SaidStart plus observed historical emitted-ID upper bound; production reservation end unknown",
+          "production_reservation_end_assessed": false
+        },
+        "identifier_bounds_passed": true
+      }
+    },
+    "acceptance": {
+      "status": "PASS_EQUIVALENT",
+      "all_five_exact": false,
+      "checks": {
+        "all_five_present": true,
+        "atoms_exact": true,
+        "relationships_exact": true,
+        "merges_exact": true,
+        "context_full_record_multiset_equal": true,
+        "attribute_content_and_duplicates_equal": true,
+        "attribute_ids_positive_unique": true,
+        "same_kept_attribute_identifier_set": true,
+        "non_context_attribute_records_exact": true,
+        "independent_reference_and_candidate_checks": true,
+        "same_atom_identifier_set": true,
+        "attribute_id_reference_safety": true
+      },
+      "independent_checks_passed": true,
+      "ignored_fields": [],
+      "candidate_rewritten": false,
+      "profile": "Exact atoms/relationships/merges; complete context rows; attribute content and duplicates with equal kept ID sets and exact non-CONTEXT records. No generated-ID reference allowance.",
+      "scope": "Historical core compatibility with saved preparation inputs and root identity; not metadata generation, legacy QA, insertion or production eligibility."
+    },
+    "completed_at": "2026-11-10T04:09:14.409372+00:00"
+  },
+  "acceptance": {
+    "status": "PASS_EQUIVALENT",
+    "all_five_exact": false,
+    "checks": {
+      "all_five_present": true,
+      "atoms_exact": true,
+      "relationships_exact": true,
+      "merges_exact": true,
+      "context_full_record_multiset_equal": true,
+      "attribute_content_and_duplicates_equal": true,
+      "attribute_ids_positive_unique": true,
+      "same_kept_attribute_identifier_set": true,
+      "non_context_attribute_records_exact": true,
+      "independent_reference_and_candidate_checks": true,
+      "same_atom_identifier_set": true,
+      "attribute_id_reference_safety": true
+    },
+    "independent_checks_passed": true,
+    "ignored_fields": [],
+    "candidate_rewritten": false,
+    "profile": "Exact atoms/relationships/merges; complete context rows; attribute content and duplicates with equal kept ID sets and exact non-CONTEXT records. No generated-ID reference allowance.",
+    "scope": "Historical core compatibility with saved preparation inputs and root identity; not metadata generation, legacy QA, insertion or production eligibility."
+  },
+  "input_engine_runtime_and_output_hashes_verified_after_run": true,
+  "completed_at": "2026-11-10T04:09:15.058266+00:00",
+  "capsule_sha256": "874546da5abf4fdabe9005fc55bfddde5913e399cca2140cc2ad3b1746f874ba",
+  "apparatus_ref": "7de076167161cc205c6c4efa0493d43bf13c1799",
+  "common_adapter_integration_executed": true,
+  "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "insertion_executed": false,
+  "production_eligible": false,
+  "compared_output_hashes_verified_after_run": true,
+  "common_request": {
+    "schema_version": 1,
+    "source": "RADLEX",
+    "version": "RADLEX_4_3",
+    "case_variant": "as-produced",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "semantic-strict",
+    "engine_ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8"
+  },
+  "lock_sha256": "04881724a38ba94f2b4f83369db8a35b83ae12e3b12a7f82929edf57c96b7c03",
+  "complete_ID_range_verified": true,
+  "ID_range_verification_scope": {
+    "bound_kind": "historical-emitted-range",
+    "new_production_allocation_performed": false
+  }
+}
