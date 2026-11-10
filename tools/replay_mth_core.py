@@ -19,6 +19,7 @@ import traceback
 
 from acquire_mth_subset import identity, publish
 import compare_mth_core
+import mth_configuration
 from replay_process import execute, available_memory, runtime_lock
 
 ROOT = Path('/local/content/MEME/MEME5/inv')
@@ -124,6 +125,7 @@ def idle():
 
 def verify_inputs(package, target=None):
     target = TARGET if target is None else target
+    verify_generated(package, target)
     if package.get('runtime_ref', BASELINE) != BASELINE or len(package['runtime_files']) != 169:
         raise RuntimeError('The complete unchanged shared production runtime is required')
     for item in package['runtime_files']:
@@ -140,6 +142,85 @@ def verify_inputs(package, target=None):
     require(ROOT / 'sources/MTH_2025AB/src/cui_said_map', package['prior_map']['sha256'])
     for path, sha in [(package['archive_path'], package['archive_sha256']), (package['prior_archive_path'], package['prior_archive_sha256'])]:
         require(Path(path), sha)
+
+
+def generated_recipe(package):
+    """Recompute generated settings from locked inputs and source-file oracles."""
+    present = ('generated_configuration' in package, 'configuration_generation_inputs' in package)
+    if present == (False, False):
+        return None
+    if present != (True, True):
+        raise RuntimeError('Incomplete MTH configuration-generation transport')
+    inputs, expected = package['configuration_generation_inputs'], package['generated_configuration']
+    if set(inputs) != {'configuration', 'artifacts'} or expected.get('profile') != mth_configuration.EXECUTION_PROFILE:
+        raise RuntimeError('Unreviewed MTH generated-execution profile/inputs')
+    templates = {}
+    for item in package['code_files']:
+        name = item['relative_path']
+        if name in templates:
+            raise RuntimeError('Duplicate MTH source-file oracle')
+        templates[name] = item
+    if not mth_configuration.TEMPLATE_NAMES <= set(templates):
+        raise RuntimeError('Incomplete MTH generation producer/oracle inventory')
+    config = inputs['configuration']
+    if config['engine_ref'] != package['engine_ref']:
+        raise RuntimeError('MTH generation/selected engine differs')
+    recipe = mth_configuration.for_execution(mth_configuration.generate(config, inputs['artifacts'],
+                    {name: templates[name] for name in mth_configuration.TEMPLATE_NAMES}))
+    if recipe != expected:
+        raise RuntimeError('MTH generated configuration differs from its locked recipe')
+    bindings = recipe['bindings']
+    if (bindings['metadata_inputs'] != package['metadata_inputs'] or
+            bindings['native_inputs'] != package['prepared_subset']['files'] or
+            bindings['identity_state']['prior_map'] != package['prior_map'] or
+            bindings['identity_state']['prior_archive_path'] != package['prior_archive_path'] or
+            bindings['identity_state']['prior_archive_sha256'] != package['prior_archive_sha256']):
+        raise RuntimeError('MTH generated settings and actual execution dependencies differ')
+    return recipe
+
+
+def verify_generated(package, target):
+    """Check recipe plus all seven generated files before/after conversion."""
+    recipe = generated_recipe(package)
+    if recipe is None:
+        return None
+    if target.is_symlink() or (target / 'src').is_symlink():
+        raise RuntimeError('Generated MTH settings require regular source directories')
+    for item in recipe['files']:
+        path = target / item['relative_path']
+        require(path, item['sha256'])
+        if path.stat().st_mode & 0o777 != 0o444 or item['mode'] != '0o444':
+            raise RuntimeError('Generated MTH settings have changed access bits: ' + item['relative_path'])
+    return mth_configuration.receipt(recipe)
+
+
+def stage_code_files(package, staging):
+    """Materialize Git code and generate settings without copying their oracles."""
+    recipe = generated_recipe(package)
+    generated = {item['relative_path']: item for item in recipe['files']} if recipe else {}
+    for item in package['code_files']:
+        if item['relative_path'] in generated:
+            # Source descriptors remain independently pinned historical oracles.
+            # Their bytes are not written by this copy path.
+            continue
+        path = staging / item['relative_path']
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if item['kind'] == 'symlink':
+            path.symlink_to(item['target'])
+        else:
+            raw = base64.b64decode(item['data_b64'], validate=True)
+            if hashlib.sha256(raw).hexdigest() != item['sha256']:
+                raise RuntimeError('Git code bundle differs')
+            with path.open('xb') as handle:
+                handle.write(raw)
+            path.chmod(int(item['mode'], 8))
+    for name, item in generated.items():
+        path = staging / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open('xb') as handle:
+            handle.write(base64.b64decode(item['data_b64'], validate=True))
+        path.chmod(0o444)
+    return verify_generated(package, staging)
 
 
 def restore_prior_map(package):
@@ -199,6 +280,7 @@ def tree_manifest(root):
 def prepare(package, progress=print):
     guard()
     idle()
+    generated_recipe(package)  # Reject changed generation inputs before restoration/preservation.
     if not re.fullmatch(r'[0-9a-f]{40}', package['engine_ref']) or {x['relative_path'] for x in package['metadata_inputs']} != METADATA:
         raise RuntimeError('A pinned engine and eight preparation metadata inputs are required')
     if shutil.disk_usage(ROOT).free < 45 * 1024 ** 3 or available_memory() < 24 * 1024 ** 3:
@@ -220,18 +302,7 @@ def prepare(package, progress=print):
     try:
         for directory in ['src', 'qa', 'insert']:
             (staging / directory).mkdir()
-        for item in package['code_files']:
-            path = staging / item['relative_path']
-            path.parent.mkdir(parents=True, exist_ok=True)
-            if item['kind'] == 'symlink':
-                path.symlink_to(item['target'])
-            else:
-                raw = base64.b64decode(item['data_b64'], validate=True)
-                if hashlib.sha256(raw).hexdigest() != item['sha256']:
-                    raise RuntimeError('Git code bundle differs')
-                with path.open('xb') as handle:
-                    handle.write(raw)
-                path.chmod(int(item['mode'], 8))
+        generation_receipt = stage_code_files(package, staging)
         allowed = {VERSION + '/' + x['relative_path']: x for x in package['metadata_inputs']}
         found = set()
         with tarfile.open(package['archive_path'], 'r|gz') as tar:
@@ -269,6 +340,8 @@ def prepare(package, progress=print):
                   'previous_run': package.get('previous_run'),
                   'prior_identity_input': package['prior_map'], 'prepared_subset_reference': package['prepared_subset'],
                   'metadata_inputs': package['metadata_inputs'], 'code_files': [{k: v for k, v in x.items() if k != 'data_b64'} for x in package['code_files']]}
+        if generation_receipt is not None:
+            result['configuration_generation'] = generation_receipt
         save(TARGET / 'replay-preparation.json', result)
         if moved:
             for item in old:
@@ -335,6 +408,7 @@ def worker(package_path, inherited_lock=None):
     guard()
     package = json.loads(Path(package_path).read_text())
     configure_case(package)
+    generation = generated_recipe(package)
     identity_script = None
     state = {'source': 'MTH', 'version': VERSION, 'engine_ref': package['engine_ref'], 'run_id': RUN_ID,
              'started_at': now(), 'status': 'running', 'worker_pid': os.getpid(), 'run_directory': str(RUN)}
@@ -384,7 +458,8 @@ def worker(package_path, inherited_lock=None):
                         fields[5] = fields[0][4:]
                         selected.append('|'.join(fields))
                 source_metadata.write_text('\n'.join(selected) + '\n')
-                stage('source-metadata-builder', ['/usr/bin/perl', str(ROOT / 'INV/bin/SRCbuilder.pl'), '-s', '769443591'])
+                source_start = generation['bindings']['legacy_allocation']['SRCbuilder_start'] if generation else 769443591
+                stage('source-metadata-builder', ['/usr/bin/perl', str(ROOT / 'INV/bin/SRCbuilder.pl'), '-s', str(source_start)])
             finally:
                 os.replace(saved_metadata, source_metadata)
             checkpoint(['class_src', 'attr_src', 'rel_src', 'merge_src'])
@@ -425,6 +500,8 @@ def worker(package_path, inherited_lock=None):
                       'started_at': state['started_at'], 'completed_at': now(),
                       'input_engine_runtime_and_output_hashes_verified_after_run': True,
                       'apparatus_sha256': package['apparatus_sha256'], 'insertion_executed': False}
+            if package.get('generated_configuration'):
+                result['configuration_generation'] = verify_generated(package, TARGET)
             save(RUN / 'result.json', result)
             state.update(status='complete', completed_at=result['completed_at'], acceptance_status=result['acceptance']['status'], result_path=str(RUN / 'result.json'))
             save(ACTIVE, state)
