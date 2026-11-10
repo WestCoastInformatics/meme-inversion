@@ -2,6 +2,8 @@
 
 Updated November 9, 2026 (Pacific time). The common historical replay framework has accepted cases for all five sources. Six full common executions are recorded below. All work used the separate dev server and storage at the mirrored operational paths; production is unchanged.
 
+The [November 10 branch consolidation](branch-consolidation-20261110.md) retains the exact tested engines and original production snapshots with annotated tags. The common working branch now includes the reviewed MTH/MDR corrections; all historical case and apparatus commit identities remain unchanged.
+
 | Historical case | Common execution result | Additional evidence |
 |---|---|---|
 | NCI_2026_10D, reviewed PT/order fixes | [PASS_EQUIVALENT](common-nci-2026-10d-result.json) against the official pre-insertion reference | All three native TREF files match; all five output hashes match the earlier stable candidate; explicit August replacement baseline retained |

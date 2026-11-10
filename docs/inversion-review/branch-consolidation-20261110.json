@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "scope": "Git history/ref consolidation and local regression verification; no deployment or fresh native replay",
+  "retained_branches": [
+    "main",
+    "test/inversion-replay-toolbox"
+  ],
+  "main_head_preserved": "3be55ea33024ba9ef998207c1a6de9eb3e482a56",
+  "pre_consolidation_working_head": "01161cac999ce6e30df85e588d871539f6344875",
+  "merge_commits": {
+    "mth": "e9a7d6dce1146fa53d4836e1cf0a38988efbf227",
+    "mdr": "af55edbfe2753451a4d7b06cff35a67e85d51caf"
+  },
+  "retired_branch_targets": {
+    "fix/nci-stable-context-order": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "fix/nci-explicit-pt": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+    "baseline/meme-edit-20261103": "bc085a3c7fa4c069a3cc454aae50861b8e5a7093",
+    "baseline/meme-edit-additions-20261105": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "fix/mth-consistent-identity-state": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "fix/mdr-consistent-history-context": "dd7ae6610557074c1b7b66690538a0591987d056",
+    "NM-271-inversion-rework": "d65d9f60ce11046154b5439ab083b634460ad5b8"
+  },
+  "annotated_retention_tags": {
+    "archive/branches/20261110/baseline-meme-edit-20261103": "bc085a3c7fa4c069a3cc454aae50861b8e5a7093",
+    "production-sources-20261105": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+    "replay-engine/nci-explicit-pt-0de8ca2": "0de8ca21158a2b1efa451ceff26809bbeaee20f9",
+    "replay-engine/nci-stable-context-order-bfda2ce": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+    "replay-engine/mth-identity-state-b2611ab": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "replay-engine/mdr-history-context-dd7ae66": "dd7ae6610557074c1b7b66690538a0591987d056",
+    "replay-engine/nci-common-configuration-2a22938": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+    "archive/branches/20261110/NM-271-inversion-rework": "d65d9f60ce11046154b5439ab083b634460ad5b8",
+    "archive/branches/20261110/replay-toolbox-before-consolidation": "01161cac999ce6e30df85e588d871539f6344875",
+    "production-snapshot-20261103": "3b125edc1d29f7c7a91673da2a8d752bb0adff44"
+  },
+  "mdr_conflict_resolution": {
+    "paths": [
+      "sources/MDR_29_1/bin/append_atn.pl",
+      "sources/MDR_29_1/bin/invert_mdr.pl"
+    ],
+    "exact_source_ref": "dd7ae6610557074c1b7b66690538a0591987d056"
+  },
+  "exact_tree_checks": [
+    {
+      "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "path": "sources/MTH_2026AA",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "path": "tests/check_mth_context_identity.py",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "path": "tests/check_mth_retained_atoms.py",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "dd7ae6610557074c1b7b66690538a0591987d056",
+      "path": "sources/MDR_29_1",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "36f1e10aeadb9faa184fd386573f82e6dd9b53c8",
+      "path": "sources/RADLEX_4_3",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "path": "INV",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "path": "ENV",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "path": "sources/NCI_2026_10D",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
+      "path": "engines/nci",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "path": "sources/SNOMEDCT_US_2026_09_01",
+      "exact_bytes_and_modes": true
+    },
+    {
+      "ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "path": "sources/NCI_2026_09D",
+      "exact_bytes_and_modes": true
+    }
+  ],
+  "local_checks": {
+    "common_request": 80,
+    "nci_configuration": 37,
+    "common_worker": 27,
+    "mth_acceptance": 55,
+    "mth_retention": 12,
+    "mth_context_identity": 15,
+    "mdr_actual_source_corrections": 8,
+    "total": 234
+  },
+  "shared_runtime_review": {
+    "status": "PASS_BOUNDED_CODE_IMPACT_REVIEW",
+    "runtime_files": 169,
+    "source_cases_reviewed": 5
+  },
+  "legacy_prototype_tip_not_merged": true,
+  "historical_case_and_execution_pins_unchanged": true,
+  "cleanup_rules": [
+    "Publish and verify all retained tags and the working branch before deleting redundant remote refs.",
+    "Use expected remote branch SHAs when deleting refs; reject concurrent branch changes.",
+    "Remove only the six clean registered worktrees; keep their parent directories and private evidence.",
+    "Leave main and its untracked files unchanged."
+  ],
+  "remaining_scope": [
+    "Existing dev replay evidence remains authoritative; no new native inversion was run for this ref cleanup.",
+    "The consolidated branch remains development work; main and production deployment are unchanged.",
+    "NCIt new-subsource/new-termgroup preparation remains planned work."
+  ]
+}
