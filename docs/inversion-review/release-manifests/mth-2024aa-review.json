@@ -440,5 +440,22 @@
     "candidate_directory_exists": false,
     "native_execution": "NOT_STARTED",
     "production_eligible": false
+  },
+  "native_execution_followup": {
+    "scope": "Actual later dev launch after authorized obsolete-test retirement; original curation and input-bytecheck snapshots remain unchanged.",
+    "status": "LAUNCHED_NOT_YET_ACCEPTED",
+    "run_id": "native-mth-2024aa-cache-20261111",
+    "lock_sha256": "f0653add90ceacb84b63a27ab2c78bf624ab2cca5df1dc4488ca91a4a9031457",
+    "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/native-mth-2024aa-cache-20261111",
+    "launched_at": "2026-11-11T23:42:34.517743+00:00",
+    "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "runtime_already_matched": true,
+    "runtime_files_verified": 169,
+    "candidate_directory_previously_absent": true,
+    "obsolete_test_retirement_record": "../mth-bulk-retirement-20261111.json",
+    "native_capacity_floor_gib": 45,
+    "free_bytes_before_launch_postcheck": 50360229888,
+    "full_native_result": "PENDING",
+    "production_eligible": false
   }
 }

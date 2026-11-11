@@ -108,5 +108,15 @@
   },
   "decision": "Do not apply this insufficient storage-sharing plan; request at least 30 GiB additional dev filesystem capacity (40 GiB preferred). No real-data apply helper is implemented.",
   "native_execution": "NOT_STARTED_CAPACITY_GATE",
-  "production_eligible": false
+  "production_eligible": false,
+  "subsequent_authorized_retirement": {
+    "record": "mth-bulk-retirement-20261111.json",
+    "files_removed": 43,
+    "logical_bytes_removed": 30278550582,
+    "free_bytes_after_independent_postcheck": 50360229888,
+    "native_capacity_restored": true,
+    "disk_expansion_needed_for_this_run": false,
+    "block_sharing_plan_applied": false,
+    "old_capacity_review_preserved_as_historical_snapshot": true
+  }
 }

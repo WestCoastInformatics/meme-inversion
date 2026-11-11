@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-obsolete-test-bulk-retirement",
+  "status": "PASS_RETIRED_AND_INDEPENDENTLY_VERIFIED",
+  "date": "2026-11-11",
+  "authorization": "User explicitly requested retirement of bulk data from obsolete MTH test copies.",
+  "policy": "dev-test-bulk-retirement-v1",
+  "apparatus_ref": "d055112f570db362ea7153937913a5f44c99c954",
+  "runs": [
+    {
+      "run_id": "common-mth-clean-20261109",
+      "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-common-mth-clean-20261109",
+      "plan_path": "/local/content/MEME/MEME5/inv/qa/replay-retirement/MTH_2026AA.before-common-mth-clean-20261109/plan.json",
+      "plan_sha256": "9322a4ea041d31d7a1ffb1d58380b8a4927a835d04391b9a933544c3bebea6dd",
+      "files_removed": 15,
+      "logical_bytes_removed": 10535269764,
+      "retained_bytes": 1698232,
+      "original_bulk_restorable": false,
+      "retention_apparatus_ref": "d055112f570db362ea7153937913a5f44c99c954"
+    },
+    {
+      "run_id": "common-mth-corrections-20261106",
+      "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-common-mth-corrections-20261106",
+      "plan_path": "/local/content/MEME/MEME5/inv/qa/replay-retirement/MTH_2026AA.before-common-mth-corrections-20261106/plan.json",
+      "plan_sha256": "31c43038b46f832e897d3ca4a24772cf9ceffae0a02815cabc78b3e2bbe35072",
+      "files_removed": 15,
+      "logical_bytes_removed": 10535269764,
+      "retained_bytes": 1990339,
+      "original_bulk_restorable": false,
+      "retention_apparatus_ref": "d055112f570db362ea7153937913a5f44c99c954"
+    },
+    {
+      "run_id": "common-mth-generated-20261110",
+      "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-common-mth-generated-20261110",
+      "plan_path": "/local/content/MEME/MEME5/inv/qa/replay-retirement/MTH_2026AA.before-common-mth-generated-20261110/plan.json",
+      "plan_sha256": "2be5f4bc1d05391295cd1844e42f9120ce7772792eb227d53d302910c1c94283",
+      "files_removed": 13,
+      "logical_bytes_removed": 9208011054,
+      "retained_bytes": 729984,
+      "original_bulk_restorable": false,
+      "retention_apparatus_ref": "d055112f570db362ea7153937913a5f44c99c954"
+    }
+  ],
+  "total_files_removed": 43,
+  "total_logical_bytes_removed": 30278550582,
+  "remaining_small_file_bytes": 4418555,
+  "free_bytes_before": 20084924416,
+  "free_bytes_after_independent_postcheck": 50360229888,
+  "independent_verification": {
+    "current_accepted_output_hashes": 23,
+    "current_tree_metadata_entries_unchanged": 134,
+    "prior_maps_and_immutable_cache_unchanged": true,
+    "archive_metadata_unchanged": true,
+    "runtime_files_verified": 169
+  },
+  "local_checks": {
+    "retirement_protection_and_interruption": 38,
+    "existing_retention_and_transport": 79,
+    "historical_request_compatibility": 95
+  },
+  "retention": {
+    "milestone": "Keep compact commit/input/output identity and verdict records",
+    "routine_verbose_evidence_default_days": 30,
+    "small_remnants_default_expiry": "2026-12-11",
+    "scheduled_expiry_service_installed": false,
+    "original_attempt_statuses_changed": false,
+    "old_lossless_receipts_changed": false
+  },
+  "new_data_archive_created": false,
+  "s3_upload": false,
+  "official_archives_evicted": false,
+  "production_changed": false,
+  "limits": "This deliberately discards obsolete generated test bytes. Older whole-tree verifiers and lossless restore claims are historical; do not describe these retired working trees as still complete."
+}
