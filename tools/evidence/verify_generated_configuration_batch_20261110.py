@@ -125,6 +125,25 @@ with (ROOT / '.replay-runtime.lock').open('r') as held:
               'verified_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'apparatus_ref': APPARATUS, 'runs': verified, 'production_eligible': False,
               'insertion_executed': False, 'runtime_activation_performed': False}
+    retention = ROOT / 'qa/replay-requests/dev-retention-20261110.controller'
+    assert sha(retention / 'archive-results.json') == '1e976f38ccf9c5263f2a9a1babf8064d2328d4c23e2c758ff8dba03a29deb1de'
+    archived = load(retention / 'archive-results.json')
+    retired = load(retention / 'retirement-status.json')
+    assert retired['status'] == 'complete' and len(retired['retired']) == len(archived) == 3
+    assert {item['receipt_sha256'] for item in retired['retired']} == {item['receipt_sha256'] for item in archived}
+    retained_hashes = {}
+    for item in archived:
+        receipt_path = Path(item['receipt'])
+        assert sha(receipt_path) == item['receipt_sha256']
+        receipt = load(receipt_path)
+        assert receipt['status'] == 'VERIFIED' and receipt['verification']['status'] == 'PASS_FULL_ARCHIVE_VERIFICATION'
+        assert receipt['tool_sha256'] == '5130d4b0e736758ff5217297566c5bc22edc1a845de71ef90d25321d41320a5b'
+        assert sha(receipt_path.parent / 'manifest.json') == receipt['manifest_sha256']
+        assert sha(Path(item['archive'])) == receipt['archive_sha256']
+        assert not Path(item['source']).exists() and not Path(item['source']).is_symlink()
+        retained_hashes[Path(item['source']).name] = receipt['archive_sha256']
+    report['older_tree_retention'] = {'verified_archives_retained': 3, 'expanded_copies_retired': 3,
+                                    'archive_hashes_verified_after_retirement': retained_hashes}
     print('BEGIN_COMMON_REPLAY_RESULT')
     print(json.dumps(report))
     print('END_COMMON_REPLAY_RESULT', flush=True)
