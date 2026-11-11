@@ -105,5 +105,24 @@
   "production_changed": false,
   "common_request_or_configuration_fields_changed": false,
   "new_worker_environments_created": false,
-  "scope": "Local follow-on checks only; generated-settings native results and independent server verification retain their original identities and separate evidence."
+  "scope": "Local follow-on checks only; generated-settings native results and independent server verification retain their original identities and separate evidence.",
+  "common_regressions_after_integration": {
+    "git_ref": "d78a12cd5d2b80e5c34d098693592a98536c1a8d",
+    "suites": [
+      {
+        "script": "tools/check_inversion_request.py",
+        "checks": 95,
+        "status": "PASS",
+        "script_sha256": "ada4402641d06a446e57d9498ba97e1e6a15fb261958141cb849830d94cb5d96",
+        "log_sha256": "6e3569df6c2eef59d60d7eef61ad383ab2ab92b0ebd676a2eda8eddb7e40176e"
+      },
+      {
+        "script": "tools/check_generated_configuration_execution.py",
+        "checks": 30,
+        "status": "PASS",
+        "script_sha256": "76173626ba18fa186d3ee4b4618aa5f84b469f60b73b05d4562eb104070f4973",
+        "log_sha256": "4c8e1b3bed8e1da81b686d4ac3354bf6b3fefcea398e303ce2af94c0fe6551fe"
+      }
+    ]
+  }
 }
