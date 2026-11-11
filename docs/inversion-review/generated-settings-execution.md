@@ -28,6 +28,14 @@ Current integration checks cover generated lock construction/JSON round trips, p
 
 Operational new releases still require reviewed metadata/state, source decisions and ID allocation, plus legacy QA and insertion gates. [NCIt's installed-state acquisition gaps](nci-state-acquisition.md) remain explicit. The [primary backend discovery](nci-backend-state-discovery.md) establishes how source SAIDs, root families and default/project precedence are represented, and explains why the earlier synthetic preflight is insufficient for operational ranking validation. Deployment identity, a complete coherent capture and the two historical metadata findings remain unresolved; no database snapshot or semantic correction was invented during this increment.
 
+## Parallel operational preparation follow-up
+
+The [NCIt v2 backend-state preflight](nci-backend-preflight-v2.md) verifies raw field bindings, source-SAID identity, explicit backend-version aliases and separate default/project ranking, without inventing a deployed exporter. All results retain six fixed capture blockers. Its 71 checks pass in the pinned environment, including explicit timezone validation without an optional format package.
+
+The separate [MTH preparation candidate](mth-preparation-corrections.md) rejects invalid prior dispositions, preserves failed proposals and corrects the installed-source disposition field. Twenty-nine confined checks exercise actual revised scripts, valid-byte compatibility and permission preservation. It is committed for review, with no deployment or full upstream MetamorphoSys acceptance. The native run remains pinned to `b2611ab`, whose prepared-input path does not invoke those scripts.
+
+The [follow-up fixture record](operational-preparation-fixtures-20261110.json) verifies that all 23 actual native apparatus modules remain byte-identical to the running lock. See the [next operational gates](operational-release-gates.md) for remaining admission, capture and QA work.
+
 ## Connection handling
 
 The Mac's Cisco Secure Client profile already enabled automatic reconnection after resume. Temporary `caffeinate -i -t 14400` prevents idle sleep during this work; it does not change the managed VPN profile or gateway timeout. SSH already sends keepalives every 30 seconds. The archive, retirement and native batch controllers run detached on dev, so their execution does not depend on the laptop VPN remaining connected. The separately versioned verification driver waits for this exact native batch to complete, then performs the independent offline scan; a failed batch or changed verifier prevents that scan from producing acceptance. Reconnect and collect the same run identity rather than resubmitting a job.

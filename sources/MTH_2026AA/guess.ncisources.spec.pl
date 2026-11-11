@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 #
-# e.g. "guess.ncisources.spec.pl >ncisources.spec"
+# preinvert1.s publishes a complete proposal while preserving failed evidence.
+# Direct use should write to a separate review file, not the existing plan.
 
 die "Missing or unreadable old/ncisources.spec\n" unless -f 'old/ncisources.spec' && -r 'old/ncisources.spec';
 die "Missing or unreadable Meta/MRSAB.RRF\n" unless -f 'Meta/MRSAB.RRF' && -r 'Meta/MRSAB.RRF';

@@ -35,7 +35,11 @@
       "source_plan_guide_ref": "nci-source-plan.md",
       "source_plan_summary_ref": "nci-source-plan-summary.json",
       "source_plan_final_verification_ref": "nci-source-plan-final-verification.json",
-      "source_plan_status": "PASS: full October historical compatibility with two declared findings; metadata/SRC additions and following-release catalog promotion verified; operational eligibility remains separate"
+      "source_plan_status": "PASS: full October historical compatibility with two declared findings; metadata/SRC additions and following-release catalog promotion verified; operational eligibility remains separate",
+      "backend_state_discovery_ref": "nci-backend-state-discovery.md",
+      "backend_state_preflight_ref": "nci-backend-preflight-v2.md",
+      "backend_state_preflight_schema_ref": "nci-installed-state-v2.schema.json",
+      "backend_state_preflight_status": "Offline raw-bound review only; all results BLOCKED_PENDING_CAPTURE_VERIFICATION; no accepted deployed exporter or new operational execution eligibility"
     },
     "SNOMEDCT_US": {
       "display_name": "SNOMEDCT_US",

@@ -2,6 +2,8 @@
 
 The November 10 offline preflight compares generated NCIt source-plan metadata with an explicitly supplied inventory under a synthetic versioned-termgroup model. It distinguishes those declared identities from representation catalog membership. The later [primary backend discovery](nci-backend-state-discovery.md) establishes that real ranking state is held in separate default/project RSAB/TTY precedence lists, and SAIDs require explicitly selected alternate identifiers. This v1 artifact does not prove those deployed semantics or bind its root IDs to raw atom evidence. Its `PASS_RELEASE_PREFLIGHT` result is a bounded preview status, never operational readiness. It does not query a database, stage files, run a converter, reserve IDs, authorize insertion, or alter historical replay locks. Full dev inversions remain serialized through the existing global runtime lock.
 
+The separate [backend-state v2 contract](nci-backend-preflight-v2.md) now verifies supplied raw-byte/field bindings and previews default/project precedence independently. It remains blocked for every result until a deployed capture is verified. There is no implicit conversion or operational authorization from either preview.
+
 The implementation is [nci_release_preflight.py](../../tools/nci_release_preflight.py). Its API is:
 
 ```python
