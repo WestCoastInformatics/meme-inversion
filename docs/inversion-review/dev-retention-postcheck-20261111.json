@@ -1,0 +1,50 @@
+{
+  "status": "PASS_APPROVED_RETENTION_POSTCHECK",
+  "sources": {
+    "snomed": {
+      "regular_files_verified": 14,
+      "regular_bytes_verified": 4639115530,
+      "entries_verified": 32,
+      "retained_file_and_link_modes_identities_and_timestamps_unchanged": true,
+      "directory_modes_and_identities_unchanged": true,
+      "duplicate_files_removed": 27,
+      "duplicate_bytes_removed": 8074186850,
+      "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+      "plan_sha256": "d5f771e0151f8b5a767bb7a53387f3da390c79174db4a32298b03a95cf663358",
+      "complete_sha256": "f593350e9c2b5c15ebcf8627935bb6bd84e26fa040a50e197cfa05e37498ae18",
+      "current_outputs_rehashed": 5,
+      "current_entire_tree_metadata_unchanged": true,
+      "original_evidence_unchanged": true
+    },
+    "mth": {
+      "regular_files_verified": 53,
+      "regular_bytes_verified": 9208741038,
+      "entries_verified": 77,
+      "retained_file_and_link_modes_identities_and_timestamps_unchanged": true,
+      "directory_modes_and_identities_unchanged": true,
+      "duplicate_files_removed": 56,
+      "duplicate_bytes_removed": 1328228128,
+      "archive_sha256": "9a0a8e6c6f58588f3fa7726c08299bf787fc16a3888363cb432438be5e961d93",
+      "plan_sha256": "931e8113a22007c3158b560278264815525ded6f4737d24fddcf524e4fd76676",
+      "complete_sha256": "17db266f622c33dabda1f912ffea6c9f69ad1477ed50389669ae2b4aa21d68c1",
+      "current_outputs_rehashed": 23,
+      "current_entire_tree_metadata_unchanged": true,
+      "original_evidence_unchanged": true
+    }
+  },
+  "current_output_files_rehashed": 28,
+  "original_shared_runtime_files_rehashed": 169,
+  "required_prior_MTH_identity_input_unchanged": true,
+  "free_bytes_before": 40275214336,
+  "free_bytes_after": 49676603392,
+  "free_bytes_increase": 9401389056,
+  "recovery_proof": "Pinned original per-member plan proofs and unchanged full official archive hashes; retained files independently rehashed. No full restoration copy created.",
+  "new_archive_created": false,
+  "verifier_sha256": "a37d14d87aadd27aa868ad1bc2f9d5ca49546361d5022eaecb3100e7b0227019",
+  "code_ref": "7e1df37abb27856261671de27366a02f0714ba78",
+  "started_at": "2026-11-11T16:28:28.016321+00:00",
+  "completed_at": "2026-11-11T16:30:54.923340+00:00",
+  "elapsed_seconds": 146.9,
+  "independent_reader_fixtures_passed": 13,
+  "request_sha256": "2cfc2bc44a64e48e1923e450358c4cfaaf844ec4147dfac849c5eb81e862bbd4"
+}

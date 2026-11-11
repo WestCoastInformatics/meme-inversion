@@ -1,0 +1,1580 @@
+{
+  "artifact_type": "approved-retention-postcheck-request",
+  "preflight": {
+    "free_bytes": 40275214336,
+    "plans": {
+      "snomed": {
+        "plan_sha256": "d5f771e0151f8b5a767bb7a53387f3da390c79174db4a32298b03a95cf663358",
+        "planned_files_present": 27,
+        "current_version": "SNOMEDCT_US_2026_09_01",
+        "current_tree_metadata": {
+          "bin": {
+            "device": 66305,
+            "inode": 301991317,
+            "mode": 16872,
+            "size": 69,
+            "mtime_ns": 1794355770924143115,
+            "target": null
+          },
+          "etc": {
+            "device": 66305,
+            "inode": 310378674,
+            "mode": 16872,
+            "size": 16384,
+            "mtime_ns": 1794357842683615132,
+            "target": null
+          },
+          "orig": {
+            "device": 66305,
+            "inode": 327155876,
+            "mode": 16872,
+            "size": 26,
+            "mtime_ns": 1794355693104166903,
+            "target": null
+          },
+          "tmp": {
+            "device": 66305,
+            "inode": 335544449,
+            "mode": 16872,
+            "size": 6,
+            "mtime_ns": 1794357798673626033,
+            "target": null
+          },
+          "src": {
+            "device": 66305,
+            "inode": 343934360,
+            "mode": 16872,
+            "size": 161,
+            "mtime_ns": 1794357324983740475,
+            "target": null
+          },
+          "insert": {
+            "device": 66305,
+            "inode": 352328774,
+            "mode": 16872,
+            "size": 6,
+            "mtime_ns": 1794355690924167623,
+            "target": null
+          },
+          "bin/invert.s": {
+            "device": 66305,
+            "inode": 301991318,
+            "mode": 33256,
+            "size": 2930,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "bin/invert_rf2.pl": {
+            "device": 66305,
+            "inode": 302003323,
+            "mode": 33256,
+            "size": 57536,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "bin/rmdanglingattrs.pl": {
+            "device": 66305,
+            "inode": 302003325,
+            "mode": 33256,
+            "size": 462,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "etc/qa": {
+            "device": 66305,
+            "inode": 318767761,
+            "mode": 16872,
+            "size": 66,
+            "mtime_ns": 1794355770924143115,
+            "target": null
+          },
+          "etc/icd10.inmeta": {
+            "device": 66305,
+            "inode": 310378676,
+            "mode": 33060,
+            "size": 109803,
+            "mtime_ns": 1794355691964167281,
+            "target": null
+          },
+          "etc/icd10cm.inmeta": {
+            "device": 66305,
+            "inode": 310378678,
+            "mode": 33060,
+            "size": 797093,
+            "mtime_ns": 1794355691964167281,
+            "target": null
+          },
+          "etc/README.txt": {
+            "device": 66305,
+            "inode": 310379207,
+            "mode": 33184,
+            "size": 4530,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "etc/sct.cfg": {
+            "device": 66305,
+            "inode": 310379338,
+            "mode": 33060,
+            "size": 28903,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "etc/replay-case.json": {
+            "device": 66305,
+            "inode": 310379339,
+            "mode": 33152,
+            "size": 14901,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "etc/replay-preparation.json": {
+            "device": 66305,
+            "inode": 310381007,
+            "mode": 33152,
+            "size": 18111,
+            "mtime_ns": 1794355757104146783,
+            "target": null
+          },
+          "etc/replay-active-run.json": {
+            "device": 66305,
+            "inode": 310383543,
+            "mode": 33152,
+            "size": 708,
+            "mtime_ns": 1794357842683615132,
+            "target": null
+          },
+          "etc/replay-core.json": {
+            "device": 66305,
+            "inode": 310383542,
+            "mode": 33152,
+            "size": 13084,
+            "mtime_ns": 1794357411693722180,
+            "target": null
+          },
+          "etc/replay-comparison.json": {
+            "device": 66305,
+            "inode": 310383541,
+            "mode": 33152,
+            "size": 7276,
+            "mtime_ns": 1794357798223626143,
+            "target": null
+          },
+          "etc/qa/replay-runs": {
+            "device": 66305,
+            "inode": 41943537,
+            "mode": 16872,
+            "size": 46,
+            "mtime_ns": 1794355757114146779,
+            "target": null
+          },
+          "etc/qa/invert_SNOMEDCT_US_2026_09_01.log": {
+            "device": 66305,
+            "inode": 318767763,
+            "mode": 33184,
+            "size": 299,
+            "mtime_ns": 1794357309163743830,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110": {
+            "device": 66305,
+            "inode": 50349657,
+            "mode": 16872,
+            "size": 16384,
+            "mtime_ns": 1794357842683615132,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/common-adapter-package.json": {
+            "device": 66305,
+            "inode": 50354641,
+            "mode": 33060,
+            "size": 275552,
+            "mtime_ns": 1794355757124146778,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/conversion.stdout.log": {
+            "device": 66305,
+            "inode": 50354651,
+            "mode": 33184,
+            "size": 343,
+            "mtime_ns": 1794357309163743830,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/conversion.stderr.log": {
+            "device": 66305,
+            "inode": 50354652,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794355770824143149,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/progress.json": {
+            "device": 66305,
+            "inode": 50354655,
+            "mode": 33152,
+            "size": 388,
+            "mtime_ns": 1794357365033732213,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/attributes.src.before-cleanup": {
+            "device": 66305,
+            "inode": 343935332,
+            "mode": 33060,
+            "size": 2319449724,
+            "mtime_ns": 1794357308953743866,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/cleanup.stderr.log": {
+            "device": 66305,
+            "inode": 50354654,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794357324983740475,
+            "target": null
+          },
+          "etc/qa/replay-runs/common-snomed-generated-20261110/result.json": {
+            "device": 66305,
+            "inode": 50354653,
+            "mode": 33152,
+            "size": 35428,
+            "mtime_ns": 1794357842683615132,
+            "target": null
+          },
+          "orig/fromprovider": {
+            "device": 66305,
+            "inode": 360739870,
+            "mode": 16872,
+            "size": 77,
+            "mtime_ns": 1794355693104166903,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z": {
+            "device": 66305,
+            "inode": 369122183,
+            "mode": 16872,
+            "size": 22,
+            "mtime_ns": 1794355693104166903,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot": {
+            "device": 66305,
+            "inode": 377489608,
+            "mode": 16872,
+            "size": 39,
+            "mtime_ns": 1794355698174165231,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology": {
+            "device": 66305,
+            "inode": 386037572,
+            "mode": 16872,
+            "size": 16384,
+            "mtime_ns": 1794355697744165376,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset": {
+            "device": 66305,
+            "inode": 394264734,
+            "mode": 16872,
+            "size": 64,
+            "mtime_ns": 1794355704644163102,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 386037573,
+            "mode": 33060,
+            "size": 32708601,
+            "mtime_ns": 1794355693184166877,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 386037574,
+            "mode": 33060,
+            "size": 233100225,
+            "mtime_ns": 1794355694114166571,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 386037575,
+            "mode": 33060,
+            "size": 408144315,
+            "mtime_ns": 1794355696094165918,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 386037576,
+            "mode": 33060,
+            "size": 4045099,
+            "mtime_ns": 1794355697474165462,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 386037577,
+            "mode": 33060,
+            "size": 8509782,
+            "mtime_ns": 1794355697784165361,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content": {
+            "device": 66305,
+            "inode": 402666531,
+            "mode": 16872,
+            "size": 192,
+            "mtime_ns": 1794355699054164942,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map": {
+            "device": 66305,
+            "inode": 411048364,
+            "mode": 16872,
+            "size": 136,
+            "mtime_ns": 1794355700784164375,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language": {
+            "device": 66305,
+            "inode": 419492718,
+            "mode": 16872,
+            "size": 69,
+            "mtime_ns": 1794355701314164199,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata": {
+            "device": 66305,
+            "inode": 16903310,
+            "mode": 16872,
+            "size": 16384,
+            "mtime_ns": 1794355704644163102,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 402666532,
+            "mode": 33060,
+            "size": 85849760,
+            "mtime_ns": 1794355698604165091,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 402666533,
+            "mode": 33060,
+            "size": 1995855,
+            "mtime_ns": 1794355698914164991,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 402666534,
+            "mode": 33060,
+            "size": 24125967,
+            "mtime_ns": 1794355699224164885,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 411048365,
+            "mode": 33060,
+            "size": 160201316,
+            "mtime_ns": 1794355700224164556,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 411048366,
+            "mode": 33060,
+            "size": 57698895,
+            "mtime_ns": 1794355701124164261,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 419469952,
+            "mode": 33060,
+            "size": 394245927,
+            "mtime_ns": 1794355703314163538,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 16903312,
+            "mode": 33060,
+            "size": 30481,
+            "mtime_ns": 1794355704644163102,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 16903313,
+            "mode": 33060,
+            "size": 491,
+            "mtime_ns": 1794355704644163102,
+            "target": null
+          },
+          "orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt": {
+            "device": 66305,
+            "inode": 16905326,
+            "mode": 33060,
+            "size": 1046,
+            "mtime_ns": 1794355704644163102,
+            "target": null
+          },
+          "src/sources.src": {
+            "device": 66305,
+            "inode": 343934376,
+            "mode": 33060,
+            "size": 904,
+            "mtime_ns": 1794355711634160839,
+            "target": null
+          },
+          "src/termgroups.src": {
+            "device": 66305,
+            "inode": 343935312,
+            "mode": 33060,
+            "size": 828,
+            "mtime_ns": 1794355711634160839,
+            "target": null
+          },
+          "src/classes_atoms.src": {
+            "device": 66305,
+            "inode": 343935319,
+            "mode": 33184,
+            "size": 163029934,
+            "mtime_ns": 1794357308953743866,
+            "target": null
+          },
+          "src/relationships.src": {
+            "device": 66305,
+            "inode": 343935334,
+            "mode": 33184,
+            "size": 140346293,
+            "mtime_ns": 1794357308953743866,
+            "target": null
+          },
+          "src/mergefacts.src": {
+            "device": 66305,
+            "inode": 343935339,
+            "mode": 33184,
+            "size": 138634414,
+            "mtime_ns": 1794357308953743866,
+            "target": null
+          },
+          "src/contexts.src": {
+            "device": 66305,
+            "inode": 343935349,
+            "mode": 33184,
+            "size": 6220515460,
+            "mtime_ns": 1794357308953743866,
+            "target": null
+          },
+          "src/attributes.src": {
+            "device": 66305,
+            "inode": 343935350,
+            "mode": 33184,
+            "size": 2319449724,
+            "mtime_ns": 1794357366443731968,
+            "target": null
+          }
+        }
+      },
+      "mth": {
+        "plan_sha256": "931e8113a22007c3158b560278264815525ded6f4737d24fddcf524e4fd76676",
+        "planned_files_present": 56,
+        "current_version": "MTH_2026AA",
+        "current_tree_metadata": {
+          "src": {
+            "device": 66305,
+            "inode": 302003326,
+            "mode": 16872,
+            "size": 16384,
+            "mtime_ns": 1794368199369769996,
+            "target": null
+          },
+          "qa": {
+            "device": 66305,
+            "inode": 310383544,
+            "mode": 16872,
+            "size": 25,
+            "mtime_ns": 1794358249593532275,
+            "target": null
+          },
+          "insert": {
+            "device": 66305,
+            "inode": 318767771,
+            "mode": 16872,
+            "size": 6,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "METASUBSET3": {
+            "device": 66305,
+            "inode": 293601812,
+            "mode": 41471,
+            "size": 71,
+            "mtime_ns": 1794358135833546267,
+            "target": "/local/content/MEME/MEME5/mr/umls/2026AA/DVDIMAGE/../subset3/METASUBSET"
+          },
+          "Meta3": {
+            "device": 66305,
+            "inode": 293601814,
+            "mode": 41471,
+            "size": 11,
+            "mtime_ns": 1794358135833546267,
+            "target": "METASUBSET3"
+          },
+          "bin": {
+            "device": 66305,
+            "inode": 293601817,
+            "mode": 41471,
+            "size": 1,
+            "mtime_ns": 1794358135833546267,
+            "target": "."
+          },
+          "etc": {
+            "device": 66305,
+            "inode": 293601819,
+            "mode": 41471,
+            "size": 1,
+            "mtime_ns": 1794358135833546267,
+            "target": "."
+          },
+          "old": {
+            "device": 66305,
+            "inode": 293601840,
+            "mode": 41471,
+            "size": 13,
+            "mtime_ns": 1794358135843546268,
+            "target": "../MTH_2025AB"
+          },
+          "prev": {
+            "device": 66305,
+            "inode": 293601843,
+            "mode": 41471,
+            "size": 13,
+            "mtime_ns": 1794358135843546268,
+            "target": "../MTH_2025AB"
+          },
+          "Meta": {
+            "device": 66305,
+            "inode": 293601813,
+            "mode": 41471,
+            "size": 45,
+            "mtime_ns": 1794358135833546267,
+            "target": "/local/content/MEME/MEME5/mr/umls/2026AA/META"
+          },
+          "autoinv.pl": {
+            "device": 66305,
+            "inode": 293601815,
+            "mode": 33256,
+            "size": 23309,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "bigrange.spec": {
+            "device": 66305,
+            "inode": 293601816,
+            "mode": 33184,
+            "size": 53,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "env.s": {
+            "device": 66305,
+            "inode": 293601818,
+            "mode": 33256,
+            "size": 263,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "extractlnc.s": {
+            "device": 66305,
+            "inode": 293601820,
+            "mode": 33256,
+            "size": 1786,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "extractsctus.s": {
+            "device": 66305,
+            "inode": 293601821,
+            "mode": 33256,
+            "size": 1436,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "fix.ccs.sf.pl": {
+            "device": 66305,
+            "inode": 293601822,
+            "mode": 33256,
+            "size": 144,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "fix.mthsab.s": {
+            "device": 66305,
+            "inode": 293601823,
+            "mode": 33256,
+            "size": 1021,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "fix.vsrc.atoms.pl": {
+            "device": 66305,
+            "inode": 293601824,
+            "mode": 33256,
+            "size": 482,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "genmmsysconfigs.pl": {
+            "device": 66305,
+            "inode": 293601825,
+            "mode": 33256,
+            "size": 2475,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "get.saidpts.pl": {
+            "device": 66305,
+            "inode": 293601826,
+            "mode": 33256,
+            "size": 1111,
+            "mtime_ns": 1794358135833546267,
+            "target": null
+          },
+          "guess.ncisources.spec.pl": {
+            "device": 66305,
+            "inode": 293601827,
+            "mode": 33256,
+            "size": 1093,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "initdir.s": {
+            "device": 66305,
+            "inode": 293601828,
+            "mode": 33256,
+            "size": 777,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "inv1.spec": {
+            "device": 66305,
+            "inode": 293601829,
+            "mode": 33184,
+            "size": 1979,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "inv2.spec": {
+            "device": 66305,
+            "inode": 293601830,
+            "mode": 33184,
+            "size": 3422,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "inv3.spec": {
+            "device": 66305,
+            "inode": 293601831,
+            "mode": 33184,
+            "size": 770,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "invert1.s": {
+            "device": 66305,
+            "inode": 293601832,
+            "mode": 33256,
+            "size": 4706,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "invert2.s": {
+            "device": 66305,
+            "inode": 293601833,
+            "mode": 33256,
+            "size": 9035,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "make.meme4classes.pl": {
+            "device": 66305,
+            "inode": 293601834,
+            "mode": 33256,
+            "size": 668,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "make.meme4classes.s": {
+            "device": 66305,
+            "inode": 293601835,
+            "mode": 33256,
+            "size": 604,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "make.sourcestermgroups.pl": {
+            "device": 66305,
+            "inode": 293601836,
+            "mode": 33256,
+            "size": 3562,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "mrcxt2raw3.pl": {
+            "device": 66305,
+            "inode": 293601837,
+            "mode": 33256,
+            "size": 2879,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "ncimid.readme": {
+            "device": 66305,
+            "inode": 293601838,
+            "mode": 33184,
+            "size": 2194,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "ncirest.prop": {
+            "device": 66305,
+            "inode": 293601839,
+            "mode": 33184,
+            "size": 25164,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "preinvert1.s": {
+            "device": 66305,
+            "inode": 293601841,
+            "mode": 33256,
+            "size": 895,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "preinvert2.s": {
+            "device": 66305,
+            "inode": 293601842,
+            "mode": 33256,
+            "size": 2061,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "raw_to_contexts.csh": {
+            "device": 66305,
+            "inode": 293601844,
+            "mode": 33256,
+            "size": 5699,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "remove.oldsrcvsabs.pl": {
+            "device": 66305,
+            "inode": 293601845,
+            "mode": 33256,
+            "size": 790,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "runQA.s": {
+            "device": 66305,
+            "inode": 293601846,
+            "mode": 33256,
+            "size": 330,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "runmmsys.s": {
+            "device": 66305,
+            "inode": 293601847,
+            "mode": 33256,
+            "size": 4047,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "template.prop": {
+            "device": 66305,
+            "inode": 293601848,
+            "mode": 33152,
+            "size": 25119,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "updatevsabs.pl": {
+            "device": 66305,
+            "inode": 293601849,
+            "mode": 33256,
+            "size": 1020,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "updatevsabs.s": {
+            "device": 66305,
+            "inode": 293601850,
+            "mode": 33256,
+            "size": 1211,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "range3.spec": {
+            "device": 66305,
+            "inode": 293601851,
+            "mode": 33060,
+            "size": 55,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "ncisources.spec": {
+            "device": 66305,
+            "inode": 293601852,
+            "mode": 33060,
+            "size": 6018,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "sab.vsab.map": {
+            "device": 66305,
+            "inode": 293601853,
+            "mode": 33060,
+            "size": 1325,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "src_data": {
+            "device": 66305,
+            "inode": 293601854,
+            "mode": 33060,
+            "size": 36,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "ncimid.sources": {
+            "device": 66305,
+            "inode": 293601855,
+            "mode": 33060,
+            "size": 2485,
+            "mtime_ns": 1794358155343542290,
+            "target": null
+          },
+          "ncimid.termgroups": {
+            "device": 66305,
+            "inode": 293602067,
+            "mode": 33060,
+            "size": 10308,
+            "mtime_ns": 1794358155343542290,
+            "target": null
+          },
+          "replay-preparation.json": {
+            "device": 66305,
+            "inode": 293602088,
+            "mode": 33152,
+            "size": 76307,
+            "mtime_ns": 1794358170743538834,
+            "target": null
+          },
+          "replay-active-run.json": {
+            "device": 66305,
+            "inode": 293602095,
+            "mode": 33152,
+            "size": 669,
+            "mtime_ns": 1794368277419747638,
+            "target": null
+          },
+          "src/Meta": {
+            "device": 66305,
+            "inode": 302011077,
+            "mode": 41471,
+            "size": 8,
+            "mtime_ns": 1794358135843546268,
+            "target": "../Meta3"
+          },
+          "src/bin": {
+            "device": 66305,
+            "inode": 302011079,
+            "mode": 41471,
+            "size": 2,
+            "mtime_ns": 1794358135843546268,
+            "target": ".."
+          },
+          "src/raw3": {
+            "device": 66305,
+            "inode": 243270021,
+            "mode": 16872,
+            "size": 29,
+            "mtime_ns": 1794367444029972239,
+            "target": null
+          },
+          "src/MRCONSO.RRF": {
+            "device": 66305,
+            "inode": 302003327,
+            "mode": 41471,
+            "size": 16,
+            "mtime_ns": 1794358135843546268,
+            "target": "Meta/MRCONSO.RRF"
+          },
+          "src/MRCUI.RRF": {
+            "device": 66305,
+            "inode": 302011072,
+            "mode": 41471,
+            "size": 14,
+            "mtime_ns": 1794358135843546268,
+            "target": "Meta/MRCUI.RRF"
+          },
+          "src/MRDEF.RRF": {
+            "device": 66305,
+            "inode": 302011073,
+            "mode": 41471,
+            "size": 14,
+            "mtime_ns": 1794358135843546268,
+            "target": "Meta/MRDEF.RRF"
+          },
+          "src/MRREL.RRF": {
+            "device": 66305,
+            "inode": 302011074,
+            "mode": 41471,
+            "size": 14,
+            "mtime_ns": 1794358135843546268,
+            "target": "Meta/MRREL.RRF"
+          },
+          "src/MRSAT.RRF": {
+            "device": 66305,
+            "inode": 302011075,
+            "mode": 41471,
+            "size": 14,
+            "mtime_ns": 1794358135843546268,
+            "target": "Meta/MRSAT.RRF"
+          },
+          "src/MRSTY.RRF": {
+            "device": 66305,
+            "inode": 302011076,
+            "mode": 41471,
+            "size": 14,
+            "mtime_ns": 1794358135843546268,
+            "target": "Meta/MRSTY.RRF"
+          },
+          "src/aui_said_map2": {
+            "device": 66305,
+            "inode": 302011078,
+            "mode": 41471,
+            "size": 12,
+            "mtime_ns": 1794358135843546268,
+            "target": "aui_said_map"
+          },
+          "src/rel_cui_said_map2": {
+            "device": 66305,
+            "inode": 302011080,
+            "mode": 41471,
+            "size": 16,
+            "mtime_ns": 1794358135843546268,
+            "target": "rel_cui_said_map"
+          },
+          "src/src_data": {
+            "device": 66305,
+            "inode": 302011082,
+            "mode": 41471,
+            "size": 11,
+            "mtime_ns": 1794358135843546268,
+            "target": "../src_data"
+          },
+          "src/inv1.spec": {
+            "device": 66305,
+            "inode": 302011086,
+            "mode": 33060,
+            "size": 1983,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "src/inv2.spec": {
+            "device": 66305,
+            "inode": 302011087,
+            "mode": 33060,
+            "size": 3426,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "src/inv3.spec": {
+            "device": 66305,
+            "inode": 302011088,
+            "mode": 33060,
+            "size": 768,
+            "mtime_ns": 1794358135843546268,
+            "target": null
+          },
+          "src/vsab.updates": {
+            "device": 66305,
+            "inode": 302011089,
+            "mode": 33060,
+            "size": 1004,
+            "mtime_ns": 1794358135853546265,
+            "target": null
+          },
+          "src/sabs_updated_umls": {
+            "device": 66305,
+            "inode": 302011090,
+            "mode": 33060,
+            "size": 353,
+            "mtime_ns": 1794358135853546265,
+            "target": null
+          },
+          "src/rsabs-updated.umls": {
+            "device": 66305,
+            "inode": 302011091,
+            "mode": 33060,
+            "size": 142,
+            "mtime_ns": 1794358135853546265,
+            "target": null
+          },
+          "src/vcodes_updated": {
+            "device": 66305,
+            "inode": 302011092,
+            "mode": 33060,
+            "size": 184,
+            "mtime_ns": 1794358135853546265,
+            "target": null
+          },
+          "src/termgroups.src": {
+            "device": 66305,
+            "inode": 302011093,
+            "mode": 33060,
+            "size": 7163,
+            "mtime_ns": 1794358137253545988,
+            "target": null
+          },
+          "src/auis.moved": {
+            "device": 66305,
+            "inode": 302011095,
+            "mode": 33184,
+            "size": 383139,
+            "mtime_ns": 1794358325543523798,
+            "target": null
+          },
+          "src/auis_nonupdatedSAB_moved": {
+            "device": 66305,
+            "inode": 302011096,
+            "mode": 33184,
+            "size": 11130,
+            "mtime_ns": 1794358332173522553,
+            "target": null
+          },
+          "src/cui_merges": {
+            "device": 66305,
+            "inode": 302011097,
+            "mode": 33184,
+            "size": 10278,
+            "mtime_ns": 1794358333093522380,
+            "target": null
+          },
+          "src/sources.src": {
+            "device": 66305,
+            "inode": 302011094,
+            "mode": 33060,
+            "size": 13996,
+            "mtime_ns": 1794358137253545988,
+            "target": null
+          },
+          "src/attr_src": {
+            "device": 66305,
+            "inode": 302011099,
+            "mode": 33184,
+            "size": 109,
+            "mtime_ns": 1794358333133522375,
+            "target": null
+          },
+          "src/class_src": {
+            "device": 66305,
+            "inode": 302011100,
+            "mode": 33184,
+            "size": 142,
+            "mtime_ns": 1794358333133522375,
+            "target": null
+          },
+          "src/rel_src": {
+            "device": 66305,
+            "inode": 302011101,
+            "mode": 33184,
+            "size": 103,
+            "mtime_ns": 1794358333133522375,
+            "target": null
+          },
+          "src/merge_src": {
+            "device": 66305,
+            "inode": 302011102,
+            "mode": 33184,
+            "size": 67,
+            "mtime_ns": 1794358333133522375,
+            "target": null
+          },
+          "src/classes_atoms.unfiltered.raw": {
+            "device": 66305,
+            "inode": 302011098,
+            "mode": 33184,
+            "size": 602938575,
+            "mtime_ns": 1794358880993403615,
+            "target": null
+          },
+          "src/classes_atoms.src": {
+            "device": 66305,
+            "inode": 302011103,
+            "mode": 33184,
+            "size": 555467101,
+            "mtime_ns": 1794367806849880305,
+            "target": null
+          },
+          "src/aui_said_map": {
+            "device": 66305,
+            "inode": 302011133,
+            "mode": 33184,
+            "size": 115764303,
+            "mtime_ns": 1794359113803346233,
+            "target": null
+          },
+          "src/cui.splitonly.new": {
+            "device": 66305,
+            "inode": 302011135,
+            "mode": 33184,
+            "size": 270,
+            "mtime_ns": 1794359109063347338,
+            "target": null
+          },
+          "src/cui_splitonly_said_map": {
+            "device": 66305,
+            "inode": 302013853,
+            "mode": 33184,
+            "size": 570,
+            "mtime_ns": 1794359110853346922,
+            "target": null
+          },
+          "src/moved_aui_said_map": {
+            "device": 66305,
+            "inode": 302011130,
+            "mode": 33184,
+            "size": 17100,
+            "mtime_ns": 1794359111883346683,
+            "target": null
+          },
+          "src/cui_said_map": {
+            "device": 66305,
+            "inode": 302013854,
+            "mode": 33184,
+            "size": 36214304,
+            "mtime_ns": 1794359115483345844,
+            "target": null
+          },
+          "src/rel_cui_said_map": {
+            "device": 66305,
+            "inode": 302011104,
+            "mode": 33184,
+            "size": 36214304,
+            "mtime_ns": 1794359115703345795,
+            "target": null
+          },
+          "src/attributes.src": {
+            "device": 66305,
+            "inode": 302013855,
+            "mode": 33184,
+            "size": 2796291723,
+            "mtime_ns": 1794367580709934895,
+            "target": null
+          },
+          "src/mergefacts.src": {
+            "device": 66305,
+            "inode": 302013857,
+            "mode": 33184,
+            "size": 83696,
+            "mtime_ns": 1794366853480191744,
+            "target": null
+          },
+          "src/bequeathal.relationships.src": {
+            "device": 66305,
+            "inode": 302013858,
+            "mode": 33184,
+            "size": 682893,
+            "mtime_ns": 1794367216650043854,
+            "target": null
+          },
+          "src/relationships.before-normalization.src": {
+            "device": 66305,
+            "inode": 302013856,
+            "mode": 33184,
+            "size": 797041847,
+            "mtime_ns": 1794366850660192808,
+            "target": null
+          },
+          "src/relationships.src": {
+            "device": 66305,
+            "inode": 302013859,
+            "mode": 33184,
+            "size": 771791609,
+            "mtime_ns": 1794367224620041010,
+            "target": null
+          },
+          "src/src-root.cuis.updated": {
+            "device": 66305,
+            "inode": 302013860,
+            "mode": 33184,
+            "size": 189,
+            "mtime_ns": 1794367227180040096,
+            "target": null
+          },
+          "src/stat_report.log": {
+            "device": 66305,
+            "inode": 302013861,
+            "mode": 33184,
+            "size": 145,
+            "mtime_ns": 1794367580349934456,
+            "target": null
+          },
+          "src/attributes.contexts-all.src": {
+            "device": 66305,
+            "inode": 302013862,
+            "mode": 33184,
+            "size": 460970278,
+            "mtime_ns": 1794367580349934456,
+            "target": null
+          },
+          "src/contexts.before-tail.src": {
+            "device": 66305,
+            "inode": 302013865,
+            "mode": 33184,
+            "size": 310615441,
+            "mtime_ns": 1794367728909901943,
+            "target": null
+          },
+          "src/contexts.src": {
+            "device": 66305,
+            "inode": 302013866,
+            "mode": 33184,
+            "size": 312852945,
+            "mtime_ns": 1794367729439901801,
+            "target": null
+          },
+          "src/said.ptsaid": {
+            "device": 66305,
+            "inode": 302013867,
+            "mode": 33184,
+            "size": 80364920,
+            "mtime_ns": 1794367769089891012,
+            "target": null
+          },
+          "src/ptsaid.order": {
+            "device": 66305,
+            "inode": 302013868,
+            "mode": 33184,
+            "size": 18667580,
+            "mtime_ns": 1794367771309890412,
+            "target": null
+          },
+          "src/classes_atoms.src.raw": {
+            "device": 66305,
+            "inode": 302013869,
+            "mode": 33184,
+            "size": 602938360,
+            "mtime_ns": 1794359048553362907,
+            "target": null
+          },
+          "src/raw3/newsources.raw3": {
+            "device": 66305,
+            "inode": 243271169,
+            "mode": 33152,
+            "size": 3037136474,
+            "mtime_ns": 1794367444019972244,
+            "target": null
+          },
+          "qa/replay-runs": {
+            "device": 66305,
+            "inode": 360739871,
+            "mode": 16872,
+            "size": 43,
+            "mtime_ns": 1794358249593532275,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110": {
+            "device": 66305,
+            "inode": 369122184,
+            "mode": 16872,
+            "size": 16384,
+            "mtime_ns": 1794368277419747638,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/common-adapter-package.json": {
+            "device": 66305,
+            "inode": 369122185,
+            "mode": 33060,
+            "size": 343196,
+            "mtime_ns": 1794358249603532290,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/identity-preparation.stdout.log": {
+            "device": 66305,
+            "inode": 369122187,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794358325353523833,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/identity-preparation.stderr.log": {
+            "device": 66305,
+            "inode": 369122188,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794358325353523833,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/progress.json": {
+            "device": 66305,
+            "inode": 369101594,
+            "mode": 33152,
+            "size": 463,
+            "mtime_ns": 1794367799539882381,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/stages.json": {
+            "device": 66305,
+            "inode": 369125900,
+            "mode": 33152,
+            "size": 3886,
+            "mtime_ns": 1794367806889880294,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/source-metadata-builder.stdout.log": {
+            "device": 66305,
+            "inode": 369125897,
+            "mode": 33184,
+            "size": 381,
+            "mtime_ns": 1794358333133522375,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/source-metadata-builder.stderr.log": {
+            "device": 66305,
+            "inode": 369125899,
+            "mode": 33184,
+            "size": 9,
+            "mtime_ns": 1794358333133522375,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/atoms-and-initial-map.stdout.log": {
+            "device": 66305,
+            "inode": 369125903,
+            "mode": 33184,
+            "size": 352,
+            "mtime_ns": 1794359105503348166,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/atoms-and-initial-map.stderr.log": {
+            "device": 66305,
+            "inode": 369125904,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794358333143522372,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/identity-transitions.stdout.log": {
+            "device": 66305,
+            "inode": 369125905,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794359105523348159,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/identity-transitions.stderr.log": {
+            "device": 66305,
+            "inode": 369103567,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794359105523348159,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/attributes-relationships-merges.stdout.log": {
+            "device": 66305,
+            "inode": 369151557,
+            "mode": 33184,
+            "size": 617,
+            "mtime_ns": 1794366853480191744,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/attributes-relationships-merges.stderr.log": {
+            "device": 66305,
+            "inode": 369151558,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794359115763345778,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/bequeathal-relationships.stdout.log": {
+            "device": 66305,
+            "inode": 369151561,
+            "mode": 33184,
+            "size": 90,
+            "mtime_ns": 1794367217160043672,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/bequeathal-relationships.stderr.log": {
+            "device": 66305,
+            "inode": 369151562,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794366853950191567,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/relationship-normalization.stdout.log": {
+            "device": 66305,
+            "inode": 369151563,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367217160043672,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/relationship-normalization.stderr.log": {
+            "device": 66305,
+            "inode": 369151564,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367217160043672,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/context-roots.stdout.log": {
+            "device": 66305,
+            "inode": 369151565,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367224670040992,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/context-roots.stderr.log": {
+            "device": 66305,
+            "inode": 369151566,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367224670040992,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/raw-contexts.stdout.log": {
+            "device": 66305,
+            "inode": 369151567,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367227220040082,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/raw-contexts.stderr.log": {
+            "device": 66305,
+            "inode": 369151568,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367227220040082,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/context-attributes.stdout.log": {
+            "device": 66305,
+            "inode": 369151569,
+            "mode": 33184,
+            "size": 45,
+            "mtime_ns": 1794367444199972182,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/context-attributes.stderr.log": {
+            "device": 66305,
+            "inode": 369151570,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367444149972199,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/contexts.stdout.log": {
+            "device": 66305,
+            "inode": 369125901,
+            "mode": 33184,
+            "size": 475,
+            "mtime_ns": 1794367728909901943,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/contexts.stderr.log": {
+            "device": 66305,
+            "inode": 369151576,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367580709934895,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/context-tails.stdout.log": {
+            "device": 66305,
+            "inode": 369151578,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367728919901940,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/context-tails.stderr.log": {
+            "device": 66305,
+            "inode": 369151579,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367728919901940,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/preferred-term-and-final-atoms.stdout.log": {
+            "device": 66305,
+            "inode": 369151580,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367729459901795,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/preferred-term-and-final-atoms.stderr.log": {
+            "device": 66305,
+            "inode": 369151581,
+            "mode": 33184,
+            "size": 0,
+            "mtime_ns": 1794367729459901795,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/comparison.json": {
+            "device": 66305,
+            "inode": 369151577,
+            "mode": 33152,
+            "size": 20291,
+            "mtime_ns": 1794368198989770107,
+            "target": null
+          },
+          "qa/replay-runs/common-mth-generated-20261110/result.json": {
+            "device": 66305,
+            "inode": 369151582,
+            "mode": 33152,
+            "size": 79556,
+            "mtime_ns": 1794368277419747638,
+            "target": null
+          }
+        }
+      }
+    }
+  },
+  "plans": {
+    "snomed": {
+      "plan": "/local/content/MEME/MEME5/inv/qa/replay-retention/SNOMEDCT_US_2026_09_01.before-common-snomed-generated-20261110/plan.json",
+      "plan_sha256": "d5f771e0151f8b5a767bb7a53387f3da390c79174db4a32298b03a95cf663358",
+      "complete": "/local/content/MEME/MEME5/inv/qa/replay-retention/SNOMEDCT_US_2026_09_01.before-common-snomed-generated-20261110/complete.json",
+      "complete_sha256": "f593350e9c2b5c15ebcf8627935bb6bd84e26fa040a50e197cfa05e37498ae18"
+    },
+    "mth": {
+      "plan": "/local/content/MEME/MEME5/inv/qa/replay-retention/MTH_2026AA.before-common-mth-generated-20261110/plan.json",
+      "plan_sha256": "931e8113a22007c3158b560278264815525ded6f4737d24fddcf524e4fd76676",
+      "complete": "/local/content/MEME/MEME5/inv/qa/replay-retention/MTH_2026AA.before-common-mth-generated-20261110/complete.json",
+      "complete_sha256": "17db266f622c33dabda1f912ffea6c9f69ad1477ed50389669ae2b4aa21d68c1"
+    }
+  },
+  "verifier_code_ref": "7e1df37abb27856261671de27366a02f0714ba78",
+  "apparatus_sha256": {
+    "driver.py": "5070f43b6ba917b880604c8a5fa59bfa496f9579bd028c7cb837f5b6440b5e79",
+    "apparatus/replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "apparatus/archive_retained_source.py": "5130d4b0e736758ff5217297566c5bc22edc1a845de71ef90d25321d41320a5b",
+    "apparatus/check_retention_compaction_postcheck.py": "d8dc7da64a5713b84b9265320e7d31eb0cba32e3e00c4d1d01d0bbbf907665e6",
+    "apparatus/evidence/verify_retention_compaction_20261111.py": "a37d14d87aadd27aa868ad1bc2f9d5ca49546361d5022eaecb3100e7b0227019"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "control_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/retention-postcheck-20261111.controller",
+  "worker_pid": 2504455,
+  "code_ref": "7e1df37abb27856261671de27366a02f0714ba78",
+  "request_sha256": "2cfc2bc44a64e48e1923e450358c4cfaaf844ec4147dfac849c5eb81e862bbd4",
+  "verifier_sha256": "a37d14d87aadd27aa868ad1bc2f9d5ca49546361d5022eaecb3100e7b0227019",
+  "driver_sha256": "5070f43b6ba917b880604c8a5fa59bfa496f9579bd028c7cb837f5b6440b5e79",
+  "launched_at": "2026-11-11T16:28:27.962719+00:00",
+  "detached": true,
+  "source_data_access": "read-only"
+}
