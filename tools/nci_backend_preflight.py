@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import sys
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -230,9 +231,10 @@ def analyze_backend(configuration, source_plan, metadata_model, properties,
         semantic.append({'code': code, 'identifier': identity, 'reason': reason})
 
     if not raw_findings:
-        expected_primary = ('NCI', nci_configuration.release(baseline['version']))
+        expected_primary = captured_aliases.get(baseline['version'])
         primary_current = [pair for pair, row in versions.items() if pair[0] == 'NCI' and row['current']]
-        if primary_current != [expected_primary] or expected_primary not in replacement or captured_aliases.get(baseline['version']) != expected_primary:
+        if (expected_primary is None or expected_primary[0] != 'NCI'
+                or primary_current != [expected_primary] or expected_primary not in replacement):
             finding('PRIMARY_REPLACEMENT_MISMATCH', 'NCI', 'Captured current primary version and reviewed replacement membership must match the explicit baseline.')
         current_counts = {}
         for (source, _), row in versions.items():
@@ -266,7 +268,7 @@ def analyze_backend(configuration, source_plan, metadata_model, properties,
                 finding('ESTABLISHED_SOURCE_ROOT_MISSING', source, 'Known representation does not establish an installed SRC/RPT source atom.')
             if source not in new_sources and families.get(source) != 'NCI':
                 finding('SOURCE_FAMILY_MISMATCH', source, 'Established NCI-family metadata is absent or belongs to another family.')
-            if (source, current) in versions:
+            if (source, row['version']) in versions:
                 finding('PROPOSED_VERSION_ALREADY_PRESENT', row['source_name'], 'The proposed source/version already exists in captured metadata.')
             if row['low_source'] not in version_identities:
                 finding('SOURCE_RANK_ALIAS_MISSING', row['source_name'], 'No exact generated/captured metadata mapping resolves low_source: ' + row['low_source'])
@@ -378,23 +380,30 @@ def main():
     parser.add_argument('--raw-export-directory', type=Path, required=True)
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
-    lock, state = _load(args.lock.read_bytes()), _load(args.installed_state.read_bytes())
-    root = args.raw_export_directory.resolve(strict=True)
-    raw = {}
-    for item in state.get('raw_exports', []):
-        relative = _path(item['path']);path = root / relative
-        if path.is_symlink() or not path.is_file() or path.resolve() != path:
-            raise ValueError('Raw export or its ancestor is absent/linked')
-        raw[item['path']] = path.read_bytes()
-    result = analyze_backend(*inputs_from_lock(lock), state, args.installed_state_sha256, raw)
-    data = json.dumps(result, indent=2) + '\n'
-    if args.output:
-        with args.output.open('x') as handle:
-            handle.write(data)
-        args.output.chmod(0o444)
-    else:
-        print(data, end='')
-    return 2  # All current v2 reports remain blocked pending real capture verification.
+    try:
+        lock, state = _load(args.lock.read_bytes()), _load(args.installed_state.read_bytes())
+        root = args.raw_export_directory.resolve(strict=True)
+        raw = {}
+        for item in state.get('raw_exports', []):
+            relative = _path(item['path']);path = root / relative
+            if path.is_symlink() or not path.is_file() or path.resolve() != path:
+                raise ValueError('Raw export or its ancestor is absent/linked')
+            raw[item['path']] = path.read_bytes()
+        result = analyze_backend(*inputs_from_lock(lock), state, args.installed_state_sha256, raw)
+        data = json.dumps(result, indent=2) + '\n'
+        if args.output:
+            with args.output.open('x') as handle:
+                handle.write(data)
+            args.output.chmod(0o444)
+        else:
+            print(data, end='')
+        return 3  # Retained blocked report, consistent with the common preview CLI.
+    except (ValueError, KeyError, TypeError, OSError) as exc:
+        print('Invalid preflight input: ' + str(exc), file=sys.stderr)
+        return 2
+    except Exception as exc:
+        print('Unexpected preflight error: ' + str(exc), file=sys.stderr)
+        return 1
 
 
 if __name__ == '__main__':

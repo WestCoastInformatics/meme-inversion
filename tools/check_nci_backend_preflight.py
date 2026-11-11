@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Synthetic backend-contract checks; no exporter/deployment/capture is approved."""
+import contextlib
 import copy
+import io
 import json
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
+from unittest.mock import patch
 
 import check_nci_release_preflight as original
 import check_nci_source_plan as source_fixture
@@ -112,6 +115,21 @@ def check():
     good(args == before, 'Every configuration/plan/model/state/raw input remains unchanged')
     good(result == backend.analyze_backend(*args), 'Same frozen bytes produce the same deterministic result')
     good(result['replacement_baseline']['version'] == 'NCI_2026_08E', 'October uses explicit August replacement, without an inferred September')
+    changed = fixture();document = raw_document(changed)
+    for index, row in enumerate(changed[4]['source_versions']):
+        if row['source'] == 'NCI':
+            row['backend_version'] = 'backend-august-state'
+            document['versions'][index]['version'] = row['backend_version']
+    for index, row in enumerate(changed[4]['version_aliases']):
+        if row['source'] == 'NCI':
+            row['backend_version'] = 'backend-august-state'
+            document['version_aliases'][index]['version'] = row['backend_version']
+    for row in changed[4]['replacement_sources']:
+        if row['source'] == 'NCI':
+            row['backend_version'] = 'backend-august-state'
+    explicit = backend.analyze_backend(*repack(changed, document))
+    good(explicit['semantic_status'] == 'PASS' and explicit['replacement_baseline']['version'] == 'NCI_2026_08E',
+         'Explicit primary alias can bind a backend version distinct from the NCIt release suffix, preserving common chronology')
     good(result['bindings']['verified_raw_rows'] and result['bindings']['raw_exports'], 'Results bind raw bytes and each verified JSON row location')
     good(result['bindings']['raw_exports']['synthetic-export.json']['sha256'] == plans.sha(args[6]['synthetic-export.json']),
          'Raw-export bindings retain actual byte hashes independently from source-version alias maps')
@@ -229,11 +247,25 @@ def check():
                    '--installed-state', str(root / 'state.json'), '--installed-state-sha256', original_args[5],
                    '--raw-export-directory', str(root / 'raw'), '--output', str(output)]
         result = subprocess.run(command, capture_output=True, text=True, timeout=30)
-        good(result.returncode == 2 and json.loads(output.read_text())['status'] == 'BLOCKED_PENDING_CAPTURE_VERIFICATION',
-             'Standalone CLI writes a review report and exits2 rather than claiming an executable ready package')
+        good(result.returncode == 3 and json.loads(output.read_text())['status'] == 'BLOCKED_PENDING_CAPTURE_VERIFICATION',
+             'Standalone CLI retains a blocked report and exits3 consistently with the common preview')
         good(not output.stat().st_mode & 0o222, 'Standalone report is read-only')
         result = subprocess.run(command, capture_output=True, text=True, timeout=30)
-        good(result.returncode != 0 and output.exists(), 'Standalone output collision preserves the previous report')
+        good(result.returncode == 2 and output.exists() and 'Traceback' not in result.stderr, 'Standalone output collision preserves the previous report and gives clean invalid-input status2')
+        invalid_output = root / 'invalid-report.json'
+        invalid_command = list(command)
+        invalid_command[invalid_command.index(original_args[5])] = '0' * 64
+        invalid_command[invalid_command.index(str(output))] = str(invalid_output)
+        result = subprocess.run(invalid_command, capture_output=True, text=True, timeout=30)
+        good(result.returncode == 2 and not invalid_output.exists() and not result.stdout
+             and result.stderr and 'Traceback' not in result.stderr, 'Tampered input exits2 with clean stderr and produces no report')
+        internal_output = root / 'internal-report.json'
+        internal_command = list(command[2:]);internal_command[internal_command.index(str(output))] = str(internal_output)
+        stderr = io.StringIO()
+        with patch.object(sys, 'argv', internal_command), patch.object(backend, 'analyze_backend', side_effect=RuntimeError('fixture internal failure')), contextlib.redirect_stderr(stderr):
+            status = backend.main()
+        good(status == 1 and not internal_output.exists() and 'Unexpected preflight error' in stderr.getvalue(),
+             'Unexpected internal errors use status1 and produce no review report')
     print(json.dumps({'status': 'PASS', 'checks': len(checks), 'details': checks}, indent=2))
     return checks
 

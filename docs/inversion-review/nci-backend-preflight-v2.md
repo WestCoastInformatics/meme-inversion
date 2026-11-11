@@ -17,6 +17,8 @@ The [v1 analyzer](nci-release-preflight.md), its profile, common preview CLI, hi
 
 V2 is a separate, standalone preview. Its `inputs_from_lock` helper consumes an existing, unchanged NCIt source-plan common lock and revalidates that profile's generated recipe. The v2 state is additional explicit review evidence; it does not silently replace `inputs.reference_ncimeta`, the representation catalog or saved hierarchy-root input. Registering an operational capture profile or integrating this contract into the common worker remains separately reviewed work.
 
+Common NCIt version names still establish candidate/replacement chronology. The actual primary backend version is obtained from the explicit captured baseline alias, never by removing `NCI_` from the common version name. Proposed existing-version checks use each generated metadata row's explicit source/version fields. A backend version can therefore differ from the NCIt release suffix when the selected raw metadata alias establishes that identity.
+
 ## State and evidence roles
 
 The schema requires these roles rather than collapsing them into one installed-termgroup list:
@@ -71,7 +73,7 @@ In the existing isolated Python environment with `jsonschema` installed:
 python -B tools/nci_backend_preflight.py --lock source-plan.lock.json --installed-state backend-state-v2.json --installed-state-sha256 <canonical-state-hash> --raw-export-directory preserved-original-exports --output fresh-review-report.json
 ```
 
-The standalone CLI emits the report and exits **2** because the current capture status is blocked. `--output` creates a fresh read-only file and refuses to overwrite an existing report; stdout is available by omitting it. Invalid/tampered input fails before a report is written. It generates no candidate files and starts no job. The common CLI is unchanged.
+The standalone CLI emits the report and exits **3** because the current capture status is blocked, matching the common preview convention. Invalid/tampered input exits **2** with clean stderr and no new report; **1** is reserved for unexpected/internal errors. `--output` creates a fresh read-only file and refuses to overwrite an existing report; stdout is available by omitting it. It generates no candidate files and starts no job. The common CLI is unchanged.
 
 ## Verification and next gate
 
