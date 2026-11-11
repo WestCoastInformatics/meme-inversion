@@ -146,6 +146,20 @@ def check():
         changed['artifacts']['representation-policy']['data']['mappings']['description_types']['900000000000003001']['tty'] = 'PT'
         recipe = materialize(changed, target)
         good(not execute.validate_inputs(recipe, target)['passed'], 'A typed policy declaration cannot silently change the captured TTY representation')
+    with tempfile.TemporaryDirectory(prefix='snomed-release-metadata-wire-') as directory:
+        target = Path(directory).resolve(); manifest = fixture()
+        materialize(manifest, target)
+        state = manifest['artifacts']['ncimeta-snapshot']; state['data']['metadata_format'] = {}
+        for role, key, destination in [('sources-src','sources_rows','src/sources.src'),('termgroups-src','termgroups_rows','src/termgroups.src')]:
+            wire = ''.join('|'.join(row)+'|\n' for row in state['data'][key]).encode()
+            entry = next(item for item in state['files'] if item['role'] == role)
+            entry.update(sha256=hashlib.sha256(wire).hexdigest(),bytes=len(wire))
+            state['data']['metadata_format'][role] = {'terminal_delimiter':True}
+            path = target / destination; path.chmod(0o644);path.write_bytes(wire);path.chmod(0o444)
+        recipe = plan(manifest)
+        good(execute.validate_inputs(recipe,target)['passed'], 'Explicit terminal-delimiter dialect preserves archived metadata bytes with logical20/6fields')
+        state['data']['metadata_format']['sources-src']['terminal_delimiter']='yes'
+        reject(lambda:plan(manifest),'Metadata wire-dialect flags must be explicit booleans')
     # Captured conversion changes are restricted to the three reviewed target
     # literal substitutions; every other byte and the cleanup script agree.
     ref = '3b125edc1d29f7c7a91673da2a8d752bb0adff44'; source = 'sources/SNOMEDCT_US_2026_09_01/bin/'

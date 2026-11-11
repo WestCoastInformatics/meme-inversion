@@ -131,13 +131,15 @@ def _destination(entry, data, version):
     return destination
 
 
-def _metadata_bytes(rows, width):
+def _metadata_bytes(rows, width, terminal_delimiter=False):
     if not isinstance(rows, list) or not rows:
         raise ValueError('Reviewed source metadata rows are required')
+    if type(terminal_delimiter) is not bool:
+        raise ValueError('Metadata terminal-delimiter declaration must be boolean')
     for row in rows:
         if len(row) != width or any(not isinstance(value, str) or any(c in value for c in '|\r\n\x00') for value in row):
             raise ValueError('Malformed reviewed metadata row')
-    return ''.join('|'.join(row) + '\n' for row in rows).encode('utf-8')
+    return ''.join('|'.join(row) + ('|' if terminal_delimiter else '') + '\n' for row in rows).encode('utf-8')
 
 
 def build_plan(configuration, artifacts, code_files=None):
@@ -203,8 +205,15 @@ def build_plan(configuration, artifacts, code_files=None):
             add(metadata_name, entry, METADATA[entry['role']])
     if set(saved) != set(METADATA):
         raise ValueError('Saved source/termgroup metadata and both ICD inventories are required')
-    rendered_metadata = {'src/sources.src': _metadata_bytes(metadata['data']['sources_rows'], 20),
-                         'src/termgroups.src': _metadata_bytes(metadata['data']['termgroups_rows'], 6)}
+    metadata_format = metadata['data'].get('metadata_format', {})
+    if not isinstance(metadata_format, dict) or set(metadata_format) - {'sources-src', 'termgroups-src'}:
+        raise ValueError('Unexpected metadata serialization role')
+    rendered_metadata = {}
+    for role, key, width in (('sources-src', 'sources_rows', 20), ('termgroups-src', 'termgroups_rows', 6)):
+        options = metadata_format.get(role, {})
+        if not isinstance(options, dict) or set(options) - {'terminal_delimiter'}:
+            raise ValueError('Unsupported metadata serialization options')
+        rendered_metadata[METADATA[role]] = _metadata_bytes(metadata['data'][key], width, options.get('terminal_delimiter', False))
     source_row = metadata['data']['sources_rows']
     if len(source_row) != 1 or source_row[0][0:2] != [config['version'], prior['version']] or source_row[0][6] != config['source']:
         raise ValueError('Source metadata differs from current/inserted source identities')
