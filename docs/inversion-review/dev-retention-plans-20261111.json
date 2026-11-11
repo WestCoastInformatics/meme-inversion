@@ -1,0 +1,63 @@
+{
+  "status": "PLANNED_NOT_APPLIED_PENDING_EXPLICIT_CLEANUP_APPROVAL",
+  "recorded_at": "2026-11-11T16:13:00.198060+00:00",
+  "host": "ncias-d3777-c",
+  "policy": "dev-replay-retention-v1",
+  "plans": [
+    {
+      "source": "snomed",
+      "original_server_plan": "/local/content/MEME/MEME5/inv/qa/replay-retention/SNOMEDCT_US_2026_09_01.before-common-snomed-generated-20261110/plan.json",
+      "repository_plan": "docs/inversion-review/dev-retention-snomed-plan-20261111.json",
+      "plan_bytes": 26886,
+      "plan_sha256": "d5f771e0151f8b5a767bb7a53387f3da390c79174db4a32298b03a95cf663358",
+      "planning_apparatus_ref": "720084ec502371f76abbd877eb1f7a21f327a5ca",
+      "duplicate_files": 27,
+      "duplicate_bytes": 8074186850,
+      "retained_protected_or_unmatched_bytes": 4639115530,
+      "all_planned_files_still_present": true,
+      "completion_record_exists": false
+    },
+    {
+      "source": "mth",
+      "original_server_plan": "/local/content/MEME/MEME5/inv/qa/replay-retention/MTH_2026AA.before-common-mth-generated-20261110/plan.json",
+      "repository_plan": "docs/inversion-review/dev-retention-mth-plan-20261111.json",
+      "plan_bytes": 38799,
+      "plan_sha256": "931e8113a22007c3158b560278264815525ded6f4737d24fddcf524e4fd76676",
+      "planning_apparatus_ref": "cf11206ceae0a203645f08a433e688aad6a56f71",
+      "duplicate_files": 56,
+      "duplicate_bytes": 1328228128,
+      "retained_protected_or_unmatched_bytes": 9208741038,
+      "all_planned_files_still_present": true,
+      "completion_record_exists": false
+    }
+  ],
+  "total_duplicate_files": 83,
+  "total_duplicate_bytes": 9402414978,
+  "new_archive_created": false,
+  "new_S3_upload_performed": false,
+  "data_deletion_executed": false,
+  "production_changed": false,
+  "automatic_approval_review": {
+    "action": "Apply two pinned duplicate-compaction plans to older SNOMED/MTH dev predecessor trees",
+    "outcome": "rejected_before_execution",
+    "reason": "User authorized policy development/testing but did not clearly approve this concrete deletion of files from dev predecessor trees.",
+    "required_next_step": "Explicit user approval of these two pinned plans; no other folders or unique/unmatched files are in this request."
+  },
+  "legacy_backlog": {
+    "retained_folders_in_readonly_inventory": 13,
+    "admission_scope": "New common locks containing replay_retention.py; older frozen/standalone history reported separately, never relabeled as new accepted runs."
+  },
+  "read_only_admission_probe": {
+    "policy": "dev-replay-retention-v1",
+    "maximum_expanded_rollbacks": 1,
+    "expanded_rollbacks": [],
+    "compacted_runs": [],
+    "legacy_rollbacks": [
+      "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomed-generated-20261110"
+    ],
+    "admission_available": true,
+    "retention_apparatus_ref": "38985d1e4c5dddf9fcf962a07cc92f4333a75687",
+    "retention_capsule_sha256": "6b3d35f39f04861b624f3176103d873b98acfa68438a11c3331d633fdd04330b"
+  },
+  "scope": "Original server plan JSON bytes preserved. Planning and fixture execution changed no source data. No compaction/deletion was attempted after automatic review rejected execution."
+}

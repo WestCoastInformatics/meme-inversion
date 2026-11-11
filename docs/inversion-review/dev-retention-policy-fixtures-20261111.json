@@ -1,0 +1,40 @@
+{
+  "status": "PASS_DEV_RETENTION_POLICY_FIXTURES",
+  "policy": "dev-replay-retention-v1",
+  "recorded_at": "2026-11-11T15:58:00.926139+00:00",
+  "implementation_ref": "720084ec502371f76abbd877eb1f7a21f327a5ca",
+  "restrictive_permission_fixture_fix_ref": "cf11206ceae0a203645f08a433e688aad6a56f71",
+  "source_engine_runtime_or_data_format_changes": false,
+  "new_common_apparatus_modules": 25,
+  "local_retention_checks": 79,
+  "local_umask027_retention_checks": 79,
+  "dev_retention_filesystem_checks": 77,
+  "dev_common_worker_checks": 27,
+  "dev_fixture_code_ref": "38985d1e4c5dddf9fcf962a07cc92f4333a75687",
+  "committed_lock_variants_checked": 11,
+  "snomed_mth_native_recipes_source_and_runtime_unchanged": true,
+  "prior_regressions_passed": {
+    "common_request": 95,
+    "generated_configuration_execution": 30,
+    "mth_common_finalization": 50
+  },
+  "files": {
+    "tools/replay_retention.py": "b1cc4729f439a3effc4d5128fd377737c0a0622047851919a3bd92ff053258f0",
+    "tools/check_replay_retention.py": "05e6a11d9a4a7562cd2dc8ae78fa1a908eef852ec5f74c95de15ecb28fc09294",
+    "tools/inversion_worker.py": "934afa7badd1662808f468031a98198b3c15a61717cbb12d476e93a9a857d095",
+    "tools/inversion_request.py": "4b8294d879db85b4d0e2a9e5e04e7e1bf8bb586cd946b1cba502e0b3d3c83367",
+    "tools/inversion_remote.py": "9edb9d2a16ee54355bbc609aebe989179b9271e7b41851d3da0e3ea3671223b7"
+  },
+  "logs": {
+    "check_replay_retention-final.log": "7b262cca785d0a591489a1f14847cae9f09e7f50e142d340d5f6d07f709d0391",
+    "check_replay_retention-final-umask027.log": "7b262cca785d0a591489a1f14847cae9f09e7f50e142d340d5f6d07f709d0391",
+    "check_replay_retention.py.dev.log": "ec11b7853a713c2bef3b3ec6b4b5ff7934a5ac0432cb8df3c1cd711bd01a2a84",
+    "check_inversion_worker.py.dev.log": "6b9f077022efd582a76f202749d4f15259e8a4667ce9277bad73598c2b670a07"
+  },
+  "initial_dev_fixture_finding": "An initial failed-run fixture assumed mode0444; dev umask027 yields0440. The fixture now restores captured mode. Final dev77+27 and local79 normal/restrictive checks pass.",
+  "fixture_scope": "Real filesystem, shared locking, actual common launch admission, all five verdicts, preserved failures, byte-only archive recovery proof, interrupted deletion/resumption and full reconstruction. Host/idle checks mocked only in fixtures. Dev operations need separate original plan/completion receipts.",
+  "final_implementation_ref": "38985d1e4c5dddf9fcf962a07cc92f4333a75687",
+  "archive_proof_reuse_ref": "c5f556730f1bec2e21fc2b06b974646eebb196b4",
+  "prospective_admission_and_restore_registration_ref": "38985d1e4c5dddf9fcf962a07cc92f4333a75687",
+  "committed_lock_code_ref": "38985d1e4c5dddf9fcf962a07cc92f4333a75687"
+}
