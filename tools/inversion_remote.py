@@ -152,6 +152,9 @@ with tempfile.TemporaryDirectory(prefix='ncim-retention-') as temporary:
  sys.path.insert(0,str(root));sys.dont_write_bytecode=True
  import replay_retention
  functions={'status':replay_retention.status,'plan':replay_retention.plan,'compact':replay_retention.compact,'restore':replay_retention.restore}
+ if capsule['operation'].startswith('retire-'):
+  import retire_replay_bulk
+  functions.update({'retire-plan':retire_replay_bulk.plan,'retire-bulk':retire_replay_bulk.apply})
  result=functions[capsule['operation']](**capsule['parameters'])
  result['retention_apparatus_ref']=capsule['apparatus_ref']
  result['retention_capsule_sha256']=capsule['capsule_sha256']
@@ -193,12 +196,13 @@ def main():
     review.add_argument('--parent-run-id', required=True)
     review.add_argument('--review-id', required=True)
     review.add_argument('--output', required=True)
-    for name in ('plan', 'compact', 'restore'):
+    for name in ('plan', 'compact', 'restore', 'retire-plan', 'retire-bulk'):
         child = commands.add_parser('retention-' + name)
-        if name == 'plan':
+        if name in ('plan', 'retire-plan'):
             child.add_argument('--run-id', required=True)
-            child.add_argument('--verification')
-            child.add_argument('--verification-sha256')
+            if name == 'plan':
+                child.add_argument('--verification')
+                child.add_argument('--verification-sha256')
         else:
             child.add_argument('--plan-path', required=True)
             child.add_argument('--plan-sha256', required=True)

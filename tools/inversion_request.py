@@ -132,12 +132,14 @@ def audit_review_capsule(parent_run_id, review_id):
 def retention_capsule(operation, parameters):
     fields = {'status': {'version'}, 'plan': {'run_id', 'verification', 'verification_sha256'},
               'compact': {'plan_path', 'plan_sha256'},
-              'restore': {'plan_path', 'plan_sha256', 'destination'}}
+              'restore': {'plan_path', 'plan_sha256', 'destination'},
+              'retire-plan': {'run_id'}, 'retire-bulk': {'plan_path', 'plan_sha256'}}
     if operation not in fields or set(parameters) != fields[operation]:
         raise ValueError('Invalid retention operation parameters')
     ref = commit('HEAD')
     modules, provenance = {}, []
-    for name in MODULES:
+    selected_modules = MODULES + (('retire_replay_bulk.py',) if operation.startswith('retire-') else ())
+    for name in selected_modules:
         path = 'tools/' + name
         raw = blob(ref, path)
         if raw != (ROOT / path).read_bytes():

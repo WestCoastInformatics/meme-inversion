@@ -99,13 +99,28 @@ def _managed_rollback(root, source):
 def inventory(root, version, source=None):
     if version not in VERSIONS.values() and (source not in VERSIONS or not re.fullmatch(re.escape(source) + r'_[A-Za-z0-9_]+', version)):
         raise ValueError('Unreviewed source/version retention policy')
-    expanded, compacted, legacy = [], [], []
+    expanded, compacted, retired, legacy = [], [], [], []
     for source in sorted((root / 'sources').glob(version + '.before-*')):
         if source.is_symlink() or not source.is_dir():
             raise RuntimeError('Unexpected rollback path: ' + str(source))
         namespace = root / 'qa/replay-retention' / source.name
         complete = namespace / 'complete.json'
         hold = root / 'qa/replay-retention/holds' / (source.name + '.json')
+        retirement = namespace / 'retirement.json'
+        if retirement.exists() or retirement.is_symlink():
+            try:
+                storage._safe_directory(namespace)
+                state = storage._load(retirement)
+                plan_path = root / 'qa/replay-retirement' / source.name / 'plan.json'
+                valid = (state['status'] == 'RETIRED_TEST_BULK' and state['policy'] == 'dev-test-bulk-retirement-v1'
+                         and state['source'] == str(source) and state['plan_path'] == str(plan_path)
+                         and storage._file_sha(plan_path) == state['plan_sha256']
+                         and state['remaining_capture'] == _shape(source)
+                         and not (hold.exists() or hold.is_symlink()))
+            except (OSError, ValueError, KeyError, TypeError):
+                valid = False
+            (retired if valid else expanded).append(str(source))
+            continue
         try:
             storage._safe_directory(namespace)
             state = storage._load(complete)
@@ -124,7 +139,7 @@ def inventory(root, version, source=None):
         else:
             legacy.append(str(source))
     return {'policy': POLICY, 'maximum_expanded_rollbacks': MAX_EXPANDED_ROLLBACKS,
-            'expanded_rollbacks': expanded, 'compacted_runs': compacted, 'legacy_rollbacks': legacy,
+            'expanded_rollbacks': expanded, 'compacted_runs': compacted, 'retired_runs': retired, 'legacy_rollbacks': legacy,
             'admission_available': len(expanded) < MAX_EXPANDED_ROLLBACKS}
 
 
