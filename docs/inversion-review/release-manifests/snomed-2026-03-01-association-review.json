@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_03_01",
+  "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+  "cfg_sha256": "5feb62d87b1f235935446a0b7fe5e65cecda2fcad564dd48987a93fdd1e07650",
+  "producer_sha256": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+  "native_sha256": {
+    "rf2-association": "a915705b8e9d20a69f951f45b087bd86f70e6ea7e18a95fde7706478f4b4a727",
+    "rf2-attribute-value": "475277a7a94a507688ba07ed508c9d013fe53d7e19d0aa63711e329e7e616a74",
+    "rf2-concepts": "13832728ff41c71bd986d445ada886d4168aef7dd4bba702abbf187298eda4be",
+    "rf2-concrete-values": "566836b1cb56442d295561511d222185511679aa192e69f159086342ae2720a0",
+    "rf2-description-type": "d3a28af12709a07675b59b15d365005c6428d5952314d55f03091ac7906a6532",
+    "rf2-descriptions": "f92ba840b7270253515afac0c1db512e5f442b8fa8c546a4dcb128c608bf0dd5",
+    "rf2-extended-map": "4bb1433ea5971fe9637f052bd1f264d9aa3ced22dc2696f7e8b2362b22785a97",
+    "rf2-language": "bcfdb6d3061cbeade0e1ad721e3e2eedac1f09c158b00b8f04eb5be14e2220c3",
+    "rf2-module-dependency": "fe64565e58b2e6dc3b2d0f4b7a42697467573df8b7d6365c6879b57bfcbbe67b",
+    "rf2-refset-descriptor": "65cc29bd9d547a98505cde98b2f11dc12d54594432e479c4c880326fa929cc27",
+    "rf2-relationships": "43208c98e4ec7b02ed4185a58e33f13dd816c6bddd1e85faf04e2ca50251fe9d",
+    "rf2-simple-map": "1b5b6d6e23503adad0de5c8bd3a95fa57826e2f3376be907e52b6e69802bbab2",
+    "rf2-simple-refset": "e57d8e371611fa1fcca0fee8cc4052433f8894e5eec9031a14a156084ba40be3",
+    "rf2-text-definitions": "9320a4aaaeb057b986b06ad2917d1cd2292decd538c38c5e5036f1b0ead0beb8"
+  },
+  "association_refsets": {
+    "900000000000531004": {
+      "reason": "Reviewed historical compatibility: the byte-proved archived producer emits SUBSET_MEMBER attributes for active association rows with active endpoints and emits no association relationship when this exact FN label has no SCT.RELMAP entry. Preserve that existing membership representation without inventing a REL/RELA or excluding the membership. This records archived behavior, not a semantic correction or production approval.",
+      "fn_labels": [
+        "REFERS TO concept association reference set (foundation metadata concept)"
+      ]
+    }
+  }
+}

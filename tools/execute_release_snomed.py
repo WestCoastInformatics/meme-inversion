@@ -17,7 +17,7 @@ import posixpath
 import re
 from urllib.parse import unquote, urlsplit
 
-from release_snomed import HEADERS, OPTIONAL_HEADERS
+from release_snomed import HEADERS, OPTIONAL_HEADERS, membership_review
 
 PACKAGE = 'engines/snomedct_us'
 OUTPUTS = ('classes_atoms.src', 'attributes.src', 'relationships.src', 'mergefacts.src', 'contexts.src')
@@ -93,18 +93,22 @@ def properties(raw, expand=False):
     return values
 
 
-def _template(code_files):
+def _package_file(code_files, name):
     if code_files is None:
-        raw = (Path(__file__).resolve().parents[1] / PACKAGE / 'sct.cfg.in').read_bytes()
+        raw = (Path(__file__).resolve().parents[1] / PACKAGE / name).read_bytes()
     else:
-        found = [item for item in code_files if item.get('relative_path') == 'sct.cfg.in' or
-                 item.get('repository_path') == PACKAGE + '/sct.cfg.in']
+        found = [item for item in code_files if item.get('relative_path') == name or
+                 item.get('repository_path') == PACKAGE + '/' + name]
         if len(found) != 1:
             raise ValueError('One pinned canonical SNOMED template is required')
         raw = base64.b64decode(found[0]['data_b64'], validate=True)
         if sha(raw) != found[0]['sha256']:
             raise ValueError('Canonical template payload changed')
     return raw
+
+
+def _template(code_files):
+    return _package_file(code_files, 'sct.cfg.in')
 
 
 def _destination(entry, data, version):
@@ -158,7 +162,8 @@ def build_plan(configuration, artifacts, code_files=None):
     native_name = config['inputs']['source_data'][0]
     metadata_name = config['inputs']['reference_ncimeta']
     native, metadata = artifacts[native_name], artifacts[metadata_name]
-    policy = artifacts[config['policy_ref']]['data']
+    policy_artifact = artifacts[config['policy_ref']]
+    policy = policy_artifact['data']
     source_plan = artifacts[config['inputs']['source_plan']]['data']
     if native['artifact_type'] != 'publisher-bundle' or metadata['artifact_type'] != 'ncimeta-state':
         raise ValueError('Invalid native or metadata artifact role')
@@ -178,6 +183,16 @@ def build_plan(configuration, artifacts, code_files=None):
     targets = policy.get('mapping_targets', {})
     if set(targets) != {'ICD10', 'ICD10CM', 'ICD9CM'} or any(not re.fullmatch(re.escape(key) + r'_[A-Za-z0-9_.-]+', value) for key, value in targets.items()):
         raise ValueError('Explicit reviewed ICD10/ICD10CM/ICD9CM target VSABs are required; years are never inferred')
+    membership = membership_review(policy_artifact, native, config['version'])
+    if membership:
+        original = _package_file(code_files, 'bin/invert_rf2.pl')
+        original = original.replace(b"my($ICDversion) = $$CfgRef->getReqEle('MappingTarget.ICD9CM.Version');",
+                                    ('my($ICDversion) = "'+targets['ICD9CM'].removeprefix('ICD9CM_')+'";').encode())
+        for key in ('ICD10','ICD10CM'):
+            original = original.replace(("$$CfgRef->getReqEle('MappingTarget."+key+"')").encode(),
+                                        ('"${ICDRSAB}_'+targets[key].removeprefix(key+'_')+'"').encode())
+        if sha(original) != membership['producer_sha256']:
+            raise ValueError('Membership-only review producer is outside the exact canonical family')
     inputs, destinations, fingerprints, native_paths = [], set(), {}, {}
     def add(name, entry, destination):
         destination = _relative(destination)
@@ -260,6 +275,7 @@ def build_plan(configuration, artifacts, code_files=None):
                            'declared_mappings': copy.deepcopy(policy.get('mappings', {})),
                            'mapping_decisions': copy.deepcopy(source_plan.get('mapping_decisions', {})),
                            'supported_modules': copy.deepcopy(policy.get('supported_modules', [])),
+                           **({'association_membership_review':copy.deepcopy(membership)} if membership else {}),
                            'template_sha256': sha(template)}}
 
 
@@ -335,9 +351,10 @@ def validate_inputs(plan, target):
         for row in rows('rf2-relationships'):
             if row['active'] == '1':
                 active_types.add(row['typeId']); observed['relationship_types'].add(row['typeId'])
-        associations = set()
+        associations = set(); association_counts = Counter()
         for row in rows('rf2-association'):
             if row['active'] == '1':
+                association_counts[row['refsetId']] += 1
                 active_types.add(row['refsetId']); associations.add(row['refsetId']); observed['association_refsets'].add(row['refsetId'])
         name_mappings = {}
         for key, value in props.items():
@@ -357,7 +374,18 @@ def validate_inputs(plan, target):
                     if row['conceptId'] in resolved and resolved[row['conceptId']] != mapping:
                         raise ValueError('Conflicting name-derived mapping for native type: ' + row['conceptId'])
                     resolved[row['conceptId']] = mapping
-        for identifier in active_types - {'116680003'}:
+        membership = validation.get('association_membership_review', {})
+        membership_ids = set(membership.get('association_refsets', {}))
+        for identifier in membership_ids:
+            if (identifier in resolved or identifier in observed['relationship_types'] or identifier not in associations or
+                    set(labels.get(identifier, [])) != set(membership['association_refsets'][identifier]['fn_labels'])):
+                raise ValueError('Membership-only native identifier is mapped, absent, changed, or used as a relationship type')
+        membership_eligible = Counter()
+        if membership_ids:
+            for row in _rows(native['rf2-association'], 'rf2-association', publication, Counter()):
+                if row['refsetId'] in membership_ids and row['active'] == '1' and active.get(row['referencedComponentId']) and active.get(row['targetComponentId']):
+                    membership_eligible[row['refsetId']] += 1
+        for identifier in active_types - {'116680003'} - membership_ids:
             if identifier not in resolved:
                 raise ValueError('Unreviewed native relationship/refset ID or changed label: ' + identifier + ' ' + repr(sorted(labels.get(identifier, []))))
         resolved.setdefault('116680003', {'rel': 'CHD', 'rela': 'isa', 'inverse_rela': 'inverse_isa'})
@@ -419,7 +447,8 @@ def validate_inputs(plan, target):
                     raise ValueError('The captured producer cannot implement a new exclusion decision')
         actual_mappings = {key: {} for key in observed}
         for category in ('relationship_types', 'association_refsets'):
-            actual_mappings[category] = {identifier: {'decision': 'represent', **resolved[identifier]} for identifier in observed[category]}
+            actual_mappings[category] = {identifier: ({'decision':'membership-only', 'reason':membership['association_refsets'][identifier]['reason']}
+                if identifier in membership_ids else {'decision': 'represent', **resolved[identifier]}) for identifier in observed[category]}
         for category, prefix, field in (('description_types', 'TTY.', 'tty'), ('attribute_refsets', 'ATN.', 'atn'),
                                          ('concrete_types', 'ATN.', 'atn'), ('refset_patterns', 'PATTERN.', 'pattern')):
             actual_mappings[category] = {identifier: {'decision': 'represent', field: props[prefix + identifier]} for identifier in observed[category]}
@@ -438,6 +467,8 @@ def validate_inputs(plan, target):
                      physical_discovery={key: sorted(value) for key, value in observed.items()},
                      resolved_mappings=actual_mappings,
                      mapped_type_labels={key: sorted(value) for key, value in labels.items()},
+                     **({'membership_only_associations':{identifier:{'active_rows':association_counts[identifier],
+                        'eligible_membership_rows':membership_eligible[identifier],'expected_relationship_edges':0} for identifier in sorted(membership_ids)}} if membership_ids else {}),
                      metadata_rows_verified=True, mapping_targets=validation['mapping_targets'],
                      native_inputs_changed=False, previous_source_folder_required=False)
     except (ValueError, KeyError, TypeError, OSError, UnicodeError) as error:
@@ -445,7 +476,32 @@ def validate_inputs(plan, target):
     return {'passed': not issues, 'issues': issues, 'facts': facts}
 
 
-def _structure(paths, groups, bounds, version):
+def _expected_memberships(plan, target, emitted_auis):
+    selected = set(plan['validation'].get('association_membership_review', {}).get('association_refsets', {}))
+    expected = Counter(); sruis = set(); counts = {identifier:Counter() for identifier in selected}
+    if not selected: return expected, sruis, counts
+    native = {role:_regular(Path(target)/path,target) for role,path in plan['validation']['native_paths'].items()}
+    publication = _date(plan['version']); active = {}
+    for row in _rows(native['rf2-concepts'],'rf2-concepts',publication,Counter()): active[row['id']] = row['active']=='1'
+    concept_ids = set(active)
+    for row in _rows(native['rf2-descriptions'],'rf2-descriptions',publication,Counter()):
+        active[row['id']] = row['active']=='1' and active.get(row['conceptId'],False)
+    for row in _rows(native['rf2-association'],'rf2-association',publication,Counter()):
+        identifier = row['refsetId']
+        if identifier not in selected: continue
+        sruis.add(row['id']); counts[identifier]['native_rows'] += 1
+        if row['active']!='1' or not active.get(row['referencedComponentId']) or not active.get(row['targetComponentId']): continue
+        counts[identifier]['eligible_rows'] += 1
+        kind = 'SOURCE_CUI' if row['referencedComponentId'] in concept_ids else 'SOURCE_AUI'
+        if kind=='SOURCE_AUI' and row['referencedComponentId'].encode() not in emitted_auis:
+            counts[identifier]['removed_by_description_cleanup'] += 1; continue
+        value = identifier+'~TARGETCOMPONENT~'+row['targetComponentId']
+        expected[(row['referencedComponentId'],value,kind,plan['version'],row['id'])] += 1
+        counts[identifier]['expected_attributes'] += 1
+    return expected, sruis, counts
+
+
+def _structure(paths, groups, bounds, version, plan=None, target=None):
     atoms, atom_cuis, auis = set(), {}, set()
     bad = Counter(); version = version.encode(); groups = {value.encode() for value in groups | FRAMEWORK_GROUPS}
     with paths['classes_atoms.src'].open('rb') as handle:
@@ -457,6 +513,8 @@ def _structure(paths, groups, bounds, version):
             if fields[9]: auis.add(fields[9])
             bad['atom_range'] += not fields[0].isdigit() or not bounds['start'] <= int(fields[0]) <= bounds['end']
             bad['undeclared_termgroup'] += fields[2] not in groups
+    expected_memberships, membership_sruis, membership_counts = _expected_memberships(plan,target,auis) if plan else (Counter(),set(),{})
+    actual_memberships = Counter()
     file_facts = {}
     for name, path in paths.items():
         counts = Counter(); generated = set(); widths = Counter(); rows = 0
@@ -479,10 +537,13 @@ def _structure(paths, groups, bounds, version):
                     counts['attribute_digest'] += hashlib.md5(f[4]).hexdigest().encode() != f[13]
                     counts['attribute_source'] += f[5] not in {b'SRC', version, b'E-' + version}
                     if f[10] == b'SOURCE_AUI' and f[11] == version: counts['dangling_description'] += f[1] not in auis
+                    if f[3]==b'SUBSET_MEMBER' and f[4].split(b'~',1)[0].decode() in membership_counts:
+                        actual_memberships[tuple(f[index].decode() for index in (1,4,10,11,12))] += 1
                 elif name == 'relationships.src':
                     endpoints = [(f[2], f[12], f[13]), (f[5], f[14], f[15])]
                     counts['unmapped_relationship'] += f[3].startswith(b'XX-') or b'###' in f[3] or b'###' in f[4]
                     counts['relationship_source'] += f[6] not in {b'SRC', version} or f[7] not in {b'SRC', version}
+                    counts['membership_only_relationship'] += f[16].decode() in membership_sruis
                 elif name == 'mergefacts.src':
                     endpoints = [(f[0], f[8], f[9]), (f[2], f[10], f[11])]
                     counts['merge_source'] += f[3] not in {b'SRC', version}
@@ -501,8 +562,12 @@ def _structure(paths, groups, bounds, version):
                     if kind in (b'SOURCE_AUI', b'SOURCE_CUI') and qualifier.startswith(b'SNOMEDCT_US_'):
                         counts['source_qualifier'] += qualifier != version
         file_facts[name] = {'rows': rows, 'field_counts': dict(widths), 'violations': {key: value for key, value in counts.items() if value}}
-    return {'passed': bool(atoms) and not any(bad.values()) and all(not item['violations'] for item in file_facts.values()),
-            'atom_violations': {key: value for key, value in bad.items() if value}, 'unique_atoms': len(atoms), 'files': file_facts}
+    membership_passed = actual_memberships == expected_memberships
+    return {'passed': bool(atoms) and not any(bad.values()) and membership_passed and all(not item['violations'] for item in file_facts.values()),
+            'atom_violations': {key: value for key, value in bad.items() if value}, 'unique_atoms': len(atoms), 'files': file_facts,
+            **({'membership_only_validation':{'passed':membership_passed,'expected_attributes':sum(expected_memberships.values()),
+                'actual_attributes':sum(actual_memberships.values()),'by_refset':{key:dict(value) for key,value in membership_counts.items()},
+                'scope':'Native active-endpoint memberships, filtered only by the documented output-description cleanup; no relationship may use a reviewed association SRUI'}} if membership_counts else {})}
 
 
 def validate_outputs(plan, target):
@@ -511,7 +576,7 @@ def validate_outputs(plan, target):
         target = Path(target); _cfg(plan, target)
         paths = {name: _regular(target / 'src' / name, target) for name in OUTPUTS}
         groups = {row.split('|')[0] for row in (target / 'src/termgroups.src').read_text().splitlines()}
-        structure = _structure(paths, groups, plan['validation']['source_atom_ids'], plan['version'])
+        structure = _structure(paths, groups, plan['validation']['source_atom_ids'], plan['version'],plan,target)
         facts.update(structure=structure, files={name: file_info(path) for name, path in paths.items()},
                      compared_identifiers_reindexed=False, ignored_columns=[])
         if not structure['passed']: raise ValueError('Independent release-aware output structure/identity validation failed')

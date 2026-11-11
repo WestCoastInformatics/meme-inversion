@@ -1,0 +1,2271 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-release-manifest",
+  "profile": "snomed-us-snapshot-inputs-v1",
+  "purpose": "historical-replay",
+  "configuration": {
+    "schema_version": 2,
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_03_01",
+    "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+    "policy_ref": "policy",
+    "environment_profile": "environment",
+    "replacement_baseline": {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2025_09_01"
+    },
+    "comparison_baseline": null,
+    "publisher_history": [],
+    "inputs": {
+      "source_data": [
+        "publisher"
+      ],
+      "source_data_stage": "publisher",
+      "reference_ncimeta": "state",
+      "identity_state": null,
+      "source_plan": "source-plan"
+    },
+    "source_atom_ids": {
+      "start": 764923506,
+      "end": 765966592,
+      "bound_kind": "reserved-historical-range",
+      "provenance_ref": "id-range"
+    },
+    "validation_profile": "validation",
+    "output_stage": "inversion-src",
+    "source_options": {
+      "rf2_view": "Snapshot"
+    },
+    "replay": {
+      "reference_ref": "official",
+      "reference_stage": "inversion-src",
+      "comparison_profile": "exact"
+    }
+  },
+  "artifacts": {
+    "publisher": {
+      "schema_version": 1,
+      "artifact_type": "publisher-bundle",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_03_01",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [
+        {
+          "role": "rf2-association",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "a915705b8e9d20a69f951f45b087bd86f70e6ea7e18a95fde7706478f4b4a727",
+          "bytes": 23513224,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-attribute-value",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "475277a7a94a507688ba07ed508c9d013fe53d7e19d0aa63711e329e7e616a74",
+          "bytes": 85571336,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-concepts",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "13832728ff41c71bd986d445ada886d4168aef7dd4bba702abbf187298eda4be",
+          "bytes": 32364443,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-concrete-values",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "566836b1cb56442d295561511d222185511679aa192e69f159086342ae2720a0",
+          "bytes": 4020369,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-description-type",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "d3a28af12709a07675b59b15d365005c6428d5952314d55f03091ac7906a6532",
+          "bytes": 489,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-descriptions",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "f92ba840b7270253515afac0c1db512e5f442b8fa8c546a4dcb128c608bf0dd5",
+          "bytes": 230306454,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-extended-map",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "4bb1433ea5971fe9637f052bd1f264d9aa3ced22dc2696f7e8b2362b22785a97",
+          "bytes": 156008161,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-language",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "bcfdb6d3061cbeade0e1ad721e3e2eedac1f09c158b00b8f04eb5be14e2220c3",
+          "bytes": 389744878,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-module-dependency",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "fe64565e58b2e6dc3b2d0f4b7a42697467573df8b7d6365c6879b57bfcbbe67b",
+          "bytes": 1046,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-refset-descriptor",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "65cc29bd9d547a98505cde98b2f11dc12d54594432e479c4c880326fa929cc27",
+          "bytes": 28915,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-relationships",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "43208c98e4ec7b02ed4185a58e33f13dd816c6bddd1e85faf04e2ca50251fe9d",
+          "bytes": 404359782,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-simple-map",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "1b5b6d6e23503adad0de5c8bd3a95fa57826e2f3376be907e52b6e69802bbab2",
+          "bytes": 57116493,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-simple-refset",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "e57d8e371611fa1fcca0fee8cc4052433f8894e5eec9031a14a156084ba40be3",
+          "bytes": 1990960,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "rf2-text-definitions",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "9320a4aaaeb057b986b06ad2917d1cd2292decd538c38c5e5036f1b0ead0beb8",
+          "bytes": 8424855,
+          "archive_member": "SNOMEDCT_US_2026_03_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260301.txt",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        }
+      ],
+      "data": {
+        "edition": "US",
+        "rf2_view": "Snapshot",
+        "publisher_release_date": "2026-03-01",
+        "package_name": "SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260301T120000Z",
+        "headers": {
+          "rf2-association": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "targetComponentId"
+          ],
+          "rf2-attribute-value": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "valueId"
+          ],
+          "rf2-concepts": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "definitionStatusId"
+          ],
+          "rf2-concrete-values": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "sourceId",
+            "value",
+            "relationshipGroup",
+            "typeId",
+            "characteristicTypeId",
+            "modifierId"
+          ],
+          "rf2-description-type": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "descriptionFormat",
+            "descriptionLength"
+          ],
+          "rf2-descriptions": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "conceptId",
+            "languageCode",
+            "typeId",
+            "term",
+            "caseSignificanceId"
+          ],
+          "rf2-extended-map": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "mapGroup",
+            "mapPriority",
+            "mapRule",
+            "mapAdvice",
+            "mapTarget",
+            "correlationId",
+            "mapCategoryId"
+          ],
+          "rf2-language": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "acceptabilityId"
+          ],
+          "rf2-module-dependency": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "sourceEffectiveTime",
+            "targetEffectiveTime"
+          ],
+          "rf2-refset-descriptor": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "attributeDescription",
+            "attributeType",
+            "attributeOrder"
+          ],
+          "rf2-relationships": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "sourceId",
+            "destinationId",
+            "relationshipGroup",
+            "typeId",
+            "characteristicTypeId",
+            "modifierId"
+          ],
+          "rf2-simple-map": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "mapTarget"
+          ],
+          "rf2-simple-refset": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId"
+          ],
+          "rf2-text-definitions": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "conceptId",
+            "languageCode",
+            "typeId",
+            "term",
+            "caseSignificanceId"
+          ]
+        },
+        "effective_time_bounds": {
+          "maximum": "20260301",
+          "minimum": "20020131"
+        },
+        "module_dependencies": [
+          {
+            "source_effective_time": "20260301",
+            "source_module_id": "5991000124107",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000207008"
+          },
+          {
+            "source_effective_time": "20260301",
+            "source_module_id": "5991000124107",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000012004"
+          },
+          {
+            "source_effective_time": "20260101",
+            "source_module_id": "449080006",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000012004"
+          },
+          {
+            "source_effective_time": "20260101",
+            "source_module_id": "900000000000207008",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000012004"
+          },
+          {
+            "source_effective_time": "20260301",
+            "source_module_id": "5991000124107",
+            "target_effective_time": "20260301",
+            "target_module_id": "731000124108"
+          },
+          {
+            "source_effective_time": "20260101",
+            "source_module_id": "449080006",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000207008"
+          },
+          {
+            "source_effective_time": "20260301",
+            "source_module_id": "731000124108",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000012004"
+          },
+          {
+            "source_effective_time": "20260301",
+            "source_module_id": "731000124108",
+            "target_effective_time": "20260101",
+            "target_module_id": "900000000000207008"
+          }
+        ],
+        "discovery": {
+          "association_refsets": [
+            "1186921001",
+            "1186924009",
+            "734138000",
+            "734139008",
+            "900000000000523009",
+            "900000000000524003",
+            "900000000000526001",
+            "900000000000527005",
+            "900000000000528000",
+            "900000000000530003",
+            "900000000000531004"
+          ],
+          "attribute_refsets": [
+            "446608001",
+            "900000000000497000"
+          ],
+          "concrete_types": [
+            "1142135004",
+            "1142136003",
+            "1142137007",
+            "1142138002",
+            "1142139005",
+            "1142140007"
+          ],
+          "description_types": [
+            "900000000000003001",
+            "900000000000013009"
+          ],
+          "map_correlations": [
+            "447561005"
+          ],
+          "refset_patterns": [
+            "1119417006",
+            "1119435002",
+            "1119468009",
+            "1186921001",
+            "1186924009",
+            "1187636009",
+            "1193542003",
+            "1193543008",
+            "1193544002",
+            "1292992004",
+            "1292995002",
+            "442311000124105",
+            "446608001",
+            "446609009",
+            "447250001",
+            "447258008",
+            "447562003",
+            "447563008",
+            "447568004",
+            "447570008",
+            "6011000124106",
+            "609331003",
+            "705109006",
+            "705111002",
+            "723264001",
+            "723560006",
+            "723561005",
+            "723562003",
+            "723563008",
+            "723589008",
+            "723592007",
+            "723604009",
+            "733073007",
+            "733618005",
+            "733619002",
+            "734138000",
+            "734139008",
+            "762103008",
+            "762676003",
+            "900000000000456007",
+            "900000000000480006",
+            "900000000000488004",
+            "900000000000489007",
+            "900000000000490003",
+            "900000000000496009",
+            "900000000000497000",
+            "900000000000498005",
+            "900000000000506000",
+            "900000000000508004",
+            "900000000000509007",
+            "900000000000512005",
+            "900000000000516008",
+            "900000000000521006",
+            "900000000000522004",
+            "900000000000523009",
+            "900000000000524003",
+            "900000000000525002",
+            "900000000000526001",
+            "900000000000527005",
+            "900000000000528000",
+            "900000000000530003",
+            "900000000000531004",
+            "900000000000534007",
+            "900000000000538005"
+          ],
+          "relationship_types": [
+            "1003703000",
+            "1003735000",
+            "1148965004",
+            "1148967007",
+            "1148968002",
+            "1148969005",
+            "1149366004",
+            "1149367008",
+            "116676008",
+            "116680003",
+            "116686009",
+            "116688005",
+            "118168003",
+            "118169006",
+            "118170007",
+            "118171006",
+            "127489000",
+            "246075003",
+            "246090004",
+            "246093002",
+            "246112005",
+            "246454002",
+            "246501002",
+            "246513007",
+            "246514001",
+            "255234002",
+            "260507000",
+            "260686004",
+            "260870009",
+            "263502005",
+            "272741003",
+            "288556008",
+            "363589002",
+            "363698007",
+            "363699004",
+            "363700003",
+            "363701004",
+            "363702006",
+            "363703001",
+            "363704007",
+            "363709002",
+            "363710007",
+            "363713009",
+            "363714003",
+            "370129005",
+            "370130000",
+            "370131001",
+            "370132008",
+            "370133003",
+            "370134009",
+            "370135005",
+            "371881003",
+            "405813007",
+            "405814001",
+            "405815000",
+            "405816004",
+            "408729009",
+            "408730004",
+            "408731000",
+            "408732007",
+            "410675002",
+            "411116001",
+            "418775008",
+            "419066007",
+            "424226004",
+            "424244007",
+            "424361007",
+            "425391005",
+            "42752001",
+            "47429007",
+            "704319004",
+            "704320005",
+            "704321009",
+            "704323007",
+            "704324001",
+            "704325000",
+            "704326004",
+            "704327008",
+            "718497002",
+            "719715003",
+            "719722006",
+            "726542003",
+            "726633004",
+            "732943007",
+            "732945000",
+            "732947008",
+            "733722007",
+            "733725009",
+            "733930001",
+            "736472000",
+            "736473005",
+            "736474004",
+            "736475003",
+            "736476002",
+            "736518005",
+            "738774007",
+            "762949000",
+            "763032000",
+            "766939001",
+            "827081001",
+            "836358009",
+            "840560000"
+          ],
+          "labels": {
+            "1003703000": "Process extends to (attribute)",
+            "1003735000": "Process acts on (attribute)",
+            "1148965004": "Is sterile (attribute)",
+            "1148967007": "Has coating material (attribute)",
+            "1148968002": "Has surface texture (attribute)",
+            "1148969005": "Has absorbability (attribute)",
+            "1149366004": "Has ingredient qualitative strength (attribute)",
+            "1149367008": "Has target population (attribute)",
+            "116676008": "Associated morphology (attribute)",
+            "116680003": "Is a (attribute)",
+            "116686009": "Has specimen (attribute)",
+            "116688005": "Procedure approach (attribute)",
+            "118168003": "Specimen source morphology (attribute)",
+            "118169006": "Specimen source topography (attribute)",
+            "118170007": "Specimen source identity (attribute)",
+            "118171006": "Specimen procedure (attribute)",
+            "127489000": "Has active ingredient (attribute)",
+            "246075003": "Causative agent (attribute)",
+            "246090004": "Associated finding (attribute)",
+            "246093002": "Component (attribute)",
+            "246112005": "Severity (attribute)",
+            "246454002": "Occurrence (attribute)",
+            "246501002": "Technique (attribute)",
+            "246513007": "Revision status (attribute)",
+            "246514001": "Units (attribute)",
+            "255234002": "After (attribute)",
+            "260507000": "Access (attribute)",
+            "260686004": "Method (attribute)",
+            "260870009": "Priority (attribute)",
+            "263502005": "Clinical course (attribute)",
+            "272741003": "Laterality (attribute)",
+            "288556008": "Before (attribute)",
+            "363589002": "Associated procedure (attribute)",
+            "363698007": "Finding site (attribute)",
+            "363699004": "Direct device (attribute)",
+            "363700003": "Direct morphology (attribute)",
+            "363701004": "Direct substance (attribute)",
+            "363702006": "Has focus (attribute)",
+            "363703001": "Has intent (attribute)",
+            "363704007": "Procedure site (attribute)",
+            "363709002": "Indirect morphology (attribute)",
+            "363710007": "Indirect device (attribute)",
+            "363713009": "Has interpretation (attribute)",
+            "363714003": "Interprets (attribute)",
+            "370129005": "Measurement method (attribute)",
+            "370130000": "Property (attribute)",
+            "370131001": "Recipient category (attribute)",
+            "370132008": "Scale type (attribute)",
+            "370133003": "Specimen substance (attribute)",
+            "370134009": "Time aspect (attribute)",
+            "370135005": "Pathological process (attribute)",
+            "371881003": "During (attribute)",
+            "405813007": "Procedure site - Direct (attribute)",
+            "405814001": "Procedure site - Indirect (attribute)",
+            "405815000": "Procedure device (attribute)",
+            "405816004": "Procedure morphology (attribute)",
+            "408729009": "Finding context (attribute)",
+            "408730004": "Procedure context (attribute)",
+            "408731000": "Temporal context (attribute)",
+            "408732007": "Subject relationship context (attribute)",
+            "410675002": "Route of administration (attribute)",
+            "411116001": "Has dose form (attribute)",
+            "418775008": "Finding method (attribute)",
+            "419066007": "Finding informer (attribute)",
+            "424226004": "Using device (attribute)",
+            "424244007": "Using energy (attribute)",
+            "424361007": "Using substance (attribute)",
+            "425391005": "Using access device (attribute)",
+            "42752001": "Due to (attribute)",
+            "47429007": "Associated with (attribute)",
+            "704319004": "Inheres in (attribute)",
+            "704320005": "Towards (attribute)",
+            "704321009": "Characterizes (attribute)",
+            "704323007": "Process duration (attribute)",
+            "704324001": "Process output (attribute)",
+            "704325000": "Relative to (attribute)",
+            "704326004": "Precondition (attribute)",
+            "704327008": "Direct site (attribute)",
+            "718497002": "Inherent location (attribute)",
+            "719715003": "Relative to part of (attribute)",
+            "719722006": "Has realization (attribute)",
+            "726542003": "Has disposition (attribute)",
+            "726633004": "Temporally related to (attribute)",
+            "732943007": "Has basis of strength substance (attribute)",
+            "732945000": "Has presentation strength numerator unit (attribute)",
+            "732947008": "Has presentation strength denominator unit (attribute)",
+            "733722007": "Has concentration strength denominator unit (attribute)",
+            "733725009": "Has concentration strength numerator unit (attribute)",
+            "733930001": "Regional part of (attribute)",
+            "736472000": "Has dose form administration method (attribute)",
+            "736473005": "Has dose form transformation (attribute)",
+            "736474004": "Has dose form intended site (attribute)",
+            "736475003": "Has dose form release characteristic (attribute)",
+            "736476002": "Has basic dose form (attribute)",
+            "736518005": "Has state of matter (attribute)",
+            "738774007": "Is modification of (attribute)",
+            "762949000": "Has precise active ingredient (attribute)",
+            "763032000": "Has unit of presentation (attribute)",
+            "766939001": "Plays role (attribute)",
+            "827081001": "Has filling (attribute)",
+            "836358009": "Has device intended site (attribute)",
+            "840560000": "Has compositional material (attribute)",
+            "1186921001": "POSSIBLY REPLACED BY association reference set (foundation metadata concept)",
+            "1186924009": "PARTIALLY EQUIVALENT TO association reference set (foundation metadata concept)",
+            "734138000": "Anatomy structure and entire association reference set (foundation metadata concept)",
+            "734139008": "Anatomy structure and part association reference set (foundation metadata concept)",
+            "900000000000523009": "POSSIBLY EQUIVALENT TO association reference set (foundation metadata concept)",
+            "900000000000524003": "MOVED TO association reference set (foundation metadata concept)",
+            "900000000000526001": "REPLACED BY association reference set (foundation metadata concept)",
+            "900000000000527005": "SAME AS association reference set (foundation metadata concept)",
+            "900000000000528000": "WAS A association reference set (foundation metadata concept)",
+            "900000000000530003": "ALTERNATIVE association reference set (foundation metadata concept)",
+            "900000000000531004": "REFERS TO concept association reference set (foundation metadata concept)"
+          }
+        }
+      }
+    },
+    "state": {
+      "schema_version": 1,
+      "artifact_type": "ncimeta-state",
+      "source": "NCIMETA",
+      "version": "preserved-preparation-SNOMEDCT_US_2026_03_01",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [
+        {
+          "role": "sources-src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "596e20bc042a8d4e69f6b7d4e21d9da1a17163ac7c3504197b219407181d1cee",
+          "bytes": 900,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/sources.src",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "termgroups-src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "254acc5965adebc5550d7b652f1d032d8c41286d6ce792e00c83e3762c78c1c9",
+          "bytes": 828,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/termgroups.src",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "icd10-target-inventory",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+          "bytes": 109803,
+          "archive_member": "SNOMEDCT_US_2026_03_01/etc/icd10.inmeta",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "icd10cm-target-inventory",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+          "bytes": 797093,
+          "archive_member": "SNOMEDCT_US_2026_03_01/etc/icd10cm.inmeta",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        }
+      ],
+      "data": {
+        "snapshot_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "sources_rows": [
+          [
+            "SNOMEDCT_US_2026_03_01",
+            "SNOMEDCT_US_2025_09_01",
+            "9",
+            "SNOMEDCT_US_2026_03_01",
+            "SNOMEDCT_US",
+            "2026_03_01",
+            "SNOMEDCT_US",
+            "US Edition of SNOMED CT",
+            "jarnotm@mail.nlm.nih.gov",
+            "jarnotm@mail.nlm.nih.gov",
+            "NLM Customer Service;NLM is a Charter Member of SNOMED International on behalf of the U.S.;National Library of Medicine;8600 Rockville Pike;;Bethesda;MD;United States;20894;1-888-FIND-NLM (1-888-346-3656);;https://support.nlm.nih.gov/support/create-case/;;",
+            "NLM Customer service;NLM is a Charter Member of SNOMED International on behalf of the U.S.;National Library of Medicine;8600 Rockville Pike;;Bethesda;MD;United States;20894;1-888-FIND-NLM (1-888-346-3656);;https://support.nlm.nih.gov/support/create-case/;;",
+            "olsonne@mail.nih.gov",
+            "",
+            "https://www.nlm.nih.gov/healthit/snomedct/index.html",
+            "ENG",
+            ";;SNOMED International;;US Edition of SNOMED CT;;;;London, United Kingdom;SNOMED International;;March 1, 2026;;;;;;;",
+            "",
+            "UTF-8",
+            "Y"
+          ]
+        ],
+        "termgroups_rows": [
+          [
+            "SNOMEDCT_US_2026_03_01/SB",
+            "SNOMEDCT_US_2025_09_01/SB",
+            "N",
+            "N",
+            "N",
+            "SB"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/XM",
+            "SNOMEDCT_US_2025_09_01/XM",
+            "N",
+            "N",
+            "N",
+            "XM"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/FN",
+            "SNOMEDCT_US_2025_09_01/FN",
+            "N",
+            "N",
+            "N",
+            "FN"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/PT",
+            "SNOMEDCT_US_2025_09_01/PT",
+            "N",
+            "N",
+            "N",
+            "PT"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/SY",
+            "SNOMEDCT_US_2025_09_01/SY",
+            "N",
+            "N",
+            "N",
+            "SY"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/PTGB",
+            "SNOMEDCT_US_2025_09_01/PTGB",
+            "N",
+            "N",
+            "N",
+            "PTGB"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/SYGB",
+            "SNOMEDCT_US_2025_09_01/SYGB",
+            "N",
+            "N",
+            "N",
+            "SYGB"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/MTH_FN",
+            "SNOMEDCT_US_2025_09_01/MTH_FN",
+            "N",
+            "N",
+            "N",
+            "MTH_FN"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/MTH_PT",
+            "SNOMEDCT_US_2025_09_01/MTH_PT",
+            "N",
+            "N",
+            "N",
+            "MTH_PT"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/MTH_SY",
+            "SNOMEDCT_US_2025_09_01/MTH_SY",
+            "N",
+            "N",
+            "N",
+            "MTH_SY"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/MTH_PTGB",
+            "SNOMEDCT_US_2025_09_01/MTH_PTGB",
+            "N",
+            "N",
+            "N",
+            "MTH_PTGB"
+          ],
+          [
+            "SNOMEDCT_US_2026_03_01/MTH_SYGB",
+            "SNOMEDCT_US_2025_09_01/MTH_SYGB",
+            "N",
+            "N",
+            "N",
+            "MTH_SYGB"
+          ]
+        ],
+        "target_inventories": [
+          "ICD10",
+          "ICD10CM"
+        ],
+        "metadata_format": {
+          "sources-src": {
+            "terminal_delimiter": true
+          },
+          "termgroups-src": {
+            "terminal_delimiter": true
+          }
+        },
+        "scope": "Preserved preparation bytes; no historical database snapshot reconstruction is claimed"
+      }
+    },
+    "policy": {
+      "schema_version": 1,
+      "artifact_type": "policy",
+      "source": "SNOMEDCT_US",
+      "version": "preserved-policy-SNOMEDCT_US_2026_03_01",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [
+        {
+          "role": "archived-sct.cfg",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "5feb62d87b1f235935446a0b7fe5e65cecda2fcad564dd48987a93fdd1e07650",
+          "bytes": 28675,
+          "archive_member": "SNOMEDCT_US_2026_03_01/etc/sct.cfg",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "archived-invert_rf2.pl",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+          "bytes": 57536,
+          "archive_member": "SNOMEDCT_US_2026_03_01/bin/invert_rf2.pl",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "archived-rmdanglingattrs.pl",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "df549de020a643b276259d7de47fc087c0f9a108b96584d26f4b497cc06b0955",
+          "bytes": 462,
+          "archive_member": "SNOMEDCT_US_2026_03_01/bin/rmdanglingattrs.pl",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        }
+      ],
+      "data": {
+        "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+        "supported_modules": [
+          "449080006",
+          "5991000124107",
+          "731000124108",
+          "900000000000012004",
+          "900000000000207008"
+        ],
+        "mappings": {
+          "relationship_types": {
+            "1003703000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "process_extends_to",
+              "inverse_rela": "extended_to_by_process"
+            },
+            "1003735000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "process_acts_on",
+              "inverse_rela": "acted_on_by_process"
+            },
+            "1148965004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "is_sterile",
+              "inverse_rela": "answer_to_is_sterile"
+            },
+            "1148967007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_coating_material",
+              "inverse_rela": "coating_material_of"
+            },
+            "1148968002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_surface_texture",
+              "inverse_rela": "surface_texture_of"
+            },
+            "1148969005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_absorbability",
+              "inverse_rela": "absorbability_of"
+            },
+            "1149366004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_ingredient_qualitative_strength",
+              "inverse_rela": "ingredient_qualitative_strength_of"
+            },
+            "1149367008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_target_population",
+              "inverse_rela": "target_population_of"
+            },
+            "116676008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_associated_morphology",
+              "inverse_rela": "associated_morphology_of"
+            },
+            "116680003": {
+              "decision": "represent",
+              "rel": "CHD",
+              "rela": "isa",
+              "inverse_rela": "inverse_isa"
+            },
+            "116686009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_specimen",
+              "inverse_rela": "specimen_of"
+            },
+            "116688005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_procedure_approach",
+              "inverse_rela": "procedure_approach_of"
+            },
+            "118168003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_specimen_source_morphology",
+              "inverse_rela": "specimen_source_morphology_of"
+            },
+            "118169006": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_specimen_source_topography",
+              "inverse_rela": "specimen_source_topography_of"
+            },
+            "118170007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_specimen_source_identity",
+              "inverse_rela": "specimen_source_identity_of"
+            },
+            "118171006": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_specimen_procedure",
+              "inverse_rela": "specimen_procedure_of"
+            },
+            "127489000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_active_ingredient",
+              "inverse_rela": "active_ingredient_of"
+            },
+            "246075003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_causative_agent",
+              "inverse_rela": "causative_agent_of"
+            },
+            "246090004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_associated_finding",
+              "inverse_rela": "associated_finding_of"
+            },
+            "246093002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_component",
+              "inverse_rela": "component_of"
+            },
+            "246112005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_severity",
+              "inverse_rela": "severity_of"
+            },
+            "246454002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "occurs_in",
+              "inverse_rela": "has_occurrence"
+            },
+            "246501002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_technique",
+              "inverse_rela": "technique_of"
+            },
+            "246513007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_revision_status",
+              "inverse_rela": "revision_status_of"
+            },
+            "246514001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_units",
+              "inverse_rela": "units_of"
+            },
+            "255234002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "occurs_after",
+              "inverse_rela": "occurs_before"
+            },
+            "260507000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_access",
+              "inverse_rela": "access_of"
+            },
+            "260686004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_method",
+              "inverse_rela": "method_of"
+            },
+            "260870009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_priority",
+              "inverse_rela": "priority_of"
+            },
+            "263502005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_clinical_course",
+              "inverse_rela": "clinical_course_of"
+            },
+            "272741003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_laterality",
+              "inverse_rela": "laterality_of"
+            },
+            "288556008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "before",
+              "inverse_rela": "after"
+            },
+            "363589002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_associated_procedure",
+              "inverse_rela": "associated_procedure_of"
+            },
+            "363698007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_finding_site",
+              "inverse_rela": "finding_site_of"
+            },
+            "363699004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_direct_device",
+              "inverse_rela": "direct_device_of"
+            },
+            "363700003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_direct_morphology",
+              "inverse_rela": "direct_morphology_of"
+            },
+            "363701004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_direct_substance",
+              "inverse_rela": "direct_substance_of"
+            },
+            "363702006": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_focus",
+              "inverse_rela": "focus_of"
+            },
+            "363703001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_intent",
+              "inverse_rela": "intent_of"
+            },
+            "363704007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_procedure_site",
+              "inverse_rela": "procedure_site_of"
+            },
+            "363709002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_indirect_morphology",
+              "inverse_rela": "indirect_morphology_of"
+            },
+            "363710007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_indirect_device",
+              "inverse_rela": "indirect_device_of"
+            },
+            "363713009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_interpretation",
+              "inverse_rela": "interpretation_of"
+            },
+            "363714003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "interprets",
+              "inverse_rela": "interpretation_of"
+            },
+            "370129005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_measurement_method",
+              "inverse_rela": "measurement_method_of"
+            },
+            "370130000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_property",
+              "inverse_rela": "property_of"
+            },
+            "370131001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_recipient_category",
+              "inverse_rela": "recipient_category_of"
+            },
+            "370132008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_scale_type",
+              "inverse_rela": "scale_type_of"
+            },
+            "370133003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_specimen_substance",
+              "inverse_rela": "specimen_substance_of"
+            },
+            "370134009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_time_aspect",
+              "inverse_rela": "time_aspect_of"
+            },
+            "370135005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_pathological_process",
+              "inverse_rela": "pathological_process_of"
+            },
+            "371881003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "during",
+              "inverse_rela": "inverse_during"
+            },
+            "405813007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_direct_procedure_site",
+              "inverse_rela": "direct_procedure_site_of"
+            },
+            "405814001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_indirect_procedure_site",
+              "inverse_rela": "indirect_procedure_site_of"
+            },
+            "405815000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_procedure_device",
+              "inverse_rela": "procedure_device_of"
+            },
+            "405816004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_procedure_morphology",
+              "inverse_rela": "procedure_morphology_of"
+            },
+            "408729009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_finding_context",
+              "inverse_rela": "finding_context_of"
+            },
+            "408730004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_procedure_context",
+              "inverse_rela": "procedure_context_of"
+            },
+            "408731000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_temporal_context",
+              "inverse_rela": "temporal_context_of"
+            },
+            "408732007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_subject_relationship_context",
+              "inverse_rela": "subject_relationship_context_of"
+            },
+            "410675002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_route_of_administration",
+              "inverse_rela": "route_of_administration_of"
+            },
+            "411116001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_manufactured_dose_form",
+              "inverse_rela": "manufactured_dose_form_of"
+            },
+            "418775008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_finding_method",
+              "inverse_rela": "finding_method_of"
+            },
+            "419066007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_finding_informer",
+              "inverse_rela": "finding_informer_of"
+            },
+            "424226004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "uses_device",
+              "inverse_rela": "device_used_by"
+            },
+            "424244007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "uses_energy",
+              "inverse_rela": "energy_used_by"
+            },
+            "424361007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "uses_substance",
+              "inverse_rela": "substance_used_by"
+            },
+            "425391005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "uses_access_device",
+              "inverse_rela": "access_device_used_by"
+            },
+            "42752001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "due_to",
+              "inverse_rela": "cause_of"
+            },
+            "47429007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "associated_with",
+              "inverse_rela": "associated_with"
+            },
+            "704319004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "inheres_in",
+              "inverse_rela": "has_inherent_attribute"
+            },
+            "704320005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "towards",
+              "inverse_rela": "away_from"
+            },
+            "704321009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "characterizes",
+              "inverse_rela": "characterized_by"
+            },
+            "704323007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_process_duration",
+              "inverse_rela": "process_duration_of"
+            },
+            "704324001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_process_output",
+              "inverse_rela": "process_output_of"
+            },
+            "704325000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "relative_to",
+              "inverse_rela": "inverse_relative_to"
+            },
+            "704326004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_precondition",
+              "inverse_rela": "precondition_of"
+            },
+            "704327008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_direct_site",
+              "inverse_rela": "direct_site_of"
+            },
+            "718497002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_inherent_location",
+              "inverse_rela": "inherent_location_of"
+            },
+            "719715003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "relative_to_part_of",
+              "inverse_rela": "part_referred_to_by"
+            },
+            "719722006": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_realization",
+              "inverse_rela": "realization_of"
+            },
+            "726542003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_disposition",
+              "inverse_rela": "disposition_of"
+            },
+            "726633004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "temporally_related_to",
+              "inverse_rela": "temporally_related_to"
+            },
+            "732943007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_basis_of_strength_substance",
+              "inverse_rela": "basis_of_strength_substance_of"
+            },
+            "732945000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_presentation_strength_numerator_unit",
+              "inverse_rela": "presentation_strength_numerator_unit_of"
+            },
+            "732947008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_presentation_strength_denominator_unit",
+              "inverse_rela": "presentation_strength_denominator_unit_of"
+            },
+            "733722007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_concentration_strength_denominator_unit",
+              "inverse_rela": "concentration_strength_denominator_unit_of"
+            },
+            "733725009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_concentration_strength_numerator_unit",
+              "inverse_rela": "concentration_strength_numerator_unit_of"
+            },
+            "733930001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "regional_part_of",
+              "inverse_rela": "has_regional_part"
+            },
+            "736472000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_dose_form_administration_method",
+              "inverse_rela": "dose_form_administration_method_of"
+            },
+            "736473005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_dose_form_transformation",
+              "inverse_rela": "dose_form_transformation_of"
+            },
+            "736474004": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_dose_form_intended_site",
+              "inverse_rela": "dose_form_intended_site_of"
+            },
+            "736475003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_dose_form_release_characteristic",
+              "inverse_rela": "dose_form_release_characteristic_of"
+            },
+            "736476002": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_basic_dose_form",
+              "inverse_rela": "basic_dose_form_of"
+            },
+            "736518005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_state_of_matter",
+              "inverse_rela": "state_of_matter_of"
+            },
+            "738774007": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "is_modification_of",
+              "inverse_rela": "has_modification"
+            },
+            "762949000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_precise_active_ingredient",
+              "inverse_rela": "precise_active_ingredient_of"
+            },
+            "763032000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_unit_of_presentation",
+              "inverse_rela": "unit_of_presentation_of"
+            },
+            "766939001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "plays_role",
+              "inverse_rela": "role_played_by"
+            },
+            "827081001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_filling",
+              "inverse_rela": "filling_of"
+            },
+            "836358009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_device_intended_site",
+              "inverse_rela": "device_intended_site_of"
+            },
+            "840560000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_compositional_material",
+              "inverse_rela": "compositional_material_of"
+            }
+          },
+          "association_refsets": {
+            "1186921001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "possibly_replaced_by",
+              "inverse_rela": "possibly_replaces"
+            },
+            "1186924009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "partially_equivalent_to",
+              "inverse_rela": "partially_equivalent_to"
+            },
+            "734138000": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_entire_anatomy_structure",
+              "inverse_rela": "entire_anatomy_structure_of"
+            },
+            "734139008": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "has_part_anatomy_structure",
+              "inverse_rela": "part_anatomy_structure_of"
+            },
+            "900000000000523009": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "possibly_equivalent_to",
+              "inverse_rela": "possibly_equivalent_to"
+            },
+            "900000000000524003": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "moved_to",
+              "inverse_rela": "moved_from"
+            },
+            "900000000000526001": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "replaced_by",
+              "inverse_rela": "replaces"
+            },
+            "900000000000527005": {
+              "decision": "represent",
+              "rel": "SY",
+              "rela": "same_as",
+              "inverse_rela": "same_as"
+            },
+            "900000000000528000": {
+              "decision": "represent",
+              "rel": "NT",
+              "rela": "was_a",
+              "inverse_rela": "inverse_was_a"
+            },
+            "900000000000530003": {
+              "decision": "represent",
+              "rel": "NT",
+              "rela": "has_alternative",
+              "inverse_rela": "alternative_of"
+            },
+            "900000000000531004": {
+              "decision": "membership-only",
+              "reason": "Reviewed historical compatibility: the byte-proved archived producer emits SUBSET_MEMBER attributes for active association rows with active endpoints and emits no association relationship when this exact FN label has no SCT.RELMAP entry. Preserve that existing membership representation without inventing a REL/RELA or excluding the membership. This records archived behavior, not a semantic correction or production approval."
+            }
+          },
+          "description_types": {
+            "900000000000003001": {
+              "decision": "represent",
+              "tty": "FN"
+            },
+            "900000000000013009": {
+              "decision": "represent",
+              "tty": "SY"
+            }
+          },
+          "attribute_refsets": {
+            "446608001": {
+              "decision": "represent",
+              "atn": "ICD-O-3_CODE"
+            },
+            "900000000000497000": {
+              "decision": "represent",
+              "atn": "CTV3ID"
+            }
+          },
+          "concrete_types": {
+            "1142135004": {
+              "decision": "represent",
+              "atn": "PRESENTATION_STRENGTH_NUMERATOR_VALUE"
+            },
+            "1142136003": {
+              "decision": "represent",
+              "atn": "PRESENTATION_STRENGTH_DENOMINATOR_VALUE"
+            },
+            "1142137007": {
+              "decision": "represent",
+              "atn": "CONCENTRATION_STRENGTH_DENOMINATOR_VALUE"
+            },
+            "1142138002": {
+              "decision": "represent",
+              "atn": "CONCENTRATION_STRENGTH_NUMERATOR_VALUE"
+            },
+            "1142139005": {
+              "decision": "represent",
+              "atn": "COUNT_OF_BASE_OF_ACTIVE_INGREDIENT"
+            },
+            "1142140007": {
+              "decision": "represent",
+              "atn": "COUNT_OF_ACTIVE_INGREDIENT"
+            }
+          },
+          "refset_patterns": {
+            "1119417006": {
+              "decision": "represent",
+              "pattern": "Postcoordinated expression type"
+            },
+            "1119435002": {
+              "decision": "represent",
+              "pattern": "Canonical close to user form expression type"
+            },
+            "1119468009": {
+              "decision": "represent",
+              "pattern": "Classifiable form expression type"
+            },
+            "1186921001": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "1186924009": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "1187636009": {
+              "decision": "represent",
+              "pattern": "Simple map to SNOMED CT type"
+            },
+            "1193542003": {
+              "decision": "represent",
+              "pattern": "Simple map with correlation from SNOMED CT type"
+            },
+            "1193543008": {
+              "decision": "represent",
+              "pattern": "Simple map with correlation to SNOMED CT type"
+            },
+            "1193544002": {
+              "decision": "represent",
+              "pattern": "Simple map with correlation from SNOMED CT to SNOMED CT type"
+            },
+            "1292992004": {
+              "decision": "represent",
+              "pattern": "Component annotation with string value type"
+            },
+            "1292995002": {
+              "decision": "represent",
+              "pattern": "Member annotation with string value type"
+            },
+            "442311000124105": {
+              "decision": "represent",
+              "pattern": "Simple type"
+            },
+            "446608001": {
+              "decision": "represent",
+              "pattern": "Simple map type"
+            },
+            "446609009": {
+              "decision": "represent",
+              "pattern": "Simple type"
+            },
+            "447250001": {
+              "decision": "represent",
+              "pattern": "Complex map type"
+            },
+            "447258008": {
+              "decision": "represent",
+              "pattern": "Ordered type"
+            },
+            "447562003": {
+              "decision": "represent",
+              "pattern": "Extended map type"
+            },
+            "447563008": {
+              "decision": "represent",
+              "pattern": "Complex map type"
+            },
+            "447568004": {
+              "decision": "represent",
+              "pattern": "Ordered type"
+            },
+            "447570008": {
+              "decision": "represent",
+              "pattern": "Ordered type"
+            },
+            "6011000124106": {
+              "decision": "represent",
+              "pattern": "Extended map type"
+            },
+            "609331003": {
+              "decision": "represent",
+              "pattern": "Extended map type"
+            },
+            "705109006": {
+              "decision": "represent",
+              "pattern": "Code to expression type"
+            },
+            "705111002": {
+              "decision": "represent",
+              "pattern": "Map correlation and origin type"
+            },
+            "723264001": {
+              "decision": "represent",
+              "pattern": "Simple type"
+            },
+            "723560006": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "723561005": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "723562003": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "723563008": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "723589008": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "723592007": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "723604009": {
+              "decision": "represent",
+              "pattern": "MCRM-defined type"
+            },
+            "733073007": {
+              "decision": "represent",
+              "pattern": "OWL axiom set type"
+            },
+            "733618005": {
+              "decision": "represent",
+              "pattern": "Ordered association type"
+            },
+            "733619002": {
+              "decision": "represent",
+              "pattern": "Ordered component type"
+            },
+            "734138000": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "734139008": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "762103008": {
+              "decision": "represent",
+              "pattern": "OWL ontology type"
+            },
+            "762676003": {
+              "decision": "represent",
+              "pattern": "OWL expression type"
+            },
+            "900000000000456007": {
+              "decision": "represent",
+              "pattern": "Reference set descriptor type"
+            },
+            "900000000000480006": {
+              "decision": "represent",
+              "pattern": "Attribute value type"
+            },
+            "900000000000488004": {
+              "decision": "represent",
+              "pattern": "Attribute value type"
+            },
+            "900000000000489007": {
+              "decision": "represent",
+              "pattern": "Attribute value type"
+            },
+            "900000000000490003": {
+              "decision": "represent",
+              "pattern": "Attribute value type"
+            },
+            "900000000000496009": {
+              "decision": "represent",
+              "pattern": "Simple map type"
+            },
+            "900000000000497000": {
+              "decision": "represent",
+              "pattern": "Simple map type"
+            },
+            "900000000000498005": {
+              "decision": "represent",
+              "pattern": "Simple map type"
+            },
+            "900000000000506000": {
+              "decision": "represent",
+              "pattern": "Language type"
+            },
+            "900000000000508004": {
+              "decision": "represent",
+              "pattern": "Language type"
+            },
+            "900000000000509007": {
+              "decision": "represent",
+              "pattern": "Language type"
+            },
+            "900000000000512005": {
+              "decision": "represent",
+              "pattern": "Query specification type"
+            },
+            "900000000000516008": {
+              "decision": "represent",
+              "pattern": "Annotation type"
+            },
+            "900000000000521006": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000522004": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000523009": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000524003": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000525002": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000526001": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000527005": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000528000": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000530003": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000531004": {
+              "decision": "represent",
+              "pattern": "Association type"
+            },
+            "900000000000534007": {
+              "decision": "represent",
+              "pattern": "Module dependency type"
+            },
+            "900000000000538005": {
+              "decision": "represent",
+              "pattern": "Description format type"
+            }
+          },
+          "map_correlations": {
+            "447561005": {
+              "decision": "represent",
+              "rel": "RT",
+              "rela": "mapped_to"
+            }
+          }
+        },
+        "labels": {
+          "1003703000": "Process extends to (attribute)",
+          "1003735000": "Process acts on (attribute)",
+          "1148965004": "Is sterile (attribute)",
+          "1148967007": "Has coating material (attribute)",
+          "1148968002": "Has surface texture (attribute)",
+          "1148969005": "Has absorbability (attribute)",
+          "1149366004": "Has ingredient qualitative strength (attribute)",
+          "1149367008": "Has target population (attribute)",
+          "116676008": "Associated morphology (attribute)",
+          "116680003": "Is a (attribute)",
+          "116686009": "Has specimen (attribute)",
+          "116688005": "Procedure approach (attribute)",
+          "118168003": "Specimen source morphology (attribute)",
+          "118169006": "Specimen source topography (attribute)",
+          "118170007": "Specimen source identity (attribute)",
+          "118171006": "Specimen procedure (attribute)",
+          "127489000": "Has active ingredient (attribute)",
+          "246075003": "Causative agent (attribute)",
+          "246090004": "Associated finding (attribute)",
+          "246093002": "Component (attribute)",
+          "246112005": "Severity (attribute)",
+          "246454002": "Occurrence (attribute)",
+          "246501002": "Technique (attribute)",
+          "246513007": "Revision status (attribute)",
+          "246514001": "Units (attribute)",
+          "255234002": "After (attribute)",
+          "260507000": "Access (attribute)",
+          "260686004": "Method (attribute)",
+          "260870009": "Priority (attribute)",
+          "263502005": "Clinical course (attribute)",
+          "272741003": "Laterality (attribute)",
+          "288556008": "Before (attribute)",
+          "363589002": "Associated procedure (attribute)",
+          "363698007": "Finding site (attribute)",
+          "363699004": "Direct device (attribute)",
+          "363700003": "Direct morphology (attribute)",
+          "363701004": "Direct substance (attribute)",
+          "363702006": "Has focus (attribute)",
+          "363703001": "Has intent (attribute)",
+          "363704007": "Procedure site (attribute)",
+          "363709002": "Indirect morphology (attribute)",
+          "363710007": "Indirect device (attribute)",
+          "363713009": "Has interpretation (attribute)",
+          "363714003": "Interprets (attribute)",
+          "370129005": "Measurement method (attribute)",
+          "370130000": "Property (attribute)",
+          "370131001": "Recipient category (attribute)",
+          "370132008": "Scale type (attribute)",
+          "370133003": "Specimen substance (attribute)",
+          "370134009": "Time aspect (attribute)",
+          "370135005": "Pathological process (attribute)",
+          "371881003": "During (attribute)",
+          "405813007": "Procedure site - Direct (attribute)",
+          "405814001": "Procedure site - Indirect (attribute)",
+          "405815000": "Procedure device (attribute)",
+          "405816004": "Procedure morphology (attribute)",
+          "408729009": "Finding context (attribute)",
+          "408730004": "Procedure context (attribute)",
+          "408731000": "Temporal context (attribute)",
+          "408732007": "Subject relationship context (attribute)",
+          "410675002": "Route of administration (attribute)",
+          "411116001": "Has dose form (attribute)",
+          "418775008": "Finding method (attribute)",
+          "419066007": "Finding informer (attribute)",
+          "424226004": "Using device (attribute)",
+          "424244007": "Using energy (attribute)",
+          "424361007": "Using substance (attribute)",
+          "425391005": "Using access device (attribute)",
+          "42752001": "Due to (attribute)",
+          "47429007": "Associated with (attribute)",
+          "704319004": "Inheres in (attribute)",
+          "704320005": "Towards (attribute)",
+          "704321009": "Characterizes (attribute)",
+          "704323007": "Process duration (attribute)",
+          "704324001": "Process output (attribute)",
+          "704325000": "Relative to (attribute)",
+          "704326004": "Precondition (attribute)",
+          "704327008": "Direct site (attribute)",
+          "718497002": "Inherent location (attribute)",
+          "719715003": "Relative to part of (attribute)",
+          "719722006": "Has realization (attribute)",
+          "726542003": "Has disposition (attribute)",
+          "726633004": "Temporally related to (attribute)",
+          "732943007": "Has basis of strength substance (attribute)",
+          "732945000": "Has presentation strength numerator unit (attribute)",
+          "732947008": "Has presentation strength denominator unit (attribute)",
+          "733722007": "Has concentration strength denominator unit (attribute)",
+          "733725009": "Has concentration strength numerator unit (attribute)",
+          "733930001": "Regional part of (attribute)",
+          "736472000": "Has dose form administration method (attribute)",
+          "736473005": "Has dose form transformation (attribute)",
+          "736474004": "Has dose form intended site (attribute)",
+          "736475003": "Has dose form release characteristic (attribute)",
+          "736476002": "Has basic dose form (attribute)",
+          "736518005": "Has state of matter (attribute)",
+          "738774007": "Is modification of (attribute)",
+          "762949000": "Has precise active ingredient (attribute)",
+          "763032000": "Has unit of presentation (attribute)",
+          "766939001": "Plays role (attribute)",
+          "827081001": "Has filling (attribute)",
+          "836358009": "Has device intended site (attribute)",
+          "840560000": "Has compositional material (attribute)",
+          "1186921001": "POSSIBLY REPLACED BY association reference set (foundation metadata concept)",
+          "1186924009": "PARTIALLY EQUIVALENT TO association reference set (foundation metadata concept)",
+          "734138000": "Anatomy structure and entire association reference set (foundation metadata concept)",
+          "734139008": "Anatomy structure and part association reference set (foundation metadata concept)",
+          "900000000000523009": "POSSIBLY EQUIVALENT TO association reference set (foundation metadata concept)",
+          "900000000000524003": "MOVED TO association reference set (foundation metadata concept)",
+          "900000000000526001": "REPLACED BY association reference set (foundation metadata concept)",
+          "900000000000527005": "SAME AS association reference set (foundation metadata concept)",
+          "900000000000528000": "WAS A association reference set (foundation metadata concept)",
+          "900000000000530003": "ALTERNATIVE association reference set (foundation metadata concept)",
+          "900000000000531004": "REFERS TO concept association reference set (foundation metadata concept)"
+        },
+        "mapping_targets": {
+          "ICD9CM": "ICD9CM_2013",
+          "ICD10": "ICD10_2016",
+          "ICD10CM": "ICD10CM_2026"
+        },
+        "association_membership_review": {
+          "schema_version": 1,
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2026_03_01",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "cfg_sha256": "5feb62d87b1f235935446a0b7fe5e65cecda2fcad564dd48987a93fdd1e07650",
+          "producer_sha256": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+          "native_sha256": {
+            "rf2-association": "a915705b8e9d20a69f951f45b087bd86f70e6ea7e18a95fde7706478f4b4a727",
+            "rf2-attribute-value": "475277a7a94a507688ba07ed508c9d013fe53d7e19d0aa63711e329e7e616a74",
+            "rf2-concepts": "13832728ff41c71bd986d445ada886d4168aef7dd4bba702abbf187298eda4be",
+            "rf2-concrete-values": "566836b1cb56442d295561511d222185511679aa192e69f159086342ae2720a0",
+            "rf2-description-type": "d3a28af12709a07675b59b15d365005c6428d5952314d55f03091ac7906a6532",
+            "rf2-descriptions": "f92ba840b7270253515afac0c1db512e5f442b8fa8c546a4dcb128c608bf0dd5",
+            "rf2-extended-map": "4bb1433ea5971fe9637f052bd1f264d9aa3ced22dc2696f7e8b2362b22785a97",
+            "rf2-language": "bcfdb6d3061cbeade0e1ad721e3e2eedac1f09c158b00b8f04eb5be14e2220c3",
+            "rf2-module-dependency": "fe64565e58b2e6dc3b2d0f4b7a42697467573df8b7d6365c6879b57bfcbbe67b",
+            "rf2-refset-descriptor": "65cc29bd9d547a98505cde98b2f11dc12d54594432e479c4c880326fa929cc27",
+            "rf2-relationships": "43208c98e4ec7b02ed4185a58e33f13dd816c6bddd1e85faf04e2ca50251fe9d",
+            "rf2-simple-map": "1b5b6d6e23503adad0de5c8bd3a95fa57826e2f3376be907e52b6e69802bbab2",
+            "rf2-simple-refset": "e57d8e371611fa1fcca0fee8cc4052433f8894e5eec9031a14a156084ba40be3",
+            "rf2-text-definitions": "9320a4aaaeb057b986b06ad2917d1cd2292decd538c38c5e5036f1b0ead0beb8"
+          },
+          "association_refsets": {
+            "900000000000531004": {
+              "reason": "Reviewed historical compatibility: the byte-proved archived producer emits SUBSET_MEMBER attributes for active association rows with active endpoints and emits no association relationship when this exact FN label has no SCT.RELMAP entry. Preserve that existing membership representation without inventing a REL/RELA or excluding the membership. This records archived behavior, not a semantic correction or production approval.",
+              "fn_labels": [
+                "REFERS TO concept association reference set (foundation metadata concept)"
+              ]
+            }
+          },
+          "cfg_data_b64": "IyBTTk9NRURDVF9VUyBjb25maWcgZmlsZS4KIyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CgpMb2dMdmwgPSBJTkZPCgojVHJhbnNCYXNlID0gClJTQUIgPSBTTk9NRURDVF9VUwpWU0FCID0gU05PTUVEQ1RfVVNfMjAyNl8wM18wMQpWU0FCMTggPSA8VlNBQj4KVlNBQk9MRCA9IFNOT01FRENUX1VTXzIwMjVfMDlfMDEKUmVsZWFzZSA9IFNuYXBzaG90CiNSZWxlYXNlID0gRnVsbApFbmdOdW0gPSAyMDI2MDMwMQojUmVsQ29kZSA9IElOVApSZWxDb2RlID0gVVMxMDAwMTI0Ck9SSUdESVIgPS4uL29yaWcvZnJvbXByb3ZpZGVyL1Nub21lZENUX01hbmFnZWRTZXJ2aWNlVVNfUFJPRFVDVElPTl88UmVsQ29kZT5fPEVuZ051bT5UMTIwMDAwWi88UmVsZWFzZT4KUkVGRElSID0gPE9SSUdESVI+L1JlZnNldAojQ09NUEFURElSID0gLi4vb3JpZy9mcm9tcHJvdmlkZXIveHJlczJfQ29tcGF0aWJpbGl0eV9QYWNrYWdlX0lOVF88RW5nTnVtPgpFeHRlbnNpb24gPSBfPFJlbENvZGU+XzxFbmdOdW0+LnR4dApFbmdOdW1PbGQgPSAyMDI1MDkwMQpRQURJUiA9IC4uL2V0Yy9xYQoKU2FpZFN0YXJ0ID0gNzY0OTIzNTA2ClNhaWRFbmQgPSA3NjU5NjY1OTIKCiMKIyBTUkMgQnVpbGRlciBQcm9wZXJ0aWVzCiMKU05PTUVEQ1RfVVNfMjAyNl8wM18wMS5WU1kuMCA9IFNOT01FRCBDbGluaWNhbCBUZXJtcyBVUyBFZGl0aW9uLCBNYXJjaCAxLCAyMDI2Ck1ha2VSb290ID0gMApNYWtlVHJhbnMgPSAwCgpMVkdQcm9nID0gL3VtbHNfcHJvZC91bWxzX2FwcHNfbGludXhfcHJvZC9sdmcvY3VycmVudC9iaW4vbHZnCgojIHJlcXVpcmVkIGZpbGVzLgpGaWxlLklOUC5DT05DRVBUUyA9IDxPUklHRElSPi9UZXJtaW5vbG9neS9zY3QyX0NvbmNlcHRfPFJlbGVhc2U+PEV4dGVuc2lvbj4KRmlsZS5JTlAuREVTQ1JJUFRJT05TID0gPE9SSUdESVI+L1Rlcm1pbm9sb2d5L3NjdDJfRGVzY3JpcHRpb25fPFJlbGVhc2U+LWVuPEV4dGVuc2lvbj4KRmlsZS5JTlAuUkVMQVRJT05TID0gPE9SSUdESVI+L1Rlcm1pbm9sb2d5L3NjdDJfUmVsYXRpb25zaGlwXzxSZWxlYXNlPjxFeHRlbnNpb24+CkZpbGUuSU5QLkNPTkNSRVRFUkVMUyA9IDxPUklHRElSPi9UZXJtaW5vbG9neS9zY3QyX1JlbGF0aW9uc2hpcENvbmNyZXRlVmFsdWVzXzxSZWxlYXNlPjxFeHRlbnNpb24+CkZpbGUuSU5QLkRFRklOSVRJT05TID0gPE9SSUdESVI+L1Rlcm1pbm9sb2d5L3NjdDJfVGV4dERlZmluaXRpb25fPFJlbGVhc2U+LWVuPEV4dGVuc2lvbj4KCiMgZW1wdHkgYW5kL29yIGN1cnJlbnRseSB1bnVzZWQKRmlsZS5JTlAuU1RBVEVEUkVMUyA9IDxPUklHRElSPi9UZXJtaW5vbG9neS9zY3QyX1N0YXRlZFJlbGF0aW9uc2hpcF88UmVsZWFzZT48RXh0ZW5zaW9uPgojRmlsZS5JTlAuUVVBTElGSUVSUyA9IDxDT01QQVRESVI+LzxSZWxlYXNlPi9zY3QyX1F1YWxpZmllcl88UmVsZWFzZT48RXh0ZW5zaW9uPgojRmlsZS5JTlAuSURFTlRJRklFUlMgPSA8T1JJR0RJUj4vVGVybWlub2xvZ3kvc2N0Ml9JZGVudGlmaWVyXzxSZWxlYXNlPjxFeHRlbnNpb24+CgpGaWxlLklOUC5SRUZTRVRTID0gPFJFRkRJUj4vTWV0YWRhdGEvZGVyMl9jY2lSZWZzZXRfUmVmc2V0RGVzY3JpcHRvcjxSZWxlYXNlPjxFeHRlbnNpb24+CkZpbGUuSU5QLkRFU0NSRk9STUFUID0gPFJFRkRJUj4vTWV0YWRhdGEvZGVyMl9jaVJlZnNldF9EZXNjcmlwdGlvblR5cGU8UmVsZWFzZT48RXh0ZW5zaW9uPgpGaWxlLklOUC5NT0RVTEVERVAgPSA8UkVGRElSPi9NZXRhZGF0YS9kZXIyX3NzUmVmc2V0X01vZHVsZURlcGVuZGVuY3k8UmVsZWFzZT48RXh0ZW5zaW9uPgpGaWxlLklOUC5MQU5HVUFHRVNFVFMgPSA8UkVGRElSPi9MYW5ndWFnZS9kZXIyX2NSZWZzZXRfTGFuZ3VhZ2U8UmVsZWFzZT4tZW48RXh0ZW5zaW9uPgpGaWxlLklOUC5TSU1QTEVNQVBTID0gPFJFRkRJUj4vTWFwL2RlcjJfc1JlZnNldF9TaW1wbGVNYXA8UmVsZWFzZT48RXh0ZW5zaW9uPgpGaWxlLklOUC5DT01QTEVYTUFQUyA9IDxSRUZESVI+L01hcC9kZXIyX2lpc3NzY1JlZnNldF9Db21wbGV4TWFwPFJlbGVhc2U+PEV4dGVuc2lvbj4KRmlsZS5JTlAuRVhURU5ERURNQVBTID0gPFJFRkRJUj4vTWFwL2RlcjJfaWlzc3NjY1JlZnNldF9FeHRlbmRlZE1hcDxSZWxlYXNlPjxFeHRlbnNpb24+CkZpbGUuSU5QLkFUVFJJQlVURVMgPSA8UkVGRElSPi9Db250ZW50L2RlcjJfY1JlZnNldF9BdHRyaWJ1dGVWYWx1ZTxSZWxlYXNlPjxFeHRlbnNpb24+CkZpbGUuSU5QLlNVQlNFVFMgPSA8UkVGRElSPi9Db250ZW50L2RlcjJfUmVmc2V0X1NpbXBsZTxSZWxlYXNlPjxFeHRlbnNpb24+CkZpbGUuSU5QLkFTU09DSUFUSU9OUyA9IDxSRUZESVI+L0NvbnRlbnQvZGVyMl9jUmVmc2V0X0Fzc29jaWF0aW9uPFJlbGVhc2U+PEV4dGVuc2lvbj4KCiMgZW1wdHkgYW5kL29yIGN1cnJlbnRseSB1bnVzZWQKI0ZpbGUuSU5QLlJFRklOQUJJTElUWSA9IDxDT01QQVRESVI+LzxSZWxlYXNlPi94ZGVyMl9jUmVmc2V0X1JlZmluYWJpbGl0eTxSZWxlYXNlPjxFeHRlbnNpb24+CiNGaWxlLklOUC5PUkRFUkVEID0gPE9SSUdESVI+L1Jlc291cmNlcy9FeGVtcGxhcnMvcmVzMl9pY1JlZnNldF9PcmRlcmVkVHlwZTxSZWxlYXNlPjxFeHRlbnNpb24+CgpGaWxlLklOUC5JQ0QxME1FVEEgPSAuLi9ldGMvaWNkMTAuaW5tZXRhCkZpbGUuSU5QLklDRDEwQ01NRVRBID0gLi4vZXRjL2ljZDEwY20uaW5tZXRhCgpUVFkuOTAwMDAwMDAwMDAwMDAzMDAxPUZOClRUWS45MDAwMDAwMDAwMDAwMTMwMDk9U1kKVVNSRUZTRVQ9OTAwMDAwMDAwMDAwNTA5MDA3CkdCUkVGU0VUPTkwMDAwMDAwMDAwMDUwODAwNApQVENJRD05MDAwMDAwMDAwMDA1NDgwMDcKQ1NUQVRVU1JFRlNFVD05MDAwMDAwMDAwMDA0ODkwMDcKRFNUQVRVU1JFRlNFVD05MDAwMDAwMDAwMDA0OTAwMDMKUkVGSU5SRUZTRVQ9OTAwMDAwMDAwMDAwNDg4MDA0CkxJTUlURURTVEFUVVM9OTAwMDAwMDAwMDAwNDg2MDAwClJFRklOTUFOREFUT1JZPTkwMDAwMDAwMDAwMDIxODAwOApDSEFSVFlQRVFVQUxJRklFUj05MDAwMDAwMDAwMDA0MDkwMDkKUk9PVFNDVUk9MTM4ODc1MDA1CkRFRkFVTFRMQU5HVUFHRT1lbgpERUZBVUxUTU9EVUxFPTkwMDAwMDAwMDAwMDIwNzAwOAojIHVzZSBYUiB0YXJnZXQgaWQgZnJvbSBSRjEKTUFQU0VUWFJUQVJHRVRJRD0xMDAwNTEKCkFUTi45MDAwMDAwMDAwMDA0ODkwMDc9SU5BQ1RJVkFUSU9OX0lORElDQVRPUgpBVE4uOTAwMDAwMDAwMDAwNDkwMDAzPUlOQUNUSVZBVElPTl9JTkRJQ0FUT1IKQVROLjkwMDAwMDAwMDAwMDQ4ODAwND1SRUZJTkFCSUxJVFkKQVROLjQ0NjYwODAwMT1JQ0QtTy0zX0NPREUKQVROLjQ2NzYxNDAwOD1HTUROX0NPREUKQVROLjkwMDAwMDAwMDAwMDQ5NzAwMD1DVFYzSUQKQVROLjkwMDAwMDAwMDAwMDQ5ODAwNT1TTk9NRURJRAoKQVROLjExNDIxMzUwMDQ9UFJFU0VOVEFUSU9OX1NUUkVOR1RIX05VTUVSQVRPUl9WQUxVRQpBVE4uMTE0MjEzNjAwMz1QUkVTRU5UQVRJT05fU1RSRU5HVEhfREVOT01JTkFUT1JfVkFMVUUKQVROLjExNDIxMzcwMDc9Q09OQ0VOVFJBVElPTl9TVFJFTkdUSF9ERU5PTUlOQVRPUl9WQUxVRQpBVE4uMTE0MjEzODAwMj1DT05DRU5UUkFUSU9OX1NUUkVOR1RIX05VTUVSQVRPUl9WQUxVRQpBVE4uMTE0MjEzOTAwNT1DT1VOVF9PRl9CQVNFX09GX0FDVElWRV9JTkdSRURJRU5UCkFUTi4xMTQyMTQwMDA3PUNPVU5UX09GX0FDVElWRV9JTkdSRURJRU5UCkFUTi4xMTQyMTQxMDA2PUNPVU5UX09GX0JBU0VfQU5EX01PRElGSUNBVElPTl9QQUlSCgoKUEFUVEVSTi45MDAwMDAwMDAwMDA0NTYwMDc9UmVmZXJlbmNlIHNldCBkZXNjcmlwdG9yIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MzgwMDU9RGVzY3JpcHRpb24gZm9ybWF0IHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MzQwMDc9TW9kdWxlIGRlcGVuZGVuY3kgdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDUwODAwND1MYW5ndWFnZSB0eXBlClBBVFRFUk4uOTAwMDAwMDAwMDAwNTA5MDA3PUxhbmd1YWdlIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA0ODgwMDQ9QXR0cmlidXRlIHZhbHVlIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA0ODkwMDc9QXR0cmlidXRlIHZhbHVlIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA0OTAwMDM9QXR0cmlidXRlIHZhbHVlIHR5cGUKUEFUVEVSTi40NDY2MDgwMDE9U2ltcGxlIG1hcCB0eXBlClBBVFRFUk4uNDY3NjE0MDA4PVNpbXBsZSBtYXAgdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDQ5NzAwMD1TaW1wbGUgbWFwIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA0OTgwMDU9U2ltcGxlIG1hcCB0eXBlClBBVFRFUk4uNDQ3NTYzMDA4PUNvbXBsZXggbWFwIHR5cGUKUEFUVEVSTi40NDc1NjIwMDM9RXh0ZW5kZWQgbWFwIHR5cGUKUEFUVEVSTi42MDExMDAwMTI0MTA2PUV4dGVuZGVkIG1hcCB0eXBlClBBVFRFUk4uNDQ3NTY0MDAyPVNpbXBsZSB0eXBlClBBVFRFUk4uNDQ3NTY1MDAxPVNpbXBsZSB0eXBlClBBVFRFUk4uNDQ3NTY2MDAwPVNpbXBsZSB0eXBlClBBVFRFUk4uNzIzMjY0MDAxPVNpbXBsZSB0eXBlClBBVFRFUk4uNzA1MTA5MDA2PUNvZGUgdG8gZXhwcmVzc2lvbiB0eXBlClBBVFRFUk4uNzA1MTExMDAyPU1hcCBjb3JyZWxhdGlvbiBhbmQgb3JpZ2luIHR5cGUKUEFUVEVSTi40NDIzMTEwMDAxMjQxMDU9U2ltcGxlIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MjIwMDQ9QXNzb2NpYXRpb24gdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDUyMzAwOT1Bc3NvY2lhdGlvbiB0eXBlClBBVFRFUk4uOTAwMDAwMDAwMDAwNTI0MDAzPUFzc29jaWF0aW9uIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MjUwMDI9QXNzb2NpYXRpb24gdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDUyNjAwMT1Bc3NvY2lhdGlvbiB0eXBlClBBVFRFUk4uOTAwMDAwMDAwMDAwNTI3MDA1PUFzc29jaWF0aW9uIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MjgwMDA9QXNzb2NpYXRpb24gdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDUzMDAwMz1Bc3NvY2lhdGlvbiB0eXBlClBBVFRFUk4uOTAwMDAwMDAwMDAwNTMxMDA0PUFzc29jaWF0aW9uIHR5cGUKUEFUVEVSTi40NDc1NjgwMDQ9T3JkZXJlZCB0eXBlClBBVFRFUk4uNDQ3NTcwMDA4PU9yZGVyZWQgdHlwZQpQQVRURVJOLjQ0NjYwOTAwOT1TaW1wbGUgdHlwZQpQQVRURVJOLjQ0NzI1MDAwMT1Db21wbGV4IG1hcCB0eXBlClBBVFRFUk4uNDQ3MjU4MDA4PU9yZGVyZWQgdHlwZQpQQVRURVJOLjYwOTMzMTAwMz1FeHRlbmRlZCBtYXAgdHlwZQpQQVRURVJOLjczMzYxODAwNT1PcmRlcmVkIGFzc29jaWF0aW9uIHR5cGUKUEFUVEVSTi43MzM2MTkwMDI9T3JkZXJlZCBjb21wb25lbnQgdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDQ4MDAwNj1BdHRyaWJ1dGUgdmFsdWUgdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDQ5NjAwOT1TaW1wbGUgbWFwIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MDYwMDA9TGFuZ3VhZ2UgdHlwZQpQQVRURVJOLjkwMDAwMDAwMDAwMDUxMjAwNT1RdWVyeSBzcGVjaWZpY2F0aW9uIHR5cGUKUEFUVEVSTi45MDAwMDAwMDAwMDA1MTYwMDg9QW5ub3RhdGlvbiB0eXBlClBBVFRFUk4uOTAwMDAwMDAwMDAwNTIxMDA2PUFzc29jaWF0aW9uIHR5cGUKUEFUVEVSTi43MzQxMzgwMDA9QXNzb2NpYXRpb24gdHlwZQpQQVRURVJOLjczNDEzOTAwOD1Bc3NvY2lhdGlvbiB0eXBlClBBVFRFUk4uMTE4NjkyMTAwMT1Bc3NvY2lhdGlvbiB0eXBlClBBVFRFUk4uMTE4NjkyNDAwOT1Bc3NvY2lhdGlvbiB0eXBlClBBVFRFUk4uNzIzNTYwMDA2PU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzIzNTYxMDA1PU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzIzNTYyMDAzPU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzIzNTYzMDA4PU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzIzNTg5MDA4PU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzIzNTkyMDA3PU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzIzNjA0MDA5PU1DUk0tZGVmaW5lZCB0eXBlClBBVFRFUk4uNzMzMDczMDA3PU9XTCBheGlvbSBzZXQgdHlwZQpQQVRURVJOLjc2MjY3NjAwMz1PV0wgZXhwcmVzc2lvbiB0eXBlClBBVFRFUk4uNzYyMTAzMDA4PU9XTCBvbnRvbG9neSB0eXBlClBBVFRFUk4uMTExOTQxNzAwNj1Qb3N0Y29vcmRpbmF0ZWQgZXhwcmVzc2lvbiB0eXBlClBBVFRFUk4uMTExOTQzNTAwMj1DYW5vbmljYWwgY2xvc2UgdG8gdXNlciBmb3JtIGV4cHJlc3Npb24gdHlwZQpQQVRURVJOLjExMTk0NjgwMDk9Q2xhc3NpZmlhYmxlIGZvcm0gZXhwcmVzc2lvbiB0eXBlClBBVFRFUk4uMTE4NzYzNjAwOT1TaW1wbGUgbWFwIHRvIFNOT01FRCBDVCB0eXBlClBBVFRFUk4uMTE5MzU0MjAwMz1TaW1wbGUgbWFwIHdpdGggY29ycmVsYXRpb24gZnJvbSBTTk9NRUQgQ1QgdHlwZQpQQVRURVJOLjExOTM1NDMwMDg9U2ltcGxlIG1hcCB3aXRoIGNvcnJlbGF0aW9uIHRvIFNOT01FRCBDVCB0eXBlClBBVFRFUk4uMTE5MzU0NDAwMj1TaW1wbGUgbWFwIHdpdGggY29ycmVsYXRpb24gZnJvbSBTTk9NRUQgQ1QgdG8gU05PTUVEIENUIHR5cGUKUEFUVEVSTi4xMjkyOTk1MDAyPU1lbWJlciBhbm5vdGF0aW9uIHdpdGggc3RyaW5nIHZhbHVlIHR5cGUKUEFUVEVSTi4xMjkyOTkyMDA0PUNvbXBvbmVudCBhbm5vdGF0aW9uIHdpdGggc3RyaW5nIHZhbHVlIHR5cGUKCiMgdGhlc2UgYXJlIGFzc3VtZWQgdG8gYmUgYWxyZWFkeSByZWFkeS4KRmlsZS5JTlAuT2xkU3Vic2V0ID0gLi4vZXRjL01HX3NjdF9zdWJzZXRzX3VzXzxFbmdOdW1PbGQ+LnR4dAoKIyB0aGlzIGlzIGdlbmVyYXRlZCBhZnRlciB0aGUgcHJlcGFyZSBpbnB1dCBmaWxlcy4gVGhpcyBuZWVkcyB0byBiZSBlZGl0ZWQKIyB0byBtYXJrIHRoZSBmaXJzdCBjaGFyIGFzICIxIiBmb3Igb25seSAxIG9wIHRlcm0gZm9yIGVhY2ggc2V0IG9mIG9wIG5hbWVzLgojIHRoaXMgaXMgZG9uZSBtYW51YWxseS4KRmlsZS5JTlAuVVJDaWQyRGlkID0gLi4vZXRjL01HX1VSY2lkMmRpZAojRmlsZS5JTlAuU3R5VGVybUlkcyA9IC4uL2V0Yy9NR19zdHlfdGVybV9pZHMKRmlsZS5USU5TLlN0eVRlcm1JZHMgPSAuLi9ldGMvc3R5X3Rlcm1faWRzCgoKIyB0aGVzZSBhcmUgZ2VuZXJhdGVkLgpGaWxlLklOVC5ERVNDUklQVElPTlMgPSAuLi9ldGMvR05fc2N0X2Rlc2NyaXB0aW9ucy50eHQKRmlsZS5JTlQuTXRoVXRmVGVybXMgPSAuLi9ldGMvR05fdXRmOF90ZXJtcwpGaWxlLklOVC5NdGhTU1Rlcm1zID0gLi4vZXRjL0dOX3N1cHN1Yl90ZXJtcwpGaWxlLklOVC5YTTFUMSA9IC4uL2V0Yy9HTl9tYXBwaW5nc18xdG8xCgpGaWxlLklOVC5DaWQyRGlkID0gLi4vZXRjL0dOX2NpZDJkaWQKRmlsZS5JTlQuUnhuQ2lkcyA9IC4uL2V0Yy9HTl9yeG5DaWRzCgojIHJ4biBycmYgZmlsZXMuCkZpbGUuT1VULlJ4bkNvbnNvID0gLi4vZXRjL3JyZi9NUkNPTlNPLlJSRgpGaWxlLk9VVC5SeG5SZWwgPSAuLi9ldGMvcnJmL01SUkVMLlJSRgojRmlsZS5PVVQuUnhuQXRyID0gLi4vZXRjL3JyZi9NUlNBVC5SUkYKCiMgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KIyBzdGFuZGFyZCBmaWxlcwpGaWxlLkF0b20yID0gLi4vc3JjL3RlbXBfY2xhc3Nlc19hdG9tcy5zcmMKCgojIGhlcmUgZnJvbSB0aGUgaW5wdXQgZGF0YTogbWFwYWR2aWNlLCB3ZSBhc3NpZ24gdGhlIHJlbCwgcmVsYQojU0NULk1BUEFEVklDRSA9IE1BUEFEVklDRQlSRUwJUkVMQQojU0NULk1BUEFEVklDRS4wID0gWFJ8CiNTQ1QuTUFQQURWSUNFLjEgPSBSVD98bWFwcGVkX3RvCiNTQ1QuTUFQQURWSUNFLjIgPSBOVHxtYXBwZWRfdG8KI1NDVC5NQVBBRFZJQ0UuMyA9IEJUfG1hcHBlZF90bwojU0NULk1BUEFEVklDRS40ID0gUlR8bWFwcGVkX3RvCgpNQVBJTkZPLjQ0NzU1NjAwOD1YUnwKTUFQSU5GTy40NDc1NTcwMDQ9UlQ/fG1hcHBlZF90bwpNQVBJTkZPLjQ0NzU1ODAwOT1OVHxtYXBwZWRfdG8KTUFQSU5GTy40NDc1NTkwMDE9QlR8bWFwcGVkX3RvCk1BUElORk8uNDQ3NTYwMDA2PVJUfG1hcHBlZF90bwoKTUFQSU5GTy40NDc1NjEwMDU9UlR8bWFwcGVkX3RvCgojIGZvcmVhY2ggaW5wdXQgcmVsYXRpb25zaGlwLCB3ZSB1c2UgdGhlIGZvbGxvd2luZyByZWxhL2lyZWxhL3JlbC4KU0NULlJFTE1BUC4wMCA9IEFjY2VzcyAoYXR0cmlidXRlKXxcCgloYXNfYWNjZXNzfGFjY2Vzc19vZnxSVApTQ1QuUkVMTUFQLjAxID0gQWNjZXNzIGluc3RydW1lbnQgKGF0dHJpYnV0ZSl8XAoJaGFzX2FjY2Vzc19pbnN0cnVtZW50fGFjY2Vzc19pbnN0cnVtZW50X29mfFJUClNDVC5SRUxNQVAuMDIgPSBBZnRlciAoYXR0cmlidXRlKXxcCglvY2N1cnNfYWZ0ZXJ8b2NjdXJzX2JlZm9yZXxSVApTQ1QuUkVMTUFQLjAzID0gQXBwcm9hY2ggKGF0dHJpYnV0ZSl8XAoJaGFzX2FwcHJvYWNofGFwcHJvYWNoX29mfFJUClNDVC5SRUxNQVAuMDQgPSBBc3NvY2lhdGVkIGV0aW9sb2dpYyBmaW5kaW5nIChhdHRyaWJ1dGUpfFwKCWhhc19hc3NvY2lhdGVkX2V0aW9sb2dpY19maW5kaW5nfGFzc29jaWF0ZWRfZXRpb2xvZ2ljX2ZpbmRpbmdfb2Z8UlQKU0NULlJFTE1BUC4wNSA9IEFzc29jaWF0ZWQgZmluZGluZyAoYXR0cmlidXRlKXxcCgloYXNfYXNzb2NpYXRlZF9maW5kaW5nfGFzc29jaWF0ZWRfZmluZGluZ19vZnxSVApTQ1QuUkVMTUFQLjA2ID0gQXNzb2NpYXRlZCBtb3JwaG9sb2d5IChhdHRyaWJ1dGUpfFwKCWhhc19hc3NvY2lhdGVkX21vcnBob2xvZ3l8YXNzb2NpYXRlZF9tb3JwaG9sb2d5X29mfFJUClNDVC5SRUxNQVAuMDcgPSBBc3NvY2lhdGVkIHByb2NlZHVyZSAoYXR0cmlidXRlKXxcCgloYXNfYXNzb2NpYXRlZF9wcm9jZWR1cmV8YXNzb2NpYXRlZF9wcm9jZWR1cmVfb2Z8UlQKU0NULlJFTE1BUC4wOCA9IEFzc29jaWF0ZWQgd2l0aCAoYXR0cmlidXRlKXxcCglhc3NvY2lhdGVkX3dpdGh8YXNzb2NpYXRlZF93aXRofFJUClNDVC5SRUxNQVAuMDkgPSBDYXVzYXRpdmUgYWdlbnQgKGF0dHJpYnV0ZSl8XAoJaGFzX2NhdXNhdGl2ZV9hZ2VudHxjYXVzYXRpdmVfYWdlbnRfb2Z8UlQKU0NULlJFTE1BUC4xMCA9IENsaW5pY2FsIGNvdXJzZSAoYXR0cmlidXRlKXxcCgloYXNfY2xpbmljYWxfY291cnNlfGNsaW5pY2FsX2NvdXJzZV9vZnxSVApTQ1QuUkVMTUFQLjExID0gQ29tcG9uZW50IChhdHRyaWJ1dGUpfFwKCWhhc19jb21wb25lbnR8Y29tcG9uZW50X29mfFJUClNDVC5SRUxNQVAuMTIgPSBDb3Vyc2UgKGF0dHJpYnV0ZSl8XAoJaGFzX2NvdXJzZXxjb3Vyc2Vfb2Z8UlQKU0NULlJFTE1BUC4xMyA9IERpcmVjdCBkZXZpY2UgKGF0dHJpYnV0ZSl8XAoJaGFzX2RpcmVjdF9kZXZpY2V8ZGlyZWN0X2RldmljZV9vZnxSVApTQ1QuUkVMTUFQLjE0ID0gRGlyZWN0IG1vcnBob2xvZ3kgKGF0dHJpYnV0ZSl8XAoJaGFzX2RpcmVjdF9tb3JwaG9sb2d5fGRpcmVjdF9tb3JwaG9sb2d5X29mfFJUClNDVC5SRUxNQVAuMTUgPSBEaXJlY3Qgc3Vic3RhbmNlIChhdHRyaWJ1dGUpfFwKCWhhc19kaXJlY3Rfc3Vic3RhbmNlfGRpcmVjdF9zdWJzdGFuY2Vfb2Z8UlQKU0NULlJFTE1BUC4xNiA9IER1ZSB0byAoYXR0cmlidXRlKXxcCglkdWVfdG98Y2F1c2Vfb2Z8UlQKU0NULlJFTE1BUC4xNyA9IEVwaXNvZGljaXR5IChhdHRyaWJ1dGUpfFwKCWhhc19lcGlzb2RpY2l0eXxlcGlzb2RpY2l0eV9vZnxSVApTQ1QuUkVMTUFQLjE4ID0gRmluZGluZyBjb250ZXh0IChhdHRyaWJ1dGUpfFwKCWhhc19maW5kaW5nX2NvbnRleHR8ZmluZGluZ19jb250ZXh0X29mfFJUClNDVC5SRUxNQVAuMTkgPSBGaW5kaW5nIGluZm9ybWVyIChhdHRyaWJ1dGUpfFwKCWhhc19maW5kaW5nX2luZm9ybWVyfGZpbmRpbmdfaW5mb3JtZXJfb2Z8UlQKU0NULlJFTE1BUC4yMCA9IEZpbmRpbmcgbWV0aG9kIChhdHRyaWJ1dGUpfFwKCWhhc19maW5kaW5nX21ldGhvZHxmaW5kaW5nX21ldGhvZF9vZnxSVApTQ1QuUkVMTUFQLjIxID0gRmluZGluZyBzaXRlIChhdHRyaWJ1dGUpfFwKCWhhc19maW5kaW5nX3NpdGV8ZmluZGluZ19zaXRlX29mfFJUClNDVC5SRUxNQVAuMjIgPSBIYXMgYWN0aXZlIGluZ3JlZGllbnQgKGF0dHJpYnV0ZSl8XAoJaGFzX2FjdGl2ZV9pbmdyZWRpZW50fGFjdGl2ZV9pbmdyZWRpZW50X29mfFJUClNDVC5SRUxNQVAuMjMgPSBIYXMgZGVmaW5pdGlvbmFsIG1hbmlmZXN0YXRpb24gKGF0dHJpYnV0ZSl8XAoJaGFzX2RlZmluaXRpb25hbF9tYW5pZmVzdGF0aW9ufGRlZmluaXRpb25hbF9tYW5pZmVzdGF0aW9uX29mfFJUClNDVC5SRUxNQVAuMjQgPSBIYXMgZG9zZSBmb3JtIChhdHRyaWJ1dGUpfFwKCWhhc19tYW51ZmFjdHVyZWRfZG9zZV9mb3JtfG1hbnVmYWN0dXJlZF9kb3NlX2Zvcm1fb2Z8UlQKU0NULlJFTE1BUC4yNSA9IEhhcyBmb2N1cyAoYXR0cmlidXRlKXxcCgloYXNfZm9jdXN8Zm9jdXNfb2Z8UlQKU0NULlJFTE1BUC4yNiA9IEhhcyBpbnRlbnQgKGF0dHJpYnV0ZSl8XAoJaGFzX2ludGVudHxpbnRlbnRfb2Z8UlQKU0NULlJFTE1BUC4yNyA9IEhhcyBpbnRlcnByZXRhdGlvbiAoYXR0cmlidXRlKXxcCgloYXNfaW50ZXJwcmV0YXRpb258aW50ZXJwcmV0YXRpb25fb2Z8UlQKU0NULlJFTE1BUC4yOCA9IEhhcyBzcGVjaW1lbiAoYXR0cmlidXRlKXxcCgloYXNfc3BlY2ltZW58c3BlY2ltZW5fb2Z8UlQKU0NULlJFTE1BUC4yOSA9IEluZGlyZWN0IGRldmljZSAoYXR0cmlidXRlKXxcCgloYXNfaW5kaXJlY3RfZGV2aWNlfGluZGlyZWN0X2RldmljZV9vZnxSVApTQ1QuUkVMTUFQLjMwID0gSW5kaXJlY3QgbW9ycGhvbG9neSAoYXR0cmlidXRlKXxcCgloYXNfaW5kaXJlY3RfbW9ycGhvbG9neXxpbmRpcmVjdF9tb3JwaG9sb2d5X29mfFJUClNDVC5SRUxNQVAuMzEgPSBJbnRlcnByZXRzIChhdHRyaWJ1dGUpfFwKCWludGVycHJldHN8aW50ZXJwcmV0YXRpb25fb2Z8UlQKIyBJcy1hIHJlbHMgYXJlIG5vdyBpbnZlcnRlZCBhcyAiQ0hEIiByZWxhdGlvbnNoaXBzIHcvU1VQUFJFU1M9Ik8iIHdoZW4gaW5hY3RpdmUKU0NULlJFTE1BUC4zMiA9IElzIGEgKGF0dHJpYnV0ZSl8XAoJaXNhfGludmVyc2VfaXNhfENIRApTQ1QuUkVMTUFQLjMzID0gTGF0ZXJhbGl0eSAoYXR0cmlidXRlKXxcCgloYXNfbGF0ZXJhbGl0eXxsYXRlcmFsaXR5X29mfFJUClNDVC5SRUxNQVAuMzQgPSBNQVkgQkUgQSAoYXR0cmlidXRlKXxcCgltYXlfYmVfYXxpbnZlcnNlX21heV9iZV9hfFJUClNDVC5SRUxNQVAuMzUgPSBNT1ZFRCBUTyAoYXR0cmlidXRlKXxcCgltb3ZlZF90b3xtb3ZlZF9mcm9tfFJUClNDVC5SRUxNQVAuMzYgPSBNZWFzdXJlbWVudCBtZXRob2QgKGF0dHJpYnV0ZSl8XAoJaGFzX21lYXN1cmVtZW50X21ldGhvZHxtZWFzdXJlbWVudF9tZXRob2Rfb2Z8UlQKU0NULlJFTE1BUC4zNyA9IE1ldGhvZCAoYXR0cmlidXRlKXxcCgloYXNfbWV0aG9kfG1ldGhvZF9vZnxSVAojU0NULlJFTE1BUC4zOCA9IE9jY3VycmVuY2UgKGF0dHJpYnV0ZSl8XAojCWhhc19vY2N1cnJlbmNlfG9jY3Vyc19pbnxSVApTQ1QuUkVMTUFQLjM4ID0gT2NjdXJyZW5jZSAoYXR0cmlidXRlKXxcCglvY2N1cnNfaW58aGFzX29jY3VycmVuY2V8UlQKU0NULlJFTE1BUC4zOSA9IE9uc2V0IChhdHRyaWJ1dGUpfFwKCWhhc19vbnNldHxvbnNldF9vZnxSVApTQ1QuUkVMTUFQLjQwID0gUGFydCBvZiAoYXR0cmlidXRlKXxcCglwYXJ0X29mfGhhc19wYXJ0fE5UClNDVC5SRUxNQVAuNDEgPSBQYXRob2xvZ2ljYWwgcHJvY2VzcyAoYXR0cmlidXRlKXxcCgloYXNfcGF0aG9sb2dpY2FsX3Byb2Nlc3N8cGF0aG9sb2dpY2FsX3Byb2Nlc3Nfb2Z8UlQKU0NULlJFTE1BUC40MiA9IFByaW9yaXR5IChhdHRyaWJ1dGUpfFwKCWhhc19wcmlvcml0eXxwcmlvcml0eV9vZnxSVApTQ1QuUkVMTUFQLjQzID0gUHJvY2VkdXJlIGNvbnRleHQgKGF0dHJpYnV0ZSl8XAoJaGFzX3Byb2NlZHVyZV9jb250ZXh0fHByb2NlZHVyZV9jb250ZXh0X29mfFJUClNDVC5SRUxNQVAuNDQgPSBQcm9jZWR1cmUgZGV2aWNlIChhdHRyaWJ1dGUpfFwKCWhhc19wcm9jZWR1cmVfZGV2aWNlfHByb2NlZHVyZV9kZXZpY2Vfb2Z8UlQKU0NULlJFTE1BUC40NSA9IFByb2NlZHVyZSBtb3JwaG9sb2d5IChhdHRyaWJ1dGUpfFwKCWhhc19wcm9jZWR1cmVfbW9ycGhvbG9neXxwcm9jZWR1cmVfbW9ycGhvbG9neV9vZnxSVApTQ1QuUkVMTUFQLjQ2ID0gUHJvY2VkdXJlIHNpdGUgKGF0dHJpYnV0ZSl8XAoJaGFzX3Byb2NlZHVyZV9zaXRlfHByb2NlZHVyZV9zaXRlX29mfFJUClNDVC5SRUxNQVAuNDcgPSBQcm9jZWR1cmUgc2l0ZSAtIERpcmVjdCAoYXR0cmlidXRlKXxcCgloYXNfZGlyZWN0X3Byb2NlZHVyZV9zaXRlfGRpcmVjdF9wcm9jZWR1cmVfc2l0ZV9vZnxSVApTQ1QuUkVMTUFQLjQ4ID0gUHJvY2VkdXJlIHNpdGUgLSBJbmRpcmVjdCAoYXR0cmlidXRlKXxcCgloYXNfaW5kaXJlY3RfcHJvY2VkdXJlX3NpdGV8aW5kaXJlY3RfcHJvY2VkdXJlX3NpdGVfb2Z8UlQKU0NULlJFTE1BUC40OSA9IFByb3BlcnR5IChhdHRyaWJ1dGUpfFwKCWhhc19wcm9wZXJ0eXxwcm9wZXJ0eV9vZnxSVApTQ1QuUkVMTUFQLjUwID0gUkVQTEFDRUQgQlkgKGF0dHJpYnV0ZSl8XAoJcmVwbGFjZWRfYnl8cmVwbGFjZXN8UlQKU0NULlJFTE1BUC41MSA9IFJlY2lwaWVudCBjYXRlZ29yeSAoYXR0cmlidXRlKXxcCgloYXNfcmVjaXBpZW50X2NhdGVnb3J5fHJlY2lwaWVudF9jYXRlZ29yeV9vZnxSVApTQ1QuUkVMTUFQLjUyID0gUmV2aXNpb24gc3RhdHVzIChhdHRyaWJ1dGUpfFwKCWhhc19yZXZpc2lvbl9zdGF0dXN8cmV2aXNpb25fc3RhdHVzX29mfFJUClNDVC5SRUxNQVAuNTMgPSBSb3V0ZSBvZiBhZG1pbmlzdHJhdGlvbiAoYXR0cmlidXRlKXxcCgloYXNfcm91dGVfb2ZfYWRtaW5pc3RyYXRpb258cm91dGVfb2ZfYWRtaW5pc3RyYXRpb25fb2Z8UlQKU0NULlJFTE1BUC41NCA9IFNBTUUgQVMgKGF0dHJpYnV0ZSl8XAoJc2FtZV9hc3xzYW1lX2FzfFNZClNDVC5SRUxNQVAuNTUgPSBTY2FsZSB0eXBlIChhdHRyaWJ1dGUpfFwKCWhhc19zY2FsZV90eXBlfHNjYWxlX3R5cGVfb2Z8UlQKU0NULlJFTE1BUC41NiA9IFNldmVyaXR5IChhdHRyaWJ1dGUpfFwKCWhhc19zZXZlcml0eXxzZXZlcml0eV9vZnxSVApTQ1QuUkVMTUFQLjU3ID0gU3BlY2ltZW4gcHJvY2VkdXJlIChhdHRyaWJ1dGUpfFwKCWhhc19zcGVjaW1lbl9wcm9jZWR1cmV8c3BlY2ltZW5fcHJvY2VkdXJlX29mfFJUClNDVC5SRUxNQVAuNTggPSBTcGVjaW1lbiBzb3VyY2UgaWRlbnRpdHkgKGF0dHJpYnV0ZSl8XAoJaGFzX3NwZWNpbWVuX3NvdXJjZV9pZGVudGl0eXxzcGVjaW1lbl9zb3VyY2VfaWRlbnRpdHlfb2Z8UlQKU0NULlJFTE1BUC41OSA9IFNwZWNpbWVuIHNvdXJjZSBtb3JwaG9sb2d5IChhdHRyaWJ1dGUpfFwKCWhhc19zcGVjaW1lbl9zb3VyY2VfbW9ycGhvbG9neXxzcGVjaW1lbl9zb3VyY2VfbW9ycGhvbG9neV9vZnxSVApTQ1QuUkVMTUFQLjYwID0gU3BlY2ltZW4gc291cmNlIHRvcG9ncmFwaHkgKGF0dHJpYnV0ZSl8XAoJaGFzX3NwZWNpbWVuX3NvdXJjZV90b3BvZ3JhcGh5fHNwZWNpbWVuX3NvdXJjZV90b3BvZ3JhcGh5X29mfFJUClNDVC5SRUxNQVAuNjEgPSBTcGVjaW1lbiBzdWJzdGFuY2UgKGF0dHJpYnV0ZSl8XAoJaGFzX3NwZWNpbWVuX3N1YnN0YW5jZXxzcGVjaW1lbl9zdWJzdGFuY2Vfb2Z8UlQKU0NULlJFTE1BUC42MiA9IFN1YmplY3Qgb2YgaW5mb3JtYXRpb24gKGF0dHJpYnV0ZSl8XAoJaGFzX3N1YmplY3Rfb2ZfaW5mb3JtYXRpb258c3ViamVjdF9vZl9pbmZvcm1hdGlvbl9vZnxSVApTQ1QuUkVMTUFQLjYzID0gU3ViamVjdCByZWxhdGlvbnNoaXAgY29udGV4dCAoYXR0cmlidXRlKXxcCgloYXNfc3ViamVjdF9yZWxhdGlvbnNoaXBfY29udGV4dHxzdWJqZWN0X3JlbGF0aW9uc2hpcF9jb250ZXh0X29mfFJUClNDVC5SRUxNQVAuNjQgPSBUZW1wb3JhbCBjb250ZXh0IChhdHRyaWJ1dGUpfFwKCWhhc190ZW1wb3JhbF9jb250ZXh0fHRlbXBvcmFsX2NvbnRleHRfb2Z8UlQKU0NULlJFTE1BUC42NSA9IFRlbXBvcmFsbHkgZm9sbG93cyAoYXR0cmlidXRlKXxcCgl0ZW1wb3JhbGx5X2ZvbGxvd3N8dGVtcG9yYWxseV9mb2xsb3dlZF9ieXxSVApTQ1QuUkVMTUFQLjY2ID0gVGltZSBhc3BlY3QgKGF0dHJpYnV0ZSl8XAoJaGFzX3RpbWVfYXNwZWN0fHRpbWVfYXNwZWN0X29mfFJUClNDVC5SRUxNQVAuNjcgPSBVc2luZyAoYXR0cmlidXRlKXxcCgl1c2VzfHVzZWRfYnl8UlQKU0NULlJFTE1BUC42OCA9IFVzaW5nIGFjY2VzcyBkZXZpY2UgKGF0dHJpYnV0ZSl8XAoJdXNlc19hY2Nlc3NfZGV2aWNlfGFjY2Vzc19kZXZpY2VfdXNlZF9ieXxSVApTQ1QuUkVMTUFQLjY5ID0gVXNpbmcgZGV2aWNlIChhdHRyaWJ1dGUpfFwKCXVzZXNfZGV2aWNlfGRldmljZV91c2VkX2J5fFJUClNDVC5SRUxNQVAuNzAgPSBVc2luZyBlbmVyZ3kgKGF0dHJpYnV0ZSl8XAoJdXNlc19lbmVyZ3l8ZW5lcmd5X3VzZWRfYnl8UlQKU0NULlJFTE1BUC43MSA9IFVzaW5nIHN1YnN0YW5jZSAoYXR0cmlidXRlKXxcCgl1c2VzX3N1YnN0YW5jZXxzdWJzdGFuY2VfdXNlZF9ieXxSVApTQ1QuUkVMTUFQLjcyID0gV0FTIEEgKGF0dHJpYnV0ZSl8XAoJd2FzX2F8aW52ZXJzZV93YXNfYXxOVApTQ1QuUkVMTUFQLjczID0gU3VyZ2ljYWwgYXBwcm9hY2ggKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19zdXJnaWNhbF9hcHByb2FjaHxzdXJnaWNhbF9hcHByb2FjaF9vZnxSVApTQ1QuUkVMTUFQLjc0ID0gQXNzb2NpYXRlZCBmdW5jdGlvbiAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX2Fzc29jaWF0ZWRfZnVuY3Rpb258YXNzb2NpYXRlZF9mdW5jdGlvbl9vZnxSVApTQ1QuUkVMTUFQLjc1ID0gQ29tbXVuaWNhdGlvbiB3aXRoIHdvdW5kIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfY29tbXVuaWNhdGlvbl93aXRoX3dvdW5kfGNvbW11bmljYXRpb25fd2l0aF93b3VuZF9vZnxSVApTQ1QuUkVMTUFQLjc2ID0gRXh0ZW50IChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfZXh0ZW50fGV4dGVudF9vZnxSVApTQ1QuUkVMTUFQLjc3ID0gSGFzIG1lYXN1cmVkIGNvbXBvbmVudCAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX21lYXN1cmVkX2NvbXBvbmVudHxtZWFzdXJlZF9jb21wb25lbnRfb2Z8UlQKU0NULlJFTE1BUC43OCA9IEluc3RydW1lbnRhdGlvbiAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX2luc3RydW1lbnRhdGlvbnxpbnN0cnVtZW50YXRpb25fb2Z8UlQKU0NULlJFTE1BUC43OSA9IExvY2F0aW9uIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfbG9jYXRpb258bG9jYXRpb25fb2Z8UlQKU0NULlJFTE1BUC44MCA9IE1lYXN1cmVzIChhdHRyaWJ1dGUpfFwKICAgICAgICBtZWFzdXJlc3xtZWFzdXJlZF9ieXxSVApTQ1QuUkVMTUFQLjgxID0gUGF0aG9sb2dpY2FsIHByb2Nlc3MgKHF1YWxpZmllciB2YWx1ZSl8XAogICAgICAgIGhhc19wYXRob2xvZ2ljYWxfcHJvY2Vzc3xwYXRob2xvZ2ljYWxfcHJvY2Vzc19vZnxSVApTQ1QuUkVMTUFQLjgyID0gU3RhZ2UgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19zdGFnZXxzdGFnZV9vZnxSVApTQ1QuUkVMTUFQLjgzID0gVGVjaG5pcXVlIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfdGVjaG5pcXVlfHRlY2huaXF1ZV9vZnxSVApTQ1QuUkVMTUFQLjg0ID0gUHJvcGVydHkgdHlwZSAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3Byb3BlcnR5X3R5cGV8cHJvcGVydHlfdHlwZV9vZnxSVApTQ1QuUkVMTUFQLjg1ID0gSW5oZXJlcyBpbiAoYXR0cmlidXRlKXxcCiAgICAgICAgaW5oZXJlc19pbnxoYXNfaW5oZXJlbnRfYXR0cmlidXRlfFJUClNDVC5SRUxNQVAuODYgPSBDaGFyYWN0ZXJpemVzIChhdHRyaWJ1dGUpfFwKICAgICAgICBjaGFyYWN0ZXJpemVzfGNoYXJhY3Rlcml6ZWRfYnl8UlQKU0NULlJFTE1BUC44NyA9IFByb2Nlc3Mgb3V0cHV0IChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfcHJvY2Vzc19vdXRwdXR8cHJvY2Vzc19vdXRwdXRfb2Z8UlQKU0NULlJFTE1BUC44OCA9IFByZWNvbmRpdGlvbiAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3ByZWNvbmRpdGlvbnxwcmVjb25kaXRpb25fb2Z8UlQKU0NULlJFTE1BUC44OSA9IERpcmVjdCBzaXRlIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfZGlyZWN0X3NpdGV8ZGlyZWN0X3NpdGVfb2Z8UlQKU0NULlJFTE1BUC45MCA9IEluaGVyZW50IGxvY2F0aW9uIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfaW5oZXJlbnRfbG9jYXRpb258aW5oZXJlbnRfbG9jYXRpb25fb2Z8UlQKU0NULlJFTE1BUC45MSA9IFJlbGF0aXZlIHRvIHBhcnQgb2YgKGF0dHJpYnV0ZSl8XAogICAgICAgIHJlbGF0aXZlX3RvX3BhcnRfb2Z8cGFydF9yZWZlcnJlZF90b19ieXxSVApTQ1QuUkVMTUFQLjkyID0gRHVyaW5nIChhdHRyaWJ1dGUpfFwKICAgICAgICBkdXJpbmd8aW52ZXJzZV9kdXJpbmd8UlQKU0NULlJFTE1BUC45MyA9IEhhcyBiYXNpcyBvZiBzdHJlbmd0aCBzdWJzdGFuY2UgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19iYXNpc19vZl9zdHJlbmd0aF9zdWJzdGFuY2V8YmFzaXNfb2Zfc3RyZW5ndGhfc3Vic3RhbmNlX29mfFJUClNDVC5SRUxNQVAuOTQgPSBIYXMgcHJlc2VudGF0aW9uIHN0cmVuZ3RoIG51bWVyYXRvciB2YWx1ZSAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3ByZXNlbnRhdGlvbl9zdHJlbmd0aF9udW1lcmF0b3JfdmFsdWV8cHJlc2VudGF0aW9uX3N0cmVuZ3RoX251bWVyYXRvcl92YWx1ZV9vZnxSVApTQ1QuUkVMTUFQLjk1ID0gSGFzIHByZXNlbnRhdGlvbiBzdHJlbmd0aCBudW1lcmF0b3IgdW5pdCAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3ByZXNlbnRhdGlvbl9zdHJlbmd0aF9udW1lcmF0b3JfdW5pdHxwcmVzZW50YXRpb25fc3RyZW5ndGhfbnVtZXJhdG9yX3VuaXRfb2Z8UlQKU0NULlJFTE1BUC45NiA9IEhhcyBwcmVzZW50YXRpb24gc3RyZW5ndGggZGVub21pbmF0b3IgdmFsdWUgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19wcmVzZW50YXRpb25fc3RyZW5ndGhfZGVub21pbmF0b3JfdmFsdWV8cHJlc2VudGF0aW9uX3N0cmVuZ3RoX2Rlbm9taW5hdG9yX3ZhbHVlX29mfFJUClNDVC5SRUxNQVAuOTcgPSBIYXMgcHJlc2VudGF0aW9uIHN0cmVuZ3RoIGRlbm9taW5hdG9yIHVuaXQgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19wcmVzZW50YXRpb25fc3RyZW5ndGhfZGVub21pbmF0b3JfdW5pdHxwcmVzZW50YXRpb25fc3RyZW5ndGhfZGVub21pbmF0b3JfdW5pdF9vZnxSVApTQ1QuUkVMTUFQLjk4ID0gSGFzIGRpc3Bvc2l0aW9uIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfZGlzcG9zaXRpb258ZGlzcG9zaXRpb25fb2Z8UlQKU0NULlJFTE1BUC45OSA9IFRlbXBvcmFsbHkgcmVsYXRlZCB0byAoYXR0cmlidXRlKXxcCiAgICAgICAgdGVtcG9yYWxseV9yZWxhdGVkX3RvfHRlbXBvcmFsbHlfcmVsYXRlZF90b3xSVApTQ1QuUkVMTUFQLjEwMCA9IEhhcyBiYXNpYyBkb3NlIGZvcm0gKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19iYXNpY19kb3NlX2Zvcm18YmFzaWNfZG9zZV9mb3JtX29mfFJUClNDVC5SRUxNQVAuMTAxID0gSGFzIHN0YXRlIG9mIG1hdHRlciAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3N0YXRlX29mX21hdHRlcnxzdGF0ZV9vZl9tYXR0ZXJfb2Z8UlQKU0NULlJFTE1BUC4xMDIgPSBIYXMgZG9zZSBmb3JtIHJlbGVhc2UgY2hhcmFjdGVyaXN0aWMgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19kb3NlX2Zvcm1fcmVsZWFzZV9jaGFyYWN0ZXJpc3RpY3xkb3NlX2Zvcm1fcmVsZWFzZV9jaGFyYWN0ZXJpc3RpY19vZnxSVApTQ1QuUkVMTUFQLjEwMyA9IEhhcyBkb3NlIGZvcm0gaW50ZW5kZWQgc2l0ZSAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX2Rvc2VfZm9ybV9pbnRlbmRlZF9zaXRlfGRvc2VfZm9ybV9pbnRlbmRlZF9zaXRlX29mfFJUClNDVC5SRUxNQVAuMTA0ID0gSGFzIGRvc2UgZm9ybSB0cmFuc2Zvcm1hdGlvbiAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX2Rvc2VfZm9ybV90cmFuc2Zvcm1hdGlvbnxkb3NlX2Zvcm1fdHJhbnNmb3JtYXRpb25fb2Z8UlQKU0NULlJFTE1BUC4xMDUgPSBIYXMgZG9zZSBmb3JtIGFkbWluaXN0cmF0aW9uIG1ldGhvZCAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX2Rvc2VfZm9ybV9hZG1pbmlzdHJhdGlvbl9tZXRob2R8ZG9zZV9mb3JtX2FkbWluaXN0cmF0aW9uX21ldGhvZF9vZnxSVApTQ1QuUkVMTUFQLjEwNiA9IEhhcyBjb25jZW50cmF0aW9uIHN0cmVuZ3RoIGRlbm9taW5hdG9yIHVuaXQgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19jb25jZW50cmF0aW9uX3N0cmVuZ3RoX2Rlbm9taW5hdG9yX3VuaXR8Y29uY2VudHJhdGlvbl9zdHJlbmd0aF9kZW5vbWluYXRvcl91bml0X29mfFJUClNDVC5SRUxNQVAuMTA3ID0gSGFzIGNvbmNlbnRyYXRpb24gc3RyZW5ndGggZGVub21pbmF0b3IgdmFsdWUgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19jb25jZW50cmF0aW9uX3N0cmVuZ3RoX2Rlbm9taW5hdG9yX3ZhbHVlfGNvbmNlbnRyYXRpb25fc3RyZW5ndGhfZGVub21pbmF0b3JfdmFsdWVfb2Z8UlQKU0NULlJFTE1BUC4xMDggPSBIYXMgY29uY2VudHJhdGlvbiBzdHJlbmd0aCBudW1lcmF0b3IgdmFsdWUgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19jb25jZW50cmF0aW9uX3N0cmVuZ3RoX251bWVyYXRvcl92YWx1ZXxjb25jZW50cmF0aW9uX3N0cmVuZ3RoX251bWVyYXRvcl92YWx1ZV9vZnxSVApTQ1QuUkVMTUFQLjEwOSA9IEhhcyBjb25jZW50cmF0aW9uIHN0cmVuZ3RoIG51bWVyYXRvciB1bml0IChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfY29uY2VudHJhdGlvbl9zdHJlbmd0aF9udW1lcmF0b3JfdW5pdHxjb25jZW50cmF0aW9uX3N0cmVuZ3RoX251bWVyYXRvcl91bml0X29mfFJUClNDVC5SRUxNQVAuMTEwID0gSXMgbW9kaWZpY2F0aW9uIG9mIChhdHRyaWJ1dGUpfFwKICAgICAgICBpc19tb2RpZmljYXRpb25fb2Z8aGFzX21vZGlmaWNhdGlvbnxSVApTQ1QuUkVMTUFQLjExMSA9IEhhcyBwcmVjaXNlIGFjdGl2ZSBpbmdyZWRpZW50IChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfcHJlY2lzZV9hY3RpdmVfaW5ncmVkaWVudHxwcmVjaXNlX2FjdGl2ZV9pbmdyZWRpZW50X29mfFJUClNDVC5SRUxNQVAuMTEyID0gSGFzIHVuaXQgb2YgcHJlc2VudGF0aW9uIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfdW5pdF9vZl9wcmVzZW50YXRpb258dW5pdF9vZl9wcmVzZW50YXRpb25fb2Z8UlQKU0NULlJFTE1BUC4xMTMgPSBDb3VudCBvZiBiYXNlIG9mIGFjdGl2ZSBpbmdyZWRpZW50IChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfY291bnRfb2ZfYmFzZV9vZl9hY3RpdmVfaW5ncmVkaWVudHxjb3VudF9vZl9iYXNlX29mX2FjdGl2ZV9pbmdyZWRpZW50X29mfFJUClNDVC5SRUxNQVAuMTE0ID0gSGFzIHJlYWxpemF0aW9uIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfcmVhbGl6YXRpb258cmVhbGl6YXRpb25fb2Z8UlQKU0NULlJFTE1BUC4xMTUgPSBQbGF5cyByb2xlIChhdHRyaWJ1dGUpfFwKICAgICAgICBwbGF5c19yb2xlfHJvbGVfcGxheWVkX2J5fFJUClNDVC5SRUxNQVAuMTE2ID0gVW5pdHMgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc191bml0c3x1bml0c19vZnxSVApTQ1QuUkVMTUFQLjExNyA9IFByb2Nlc3MgZHVyYXRpb24gKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19wcm9jZXNzX2R1cmF0aW9ufHByb2Nlc3NfZHVyYXRpb25fb2Z8UlQKU0NULlJFTE1BUC4xMTggPSBIYXMgc3VyZmFjZSBjaGFyYWN0ZXJpc3RpYyAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3N1cmZhY2VfY2hhcmFjdGVyaXN0aWN8c3VyZmFjZV9jaGFyYWN0ZXJpc3RpY19vZnxSVApTQ1QuUkVMTUFQLjExOSA9IFJlbGF0aXZlIHRvIChhdHRyaWJ1dGUpfFwKICAgICAgICByZWxhdGl2ZV90b3xpbnZlcnNlX3JlbGF0aXZlX3RvfFJUClNDVC5SRUxNQVAuMTIwID0gQ291bnQgb2YgYWN0aXZlIGluZ3JlZGllbnQgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19jb3VudF9vZl9hY3RpdmVfaW5ncmVkaWVudHxjb3VudF9vZl9hY3RpdmVfaW5ncmVkaWVudF9vZnxSVApTQ1QuUkVMTUFQLjEyMSA9IEhhcyBmaWxsaW5nIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfZmlsbGluZ3xmaWxsaW5nX29mfFJUClNDVC5SRUxNQVAuMTIyID0gSGFzIGRldmljZSBpbnRlbmRlZCBzaXRlIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfZGV2aWNlX2ludGVuZGVkX3NpdGV8ZGV2aWNlX2ludGVuZGVkX3NpdGVfb2Z8UlQKU0NULlJFTE1BUC4xMjMgPSBIYXMgY29tcG9zaXRpb25hbCBtYXRlcmlhbCAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX2NvbXBvc2l0aW9uYWxfbWF0ZXJpYWx8Y29tcG9zaXRpb25hbF9tYXRlcmlhbF9vZnxSVApTQ1QuUkVMTUFQLjEyNCA9IEhhcyBkZXZpY2UgY2hhcmFjdGVyaXN0aWMgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19kZXZpY2VfY2hhcmFjdGVyaXN0aWN8ZGV2aWNlX2NoYXJhY3RlcmlzdGljX29mfFJUClNDVC5SRUxNQVAuMTI1ID0gSGFzIGluZ3JlZGllbnQgY2hhcmFjdGVyaXN0aWMgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19pbmdyZWRpZW50X2NoYXJhY3RlcmlzdGljfGluZ3JlZGllbnRfY2hhcmFjdGVyaXN0aWNfb2Z8UlQKU0NULlJFTE1BUC4xMjYgPSBIYXMgcHJvZHVjdCBjaGFyYWN0ZXJpc3RpYyAoYXR0cmlidXRlKXxcCiAgICAgICAgaGFzX3Byb2R1Y3RfY2hhcmFjdGVyaXN0aWN8cHJvZHVjdF9jaGFyYWN0ZXJpc3RpY19vZnxSVApTQ1QuUkVMTUFQLjEyNyA9IFByb2Nlc3MgZXh0ZW5kcyB0byAoYXR0cmlidXRlKXxcCiAgICAgICAgcHJvY2Vzc19leHRlbmRzX3RvfGV4dGVuZGVkX3RvX2J5X3Byb2Nlc3N8UlQKU0NULlJFTE1BUC4xMjggPSBJcyBzdGVyaWxlIChhdHRyaWJ1dGUpfFwKICAgICAgICBpc19zdGVyaWxlfGFuc3dlcl90b19pc19zdGVyaWxlfFJUClNDVC5SRUxNQVAuMTI5ID0gSGFzIGNvYXRpbmcgbWF0ZXJpYWwgKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19jb2F0aW5nX21hdGVyaWFsfGNvYXRpbmdfbWF0ZXJpYWxfb2Z8UlQKU0NULlJFTE1BUC4xMzAgPSBIYXMgc3VyZmFjZSB0ZXh0dXJlIChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfc3VyZmFjZV90ZXh0dXJlfHN1cmZhY2VfdGV4dHVyZV9vZnxSVApTQ1QuUkVMTUFQLjEzMSA9IEhhcyBhYnNvcmJhYmlsaXR5IChhdHRyaWJ1dGUpfFwKICAgICAgICBoYXNfYWJzb3JiYWJpbGl0eXxhYnNvcmJhYmlsaXR5X29mfFJUClNDVC5SRUxNQVAuMTMyID0gSGFzIGluZ3JlZGllbnQgcXVhbGl0YXRpdmUgc3RyZW5ndGggKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc19pbmdyZWRpZW50X3F1YWxpdGF0aXZlX3N0cmVuZ3RofGluZ3JlZGllbnRfcXVhbGl0YXRpdmVfc3RyZW5ndGhfb2Z8UlQKU0NULlJFTE1BUC4xMzMgPSBIYXMgdGFyZ2V0IHBvcHVsYXRpb24gKGF0dHJpYnV0ZSl8XAogICAgICAgIGhhc190YXJnZXRfcG9wdWxhdGlvbnx0YXJnZXRfcG9wdWxhdGlvbl9vZnxSVApTQ1QuUkVMTUFQLjEzNCA9IEJlZm9yZSAoYXR0cmlidXRlKXxcCiAgICAgICAgYmVmb3JlfGFmdGVyfFJUClNDVC5SRUxNQVAuMTM1ID0gUHJvY2VzcyBhY3RzIG9uIChhdHRyaWJ1dGUpfFwKICAgICAgICBwcm9jZXNzX2FjdHNfb258YWN0ZWRfb25fYnlfcHJvY2Vzc3xSVApTQ1QuUkVMTUFQLjEzNiA9IFRvd2FyZHMgKGF0dHJpYnV0ZSl8XAogICAgICAgIHRvd2FyZHN8YXdheV9mcm9tfFJUClNDVC5SRUxNQVAuMTM3ID0gUE9TU0lCTFkgRVFVSVZBTEVOVCBUTyBhc3NvY2lhdGlvbiByZWZlcmVuY2Ugc2V0IChmb3VuZGF0aW9uIG1ldGFkYXRhIGNvbmNlcHQpfFwKCXBvc3NpYmx5X2VxdWl2YWxlbnRfdG98cG9zc2libHlfZXF1aXZhbGVudF90b3xSVApTQ1QuUkVMTUFQLjEzOCA9IE1PVkVEIFRPIGFzc29jaWF0aW9uIHJlZmVyZW5jZSBzZXQgKGZvdW5kYXRpb24gbWV0YWRhdGEgY29uY2VwdCl8XAoJbW92ZWRfdG98bW92ZWRfZnJvbXxSVApTQ1QuUkVMTUFQLjEzOSA9IE1PVkVEIEZST00gYXNzb2NpYXRpb24gcmVmZXJlbmNlIHNldCAoZm91bmRhdGlvbiBtZXRhZGF0YSBjb25jZXB0KXxcCgltb3ZlZF9mcm9tfG1vdmVkX3RvfFJUClNDVC5SRUxNQVAuMTQwID0gUkVQTEFDRUQgQlkgYXNzb2NpYXRpb24gcmVmZXJlbmNlIHNldCAoZm91bmRhdGlvbiBtZXRhZGF0YSBjb25jZXB0KXxcCglyZXBsYWNlZF9ieXxyZXBsYWNlc3xSVApTQ1QuUkVMTUFQLjE0MSA9IFNBTUUgQVMgYXNzb2NpYXRpb24gcmVmZXJlbmNlIHNldCAoZm91bmRhdGlvbiBtZXRhZGF0YSBjb25jZXB0KXxcCglzYW1lX2FzfHNhbWVfYXN8U1kKU0NULlJFTE1BUC4xNDIgPSBXQVMgQSBhc3NvY2lhdGlvbiByZWZlcmVuY2Ugc2V0IChmb3VuZGF0aW9uIG1ldGFkYXRhIGNvbmNlcHQpfFwKCXdhc19hfGludmVyc2Vfd2FzX2F8TlQKU0NULlJFTE1BUC4xNDMgPSBBTFRFUk5BVElWRSBhc3NvY2lhdGlvbiByZWZlcmVuY2Ugc2V0IChmb3VuZGF0aW9uIG1ldGFkYXRhIGNvbmNlcHQpfFwKCWhhc19hbHRlcm5hdGl2ZXxhbHRlcm5hdGl2ZV9vZnxOVAojU0NULlJFTE1BUC4xNDQgPSBSRUZFUlMgVE8gY29uY2VwdCBhc3NvY2lhdGlvbiByZWZlcmVuY2Ugc2V0IChmb3VuZGF0aW9uIG1ldGFkYXRhIGNvbmNlcHQpfFwKIwlyZWZlcnNfdG98cmVmZXJyZWRfdG9fYnl8TlQKU0NULlJFTE1BUC4xNDUgPSBBbmF0b215IHN0cnVjdHVyZSBhbmQgZW50aXJlIGFzc29jaWF0aW9uIHJlZmVyZW5jZSBzZXQgKGZvdW5kYXRpb24gbWV0YWRhdGEgY29uY2VwdCl8XAoJaGFzX2VudGlyZV9hbmF0b215X3N0cnVjdHVyZXxlbnRpcmVfYW5hdG9teV9zdHJ1Y3R1cmVfb2Z8UlQKU0NULlJFTE1BUC4xNDYgPSBBbmF0b215IHN0cnVjdHVyZSBhbmQgcGFydCBhc3NvY2lhdGlvbiByZWZlcmVuY2Ugc2V0IChmb3VuZGF0aW9uIG1ldGFkYXRhIGNvbmNlcHQpfFwKCWhhc19wYXJ0X2FuYXRvbXlfc3RydWN0dXJlfHBhcnRfYW5hdG9teV9zdHJ1Y3R1cmVfb2Z8UlQKU0NULlJFTE1BUC4xNDcgPSBQT1NTSUJMWSBSRVBMQUNFRCBCWSBhc3NvY2lhdGlvbiByZWZlcmVuY2Ugc2V0IChmb3VuZGF0aW9uIG1ldGFkYXRhIGNvbmNlcHQpfFwKCXBvc3NpYmx5X3JlcGxhY2VkX2J5fHBvc3NpYmx5X3JlcGxhY2VzfFJUClNDVC5SRUxNQVAuMTQ4ID0gUEFSVElBTExZIEVRVUlWQUxFTlQgVE8gYXNzb2NpYXRpb24gcmVmZXJlbmNlIHNldCAoZm91bmRhdGlvbiBtZXRhZGF0YSBjb25jZXB0KXxcCglwYXJ0aWFsbHlfZXF1aXZhbGVudF90b3xwYXJ0aWFsbHlfZXF1aXZhbGVudF90b3xSVApTQ1QuUkVMTUFQLjE0OSA9IFByb2NlZHVyZSBhcHByb2FjaCAoYXR0cmlidXRlKXxcCiAgICBoYXNfcHJvY2VkdXJlX2FwcHJvYWNofHByb2NlZHVyZV9hcHByb2FjaF9vZnxSVApTQ1QuUkVMTUFQLjE1MCA9IFJlZ2lvbmFsIHBhcnQgb2YgKGF0dHJpYnV0ZSl8XAogICAgcmVnaW9uYWxfcGFydF9vZnxoYXNfcmVnaW9uYWxfcGFydHxSVAoKCiMgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQoKIyBvcHRpb25hbAoKIyBzcGVjaWZpYyBBdG9tIGRlZmF1bHRzCiMgeG1BdG9tCkF0b20uWE0udHR5ID0gWE0KCiMgTVRIIGF0b20gc3RhdHVzPVIKQXRvbS5NVEguc3RhdHVzID0gUgoKIyBzcGVjaWZpYyBBdHRyaWJ1dGUgZGVmYXVsdHMKIyB4bWFwQXR0cgojQXR0cmlidXRlLlhNQVAuc2dUeXBlID0gQ09ERV9URVJNR1JPVVAKI0F0dHJpYnV0ZS5YTUFQLnNnUXVhbCA9IDxWU0FCPi9YTQpBdHRyaWJ1dGUuWE1BUC5zZ1R5cGUgPSBDT0RFX1NPVVJDRQpBdHRyaWJ1dGUuWE1BUC5zZ1F1YWwgPSA8VlNBQj4KCiMgY3h0QXR0cgpBdHRyaWJ1dGUuQ1hULnRiciA9IG4KQXR0cmlidXRlLkNYVC5hdG4gPSBDT05URVhUCgoKIyBzdHlBdHRyCkF0dHJpYnV0ZS5TVFkubHZsID0gQwpBdHRyaWJ1dGUuU1RZLmF0biA9IFNFTUFOVElDX1RZUEUKQXR0cmlidXRlLlNUWS5zdGF0dXMgPSBOCkF0dHJpYnV0ZS5TVFkudnNhYiA9IEUtPFZTQUIxOD4KCiMgcnNjdWlBdHRyCkF0dHJpYnV0ZS5DT04uc2dUeXBlID0gU09VUkNFX0NVSQpBdHRyaWJ1dGUuQ09OLnNnUXVhbCA9IDxWU0FCPgoKIyBzYXVpQXR0cgpBdHRyaWJ1dGUuU0FVSS5zZ1R5cGUgPSBTT1VSQ0VfQVVJCkF0dHJpYnV0ZS5TQVVJLnNnUXVhbCA9IDxWU0FCPgoKIyBzYWlkQXR0cgpBdHRyaWJ1dGUuU0FJRC5zZ1R5cGUgPSBTUkNfQVRPTV9JRApBdHRyaWJ1dGUuU0FJRC5zZ1F1YWwgPQoKIyBzYXVpQXR0cgpBdHRyaWJ1dGUuU0FUVUkuc2dUeXBlID0gU09VUkNFX0FUVUkKQXR0cmlidXRlLlNBVFVJLnNnUXVhbCA9IDxWU0FCPgoKIyByc3J1aUF0dHIKQXR0cmlidXRlLlJFTC5zZ1R5cGUgPSBTT1VSQ0VfUlVJCkF0dHJpYnV0ZS5SRUwuc2dRdWFsID0gPFZTQUI+CgojIHNwZWNpZmljIE1lcmdlIGRlZmF1bHRzCiMgZGlkMmN1aU1lcmdlCk1lcmdlLkRJRDJTQ1VJLnNnVHlwZTEgPSBTT1VSQ0VfQVVJCk1lcmdlLkRJRDJTQ1VJLnNnUXVhbDEgPSA8VlNBQj4KTWVyZ2UuRElEMlNDVUkuc2dUeXBlMiA9IFNPVVJDRV9DVUkKTWVyZ2UuRElEMlNDVUkuc2dRdWFsMiA9IDxWU0FCPgpNZXJnZS5ESUQyU0NVSS5tZXJnZVNldCA9IFNOT01FRENUX1VTLVNDVUkKCiMgbXRoVVNNZXJnZSAtIG1lcmdlIHV0Zi9zcyB0ZXJtcyB3aXRoIHRoZSBwYXJlbnQgdGVybQpNZXJnZS5NVEhVVEZTUy5zZ1R5cGUxID0gU1JDX0FUT01fSUQKTWVyZ2UuTVRIVVRGU1Muc2dRdWFsMSA9IApNZXJnZS5NVEhVVEZTUy5zZ1R5cGUyID0gU09VUkNFX0NVSQpNZXJnZS5NVEhVVEZTUy5zZ1F1YWwyID0gPFZTQUI+Ck1lcmdlLk1USFVURlNTLm1lcmdlU2V0ID0gU05PTUVEQ1RfVVMtU0NVSQoKIyBzYW1lYXNNZXJnZQpNZXJnZS5TQU1FQVMuc2dUeXBlMSA9IFNPVVJDRV9DVUkKTWVyZ2UuU0FNRUFTLnNnUXVhbDEgPSA8VlNBQj4KTWVyZ2UuU0FNRUFTLnNnVHlwZTIgPSBTT1VSQ0VfQ1VJCk1lcmdlLlNBTUVBUy5zZ1F1YWwyID0gPFZTQUI+Ck1lcmdlLlNBTUVBUy5tZXJnZVNldCA9IFNOT01FRENUX1VTLVNBTUVBUwoKIyBzZWxmTmFtaW5nTWVyZ2UxIGJldHdlZW4gQ1RHIHRvIFNBVUkKI01lcmdlLlNFTEZOQU1JTkcuc2dUeXBlMSA9IENPREVfVEVSTUdST1VQCk1lcmdlLlNFTEZOQU1JTkcuc2dUeXBlMSA9IENPREVfU09VUkNFCk1lcmdlLlNFTEZOQU1JTkcuc2dRdWFsMSA9ICAKTWVyZ2UuU0VMRk5BTUlORy5zZ1R5cGUyID0gU09VUkNFX0FVSQpNZXJnZS5TRUxGTkFNSU5HLnNnUXVhbDIgPSA8VlNBQj4KTWVyZ2UuU0VMRk5BTUlORy5tZXJnZVNldCA9IDxSU0FCPi1TUkNWUFQKCiMgc2VsZk5hbWluZ01lcmdlMSBiZXR3ZWVuIFNBVUkgdG8gU0FVSQpNZXJnZS5TRUxGTkFNSU5HMi5zZ1R5cGUxID0gU09VUkNFX0FVSQpNZXJnZS5TRUxGTkFNSU5HMi5zZ1F1YWwxID0gPFZTQUJPTEQ+Ck1lcmdlLlNFTEZOQU1JTkcyLnNnVHlwZTIgPSBTT1VSQ0VfQVVJCk1lcmdlLlNFTEZOQU1JTkcyLnNnUXVhbDIgPSA8VlNBQj4KTWVyZ2UuU0VMRk5BTUlORzIubWVyZ2VTZXQgPSA8UlNBQj4tT0xEU1JDCgojIHNiTWVyZ2UKI01lcmdlLlNCLnNnVHlwZTEgPSBDT0RFX1RFUk1HUk9VUAojTWVyZ2UuU0Iuc2dRdWFsMSA9IDxWU0FCPi9TQgojTWVyZ2UuU0Iuc2dUeXBlMiA9IENPREVfVEVSTUdST1VQCiNNZXJnZS5TQi5zZ1F1YWwyID0gPFZTQUJPTEQ+L1NCCiNNZXJnZS5TQi5tZXJnZVNldCA9IFNOT01FRENUX1VTLVNCCk1lcmdlLlNCLnNnVHlwZTEgPSBDT0RFX1NPVVJDRQpNZXJnZS5TQi5zZ1F1YWwxID0gPFZTQUI+Ck1lcmdlLlNCLnNnVHlwZTIgPSBDT0RFX1NPVVJDRQpNZXJnZS5TQi5zZ1F1YWwyID0gPFZTQUJPTEQ+Ck1lcmdlLlNCLm1lcmdlU2V0ID0gU05PTUVEQ1RfVVMtU0IKCgojIHNwZWNpZmljIFJlbGF0aW9uIGRlZmF1bHRzCiMgcnNhdWkycnNjdWlSZWwKUmVsYXRpb24uUlNBVUkyUlNDVUkuc2dUeXBlMSA9IFNPVVJDRV9BVUkKUmVsYXRpb24uUlNBVUkyUlNDVUkuc2dRdWFsMSA9IDxWU0FCPgpSZWxhdGlvbi5SU0FVSTJSU0NVSS5zZ1R5cGUyID0gU09VUkNFX0NVSQpSZWxhdGlvbi5SU0FVSTJSU0NVSS5zZ1F1YWwyID0gPFZTQUI+CgojIHJzY3VpMnJzY3VpUmVsClJlbGF0aW9uLlIuc2dUeXBlMSA9IFNPVVJDRV9DVUkKUmVsYXRpb24uUi5zZ1F1YWwxID0gPFZTQUI+ClJlbGF0aW9uLlIuc2dUeXBlMiA9IFNPVVJDRV9DVUkKUmVsYXRpb24uUi5zZ1F1YWwyID0gPFZTQUI+CgojIHV0ZlJlbCAtICBhdG9tIHRvIG1haW4gYXRvbQpSZWxhdGlvbi5VVEYuc2dUeXBlMiA9IFNPVVJDRV9BVUkKUmVsYXRpb24uVVRGLnNnUXVhbDIgPSA8VlNBQj4KUmVsYXRpb24uVVRGLnJlbCA9IFNGTy9MRk8KUmVsYXRpb24uVVRGLnJlbGEgPSBtdGhfaGFzX3BsYWluX3RleHRfZm9ybQoKIyBzc3NSZWwgLSBzcyBhdG9tIHRvIG1haW4gYXRvbSAtIFMgdHlwZQpSZWxhdGlvbi5TU19TLnNnVHlwZTIgPSBTT1VSQ0VfQVVJClJlbGF0aW9uLlNTX1Muc2dRdWFsMiA9IDxWU0FCPgpSZWxhdGlvbi5TU19TLnJlbCA9IFNGTy9MRk8KUmVsYXRpb24uU1NfUy5yZWxhID0gbXRoX2hhc19wbGFpbl90ZXh0X2Zvcm0KCiMgc3N4UmVsIC0gc3MgYXRvbSB0byBtYWluIGF0b20gLSBYIHR5cGUKUmVsYXRpb24uU1NfWC5zZ1R5cGUyID0gU09VUkNFX0FVSQpSZWxhdGlvbi5TU19YLnNnUXVhbDIgPSA8VlNBQj4KUmVsYXRpb24uU1NfWC5yZWwgPSBTRk8vTEZPClJlbGF0aW9uLlNTX1gucmVsYSA9IG10aF9oYXNfeG1sX2Zvcm0KCiMgeG1SZWwKI1JlbGF0aW9uLlhNLnNnVHlwZTEgPSBDT0RFX1NUUklQUEVEX1NPVVJDRQpSZWxhdGlvbi5YTS5zZ1R5cGUxID0gQ09ERV9ST09UX1NPVVJDRQpSZWxhdGlvbi5YTS5zZ1F1YWwxID0gSUNEOUNNClJlbGF0aW9uLlhNLnNnVHlwZTIgPSBTT1VSQ0VfQ1VJClJlbGF0aW9uLlhNLnNnUXVhbDIgPSA8VlNBQj4KCgojIGRlZmF1bHRzIGZvciBDb250ZXh0cwpDb250ZXh0LkRlZmF1bHRzLnJlbGVhc2VNb2RlID0gMDAKQ29udGV4dC5EZWZhdWx0cy5yZWxHcm91cCA9IDAKQ29udGV4dC5EZWZhdWx0cy5yZWxhID0gaXNhCkNvbnRleHQuRGVmYXVsdHMuc2dUeXBlMSA9IFNPVVJDRV9DVUkKQ29udGV4dC5EZWZhdWx0cy5zZ1F1YWwxID0gPFZTQUI+CkNvbnRleHQuRGVmYXVsdHMuc2dJZDIgPSAKQ29udGV4dC5EZWZhdWx0cy5zZ1R5cGUyID0gU09VUkNFX0NVSQpDb250ZXh0LkRlZmF1bHRzLnNnUXVhbDIgPSA8VlNBQj4KCkNvbnRleHQuUEFSLnJlbCA9IFBBUgpDb250ZXh0LlBBUi5zZ1R5cGUxID0gU09VUkNFX0NVSQpDb250ZXh0LlBBUi5zZ1F1YWwxID0gPFZTQUI+CkNvbnRleHQuUEFSLnNnVHlwZTIgPSBTT1VSQ0VfQ1VJCkNvbnRleHQuUEFSLnNnUXVhbDIgPSA8VlNBQj4KCgoKIyA9PT0gdGhlc2UgYXJlIGZvciBmaW5kaW5nIGRpZmZlcmVuY2VzLgpBRGlyID0gLi4vbXNkX3NyYwoKZXhjbEF0dHJzLjAgPSBDT05URVhUCmV4Y2xBdHRycy4xID0gQVEKZXhjbEF0dHJzLjIgPSBDT01QT05FTlRISVNUT1JZCmV4Y2xBdHRycy4zID0gU0VNQU5USUNfVFlQRQpleGNsQXR0cnMuNCA9IFhNQVBUTwpleGNsQXR0cnMuNSA9IFhNQVBGUk9NCgoKIyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KIyB0aGVzZSBhcmUgZm9yIFFBCm9mUmVwb3J0ID0gPFFBRElSPi9RYVJlcG9ydC48VlNBQj4KCkZpZWxkTW9uLkF0b20uOC5taW5MaW1pdCA9IDEgIyBkZWZhdWx0IHN0cmluZyBsZW5ndGggY2hlY2sgaXMgMywgSG93ZXZlciBzbm9tZWRjdCBoYXMgc3RyaW5ncyB3aXRoIDEgY2hhciAKRmllbGRNb24uQXRvbS4xLm1heExpbWl0ID0gMzAKRmllbGRNb24uQXRvbS4zLm1heExpbWl0ICA9IDI4CkZpZWxkTW9uLkF0b20uNS52YWxQYXQgPSBeW1JOXSQKRmllbGRNb24uQXRvbS42LnZhbFBhdCA9IF5ZJApGaWVsZE1vbi5BdG9tLjcudmFsUGF0ID0gXk4kCkZpZWxkTW9uLkF0b20uOS52YWxQYXQgPSBeKE58TykkCkZpZWxkTW9uLkF0b20uMTEubnVsbGFibGUgPSAwCkZpZWxkTW9uLkF0b20uMTMudmFsUGF0ID0gXkVORyQKCkZpZWxkTW9uLkF0dHJpYnV0ZS42LnZhbFBhdCA9IF4oU1JDfDxWU0FCPnxFLTxWU0FCMTg+KSQKRmllbGRNb24uQXR0cmlidXRlLjgudmFsUGF0ID0gXltZbl0kCkZpZWxkTW9uLkF0dHJpYnV0ZS45LnZhbFBhdCA9IF5OJApGaWVsZE1vbi5BdHRyaWJ1dGUuMTAudmFsUGF0ID0gXk4kCkZpZWxkTW9uLkF0dHJpYnV0ZS4xMi52YWxQYXQgPSBeU05PTUVEQ1RfVVMKCkZpZWxkTW9uLlJlbGF0aW9uLjkudmFsUGF0ID0gXlIkCkZpZWxkTW9uLlJlbGF0aW9uLjEwLnZhbFBhdCA9IF5ZJApGaWVsZE1vbi5SZWxhdGlvbi4xMS52YWxQYXQgPSBeTiQKRmllbGRNb24uUmVsYXRpb24uMTIudmFsUGF0ID0gXk4kCiNGaWVsZE1vbi5SZWxhdGlvbi4xNC52YWxQYXQgPSBeKFNSQy9WUFR8PFZTQUI+fDxSU0FCPnxJQ0Q5Q00pJApGaWVsZE1vbi5SZWxhdGlvbi4xNC52YWxQYXQgPSBeKFNSQ3w8VlNBQj58PFJTQUI+fElDRDlDTSkkCiNGaWVsZE1vbi5SZWxhdGlvbi4xNS52YWxQYXQgPSBeKENPREVfVEVSTUdST1VQfFJPT1RfU09VUkNFX0NVSXxTT1VSQ0VfQVVJKSQKRmllbGRNb24uUmVsYXRpb24uMTUudmFsUGF0ID0gXihDT0RFX1NPVVJDRXxST09UX1NPVVJDRV9DVUl8U09VUkNFX0FVSSkkCiNGaWVsZE1vbi5SZWxhdGlvbi4xNi52YWxQYXQgPSBeKFNSQy9SUFR8PFJTQUI+fDxWU0FCPikkCkZpZWxkTW9uLlJlbGF0aW9uLjE2LnZhbFBhdCA9IF4oU1JDfDxSU0FCPnw8VlNBQj4pJAoKRmllbGRNb24uTWVyZ2UuMi52YWxQYXQgPSBeU1kkCkZpZWxkTW9uLk1lcmdlLjYudmFsUGF0ID0gXk4kCkZpZWxkTW9uLk1lcmdlLjcudmFsUGF0ID0gXk4kCg=="
+        }
+      }
+    },
+    "source-plan": {
+      "schema_version": 1,
+      "artifact_type": "source-plan",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_03_01",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [],
+      "data": {
+        "replacement_baseline": {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2025_09_01"
+        },
+        "comparison_baseline": null,
+        "publisher_history": [],
+        "mrdoc_required": false,
+        "mapping_decisions": {
+          "relationship_types": {},
+          "association_refsets": {},
+          "description_types": {},
+          "attribute_refsets": {},
+          "concrete_types": {},
+          "refset_patterns": {},
+          "map_correlations": {}
+        },
+        "label_decisions": {},
+        "source_title": "SNOMED Clinical Terms US Edition, March 1, 2026"
+      }
+    },
+    "id-range": {
+      "schema_version": 1,
+      "artifact_type": "id-allocation",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_03_01",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [],
+      "data": {
+        "start": 764923506,
+        "end": 765966592,
+        "bound_kind": "reserved-historical-range",
+        "kind": "captured-sct.cfg",
+        "production_reservation": false,
+        "scope": "Historical isolated replay; not a new allocation"
+      }
+    },
+    "environment": {
+      "schema_version": 1,
+      "artifact_type": "environment-profile",
+      "source": "SNOMEDCT_US",
+      "version": "meme-dev-v1",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [],
+      "data": {
+        "profile_id": "meme-dev-v1"
+      }
+    },
+    "validation": {
+      "schema_version": 1,
+      "artifact_type": "validation-profile",
+      "source": "SNOMEDCT_US",
+      "version": "snomed-snapshot-core-v1",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [],
+      "data": {
+        "profile_id": "snomed-snapshot-core-v1"
+      }
+    },
+    "official": {
+      "schema_version": 1,
+      "artifact_type": "reference-inversion",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_03_01",
+      "provenance": {
+        "producer": "Preserved staff SNOMED inversion archive with physical RF2 capture",
+        "producer_version": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+        "capture_id": "archive-sha256-ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+        "evidence_kind": "preserved"
+      },
+      "files": [
+        {
+          "role": "src/classes_atoms.src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "47f5975e1007f0402bad4445b8ab11312befcd2e31b510eed494fbc90508b0ca",
+          "bytes": 160386832,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/classes_atoms.src",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "src/attributes.src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "dd3cc62df9d0544a26d3445ee900f22bde48745f399a30c2374bce164ae0d3db",
+          "bytes": 2285483121,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/attributes.orig",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "src/relationships.src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "eab3e6fee8f56b4363fcb4708b236e3dd68f243ca30150d4c0ecab9236148d72",
+          "bytes": 138193226,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/relationships.src",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "src/mergefacts.src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "cd28baee179282c30989facc3c1fe206dbe812696808755a825bfd4dba636d38",
+          "bytes": 136492992,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/mergefacts.src",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        },
+        {
+          "role": "src/contexts.src",
+          "uri": "file:///local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_03_01.tgz",
+          "sha256": "48312061d59f8dd2bf8d3957ca18901de731e1de37d29274b571ca9766646da9",
+          "bytes": 6049885531,
+          "archive_member": "SNOMEDCT_US_2026_03_01/src/contexts.src",
+          "archive_format": "tar.gz",
+          "archive_sha256": "ffbdf8b31fc9ee3d3963b027cd9ee36b385b43f6d8bc769067fe6d8916db5f48",
+          "archive_bytes": 3003023049
+        }
+      ],
+      "data": {
+        "reference_stage": "inversion-src",
+        "attributes_original_prefix_proved": true
+      }
+    }
+  }
+}

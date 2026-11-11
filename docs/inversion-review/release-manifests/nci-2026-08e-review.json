@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-archived-nci-input-review",
+  "source": "NCI",
+  "version": "NCI_2026_08E",
+  "review_scope": "Genuine archived input review and separately captured native survey; no fresh full inversion/comparison yet.",
+  "archive": {
+    "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_08E.tgz",
+    "archive_sha256": "c232f14d138f0338b5a68b2a444c853b1b1db515c607ff00452bfaaf7a8c6031",
+    "archive_bytes": 543332829,
+    "member_count": 103
+  },
+  "acquisition_object_identity": {
+    "ContentLength": 543332829,
+    "ETag": "\"92c5af70fea5d62134d74d3dce0bd733-65\"",
+    "LastModified": "2026-09-12T00:00:54+00:00",
+    "VersionId": null
+  },
+  "capture_files": [
+    {
+      "name": "nci-august-archive-capture.json",
+      "sha256": "8a75cd510d4b5d844ba1bc1a78d91c7cdb524e56dd3d13f9882684417529f435"
+    },
+    {
+      "name": "nci-native-facts.result.json",
+      "sha256": "0fb305cbe3985a6de2c43a54dfdfcd045d2c5bd47a4ad4ff90e07846a47ec1bd"
+    },
+    {
+      "name": "nci-qa-diagnostic.result.json",
+      "sha256": "57be42ebcca6a01ebbd82192b93f37ad5c8daefe35a93ffeec91868e46d4a46c"
+    }
+  ],
+  "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+  "replacement_baseline": {
+    "source": "NCI",
+    "version": "NCI_2026_07D"
+  },
+  "saved_hierarchy_root_atom_id": 31926003,
+  "source_atom_ids": {
+    "start": 776343593,
+    "end": 786343593,
+    "bound_kind": "dev-reservation",
+    "provenance_ref": "allocation"
+  },
+  "allocation_scope": "Isolated dev historical replay cap; not a historical or production reservation; insertion excluded",
+  "metadata_counts": {
+    "sources": 59,
+    "termgroups": 128
+  },
+  "native_inputs": {
+    "NCI_2026_08E/orig/fromprovider/annotationDeclaration-20260831.txt": {
+      "sha256": "d878fd8275ec67780758b8add5c3d84d56073de6a396733422791755c8daaf58",
+      "bytes": 8503,
+      "rows": 289
+    },
+    "NCI_2026_08E/orig/fromprovider/classDeclaration-20260831.txt": {
+      "sha256": "2f0d15d2e9fc7c6437e7a4076325fdd69fd09ff4190402d217f36147b8433867",
+      "bytes": 156541623,
+      "rows": 3073687
+    },
+    "NCI_2026_08E/orig/fromprovider/objectDeclaration-20260831.txt": {
+      "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+      "bytes": 4934,
+      "rows": 97
+    },
+    "NCI_2026_08E/orig/fromprovider/relations-20260831.txt": {
+      "sha256": "44389d0a0c733d3dfb6848548520d06aae0f4e98dcfa1f409d8d2bcf20ec5220",
+      "bytes": 14607914,
+      "rows": 728971
+    },
+    "NCI_2026_08E/orig/fromprovider/hierarchy-20260831.txt": {
+      "sha256": "75dbeae0f923bc65fa7fb3cbf78131d3d40a792c7e8a87e57ba0c50c7c04f4b3",
+      "bytes": 3578390,
+      "rows": 243020
+    }
+  },
+  "root_emission_review": {
+    "archived_member": "NCI_2026_08E/bin/invert_NCI.pl",
+    "sha256": "d6d8d74997d18dbc460880e708246b4d249d5d70b433fad78c36b683e198e00e",
+    "call_sites": [
+      {
+        "line": 199,
+        "text": "#$Inv->prTime(\"processSubsourceAtoms\");"
+      },
+      {
+        "line": 200,
+        "text": "$Inv->prTime(\"Edit and un-comment processSubsourceAtoms if there is a new subsource\");"
+      },
+      {
+        "line": 202,
+        "text": "#&processSubsourceAtoms;"
+      }
+    ],
+    "new_subsources": [],
+    "new_termgroups": [],
+    "conclusion": "Call disabled. Stale FDA-NIH-MoRE function body and commented ICD-10 block are not active additions; no installation state inferred."
+  },
+  "native_preparation_review": [
+    {
+      "archived_member": "NCI_2026_08E/bin/create_rolegroups.pl",
+      "archived_sha256": "509494ee83d5e53cbdfdcf441fc33382359c3c787374dd6829156aaf53075715",
+      "reference_commit": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "reference_path": "sources/NCI_2026_10D/bin/create_rolegroups.pl",
+      "reference_sha256": "fe043606aff626e87d87bfd72885435b732ed60cd8e69e84595909d344719ecb",
+      "result": "ONLY_NATIVE_EXPORT_DATE_LITERALS_DIFFER"
+    },
+    {
+      "archived_member": "NCI_2026_08E/bin/create_tref.pl",
+      "archived_sha256": "a06d5d47613096b4da27663bdfd7208a0b0db15bb0277e9a840536948f92304c",
+      "reference_commit": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "reference_path": "sources/NCI_2026_10D/bin/create_tref.pl",
+      "reference_sha256": "929230080198176550bf940451eec6ab8217feab6ad2f9ac1a9c8821213f8362",
+      "result": "ONLY_NATIVE_EXPORT_DATE_LITERALS_DIFFER"
+    },
+    {
+      "archived_member": "NCI_2026_08E/bin/delete_dup_tref_lines.pl",
+      "archived_sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272",
+      "reference_commit": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "reference_path": "sources/NCI_2026_10D/bin/delete_dup_tref_lines.pl",
+      "reference_sha256": "2b12117a7276122c25e0042c8a6abdb1b3e5ebdeffaef1f05ce85ca998c6d272",
+      "result": "BYTE_IDENTICAL"
+    }
+  ],
+  "representation_vocabulary_review": {
+    "base_engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+    "base_model_sha256": "2981f620511d64a23a319109d00cf2535e3b2fc8111a3d7b6f4009e42db80e5e",
+    "observed_pair_additions": [
+      {
+        "source": "DICOM",
+        "tty": "SY",
+        "rows": 1,
+        "preserved_termgroup_defined": false,
+        "decision": "Record actual observed vocabulary only; do not invent metadata. Strict output validation remains required."
+      }
+    ],
+    "new_class_properties": [],
+    "new_relationship_roles": [],
+    "changed_labels": [],
+    "mapping_relations": {
+      "Has Synonym": 23256,
+      "Related To": 7820,
+      "Broader Than": 395,
+      "Narrower Than": 257
+    }
+  },
+  "retained_historical_findings": [
+    {
+      "kind": "unmapped-publisher-source",
+      "identifier": "CTCAE 6.0",
+      "reason": "The preserved August native export contains 4111 CTCAE 6.0/PT rows, but its preserved configuration has no VSAB mapping and its source metadata has no corresponding definition. Preserve the archived producer behavior for this exact August input bundle; no mapping correction or operational release approval is claimed.",
+      "version": "NCI_2026_08E",
+      "native_sha256": {
+        "annotationDeclaration-20260831.txt": "d878fd8275ec67780758b8add5c3d84d56073de6a396733422791755c8daaf58",
+        "classDeclaration-20260831.txt": "2f0d15d2e9fc7c6437e7a4076325fdd69fd09ff4190402d217f36147b8433867",
+        "objectDeclaration-20260831.txt": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+        "relations-20260831.txt": "44389d0a0c733d3dfb6848548520d06aae0f4e98dcfa1f409d8d2bcf20ec5220",
+        "hierarchy-20260831.txt": "75dbeae0f923bc65fa7fb3cbf78131d3d40a792c7e8a87e57ba0c50c7c04f4b3"
+      }
+    }
+  ],
+  "unresolved_review_findings": [
+    {
+      "code": "AUGUST_DICOM_SY_METADATA_ABSENT",
+      "native_pair": [
+        "DICOM",
+        "SY"
+      ],
+      "native_rows": 1,
+      "metadata_termgroups": [
+        "DICOM_2026_08E/PT"
+      ],
+      "risk": "One DICOM/SY native record has no preserved metadata definition. Archived QA flags atom776930568 as DICOM/SY, while its later official row is DICOM/PT: evidence consistent with a correction after QA, without confirmation of actor. Fresh candidate field-level comparison remains required.",
+      "disposition": "No metadata/mapping correction, deletion or validation waiver. Run fresh output and exact oracle/structure comparison; investigate differences."
+    }
+  ],
+  "preserved_literal_config_findings": [
+    {
+      "key": "rsab.FDA-NIH-MoRE",
+      "value": "FDA-NIH_MoRE",
+      "action": "Preserved unchanged; no active August root-emission call."
+    }
+  ],
+  "reference_selection": {
+    "directory": "src",
+    "attributes_member": "NCI_2026_08E/src/attributes.src",
+    "attributes_orig_present": false,
+    "insert_directory_used": false,
+    "full_reference_output_extraction_performed": false
+  },
+  "known_producer_difference": {
+    "archived_member": "NCI_2026_08E/bin/invert_NCI.pl",
+    "archived_line": 742,
+    "difference": "Archived generic subsource PT call omits tty; pinned Git engine supplies explicit PT. Raw exact comparison remains mandatory; no October correction waiver applies."
+  },
+  "remaining_gates": [
+    "Committed native lock resolution",
+    "Complete worker physical input validation before publication",
+    "Fresh dev native preparation and full conversion",
+    "Independent structures/range validation and exact current-release src oracle comparison"
+  ],
+  "native_execution_performed": false,
+  "production_eligible": false,
+  "archived_post_qa_correction_evidence": {
+    "archive_sha256": "c232f14d138f0338b5a68b2a444c853b1b1db515c607ff00452bfaaf7a8c6031",
+    "evidence_scope": "Targeted read-only diagnosis; no settings derived or candidate changed",
+    "qa_members": {
+      "NCI_2026_08E/etc/qa/Forbidden_classes.txt": {
+        "sha256": "7737c3796c83071befcdd17ac016a4eb6b22ae55646bbf51c5cf73e5d89d35e0",
+        "bytes": 175
+      },
+      "NCI_2026_08E/etc/qa/QaReport.NCI_2026_08E.txt": {
+        "sha256": "459d312bcab1e03dd6f2467ad9eaabdcb6583703a4654618e7d9255045491d59",
+        "bytes": 77502
+      },
+      "NCI_2026_08E/etc/qa/QaReport.NCI_2026_08E.txt.err": {
+        "sha256": "1e8f6a7cba18180c1465b617bc1d3d0849c9ecf03ffa4ca4d120511940c5aec9",
+        "bytes": 7485
+      }
+    },
+    "qa_atom_findings": [
+      {
+        "line": 120,
+        "text": "\t****ERR:  EValPat_776551170_3 => FDA_2026_08E/"
+      },
+      {
+        "line": 138,
+        "text": "\t****ERR: VUndefinedTG_776551170 => FDA_2026_08E/"
+      },
+      {
+        "line": 139,
+        "text": "\t****ERR: VUndefinedTG_776930568 => DICOM_2026_08E/SY"
+      },
+      {
+        "line": 140,
+        "text": "\t****ERR: VUndefinedTTY_776551170 => "
+      }
+    ],
+    "dicom_native_record": [
+      "C228011",
+      "P90",
+      "Exposure",
+      "P383",
+      "SY",
+      "P384",
+      "DICOM"
+    ],
+    "official_dicom_row": [
+      "776930568",
+      "DICOM_2026_08E",
+      "DICOM_2026_08E/PT",
+      "C228011",
+      "R",
+      "Y",
+      "N",
+      "Exposure",
+      "N",
+      "",
+      "C228011",
+      "",
+      "ENG",
+      "776930568",
+      ""
+    ],
+    "official_atoms_member": {
+      "path": "NCI_2026_08E/src/classes_atoms.src",
+      "sha256": "722c4a36733e2fd2d27b6f46ac0d6248c20bc05201222d888b3fe42388a7142c"
+    },
+    "native_class_member": {
+      "path": "NCI_2026_08E/orig/fromprovider/classDeclaration-20260831.txt",
+      "sha256": "2f0d15d2e9fc7c6437e7a4076325fdd69fd09ff4190402d217f36147b8433867"
+    },
+    "historical_termgroup_transformation": {
+      "release": "NCI_2026_08E",
+      "src_atom_id": "776930568",
+      "source": "DICOM_2026_08E",
+      "source_cui": "C228011",
+      "atom_name": "Exposure",
+      "qa_native_termgroup": "DICOM_2026_08E/SY",
+      "official_termgroup": "DICOM_2026_08E/PT",
+      "applied_to_candidate": false,
+      "automatic_comparison_waiver": false
+    },
+    "conclusion": "Native DICOM/SY input and archived QA identify the same atom that is DICOM/PT in the official archive. This supports a correction after the captured QA state; a human actor is not confirmed. Full fresh candidate comparison is still required to establish the exact changed fields.",
+    "second_qa_finding": "Archived QA also reports a blank TTY and FDA_2026_08E/ termgroup for776551170. Its official row has not yet been captured in this diagnostic; no additional transformation is inferred.",
+    "candidate_changed": false,
+    "production_eligible": false
+  }
+}

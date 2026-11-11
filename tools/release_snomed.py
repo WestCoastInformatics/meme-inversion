@@ -5,7 +5,9 @@ File identities and artifact closure are validated by the shared manifest layer.
 Headers, discovered identifiers and metadata rows here are producer declarations
 bound to those frozen artifacts, not claims that this module scanned remote data.
 """
+import base64
 import datetime
+import hashlib
 from pathlib import PurePosixPath
 import re
 from urllib.parse import urlparse
@@ -59,6 +61,68 @@ def _release(value):
 
 def _safe_text(value, allow_empty=False):
     return isinstance(value, str) and (allow_empty or bool(value.strip())) and not any(c in value for c in '\r\n|\t')
+
+
+def membership_review(policy, native, version):
+    """Validate an explicit, archive-bound association membership-only review.
+
+    This does not create a new relationship policy.  It records an absent edge
+    mapping while retaining the captured producer's membership representation.
+    Only the native executor establishes compatibility with actual Git code.
+    """
+    decisions = policy['data'].get('mappings', {}).get('association_refsets', {})
+    if not isinstance(decisions,dict) or any(not isinstance(value,dict) for value in decisions.values()):
+        raise ValueError('Association policy decisions must be identifier-keyed objects')
+    selected = {key: value for key, value in decisions.items() if value.get('decision') == 'membership-only'}
+    if not selected:
+        if policy['data'].get('association_membership_review'):
+            raise ValueError('Unused membership-only review cannot silently authorize other identifiers')
+        return {}
+    review = policy['data'].get('association_membership_review')
+    if (not isinstance(review, dict) or review.get('schema_version') != 1 or review.get('source') != 'SNOMEDCT_US' or
+            review.get('version') != version or not isinstance(review.get('association_refsets'),dict) or
+            set(review['association_refsets']) != set(selected)):
+        raise ValueError('Membership-only decisions require an exact source/version/identifier review')
+    descriptors = {item['role']: item for item in policy['files']}
+    if len(descriptors) != len(policy['files']): raise ValueError('Membership-only evidence roles must be unique')
+    cfg = descriptors.get('archived-sct.cfg', {})
+    producer = descriptors.get('archived-invert_rf2.pl', {})
+    raw = base64.b64decode(review['cfg_data_b64'], validate=True)
+    if (hashlib.sha256(raw).hexdigest() != review.get('cfg_sha256') or cfg.get('sha256') != review.get('cfg_sha256') or
+            producer.get('sha256') != review.get('producer_sha256') or
+            any(item.get('archive_sha256') != review.get('archive_sha256') for item in native['files'] + [cfg, producer]) or
+            review.get('native_sha256') != {item['role']: item['sha256'] for item in native['files']}):
+        raise ValueError('Membership-only review does not bind exact native/cfg/producer archive bytes')
+    properties, pending = {}, ''
+    for line in raw.decode('utf-8').splitlines():
+        if not pending and (not line.strip() or line.lstrip().startswith(('#','!'))): continue
+        line = pending + line.lstrip() if pending else line
+        if line.endswith('\\'): pending = line[:-1]; continue
+        pending = '';key, separator, value = line.partition('=');key = key.strip()
+        if not separator or not key or key in properties: raise ValueError('Malformed reviewed archived cfg')
+        properties[key] = value.strip()
+    if pending: raise ValueError('Unterminated reviewed archived cfg')
+    def expanded(key, trail=()):
+        if key not in properties or key in trail: raise ValueError('Unresolved/cyclic reviewed archived cfg')
+        return re.sub(r'<([^<>]+)>',lambda match:expanded(match[1],trail+(key,)),properties[key])
+    if expanded('VSAB') != version or expanded('RSAB') != 'SNOMEDCT_US' or expanded('Release') != 'Snapshot':
+        raise ValueError('Membership-only cfg evidence is not the selected source/version/Snapshot')
+    mapped_labels = {expanded(key).split('|')[0] for key in properties if key.startswith('SCT.RELMAP.')}
+    discovery = native['data']['discovery']
+    for identifier, decision in selected.items():
+        record = review['association_refsets'][identifier]
+        if not isinstance(record,dict) or set(record) != {'reason','fn_labels'}:
+            raise ValueError('Membership-only review requires only an explicit reason and actual FN labels')
+        labels = record.get('fn_labels')
+        if (identifier not in discovery['association_refsets'] or identifier in discovery['relationship_types'] or
+                not _safe_text(record.get('reason')) or record['reason'] != decision.get('reason') or
+                not isinstance(labels,list) or not labels or len(set(labels)) != len(labels) or
+                any(not _safe_text(value) for value in labels) or set(labels) & mapped_labels or
+                discovery.get('labels', {}).get(identifier) not in labels):
+            raise ValueError('Membership-only review is missing, mapped, contradictory or not identifier/label-bound')
+        if set(decision) != {'decision','reason'}:
+            raise ValueError('Membership-only decisions cannot guess a REL/RELA or exclusion')
+    return review
 
 
 def analyze(configuration, artifacts):
@@ -240,11 +304,14 @@ def analyze(configuration, artifacts):
                 if not isinstance(mapping, dict):
                     issue('SNOMED_UNRESOLVED_NATIVE_VALUE', 'Observed ' + category + ' identifier has no explicit reviewed representation/exclusion: ' + identifier + '.', at, 'blocker')
                     continue
-                if mapping.get('decision') == 'exclude':
+                if mapping.get('decision') == 'membership-only':
+                    if category != 'association_refsets' or not _safe_text(mapping.get('reason')) or known.get(identifier) != mapping:
+                        issue('SNOMED_MEMBERSHIP_DECISION', 'Membership-only is limited to explicitly reviewed association edge mappings.', at)
+                elif mapping.get('decision') == 'exclude':
                     if not _safe_text(mapping.get('reason')):
                         issue('SNOMED_EXCLUSION_REASON', 'Intentional exclusion requires an explicit rationale.', at)
                 elif mapping.get('decision') != 'represent':
-                    issue('SNOMED_MAPPING_DECISION', 'Mapping decision must be represent or exclude.', at)
+                    issue('SNOMED_MAPPING_DECISION', 'Mapping decision must be represent, exclude, or an archive-reviewed association membership.', at)
                 else:
                     fields = {'relationship_types': ('rel', 'rela', 'inverse_rela'), 'association_refsets': ('rel', 'rela', 'inverse_rela'),
                               'description_types': ('tty',), 'attribute_refsets': ('atn',), 'concrete_types': ('atn',),
@@ -253,6 +320,10 @@ def analyze(configuration, artifacts):
                         issue('SNOMED_MAPPING_FIELDS', 'Reviewed representation is missing required fields: ' + ', '.join(fields) + '.', at)
                     if category == 'description_types' and mapping.get('tty') not in ttys:
                         issue('SNOMED_TTY_METADATA', 'A represented description TTY lacks current termgroup metadata.', at)
+        try:
+            membership_review(policy, native, config['version'])
+        except (ValueError, KeyError, TypeError) as error:
+            issue('SNOMED_MEMBERSHIP_REVIEW', str(error), '/artifacts/' + config['policy_ref'] + '/data/association_membership_review', 'blocker')
         labels, expected_labels = discovery.get('labels', {}), rules.get('labels', {})
         required_labels = set(discovery.get('relationship_types', [])) | set(discovery.get('association_refsets', []))
         if not required_labels.issubset(labels):

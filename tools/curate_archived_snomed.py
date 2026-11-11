@@ -53,7 +53,7 @@ def _metadata_rows(text, width):
     return rows, {'terminal_delimiter': dialect.pop()}
 
 
-def curate(captured, inventory, reference_receipt, engine_ref):
+def curate(captured, inventory, reference_receipt, engine_ref, membership_only_review=None):
     if not re.fullmatch(r'[0-9a-f]{40}', engine_ref): raise ValueError('An immutable canonical source engine commit is required')
     if (captured.get('artifact_type') != 'archived-snomed-physical-capture' or
             captured.get('selected_payloads_inventory_verified') is not True or
@@ -106,12 +106,43 @@ def curate(captured, inventory, reference_receipt, engine_ref):
                               'producer_version':small['bin/invert_rf2.pl']['sha256'],'capture_id':capture_id,'evidence_kind':'preserved'},
                 'files':files or [],'data':data}
     native = captured['native']; observations = native['discovery']; mappings = {key:{} for key in release_snomed.CATEGORIES}; labels = {}
+    membership_only_review = copy.deepcopy(membership_only_review)
+    reviewed = {}
+    if membership_only_review is not None:
+        if (not isinstance(membership_only_review, dict) or membership_only_review.get('schema_version') != 1 or
+                membership_only_review.get('source') != source or membership_only_review.get('version') != version or
+                membership_only_review.get('archive_sha256') != archive['sha256'] or
+                membership_only_review.get('cfg_sha256') != small['etc/sct.cfg']['sha256'] or
+                membership_only_review.get('producer_sha256') != small['bin/invert_rf2.pl']['sha256'] or
+                membership_only_review.get('native_sha256') != {role:item['sha256'] for role,item in native['files'].items()} or
+                not isinstance(membership_only_review.get('association_refsets'), dict) or
+                not membership_only_review['association_refsets'] or 'cfg_data_b64' in membership_only_review):
+            raise ValueError('Separate membership-only review must bind the exact captured source/cfg/producer/native archive identities')
+        reviewed = membership_only_review['association_refsets']
+        if set(reviewed) - set(observations['association_refsets']):
+            raise ValueError('Membership-only review contains an association not physically observed')
+        # The independently reviewed record names identities/reasons.  Frozen
+        # archived cfg bytes are attached here only as absence evidence, never
+        # as a constructor input or candidate executable setting.
+        membership_only_review['cfg_data_b64'] = base64.b64encode(small['etc/sct.cfg']['text'].encode()).decode()
     names = _name_mappings(props)
     for category in ('relationship_types','association_refsets'):
         for identifier in observations[category]:
             observed_labels = native['type_fsn_labels'].get(identifier,[])
             matched = [(label,names[label]) for label in observed_labels if label in names]
             values = {json.dumps(value,sort_keys=True) for _,value in matched}
+            if identifier in reviewed:
+                record = reviewed[identifier]
+                if (category != 'association_refsets' or matched or identifier in observations['relationship_types'] or
+                        not isinstance(record,dict) or set(record) != {'reason','fn_labels'} or
+                        not release_snomed._safe_text(record.get('reason')) or
+                        not isinstance(record.get('fn_labels'),list) or not record['fn_labels'] or
+                        len(set(record['fn_labels'])) != len(record['fn_labels']) or
+                        sorted(record['fn_labels']) != sorted(observed_labels)):
+                    raise ValueError('Membership-only review must name one unmapped association and its exact physical FN labels')
+                labels[identifier] = sorted(observed_labels)[0]
+                mappings[category][identifier] = {'decision':'membership-only','reason':record['reason']}
+                continue
             if len(values) != 1: raise ValueError('Unresolved/conflicting physically observed native mapping: ' + identifier + ' ' + repr(observed_labels))
             labels[identifier] = sorted(label for label,_ in matched)[0]
             mappings[category][identifier] = {'decision':'represent',**matched[0][1]}
@@ -166,7 +197,8 @@ def curate(captured, inventory, reference_receipt, engine_ref):
             'metadata_format':{'sources-src':source_format,'termgroups-src':termgroup_format},
             'scope':'Preserved preparation bytes; no historical database snapshot reconstruction is claimed'},metadata_files,'NCIMETA'),
         'policy':artifact('policy','preserved-policy-'+version,{'engine_ref':engine_ref,'supported_modules':sorted(module_ids),
-            'mappings':mappings,'labels':labels,'mapping_targets':targets},
+            'mappings':mappings,'labels':labels,'mapping_targets':targets,
+            **({'association_membership_review':membership_only_review} if membership_only_review else {})},
             [descriptor(version+'/'+path,'archived-'+Path(path).name) for path in ('etc/sct.cfg','bin/invert_rf2.pl','bin/rmdanglingattrs.pl')]),
         'source-plan':artifact('source-plan',version,{'replacement_baseline':prior,'comparison_baseline':None,'publisher_history':[],
             'mrdoc_required':False,'mapping_decisions':{key:{} for key in release_snomed.CATEGORIES},'label_decisions':{},
@@ -193,6 +225,10 @@ def curate(captured, inventory, reference_receipt, engine_ref):
     for category in ('relationship_types','association_refsets'):
         for identifier,mapping in mappings[category].items():
             candidates={json.dumps(canonical_names[label],sort_keys=True) for label in native['type_fsn_labels'][identifier] if label in canonical_names}
+            if mapping['decision'] == 'membership-only':
+                if category != 'association_refsets' or candidates:
+                    raise ValueError('Membership-only association is mapped by the canonical policy: '+identifier)
+                continue
             if candidates!={json.dumps({key:mapping[key] for key in ('rel','rela','inverse_rela')},sort_keys=True)}:
                 raise ValueError('Archived active relation mapping differs from reviewed canonical policy: '+identifier)
     for category,prefix,field in [('description_types','TTY.','tty'),('attribute_refsets','ATN.','atn'),('concrete_types','ATN.','atn'),('refset_patterns','PATTERN.','pattern')]:
@@ -215,6 +251,7 @@ def curate(captured, inventory, reference_receipt, engine_ref):
               'native_payload_hashes_verified':True,'physical_observations':native['discovery'],'oracle_attributes_prefix_proof':attribute_prefix_proof,
               'preserved_metadata_consumed':True,'rendered_cfg_used_as_constructor':False,'archived_executable_seeded':False,
               'metadata_format':{'sources-src':source_format,'termgroups-src':termgroup_format},
+              **({'association_membership_review':{key:value for key,value in membership_only_review.items() if key!='cfg_data_b64'}} if membership_only_review else {}),
               'unused_compatibility_settings_excluded_from_comparison':sorted(ignored),'active_policy_compatibility_verified':True,
               'native_execution_performed':False,'production_eligible':False}
     return manifest,evidence
@@ -224,9 +261,11 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--inventory',type=Path,required=True)
     parser.add_argument('--reference-receipt',type=Path,required=True);parser.add_argument('--engine-ref',required=True)
+    parser.add_argument('--membership-review',type=Path,help='Separate, explicit archive-bound review of unmapped association membership behavior')
     parser.add_argument('--output',type=Path,required=True);parser.add_argument('--evidence-output',type=Path,required=True)
     args=parser.parse_args()
-    manifest,evidence=curate(json.loads(args.capture.read_text()),json.loads(args.inventory.read_text()),json.loads(args.reference_receipt.read_text()),args.engine_ref)
+    review=json.loads(args.membership_review.read_text()) if args.membership_review else None
+    manifest,evidence=curate(json.loads(args.capture.read_text()),json.loads(args.inventory.read_text()),json.loads(args.reference_receipt.read_text()),args.engine_ref,review)
     for path,value in [(args.output,manifest),(args.evidence_output,evidence)]:
         with path.open('x') as handle:json.dump(value,handle,indent=2);handle.write('\n')
     print(json.dumps({'manifest':str(args.output),'evidence':str(args.evidence_output),'version':manifest['configuration']['version']}))
