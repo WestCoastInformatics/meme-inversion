@@ -220,7 +220,8 @@ def check(include_transport=True):
         put(c/'case.lock.json',lock)
         rejected(lambda:retention.plan(*args),'A declared predecessor-folder input prevents compaction')
     with fixture() as (root,s,t,c,a,v,args):
-        active=s/'replay-active-run.json';active.chmod(0o644);put(active,{'status':'failed','error':'retain this diagnostic evidence'});active.chmod(0o444)
+        active=s/'replay-active-run.json';active_mode=active.stat().st_mode & 0o777
+        active.chmod(active_mode|0o200);put(active,{'status':'failed','error':'retain this diagnostic evidence'});active.chmod(active_mode)
         previous=storage._load(c/'previous-source-receipt.json')
         active_identity=next(item for item in worker.manifest(s) if item['path']=='replay-active-run.json')
         for item in previous['manifest']:
