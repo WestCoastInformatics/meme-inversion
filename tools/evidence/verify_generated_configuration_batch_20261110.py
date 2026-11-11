@@ -14,6 +14,8 @@ import sys
 
 ROOT = Path('/local/content/MEME/MEME5/inv')
 BATCH = ROOT / 'qa/replay-requests/generated-settings-batch-20261110.controller'
+REVIEW = ROOT / 'qa/replay-requests/common-mth-generated-finalization-20261110'
+FINALIZATION_ERROR = "module 'mth_configuration' has no attribute 'verify_generated'"
 APPARATUS = '79df69fe5b0b45d4f3c10550c16cb62cb9e8199e'
 CASES = [('snomed', 'SNOMEDCT_US', 'common-snomed-generated-20261110',
           '07e1ea563c1ba15ccaf526713ec301f3bc3744317bee7880f744728ae2b60daf', 'PASS_EXACT', 5, 1),
@@ -44,14 +46,43 @@ import inversion_worker as worker
 with (ROOT / '.replay-runtime.lock').open('r') as held:
     fcntl.flock(held, fcntl.LOCK_EX | fcntl.LOCK_NB)
     controller = load(BATCH / 'status.json')
-    assert controller['status'] == 'complete' and len(controller['runs']) == 2
+    assert len(controller['runs']) == 2
+    reviewed = controller['status'] == 'failed'
+    review_request = None
+    if reviewed:
+        assert controller['error'] == 'MTH failed: ' + FINALIZATION_ERROR
+        assert load(BATCH / 'verification-status.json')['status'] == 'failed'
+        assert not (BATCH / 'final-verification.json').exists()
+        assert load(REVIEW / 'status.json')['status'] == 'complete'
+        review_request = load(REVIEW / 'recovery-request.json')
+        assert review_request['parent_run_id'] == CASES[1][2]
+        assert review_request['review_id'] == REVIEW.name
+        assert sha(REVIEW / 'recovery-driver.py') == review_request['driver_sha256']
+        for item in review_request['parent_records'].values():
+            assert sha(Path(item['path'])) == item['sha256']
+    else:
+        assert controller['status'] == 'complete'
     verified = []
     for filename, source, run_id, expected_lock, verdict, output_count, generated_count in CASES:
         run = ROOT / 'qa/replay-requests' / run_id
         lock = load(run / 'case.lock.json')
         state = load(run / 'status.json')
-        result = load(run / 'result.json')
-        assert state['status'] == 'complete' and result['acceptance']['status'] == verdict
+        evidence_run = REVIEW if reviewed and source == 'MTH' else run
+        result = load(evidence_run / 'result.json')
+        if evidence_run == REVIEW:
+            assert state['status'] == 'failed' and state['error'] == FINALIZATION_ERROR
+            assert not (run / 'result.json').exists() and not (run / 'raw-result.json').exists()
+            assert result['mode'] == 'generated-mth-finalization-review'
+            assert result['review_id'] == REVIEW.name and result['parent_run_id'] == run_id
+            assert result['original_common_run_status'] == 'failed'
+            assert result['native_conversion_repeated'] is False and result['preparation_repeated'] is False
+            assert result['finalization_apparatus_ref'] == review_request['code_ref']
+            assert result['original_native_result_sha256'] == review_request['parent_records']['native-result.json']['sha256']
+            assert sha(REVIEW / 'native-result.json') == result['original_native_result_sha256']
+            assert load(REVIEW / 'native-result.json')['comparison'] == result['comparison']
+        else:
+            assert state['status'] == 'complete'
+        assert result['acceptance']['status'] == verdict
         assert result['apparatus_ref'] == lock['apparatus_ref'] == APPARATUS
         assert lock['lock_sha256'] == state['lock_sha256'] == result['lock_sha256'] == expected_lock
         assert lock == load(BATCH / (filename + '.lock.json'))
@@ -63,6 +94,23 @@ with (ROOT / '.replay-runtime.lock').open('r') as held:
             assert hashlib.sha256(base64.b64decode(encoded, validate=True)).hexdigest() == expected
             assert sha(run / 'apparatus' / name) == sha(BATCH / 'apparatus' / name) == expected
         assert len(lock['modules_b64']) == 23
+        if evidence_run == REVIEW:
+            assert set(review_request['module_sha256']) == set(lock['modules_b64'])
+            for name, encoded in lock['modules_b64'].items():
+                original = base64.b64decode(encoded, validate=True)
+                actual = (REVIEW / 'apparatus' / name).read_bytes()
+                assert hashlib.sha256(actual).hexdigest() == review_request['module_sha256'][name]
+                if name == 'inversion_worker.py':
+                    before = (b'            import mth_configuration\n'
+                              b'            mth_configuration.execution_recipe_from_lock(lock)\n'
+                              b'            mth_configuration.verify_generated(package(lock), target)')
+                    after = (b'            import mth_configuration\n'
+                             b'            import replay_mth_core\n'
+                             b'            mth_configuration.execution_recipe_from_lock(lock)\n'
+                             b'            replay_mth_core.verify_generated(package(lock), target)')
+                    assert original.count(before) == 1 and actual == original.replace(before, after)
+                else:
+                    assert actual == original
         for item in lock['runtime_files']:
             assert sha(ROOT / item['repository_path']) == item['sha256']
         for item in lock['code_files']:
@@ -94,7 +142,9 @@ with (ROOT / '.replay-runtime.lock').open('r') as held:
             native.verify_inputs(package, target)
             assert mth_configuration.execution_recipe_from_lock(lock) == recipe
             assert result['configuration_generation'] == mth_configuration.receipt(recipe)
-            assert result['raw_result_sha256'] == sha(run / 'raw-result.json')
+            assert result['raw_result_sha256'] == sha(evidence_run / 'raw-result.json')
+            assert result['correction_audit'] == load(evidence_run / 'correction-audit.json')
+            assert result['correction_audit_execution'] == load(evidence_run / 'correction-audit-execution.json')
             assert result['raw_acceptance']['status'] == 'DIFFERENCES_REQUIRE_REVIEW'
             assert result['correction_audit']['status'] == verdict
             assert result['correction_audit']['run_id'] == run_id
@@ -121,10 +171,19 @@ with (ROOT / '.replay-runtime.lock').open('r') as held:
                          'all_outputs_identical_to_previous_accepted_candidate': True,
                          'preserved_tree_entries_verified': len(expected_manifest), 'frozen_modules_verified': 23,
                          'original_runtime_files_verified': 169})
+        if evidence_run == REVIEW:
+            verified[-1].update(original_common_run_status='failed', finalization_review_id=REVIEW.name,
+                                finalization_apparatus_ref=review_request['code_ref'], native_conversion_repeated=False)
     report = {'status': 'PASS_GENERATED_CONFIGURATION_FINAL_VERIFICATION',
               'verified_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'apparatus_ref': APPARATUS, 'runs': verified, 'production_eligible': False,
               'insertion_executed': False, 'runtime_activation_performed': False}
+    if reviewed:
+        report['status'] = 'PASS_GENERATED_CONFIGURATION_FINAL_VERIFICATION_WITH_FINALIZATION_REVIEW'
+        report['mth_finalization_review'] = {'review_id': REVIEW.name, 'code_ref': review_request['code_ref'],
+                                           'original_common_run_status': 'failed',
+                                           'original_failure_preserved': True, 'native_conversion_repeated': False,
+                                           'parent_records_reverified': review_request['parent_records']}
     retention = ROOT / 'qa/replay-requests/dev-retention-20261110.controller'
     assert sha(retention / 'archive-results.json') == '1e976f38ccf9c5263f2a9a1babf8064d2328d4c23e2c758ff8dba03a29deb1de'
     archived = load(retention / 'archive-results.json')
