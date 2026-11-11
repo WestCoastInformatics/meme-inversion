@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "status": "PASS_OFFLINE_RELEASE_MANIFEST_INCREMENT",
+  "recorded_at": "2026-11-11T18:26:37.308130+00:00",
+  "implementation_ref": "474f8bc61ff77d9aa8b9248a08e3cca2521c870c",
+  "scope": "Shared manifest/profile contracts, declaration preflight, local byte verification and non-executable review locks; synthetic examples and historical lock compatibility only.",
+  "local_suites": [
+    {
+      "script": "tools/check_release_manifest.py",
+      "checks_passed": 94,
+      "script_sha256": "df0240d2e84ccd9bfe11d7a0589ad3ea8638bc6372a93ad786e119afab731707",
+      "log_sha256": "3bb0a2472de68c4f1945abce4a09bde39cb659015801c1e2d3ea656254e02094",
+      "completion_line": "94 common release-manifest checks passed"
+    },
+    {
+      "script": "tools/check_release_nci.py",
+      "checks_passed": 60,
+      "script_sha256": "2f2f5578737a0b30480ef0963cc2684617ab988d7c4d80cbb1d42560dc3b0732",
+      "log_sha256": "214d7dafeacbfb61c9926dfd1c221ad9de27c23cd9e70d054ba2602b1c3a8e38",
+      "completion_line": "{\"status\": \"PASS\", \"checks\": 60, \"scope\": \"synthetic declaration preflight only\"}"
+    },
+    {
+      "script": "tools/check_release_snomed.py",
+      "checks_passed": 59,
+      "script_sha256": "311499593f9bd28688e190f978cd7b5156f9170e0f1ed2a9b885bd9537027737",
+      "log_sha256": "bbe15b7dafc3dc665c5c20e892d7a39ada49cb4ea4ccc02c9f1d6f815abcd4eb",
+      "completion_line": "59 SNOMED parameterized release-preflight checks passed"
+    },
+    {
+      "script": "tools/check_release_mth.py",
+      "checks_passed": 157,
+      "script_sha256": "2f814cd1098ca442fbd96d8e0e5653303b9970160a41af9921dff4eb3d9d0f7e",
+      "log_sha256": "5417e885fd751ff68aa103c30eb96a127bf31f14088e49749a89859b66a69a81",
+      "completion_line": "157 MTH release-manifest preflight checks passed"
+    },
+    {
+      "script": "tools/check_inversion_request.py",
+      "checks_passed": 95,
+      "script_sha256": "ada4402641d06a446e57d9498ba97e1e6a15fb261958141cb849830d94cb5d96",
+      "log_sha256": "6e3569df6c2eef59d60d7eef61ad383ab2ab92b0ebd676a2eda8eddb7e40176e",
+      "completion_line": "95 common inversion interface checks passed"
+    },
+    {
+      "script": "tools/check_generated_configuration_execution.py",
+      "checks_passed": 30,
+      "script_sha256": "76173626ba18fa186d3ee4b4618aa5f84b469f60b73b05d4562eb104070f4973",
+      "log_sha256": "4c8e1b3bed8e1da81b686d4ac3354bf6b3fefcea398e303ce2af94c0fe6551fe",
+      "completion_line": "30 common generated-configuration execution checks passed"
+    },
+    {
+      "script": "tools/check_replay_retention.py",
+      "checks_passed": 79,
+      "script_sha256": "05e6a11d9a4a7562cd2dc8ae78fa1a908eef852ec5f74c95de15ecb28fc09294",
+      "log_sha256": "7b262cca785d0a591489a1f14847cae9f09e7f50e142d340d5f6d07f709d0391",
+      "completion_line": "79 retention policy checks passed"
+    }
+  ],
+  "total_local_checks": 574,
+  "new_contract_checks": 370,
+  "existing_regression_checks": 204,
+  "python_39_ast_files": 9,
+  "json_schemas_checked": 2,
+  "synthetic_fixture_tree": {
+    "files": 87,
+    "bytes": 25960,
+    "inventory_sha256": "cd0bb47d6b0d18669ac03528d73f74060f8e4d2edf8f1b7b39dda5680782b5d9"
+  },
+  "consumed_implementation_files": {
+    "tools/release_manifest.py": "d078f0acb90be2814fe9666655aa3ebce75b28d7531a7f0d3147a794fbfc647f",
+    "tools/inversion_request.py": "77cd659ef9dffcd4d347d0185d616e505465878146b5d2083979ae5a609dbcba",
+    "docs/inversion-review/release-manifest.schema.json": "c411292c9fd49c71d6a956e5096cf62ffc04286dd317f4b105855eec0893cfea",
+    "docs/inversion-review/source-profiles.schema.json": "bc60ce12b725c601ff9000b46a1539f423ba063a47e1a40bd2e7415fd37ad84c",
+    "docs/inversion-review/source-profiles.json": "eedf068c7a41773e861e84082c49121636574404b18360b8807a1e18352f8211",
+    "tools/release_mth.py": "49f4435a15441e70858a8c7decdeaab939072af75aa5f89e11dd44b246c04ff1",
+    "tools/release_snomed.py": "373e4759ce1b09943dbd40ee3e394eeae64103d82768f5a90b33bebcb66b3534",
+    "tools/release_nci.py": "fe2089bcf9dd0c263678625e9332f27cc9a7d7d99b187a2d7a29a2e5efb5127b",
+    "tools/nci_source_plan.py": "dd15ec41f3e0a6b1ec7a53c9a803c741049fe735e815aa1893c7650761b20324",
+    "docs/inversion-review/nci-source-plan.schema.json": "d7ca70772fad946420a378a541322889de73b6761a2dade09fec7c15566630d3",
+    "docs/inversion-review/nci-installed-state-v2.schema.json": "f5d53d36e2b7cfe6fd1d1ed29493cf755f0d56b05fbabd7361c2dd7ec233d7ec"
+  },
+  "synthetic_release_transitions": [
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "replacement_baseline": {
+        "source": "NCI",
+        "version": "NCI_2026_08E"
+      },
+      "manifest_sha256": "07458e28fb87345222beb82e3c95875262ad042a4e970fa4f52f984b2cd2f273",
+      "evidence_kind": "synthetic-fixture",
+      "declarations_valid": true,
+      "verified_files": 5,
+      "native_execution": false
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2027_03_01",
+      "replacement_baseline": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_03_01"
+      },
+      "manifest_sha256": "a1bcc36926a518fe6e4c2f1eec49f6d0b784909e3e5e40a60351b324c80f7753",
+      "evidence_kind": "synthetic-fixture",
+      "declarations_valid": true,
+      "verified_files": 18,
+      "native_execution": false
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "replacement_baseline": {
+        "source": "MTH",
+        "version": "MTH_2026AA"
+      },
+      "manifest_sha256": "b09c2aa097d3640910b1afed7207dd7f1beb84c16048537015fa7e425d212e65",
+      "evidence_kind": "synthetic-fixture",
+      "declarations_valid": true,
+      "verified_files": 20,
+      "native_execution": false
+    },
+    {
+      "source": "NCI",
+      "version": "NCI_2027_02A",
+      "replacement_baseline": {
+        "source": "NCI",
+        "version": "NCI_2026_12B"
+      },
+      "manifest_sha256": "1722310fc17887c521ae20a2258bb54680d496bb5cb297643588a3300a4b3204",
+      "evidence_kind": "synthetic-fixture",
+      "declarations_valid": true,
+      "verified_files": 5,
+      "native_execution": false
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2028_11_15",
+      "replacement_baseline": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2027_03_01"
+      },
+      "manifest_sha256": "8795bdc472d51036f67fa1ee69a584055af2db747d14570f07dde1cecd8a261b",
+      "evidence_kind": "synthetic-fixture",
+      "declarations_valid": true,
+      "verified_files": 18,
+      "native_execution": false
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AB",
+      "replacement_baseline": {
+        "source": "MTH",
+        "version": "MTH_2026AA"
+      },
+      "manifest_sha256": "423619c8614fe42028330167eb6300da8485788a934a1a52884f2475ecd303fb",
+      "evidence_kind": "synthetic-fixture",
+      "declarations_valid": true,
+      "verified_files": 20,
+      "native_execution": false
+    }
+  ],
+  "committed_public_cli": {
+    "command": "python3 -B tools/inversion_request.py preflight-release MANIFEST --verify-files --output REPORT --lock-output REVIEW_LOCK",
+    "mocks": false,
+    "results": [
+      {
+        "source": "NCI",
+        "version": "NCI_2026_10D",
+        "exit_code": 3,
+        "status": "BLOCKED",
+        "manifest_valid": true,
+        "declarations_valid": true,
+        "verified_files": 5,
+        "code_git_ref": "474f8bc61ff77d9aa8b9248a08e3cca2521c870c",
+        "report_sha256": "65751f168a09c78b6740e58d5c219b64a2ffc5ba869e2c1ba4f30aabf627d772",
+        "review_lock_sha256": "b7375271142f327e08cfda340ba07152790aec994b3a659f78da9246ae3049fc",
+        "worker_rejection": "Unsupported run lock",
+        "blocker_codes": [
+          "CONSISTENT_CAPTURE_UNVERIFIED",
+          "DEPLOYMENT_IDENTITY_UNVERIFIED",
+          "EXPORTER_PROFILE_NOT_ACCEPTED",
+          "EXPORT_COMPLETENESS_UNVERIFIED",
+          "HANDLER_SELECTION_UNVERIFIED",
+          "NCI_INSTALLED_STATE_REQUIRED",
+          "NCI_PUBLISHER_DISCOVERY_REQUIRED",
+          "NCI_SYNTHETIC_EVIDENCE",
+          "PROFILE_EXECUTION_NOT_IMPLEMENTED",
+          "PROJECT_BINDING_UNVERIFIED",
+          "SYNTHETIC_EVIDENCE"
+        ]
+      },
+      {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2027_03_01",
+        "exit_code": 3,
+        "status": "BLOCKED",
+        "manifest_valid": true,
+        "declarations_valid": true,
+        "verified_files": 18,
+        "code_git_ref": "474f8bc61ff77d9aa8b9248a08e3cca2521c870c",
+        "report_sha256": "6f9325a9b16a8a2a850d62ac3a911bf03e568c9e6aed6a3c76b85e2e7c2f9fa8",
+        "review_lock_sha256": "56ebf3a78341733b81ba1b685f6b2ee20aab08a7d00ab8e3526d6c582aae8717",
+        "worker_rejection": "Unsupported run lock",
+        "blocker_codes": [
+          "CANONICAL_ENGINE_PACKAGE_PENDING",
+          "PROFILE_EXECUTION_NOT_IMPLEMENTED",
+          "SYNTHETIC_EVIDENCE"
+        ]
+      },
+      {
+        "source": "MTH",
+        "version": "MTH_2027AA",
+        "exit_code": 3,
+        "status": "BLOCKED",
+        "manifest_valid": true,
+        "declarations_valid": true,
+        "verified_files": 20,
+        "code_git_ref": "474f8bc61ff77d9aa8b9248a08e3cca2521c870c",
+        "report_sha256": "c0bb32a2a11ade40a6513d76b629639a3fa5a69ed731e2a283a669ab5e9d1708",
+        "review_lock_sha256": "156d3ee6c9d6033e730188d0a0641a0666327d259ca928017bd38353f67ed23a",
+        "worker_rejection": "Unsupported run lock",
+        "blocker_codes": [
+          "CANONICAL_ENGINE_PACKAGE_PENDING",
+          "PROFILE_EXECUTION_NOT_IMPLEMENTED",
+          "SYNTHETIC_EVIDENCE"
+        ]
+      }
+    ],
+    "expected_exit_code": 3,
+    "review_lock_artifact_type": "ncimeta-release-preflight-lock",
+    "review_lock_execution_eligible": false,
+    "worker_rejected_all_three": true
+  },
+  "historical_compatibility": [
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "stable-context-order",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 20,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "case_variant": "as-produced",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 5,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "as-produced",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 57,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "consistent-retained-identities",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 57,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "MDR",
+      "version": "MDR_29_1",
+      "case_variant": "consistent-history-context",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 7,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "case_variant": "as-produced",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 19,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "RADLEX",
+      "version": "RADLEX_4_3",
+      "case_variant": "stable-context-order",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 19,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "generated-configuration",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 4,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "case_variant": "source-plan",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 4,
+      "runtime_file_count": 169
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "case_variant": "generated-configuration",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 5,
+      "runtime_file_count": 169,
+      "prior_accepted_execution_payloads_unchanged": [
+        "configuration",
+        "case",
+        "code_files",
+        "runtime_files",
+        "runtime_ref",
+        "configuration_generation"
+      ]
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "case_variant": "generated-configuration",
+      "committed_resolution": "PASS",
+      "worker_verify_lock": "PASS",
+      "source_file_count": 57,
+      "runtime_file_count": 169,
+      "prior_accepted_execution_payloads_unchanged": [
+        "configuration",
+        "case",
+        "code_files",
+        "runtime_files",
+        "runtime_ref",
+        "configuration_generation"
+      ]
+    }
+  ],
+  "historical_locks_written": 0,
+  "remaining_work": [
+    "Canonical SNOMED/MTH engine packages and generic source preparation/settings generation.",
+    "Manifest-driven native worker admission, acquisition, paths, capacity, status, collection and retention.",
+    "Physical native discovery and release-aware structural/semantic/identity comparison.",
+    "A genuine additional preserved release per source with stage-correct official references.",
+    "Reviewed operational state/allocation/QA/insertion gates and MDR/RADLEX manifest adapters."
+  ],
+  "source_data_changed": false,
+  "server_contacted": false,
+  "database_or_backend_contacted": false,
+  "s3_acquisition_or_upload": false,
+  "native_inversion_executed": false,
+  "new_dataset_archive_created": false,
+  "test_freeze_scope": "Unit tests inject committed provenance only within a confined fixture; the separate public CLI smoke uses actual committed provenance without mocks.",
+  "producer_authentication": "Producer strings and semantic summaries are declarations; file hash verification does not authenticate their origin or replace physical native discovery."
+}
