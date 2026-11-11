@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "status": "READ_ONLY_CODE_DISCOVERY",
+  "repository": "WestCoastInformatics/UMLS-Terminology-Server",
+  "reviewed_commit": "708f088babd3e5d16016ab9016af9fee01f2921b",
+  "deployment_identity_verified": false,
+  "installed_state_acquired": false,
+  "application_api_or_db_calls_performed": false,
+  "operational_code_changed": false,
+  "production_eligible": false,
+  "evidence": [
+    {
+      "repository_path": "rest/src/main/java/com/wci/umls/server/rest/impl/MetadataServiceRestImpl.java",
+      "git_blob_sha": "db81bd124b23566680f98d315d68d33c08729d15",
+      "line_ranges": [
+        [
+          61,
+          66
+        ],
+        [
+          125,
+          158
+        ],
+        [
+          263,
+          294
+        ],
+        [
+          300,
+          335
+        ],
+        [
+          341,
+          370
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/rest/src/main/java/com/wci/umls/server/rest/impl/MetadataServiceRestImpl.java",
+      "finding": "Current-version, root metadata and default/by-ID precedence REST getters create separate service lifecycles."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/services/MetadataServiceJpa.java",
+      "git_blob_sha": "dce8360787de8bf0f764ad37cbb185abf4b40c14",
+      "line_ranges": [
+        [
+          221,
+          239
+        ],
+        [
+          409,
+          419
+        ],
+        [
+          579,
+          592
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/services/MetadataServiceJpa.java",
+      "finding": "Current terminology state, exact terminology/version precedence and generic TTY lookup are different data roles."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/algo/insert/AtomLoaderAlgorithm.java",
+      "git_blob_sha": "8fc4a6f8032a166b4ddf2ca1f7ad87f8bd5e964e",
+      "line_ranges": [
+        [
+          165,
+          225
+        ],
+        [
+          269,
+          274
+        ],
+        [
+          309,
+          317
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/algo/insert/AtomLoaderAlgorithm.java",
+      "finding": "SRC SAID is stored under project-SRC alternate identity; SAUI/SCUI/SDUI and project AUI are separate."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/algo/insert/PreInsertionAlgorithm.java",
+      "git_blob_sha": "07c79a63d15b739f4ff7e9710046359477e9f854",
+      "line_ranges": [
+        [
+          127,
+          150
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/algo/insert/PreInsertionAlgorithm.java",
+      "finding": "Pre-insertion checks existing source atom IDs through project-SRC alternate values."
+    },
+    {
+      "repository_path": "jpa-model/src/main/java/com/wci/umls/server/jpa/content/AtomJpa.java",
+      "git_blob_sha": "8c469712320fa7cf353b3d7cb45be1bf9c0e5661",
+      "line_ranges": [
+        [
+          79,
+          81
+        ],
+        [
+          116,
+          134
+        ],
+        [
+          506,
+          520
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-model/src/main/java/com/wci/umls/server/jpa/content/AtomJpa.java",
+      "finding": "Atom alternate identifiers, codeId, descriptorId and conceptId are explicit fields."
+    },
+    {
+      "repository_path": "jpa-model/src/main/java/com/wci/umls/server/jpa/content/AbstractComponent.java",
+      "git_blob_sha": "d4e8c5d6b234e204727929c8403338d3ba659210",
+      "line_ranges": [
+        [
+          38,
+          70
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-model/src/main/java/com/wci/umls/server/jpa/content/AbstractComponent.java",
+      "finding": "Generated backend id and terminologyId are separate component identities."
+    },
+    {
+      "repository_path": "jpa-model/src/main/java/com/wci/umls/server/jpa/meta/RootTerminologyJpa.java",
+      "git_blob_sha": "cfd9c271c0c1483d224af68d8929e217c5703663",
+      "line_ranges": [
+        [
+          60,
+          62
+        ],
+        [
+          178,
+          188
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-model/src/main/java/com/wci/umls/server/jpa/meta/RootTerminologyJpa.java",
+      "finding": "Root terminology family is an actual Java model property, not an inferred legacy database column."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/algo/insert/MetadataLoaderAlgorithm.java",
+      "git_blob_sha": "dede91d4e68eb1133e646971b851b73089757549",
+      "line_ranges": [
+        [
+          158,
+          209
+        ],
+        [
+          239,
+          285
+        ],
+        [
+          296,
+          319
+        ],
+        [
+          465,
+          481
+        ],
+        [
+          846,
+          938
+        ],
+        [
+          953,
+          1038
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/algo/insert/MetadataLoaderAlgorithm.java",
+      "finding": "VSAB rank labels resolve to root terminology/TTY pairs; family mapping, staged commits, TTY rules and default/project rank updates are explicit."
+    },
+    {
+      "repository_path": "rest/src/main/java/com/wci/umls/server/rest/impl/ContentServiceRestImpl.java",
+      "git_blob_sha": "695108ded479e36f15940dc2700517c5c57a40e2",
+      "line_ranges": [
+        [
+          137,
+          142
+        ],
+        [
+          1250,
+          1276
+        ],
+        [
+          1395,
+          1442
+        ],
+        [
+          1743,
+          1775
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/rest/src/main/java/com/wci/umls/server/rest/impl/ContentServiceRestImpl.java",
+      "finding": "Atom, full-concept query and code routes select graph resolution differently; no capture snapshot parameter appears in these signatures."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/services/handlers/DefaultGraphResolutionHandler.java",
+      "git_blob_sha": "bec79c1aa06eaad43e104586c5704db5f7605fbe",
+      "line_ranges": [
+        [
+          149,
+          158
+        ],
+        [
+          271,
+          285
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/services/handlers/DefaultGraphResolutionHandler.java",
+      "finding": "Default atom response resolution clears alternate IDs, including source atom ID map entries."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/services/handlers/UmlsGraphResolutionHandler.java",
+      "git_blob_sha": "0b515b2a26839437668fe96249f248c82a710034",
+      "line_ranges": [
+        [
+          22,
+          78
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/services/handlers/UmlsGraphResolutionHandler.java",
+      "finding": "Full UMLS-style concept resolution retains atom alternate identities."
+    },
+    {
+      "repository_path": "jpa-model/src/main/java/com/wci/umls/server/jpa/helpers/PrecedenceListJpa.java",
+      "git_blob_sha": "a7cbdeee8d1e45f9e46e81d190b41ba2ac3b4358",
+      "line_ranges": [
+        [
+          344,
+          355
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-model/src/main/java/com/wci/umls/server/jpa/helpers/PrecedenceListJpa.java",
+      "finding": "Rank map keys are root terminology/TTY pairs."
+    },
+    {
+      "repository_path": "jpa-services/src/main/java/com/wci/umls/server/jpa/algo/release/WriteRrfMetadataFilesAlgorithm.java",
+      "git_blob_sha": "ac321102475e38032a32e3dfdedd2b8d041f6764",
+      "line_ranges": [
+        [
+          95,
+          132
+        ],
+        [
+          253,
+          257
+        ]
+      ],
+      "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/jpa-services/src/main/java/com/wci/umls/server/jpa/algo/release/WriteRrfMetadataFilesAlgorithm.java",
+      "finding": "MRRANK omits precedence pairs without publishable atoms; root concept search filters SRC/RPT and V-source code."
+    }
+  ],
+  "configuration_evidence": {
+    "repository_path": "config/prod-nci-meta/src/main/resources/config.properties",
+    "permalink": "https://github.com/WestCoastInformatics/UMLS-Terminology-Server/blob/708f088babd3e5d16016ab9016af9fee01f2921b/config/prod-nci-meta/src/main/resources/config.properties",
+    "verification_level": "Indexed code-search excerpt; full credential configuration was not fetched",
+    "handler_selections": {
+      "DEFAULT": "DefaultGraphResolutionHandler",
+      "NCIMTH": "UmlsGraphResolutionHandler"
+    }
+  },
+  "next_capture_contract": [
+    "Explicit project terminology/version and project-SRC alternate-ID key",
+    "Individually verified SRC/RPT V-RSAB selection and unambiguous source atom IDs",
+    "RootTerminology.family and current/exact terminology-version metadata",
+    "Separate complete default/project root-terminology/TTY precedence state",
+    "Reviewed active replacement_sources membership",
+    "Supported coherent capture boundary and retained raw evidence plus deployed producer/handler identity"
+  ],
+  "limitations": [
+    "Indexed repository code is not proof of deployed build, configuration or current/historical data.",
+    "Full-concept retrieval is a code-supported candidate, not a validated complete export; handler, atom filtering, pagination and index completeness require verification.",
+    "Existing versioned-TG synthetic preflight is not established equivalent to JPA root-terminology/TTY precedence semantics.",
+    "No atomic multi-export capture mechanism was established in the reviewed methods; absence across all code or deployments is not claimed.",
+    "No legacy source_id_map schema equivalence is inferred.",
+    "CTCAE 6.0 and CELLOSAURUS/SY semantic decisions remain unresolved."
+  ]
+}
