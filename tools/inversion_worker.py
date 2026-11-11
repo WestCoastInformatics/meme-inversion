@@ -221,6 +221,12 @@ def activate_runtime(lock):
     """Switch the one characterized shared-library difference while dev is idle."""
     guard()
     verify_lock(lock)
+    return activate_verified_runtime(lock)
+
+
+def activate_verified_runtime(lock):
+    """Shared implementation after the calling admission layer verifies its lock."""
+    guard()
     if not lock['execution_enabled']:
         raise RuntimeError('Case execution remains gated')
     with runtime_lock(ROOT):

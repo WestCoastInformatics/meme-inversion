@@ -129,10 +129,27 @@ def guard():
         _safe_directory(path)
 
 
-def _source(source, exists=True):
+def _source(source, exists=True, capability_source=None):
     source = Path(source)
-    if source.parent != ROOT / 'sources' or not NAME.fullmatch(source.name):
+    if source.parent != ROOT / 'sources':
         raise ValueError('Only explicit reviewed source-version .before- trees are allowed')
+    if not NAME.fullmatch(source.name):
+        # New native versions require an actual pinned common-run capability,
+        # rather than admission by a source prefix or a new hardcoded date.
+        authority = Path(capability_source) if capability_source is not None else source
+        match = re.fullmatch(r'((?:NCI|SNOMEDCT_US|MTH)_[A-Za-z0-9_]+)\.before-([a-z0-9][a-z0-9-]{1,70})', authority.name)
+        if not match or authority.parent != ROOT / 'sources':raise ValueError('No native preservation capability')
+        control = ROOT / 'qa/replay-requests' / match[2]
+        _safe_directory(control)
+        lock = _load(control / 'case.lock.json')
+        if (lock.get('artifact_type') != 'ncimeta-native-release-lock' or lock.get('run_id') != match[2]
+                or lock.get('request', {}).get('version') != match[1]
+                or sha(canonical({k: v for k, v in lock.items() if k != 'lock_sha256'})) != lock.get('lock_sha256')
+                or source.name.split('.before-', 1)[0] != match[1]
+                or not re.fullmatch(re.escape(match[1]) + r'\.before-[a-z0-9][a-z0-9-]{1,70}', source.name)):
+            raise ValueError('Native preservation capability identity differs')
+        import importlib
+        importlib.import_module('release_worker').verify_lock(lock)
     _safe_directory(source.parent)
     if exists:
         _safe_directory(source)
@@ -232,9 +249,12 @@ def _tree(source):
         os.close(rootfd)
 
 
-def _manifest(manifest):
-    if set(manifest) != {'schema_version', 'source_name', 'root_mode', 'root_mtime_ns', 'entries'} or type(manifest['schema_version']) is not int or manifest['schema_version'] != 1 or not NAME.fullmatch(manifest['source_name']):
+def _manifest(manifest, capability_source=None):
+    if set(manifest) != {'schema_version', 'source_name', 'root_mode', 'root_mtime_ns', 'entries'} or type(manifest['schema_version']) is not int or manifest['schema_version'] != 1:
         raise ValueError('Unrecognized retained manifest')
+    if not NAME.fullmatch(manifest['source_name']):
+        if capability_source is None or _source(capability_source).name != manifest['source_name']:
+            raise ValueError('Retained manifest has no matching native capability')
     if type(manifest['root_mode']) is not int or not 0 <= manifest['root_mode'] <= 0o7777 or type(manifest['root_mtime_ns']) is not int or not isinstance(manifest['entries'], list):
         raise ValueError('Invalid retained manifest root/members')
     result = {}

@@ -6,7 +6,7 @@ The subsequent [NCIt generated-configuration integration](nci-configuration-gene
 
 The later [SNOMED/MTH generated-settings execution](generated-settings-execution.md) also passes independent retained-file verification. SNOMED has an uninterrupted exact common run; MTH completes native generation/comparison, followed by a separately accepted finalization review after correcting the common post-verification call. Original failed worker/batch/verifier records remain failed. This distinction is retained in every result and does not authorize operational release creation.
 
-The same CLI now offers [release-manifest preflight](release-manifests.md) through `preflight-release`, separately from historical `resolve`/`submit`. It inspects source/profile/artifact contracts without a version-specific replay case and never enables execution. Its optional preflight review lock is not a dev replay lock; the existing worker rejects it.
+The same CLI offers [release-manifest preflight](release-manifests.md) through `preflight-release`. The new [native manifest path](native-release-execution.md) uses `resolve-release` and the same remote `submit` workflow, independently of historical replay cases. Its implementation has local fixture evidence; additional real archived-release acceptance is pending. Preflight review locks remain non-executable and are rejected by both workers.
 
 ## One request and configuration
 

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "authoritative_source_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+  "purpose": "Canonical prepared-input final-range MTH converter; historical bounded profiles unchanged",
+  "files": [
+    {
+      "path": "engines/mth/bin/autoinv.pl",
+      "source_path": "sources/MTH_2026AA/autoinv.pl",
+      "sha256": "b1f68380ce139a5b9ee554ba41f3fab878e613e5e6888e277c8e2519cdc2352d",
+      "change": "verbatim"
+    },
+    {
+      "path": "engines/mth/bin/mrcxt2raw3.pl",
+      "source_path": "sources/MTH_2026AA/mrcxt2raw3.pl",
+      "sha256": "5688ff43775cf4a7768f4ab5f2ebe6001f5af855071861e43aa540dd2b2e5494",
+      "change": "verbatim"
+    },
+    {
+      "path": "engines/mth/bin/get.saidpts.pl",
+      "source_path": "sources/MTH_2026AA/get.saidpts.pl",
+      "sha256": "f7bd7cf278645818e5ed89759f782c01d43ed3507388ed96c03d58cb863237e3",
+      "change": "verbatim"
+    },
+    {
+      "path": "engines/mth/bin/make.meme4classes.s",
+      "source_path": "sources/MTH_2026AA/make.meme4classes.s",
+      "sha256": "d75b547b035082a327a14fb6adf6ddc4c11401094991da2d6c5eea4032e6ccc2",
+      "change": "verbatim"
+    },
+    {
+      "path": "engines/mth/bin/raw_to_contexts.csh",
+      "source_path": "sources/MTH_2026AA/raw_to_contexts.csh",
+      "sha256": "84a7db8c2d38f97265d7beb191798c589f34b5565e9e4fa2739a806f668f0f51",
+      "change": "Native record logic unchanged; use portable /usr/bin/sort and /usr/bin/awk utility paths",
+      "source_sha256": "07666fc48f026782c15b6e9c132a7c6613ab09abc45f98c9af8f71d7e3aef5e1"
+    },
+    {
+      "path": "engines/mth/bin/SRCbuilder.pl",
+      "source_path": "INV/bin/SRCbuilder.pl",
+      "sha256": "05ee02936006c951f48d6b8d638ff676f0be888524b58a4c2474897dc3fb5282",
+      "change": "verbatim"
+    },
+    {
+      "path": "engines/mth/bin/print.raw3.to.attributes.pl",
+      "source_path": "INV/bin/print.raw3.to.attributes.pl",
+      "sha256": "5928fa07f0ddcdc41bee494a5d57ec0b7d562c4016fa05b2f8c0a009b4325437",
+      "change": "verbatim"
+    },
+    {
+      "path": "engines/mth/templates/inv1.spec.in",
+      "source_path": "sources/MTH_2026AA/inv1.spec",
+      "source_sha256": "e172c8055112017f02ba62072c9471a580c0d8a5763183fa0108c1289025d837",
+      "sha256": "3de4ebede684d0f60f3646176a2910df945401dc46d9c28cbdbf10d051fd730f",
+      "change": "SourceDir is . under fixed src cwd; MTH source/history values are explicit parameters; bequeathal reads selected immutable history file"
+    },
+    {
+      "path": "engines/mth/templates/inv2.spec.in",
+      "source_path": "sources/MTH_2026AA/inv2.spec",
+      "source_sha256": "88d6665fcf3e90be9d6206e3e92ec1099496bf43a1a73adb115e1a9e789cbe13",
+      "sha256": "736026903d4723c0fdad0939585dec35e344cffdf74a2e886d0a7aa936c9f6b0",
+      "change": "SourceDir is . under fixed src cwd; MTH source/history values are explicit parameters; bequeathal reads selected immutable history file"
+    },
+    {
+      "path": "engines/mth/templates/inv3.spec.in",
+      "source_path": "sources/MTH_2026AA/inv3.spec",
+      "source_sha256": "184e02a0dcd44e58ebf16ab6c074cc50882d45b7ad4b18e780ac9e1f80c8bd8d",
+      "sha256": "deabf79045c490b98a0934b67cd3a76de01088b8e2ba73f716fbee0abb89be00",
+      "change": "SourceDir is . under fixed src cwd; MTH source/history values are explicit parameters; bequeathal reads selected immutable history file"
+    }
+  ]
+}

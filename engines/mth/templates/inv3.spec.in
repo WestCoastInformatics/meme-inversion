@@ -1,0 +1,21 @@
+SourceDir|.
+SourceExt|.RRF
+SourceFieldSep|BAR
+SourceSchemaDefType|InThisSpec
+Schema|bequeathal_history.RRF|CUI1|VER|REL|RELA|MAPREASON|CUI2|MAPIN
+
+DefineConst|MTHSAB|{{version}}
+
+
+# bequeathal relationships
+Dest|bequeathal.relationships.src
+
+Scan|bequeathal_history.RRF|where {{bequeathal_predicate}} && <REL> eq 'RB'
+	line_number|C|<CUI2>|BBT|<RELA>|<CUI1>|<const:MTHSAB>|<const:MTHSAB>|R|n|N|N|CUI_CURRENT||CUI_PREVIOUS||||
+
+Scan|bequeathal_history.RRF|where {{bequeathal_predicate}} && <REL> eq 'RN'
+	line_number|C|<CUI2>|BNT|<RELA>|<CUI1>|<const:MTHSAB>|<const:MTHSAB>|R|n|N|N|CUI_CURRENT||CUI_PREVIOUS||||
+
+Scan|bequeathal_history.RRF|where {{bequeathal_predicate}} && <REL> eq 'RO'
+	line_number|C|<CUI2>|BRT|<RELA>|<CUI1>|<const:MTHSAB>|<const:MTHSAB>|R|n|N|N|CUI_CURRENT||CUI_PREVIOUS||||
+

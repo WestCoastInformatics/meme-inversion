@@ -20,7 +20,7 @@ VERSIONS = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01',
 VERDICTS = {'PASS_EXACT', 'PASS_EQUIVALENT', 'PASS_REVIEWED_CORRECTIONS'}
 VERIFICATIONS = {'PASS_GENERATED_CONFIGURATION_FINAL_VERIFICATION',
                  'PASS_GENERATED_CONFIGURATION_FINAL_VERIFICATION_WITH_FINALIZATION_REVIEW',
-                 'PASS_RETAINED_COMMON_MATRIX_VERIFICATION'}
+                 'PASS_RETAINED_COMMON_MATRIX_VERIFICATION', 'PASS_NATIVE_RELEASE_VERIFICATION'}
 
 
 def digest(value):
@@ -96,8 +96,8 @@ def _managed_rollback(root, source):
     return 'replay_retention.py' in lock.get('modules_b64', {})
 
 
-def inventory(root, version):
-    if version not in VERSIONS.values():
+def inventory(root, version, source=None):
+    if version not in VERSIONS.values() and (source not in VERSIONS or not re.fullmatch(re.escape(source) + r'_[A-Za-z0-9_]+', version)):
         raise ValueError('Unreviewed source/version retention policy')
     expanded, compacted, legacy = [], [], []
     for source in sorted((root / 'sources').glob(version + '.before-*')):
@@ -150,7 +150,7 @@ def _no_live_dependencies(source, lock):
             for item in value:visit(item)
         elif isinstance(value, str) and (value == str(source) or value.startswith(str(source) + '/')):
             raise RuntimeError('Preserved tree is still a declared execution dependency')
-    visit(lock['case'])
+    visit(lock.get('case', lock.get('manifest')))
     for release in (ROOT / 'sources').iterdir():
         if release == source:
             continue
@@ -171,11 +171,12 @@ def _preservation_context(run_id):
     _run(run_id)
     control = ROOT / 'qa/replay-requests' / run_id
     lock, lock_pin = _record(control / 'case.lock.json')
-    if (lock.get('artifact_type') != 'ncimeta-dev-replay-lock' or lock.get('run_id') != run_id
+    native = lock.get('artifact_type') == 'ncimeta-native-release-lock'
+    if (lock.get('artifact_type') not in ('ncimeta-dev-replay-lock', 'ncimeta-native-release-lock') or lock.get('run_id') != run_id
             or lock.get('lock_sha256') != digest({k: v for k, v in lock.items() if k != 'lock_sha256'})):
         raise ValueError('Common run lock changed')
     source_id, version = lock['request']['source'], lock['request']['version']
-    if VERSIONS.get(source_id) != version:
+    if not native and VERSIONS.get(source_id) != version:
         raise ValueError('Unreviewed source/version')
     source = storage._source(ROOT / 'sources' / (version + '.before-' + run_id))
     _held(source)
@@ -189,7 +190,14 @@ def _preservation_context(run_id):
             or state.get('preserved_source') != str(source)):
         raise ValueError('Preserved tree is not the declared predecessor')
     archive_path = ROOT / 'sources' / (version + '.tgz')
-    archives = [item for item in lock['case']['acquisition']['archives'] if item['archive_path'] == str(archive_path)]
+    if native:
+        from urllib.parse import urlsplit, unquote
+        reference = lock['manifest']['artifacts'][lock['configuration']['replay']['reference_ref']]
+        values = {(unquote(urlsplit(item['uri']).path), item['archive_sha256']) for item in reference['files']
+                  if item.get('archive_format') == 'tar.gz' and urlsplit(item['uri']).scheme == 'file'}
+        archives = [{'archive_path': path, 'archive_sha256': checksum} for path, checksum in values if path == str(archive_path)]
+    else:
+        archives = [item for item in lock['case']['acquisition']['archives'] if item['archive_path'] == str(archive_path)]
     if len(archives) != 1:
         raise ValueError('No unique pinned current-version official archive')
     for active in (source / 'replay-active-run.json', source / 'etc/replay-active-run.json'):
@@ -243,11 +251,16 @@ def _verified_context(run_id, verification, verification_sha256):
         raise ValueError('Independent output inventory differs')
     for name, record in files.items():
         storage._relative(name)
-        if Path(name).name != name:
+        native = lock.get('artifact_type') == 'ncimeta-native-release-lock'
+        if native:
+            if not re.fullmatch(r'src/[^/]+', name):raise ValueError('Unexpected native output name')
+            output = ROOT / 'sources' / version / name
+        elif Path(name).name != name:
             raise ValueError('Unexpected output name')
+        else:output = ROOT / 'sources' / version / 'src' / name
         checksum = record['candidate']['sha256']
         independently_verified = expected[name] if isinstance(expected[name], str) else expected[name]['sha256']
-        if checksum != independently_verified or storage._file_sha(ROOT / 'sources' / version / 'src' / name) != checksum:
+        if checksum != independently_verified or storage._file_sha(output) != checksum:
             raise RuntimeError('Accepted output changed since independent verification: ' + name)
     if verdict == 'PASS_REVIEWED_CORRECTIONS':
         if (acceptance.get('native_derived_correction_audit_passed') is not True
@@ -357,7 +370,7 @@ def _load_plan(plan_path, plan_sha256, allow_hold=False):
     source = storage._source(record['source'])
     if plan_path != _namespace(source) / 'plan.json':
         raise ValueError('Retention plan belongs to another namespace')
-    storage._manifest(record['manifest'])
+    storage._manifest(record['manifest'], capability_source=source)
     if not allow_hold:
         _held(source)
     return source, record, plan_path.parent
@@ -473,7 +486,7 @@ def restore(plan_path, plan_sha256, destination):
         _check_remaining(source, record, allow_incomplete_modes=started.exists())
         if _archive_matches(record['archive'], record['manifest']) != record['remove']:
             raise RuntimeError('Official recovery archive differs')
-        destination = storage._source(destination, exists=False)
+        destination = storage._source(destination, exists=False, capability_source=source)
         if destination.name.split('.before-', 1)[0] != source.name.split('.before-', 1)[0]:
             raise ValueError('Restore release differs')
         manifest = record['manifest']

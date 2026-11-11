@@ -43,7 +43,7 @@ def check():
         good('INPUT_BYTES_UNVERIFIED' in codes(declared), name + ' declaration alone does not prove input bytes')
         good(all(row['status'] == 'VERIFIED' for row in verified['input_files']), name + ' actual tiny input fixtures match all declared identities')
         good(not any(row['severity'] == 'error' for row in verified['issues']), name + ' source and common contracts agree')
-        good(not verified['execution_eligible'] and not verified['production_eligible'] and 'PROFILE_EXECUTION_NOT_IMPLEMENTED' in codes(verified), name + ' valid preflight cannot enable native execution')
+        good(not verified['execution_eligible'] and not verified['production_eligible'] and 'PREFLIGHT_NOT_EXECUTION_AUTHORITY' in codes(verified), name + ' valid preflight cannot enable native execution')
         good('SYNTHETIC_EVIDENCE' in codes(verified), name + ' synthetic fixtures remain explicitly blocked as release evidence')
         good(manifest == before, name + ' preflight does not rewrite operator inputs')
         good(verified['artifact_bindings'] == release.preflight(manifest, verify=True)['artifact_bindings'], name + ' artifact fingerprinting is deterministic')

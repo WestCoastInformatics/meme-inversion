@@ -294,6 +294,10 @@ def main():
     release_parser.add_argument('--output', required=True)
     release_parser.add_argument('--verify-files', action='store_true', help='Read and hash local/fixture inputs; no network acquisition or archive extraction')
     release_parser.add_argument('--lock-output', help='Optional non-executable review lock; requires committed preflight code')
+    native_parser = commands.add_parser('resolve-release', help='Freeze a reviewed native release manifest for dev execution')
+    native_parser.add_argument('manifest')
+    native_parser.add_argument('--run-id', required=True)
+    native_parser.add_argument('--output', required=True)
     args = parser.parse_args()
     if args.command == 'resolve':
         lock = resolve(load(args.request), args.run_id)
@@ -301,6 +305,13 @@ def main():
         print(json.dumps({'lock': args.output, 'lock_sha256': lock['lock_sha256'],
                           'source': lock['request']['source'], 'version': lock['request']['version'],
                           'execution_enabled': lock['execution_enabled']}))
+    elif args.command == 'resolve-release':
+        import release_execution
+        lock = release_execution.resolve(load(args.manifest), args.run_id)
+        write_new(args.output, lock)
+        print(json.dumps({'lock': args.output, 'lock_sha256': lock['lock_sha256'],
+                          'source': lock['request']['source'], 'version': lock['request']['version'],
+                          'execution_enabled': lock['execution_enabled'], 'production_eligible': False}))
     elif args.command == 'preflight-release':
         import release_manifest
         outputs = [args.output] + ([args.lock_output] if args.lock_output else [])

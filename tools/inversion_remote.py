@@ -18,7 +18,7 @@ SOURCES = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01', 'MTH'
 def bootstrap(lock, operation, previous=None):
     if digest({k: v for k, v in lock.items() if k != 'lock_sha256'}) != lock['lock_sha256']:
         raise ValueError('Run lock changed')
-    if operation not in ('submit', 'inspect-current', 'activate-runtime', 'retention-status'):
+    if operation not in ('submit', 'inspect-current', 'activate-runtime', 'retention-status', 'verify-native'):
         raise ValueError('Unsupported bootstrap operation')
     payload = base64.b64encode(json.dumps({'lock': lock, 'previous': previous}).encode()).decode()
     # Payload is base64; no request value is interpolated into shell code. Python
@@ -35,13 +35,18 @@ with tempfile.TemporaryDirectory(prefix='ncim-request-') as temporary:
   if hashlib.sha256(raw).hexdigest()!=hashes.get(name):raise ValueError('Apparatus changed')
   (root/name).write_bytes(raw)
  sys.path.insert(0,str(root));sys.dont_write_bytecode=True
- import inversion_worker as worker
+ native=lock.get('artifact_type')=='ncimeta-native-release-lock'
+ if native:import release_worker as worker
+ else:import inversion_worker as worker
  worker.verify_lock(lock)
  operation=OPERATION
  if operation=='submit':result=worker.launch(lock,payload['previous'])
  elif operation=='activate-runtime':result=worker.activate_runtime(lock)
- elif operation=='retention-status':result=worker.retention_status(lock['request']['source'])
- else:result=worker.inspect_current(lock['request']['source'])
+ elif operation=='retention-status':result=worker.retention_status(lock if native else lock['request']['source'])
+ elif operation=='verify-native':
+  if not native:raise ValueError('Native verification requires a native release lock')
+  result=worker.verify_retained(lock)
+ else:result=worker.inspect_current(lock if native else lock['request']['source'])
  print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_REPLAY_RESULT',flush=True)
 """.replace('PAYLOAD', repr(payload)).replace('OPERATION', repr(operation))
     return "python3 -B - <<'NCIM_COMMON_REQUEST'\n" + program + '\nNCIM_COMMON_REQUEST\nexit\n'
@@ -156,7 +161,7 @@ def main():
     parser.add_argument('--socket', required=True, help='Existing authenticated dev SSH control socket')
     parser.add_argument('--account', default='shapirod2')
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ('submit', 'inspect-current', 'activate-runtime', 'retention-status'):
+    for name in ('submit', 'inspect-current', 'activate-runtime', 'retention-status', 'verify-native'):
         command = commands.add_parser(name)
         command.add_argument('lock')
         command.add_argument('--previous-receipt') if name == 'submit' else None
@@ -184,10 +189,10 @@ def main():
     args = parser.parse_args()
     if Path(args.output).exists():
         raise ValueError('Output already exists; previous evidence is never overwritten')
-    if args.command in ('submit', 'inspect-current', 'activate-runtime', 'retention-status'):
+    if args.command in ('submit', 'inspect-current', 'activate-runtime', 'retention-status', 'verify-native'):
         lock = load(args.lock)
         previous = load(args.previous_receipt) if getattr(args, 'previous_receipt', None) else None
-        if args.command == 'retention-status':
+        if args.command == 'retention-status' and lock.get('artifact_type') != 'ncimeta-native-release-lock':
             program = bootstrap_retention(retention_capsule('status', {'version': lock['request']['version']}))
         else:
             program = bootstrap(lock, args.command, previous)

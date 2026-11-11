@@ -105,7 +105,7 @@ def provenance(handler):
              'docs/inversion-review/source-profiles.schema.json', 'docs/inversion-review/source-profiles.json']
     if handler:names.append('tools/' + handler + '.py')
     if handler == 'release_nci':
-        names += ['tools/nci_source_plan.py', 'docs/inversion-review/nci-source-plan.schema.json',
+        names += ['tools/nci_source_plan.py', 'tools/execute_release_nci.py', 'docs/inversion-review/nci-source-plan.schema.json',
                   'docs/inversion-review/nci-installed-state-v2.schema.json']
     ref = _git('rev-parse', 'HEAD').decode().strip()
     entries = [];committed = True
@@ -363,7 +363,7 @@ def preflight(manifest, verify=False):
         issues.append(issue('blocker', 'SOURCE_PREFLIGHT_PENDING', 'Source is registered but its manifest adapter has not been implemented', 'profile'))
     synthetic = [name for name, value in artifacts.items() if value['provenance']['evidence_kind'] == 'synthetic-fixture']
     if synthetic:issues.append(issue('blocker', 'SYNTHETIC_EVIDENCE', 'Synthetic fixtures are examples/test evidence, not real release provenance: ' + ', '.join(sorted(synthetic)), 'artifacts'))
-    issues.append(issue('blocker', 'PROFILE_EXECUTION_NOT_IMPLEMENTED', 'Manifest profiles currently implement preflight only; legacy worker submission remains unavailable for this artifact type', 'profile'))
+    issues.append(issue('blocker', 'PREFLIGHT_NOT_EXECUTION_AUTHORITY', 'Preflight reports/review locks do not authorize execution; resolve-release performs separate native admission', 'profile'))
     errors = any(item['severity'] == 'error' for item in issues)
     report['declarations_valid'] = not errors and report['source_preflight'] is not None
     report['status'] = 'INVALID_RELEASE_CONTRACT' if errors else 'BLOCKED'

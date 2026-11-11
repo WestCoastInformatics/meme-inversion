@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "scope": "Dev historical release execution; independent of replay case/version catalog; production and insertion excluded",
+  "profiles": {
+    "nci-publisher-inputs-v1": {
+      "handler": "execute_release_nci",
+      "engine_package": "engines/nci",
+      "reviewed_package_sha256": [
+        "52e26784e08b18cae981f51fdc7f953c13bd28c919bf8d0dae1a676c6e46ad51"
+      ],
+      "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+      "minimum_free_disk_gib": 18,
+      "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+      "runtime_inventory_sha256": "e34b622e23ac1e0e1c753cd3a133dd41cf2a28448317e672835a7fb555d5d1d4"
+    },
+    "snomed-us-snapshot-inputs-v1": {
+      "handler": "execute_release_snomed",
+      "engine_package": "engines/snomedct_us",
+      "reviewed_package_sha256": [
+        "d07b382403166a2187c63c48a84e4af2cc70757af9bb2515ae182f0897e5bb17"
+      ],
+      "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "minimum_free_disk_gib": 20,
+      "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+      "runtime_inventory_sha256": "e7268a00046598ed0aae55702ef10af5823de9736cb7842d4d7378415a282189"
+    },
+    "mth-prepared-inputs-v1": {
+      "handler": "execute_release_mth",
+      "engine_package": "engines/mth",
+      "reviewed_package_sha256": [
+        "640f3e93be99bcad360d060e08554e406b24fb6e1ed2063f3e13ad0daa1a3c02"
+      ],
+      "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "minimum_free_disk_gib": 45,
+      "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+      "runtime_inventory_sha256": "e7268a00046598ed0aae55702ef10af5823de9736cb7842d4d7378415a282189"
+    }
+  }
+}

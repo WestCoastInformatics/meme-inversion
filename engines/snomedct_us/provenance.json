@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "authority": "verified meme-edit production capture",
+  "capture_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "captured_source_path": "sources/SNOMEDCT_US_2026_09_01",
+  "original_invert_rf2_sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3",
+  "original_cleanup_sha256": "df549de020a643b276259d7de47fc087c0f9a108b96584d26f4b497cc06b0955",
+  "changes": [
+    "The three mapping-target year literals are required compatibility properties; all other conversion code remains captured bytes.",
+    "Release, predecessor, filenames, source title and complete ID bounds are rendered from the manifest into sct.cfg."
+  ],
+  "captured_mapping_targets": {
+    "ICD10": "ICD10_2016",
+    "ICD10CM": "ICD10CM_2027",
+    "ICD9CM": "ICD9CM_2013"
+  }
+}

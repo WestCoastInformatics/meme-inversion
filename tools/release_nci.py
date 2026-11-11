@@ -117,6 +117,21 @@ def analyze(configuration, artifacts):
     prior, inputs = selected
     facts.update(source='NCI', version=configuration['version'], replacement_baseline=copy.deepcopy(prior),
                  predecessor_selection='explicit; skipped calendar months permitted')
+    state_artifact = artifacts.get(inputs.get('reference_ncimeta'), {})
+    if state_artifact.get('data', {}).get('profile') == 'nci-preserved-preparation-v1':
+        # Preserved conversion inputs are distinct from a new backend capture.
+        # This declaration path never claims that physical input checks ran.
+        import execute_release_nci
+        recipe = checked('NCI_PRESERVED_PREPARATION_INVALID', '/configuration/inputs/reference_ncimeta',
+                         lambda: execute_release_nci.build_plan(configuration, artifacts))
+        facts.update(preserved_inputs_only=True, fresh_capture_authenticated=False,
+                     representation_catalog_proves_installation=False,
+                     workflow_coverage='preserved conversion-input closure; fresh installed-state acquisition excluded')
+        issue('blocker', 'NCI_PHYSICAL_INPUT_VALIDATION_REQUIRED',
+              'Preserved metadata/configuration and all publisher rows must be physically verified before execution.',
+              '/configuration/inputs/reference_ncimeta')
+        return {'issues': sorted(issues, key=lambda row: (row['path'], row['code'], row['message'])), 'facts': facts,
+                'planned_outputs': [] if recipe is None else [row['relative_path'] for row in recipe['generated_files']] + recipe['output_files']}
 
     def publisher():
         refs = inputs['source_data']
