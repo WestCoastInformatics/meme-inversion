@@ -4,6 +4,8 @@ The common runner now has a native admission path alongside the [historical case
 
 Implementation status: local execution/lifecycle, physical input/output and source variation checks are implemented. NCIt tests exercise the actual Perl preparation stages; MTH tests exercise its complete thirteen-stage pipeline on tiny synthetic data. These are distinct from full dev inversions. **Additional real archived releases have not yet run through this path.** Their data completeness, source-policy compatibility and official output comparisons remain acceptance work, pending authenticated dev access. This document does not report production eligibility or full archived-release acceptance.
 
+The [verification record](native-release-execution-fixtures-20261111.json) records 862 passing local checks across twelve suites. Separate committed-code probes freeze and re-import all three native capsules using the standard library only, reject the honest synthetic examples and verify all eleven historical requests. The prior accepted SNOMED/MTH generated recipes, source files and runtime payloads remain identical. The native serialization probes use synthetic declarations solely as test scaffolding; they do not establish real input provenance or native release acceptance.
+
 ## Common command workflow
 
 Use the existing pinned local Python environment and the development checkout. A real manifest uses the same [release-manifest schema](release-manifest.schema.json), with `purpose: historical-replay`, a full forty-character Git `engine_ref`, complete preserved input/state/allocation artifacts and an exact current-release reference. The [synthetic preflight examples](release-manifests.md) deliberately cannot authorize execution.

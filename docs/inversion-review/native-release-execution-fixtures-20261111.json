@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "status": "PASS_LOCAL_NATIVE_EXECUTION_IMPLEMENTATION",
+  "recorded_at": "2026-11-11T20:08:34.078501+00:00",
+  "implementation_ref": "e01756992710b845e6d0bc423d5490d93ed7a683",
+  "canonical_engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+  "real_archived_release_acceptance": "PENDING_AUTHENTICATED_DEV_ACCESS",
+  "additional_real_archived_releases_tested": 0,
+  "local_checks": 862,
+  "local_suites": [
+    {
+      "script": "check_release_execution.py",
+      "exit_code": 0,
+      "completion": "68 shared native release execution checks passed (full native conversion mocked)",
+      "log_sha256": "96bd71f069c2a8d9a00f5df4be0e73d5b1c3db865a8596c7d2ea6234e4f474ff",
+      "script_sha256": "771720b3b475bc24703db1912c08e3af8b41ad972b56cd6de10149d33b7a1d0b",
+      "checks_passed": 68
+    },
+    {
+      "script": "check_execute_release_nci.py",
+      "exit_code": 0,
+      "completion": "{\"status\": \"PASS\", \"checks\": 40, \"scope\": \"synthetic physical input/output validation; no native full inversion\"}",
+      "log_sha256": "9648ea974371b2b74d51f9dfd87614e80bb44acd7af7e1cc7d926a4e8e4918a9",
+      "script_sha256": "7213acfe77d2057ede8dfbc0005c8fb4af5600401568727d015f8f4d76a9386a",
+      "checks_passed": 40
+    },
+    {
+      "script": "check_execute_release_snomed.py",
+      "exit_code": 0,
+      "completion": "41 generic SNOMED execution checks passed",
+      "log_sha256": "f286d9d116d12c94e1c05f1bce81564ebc0ea270252ad880108eec8d6dc59c82",
+      "script_sha256": "dbc05d8e91b849ae97b8ccb09ad5ddf621c67d803dfdea781acffc0a5598e5d4",
+      "checks_passed": 41
+    },
+    {
+      "script": "check_execute_release_mth.py",
+      "exit_code": 0,
+      "completion": "80 canonical MTH native checks passed",
+      "log_sha256": "200cd0549a510789ce674ae5f812f981736e81f6702eb382e8c7a02b11130188",
+      "script_sha256": "84858ad4a284a90a49ffabcba6dbae1080ce7a71b63b8eaa94c7f93cfbd73ba6",
+      "checks_passed": 80
+    },
+    {
+      "script": "check_release_manifest.py",
+      "exit_code": 0,
+      "completion": "94 common release-manifest checks passed",
+      "log_sha256": "3bb0a2472de68c4f1945abce4a09bde39cb659015801c1e2d3ea656254e02094",
+      "script_sha256": "b688f3a3f98282c04dfa2342c74827abb01f6e9edddae4071acf9739996dfbdc",
+      "checks_passed": 94
+    },
+    {
+      "script": "check_release_nci.py",
+      "exit_code": 0,
+      "completion": "{\"status\": \"PASS\", \"checks\": 60, \"scope\": \"synthetic declaration preflight only\"}",
+      "log_sha256": "214d7dafeacbfb61c9926dfd1c221ad9de27c23cd9e70d054ba2602b1c3a8e38",
+      "script_sha256": "2f2f5578737a0b30480ef0963cc2684617ab988d7c4d80cbb1d42560dc3b0732",
+      "checks_passed": 60
+    },
+    {
+      "script": "check_release_snomed.py",
+      "exit_code": 0,
+      "completion": "59 SNOMED parameterized release-preflight checks passed",
+      "log_sha256": "bbe15b7dafc3dc665c5c20e892d7a39ada49cb4ea4ccc02c9f1d6f815abcd4eb",
+      "script_sha256": "311499593f9bd28688e190f978cd7b5156f9170e0f1ed2a9b885bd9537027737",
+      "checks_passed": 59
+    },
+    {
+      "script": "check_release_mth.py",
+      "exit_code": 0,
+      "completion": "157 MTH release-manifest preflight checks passed",
+      "log_sha256": "5417e885fd751ff68aa103c30eb96a127bf31f14088e49749a89859b66a69a81",
+      "script_sha256": "2f814cd1098ca442fbd96d8e0e5653303b9970160a41af9921dff4eb3d9d0f7e",
+      "checks_passed": 157
+    },
+    {
+      "script": "check_inversion_request.py",
+      "exit_code": 0,
+      "completion": "95 common inversion interface checks passed",
+      "log_sha256": "6e3569df6c2eef59d60d7eef61ad383ab2ab92b0ebd676a2eda8eddb7e40176e",
+      "script_sha256": "ada4402641d06a446e57d9498ba97e1e6a15fb261958141cb849830d94cb5d96",
+      "checks_passed": 95
+    },
+    {
+      "script": "check_generated_configuration_execution.py",
+      "exit_code": 0,
+      "completion": "30 common generated-configuration execution checks passed",
+      "log_sha256": "4c8e1b3bed8e1da81b686d4ac3354bf6b3fefcea398e303ce2af94c0fe6551fe",
+      "script_sha256": "76173626ba18fa186d3ee4b4618aa5f84b469f60b73b05d4562eb104070f4973",
+      "checks_passed": 30
+    },
+    {
+      "script": "check_replay_retention.py",
+      "exit_code": 0,
+      "completion": "79 retention policy checks passed",
+      "log_sha256": "7b262cca785d0a591489a1f14847cae9f09e7f50e142d340d5f6d07f709d0391",
+      "script_sha256": "05e6a11d9a4a7562cd2dc8ae78fa1a908eef852ec5f74c95de15ecb28fc09294",
+      "checks_passed": 79
+    },
+    {
+      "script": "check_archive_retained_source.py",
+      "exit_code": 0,
+      "completion": "}",
+      "log_sha256": "3d5e85357523ee0032e8ac8d07d721285620d8e29d593247510b00862c0d930c",
+      "script_sha256": "5628a8ab53b64e090bfd9975d2057b88b4fde358aa22bb173ec191c8027ce237",
+      "checks_passed": 59
+    }
+  ],
+  "source_native_scope": {
+    "NCI": "40 synthetic checks including actual five Perl preparation stages; no full local inverter.",
+    "SNOMEDCT_US": "41 synthetic physical/compatibility checks; local full converter not run (Config::Properties unavailable).",
+    "MTH": "80 checks including complete13-stage tiny direct/skipped native pipelines and all23 SHA/size comparisons to original-layout controls after canonicalprior replacement."
+  },
+  "shared_lifecycle_scope": "68 confined filesystem/admission/acquisition/retention/status checks; full native conversion, AWS and host/runtime boundary are mocked only within the common lifecycle fixture. Linux atomic rename is substituted on macOS in that fixture. Real tiny source pipelines are separate above.",
+  "committed_admission_probe": {
+    "status": "PASS_COMMITTED_DECLARATION_CAPSULE_AND_HISTORICAL_COMPATIBILITY",
+    "apparatus_ref": "e01756992710b845e6d0bc423d5490d93ed7a683",
+    "native_unit_probes": [
+      {
+        "source": "NCI",
+        "scope": "synthetic declaration serialization only",
+        "committed_resolver": "PASS",
+        "isolated_stdlib_capsule_verification": "PASS",
+        "show": "PASS",
+        "module_count": 30,
+        "runtime_files": 169,
+        "server_submitted": false,
+        "native_conversion": false,
+        "operational_evidence": false
+      },
+      {
+        "source": "SNOMEDCT_US",
+        "scope": "synthetic declaration serialization only",
+        "committed_resolver": "PASS",
+        "isolated_stdlib_capsule_verification": "PASS",
+        "show": "PASS",
+        "module_count": 30,
+        "runtime_files": 169,
+        "server_submitted": false,
+        "native_conversion": false,
+        "operational_evidence": false
+      },
+      {
+        "source": "MTH",
+        "scope": "synthetic declaration serialization only",
+        "committed_resolver": "PASS",
+        "isolated_stdlib_capsule_verification": "PASS",
+        "show": "PASS",
+        "module_count": 30,
+        "runtime_files": 169,
+        "server_submitted": false,
+        "native_conversion": false,
+        "operational_evidence": false
+      }
+    ],
+    "public_synthetic_examples_rejected": [
+      "nci",
+      "snomed",
+      "mth"
+    ],
+    "historical_cases_verified": [
+      {
+        "source": "NCI",
+        "version": "NCI_2026_10D",
+        "case_variant": "stable-context-order"
+      },
+      {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_09_01",
+        "case_variant": "as-produced"
+      },
+      {
+        "source": "MTH",
+        "version": "MTH_2026AA",
+        "case_variant": "as-produced"
+      },
+      {
+        "source": "MTH",
+        "version": "MTH_2026AA",
+        "case_variant": "consistent-retained-identities"
+      },
+      {
+        "source": "MDR",
+        "version": "MDR_29_1",
+        "case_variant": "consistent-history-context"
+      },
+      {
+        "source": "RADLEX",
+        "version": "RADLEX_4_3",
+        "case_variant": "as-produced"
+      },
+      {
+        "source": "RADLEX",
+        "version": "RADLEX_4_3",
+        "case_variant": "stable-context-order"
+      },
+      {
+        "source": "NCI",
+        "version": "NCI_2026_10D",
+        "case_variant": "generated-configuration"
+      },
+      {
+        "source": "NCI",
+        "version": "NCI_2026_10D",
+        "case_variant": "source-plan"
+      },
+      {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_09_01",
+        "case_variant": "generated-configuration"
+      },
+      {
+        "source": "MTH",
+        "version": "MTH_2026AA",
+        "case_variant": "generated-configuration"
+      }
+    ],
+    "historical_locks_retained": 0,
+    "server_contacted": false,
+    "native_real_release_tested": false
+  },
+  "committed_probe_script": "tools/check_committed_release_admission.py",
+  "committed_probe_script_sha256": "b81acfda80dab46977e614789c31ae66d7fc00ad18fea662a849e65defbd2ac0",
+  "committed_probe_log_sha256": "e4b32a330fc8b02737158a92f5a213caa0442c3139cd15909d870f07f607e04b",
+  "committed_probe_scope": "Native probes are SYNTHETIC DECLARATION SERIALIZATION ONLY. Confined fixture uses preserved-declaration enum and nonexistent standard paths to exercise committed freezing/isolated stdlib imports/show, not authentic producer evidence or physical input readiness. No server job or native acceptance. All three honest synthetic examples remain rejected. Historical locks are verified in memory only.",
+  "historical_generated_payloads_unchanged": [
+    {
+      "source": "SNOMEDCT_US",
+      "unchanged_fields": [
+        "configuration",
+        "case",
+        "code_files",
+        "runtime_files",
+        "runtime_ref",
+        "configuration_generation"
+      ],
+      "payload_sha256": "cd1805084d0c094e6a83c25a8ed43efbf951d3bdf1f395b8bef8699cd93c9ef3"
+    },
+    {
+      "source": "MTH",
+      "unchanged_fields": [
+        "configuration",
+        "case",
+        "code_files",
+        "runtime_files",
+        "runtime_ref",
+        "configuration_generation"
+      ],
+      "payload_sha256": "74dca1f6057baaa8a463afa7e987414e2d344975ee2e575dc6a96ec40742f4d4"
+    }
+  ],
+  "native_capabilities": {
+    "schema_version": 1,
+    "scope": "Dev historical release execution; independent of replay case/version catalog; production and insertion excluded",
+    "profiles": {
+      "nci-publisher-inputs-v1": {
+        "handler": "execute_release_nci",
+        "engine_package": "engines/nci",
+        "reviewed_package_sha256": [
+          "52e26784e08b18cae981f51fdc7f953c13bd28c919bf8d0dae1a676c6e46ad51"
+        ],
+        "runtime_ref": "bfda2ce9b0d0ab23db3182d37aab4b1f5a13fd09",
+        "minimum_free_disk_gib": 18,
+        "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+        "runtime_inventory_sha256": "e34b622e23ac1e0e1c753cd3a133dd41cf2a28448317e672835a7fb555d5d1d4"
+      },
+      "snomed-us-snapshot-inputs-v1": {
+        "handler": "execute_release_snomed",
+        "engine_package": "engines/snomedct_us",
+        "reviewed_package_sha256": [
+          "d07b382403166a2187c63c48a84e4af2cc70757af9bb2515ae182f0897e5bb17"
+        ],
+        "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "minimum_free_disk_gib": 20,
+        "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+        "runtime_inventory_sha256": "e7268a00046598ed0aae55702ef10af5823de9736cb7842d4d7378415a282189"
+      },
+      "mth-prepared-inputs-v1": {
+        "handler": "execute_release_mth",
+        "engine_package": "engines/mth",
+        "reviewed_package_sha256": [
+          "640f3e93be99bcad360d060e08554e406b24fb6e1ed2063f3e13ad0daa1a3c02"
+        ],
+        "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "minimum_free_disk_gib": 45,
+        "pull_helper_sha256": "9c6124d0a0f91e1024b68c697e3c075cfcf52cd270107d4f534bd326255ed1aa",
+        "runtime_inventory_sha256": "e7268a00046598ed0aae55702ef10af5823de9736cb7842d4d7378415a282189"
+      }
+    }
+  },
+  "consumed_source_file_sha256": {
+    "docs/inversion-review/native-execution-profiles.json": "fbf701f7fcd4f72e5c632a809375a033664beb5df7b56bcb143e70ff239a2d18",
+    "docs/inversion-review/source-profiles.json": "d5e1fe31c8770899fb1ff1efe72f0747fa2d79124c6da37c04af9e75fdd612e2",
+    "tools/archive_retained_source.py": "54b762b79e6efdd41331e907ef0e5d44cc818a720b4c50fdb00c4429a7304d5c",
+    "tools/check_committed_release_admission.py": "b81acfda80dab46977e614789c31ae66d7fc00ad18fea662a849e65defbd2ac0",
+    "tools/check_execute_release_mth.py": "84858ad4a284a90a49ffabcba6dbae1080ce7a71b63b8eaa94c7f93cfbd73ba6",
+    "tools/check_execute_release_nci.py": "7213acfe77d2057ede8dfbc0005c8fb4af5600401568727d015f8f4d76a9386a",
+    "tools/check_execute_release_snomed.py": "dbc05d8e91b849ae97b8ccb09ad5ddf621c67d803dfdea781acffc0a5598e5d4",
+    "tools/check_release_execution.py": "771720b3b475bc24703db1912c08e3af8b41ad972b56cd6de10149d33b7a1d0b",
+    "tools/check_release_manifest.py": "b688f3a3f98282c04dfa2342c74827abb01f6e9edddae4071acf9739996dfbdc",
+    "tools/execute_release_mth.py": "57e9883ef07feccd022b3db20a6380907ce29f962efd8d808e9f822ef9a08bcf",
+    "tools/execute_release_nci.py": "c59ca515cbbf272a97ca2e4d7aebdbed20085326f21a5b950eda3a2f29cba2a8",
+    "tools/execute_release_snomed.py": "2cc3830c10ebc7a9191e14cc8f1e790a3f6e93dea3930745ca25d7925f8b4f87",
+    "tools/inversion_remote.py": "fbe6c84dce4f325760fc775c5bb5ac1949fd3783d9c102b4f8885531e27db42b",
+    "tools/inversion_request.py": "ae1b8b2b58346b392d16571a673544f823b527151896262ec24708b6d938e673",
+    "tools/inversion_worker.py": "14c8a373ecad2a17d5b07cfd47121698a7a7c875f9a101792a7efd9169e100fa",
+    "tools/release_execution.py": "178e1ad53c2b070dd1b4ec346935428c57e622d5f52980b015a44f475cddf125",
+    "tools/release_manifest.py": "892ae606ca85b1c9e5fad9062edb53ac1f81828b16137a60af2837c2efc5fa08",
+    "tools/release_nci.py": "ebb0dd0475cd202a3ba7d6dce39b1903f188337114bd1f20813cf5fbe193c42b",
+    "tools/release_worker.py": "0d1608f9a9910c02b800a4bdc9a249d6d058679becbdb8992a6265ec8e47b991",
+    "tools/replay_retention.py": "2687dfc44071928992e263b18e19de1dcccd2c2c5c0d950188ac150af2939ac5"
+  },
+  "python39_ast_files": 18,
+  "runtime_files_per_source": 169,
+  "module_count_per_source": 30,
+  "prior_lifecycle_change": "New MTH runs copy only the verified prior CUI DATA into candidate orig/identity/<prior>/src/cui_said_map and point old there; converter access unchanged. Existing sealed historical requests retain their old dependencies.",
+  "real_server_data_changes": false,
+  "real_server_runtime_changes": false,
+  "real_s3_acquisition_or_upload": false,
+  "new_dataset_archive_created": false,
+  "real_dataset_deletion": false,
+  "new_worker_environment": false,
+  "ssh_authentication": "Initial read-only reachability probe reached dev but authentication was rejected; Terminal login opened and user response pending. No authenticated data inventory/native run performed.",
+  "remaining_acceptance": [
+    "Inspect genuine additional archive/input/reference closure and saved source decisions for each source.",
+    "Check real disk budget and existing baseline consumers before selecting/replacing target versions.",
+    "Curate real manifests from archived bytes/state and run full conversions serially on dev.",
+    "Investigate every difference; generic native admission does not inherit bounded historical correction waivers.",
+    "Rehash retained real outputs and dependencies independently; operational production/QA/insertion remain separate."
+  ]
+}
