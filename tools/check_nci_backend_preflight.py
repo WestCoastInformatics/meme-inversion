@@ -130,6 +130,25 @@ def check():
     explicit = backend.analyze_backend(*repack(changed, document))
     good(explicit['semantic_status'] == 'PASS' and explicit['replacement_baseline']['version'] == 'NCI_2026_08E',
          'Explicit primary alias can bind a backend version distinct from the NCIt release suffix, preserving common chronology')
+    changed = fixture()
+    changed[4]['capture'].update(started_at='2026-11-10T01:00:00+01:00', completed_at='2026-11-09T19:00:00-05:00')
+    good(backend.analyze_backend(*repack(changed))['semantic_status'] == 'PASS',
+         'Equivalent instants expressed in differing explicit offsets remain a valid capture interval')
+    changed = fixture()
+    changed[4]['capture'].update(started_at='2026-11-10T01:00:00.000000001+01:00', completed_at='2026-11-10T00:00:00.000000001Z')
+    good(backend.analyze_backend(*repack(changed))['semantic_status'] == 'PASS',
+         'Offset equivalence preserves full fractional-second precision')
+    for timestamp in ['2026-11-10T00:00:00', '2026-11-10', '00:00:00+00:00',
+                      '2026-11-10T00:00:00+24:00', '2026-11-10T00:00:00+01:60',
+                      '2026-11-10T24:00:00Z', '2026-11-10T00:60:00Z', '2026-11-10T00:00:60Z',
+                      '2026-02-30T00:00:00Z']:
+        changed = fixture();changed[4]['capture']['started_at'] = timestamp
+        reject(changed, 'Capture timestamp independently rejects invalid/naive value: ' + timestamp)
+    changed = fixture()
+    changed[4]['capture'].update(started_at='2026-11-10T00:00:00.000000002Z', completed_at='2026-11-10T00:00:00.000000001Z')
+    reject(changed, 'Sub-microsecond reversed capture times are rejected without precision truncation')
+    changed = fixture();changed[4]['capture']['completed_at'] = '2026-11-10T00:01:00'
+    reject(changed, 'Completion timestamp is independently required to carry an explicit timezone')
     good(result['bindings']['verified_raw_rows'] and result['bindings']['raw_exports'], 'Results bind raw bytes and each verified JSON row location')
     good(result['bindings']['raw_exports']['synthetic-export.json']['sha256'] == plans.sha(args[6]['synthetic-export.json']),
          'Raw-export bindings retain actual byte hashes independently from source-version alias maps')

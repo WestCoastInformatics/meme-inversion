@@ -3,13 +3,14 @@
 import argparse
 import base64
 from datetime import datetime
+from decimal import Decimal
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
 import sys
 
-from jsonschema import Draft202012Validator, FormatChecker
+from jsonschema import Draft202012Validator
 
 import nci_configuration
 import nci_release_preflight as v1
@@ -17,6 +18,24 @@ import nci_source_plan as plans
 
 SCHEMA = Path(__file__).resolve().parents[1] / 'docs/inversion-review/nci-installed-state-v2.schema.json'
 PROFILE = 'ncimeta-installed-state-v2'
+
+
+def _capture_timestamp(value):
+    """Validate full offset-aware timestamps without optional format packages."""
+    expression = (r'([0-9]{4}-[0-9]{2}-[0-9]{2}T(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])'
+                  r'(?:\.([0-9]+))?(Z|[+-](?:[01][0-9]|2[0-3]):[0-5][0-9])')
+    match = re.fullmatch(expression, value) if isinstance(value, str) else None
+    if match is None:
+        raise ValueError('Capture time requires a full date/time and explicit Z or valid offset')
+    try:
+        parsed = datetime.fromisoformat(match[1] + ('+00:00' if match[3] == 'Z' else match[3]))
+    except ValueError as exc:
+        raise ValueError('Invalid capture calendar date/time') from exc
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise ValueError('Capture time must be timezone aware')
+    # Keep arbitrary fractional precision for chronology, rather than silently
+    # truncating nanoseconds through datetime.fromisoformat's microsecond limit.
+    return parsed, Decimal('0.' + match[2]) if match[2] else Decimal(0)
 
 
 def _load(raw):
@@ -91,7 +110,7 @@ def analyze_backend(configuration, source_plan, metadata_model, properties,
             or v1.content_sha256(installed_state) != expected_state_sha256):
         raise ValueError('Changed or unsupported v2 state artifact')
     schema_raw = SCHEMA.read_bytes()
-    errors = sorted(Draft202012Validator(_load(schema_raw), format_checker=FormatChecker())
+    errors = sorted(Draft202012Validator(_load(schema_raw))
                     .iter_errors(installed_state), key=lambda error: str(list(error.path)))
     if errors:
         raise ValueError('Invalid v2 artifact at ' + '/'.join(map(str, errors[0].path)) + ': ' + errors[0].message)
@@ -111,8 +130,8 @@ def analyze_backend(configuration, source_plan, metadata_model, properties,
         raise ValueError('Schema versions, IDs and byte counts must be exact integers')
     if project['source_atom_id_key'] != project['terminology'] + '-SRC':
         raise ValueError('Source atom ID key differs from the selected project terminology')
-    started = datetime.fromisoformat(state['capture']['started_at'].replace('Z', '+00:00'))
-    completed = datetime.fromisoformat(state['capture']['completed_at'].replace('Z', '+00:00'))
+    started = _capture_timestamp(state['capture']['started_at'])
+    completed = _capture_timestamp(state['capture']['completed_at'])
     if completed < started:
         raise ValueError('Capture completion precedes capture start')
     if not isinstance(raw_exports, dict):
