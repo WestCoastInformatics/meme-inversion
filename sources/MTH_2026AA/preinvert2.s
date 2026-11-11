@@ -27,7 +27,7 @@ setenv _POSIX2_VERSION 1
 (echo ' SAB| VSAB'; $INV_HOME/bin/api_metadata.sh current_sources --quiet) |sort -t\| +0 -1 >ncimid.sources
 $INV_HOME/bin/api_metadata.sh precedence --quiet |sort -t\| +1 -2n >ncimid.termgroups
 
-awk -F\| '$2=="KEEP" || $2 == "UPDATE"{print $1}' ncisources.spec |sort -u >sources.expected
+awk -F\| '$3=="KEEP" || $3 == "UPDATE"{print $1}' ncisources.spec |sort -u >sources.expected
 set bad=`cut -d\| -f1 ncimid.sources |sort |comm -23 sources.expected -`
 rm -f sources.expected
 if ("$bad" != "") then

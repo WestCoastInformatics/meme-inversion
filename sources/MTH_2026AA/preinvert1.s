@@ -21,5 +21,35 @@ chmod a+w .
 #chgrp memegrp .
 
 ./updatevsabs.s
-./guess.ncisources.spec.pl >ncisources.spec
-cp -p ncisources.spec{,.guessed}
+if ($status != 0) then
+    echo "VSAB preparation failed; ncisources.spec was not replaced." >& /dev/stderr
+    exit 1
+endif
+
+# Keep the current reviewed plan until a complete proposal succeeds. Retain
+# failed candidates and separate diagnostics for inspection in this directory.
+set proposal = `mktemp ncisources.spec.guessed.XXXXXXXX`
+if ("$proposal" == "") then
+    echo "Could not create a source-plan proposal; ncisources.spec was not replaced." >& /dev/stderr
+    exit 1
+endif
+set diagnostics = "${proposal}.stderr"
+(./guess.ncisources.spec.pl >! "$proposal") >&! "$diagnostics"
+if ($status != 0) then
+    echo "Source-plan proposal failed; inspect $proposal and $diagnostics. ncisources.spec was not replaced." >& /dev/stderr
+    exit 1
+endif
+if (! -s "$proposal") then
+    echo "Source-plan proposal is empty; inspect $proposal and $diagnostics. ncisources.spec was not replaced." >& /dev/stderr
+    exit 1
+endif
+/bin/cp -p "$proposal" ncisources.spec.guessed
+if ($status != 0) then
+    echo "Could not save the complete guessed plan; inspect $proposal and $diagnostics. ncisources.spec was not replaced." >& /dev/stderr
+    exit 1
+endif
+/bin/mv -f "$proposal" ncisources.spec
+if ($status != 0) then
+    echo "Could not publish the complete guessed plan; inspect $proposal and $diagnostics." >& /dev/stderr
+    exit 1
+endif
