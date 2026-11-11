@@ -41,6 +41,8 @@ The schema requires these roles rather than collapsing them into one installed-t
 
 `binding` is a raw file path plus RFC 6901 JSON pointer selecting the original object. The initial JSON binding rules use explicit backend/source-metadata fields; **they are not a claim that a complete deployed exporter emits the synthetic fixture's combined JSON shape**. Original responses/files must remain original. Creating a new hand-normalized JSON projection does not turn it into verified raw capture. Textual `.src`/client output needs its own reviewed parser/provenance contract before its field meanings can be verified; this implementation does not fabricate one.
 
+Capture timestamps are explicitly validated without optional JSON Schema format dependencies: full `YYYY-MM-DDTHH:MM:SS`, optional fractional seconds, and explicit `Z` or `±HH:MM` are required. Calendar dates, clock/offset ranges and timezone awareness are checked before interval comparison. Leap-second notation is unsupported. Comparisons retain all supplied fractional precision and correctly compare equivalent instants expressed in different offsets. The schema's `date-time` annotation remains descriptive; it is not the enforcement mechanism.
+
 The full-concept response route identified in backend research remains a candidate to investigate. Default atom/code graph resolution can remove alternate IDs. Correct handler behavior, exact individual root selection, raw identifier retention, paging/index completeness and deployed producer identity still need real evidence. The SRC/RPT inventory also does not automatically validate or rebind the converter's separately saved hierarchy anchor.
 
 ## Semantic review behavior
