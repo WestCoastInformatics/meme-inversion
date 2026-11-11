@@ -1,0 +1,673 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ncimeta:installed-state:v2",
+  "title": "NCIt backend installed-state review artifact; not an accepted exporter contract",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 2,
+      "type": "integer"
+    },
+    "profile": {
+      "const": "ncimeta-installed-state-v2"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "const": "NCI"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "replacement_baseline": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "const": "NCI"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            }
+          },
+          "required": [
+            "source",
+            "version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "source",
+        "version",
+        "replacement_baseline"
+      ],
+      "additionalProperties": false
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "terminology": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "source_atom_id_key": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "precedence_list_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "binding": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "id",
+        "terminology",
+        "version",
+        "branch",
+        "source_atom_id_key",
+        "precedence_list_id",
+        "binding"
+      ],
+      "additionalProperties": false
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "build_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artifact_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "backend_commit": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "graph_handlers": {
+          "type": "object",
+          "properties": {
+            "project": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "SRC": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "project",
+            "SRC"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "build_id",
+        "artifact_sha256",
+        "backend_commit",
+        "evidence_path",
+        "graph_handlers"
+      ],
+      "additionalProperties": false
+    },
+    "capture": {
+      "type": "object",
+      "properties": {
+        "exporter_profile": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "consistency_boundary": {
+          "type": "object",
+          "properties": {
+            "profile": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "state_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "evidence_path": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "profile",
+            "state_id",
+            "evidence_path"
+          ],
+          "additionalProperties": false
+        },
+        "completeness_evidence": {
+          "type": "object",
+          "properties": {
+            "source_versions": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "families": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "source_roots": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "default_precedence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "project_precedence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "term_types": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "source_versions",
+            "families",
+            "source_roots",
+            "default_precedence",
+            "project_precedence",
+            "term_types"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "exporter_profile",
+        "started_at",
+        "completed_at",
+        "consistency_boundary",
+        "completeness_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "raw_exports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "encoding": {
+            "enum": [
+              "json",
+              "opaque"
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "encoding"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "source_family": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "binding": {
+            "$ref": "#/$defs/binding"
+          }
+        },
+        "required": [
+          "source",
+          "source_family",
+          "binding"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "source_versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "backend_version": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "binding": {
+            "$ref": "#/$defs/binding"
+          }
+        },
+        "required": [
+          "source",
+          "backend_version",
+          "current",
+          "binding"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "replacement_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "backend_version": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          }
+        },
+        "required": [
+          "source",
+          "backend_version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "source_roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "source_atom_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "backend_atom_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "atom_terminology": {
+            "const": "SRC"
+          },
+          "atom_version": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "term_type": {
+            "const": "RPT"
+          },
+          "code_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "branch": {
+            "type": "string"
+          },
+          "binding": {
+            "$ref": "#/$defs/binding"
+          }
+        },
+        "required": [
+          "source",
+          "source_atom_id",
+          "backend_atom_id",
+          "atom_terminology",
+          "atom_version",
+          "term_type",
+          "code_id",
+          "branch",
+          "binding"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "precedence_lists": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "$ref": "#/$defs/precedence"
+        },
+        "project": {
+          "$ref": "#/$defs/precedence"
+        }
+      },
+      "required": [
+        "default",
+        "project"
+      ],
+      "additionalProperties": false
+    },
+    "term_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tty": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "suppressible": {
+            "type": "boolean"
+          },
+          "exclude": {
+            "type": "boolean"
+          },
+          "norm_exclude": {
+            "type": "boolean"
+          },
+          "binding": {
+            "$ref": "#/$defs/binding"
+          },
+          "terminology": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          }
+        },
+        "required": [
+          "tty",
+          "suppressible",
+          "exclude",
+          "norm_exclude",
+          "binding",
+          "terminology",
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "version_aliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "versioned_source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "backend_version": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "binding": {
+            "$ref": "#/$defs/binding"
+          }
+        },
+        "required": [
+          "versioned_source",
+          "source",
+          "backend_version",
+          "binding"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile",
+    "scope",
+    "project",
+    "deployment",
+    "capture",
+    "raw_exports",
+    "families",
+    "source_versions",
+    "replacement_sources",
+    "source_roots",
+    "precedence_lists",
+    "term_types",
+    "version_aliases"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(/.*)?$"
+        }
+      },
+      "required": [
+        "path",
+        "json_pointer"
+      ],
+      "additionalProperties": false
+    },
+    "pair": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "tty": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        }
+      },
+      "required": [
+        "source",
+        "tty"
+      ],
+      "additionalProperties": false
+    },
+    "precedence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "terminology": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pair"
+          }
+        },
+        "binding": {
+          "$ref": "#/$defs/binding"
+        }
+      },
+      "required": [
+        "id",
+        "terminology",
+        "version",
+        "entries",
+        "binding"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
