@@ -458,6 +458,31 @@ def curate(capture, engine_ref, review_id=None, supplement=None):
         projection = attempt('MTH_CAPTURE_DECISION_PROJECTION', '/capture/members/ncisources.spec', lambda:
             execution.manifest_decisions_from_preserved(*[_body(captured, role) for role in DECISIONS],
                 _body(captured, 'ncimid.sources'), mrsab, version, review_id=review_id))
+    def prepared_selection():
+        active = [row for row in projection['dispositions'] if row['disposition'] in release_mth.ACTIVE]
+        if len({row['version'] for row in active}) != len(active):
+            raise ValueError('Active VSAB decisions must be unambiguous for preserved subset projection')
+        decisions = {row['version']: row for row in active}
+        native = {fields[2].decode(): fields[3].decode()
+                  for fields in [execution._fields(row) for row in mrsab.splitlines(keepends=True)]}
+        selected, versions = set(), set()
+        for line in _body(captured, 'src/vsab.updates').decode().splitlines():
+            fields = line.split('|')
+            if len(fields) != 2 or fields[1] in versions or fields[1] not in decisions:
+                raise ValueError('Saved VSAB updates must select distinct active staff decisions')
+            prior, target = fields;row = decisions[target]
+            expected = '' if row['disposition'] == 'KEEP' else ('New' if row['disposition'] == 'NEW' else row['prior_version'])
+            if prior != expected or native.get(target) != row['source']:
+                raise ValueError('Saved VSAB updates differ from staff dispositions or prepared MRSAB identity')
+            versions.add(target);selected.add(row['source'])
+        return {'selected_sources': sorted(selected), 'selection_evidence': {
+            'profile': 'mth-rest-subset-selection-v1',
+            'ncisources_sha256': captured['members']['ncisources.spec']['sha256'],
+            'vsab_updates_sha256': captured['members']['src/vsab.updates']['sha256'],
+            'installed_sources_sha256': captured['members']['ncimid.sources']['sha256'],
+            'mrsab_sha256': digest(mrsab),
+            'scope': 'Actual saved VSAB updates projected against original staff decisions, installed source state and full prepared MRSAB; physical validation remains independent'}}
+    selection = attempt('MTH_CAPTURE_PREPARED_SELECTION', '/capture/members/src/vsab.updates', prepared_selection) if projection is not None else None
     prior = captured.get('prior_identity', {})
     prior_files = attempt('MTH_CAPTURE_PRIOR_IDENTITY', '/capture/prior_identity/files',
                            lambda: _files(prior, {'cui_said_map'}, 'Prior CUI identity'))
@@ -516,6 +541,7 @@ def curate(capture, engine_ref, review_id=None, supplement=None):
         'policy_ref': 'mth-policy', 'policy_sha256': release_mth.artifact_sha256(policy),
         'subset_profile': policy['data']['subset_profile'], 'history_coverage': history_coverage,
         'history_coverage_evidence': prepared['history_coverage_evidence'],
+        **selection,
         **({'acquisition': copy.deepcopy(prepared['acquisition']),
             'prepared_capture_provenance': copy.deepcopy(prepared['capture_provenance'])}
            if 'acquisition' in prepared and 'capture_provenance' in prepared else {}),

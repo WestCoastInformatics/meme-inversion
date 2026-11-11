@@ -25,6 +25,19 @@ def artifact_sha256(value):
                                     ensure_ascii=True, allow_nan=False).encode()).hexdigest()
 
 
+def rest_selected_sources(dispositions):
+    """The retained invert1.s REST choice, separate from background decisions.
+
+    SNOMED CT US UPDATE is inverted separately. Otherwise SCTSPA is excluded.
+    The SRC pseudo-source never reaches vsab.updates. No other active source
+    can be omitted merely by removing it from a prepared selected_sources list.
+    """
+    active = [row for row in dispositions if isinstance(row, dict) and row.get('disposition') in ACTIVE]
+    excluded = 'SNOMEDCT_US' if any(row.get('source') == 'SNOMEDCT_US' and
+                                   row.get('disposition') == 'UPDATE' for row in active) else 'SCTSPA'
+    return {row['source'] for row in active if row.get('source') != excluded and row.get('version') != 'SRC'}, excluded
+
+
 def analyze(configuration, artifacts):
     """Check declared prepared inputs; never acquire, render, execute or approve.
 
@@ -35,7 +48,8 @@ def analyze(configuration, artifacts):
     artifact_paths = {}
     facts = {'profile': PROFILE, 'execution_implemented': False,
              'production_eligible': False, 'publisher_preparation_executed': False,
-             'historical_database_reconstruction_required': False}
+             'historical_database_reconstruction_required': False,
+             'retained_background_choices': []}
 
     def issue(code, message, path, severity='error'):
         for role, logical_path in artifact_paths.items():
@@ -228,6 +242,47 @@ def analyze(configuration, artifacts):
     if not isinstance(decisions, list) or not decisions:
         issue('MTH_DISPOSITIONS', 'Provide typed reviewed source/version dispositions.', '/artifacts/source-plan/data/dispositions')
         decisions = []
+    # A complete background staff plan also contains choices for sources that
+    # the retained REST preparation deliberately does not select. A same-version
+    # UPDATE is admissible only for that canonical excluded background source,
+    # with a complete selected set and original data hashes that the physical
+    # validator independently reparses before any conversion.
+    valid_decisions = [row for row in decisions if isinstance(row, dict) and
+                       token(row.get('source')) and isinstance(row.get('disposition'), str)]
+    expected_selected, excluded_background = rest_selected_sources(valid_decisions)
+    selected_sources = prepared.get('selected_sources')
+    selection_consistent = (isinstance(selected_sources, list) and all(token(x) for x in selected_sources) and
+                            len(set(selected_sources)) == len(selected_sources) and set(selected_sources) == expected_selected)
+    if selected_sources is not None and not selection_consistent:
+        issue('MTH_PREPARED_SELECTION', 'Prepared selected sources must match the retained canonical REST selection, not arbitrary omissions.',
+              '/artifacts/prepared-bundle/data/selected_sources')
+    evidence = prepared.get('selection_evidence')
+    selection_bound = False
+    if evidence is not None:
+        def file_sha(artifact, role):
+            matches = [item.get('sha256') for item in artifact.get('files', [])
+                       if isinstance(item, dict) and item.get('role') == role]
+            return matches[0] if len(matches) == 1 else None
+        plan_artifact = artifacts.get(inputs.get('source_plan'), {})
+        expected_hashes = {'ncisources_sha256': file_sha(plan_artifact, 'ncisources.spec'),
+                           'vsab_updates_sha256': file_sha(state_artifact, 'src/vsab.updates'),
+                           'mrsab_sha256': file_sha(bundle, 'MRSAB.RRF'),
+                           'installed_sources_sha256': file_sha(state_artifact, 'ncimid.sources')}
+        preserved = plan.get('preserved_decision_sha256', {})
+        snapshots = plan.get('preserved_snapshot_sha256', {})
+        selection_bound = (selection_consistent and isinstance(evidence, dict) and
+            evidence.get('profile') == 'mth-rest-subset-selection-v1' and
+            all(isinstance(value, str) and re.fullmatch(r'[0-9a-f]{64}', value) and evidence.get(key) == value
+                for key, value in expected_hashes.items()) and
+            isinstance(preserved, dict) and preserved.get('ncisources.spec') == expected_hashes['ncisources_sha256'] and
+            isinstance(snapshots, dict) and snapshots.get('MRSAB.RRF') == expected_hashes['mrsab_sha256'] and
+            snapshots.get('ncimid.sources') == expected_hashes['installed_sources_sha256'] and
+            len(plan_artifact.get('files', [])) == 3 and
+            {item.get('role') for item in plan_artifact.get('files', []) if isinstance(item, dict)} ==
+                {'ncisources.spec', 'sab.vsab.map', 'src_data'})
+        if not selection_bound:
+            issue('MTH_PREPARED_SELECTION_BINDING', 'REST selection evidence must bind the complete selected set and original decisions, VSAB updates, MRSAB and installed-state bytes.',
+                  '/artifacts/prepared-bundle/data/selection_evidence')
     mappings = {}
     mapping_rows = plan.get('vsab_mappings', [])
     if not isinstance(mapping_rows, list):
@@ -272,7 +327,12 @@ def analyze(configuration, artifacts):
         if disposition == 'KEEP' and target != prior:
             issue('MTH_KEEP_VERSION', 'KEEP cannot silently select a new NCImeta version.', path)
         if disposition == 'UPDATE' and target == prior:
-            issue('MTH_UPDATE_VERSION', 'UPDATE must identify a different reviewed source version.', path)
+            if selection_bound and source == excluded_background and source not in selected_sources:
+                facts['retained_background_choices'].append({'code': 'MTH_NONSELECTED_SAME_VERSION_UPDATE',
+                    'source': source, 'version': target, 'disposition': disposition,
+                    'reason': 'Original staff UPDATE retained outside the canonical prepared REST subset; no UPDATE of this source is executed.'})
+            else:
+                issue('MTH_UPDATE_VERSION', 'A selected UPDATE must identify a different reviewed source version; background retention requires bound canonical REST exclusion evidence.', path)
         if disposition == 'REMOVE' and target != prior:
             issue('MTH_REMOVE_VERSION', 'REMOVE must identify the actual installed version being removed.', path)
         if disposition == 'NEW' and (prior is not None or source in installed):
