@@ -16,7 +16,7 @@ The existing `preinvert1.s` redirected guessed output directly over `ncisources.
 
 The candidate caller checks the reported VSAB-preparation status before guessing. It then writes to a uniquely created candidate file in the release directory, captures diagnostic stderr separately, rejects failed or empty proposals, and publishes the complete candidate only after saving its matching `.guessed` review copy. A failed attempt preserves the existing `ncisources.spec`; its uniquely named candidate and `.stderr` evidence remain for inspection. The caller does not remove unrelated files.
 
-The helper's successful output bytes and the successful `.guessed`/`ncisources.spec` bytes remain the same as before. This is a proposal for the documented next human review step, not approval of newly discovered source decisions.
+The helper's successful output bytes and the successful `.guessed`/`ncisources.spec` bytes remain the same as before. Successful publication preserves an existing plan's permission bits; when no plan exists, it uses normal `0666 & ~umask` permissions. The `.guessed` copy receives the same mode. Portable Perl applies the mode only to the newly created candidate without changing the caller's umask. This is a proposal for the documented next human review step, not approval of newly discovered source decisions.
 
 ## Installed-source check
 
@@ -26,11 +26,12 @@ The candidate uses field 3 in the existing validation command. A missing install
 
 ## Verification and scope
 
-Run `python3 -B tools/check_mth_preparation_defects.py`. The [25-check fixture record](mth-preparation-corrections-fixtures-20261110.json) includes:
+Run `python3 -B tools/check_mth_preparation_defects.py`. The [29-check fixture record](mth-preparation-corrections-fixtures-20261110.json) includes:
 
 - Actual immutable historical Perl behavior, actual downstream subset-config selection and the equality-only patch's stale-value failure.
 - Golden valid-case compatibility across all known dispositions and normal transitions.
 - Actual revised `preinvert1.s` with a confined local VSAB stub, including success, helper failure, empty output and upstream reported failure.
+- Preservation of a group-readable existing plan under a restrictive umask, plus three absent-plan umasks, with matching `.guessed` modes.
 - The real disposition-validation commands, plus actual revised `preinvert2.s` against confined metadata API stubs, stopping before publisher preparation.
 - Missing required helper inputs and separate retention of failed proposal data/diagnostics.
 

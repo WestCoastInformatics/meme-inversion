@@ -3,7 +3,7 @@
   "date": "2026-11-10",
   "historical_engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
   "command": "python3 -B tools/check_mth_preparation_defects.py",
-  "checks_passed": 25,
+  "checks_passed": 29,
   "checks": [
     "Actual captured helper silently changes an unresolved prior disposition into SPECIAL",
     "Actual subset-config producer excludes the silently recast SPECIAL source from selected sources",
@@ -24,6 +24,10 @@
     "Actual revised caller preserves the reviewed plan when actual helper rejects a prior disposition",
     "Failed candidate data and diagnostic stderr are retained separately",
     "Actual revised caller publishes complete valid bytes and the matching guessed review copy",
+    "Successful replacement preserves prior group-readable mode despite a restrictive process umask, including guessed copy",
+    "Absent prior plan uses normal umask-derived mode for both plan and guessed copy: 0o27",
+    "Absent prior plan uses normal umask-derived mode for both plan and guessed copy: 0o77",
+    "Absent prior plan uses normal umask-derived mode for both plan and guessed copy: 0o2",
     "Actual revised caller stops before guessing when VSAB preparation fails",
     "Actual revised caller rejects an empty successful proposal without replacing the reviewed plan",
     "Actual revised preinvert2 stops on missing installed UPDATE source using confined metadata stubs before publisher preparation",
@@ -42,13 +46,20 @@
   "reviewed_historical_cases_changed": false,
   "files": {
     "sources/MTH_2026AA/guess.ncisources.spec.pl": "202947ced6c577630df1944c4eef70efcc8c4a3fb9ce1067b64a467638a6aeeb",
-    "sources/MTH_2026AA/preinvert1.s": "bfedc73e12f71bcd4211703f565e91b86ab09a72d47a3c5724c804d8eb589549",
+    "sources/MTH_2026AA/preinvert1.s": "d9a887ede30cdcf0abf4f1b24ef39e20362de595a79f3dd03d068959c2bc390d",
     "sources/MTH_2026AA/preinvert2.s": "8ca8292a11e9962d325bd2ff444a7517955a6e9734fef832e2ebc42a7a51f70e",
-    "tools/check_mth_preparation_defects.py": "2058d9a912ce63e9218499f72b881c82498de2a3923f963d1678e488ad201781"
+    "tools/check_mth_preparation_defects.py": "e83d7f184c0c82e6fbd6ecc7dd612785e7da48ae81b869a5261434e67e0a0cf0"
   },
   "additional_regression_checks_passed": {
     "check_mth_configuration.py": 68,
     "check_mth_generated_execution.py": 57
   },
-  "Perl_syntax_check_passed": true
+  "Perl_syntax_check_passed": true,
+  "successful_publication_preserves_existing_mode": true,
+  "absent_plan_modes_checked": {
+    "0027": "0640",
+    "0077": "0600",
+    "0002": "0664"
+  },
+  "guessed_copy_mode_matches_plan": true
 }

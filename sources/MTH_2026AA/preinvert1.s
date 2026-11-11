@@ -43,6 +43,13 @@ if (! -s "$proposal") then
     echo "Source-plan proposal is empty; inspect $proposal and $diagnostics. ncisources.spec was not replaced." >& /dev/stderr
     exit 1
 endif
+# Match ordinary redirection permissions without changing the caller's umask.
+# Preserve an existing plan's access bits; a new plan uses 0666 & ~umask.
+/usr/bin/perl -e 'my ($old, $new) = @ARGV; my $mode; if (-e $old) { my @s = stat($old); @s or die "Cannot stat $old: $!\n"; $mode = $s[2] & 0777; } else { my $mask = umask; $mode = 0666 & ~$mask; } chmod($mode, $new) == 1 or die "Cannot set proposal permissions: $!\n";' ncisources.spec "$proposal" >>& "$diagnostics"
+if ($status != 0) then
+    echo "Could not set proposal permissions; inspect $proposal and $diagnostics. ncisources.spec was not replaced." >& /dev/stderr
+    exit 1
+endif
 /bin/cp -p "$proposal" ncisources.spec.guessed
 if ($status != 0) then
     echo "Could not save the complete guessed plan; inspect $proposal and $diagnostics. ncisources.spec was not replaced." >& /dev/stderr

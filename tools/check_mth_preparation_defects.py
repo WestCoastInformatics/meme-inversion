@@ -194,7 +194,7 @@ def check():
              'Fixed validation reads actual disposition field without changing source/version semantics')
         # The real revised preinvert1 caller runs with only a local updatevsabs
         # stub. This tests ordering, status handling and publication behavior.
-        def caller(guess, old_plan, publisher, updater='#!/bin/tcsh -f\nexit 0\n'):
+        def caller(guess, old_plan, publisher, updater='#!/bin/tcsh -f\nexit 0\n', process_umask=-1):
             (directory / 'old/ncisources.spec').write_text(old_plan)
             (directory / 'Meta/MRSAB.RRF').write_text(publisher)
             (directory / 'guess.ncisources.spec.pl').write_text(guess)
@@ -202,7 +202,8 @@ def check():
             (directory / 'updatevsabs.s').write_text(updater)
             (directory / 'updatevsabs.s').chmod(0o750)
             return subprocess.run(['/bin/tcsh', '-f', str(SOURCE / 'preinvert1.s')],
-                                  cwd=directory, capture_output=True, text=True, timeout=30)
+                                  cwd=directory, capture_output=True, text=True, timeout=30,
+                                  umask=process_umask)
         (directory / 'ncisources.spec').write_text(reviewed)
         failed = caller(actual_fixed, old, current)
         good(failed.returncode != 0 and (directory / 'ncisources.spec').read_text() == reviewed,
@@ -213,10 +214,21 @@ def check():
                        'Unknown prior disposition --NEW?-- for BROKEN' in path.read_text()]
         good(bool(evidence) and bool(diagnostics) and all('Unknown prior disposition' not in path.read_text() for path in evidence),
              'Failed candidate data and diagnostic stderr are retained separately')
-        success = caller(actual_fixed, old_valid, new_valid)
+        (directory / 'ncisources.spec').chmod(0o640)
+        success = caller(actual_fixed, old_valid, new_valid, process_umask=0o077)
         good(success.returncode == 0 and (directory / 'ncisources.spec').read_text() == golden and
              (directory / 'ncisources.spec.guessed').read_text() == golden,
              'Actual revised caller publishes complete valid bytes and the matching guessed review copy')
+        good((directory / 'ncisources.spec').stat().st_mode & 0o777 == 0o640 and
+             (directory / 'ncisources.spec.guessed').stat().st_mode & 0o777 == 0o640,
+             'Successful replacement preserves prior group-readable mode despite a restrictive process umask, including guessed copy')
+        for mask, expected_mode in [(0o027, 0o640), (0o077, 0o600), (0o002, 0o664)]:
+            (directory / 'ncisources.spec').unlink()
+            success = caller(actual_fixed, old_valid, new_valid, process_umask=mask)
+            good(success.returncode == 0 and (directory / 'ncisources.spec').read_text() == golden and
+                 (directory / 'ncisources.spec').stat().st_mode & 0o777 == expected_mode and
+                 (directory / 'ncisources.spec.guessed').stat().st_mode & 0o777 == expected_mode,
+                 'Absent prior plan uses normal umask-derived mode for both plan and guessed copy: ' + oct(mask))
         (directory / 'ncisources.spec').write_text(reviewed)
         stopped = caller('#!/usr/bin/perl\nopen(F,">guess-was-called"); close(F); print "candidate\\n";\n',
                          old_valid, new_valid, '#!/bin/tcsh -f\nexit 9\n')
