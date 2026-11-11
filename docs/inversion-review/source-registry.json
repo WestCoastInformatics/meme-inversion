@@ -54,7 +54,11 @@
       "production_code_authority": "Verified production capture required; existing main/prototype or dev copies are not substitutes",
       "release_frequency_affects_request_format": false,
       "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
-      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json",
+      "configuration_generator_ref": "../../tools/snomed_configuration.py",
+      "configuration_generation_result_ref": "snomed-generated-configuration-result.json",
+      "configuration_generation_verification_ref": "generated-settings-final-verification.json",
+      "configuration_generation_status": "PASS_EXACT: full bounded historical common run, all5 official hashes exact, independent retained-file verification passed"
     },
     "MTH": {
       "display_name": "MTH/UMLS",
@@ -73,7 +77,14 @@
       "common_audit_recovery_result_ref": "common-mth-2026aa-audit-review-result.json",
       "common_integration_status": "PASS: accepted full historical common lifecycle and retained-artifact verification",
       "common_integration_result_ref": "common-mth-2026aa-clean-result.json",
-      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json"
+      "common_matrix_verification_ref": "common-matrix-final-verification-20261109.json",
+      "configuration_generator_ref": "../../tools/mth_configuration.py",
+      "configuration_generation_native_result_ref": "mth-generated-configuration-native-result.json",
+      "configuration_generation_result_ref": "mth-generated-configuration-result.json",
+      "configuration_generation_parent_status_ref": "mth-generated-configuration-parent-status.json",
+      "configuration_generation_verification_ref": "generated-settings-final-verification.json",
+      "configuration_generation_status": "Native generation/comparison complete, all23 hashes equal prior corrected candidate; separate finalization review PASS_REVIEWED_CORRECTIONS after API fix; independent verification passed. Original common worker remains failed; not an uninterrupted new common run.",
+      "preparation_corrections_ref": "mth-preparation-corrections.md"
     },
     "MDR": {
       "display_name": "MDR",

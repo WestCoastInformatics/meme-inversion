@@ -10,6 +10,8 @@ Implementation update, November 10: the [NCIt configuration generator pilot](nci
 
 Parallel development update, November 10: [bounded SNOMED/MTH offline previews and NCIt installed-state preflight](parallel-configuration-development.md) now share one preview command and the existing common field vocabulary. The 472 checks pass; historical settings and accepted case identities are preserved. No new native execution is claimed. Large-job execution remains serialized on the existing dev worker; separate worker environments are deferred.
 
+Generated-settings execution update, November 10: [SNOMED and MTH native proof](generated-settings-execution.md) is complete with independent retained-file verification. SNOMED is exact to all five official files; MTH repeats all 23 accepted corrected hashes and passes its native-derived audit through a separate finalization review after an API fix. The original common-worker failure is retained. The [next operational gates](operational-release-gates.md) prioritize reviewed input bundles, state capture and source decisions; the [NCIt v2 review contract](nci-backend-preflight-v2.md) remains blocked pending real deployment/export evidence.
+
 ## Recommendation
 
 Adopt one release lifecycle with independently reviewed source adapters, explicit baseline dependencies, versioned representation rules, and independently validated output packages. Preserve the working Perl transformations initially. Move operational code out of release directories before replacing transformation logic, then replace components behind proven input/output contracts.

@@ -263,5 +263,10 @@
   "source_layout_changed": false,
   "recovery_guide_ref": "retained-source-archives.md",
   "recovery_scope": "Restore to a fresh allowed .before- identity, never overwrite a canonical/current tree. External symlink targets remain separate dependencies.",
-  "later_independent_archive_hash_check": "Queued after current generated-settings batch; not yet reported"
+  "later_independent_archive_hash_check_ref": "generated-settings-final-verification.json",
+  "archive_hashes_verified_after_retirement": {
+    "MTH_2026AA.before-replay-20261105": "c2ac4c3b24bdf9f952cbeacbb0c26e7aed797c2a3a694435419a2aa34072343b",
+    "MTH_2026AA.before-consistency-20261106": "55c082f5be5bd66c12f835c4fb769c5f2a4d7400d1070cce63a0327d130fd0d5",
+    "SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106": "d2c204d00cc484c6cf69f8b49eba81af9247afdabd3b5cf25c37e8dfe445166d"
+  }
 }

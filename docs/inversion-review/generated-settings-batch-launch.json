@@ -1,0 +1,12 @@
+{
+  "controller_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-batch-20261110.controller",
+  "controller_pid": 2164310,
+  "apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+  "driver_sha256": "ed4599fa6f486da33668d613e37cb6de4a94d7ad8f38f57fb151bb97aab77438",
+  "frozen_modules_imported": 23,
+  "run_ids": {
+    "snomed": "common-snomed-generated-20261110",
+    "mth": "common-mth-generated-20261110"
+  },
+  "runtime_activation_performed": false
+}

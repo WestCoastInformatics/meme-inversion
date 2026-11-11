@@ -1,0 +1,12 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "run_id": "common-mth-generated-20261110",
+  "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+  "lock_sha256": "21666001b0d80639b88ddb9ef4efac4a427bad84840beba739b0ba220647642c",
+  "started_at": "2026-11-11T00:45:40.110906+00:00",
+  "status": "failed",
+  "preserved_source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-common-mth-generated-20261110",
+  "error": "module 'mth_configuration' has no attribute 'verify_generated'",
+  "completed_at": "2026-11-11T03:37:57.467578+00:00"
+}

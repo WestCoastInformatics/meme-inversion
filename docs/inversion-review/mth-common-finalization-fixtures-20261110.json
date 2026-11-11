@@ -1,0 +1,57 @@
+{
+  "status": "PASS_REAL_MTH_COMMON_FINALIZATION_FIXTURES",
+  "recorded_at": "2026-11-11T04:04:28.074402+00:00",
+  "original_conversion_apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+  "fix_ref": "3a0cdcaf83298f167efe1221c2223ae60f1c621e",
+  "recovery_and_verification_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+  "original_common_run_status": "failed",
+  "failure": "module 'mth_configuration' has no attribute 'verify_generated'",
+  "native_generation_and_comparison_completed": true,
+  "native_clean_validation_and_23_hash_match_receipt_verified": true,
+  "targeted_suite": {
+    "script": "tools/check_mth_common_finalization.py",
+    "checks": 50,
+    "status": "PASS",
+    "script_sha256": "abbdefa8900a2d0ed11ddf48fffb83d19528016a81c848545e7348d78f2b9a46",
+    "real_worker_package_staging_and_finalization_used": true,
+    "only_mock": "host runtime verification",
+    "frozen_79df_error_reproduced_without_verification_shim": true
+  },
+  "common_regressions": [
+    {
+      "script": "tools/check_inversion_request.py",
+      "checks": 95,
+      "status": "PASS",
+      "code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+      "log_sha256": "6e3569df6c2eef59d60d7eef61ad383ab2ab92b0ebd676a2eda8eddb7e40176e"
+    },
+    {
+      "script": "tools/check_generated_configuration_execution.py",
+      "checks": 30,
+      "status": "PASS",
+      "code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+      "log_sha256": "4c8e1b3bed8e1da81b686d4ac3354bf6b3fefcea398e303ce2af94c0fe6551fe"
+    }
+  ],
+  "recovery_launch": {
+    "control_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110",
+    "worker_pid": 2273704,
+    "code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+    "driver_sha256": "179f8086af3ff455cafe468ef9777baf2f19bd9a476163738755c0baaa044300",
+    "recovery_request_sha256": "2f10bc63746655807ed490a8eedf7c958f8e034d3c91d732f8105881e6542a1c",
+    "conversion_apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+    "parent_failure_preserved": true,
+    "native_conversion_repeated": false
+  },
+  "independent_verification_launch": {
+    "control_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-reviewed-verification-20261110.controller",
+    "verification_pid": 2275315,
+    "code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+    "verifier_sha256": "dd7842c4b8fc6a47f1a08578b28fea0690a4354c6040de49bb945b1b12567173",
+    "driver_sha256": "447c99bb134da2491ef10da74e45f7bb6ab50b803dd0e42be7968be5c0c00f4f",
+    "recovery_request_sha256": "2f10bc63746655807ed490a8eedf7c958f8e034d3c91d732f8105881e6542a1c",
+    "conversion_apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+    "original_failed_verifier_preserved": true
+  },
+  "scope": "Local fixture evidence and separate actual retained-output review. Original MTH worker, batch and initial verifier remain failed; no native conversion or preparation was repeated. Final native-derived audit/independent-verification outcomes are separate original receipts."
+}

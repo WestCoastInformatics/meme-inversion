@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "profile": "retained-generated-mth-finalization-v1",
+  "parent_run_id": "common-mth-generated-20261110",
+  "review_id": "common-mth-generated-finalization-20261110",
+  "code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+  "driver_sha256": "179f8086af3ff455cafe468ef9777baf2f19bd9a476163738755c0baaa044300",
+  "module_sha256": {
+    "inversion_worker.py": "8477176d63b19f2f46324a9e0f851b5de58e2d84c6d2196757225d03c303909e",
+    "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "replay_mth_core.py": "97b8ccb8d8d37833b14760afdcc1cbed41bd9b831d52cbc3280fb74b6fa5c42c",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "prepare_nci_candidate.py": "e31c1378e1a42e91c801a47968b2d7e1443abf13ac632e9857052c0e12dec13a",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "068568df2e9fe0e6cc01651542b6b196ebc575d9f7e2490a9788b47cc3e15f83",
+    "run_snomed_core_replay.py": "4ba0189cfabbd3ee8f352c909deb861f0def4ba41d4f9ba65cb235810968aa85",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "replay_framework_core.py": "06c373153f2a3b7f40f5b0dda9bef259f2f2e5e4c6d0208d5d94e46fd93da62a",
+    "compare_framework_core.py": "8123f6c14099946c7ecd07d495ae562ef5f54b86c448e66abad305ab0645fa8d",
+    "audit_mdr_corrections.py": "efdd7207122716189c29443629223b05e1af580ec96870c089849e9c91028ff6",
+    "nci_configuration.py": "fc2dda04e634887ce2370e8b193e639c804a30f8420bf20b3abf1adbee5cfe4e",
+    "nci_source_plan.py": "dd15ec41f3e0a6b1ec7a53c9a803c741049fe735e815aa1893c7650761b20324",
+    "snomed_configuration.py": "1f38dc69fd3d8555f364f1a6339f85b11b08975f024662ca0cadf86735144c0b",
+    "mth_configuration.py": "0b9dbfc4728f49688933f79466a7ecdd67f14a7f7198b39b6d6625823df62b8c"
+  },
+  "parent_records": {
+    "case.lock.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/case.lock.json",
+      "bytes": 11760892,
+      "sha256": "0469612aab29a604e90a84619de1c4ab97a86501b754eff5545c742f326a12a7"
+    },
+    "status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/status.json",
+      "bytes": 555,
+      "sha256": "99e8988c2382c35f4ec36600c4019b7467eb5610d7ac5221034f313371c00d08"
+    },
+    "preparation.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/preparation.json",
+      "bytes": 76307,
+      "sha256": "2f74082119c18573a4b5dd1bf69b72af9046cf5f565aab93f56906edbbdc10fd"
+    },
+    "acquisition.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/acquisition.json",
+      "bytes": 507,
+      "sha256": "b2029be65b98029d926d044fa4d81435811539163fcbfab7aab45abf46296009"
+    },
+    "previous-source-receipt.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/previous-source-receipt.json",
+      "bytes": 29108,
+      "sha256": "855d812ed39889f699337ea1302ccf3a96bedf9343d8259249d3e0122b548a4e"
+    },
+    "native-result.json": {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/qa/replay-runs/common-mth-generated-20261110/result.json",
+      "bytes": 79556,
+      "sha256": "7d624ff3aa395388cb5ef19128b7f9dc32d5816952910091249f4c5975a907cb"
+    },
+    "native-active.json": {
+      "path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA/replay-active-run.json",
+      "bytes": 669,
+      "sha256": "ea2312b547cbd3c34eeadf5b2d93610689b0da5c26ea3b466c70f7698af57c11"
+    }
+  }
+}

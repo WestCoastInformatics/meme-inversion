@@ -1,0 +1,11 @@
+{
+  "archives": [
+    {
+      "archive_path": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.tgz",
+      "sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+      "downloaded_this_run": false
+    }
+  ],
+  "aws_profile": "meme",
+  "generated_outputs_restored": false
+}

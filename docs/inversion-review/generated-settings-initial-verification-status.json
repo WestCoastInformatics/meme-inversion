@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "started_at": "2026-11-11T01:15:10.642144+00:00",
+  "updated_at": "2026-11-11T03:38:02.168056+00:00",
+  "error": "Native batch is not running or complete; verification refused",
+  "completed_at": "2026-11-11T03:38:02.167746+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "archives": [
+    {
+      "archive_path": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.tgz",
+      "sha256": "9a0a8e6c6f58588f3fa7726c08299bf787fc16a3888363cb432438be5e961d93",
+      "downloaded_this_run": false
+    },
+    {
+      "archive_path": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB.tgz",
+      "sha256": "624bd3fc17b9b505cbb45332f7dc79a6ae5de14bb1771f93d59b1476372431eb",
+      "downloaded_this_run": false
+    }
+  ],
+  "aws_profile": "meme",
+  "generated_outputs_restored": false
+}

@@ -1,0 +1,79 @@
+{
+  "status": "failed",
+  "started_at": "2026-11-11T00:05:00.925122+00:00",
+  "runs": [
+    {
+      "source": "SNOMEDCT_US",
+      "run_id": "common-snomed-generated-20261110",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+      "lock_sha256": "07e1ea563c1ba15ccaf526713ec301f3bc3744317bee7880f744728ae2b60daf",
+      "status": "complete",
+      "worker_pid": 2164999,
+      "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-snomed-generated-20261110",
+      "launched_at": "2026-11-11T00:06:21.319314+00:00",
+      "worker_status": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_09_01",
+        "run_id": "common-snomed-generated-20261110",
+        "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "lock_sha256": "07e1ea563c1ba15ccaf526713ec301f3bc3744317bee7880f744728ae2b60daf",
+        "started_at": "2026-11-11T00:06:21.701137+00:00",
+        "status": "complete",
+        "preserved_source": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomed-generated-20261110",
+        "acceptance": {
+          "status": "PASS_EXACT",
+          "all_five_exact": true,
+          "all_five_full_record_equivalent": true,
+          "independent_structure_checks_passed": true,
+          "ignored_columns": [],
+          "generated_identifiers_reindexed": false,
+          "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+        },
+        "completed_at": "2026-11-11T00:44:28.773874+00:00"
+      },
+      "acceptance": {
+        "status": "PASS_EXACT",
+        "all_five_exact": true,
+        "all_five_full_record_equivalent": true,
+        "independent_structure_checks_passed": true,
+        "ignored_columns": [],
+        "generated_identifiers_reindexed": false,
+        "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+      },
+      "previous_candidate_hashes_identical": 5,
+      "completed_at": "2026-11-11T00:44:33.500585+00:00",
+      "original_runtime_files_verified": 169
+    },
+    {
+      "source": "MTH",
+      "run_id": "common-mth-generated-20261110",
+      "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+      "lock_sha256": "21666001b0d80639b88ddb9ef4efac4a427bad84840beba739b0ba220647642c",
+      "status": "running",
+      "worker_pid": 2182657,
+      "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110",
+      "launched_at": "2026-11-11T00:45:39.783602+00:00",
+      "worker_status": {
+        "source": "MTH",
+        "version": "MTH_2026AA",
+        "run_id": "common-mth-generated-20261110",
+        "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+        "lock_sha256": "21666001b0d80639b88ddb9ef4efac4a427bad84840beba739b0ba220647642c",
+        "started_at": "2026-11-11T00:45:40.110906+00:00",
+        "status": "failed",
+        "preserved_source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-common-mth-generated-20261110",
+        "error": "module 'mth_configuration' has no attribute 'verify_generated'",
+        "completed_at": "2026-11-11T03:37:57.467578+00:00"
+      }
+    }
+  ],
+  "insertion_executed": false,
+  "production_eligible": false,
+  "execution": "serialized on existing dev worker; runtime activation is not used",
+  "updated_at": "2026-11-11T03:37:59.827282+00:00",
+  "current_source": "MTH",
+  "error": "MTH failed: module 'mth_configuration' has no attribute 'verify_generated'",
+  "completed_at": "2026-11-11T03:37:59.826178+00:00"
+}

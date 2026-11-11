@@ -1,0 +1,190 @@
+{
+  "status": "PASS_ORIGINAL_RECEIPT_BYTES_AND_REVIEW_AUDIT_BINDINGS",
+  "conversion_apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+  "finalization_apparatus_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+  "independent_verifier_code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+  "original_common_run_status": "failed",
+  "original_failure_preserved": true,
+  "native_conversion_repeated": false,
+  "receipts": {
+    "native/snomed/status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-snomed-generated-20261110/status.json",
+      "bytes": 987,
+      "sha256": "489e105a342c1192b85ab68c5c323e474dbe356ec719aa29f0b5954a02d2a522"
+    },
+    "native/snomed/result.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-snomed-generated-20261110/result.json",
+      "bytes": 36140,
+      "sha256": "b95dcd83d90aed0f37816d9b8448f4f600a20de9ccef2f800df490a9624e061d",
+      "repository_path": "docs/inversion-review/snomed-generated-configuration-result.json"
+    },
+    "native/snomed/preparation.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-snomed-generated-20261110/preparation.json",
+      "bytes": 18111,
+      "sha256": "6e9ae8dfa94f1913472d9211310122bb02d5c2cedf7892e7b5c6018f159e0de6",
+      "repository_path": "docs/inversion-review/snomed-generated-configuration-preparation.json"
+    },
+    "native/snomed/acquisition.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-snomed-generated-20261110/acquisition.json",
+      "bytes": 309,
+      "sha256": "3bb1787011c1c6673889840909c8ef9051466c460c1b69187cfc01491b6a3623",
+      "repository_path": "docs/inversion-review/snomed-generated-configuration-acquisition.json"
+    },
+    "native/mth/status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/status.json",
+      "bytes": 555,
+      "sha256": "99e8988c2382c35f4ec36600c4019b7467eb5610d7ac5221034f313371c00d08",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-parent-status.json"
+    },
+    "native/mth/preparation.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/preparation.json",
+      "bytes": 76307,
+      "sha256": "2f74082119c18573a4b5dd1bf69b72af9046cf5f565aab93f56906edbbdc10fd",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-preparation.json"
+    },
+    "native/mth/acquisition.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-20261110/acquisition.json",
+      "bytes": 507,
+      "sha256": "b2029be65b98029d926d044fa4d81435811539163fcbfab7aab45abf46296009",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-acquisition.json"
+    },
+    "batch/status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-batch-20261110.controller/status.json",
+      "bytes": 3948,
+      "sha256": "eb9c585ec9aad94618e9dbd25989fd0c35402da3ebf0915b2bca642aa115345d",
+      "repository_path": "docs/inversion-review/generated-settings-batch-controller.json"
+    },
+    "batch/launch.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-batch-20261110.controller/launch.json",
+      "bytes": 492,
+      "sha256": "94c9b54531f0b48dc072dd573d349d3028afeec0a4388bd38a2c62b6f5c23e08",
+      "repository_path": "docs/inversion-review/generated-settings-batch-launch.json"
+    },
+    "batch/verification-status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-batch-20261110.controller/verification-status.json",
+      "bytes": 259,
+      "sha256": "49173625bca2a5b4d1e9dfc94abc7dee7d037814f6251e69a9076f86fed55994",
+      "repository_path": "docs/inversion-review/generated-settings-initial-verification-status.json"
+    },
+    "batch/verification-launch.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-batch-20261110.controller/verification-launch.json",
+      "bytes": 362,
+      "sha256": "64f64f2b76dfc9d47bf447270df752d9d828cf440927e70e57c4aa6b8086c235",
+      "repository_path": "docs/inversion-review/generated-settings-initial-verification-launch.json"
+    },
+    "batch/verification-request.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-batch-20261110.controller/verification-request.json",
+      "bytes": 229,
+      "sha256": "ce8b98fbc8ce6a0a3c7af9de4f27b2063885d8326440508aebff81d101e8ef84"
+    },
+    "retention/status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller/status.json",
+      "bytes": 2865,
+      "sha256": "7e7afe142ce362b6ac36a0a7e612ccd87e397dc662309d6c608e685f308d0125"
+    },
+    "retention/launch.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller/launch.json",
+      "bytes": 583,
+      "sha256": "5ff54e47e9eb4c2c1496f59124477ba0498fe0a0defcf5a425b86519e151ba9b"
+    },
+    "retention/archive-results.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller/archive-results.json",
+      "bytes": 2480,
+      "sha256": "1e976f38ccf9c5263f2a9a1babf8064d2328d4c23e2c758ff8dba03a29deb1de"
+    },
+    "retention/retirement-status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller/retirement-status.json",
+      "bytes": 1692,
+      "sha256": "1d632dbd6c685762bc6155f08fe88145d2e05177a5d9a255ab524a7c6309ab43"
+    },
+    "retention/retirement-launch.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller/retirement-launch.json",
+      "bytes": 457,
+      "sha256": "66e9c0a3d8c467dc2aecee3b8e6b57907b08201add01fefcde315b65e2e5e283"
+    },
+    "mth_review/status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/status.json",
+      "bytes": 1313,
+      "sha256": "b2e1e4ae63c994184981072cd08ed156061dfe9f2377e471e1b1f5155fdb7711",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-finalization-status.json"
+    },
+    "mth_review/launch.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/launch.json",
+      "bytes": 537,
+      "sha256": "179ff0e0aeab793ecfb4483ca959df273f4e0c3b9de9e04ab88aa27314690fcf",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-finalization-launch.json"
+    },
+    "mth_review/recovery-request.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/recovery-request.json",
+      "bytes": 4406,
+      "sha256": "2f10bc63746655807ed490a8eedf7c958f8e034d3c91d732f8105881e6542a1c",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-finalization-request.json"
+    },
+    "mth_review/native-result.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/native-result.json",
+      "bytes": 79556,
+      "sha256": "7d624ff3aa395388cb5ef19128b7f9dc32d5816952910091249f4c5975a907cb",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-native-result.json"
+    },
+    "mth_review/result.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/result.json",
+      "bytes": 84846,
+      "sha256": "86e192499faed35ef73eb3632001dec284256aacbe14c6548f238fdbed430549",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-result.json"
+    },
+    "mth_review/raw-result.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/raw-result.json",
+      "bytes": 79609,
+      "sha256": "a87925e80f6d39b4778af949b9636589e5870476ba06c4e590555fa2797c009d",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-raw-result.json"
+    },
+    "mth_review/correction-audit.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/correction-audit.json",
+      "bytes": 2874,
+      "sha256": "72eb0d743f198c18ce06e0f1945cfb5fbe3c2ea9fa7091cb0cf102e5df8a39b9",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-correction-audit.json"
+    },
+    "mth_review/correction-audit-execution.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110/correction-audit-execution.json",
+      "bytes": 261,
+      "sha256": "4fa8026749d61a961735dafeb39d004be9fb9a07c4754344e306fe491a0b8e65",
+      "repository_path": "docs/inversion-review/mth-generated-configuration-audit-execution.json"
+    },
+    "review_verification/verification-status.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-reviewed-verification-20261110.controller/verification-status.json",
+      "bytes": 362,
+      "sha256": "d5cfa33ca26a5ed7fafd2052b46494dd12aa469f52add1cfc81b9e5c415ff8de",
+      "repository_path": "docs/inversion-review/generated-settings-verification-status.json"
+    },
+    "review_verification/verification-launch.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-reviewed-verification-20261110.controller/verification-launch.json",
+      "bytes": 621,
+      "sha256": "ceab627f437134d19103fa145c7fafe86e09ceb81826acc9f23b7f9e1378d780",
+      "repository_path": "docs/inversion-review/generated-settings-verification-launch.json"
+    },
+    "review_verification/verification-request.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-reviewed-verification-20261110.controller/verification-request.json",
+      "bytes": 334,
+      "sha256": "6b8a0d3e0d50a6a2d9bef99e3a85b00765ca7de23ddc9a01c93462dd65acbc7a",
+      "repository_path": "docs/inversion-review/generated-settings-verification-request.json"
+    },
+    "review_verification/verification-metrics.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-reviewed-verification-20261110.controller/verification-metrics.json",
+      "bytes": 260,
+      "sha256": "e009600991399e49a84a306ac9a5c7fa43891ad5d0ab597500a748f58e4bac72",
+      "repository_path": "docs/inversion-review/generated-settings-verification-metrics.json"
+    },
+    "review_verification/final-verification.json": {
+      "path": "/local/content/MEME/MEME5/inv/qa/replay-requests/generated-settings-reviewed-verification-20261110.controller/final-verification.json",
+      "bytes": 6896,
+      "sha256": "7efc7df05d9dd36a0e6fa0c269a3d3dddc5028fb2508e74be6d6b5d38455fcbb",
+      "repository_path": "docs/inversion-review/generated-settings-final-verification.json"
+    }
+  },
+  "standalone_audit_equals_embedded_result": true,
+  "raw_and_original_native_comparison_equal_final_comparison": true,
+  "raw_result_file_hash_matches_result": true,
+  "audit_tool_matches_frozen_module": true,
+  "public_original_reports": 23,
+  "scope": "Original JSON receipt bytes verified against server size/SHA-256. Original MTH wrapper failure and initial verifier refusal remain failed; a separate review completes verification/audit of unchanged native outputs. Source .src data stays on dev."
+}

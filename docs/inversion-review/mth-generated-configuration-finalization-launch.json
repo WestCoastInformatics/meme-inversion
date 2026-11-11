@@ -1,0 +1,10 @@
+{
+  "control_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/common-mth-generated-finalization-20261110",
+  "worker_pid": 2273704,
+  "code_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+  "driver_sha256": "179f8086af3ff455cafe468ef9777baf2f19bd9a476163738755c0baaa044300",
+  "recovery_request_sha256": "2f10bc63746655807ed490a8eedf7c958f8e034d3c91d732f8105881e6542a1c",
+  "conversion_apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+  "parent_failure_preserved": true,
+  "native_conversion_repeated": false
+}

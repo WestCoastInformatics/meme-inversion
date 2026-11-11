@@ -4,6 +4,8 @@ Status, November 9, 2026: historical adapters and accepted full common execution
 
 The subsequent [NCIt generated-configuration integration](nci-configuration-generation.md) also passes: canonical Git code and common-model settings produce the same five output hashes. It is separate evidence after the six-case baseline matrix, with its own final verification and preserved predecessor.
 
+The later [SNOMED/MTH generated-settings execution](generated-settings-execution.md) also passes independent retained-file verification. SNOMED has an uninterrupted exact common run; MTH completes native generation/comparison, followed by a separately accepted finalization review after correcting the common post-verification call. Original failed worker/batch/verifier records remain failed. This distinction is retained in every result and does not authorize operational release creation.
+
 ## One request and configuration
 
 The operator supplies seven fields from [request.schema.json](request.schema.json):

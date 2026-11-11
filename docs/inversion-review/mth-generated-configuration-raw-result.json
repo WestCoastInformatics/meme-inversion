@@ -1,0 +1,2528 @@
+{
+  "source": "MTH",
+  "version": "MTH_2026AA",
+  "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+  "run_id": "common-mth-generated-20261110",
+  "stages": {
+    "identity-preparation": {
+      "exit_status": 0,
+      "seconds": 7.75,
+      "sampled_peak_process_group_resident_bytes": 3231744,
+      "minimum_available_memory_bytes": 28577128448,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "source-metadata-builder": {
+      "exit_status": 0,
+      "seconds": 0.03,
+      "sampled_peak_process_group_resident_bytes": 4947968,
+      "minimum_available_memory_bytes": 28566822912,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "atoms-and-initial-map": {
+      "exit_status": 0,
+      "seconds": 772.38,
+      "sampled_peak_process_group_resident_bytes": 6492160,
+      "minimum_available_memory_bytes": 28520525824,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "identity-transitions": {
+      "exit_status": 0,
+      "seconds": 10.24,
+      "sampled_peak_process_group_resident_bytes": 95375360,
+      "minimum_available_memory_bytes": 28482613248,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "attributes-relationships-merges": {
+      "exit_status": 0,
+      "seconds": 7738.18,
+      "sampled_peak_process_group_resident_bytes": 2210250752,
+      "minimum_available_memory_bytes": 26178199552,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "bequeathal-relationships": {
+      "exit_status": 0,
+      "seconds": 363.22,
+      "sampled_peak_process_group_resident_bytes": 6230016,
+      "minimum_available_memory_bytes": 28379910144,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "relationship-normalization": {
+      "exit_status": 0,
+      "seconds": 7.5,
+      "sampled_peak_process_group_resident_bytes": 3252224,
+      "minimum_available_memory_bytes": 28406951936,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "context-roots": {
+      "exit_status": 0,
+      "seconds": 2.55,
+      "sampled_peak_process_group_resident_bytes": 9678848,
+      "minimum_available_memory_bytes": 28413444096,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "raw-contexts": {
+      "exit_status": 0,
+      "seconds": 216.93,
+      "sampled_peak_process_group_resident_bytes": 804536320,
+      "minimum_available_memory_bytes": 27524743168,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "context-attributes": {
+      "exit_status": 0,
+      "seconds": 136.23,
+      "sampled_peak_process_group_resident_bytes": 8921088,
+      "minimum_available_memory_bytes": 28338085888,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "contexts": {
+      "exit_status": 0,
+      "seconds": 148.21,
+      "sampled_peak_process_group_resident_bytes": 34140160,
+      "minimum_available_memory_bytes": 28383604736,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "context-tails": {
+      "exit_status": 0,
+      "seconds": 0.53,
+      "sampled_peak_process_group_resident_bytes": 3223552,
+      "minimum_available_memory_bytes": 28423716864,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    },
+    "preferred-term-and-final-atoms": {
+      "exit_status": 0,
+      "seconds": 77.43,
+      "sampled_peak_process_group_resident_bytes": 597327872,
+      "minimum_available_memory_bytes": 27845222400,
+      "network": "disabled",
+      "namespace_user": "root",
+      "address_space_limit_bytes_per_child": 23622320128
+    }
+  },
+  "comparison": {
+    "source": "MTH",
+    "version": "MTH_2026AA",
+    "files": {
+      "attr_src": {
+        "reference": {
+          "bytes": 109,
+          "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+          "newline_count": 1
+        },
+        "candidate": {
+          "bytes": 109,
+          "sha256": "ff1f9d5b666719b2874bb06490c825df663113dede08c5a24ed6f0ac3660b9ad",
+          "newline_count": 1
+        },
+        "reference_member": "MTH_2026AA/src/attr_src",
+        "exact_match": true
+      },
+      "class_src": {
+        "reference": {
+          "bytes": 142,
+          "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+          "newline_count": 2
+        },
+        "candidate": {
+          "bytes": 142,
+          "sha256": "3773c425438ca2098b4ca3430547224ccf50e3106f9335ea66a3d7e804bb57ac",
+          "newline_count": 2
+        },
+        "reference_member": "MTH_2026AA/src/class_src",
+        "exact_match": true
+      },
+      "rel_src": {
+        "reference": {
+          "bytes": 103,
+          "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+          "newline_count": 1
+        },
+        "candidate": {
+          "bytes": 103,
+          "sha256": "02270706b7e2b56b848dcbdd3ba5cdc20986dd49e586f4a13c5aaa0370a46e40",
+          "newline_count": 1
+        },
+        "reference_member": "MTH_2026AA/src/rel_src",
+        "exact_match": true
+      },
+      "merge_src": {
+        "reference": {
+          "bytes": 67,
+          "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+          "newline_count": 1
+        },
+        "candidate": {
+          "bytes": 67,
+          "sha256": "e9af66fb4efbb1bcef661d31ba17a7a0e3042b45b907b96be4b1335fa3579e9d",
+          "newline_count": 1
+        },
+        "reference_member": "MTH_2026AA/src/merge_src",
+        "exact_match": true
+      },
+      "auis_nonupdatedSAB_moved": {
+        "reference": {
+          "bytes": 11130,
+          "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+          "newline_count": 597
+        },
+        "candidate": {
+          "bytes": 11130,
+          "sha256": "8e24d42c79f3fdeee6e3a6ad56ea8ba7678a3397ea4f007f04656d3fd024d7f8",
+          "newline_count": 597
+        },
+        "reference_member": "MTH_2026AA/src/auis_nonupdatedSAB_moved",
+        "exact_match": true
+      },
+      "cui_merges": {
+        "reference": {
+          "bytes": 10278,
+          "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+          "newline_count": 571
+        },
+        "candidate": {
+          "bytes": 10278,
+          "sha256": "4d8b0a867fdb2aafbce0b6cd63b3d06a27809dbdb1a3267cdcd1487b83e26e94",
+          "newline_count": 571
+        },
+        "reference_member": "MTH_2026AA/src/cui_merges",
+        "exact_match": true
+      },
+      "classes_atoms.src": {
+        "reference": {
+          "bytes": 555467101,
+          "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+          "newline_count": 4018246
+        },
+        "candidate": {
+          "bytes": 555467101,
+          "sha256": "c81ac1daed840a7aac841a90acd086a6119403ae1b8c799c14904d3d41fd57cd",
+          "newline_count": 4018246
+        },
+        "reference_member": "MTH_2026AA/src/classes_atoms.src",
+        "exact_match": true
+      },
+      "aui_said_map": {
+        "reference": {
+          "bytes": 115764330,
+          "sha256": "f18d22cacbfe54838886f10b96c533390dc58d4ee2e371121bd00a1d4764deb5",
+          "newline_count": 4017648
+        },
+        "candidate": {
+          "bytes": 115764303,
+          "sha256": "47449f178be6d20ccb9ef7c486fcc993835904b8838c7a7cad0effb91f7a371a",
+          "newline_count": 4017647
+        },
+        "reference_member": "MTH_2026AA/src/aui_said_map",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 4017646,
+          "reference_only_rows": 2,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "A8298289|C1541964|771038404",
+              "A8298300|C1541964|771038403"
+            ],
+            "candidate_only": [
+              "A32818398|C1976636|771405764"
+            ]
+          }
+        }
+      },
+      "cui.splitonly.new": {
+        "reference": {
+          "bytes": 270,
+          "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+          "newline_count": 30
+        },
+        "candidate": {
+          "bytes": 270,
+          "sha256": "491955d0ed1eef625383ffd8b8bb4acaf3351ffa4d253c5f2deb135d708a5556",
+          "newline_count": 30
+        },
+        "reference_member": "MTH_2026AA/src/cui.splitonly.new",
+        "exact_match": true
+      },
+      "cui_splitonly_said_map": {
+        "reference": {
+          "bytes": 570,
+          "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+          "newline_count": 30
+        },
+        "candidate": {
+          "bytes": 570,
+          "sha256": "241b5321cf50a69c0758acea2041790392c96cec2e416fa00b884cdf46da70b0",
+          "newline_count": 30
+        },
+        "reference_member": "MTH_2026AA/src/cui_splitonly_said_map",
+        "exact_match": true
+      },
+      "moved_aui_said_map": {
+        "reference": {
+          "bytes": 17100,
+          "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+          "newline_count": 597
+        },
+        "candidate": {
+          "bytes": 17100,
+          "sha256": "11f316482c6fdb9746f95f6f3c599eaac5fc6dde36254784e5a83fb5e67eeb68",
+          "newline_count": 597
+        },
+        "reference_member": "MTH_2026AA/src/moved_aui_said_map",
+        "exact_match": true
+      },
+      "cui_said_map": {
+        "reference": {
+          "bytes": 36214304,
+          "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+          "newline_count": 1906016
+        },
+        "candidate": {
+          "bytes": 36214304,
+          "sha256": "a0cc275900ac52fc31b847bc30d762a19ff2bab798daa32c7d544ee0e38a2c70",
+          "newline_count": 1906016
+        },
+        "reference_member": "MTH_2026AA/src/cui_said_map",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1906015,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "C1541964|771038403"
+            ],
+            "candidate_only": [
+              "C1976636|771405764"
+            ]
+          }
+        }
+      },
+      "rel_cui_said_map": {
+        "reference": {
+          "bytes": 36214304,
+          "sha256": "47694a5832ca514ee4fe8d483985707910cd5d39d777ec775f4095378545cd26",
+          "newline_count": 1906016
+        },
+        "candidate": {
+          "bytes": 36214304,
+          "sha256": "a0cc275900ac52fc31b847bc30d762a19ff2bab798daa32c7d544ee0e38a2c70",
+          "newline_count": 1906016
+        },
+        "reference_member": "MTH_2026AA/src/rel_cui_said_map",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1906015,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "C1541964|771038403"
+            ],
+            "candidate_only": [
+              "C1976636|771405764"
+            ]
+          }
+        }
+      },
+      "attributes.src": {
+        "reference": {
+          "bytes": 2796291696,
+          "sha256": "7cdc75788d3438289d18fd1451b85ff2a5af21feddecc93ce4b69abed450f9f8",
+          "newline_count": 20206954
+        },
+        "candidate": {
+          "bytes": 2796291723,
+          "sha256": "4f58be933c5a1e64bde1486b41ea03e3fb4fb290d2ec3868087c1afd3eb9eeeb",
+          "newline_count": 20206954
+        },
+        "reference_member": "MTH_2026AA/src/attributes.src",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 19287583,
+          "reference_only_rows": 919371,
+          "candidate_only_rows": 919371,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "17628814|771038403|C|SEMANTIC_TYPE|Intellectual Product|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||3d9e88091cf4ebbab774e90c8f6d4052|",
+              "17628815|771038405|C|SEMANTIC_TYPE|Finding|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||d60fa52f375e62bd2309f7040bc53665|",
+              "17628816|771038406|C|SEMANTIC_TYPE|Organic Chemical|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||c593a332b19da2e7028b43295f41be14|"
+            ],
+            "candidate_only": [
+              "17628814|771038405|C|SEMANTIC_TYPE|Finding|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||d60fa52f375e62bd2309f7040bc53665|",
+              "17628815|771038406|C|SEMANTIC_TYPE|Organic Chemical|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||c593a332b19da2e7028b43295f41be14|",
+              "17628816|771038406|C|SEMANTIC_TYPE|Pharmacologic Substance|E-MTH_2026AA|R|Y|N|N|SRC_ATOM_ID|||f2d6dd6b0e78d83a64d168510c54ee04|"
+            ]
+          }
+        }
+      },
+      "mergefacts.src": {
+        "reference": {
+          "bytes": 83696,
+          "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+          "newline_count": 1169
+        },
+        "candidate": {
+          "bytes": 83696,
+          "sha256": "050c03f5ea7308717c3623808b7bea6cd1c305c129bf7c49f81b887342b02e33",
+          "newline_count": 1169
+        },
+        "reference_member": "MTH_2026AA/src/mergefacts.src",
+        "exact_match": true
+      },
+      "bequeathal.relationships.src": {
+        "reference": {
+          "bytes": 682893,
+          "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+          "newline_count": 7600
+        },
+        "candidate": {
+          "bytes": 682893,
+          "sha256": "c3ef24034e82ee0421070344e4bda0097d206139d1f06c7b58d11e94adf181ff",
+          "newline_count": 7600
+        },
+        "reference_member": "MTH_2026AA/src/bequeathal.relationships.src",
+        "exact_match": true
+      },
+      "relationships.src": {
+        "reference": {
+          "bytes": 771791609,
+          "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+          "newline_count": 6404200
+        },
+        "candidate": {
+          "bytes": 771791609,
+          "sha256": "d1b69a90a40bc73cd8d5f708d13e83f6a4de0573bf8cfd3b3abc6bfb3869f111",
+          "newline_count": 6404200
+        },
+        "reference_member": "MTH_2026AA/src/relationships.src",
+        "exact_match": true
+      },
+      "src-root.cuis.updated": {
+        "reference": {
+          "bytes": 189,
+          "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+          "newline_count": 21
+        },
+        "candidate": {
+          "bytes": 189,
+          "sha256": "a91c836b07af0c2ef7883e90e6922ad6dad60c096d28f725ba69973711eae43e",
+          "newline_count": 21
+        },
+        "reference_member": "MTH_2026AA/src/src-root.cuis.updated",
+        "exact_match": true
+      },
+      "attributes.contexts-all.src": {
+        "reference": {
+          "bytes": 460970251,
+          "sha256": "61ae9d3626ddccd3a512b0fdcc3984681871a792d3f76085df15f36bbb88cbfe",
+          "newline_count": 1075932
+        },
+        "candidate": {
+          "bytes": 460970278,
+          "sha256": "db3409bf5ff2fe12aa55fd153fea65e0b82326e19d6f177a13f0732484622053",
+          "newline_count": 1075932
+        },
+        "reference_member": "MTH_2026AA/src/attributes.contexts-all.src",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 346478,
+          "reference_only_rows": 729454,
+          "candidate_only_rows": 729454,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "19477501|771405765|S|CONTEXT|1\t::~771405765~SRC_ATOM_ID~~771405765~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tReason for discontinuation of anti-infective phrophylaxis medication:Type:Pt:^Patient:Nom:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||e2db3dbac7468762b642d29446e82e3f|",
+              "19477502|771405772|S|CONTEXT|1\t::~771405772~SRC_ATOM_ID~~771405772~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tHIV ART medication dose number taken/Medication dose number prescribed:NFr:Pt:^Patient:Qn:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||d7f6f31fb78941e4159e16ebf14605c0|",
+              "19477503|771405778|S|CONTEXT|1\t::~771405778~SRC_ATOM_ID~~771405778~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tDegree of adherence to co-trimoxazole:Find:Pt:^Patient:Ord:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||d87b6305bc41b5c803a4afaf7438b8b8|"
+            ],
+            "candidate_only": [
+              "19477501|771405764|S|CONTEXT|1\t::~771405764~SRC_ATOM_ID~~771405764~SRC_ATOM_ID~\tLOINC Root\tLOINCPARTS\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||e94fc82940d4ad3e9472443c08d9dd7c|",
+              "19477502|771405765|S|CONTEXT|1\t::~771405765~SRC_ATOM_ID~~771405765~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tReason for discontinuation of anti-infective phrophylaxis medication:Type:Pt:^Patient:Nom:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||e2db3dbac7468762b642d29446e82e3f|",
+              "19477503|771405772|S|CONTEXT|1\t::~771405772~SRC_ATOM_ID~~771405772~SRC_ATOM_ID~\tLOINC Root~LOINCCLASSTYPES~Clinical Class~Antiretroviral therapy\tHIV ART medication dose number taken/Medication dose number prescribed:NFr:Pt:^Patient:Qn:Reported\t\t|LNC_2_82|R|n|N|N|SRC_ATOM_ID|||d7f6f31fb78941e4159e16ebf14605c0|"
+            ]
+          }
+        }
+      },
+      "contexts.src": {
+        "reference": {
+          "bytes": 312852927,
+          "sha256": "90989cfea8bce6b4f0b1a2e00d9a3bc9ec8df9c240aee15de023bd9adaa1440c",
+          "newline_count": 1118752
+        },
+        "candidate": {
+          "bytes": 312852945,
+          "sha256": "67953ce44f1e2a959af90f4c2dd420d7db88c8e4ac96bd09e18bcd9c14508538",
+          "newline_count": 1118752
+        },
+        "reference_member": "MTH_2026AA/src/contexts.src",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1118751,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 1,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "|PAR||770620428|LNC_2_82|LNC_2_82||770620428|11||||SRC_ATOM_ID||770620428|SRC_ATOM_ID|||"
+            ],
+            "candidate_only": [
+              "771405764|PAR||770620428|LNC_2_82|LNC_2_82||770620428|11|||771405764|SRC_ATOM_ID||770620428|SRC_ATOM_ID|||"
+            ]
+          }
+        }
+      },
+      "said.ptsaid": {
+        "reference": {
+          "bytes": 80364960,
+          "sha256": "cbe3c1f428872ba6e77d44a2eaefe24c2b1e84633f28ff4f289b014dec9b152f",
+          "newline_count": 4018248
+        },
+        "candidate": {
+          "bytes": 80364920,
+          "sha256": "f6e7f6f089881b800b293f6a1de1135a9459b923bc1726490267b2b7c17027a2",
+          "newline_count": 4018246
+        },
+        "reference_member": "MTH_2026AA/src/said.ptsaid",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 4018246,
+          "reference_only_rows": 2,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "771038403|771038403",
+              "771038404|771038403"
+            ],
+            "candidate_only": []
+          }
+        }
+      },
+      "ptsaid.order": {
+        "reference": {
+          "bytes": 18667590,
+          "sha256": "a0059d96783080fa606cf26e9f07816eff380ae0752a1591c6a76c8793dbed3d",
+          "newline_count": 1866759
+        },
+        "candidate": {
+          "bytes": 18667580,
+          "sha256": "08ad72c29a462b401e7870afe710e475f173b131139bca80f1fe98c984f277b5",
+          "newline_count": 1866758
+        },
+        "reference_member": "MTH_2026AA/src/ptsaid.order",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 1866758,
+          "reference_only_rows": 1,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "771038403"
+            ],
+            "candidate_only": []
+          }
+        }
+      },
+      "classes_atoms.src.raw": {
+        "reference": {
+          "bytes": 602938575,
+          "sha256": "71528eca34d3fff112e055e08e0db7d13f89ea9985bd323bed6ccb23a960f6ff",
+          "newline_count": 4018248
+        },
+        "candidate": {
+          "bytes": 602938360,
+          "sha256": "559e9547153018252a8071a2b3dd436b0dfbc4e9c28d6a3fdb62beacd41a001a",
+          "newline_count": 4018246
+        },
+        "reference_member": "MTH_2026AA/src/classes_atoms.src.raw",
+        "exact_match": false,
+        "full_record_multiset": {
+          "equal_rows": 4018246,
+          "reference_only_rows": 2,
+          "candidate_only_rows": 0,
+          "equal_preserving_multiplicity": false,
+          "samples": {
+            "reference_only": [
+              "771038403|SRC|SRC/VPT|V-CCS_2005|R|Y|A|Clinical Classifications Software, 2005|N||||ENG|needs_order_id|N|C1541964|A8298300",
+              "771038404|SRC|SRC/VAB|V-CCS_2005|R|Y|A|CCS_2005|N||||ENG|needs_order_id|N|C1541964|A8298289"
+            ],
+            "candidate_only": []
+          }
+        }
+      }
+    },
+    "validation": {
+      "atom_ids": {
+        "unique": 4018246,
+        "duplicates": 0,
+        "out_of_range": 0
+      },
+      "files": {
+        "classes_atoms.src": {
+          "rows": 4018246,
+          "field_counts": {
+            "15": 4018246
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {}
+        },
+        "attributes.src": {
+          "rows": 20206954,
+          "field_counts": {
+            "15": 20206954
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 20206954
+          }
+        },
+        "relationships.src": {
+          "rows": 6404200,
+          "field_counts": {
+            "19": 6404200
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "CODE_TERMGROUP|SRC/VPT": 1,
+            "CODE_TERMGROUP|SRC/RPT": 1,
+            "SRC_ATOM_ID|": 12180406,
+            "CUI_CURRENT|": 627992
+          }
+        },
+        "mergefacts.src": {
+          "rows": 1169,
+          "field_counts": {
+            "13": 1169
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 599,
+            "CUI_CURRENT|": 1168,
+            "CUI|": 571
+          }
+        },
+        "bequeathal.relationships.src": {
+          "rows": 7600,
+          "field_counts": {
+            "19": 7600
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "CUI_CURRENT|": 7600,
+            "CUI_PREVIOUS|": 7600
+          }
+        },
+        "contexts.src": {
+          "rows": 1118752,
+          "field_counts": {
+            "19": 1118752
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 4475008
+          }
+        }
+      },
+      "passed": true,
+      "scope": "Observed MTH field widths and context tails, UTF-8, unique generated IDs, reserved atom bounds including two SRC atoms, attribute digests and current SRC_ATOM_ID references/paths. CUI, CUI_CURRENT and CUI_PREVIOUS remain distinct; database identity/domain validation and legacy QA are separate coverage.",
+      "identity_state": {
+        "passed": true,
+        "raw_binding_violations": {},
+        "files": {
+          "aui_said_map": {
+            "rows": 4017647,
+            "violations": {}
+          },
+          "moved_aui_said_map": {
+            "rows": 597,
+            "violations": {}
+          },
+          "cui_said_map": {
+            "rows": 1906016,
+            "violations": {}
+          },
+          "rel_cui_said_map": {
+            "rows": 1906016,
+            "violations": {}
+          },
+          "cui_splitonly_said_map": {
+            "rows": 30,
+            "violations": {}
+          }
+        },
+        "scope": "Current persisted AUI/CUI maps reference final retained atoms with matching native CUI/AUI and moved roles. Prior/current CUI transition semantics remain separately compared."
+      }
+    },
+    "acceptance": {
+      "status": "DIFFERENCES_REQUIRE_REVIEW",
+      "all_compared_outputs_exact": false,
+      "all_compared_records_equal": false,
+      "six_core_files_exact": false,
+      "generated_ids_reindexed": false,
+      "ignored_fields": [],
+      "validation_passed": true
+    },
+    "scope": "Final-range core conversion, moved/split CUI/AUI identity maps, bequeathal relationships and contexts from archived prepared subset and metadata. MetamorphoSys generation, source-metadata acquisition, preliminary ID estimation, MRDOC/legacy QA, umlscui.txt and insertion are outside this case."
+  },
+  "acceptance": {
+    "status": "DIFFERENCES_REQUIRE_REVIEW",
+    "all_compared_outputs_exact": false,
+    "all_compared_records_equal": false,
+    "six_core_files_exact": false,
+    "generated_ids_reindexed": false,
+    "ignored_fields": [],
+    "validation_passed": true
+  },
+  "started_at": "2026-11-11T00:50:49.628587+00:00",
+  "completed_at": "2026-11-11T03:37:57.416894+00:00",
+  "input_engine_runtime_and_output_hashes_verified_after_run": true,
+  "apparatus_sha256": {
+    "inversion_worker.py": "92e02c0ffa8255bb7318383d48a8d8d88dd8c900e6b61d9c52952c4a03810540",
+    "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "replay_mth_core.py": "97b8ccb8d8d37833b14760afdcc1cbed41bd9b831d52cbc3280fb74b6fa5c42c",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "prepare_nci_candidate.py": "e31c1378e1a42e91c801a47968b2d7e1443abf13ac632e9857052c0e12dec13a",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "068568df2e9fe0e6cc01651542b6b196ebc575d9f7e2490a9788b47cc3e15f83",
+    "run_snomed_core_replay.py": "4ba0189cfabbd3ee8f352c909deb861f0def4ba41d4f9ba65cb235810968aa85",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "replay_framework_core.py": "06c373153f2a3b7f40f5b0dda9bef259f2f2e5e4c6d0208d5d94e46fd93da62a",
+    "compare_framework_core.py": "8123f6c14099946c7ecd07d495ae562ef5f54b86c448e66abad305ab0645fa8d",
+    "audit_mdr_corrections.py": "efdd7207122716189c29443629223b05e1af580ec96870c089849e9c91028ff6",
+    "nci_configuration.py": "fc2dda04e634887ce2370e8b193e639c804a30f8420bf20b3abf1adbee5cfe4e",
+    "nci_source_plan.py": "dd15ec41f3e0a6b1ec7a53c9a803c741049fe735e815aa1893c7650761b20324",
+    "snomed_configuration.py": "1f38dc69fd3d8555f364f1a6339f85b11b08975f024662ca0cadf86735144c0b",
+    "mth_configuration.py": "0b9dbfc4728f49688933f79466a7ecdd67f14a7f7198b39b6d6625823df62b8c"
+  },
+  "insertion_executed": false,
+  "configuration_generation": {
+    "profile": "mth-prepared-spec-v1",
+    "files": [
+      {
+        "relative_path": "range3.spec",
+        "mode": "0o444",
+        "sha256": "e5eee6e149ee5e9653fb9001bb92eacdc02aa794f209d44391eb27a3f5ff51f9"
+      },
+      {
+        "relative_path": "src/inv1.spec",
+        "mode": "0o444",
+        "sha256": "d37e95597c94056cbd9f7db3ae470eda449898837790ad4035a1c8907d3531a7"
+      },
+      {
+        "relative_path": "src/inv2.spec",
+        "mode": "0o444",
+        "sha256": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2"
+      },
+      {
+        "relative_path": "src/inv3.spec",
+        "mode": "0o444",
+        "sha256": "d51bc362cd1c1f194bc3171cf3a028216c706ed274f2d67c387990da328a2738"
+      },
+      {
+        "relative_path": "ncisources.spec",
+        "mode": "0o444",
+        "sha256": "770d49565cb8f04e9aa4d2747d009c2fbda8c886e5e17f87030438cc2dbc79e2"
+      },
+      {
+        "relative_path": "sab.vsab.map",
+        "mode": "0o444",
+        "sha256": "3b47bacc4e48c7c51a4a8c6f0e96fd1ab98656afa50d18de8469be7e2b865b02"
+      },
+      {
+        "relative_path": "src_data",
+        "mode": "0o444",
+        "sha256": "fb3e47382e911af3177216a193bb6166471243a6f44abfffcc8a6554d332937c"
+      }
+    ],
+    "bindings": {
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+      "policy_ref": "sha256:9cd56b7e1882583761fd319d94355c428762aaf3e43e937e863cd4d6ce8a74e8",
+      "replacement_baseline": {
+        "source": "MTH",
+        "version": "MTH_2025AB"
+      },
+      "comparison_baseline": null,
+      "publisher_history": [],
+      "publisher_previous": {
+        "source": "MTH",
+        "version": "MTH_2025AB",
+        "evidence": [
+          "invert1.s:set prevrel",
+          "prev:captured symlink"
+        ],
+        "role": "publisher history selection in captured preparation; independent of old"
+      },
+      "source_atom_ids": {
+        "start": 769443591,
+        "end": 773943592,
+        "provenance_ref": "sha256:763cc5914e5d2a9091ad50ee339b2e5ba3064283701eb860d478895679911c81"
+      },
+      "legacy_allocation": {
+        "SourceAtomIdBase": 769443593,
+        "SourceAtomIdLimit": 773943592,
+        "SRCbuilder_start": 769443591,
+        "reserved_SRC_atoms": 2
+      },
+      "inputs": {
+        "source_data": [
+          "sha256:be6a55b96b7217ac7604ef2f9dd4eceb841cc28089ac29a251f64c0ce30552c1"
+        ],
+        "source_data_stage": "prepared",
+        "reference_ncimeta": "sha256:8638704dabf109e88ef2780f68cb0d591ecc76a14f02343f742be12b03c78fa3",
+        "identity_state": "sha256:3d72a0866f22d433c3dad6fc91b7721925b08186c4c11f98c82ebaef8d9bebb0",
+        "source_plan": "sha256:7b08c2d051f176cf3c2532876220b2bfe0a98d97c7f97ceaf77e77660912cdd6"
+      },
+      "identity_state": {
+        "prior_archive_path": "/local/content/MEME/MEME5/inv/sources/MTH_2025AB.tgz",
+        "prior_archive_sha256": "624bd3fc17b9b505cbb45332f7dc79a6ae5de14bb1771f93d59b1476372431eb",
+        "prior_map": {
+          "path": "MTH_2025AB/src/cui_said_map",
+          "size": 41969461,
+          "mode": "0o664",
+          "mtime": 1760722349,
+          "role": "official-inversion-output-or-state",
+          "kind": "file",
+          "sha256": "550ce9122884d8af9abc7b151ea0e2c6a4e0d4df0f8516e746e866c8dc2d1d20",
+          "newline_count": 2208919
+        }
+      },
+      "metadata_inputs": [
+        {
+          "relative_path": "src/sources.src",
+          "sha256": "2e0850156c05bda99bb2f039d4eb27ada4523222c2a46107796d04682cef46ef"
+        },
+        {
+          "relative_path": "src/termgroups.src",
+          "sha256": "f329d878f1b2f29595776fcfea25fab045f66cb81bb8da2fe5fcf0288c28bb3f"
+        },
+        {
+          "relative_path": "src/vsab.updates",
+          "sha256": "2ec5d1ddf6da8ef5bd81dc251c586972c4ca2cbfd64e160418a636e8f9f2c686"
+        },
+        {
+          "relative_path": "src/sabs_updated_umls",
+          "sha256": "17159f125a7c0fc36798d127ccac80298b46ab9c7b910d8e4cf477aca35a1987"
+        },
+        {
+          "relative_path": "src/rsabs-updated.umls",
+          "sha256": "c06c5abc8f1ee35cf7a46849fb8ecf381949d600a7bee66c8ec1d7af60368bd0"
+        },
+        {
+          "relative_path": "src/vcodes_updated",
+          "sha256": "7743a79759f07a33051ea059e4f9e9024e179aa431d576475fe4eadd4b822dad"
+        },
+        {
+          "relative_path": "ncimid.sources",
+          "sha256": "059038919f1a9a076cb55213c8cc64e65f0d81491d41b5ceebb3f320f0ce3f32"
+        },
+        {
+          "relative_path": "ncimid.termgroups",
+          "sha256": "ae222dbd75728487631a65e607726addc4318f62802815e174b7bc824c84a470"
+        }
+      ],
+      "native_inputs": [
+        {
+          "relative_path": "subset3/METASUBSET/MRCONSO.RRF",
+          "object_identity": {
+            "ContentLength": 725846020,
+            "ETag": "\"aba3448bed6aa5829734f14d076a6ac9-87\"",
+            "LastModified": "2026-06-05T16:48:35+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 725846020,
+            "sha256": "009f2c9e97bc2947522bf8ad76a63f6435923e7c70baecd4303a03ec2062ff3c",
+            "newline_count": 5449965
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRREL.RRF",
+          "object_identity": {
+            "ContentLength": 2135135138,
+            "ETag": "\"4a5295f0aaaad8de9048e5c601601282-255\"",
+            "LastModified": "2026-06-05T16:49:05+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 2135135138,
+            "sha256": "9ffa0eec45a575c00080e319b28fe3d989426206f1babcf495349a5fe18c4a90",
+            "newline_count": 19114268
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRSAT.RRF",
+          "object_identity": {
+            "ContentLength": 2498585891,
+            "ETag": "\"eb3b2fd07e322baf580fd9adc55f51f5-298\"",
+            "LastModified": "2026-06-05T16:49:17+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 2498585891,
+            "sha256": "552edab08be3bcf9cfe21bedf6a4dfd3fec447060d9bec11fbea52bbf768d86d",
+            "newline_count": 26063852
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRSTY.RRF",
+          "object_identity": {
+            "ContentLength": 146607934,
+            "ETag": "\"2be7e2a5afacd578b3ea29ca66060740-18\"",
+            "LastModified": "2026-06-05T16:50:46+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 146607934,
+            "sha256": "8d367ca124fc17f33dd9a6ed22c2c6173d52ff98ec0d4652d65c4678b55a7d54",
+            "newline_count": 2682584
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRDEF.RRF",
+          "object_identity": {
+            "ContentLength": 44094496,
+            "ETag": "\"a5cd0b12a06c9a2feff79a7c19a3ef06-6\"",
+            "LastModified": "2026-06-05T16:48:41+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 44094496,
+            "sha256": "4fa9902a75a94a168b143e42530db9e65355c1cc91274fe5d8ef54ece2ff3b86",
+            "newline_count": 138740
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRCUI.RRF",
+          "object_identity": {
+            "ContentLength": 107191312,
+            "ETag": "\"99550a138b82d0447d51582403f4b6a9-13\"",
+            "LastModified": "2026-06-05T16:48:36+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 107191312,
+            "sha256": "aa1a612da238e8b85060088d63501139203599d7665d0e5fb05b06143c0565f0",
+            "newline_count": 3830553
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRCXT.RRF",
+          "object_identity": {
+            "ContentLength": 3659005721,
+            "ETag": "\"1e89a706208bfb223e012cec7123312d-437\"",
+            "LastModified": "2026-06-05T16:48:36+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 3659005721,
+            "sha256": "1747a5a7c992c990f85cdb88cfaf19f680ee952b7839510555f27e1ba57c9a93",
+            "newline_count": 34565769
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRSAB.RRF",
+          "object_identity": {
+            "ContentLength": 134155,
+            "ETag": "\"4eb550473ffb3f74fdc87d377c8a5edc\"",
+            "LastModified": "2026-06-05T16:49:16+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 134155,
+            "sha256": "2e386c42457741e369cca803146953572ae989cf06dfbba2a897c29bb434de8d",
+            "newline_count": 201
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRRANK.RRF",
+          "object_identity": {
+            "ContentLength": 6167,
+            "ETag": "\"c69fce01fe86a2c329ed3f89e0d4b061\"",
+            "LastModified": "2026-06-05T16:49:05+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 6167,
+            "sha256": "f1efac0d9fe23366659f238b3a6f596e0f5171b2228abb5353aa15a0a0c347f9",
+            "newline_count": 236
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRAUI.RRF",
+          "object_identity": {
+            "ContentLength": 19280660,
+            "ETag": "\"815a10665549da1f2e42860dee3a3712-3\"",
+            "LastModified": "2026-06-05T16:48:35+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 19280660,
+            "sha256": "c78165d55d1b830a2b4f07afde0688a68b70b9212940d9c159d53f098f92420b",
+            "newline_count": 355632
+          }
+        },
+        {
+          "relative_path": "subset3/METASUBSET/MRDOC.RRF",
+          "object_identity": {
+            "ContentLength": 97898,
+            "ETag": "\"6da7762a66b415e9c4b2316b204788a4\"",
+            "LastModified": "2026-06-05T16:48:44+00:00",
+            "VersionId": null
+          },
+          "identity": {
+            "bytes": 97898,
+            "sha256": "29a99d728eb474eb22d5a4052615b70c97e0658a5899538a8fae2d03a284dfef",
+            "newline_count": 1721
+          }
+        }
+      ],
+      "source_decisions": [
+        {
+          "source": "AIR",
+          "version": "AIR93",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ALT",
+          "version": "ALT2009",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "AOD",
+          "version": "AOD_2000",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "AOT",
+          "version": "AOT_2003",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ATC",
+          "version": "ATC_2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "BI",
+          "version": "BI98",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CCC",
+          "version": "CCC2_5_2018",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CCPSS",
+          "version": "CCPSS99",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CCS",
+          "version": "CCS_2005",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "CCSR_ICD10CM",
+          "version": "CCSR_ICD10CM_2026",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "CCSR_ICD10PCS",
+          "version": "CCSR_ICD10PCS_2026",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "CDCREC",
+          "version": "CDCREC_1.3_2025_06_16",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CDT",
+          "version": "CDT2025",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CHV",
+          "version": "CHV2011_02",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "COSTAR",
+          "version": "COSTAR_1989-1995",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CPM",
+          "version": "CPM2003",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CPT",
+          "version": "CPT2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CPTSP",
+          "version": "CPT01SP",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CSP",
+          "version": "CSP_2006",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CST",
+          "version": "CST_1995",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "CVX",
+          "version": "CVX_2026_02_12",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "DDB",
+          "version": "DDB00",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "DMDICD10",
+          "version": "DMDICD10_1995",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "DMDUMD",
+          "version": "DMDUMD_1996",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "DRUGBANK",
+          "version": "DRUGBANK5.0_2026_01_28",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "DSM-5",
+          "version": "DSM-5_2015",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "DXP",
+          "version": "DXP_1994",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "FMA",
+          "version": "FMA_4_15",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "GO",
+          "version": "GO_2025_03_16",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "GS",
+          "version": "GS_2026_02_04",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HCDT",
+          "version": "HCDT2023",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HCPCS",
+          "version": "HCPCS_2026",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HCPT",
+          "version": "HCPT2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HGNC",
+          "version": "HGNC_2025_04",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HL7V2.5",
+          "version": "HL7V2.5_2003_08_30",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HL7V3.0",
+          "version": "HL7V3.0_2025_11",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HLREL",
+          "version": "HLREL_1998",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "HPO",
+          "version": "HPO2025_11_24",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10",
+          "version": "ICD10_1998",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10",
+          "version": "ICD10_2016",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10AE",
+          "version": "ICD10AE_1998",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10AM",
+          "version": "ICD10AM_2000",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10AMAE",
+          "version": "ICD10AMAE_2000",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10CM",
+          "version": "ICD10CM_2026",
+          "disposition": "KEEP",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "ICD10DUT",
+          "version": "ICD10DUT_200403",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD10PCS",
+          "version": "ICD10PCS_2026",
+          "disposition": "KEEP",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "ICD9CM",
+          "version": "ICD9CM_2005",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICD9CM",
+          "version": "ICD9CM_2014",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICF",
+          "version": "ICF_2008_12_19",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICF-CY",
+          "version": "ICF-CY_2008",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICNP",
+          "version": "ICNP_2022",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPC",
+          "version": "ICPC_1993",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPC2EDUT",
+          "version": "ICPC2EDUT_200203",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPC2EENG",
+          "version": "ICPC2EENG_200203",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPC2ICD10DUT",
+          "version": "ICPC2ICD10DUT_200412",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPC2ICD10ENG",
+          "version": "ICPC2ICD10ENG_200412",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPC2P",
+          "version": "ICPC2P_2005",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCBAQ",
+          "version": "ICPCBAQ_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCDAN",
+          "version": "ICPCDAN_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCDUT",
+          "version": "ICPCDUT_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCFIN",
+          "version": "ICPCFIN_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCFRE",
+          "version": "ICPCFRE_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCGER",
+          "version": "ICPCGER_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCHEB",
+          "version": "ICPCHEB_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCHUN",
+          "version": "ICPCHUN_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCITA",
+          "version": "ICPCITA_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCNOR",
+          "version": "ICPCNOR_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCPOR",
+          "version": "ICPCPOR_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCSPA",
+          "version": "ICPCSPA_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ICPCSWE",
+          "version": "ICPCSWE_1993",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "JABL",
+          "version": "JABL99",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "KCD5",
+          "version": "KCD5_2008",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LCH",
+          "version": "LCH90",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LCH_NW",
+          "version": "LCH_NW_2013",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC",
+          "version": "LNC_2_82",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "LPN",
+            "LPDN",
+            "XM"
+          ]
+        },
+        {
+          "source": "LNC-AR-JO",
+          "version": "LNC-AR-JO_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-CS-CZ",
+          "version": "LNC-CS-CZ_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-DE-AT",
+          "version": "LNC-DE-AT_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-DE-DE",
+          "version": "LNC-DE-DE_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-EL-GR",
+          "version": "LNC-EL-GR_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-ES-AR",
+          "version": "LNC-ES-AR_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-ES-ES",
+          "version": "LNC-ES-ES_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-ES-MX",
+          "version": "LNC-ES-MX_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-ET-EE",
+          "version": "LNC-ET-EE_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-FR-BE",
+          "version": "LNC-FR-BE_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-FR-CA",
+          "version": "LNC-FR-CA_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-FR-FR",
+          "version": "LNC-FR-FR_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-IT-IT",
+          "version": "LNC-IT-IT_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-KO-KR",
+          "version": "LNC-KO-KR_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-NL-NL",
+          "version": "LNC-NL-NL_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-PL-PL",
+          "version": "LNC-PL-PL_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-PT-BR",
+          "version": "LNC-PT-BR_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-RU-RU",
+          "version": "LNC-RU-RU_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-TR-TR",
+          "version": "LNC-TR-TR_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-UK-UA",
+          "version": "LNC-UK-UA_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "LNC-ZH-CN",
+          "version": "LNC-ZH-CN_282",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MCM",
+          "version": "MCM_1992",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDR",
+          "version": "MDR28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRARA",
+          "version": "MDRARA28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRBPO",
+          "version": "MDRBPO28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRCZE",
+          "version": "MDRCZE28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRDUT",
+          "version": "MDRDUT28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDREST",
+          "version": "MDREST28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRFIN",
+          "version": "MDRFIN28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRFRE",
+          "version": "MDRFRE28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRGER",
+          "version": "MDRGER28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRGRE",
+          "version": "MDRGRE28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRHRV",
+          "version": "MDRHRV28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRHUN",
+          "version": "MDRHUN28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRISL",
+          "version": "MDRISL28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRITA",
+          "version": "MDRITA28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRJPN",
+          "version": "MDRJPN28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRKOR",
+          "version": "MDRKOR28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRLAV",
+          "version": "MDRLAV28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRLIT",
+          "version": "MDRLIT28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRNOR",
+          "version": "MDRNOR28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRPOL",
+          "version": "MDRPOL28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRPOR",
+          "version": "MDRPOR28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRRUS",
+          "version": "MDRRUS28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRSLK",
+          "version": "MDRSLK28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRSLV",
+          "version": "MDRSLV28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRSPA",
+          "version": "MDRSPA28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MDRSWE",
+          "version": "MDRSWE28_1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MED-RT",
+          "version": "MED-RT_2026_02_02",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MEDCIN",
+          "version": "MEDCIN3_2025_12_19",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MEDLINEPLUS",
+          "version": "MEDLINEPLUS_2025_12_06",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "MEDLINEPLUS_SPA",
+          "version": "MEDLINEPLUS_SPA_20251206",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MMSL",
+          "version": "MMSL_2026_02_01",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MMX",
+          "version": "MMX_2026_01_30",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSH",
+          "version": "MSH2015_2014_09_08",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSH",
+          "version": "MSH_2026_2026_01_09",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHCZE",
+          "version": "MSHCZE2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHDUT",
+          "version": "MSHDUT2005",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHFIN",
+          "version": "MSHFIN2008",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHFRE",
+          "version": "MSHFRE2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHGER",
+          "version": "MSHGER2025",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHITA",
+          "version": "MSHITA2019",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHJPN",
+          "version": "MSHJPN2014",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHLAV",
+          "version": "MSHLAV2012",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHNOR",
+          "version": "MSHNOR2019",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHPOL",
+          "version": "MSHPOL2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHPOR",
+          "version": "MSHPOR2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHRUS",
+          "version": "MSHRUS2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHSCR",
+          "version": "MSHSCR2019",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHSPA",
+          "version": "MSHSPA2026",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MSHSWE",
+          "version": "MSHSWE2021",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTH",
+          "version": "MTH_2026AA",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "CV",
+            "XM"
+          ]
+        },
+        {
+          "source": "MTHCMSFRF",
+          "version": "MTHCMSFRF_2020_26_03_02",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHICD9",
+          "version": "MTHICD9_2014",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHICPC2EAE",
+          "version": "MTHICPC2EAE_200203",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHICPC2ICD10AE",
+          "version": "MTHICPC2ICD10AE_0412",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHMST",
+          "version": "MTHMST_2001",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHMSTFRE",
+          "version": "MTHMSTFRE_2001",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHMSTITA",
+          "version": "MTHMSTITA_2001",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MTHSPL",
+          "version": "MTHSPL_2026_02_21",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "MVX",
+          "version": "MVX2026_02_04",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NANDA-I",
+          "version": "NANDA-I_2018-2020",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NCBI",
+          "version": "NCBI_2025_09_17",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NCI",
+          "version": "NCI2025_08D",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NCISEER",
+          "version": "NCISEER_1999",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NDDF",
+          "version": "NDDF_2026_02_04",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NEU",
+          "version": "NEU2023_06_02",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NIC",
+          "version": "NIC8",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NOC",
+          "version": "NOC7",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "NUCCHCPT",
+          "version": "NUCCHCPT_25.1",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "OMIM",
+          "version": "OMIM_2026_02_05",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "OMS",
+          "version": "OMS2005",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ORPHANET",
+          "version": "ORPHANET_2025_07",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "PCDS",
+          "version": "PCDS97",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "PDQ",
+          "version": "PDQ_2018_10_27",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "PNDS",
+          "version": "PNDS_2026",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "XM"
+          ]
+        },
+        {
+          "source": "PPAC",
+          "version": "PPAC98",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "PSY",
+          "version": "PSY2004",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "QMR",
+          "version": "QMR_1996",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "RAM",
+          "version": "RAM99",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "RCD",
+          "version": "RCD99",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "RCDAE",
+          "version": "RCDAE_1999",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "RCDSA",
+          "version": "RCDSA_1999",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "RCDSY",
+          "version": "RCDSY_1999",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "RXNORM",
+          "version": "RXNORM_2020AA_2026_03_02F",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SCTSPA",
+          "version": "SCTSPA_2026_02_10",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": [
+            "IS",
+            "OB",
+            "OF",
+            "OP",
+            "OAF",
+            "OAP",
+            "OAS",
+            "MTH_IS",
+            "MTH_OF",
+            "MTH_OP",
+            "MTH_OAF",
+            "MTH_OAP",
+            "MTH_OAS"
+          ]
+        },
+        {
+          "source": "SNM",
+          "version": "SNM2",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SNMI",
+          "version": "SNMI98",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2025_09_01",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2026_03_01",
+          "disposition": "UPDATE",
+          "excluded_termgroups": [
+            "IS",
+            "OF",
+            "OP",
+            "OAF",
+            "OAP",
+            "OAS",
+            "MTH_IS",
+            "MTH_OF",
+            "MTH_OP",
+            "MTH_OAF",
+            "MTH_OAP",
+            "MTH_OAS",
+            "XM"
+          ]
+        },
+        {
+          "source": "SNOMEDCT_VET",
+          "version": "SNOMEDCT_VET_2025_09_30",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SOP",
+          "version": "SOP_9.2",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SPN",
+          "version": "SPN_2003",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "SRC",
+          "version": "SRC",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "TKMT",
+          "version": "TKMT2011",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "ULT",
+          "version": "ULT93",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "UMD",
+          "version": "UMD_2023",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "USP",
+          "version": "USP_2026_01_27",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "USPMG",
+          "version": "USPMG_2023",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "UWDA",
+          "version": "UWDA_1_7_3",
+          "disposition": "KEEP",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "VANDF",
+          "version": "VANDF_2026_01_30",
+          "disposition": "UPDATE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "WHO",
+          "version": "WHO97",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "WHOFRE",
+          "version": "WHOFRE_1997",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "WHOGER",
+          "version": "WHOGER_1997",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "WHOPOR",
+          "version": "WHOPOR_1997",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        },
+        {
+          "source": "WHOSPA",
+          "version": "WHOSPA_1997",
+          "disposition": "EXCLUDE",
+          "excluded_termgroups": []
+        }
+      ],
+      "vsab_mappings": [
+        {
+          "source": "AOD",
+          "publisher_version": "AOD2000",
+          "version": "AOD_2000"
+        },
+        {
+          "source": "AOT",
+          "publisher_version": "AOT2003",
+          "version": "AOT_2003"
+        },
+        {
+          "source": "CCS",
+          "publisher_version": "CCS2005",
+          "version": "CCS_2005"
+        },
+        {
+          "source": "COSTAR",
+          "publisher_version": "COSTAR_89-95",
+          "version": "COSTAR_1989-1995"
+        },
+        {
+          "source": "CSP",
+          "publisher_version": "CSP2006",
+          "version": "CSP_2006"
+        },
+        {
+          "source": "CST",
+          "publisher_version": "CST95",
+          "version": "CST_1995"
+        },
+        {
+          "source": "CVX",
+          "publisher_version": "CVX_2026_02_12",
+          "version": "CVX_2026_02_12"
+        },
+        {
+          "source": "DXP",
+          "publisher_version": "DXP94",
+          "version": "DXP_1994"
+        },
+        {
+          "source": "FMA",
+          "publisher_version": "FMA4_15",
+          "version": "FMA_4_15"
+        },
+        {
+          "source": "GO",
+          "publisher_version": "GO2025_03_16",
+          "version": "GO_2025_03_16"
+        },
+        {
+          "source": "HCPCS",
+          "publisher_version": "HCPCS2026",
+          "version": "HCPCS_2026"
+        },
+        {
+          "source": "HGNC",
+          "publisher_version": "HGNC2025_04",
+          "version": "HGNC_2025_04"
+        },
+        {
+          "source": "HL7V3.0",
+          "publisher_version": "HL7V3.0_2025_11",
+          "version": "HL7V3.0_2025_11"
+        },
+        {
+          "source": "ICD10",
+          "publisher_version": "ICD10_1998",
+          "version": "ICD10_1998"
+        },
+        {
+          "source": "ICD10AE",
+          "publisher_version": "ICD10AE_1998",
+          "version": "ICD10AE_1998"
+        },
+        {
+          "source": "ICD10CM",
+          "publisher_version": "ICD10CM_2026",
+          "version": "ICD10CM_2026"
+        },
+        {
+          "source": "ICD10PCS",
+          "publisher_version": "ICD10PCS_2026",
+          "version": "ICD10PCS_2026"
+        },
+        {
+          "source": "ICD9CM",
+          "publisher_version": "ICD9CM_2014",
+          "version": "ICD9CM_2014"
+        },
+        {
+          "source": "ICPC",
+          "publisher_version": "ICPC93",
+          "version": "ICPC_1993"
+        },
+        {
+          "source": "LNC",
+          "publisher_version": "LNC282",
+          "version": "LNC_2_82"
+        },
+        {
+          "source": "MCM",
+          "publisher_version": "MCM92",
+          "version": "MCM_1992"
+        },
+        {
+          "source": "MEDLINEPLUS",
+          "publisher_version": "MEDLINEPLUS_20251206",
+          "version": "MEDLINEPLUS_2025_12_06"
+        },
+        {
+          "source": "MSH",
+          "publisher_version": "MSH2026_2026_01_09",
+          "version": "MSH_2026_2026_01_09"
+        },
+        {
+          "source": "MTH",
+          "publisher_version": "MTH",
+          "version": "MTH_2026AA"
+        },
+        {
+          "source": "MTHFDA",
+          "publisher_version": "MTHFDA_2011_06_01_13_05_06",
+          "version": "MTHFDA_2011_06_01_2013_05_06"
+        },
+        {
+          "source": "MTHHH",
+          "publisher_version": "MTHHH2019_19_03_21",
+          "version": "MTHHH_2019_2019_03_21"
+        },
+        {
+          "source": "MTHICD9",
+          "publisher_version": "MTHICD9_2014",
+          "version": "MTHICD9_2014"
+        },
+        {
+          "source": "MTHMST",
+          "publisher_version": "MTHMST2001",
+          "version": "MTHMST_2001"
+        },
+        {
+          "source": "MTHSPL",
+          "publisher_version": "MTHSPL_2026_02_21",
+          "version": "MTHSPL_2026_02_21"
+        },
+        {
+          "source": "NCBI",
+          "publisher_version": "NCBI2025_09_17",
+          "version": "NCBI_2025_09_17"
+        },
+        {
+          "source": "NDFRT",
+          "publisher_version": "NDFRT_2018_02_05_18_12_03",
+          "version": "NDFRT_2018_02_05_2018_12_03"
+        },
+        {
+          "source": "OMIM",
+          "publisher_version": "OMIM2026_02_05",
+          "version": "OMIM_2026_02_05"
+        },
+        {
+          "source": "PNDS",
+          "publisher_version": "PNDS_2026",
+          "version": "PNDS_2026"
+        },
+        {
+          "source": "QMR",
+          "publisher_version": "QMR96",
+          "version": "QMR_1996"
+        },
+        {
+          "source": "RXNORM",
+          "publisher_version": "RXNORM_20AA_260302F",
+          "version": "RXNORM_2020AA_2026_03_02F"
+        },
+        {
+          "source": "SNOMEDCT",
+          "publisher_version": "SNOMEDCT_2013_01_31",
+          "version": "SNOMEDCT_2013_01_31"
+        },
+        {
+          "source": "SNOMEDCT_US",
+          "publisher_version": "SNOMEDCT_US_2026_03_01",
+          "version": "SNOMEDCT_US_2026_03_01"
+        },
+        {
+          "source": "SNOMEDCT_VET",
+          "publisher_version": "SNOMEDCT_VET_2025_09_30",
+          "version": "SNOMEDCT_VET_2025_09_30"
+        },
+        {
+          "source": "SOP",
+          "publisher_version": "SOP9.2",
+          "version": "SOP_9.2"
+        },
+        {
+          "source": "SPN",
+          "publisher_version": "SPN2003",
+          "version": "SPN_2003"
+        },
+        {
+          "source": "UMD",
+          "publisher_version": "UMD2023",
+          "version": "UMD_2023"
+        },
+        {
+          "source": "USPMG",
+          "publisher_version": "USPMG_2023",
+          "version": "USPMG_2023"
+        },
+        {
+          "source": "UWDA",
+          "publisher_version": "UWDA173",
+          "version": "UWDA_1_7_3"
+        },
+        {
+          "source": "VANDF",
+          "publisher_version": "VANDF_2026_01_30",
+          "version": "VANDF_2026_01_30"
+        }
+      ],
+      "source_plan_ref": "sha256:7b08c2d051f176cf3c2532876220b2bfe0a98d97c7f97ceaf77e77660912cdd6",
+      "source_decision_inputs": {
+        "ncisources.spec": "770d49565cb8f04e9aa4d2747d009c2fbda8c886e5e17f87030438cc2dbc79e2",
+        "sab.vsab.map": "3b47bacc4e48c7c51a4a8c6f0e96fd1ab98656afa50d18de8469be7e2b865b02",
+        "src_data": "fb3e47382e911af3177216a193bb6166471243a6f44abfffcc8a6554d332937c"
+      },
+      "template_inputs": {
+        "inv1.spec": "e172c8055112017f02ba62072c9471a580c0d8a5763183fa0108c1289025d837",
+        "inv2.spec": "88d6665fcf3e90be9d6206e3e92ec1099496bf43a1a73adb115e1a9e789cbe13",
+        "inv3.spec": "184e02a0dcd44e58ebf16ab6c074cc50882d45b7ad4b18e780ac9e1f80c8bd8d",
+        "invert1.s": "abd7971efdf0d01091d0d23918ea8d1ab037706c70494be99aaa2d08e3090840",
+        "ncisources.spec": "770d49565cb8f04e9aa4d2747d009c2fbda8c886e5e17f87030438cc2dbc79e2",
+        "range3.spec": "e5eee6e149ee5e9653fb9001bb92eacdc02aa794f209d44391eb27a3f5ff51f9",
+        "sab.vsab.map": "3b47bacc4e48c7c51a4a8c6f0e96fd1ab98656afa50d18de8469be7e2b865b02",
+        "src/inv1.spec": "d37e95597c94056cbd9f7db3ae470eda449898837790ad4035a1c8907d3531a7",
+        "src/inv2.spec": "247bf90d006f8599ad4b6e3e5b909e0433a60d09a95af5ca4dffad2647dc82b2",
+        "src/inv3.spec": "d51bc362cd1c1f194bc3171cf3a028216c706ed274f2d67c387990da328a2738",
+        "src_data": "fb3e47382e911af3177216a193bb6166471243a6f44abfffcc8a6554d332937c"
+      }
+    },
+    "coverage": {
+      "source_data_stage": "prepared",
+      "range_stage": "final",
+      "generated_specs_match_captured_effective_specs": true,
+      "source_decisions": "preserved reviewed files; no new dispositions generated",
+      "publisher_preparation_executed": false,
+      "production_eligible": false,
+      "native_conversion": "separate worker execution; outcome recorded in run result"
+    },
+    "recipe_sha256": "cdd06e8d7e2d8dcb6ddca351ce1ade915e10ba521f4ec72d62bc0dbad72bba5a"
+  },
+  "compared_output_hashes_verified_after_run": true
+}

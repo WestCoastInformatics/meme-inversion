@@ -1,0 +1,9 @@
+{
+  "exit_status": 0,
+  "seconds": 403.29,
+  "sampled_peak_process_group_resident_bytes": 71147520,
+  "minimum_available_memory_bytes": 28474953728,
+  "network": "disabled",
+  "namespace_user": "current",
+  "address_space_limit_bytes_per_child": 23622320128
+}

@@ -100,11 +100,11 @@ A common configuration is useful before any parser rewrite:
 3. Replay unchanged engines on the development worker using these generated settings. Compare to official frozen results and investigate configuration translation differences separately from intended semantic changes.
 4. Replace internals incrementally; migrated components read the same common model directly. Retire the corresponding legacy translations only after their acceptance gates pass.
 
-The first resolver and dev runner implement the common request and frozen configuration for the reviewed historical cases. They stage captured, pinned legacy settings rather than generate new-release `.cfg`/`.spec` files from arbitrary overrides. General configuration translation and new-release preparation remain later migration work. This keeps representation changes separate from the initial lifecycle interface.
+The original historical cases stage captured, pinned legacy settings. Later reviewed generation profiles render compatibility settings from the common model for NCIt, SNOMED and MTH. Their bounded native evidence is separate from arbitrary new-release `.cfg`/`.spec` generation and preparation, which still require reviewed admission and input/state contracts.
 
 ## Implemented NCIt generator pilot
 
-The [NCIt generator](nci-configuration-generation.md) renders compatibility settings from this common configuration and separately versioned policy/data artifacts. A full October replay explicitly replacing August passes with all five output hashes unchanged. Source code is loaded from the canonical Git package; no previous release executable is copied. Native export filenames, saved root identity and complete historical ID bounds are explicitly bound. This validates the NCIt pilot; native execution with other source generators, upstream new-release preparation and production eligibility remain separate. Bounded offline previews for SNOMED and MTH are described below.
+The [NCIt generator](nci-configuration-generation.md) renders compatibility settings from this common configuration and separately versioned policy/data artifacts. A full October replay explicitly replacing August passes with all five output hashes unchanged. Source code is loaded from the canonical Git package; no previous release executable is copied. Native export filenames, saved root identity and complete historical ID bounds are explicitly bound. This validates the NCIt pilot. The subsequent SNOMED/MTH native generation evidence is described below; upstream new-release preparation and production eligibility remain separate.
 
 ## Implemented NCIt source-plan extension
 
@@ -131,3 +131,9 @@ No new common configuration fields were required. The additional precision belon
 | `source_atom_ids` | Complete observed historical range, not a production allocation | Captured complete historical range | Complete range; legacy base is `start + 2`, SRCbuilder uses `start` |
 
 The source-specific previews preserve these distinctions instead of adding a generic previous-version setting. MDR/RADLEX retain the same schema and reviewed replay support. Full inversions remain serialized under the existing runtime lock; separate worker environments are deferred. Preview settings must pass a newly frozen generated-settings case, native dev replay and official comparison before joining the execution path.
+
+## Bounded SNOMED/MTH native execution completed
+
+The [execution record](generated-settings-execution.md) connects distinct reviewed `generated-configuration` requests to read-only worker settings: one SNOMED cfg and seven MTH spec/policy files. All five SNOMED official hashes match exactly. MTH completes native generation/comparison with all 23 hashes equal to the preceding corrected candidate, then passes a separate finalization/audit review after an API-dispatch fix. Independent retained-file verification passes; the original MTH common wrapper failure remains preserved. The common field vocabulary and seven operator-request fields are unchanged.
+
+The [operational release gates](operational-release-gates.md) prioritize reviewed input bundles and fresh state/source decisions before admitting arbitrary versions. The separate [NCIt v2 state preflight](nci-backend-preflight-v2.md) remains blocked for every result until a real deployed capture is verified.

@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "source": "MTH",
+  "run_id": "common-mth-generated-finalization-20261110",
+  "parent_run_id": "common-mth-generated-20261110",
+  "mode": "generated-mth-finalization-review",
+  "started_at": "2026-11-11T03:56:02.767004+00:00",
+  "native_conversion_repeated": false,
+  "preparation_repeated": false,
+  "insertion_executed": false,
+  "production_eligible": false,
+  "updated_at": "2026-11-11T04:03:44.461187+00:00",
+  "capacity": {
+    "free_disk_bytes": 40321548288,
+    "required_disk_bytes": 25463668798,
+    "reference_bytes": 5788344194,
+    "context_bytes": 773823178,
+    "execution_disk_reserve_bytes": 12884901888,
+    "native_launch_floors_changed": false
+  },
+  "acceptance": {
+    "status": "PASS_REVIEWED_CORRECTIONS",
+    "all_compared_outputs_exact": false,
+    "all_compared_records_equal": false,
+    "six_core_files_exact": false,
+    "generated_ids_reindexed": false,
+    "ignored_fields": [],
+    "validation_passed": true,
+    "requested_profile": "reviewed-corrections",
+    "native_derived_correction_audit_passed": true,
+    "raw_comparison_preserved": true,
+    "production_eligible": false
+  },
+  "completed_at": "2026-11-11T04:03:44.461114+00:00",
+  "finalization_apparatus_ref": "b856830891144e57d3d37f97857e2adfceacb113",
+  "parent_records_unchanged": true
+}

@@ -31,7 +31,7 @@ The filename validator is deliberately restricted to the captured `SnomedCT_Mana
 
 The lock adapter accepts only the reviewed `SNOMEDCT_US_2026_09_01` case. It verifies the frozen source/configuration inventory, re-renders the recipe and retains the historical stage boundary. Insertion-time semantic types remain outside conversion; the official core comparison still uses the explicitly selected `attributes.orig` reference rather than enriched `attributes.src`.
 
-## Verification and next execution gate
+## Preview verification and native execution
 
 Run `python3 -B tools/check_snomed_configuration.py`. The 56 source-specific fixtures verify the independent captured bytes and every effective property, multiline mappings, immutable input handling, JSON round trips, eighteen-file dependency closure, explicit nonadjacent replacement, ID evidence and negative input/template/lock mutations. [Fixture evidence](snomed-configuration-preview-fixtures-20261110.json) distinguishes these local tests from full native replay.
 

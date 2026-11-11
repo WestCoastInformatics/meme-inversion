@@ -52,11 +52,11 @@ first ordinary atom     769443594
 
 The final line follows the actual `autoinv.pl` consumer, which increments the base before emitting an ordinary atom. Changing range bounds invalidates the captured range evidence; estimation and production reservation remain separate stages. No preliminary `bigrange.spec` run is generated here.
 
-## Verification and remaining gate
+## Preview verification
 
 Run `python3 -B tools/check_mth_configuration.py`. The 68 checks include independent captured Git file goldens for both engines, common configuration and saved-lock agreement, JSON round trips, input immutability, incomplete or rebound metadata/native/identity inputs, source-disposition errors and separate `old`/`prev` failures. An actual frozen Perl consumer processes a tiny input with the generated atom spec and range, proves the emitted ID and verifies range exhaustion. Only `SourceDir` is relocated into the temporary test fixture.
 
-The [fixture record](mth-configuration-fixtures-20261110.json) distinguishes these local fixture executions from a complete native inversion. The next execution gate is a separately identified, serialized dev replay using the generated settings, followed by the existing official comparison and native-derived correction audit. No full inversion, MetamorphoSys run, source metadata regeneration, database QA, ID reservation, insertion, deployment or operational release approval is performed by this preview. General new-release preparation remains later work.
+The [fixture record](mth-configuration-fixtures-20261110.json) distinguishes these local fixture executions from a complete native inversion. The subsequent [native execution record](generated-settings-execution.md) completes generated-settings conversion/comparison and a separately accepted finalization/audit review; it retains the original common-worker failure and its fix. No full inversion, MetamorphoSys run, source metadata regeneration, database QA, ID reservation, insertion, deployment or operational release approval is performed by this preview. General new-release preparation remains later work.
 
 ## Generated settings in the native prepared-input runner
 
