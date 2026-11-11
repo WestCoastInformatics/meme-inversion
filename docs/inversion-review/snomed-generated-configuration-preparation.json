@@ -1,0 +1,389 @@
+{
+  "source": "SNOMEDCT_US",
+  "version": "SNOMEDCT_US_2026_09_01",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "started_at": "2026-11-11T00:08:10.937468+00:00",
+  "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+  "generated_outputs_seeded": false,
+  "insertion_executed": false,
+  "inputs": [
+    {
+      "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+      "bytes": 109803,
+      "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+      "newline_count": 18291
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+      "bytes": 797093,
+      "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+      "newline_count": 98506
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+      "bytes": 32708601,
+      "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+      "newline_count": 543260
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+      "bytes": 233100225,
+      "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+      "newline_count": 1739085
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+      "bytes": 408144315,
+      "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+      "newline_count": 3647178
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+      "bytes": 4045099,
+      "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+      "newline_count": 37557
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+      "bytes": 8509782,
+      "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+      "newline_count": 19447
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+      "bytes": 85849760,
+      "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+      "newline_count": 748737
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+      "bytes": 1995855,
+      "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+      "newline_count": 22726
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+      "bytes": 24125967,
+      "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+      "newline_count": 227704
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+      "bytes": 160201316,
+      "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+      "newline_count": 682229
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+      "bytes": 57698895,
+      "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+      "newline_count": 561572
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+      "bytes": 394245927,
+      "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+      "newline_count": 3383931
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+      "bytes": 30481,
+      "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+      "newline_count": 229
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+      "bytes": 491,
+      "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+      "newline_count": 4
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+      "bytes": 1046,
+      "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+      "newline_count": 9
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+      "bytes": 904,
+      "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+      "newline_count": 1
+    },
+    {
+      "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+      "bytes": 828,
+      "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+      "newline_count": 12
+    }
+  ],
+  "code": [
+    {
+      "relative_path": "bin/invert.s",
+      "sha256": "406a73b3e24e4e980cc8c5d5aaed237a53fd429ef44a667328692b5980934371",
+      "mode": "0o750"
+    },
+    {
+      "relative_path": "bin/invert_rf2.pl",
+      "sha256": "8002fdbcef152b78cf431c94c07100dfeff544b6ea42981b87d15d9569a6a3d3",
+      "mode": "0o750"
+    },
+    {
+      "relative_path": "bin/rmdanglingattrs.pl",
+      "sha256": "df549de020a643b276259d7de47fc087c0f9a108b96584d26f4b497cc06b0955",
+      "mode": "0o750"
+    },
+    {
+      "relative_path": "etc/README.txt",
+      "sha256": "5cac7aa3e29a17c3dea8922886205900661e83920d5cbd9305b9cb9ca36874d6",
+      "mode": "0o640"
+    }
+  ],
+  "configuration_templates": [
+    {
+      "relative_path": "etc/sct.cfg",
+      "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3",
+      "mode": "0o750"
+    }
+  ],
+  "configuration_generation": {
+    "profile": "snomed-properties-v1",
+    "source": "SNOMEDCT_US",
+    "scope": "historical-generated-configuration",
+    "execution_enabled": true,
+    "production_eligible": false,
+    "bindings": {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "policy_ref": "sha256:44a3446aaac6cbcbfcf430cfa4c46d23205fa29e4cd071c7f2a8628908d6af20",
+      "replacement_baseline": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_03_01"
+      },
+      "comparison_baseline": null,
+      "publisher_history": [],
+      "source_atom_ids": {
+        "start": 777343593,
+        "end": 779143592,
+        "provenance_ref": "sha256:aeba806206c05cdfa7c33a5d1062802f98f63d1b7ef2dd14080d4d15f69b26a9"
+      },
+      "identity_state": null,
+      "native_inputs": [
+        {
+          "legacy_key": "File.INP.CONCEPTS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 32708601,
+          "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+          "newline_count": 543260
+        },
+        {
+          "legacy_key": "File.INP.DESCRIPTIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 233100225,
+          "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+          "newline_count": 1739085
+        },
+        {
+          "legacy_key": "File.INP.RELATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 408144315,
+          "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+          "newline_count": 3647178
+        },
+        {
+          "legacy_key": "File.INP.CONCRETERELS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 4045099,
+          "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+          "newline_count": 37557
+        },
+        {
+          "legacy_key": "File.INP.DEFINITIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 8509782,
+          "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+          "newline_count": 19447
+        },
+        {
+          "legacy_key": "File.INP.REFSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 30481,
+          "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+          "newline_count": 229
+        },
+        {
+          "legacy_key": "File.INP.DESCRFORMAT",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 491,
+          "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+          "newline_count": 4
+        },
+        {
+          "legacy_key": "File.INP.MODULEDEP",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1046,
+          "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+          "newline_count": 9
+        },
+        {
+          "legacy_key": "File.INP.LANGUAGESETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 394245927,
+          "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+          "newline_count": 3383931
+        },
+        {
+          "legacy_key": "File.INP.SIMPLEMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 57698895,
+          "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+          "newline_count": 561572
+        },
+        {
+          "legacy_key": "File.INP.EXTENDEDMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 160201316,
+          "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+          "newline_count": 682229
+        },
+        {
+          "legacy_key": "File.INP.ATTRIBUTES",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 85849760,
+          "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+          "newline_count": 748737
+        },
+        {
+          "legacy_key": "File.INP.SUBSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1995855,
+          "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+          "newline_count": 22726
+        },
+        {
+          "legacy_key": "File.INP.ASSOCIATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 24125967,
+          "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+          "newline_count": 227704
+        }
+      ],
+      "metadata_inputs": [
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+          "size": 904,
+          "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+          "newline_count": 1
+        },
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+          "size": 828,
+          "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+          "newline_count": 12
+        },
+        {
+          "legacy_key": "File.INP.ICD10META",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 109803,
+          "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+          "newline_count": 18291
+        },
+        {
+          "legacy_key": "File.INP.ICD10CMMETA",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 797093,
+          "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+          "newline_count": 98506
+        }
+      ],
+      "derived_properties": {
+        "VSAB": "SNOMEDCT_US_2026_09_01",
+        "VSABOLD": "SNOMEDCT_US_2026_03_01",
+        "Release": "Snapshot",
+        "EngNum": "20260901",
+        "EngNumOld": "20260301",
+        "SaidStart": "777343593",
+        "SaidEnd": "779143592",
+        "SNOMEDCT_US_2026_09_01.VSY.0": "SNOMED Clinical Terms US Edition, September 1, 2026"
+      },
+      "unused_legacy_input_keys": [
+        "File.INP.STATEDRELS",
+        "File.INP.OldSubset",
+        "File.INP.URCid2Did"
+      ],
+      "absent_optional_input_keys": [
+        "File.INP.COMPLEXMAPS"
+      ]
+    },
+    "limitations": [
+      "Only the reviewed US1000124 ManagedService package and T120000Z naming convention are supported",
+      "Conditional ComplexMap input is absent in this case; newly present input requires a reviewed dependency change"
+    ],
+    "remaining_gates": [
+      "Full native replay, strict official comparison and independent validation",
+      "New-release metadata/state acquisition, allocation, legacy QA, insertion and production approval"
+    ],
+    "template": {
+      "repository_path": "sources/SNOMEDCT_US_2026_09_01/etc/sct.cfg",
+      "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+    },
+    "files": [
+      {
+        "relative_path": "etc/sct.cfg",
+        "mode": "0o444",
+        "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+      }
+    ]
+  },
+  "configuration_seeded_from_code_files": false,
+  "replacement_baseline_verified": "SNOMEDCT_US_2026_03_01",
+  "completed_at": "2026-11-11T00:09:17.118117+00:00"
+}

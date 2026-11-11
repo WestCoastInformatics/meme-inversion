@@ -1,0 +1,808 @@
+{
+  "run_id": "common-snomed-generated-20261110",
+  "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "completed_at": "2026-11-11T00:44:02.699753+00:00",
+  "core": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "run_id": "common-snomed-generated-20261110",
+    "started_at": "2026-11-11T00:09:30.841834+00:00",
+    "network": "disabled for conversion and cleanup",
+    "metadata_acquisition": "archived sources/termgroups and ICD inventories used as declared inputs",
+    "insertion_executed": false,
+    "memory_address_space_limit_bytes": 23622320128,
+    "conversion": {
+      "exit_status": 0,
+      "elapsed_seconds": 1541.45,
+      "sampled_peak_resident_bytes": 5690499072,
+      "minimum_available_memory_bytes": 22748999680,
+      "child_max_rss_bytes": 5695672320
+    },
+    "exit_status": 0,
+    "before_attribute_cleanup": {
+      "bytes": 2319449724,
+      "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+      "newline_count": 9324589
+    },
+    "cleanup": {
+      "exit_status": 0,
+      "elapsed_seconds": 50.06,
+      "sampled_peak_resident_bytes": 156311552,
+      "minimum_available_memory_bytes": 28415741952,
+      "child_max_rss_bytes": 5695672320
+    },
+    "cleanup_exit_status": 0,
+    "configuration_generation": {
+      "profile": "snomed-properties-v1",
+      "source": "SNOMEDCT_US",
+      "scope": "historical-generated-configuration",
+      "execution_enabled": true,
+      "production_eligible": false,
+      "bindings": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_09_01",
+        "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "policy_ref": "sha256:44a3446aaac6cbcbfcf430cfa4c46d23205fa29e4cd071c7f2a8628908d6af20",
+        "replacement_baseline": {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2026_03_01"
+        },
+        "comparison_baseline": null,
+        "publisher_history": [],
+        "source_atom_ids": {
+          "start": 777343593,
+          "end": 779143592,
+          "provenance_ref": "sha256:aeba806206c05cdfa7c33a5d1062802f98f63d1b7ef2dd14080d4d15f69b26a9"
+        },
+        "identity_state": null,
+        "native_inputs": [
+          {
+            "legacy_key": "File.INP.CONCEPTS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 32708601,
+            "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+            "newline_count": 543260
+          },
+          {
+            "legacy_key": "File.INP.DESCRIPTIONS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 233100225,
+            "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+            "newline_count": 1739085
+          },
+          {
+            "legacy_key": "File.INP.RELATIONS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 408144315,
+            "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+            "newline_count": 3647178
+          },
+          {
+            "legacy_key": "File.INP.CONCRETERELS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 4045099,
+            "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+            "newline_count": 37557
+          },
+          {
+            "legacy_key": "File.INP.DEFINITIONS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 8509782,
+            "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+            "newline_count": 19447
+          },
+          {
+            "legacy_key": "File.INP.REFSETS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 30481,
+            "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+            "newline_count": 229
+          },
+          {
+            "legacy_key": "File.INP.DESCRFORMAT",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 491,
+            "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+            "newline_count": 4
+          },
+          {
+            "legacy_key": "File.INP.MODULEDEP",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 1046,
+            "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+            "newline_count": 9
+          },
+          {
+            "legacy_key": "File.INP.LANGUAGESETS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 394245927,
+            "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+            "newline_count": 3383931
+          },
+          {
+            "legacy_key": "File.INP.SIMPLEMAPS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 57698895,
+            "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+            "newline_count": 561572
+          },
+          {
+            "legacy_key": "File.INP.EXTENDEDMAPS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 160201316,
+            "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+            "newline_count": 682229
+          },
+          {
+            "legacy_key": "File.INP.ATTRIBUTES",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 85849760,
+            "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+            "newline_count": 748737
+          },
+          {
+            "legacy_key": "File.INP.SUBSETS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 1995855,
+            "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+            "newline_count": 22726
+          },
+          {
+            "legacy_key": "File.INP.ASSOCIATIONS",
+            "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+            "role": "archived-publisher-RF2-Snapshot",
+            "required": true,
+            "present": true,
+            "size": 24125967,
+            "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+            "newline_count": 227704
+          }
+        ],
+        "metadata_inputs": [
+          {
+            "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+            "size": 904,
+            "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+            "newline_count": 1
+          },
+          {
+            "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+            "size": 828,
+            "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+            "newline_count": 12
+          },
+          {
+            "legacy_key": "File.INP.ICD10META",
+            "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+            "role": "target-terminology-inventory",
+            "required": true,
+            "present": true,
+            "size": 109803,
+            "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+            "newline_count": 18291
+          },
+          {
+            "legacy_key": "File.INP.ICD10CMMETA",
+            "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+            "role": "target-terminology-inventory",
+            "required": true,
+            "present": true,
+            "size": 797093,
+            "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+            "newline_count": 98506
+          }
+        ],
+        "derived_properties": {
+          "VSAB": "SNOMEDCT_US_2026_09_01",
+          "VSABOLD": "SNOMEDCT_US_2026_03_01",
+          "Release": "Snapshot",
+          "EngNum": "20260901",
+          "EngNumOld": "20260301",
+          "SaidStart": "777343593",
+          "SaidEnd": "779143592",
+          "SNOMEDCT_US_2026_09_01.VSY.0": "SNOMED Clinical Terms US Edition, September 1, 2026"
+        },
+        "unused_legacy_input_keys": [
+          "File.INP.STATEDRELS",
+          "File.INP.OldSubset",
+          "File.INP.URCid2Did"
+        ],
+        "absent_optional_input_keys": [
+          "File.INP.COMPLEXMAPS"
+        ]
+      },
+      "limitations": [
+        "Only the reviewed US1000124 ManagedService package and T120000Z naming convention are supported",
+        "Conditional ComplexMap input is absent in this case; newly present input requires a reviewed dependency change"
+      ],
+      "remaining_gates": [
+        "Full native replay, strict official comparison and independent validation",
+        "New-release metadata/state acquisition, allocation, legacy QA, insertion and production approval"
+      ],
+      "template": {
+        "repository_path": "sources/SNOMEDCT_US_2026_09_01/etc/sct.cfg",
+        "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+      },
+      "files": [
+        {
+          "relative_path": "etc/sct.cfg",
+          "mode": "0o444",
+          "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+        }
+      ]
+    },
+    "files": {
+      "attributes.src": {
+        "bytes": 2319449724,
+        "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+        "newline_count": 9324589
+      },
+      "classes_atoms.src": {
+        "bytes": 163029934,
+        "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+        "newline_count": 1048850
+      },
+      "contexts.src": {
+        "bytes": 6220515460,
+        "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+        "newline_count": 20403095
+      },
+      "mergefacts.src": {
+        "bytes": 138634414,
+        "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+        "newline_count": 1048849
+      },
+      "relationships.src": {
+        "bytes": 140346293,
+        "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+        "newline_count": 742425
+      }
+    },
+    "attribute_cleanup_removed_rows": 0,
+    "completed_at": "2026-11-11T00:36:51.708494+00:00"
+  },
+  "comparison": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "run_id": "common-snomed-generated-20261110",
+    "started_at": "2026-11-11T00:37:31.257495+00:00",
+    "files": {
+      "classes_atoms.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/classes_atoms.src",
+        "reference": {
+          "bytes": 163029934,
+          "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+          "newline_count": 1048850
+        },
+        "candidate": {
+          "bytes": 163029934,
+          "sha256": "e97db7a2566674a730129ca101d41f175fcc9ee512d143245695e95741c141ec",
+          "newline_count": 1048850
+        },
+        "exact_match": true
+      },
+      "relationships.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/relationships.src",
+        "reference": {
+          "bytes": 140346293,
+          "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+          "newline_count": 742425
+        },
+        "candidate": {
+          "bytes": 140346293,
+          "sha256": "2451d462ae75a0dc6fe00c8dd2a7990994066f113dea5a7ce1efce4e0409abea",
+          "newline_count": 742425
+        },
+        "exact_match": true
+      },
+      "mergefacts.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/mergefacts.src",
+        "reference": {
+          "bytes": 138634414,
+          "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+          "newline_count": 1048849
+        },
+        "candidate": {
+          "bytes": 138634414,
+          "sha256": "44f45e3b30584eee8a6e1321a2ab0b2d8703f18c664c079094ad3af730d82974",
+          "newline_count": 1048849
+        },
+        "exact_match": true
+      },
+      "contexts.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/contexts.src",
+        "reference": {
+          "bytes": 6220515460,
+          "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+          "newline_count": 20403095
+        },
+        "candidate": {
+          "bytes": 6220515460,
+          "sha256": "4e5abf71a0ca1aed971afaf5fdcf5edffa0b913ea35e4661aba7d3494b0bd944",
+          "newline_count": 20403095
+        },
+        "exact_match": true
+      },
+      "attributes.src": {
+        "reference_member": "SNOMEDCT_US_2026_09_01/src/attributes.orig",
+        "reference": {
+          "bytes": 2319449724,
+          "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+          "newline_count": 9324589
+        },
+        "candidate": {
+          "bytes": 2319449724,
+          "sha256": "5e53a6999804fee74713fa55d402d89f9f1cdc130e42c0c69727bff7bbee60c4",
+          "newline_count": 9324589
+        },
+        "exact_match": true
+      }
+    },
+    "reference_stage": "inversion-src",
+    "archive_sha256": "61ff597f44a52da25928ad09691f4f2514e94069ac657f496677a2095b94095b",
+    "candidate_modified": false,
+    "insertion_executed": false,
+    "comparison_profile": "snomed-core-v1: exact bytes or full-record multiset, retaining every field and duplicate; no generated-ID waiver",
+    "candidate_validation": {
+      "atom_ids": {
+        "unique": 1048850,
+        "duplicates": 0,
+        "out_of_reserved_range": 0
+      },
+      "unknown_termgroups": {},
+      "files": {
+        "relationships.src": {
+          "rows": 742425,
+          "field_counts": {
+            "19": 742425
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "CODE_SOURCE|SRC": 2,
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1484848
+          }
+        },
+        "attributes.src": {
+          "rows": 9324589,
+          "field_counts": {
+            "15": 9324589
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 3045016,
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 2092700,
+            "SOURCE_RUI|SNOMEDCT_US_2026_09_01": 31210,
+            "SOURCE_AUI|SNOMEDCT_US_2026_09_01": 4155663
+          },
+          "attribute_names": {
+            "SEMANTIC_TYPE": 1,
+            "SUBSET_MEMBER": 2456142,
+            "REFSET_PATTERN": 69,
+            "DESCRIPTION_FORMAT": 3,
+            "DESCRIPTION_LENGTH": 3,
+            "SOURCE_EFFECTIVE_TIME": 8,
+            "TARGET_EFFECTIVE_TIME": 8,
+            "EFFECTIVE_TIME": 390812,
+            "ACTIVE": 390812,
+            "DEFINITION_STATUS_ID": 390812,
+            "MODULE_ID": 48491,
+            "MODULE_NAME": 48491,
+            "DEFAULT_LANGUAGECODE": 1,
+            "DEFAULT_MODULE_ID": 1,
+            "COUNT_OF_BASE_OF_ACTIVE_INGREDIENT": 16477,
+            "CONCENTRATION_STRENGTH_NUMERATOR_VALUE": 3180,
+            "CONCENTRATION_STRENGTH_DENOMINATOR_VALUE": 3180,
+            "PRESENTATION_STRENGTH_NUMERATOR_VALUE": 6724,
+            "PRESENTATION_STRENGTH_DENOMINATOR_VALUE": 6724,
+            "COUNT_OF_ACTIVE_INGREDIENT": 77,
+            "CTV3ID": 383344,
+            "ICD-O-3_CODE": 23514,
+            "DEFINITION": 12836,
+            "TYPE_ID": 1048820,
+            "CASE_SIGNIFICANCE_ID": 1048820,
+            "UMLSREL": 112,
+            "UMLSRELA": 112,
+            "MAPSETSID": 2,
+            "MAPSETNAME": 2,
+            "MAPSETVERSION": 2,
+            "MAPSETRSAB": 2,
+            "MAPSETVSAB": 2,
+            "FROMRSAB": 2,
+            "FROMVSAB": 2,
+            "TORSAB": 2,
+            "TOVSAB": 2,
+            "SOS": 2,
+            "MTH_MAPSETCOMPLEXITY": 2,
+            "MTH_MAPFROMCOMPLEXITY": 2,
+            "MTH_MAPTOCOMPLEXITY": 2,
+            "MTH_MAPFROMEXHAUSTIVE": 2,
+            "MTH_MAPTOEXHAUSTIVE": 2,
+            "XMAP": 448829,
+            "XMAPFROM": 279457,
+            "XMAPTO": 33715,
+            "CONTEXT": 2282984
+          }
+        },
+        "classes_atoms.src": {
+          "rows": 1048850,
+          "field_counts": {
+            "15": 1048850
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {}
+        },
+        "contexts.src": {
+          "rows": 20403095,
+          "field_counts": {
+            "18": 20403095
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 40806190
+          }
+        },
+        "mergefacts.src": {
+          "rows": 1048849,
+          "field_counts": {
+            "13": 1048849
+          },
+          "violations": {},
+          "identifier_types_and_qualifiers": {
+            "SRC_ATOM_ID|": 31,
+            "ROOT_SOURCE_AUI|SNOMEDCT_US": 1048820,
+            "SOURCE_CUI|SNOMEDCT_US_2026_09_01": 1048847
+          }
+        }
+      },
+      "passed": true,
+      "scope": "Field structure, UTF-8, unique generated IDs (gaps permitted), reserved atom bounds, declared/framework termgroups, attribute digests, cleanup description references and context atom/path/identity consistency. Full-record comparison retains all typed qualifiers, groups, mapping values and IDs. Not complete release/domain validation."
+    },
+    "reference_validation": {
+      "same_bytes_as_candidate": true,
+      "passed": true
+    },
+    "acceptance": {
+      "status": "PASS_EXACT",
+      "all_five_exact": true,
+      "all_five_full_record_equivalent": true,
+      "independent_structure_checks_passed": true,
+      "ignored_columns": [],
+      "generated_identifiers_reindexed": false,
+      "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+    },
+    "completed_at": "2026-11-11T00:43:18.232804+00:00"
+  },
+  "acceptance": {
+    "status": "PASS_EXACT",
+    "all_five_exact": true,
+    "all_five_full_record_equivalent": true,
+    "independent_structure_checks_passed": true,
+    "ignored_columns": [],
+    "generated_identifiers_reindexed": false,
+    "scope": "Five core inversion outputs after documented dangling-attribute cleanup, with archived source metadata and ICD inventories; excludes their acquisition, MRDOC, legacy/API QA, insertion and release eligibility"
+  },
+  "inputs_engine_runtime_and_outputs_verified_after_run": true,
+  "insertion_executed": false,
+  "apparatus_sha256": {
+    "inversion_worker.py": "92e02c0ffa8255bb7318383d48a8d8d88dd8c900e6b61d9c52952c4a03810540",
+    "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9",
+    "replay_mth_core.py": "97b8ccb8d8d37833b14760afdcc1cbed41bd9b831d52cbc3280fb74b6fa5c42c",
+    "compare_mth_core.py": "013b7762be251289b99242c4e1f4e1e4d27a54b0c8fcd8693883983cec666d98",
+    "acquire_mth_subset.py": "5660b6a265c62829ecf88895f682074fc8fb9d70f8b851f155e43a9c20112812",
+    "compare_nci_core.py": "d019fe8307d191ec94595c951521213a44d7d516379796181326a1b54998484f",
+    "acquire_inversion_reference.py": "57125ff7ef701f709105f887d2d4f2963a34eb54c202699042a28bdf5cc874e9",
+    "inspect_inversion_archive.py": "c4fa9ef97bcf8a33c2d94b189bab8e9633bf04c27b767f4b90167d4366a26908",
+    "prepare_nci_candidate.py": "e31c1378e1a42e91c801a47968b2d7e1443abf13ac632e9857052c0e12dec13a",
+    "advance_nci_replay.py": "a1d7a57c6aed7ea83f88e5ed218bd70ab5cadf0d429fb286b71046ad38ee2b87",
+    "prepare_snomed_candidate.py": "068568df2e9fe0e6cc01651542b6b196ebc575d9f7e2490a9788b47cc3e15f83",
+    "run_snomed_core_replay.py": "4ba0189cfabbd3ee8f352c909deb861f0def4ba41d4f9ba65cb235810968aa85",
+    "compare_snomed_core.py": "f9ebd783b636728ddfd367d46627216b7d0ea6f6cb0dedc183131f11f2f90b21",
+    "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+    "run_nci_core_replay.py": "e04fcafb652905a5c3df7c4faed5479bb31b885be6412096066b5cfd6b9184f4",
+    "check_core_comparison.py": "4cbb5131c4a240065e899c72d0cbdf23f78ff0afcb6c3a82108fabcaf16348f3",
+    "replay_framework_core.py": "06c373153f2a3b7f40f5b0dda9bef259f2f2e5e4c6d0208d5d94e46fd93da62a",
+    "compare_framework_core.py": "8123f6c14099946c7ecd07d495ae562ef5f54b86c448e66abad305ab0645fa8d",
+    "audit_mdr_corrections.py": "efdd7207122716189c29443629223b05e1af580ec96870c089849e9c91028ff6",
+    "nci_configuration.py": "fc2dda04e634887ce2370e8b193e639c804a30f8420bf20b3abf1adbee5cfe4e",
+    "nci_source_plan.py": "dd15ec41f3e0a6b1ec7a53c9a803c741049fe735e815aa1893c7650761b20324",
+    "snomed_configuration.py": "1f38dc69fd3d8555f364f1a6339f85b11b08975f024662ca0cadf86735144c0b",
+    "mth_configuration.py": "0b9dbfc4728f49688933f79466a7ecdd67f14a7f7198b39b6d6625823df62b8c"
+  },
+  "configuration_generation": {
+    "profile": "snomed-properties-v1",
+    "source": "SNOMEDCT_US",
+    "scope": "historical-generated-configuration",
+    "execution_enabled": true,
+    "production_eligible": false,
+    "bindings": {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2026_09_01",
+      "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+      "policy_ref": "sha256:44a3446aaac6cbcbfcf430cfa4c46d23205fa29e4cd071c7f2a8628908d6af20",
+      "replacement_baseline": {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_03_01"
+      },
+      "comparison_baseline": null,
+      "publisher_history": [],
+      "source_atom_ids": {
+        "start": 777343593,
+        "end": 779143592,
+        "provenance_ref": "sha256:aeba806206c05cdfa7c33a5d1062802f98f63d1b7ef2dd14080d4d15f69b26a9"
+      },
+      "identity_state": null,
+      "native_inputs": [
+        {
+          "legacy_key": "File.INP.CONCEPTS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Concept_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 32708601,
+          "sha256": "4bd16972b8c8ead4e9ef34cc07f98e8f1757b08d7b233ba7cb962262be75b0b9",
+          "newline_count": 543260
+        },
+        {
+          "legacy_key": "File.INP.DESCRIPTIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Description_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 233100225,
+          "sha256": "fe044cacdf77f1168df864aa0465057a8107d4b7efc6d8f036e768c9a9a5d603",
+          "newline_count": 1739085
+        },
+        {
+          "legacy_key": "File.INP.RELATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_Relationship_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 408144315,
+          "sha256": "3126bac89c60ffaec7ab4fa34bb0e2d4124b797ae453f855ce32a7fde4ee7b01",
+          "newline_count": 3647178
+        },
+        {
+          "legacy_key": "File.INP.CONCRETERELS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_RelationshipConcreteValues_Snapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 4045099,
+          "sha256": "55ec21c928a95b618babbbe87e8c1e2348c690c42567c5aad21ebe2f4d04c343",
+          "newline_count": 37557
+        },
+        {
+          "legacy_key": "File.INP.DEFINITIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Terminology/sct2_TextDefinition_Snapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 8509782,
+          "sha256": "9c379a1196950cdb064e4c5488a79cd4ec66a951b41b7b61640401533f20a5dc",
+          "newline_count": 19447
+        },
+        {
+          "legacy_key": "File.INP.REFSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 30481,
+          "sha256": "022cf84a827c65d8cd742d4daf270fa94201de841341f4e9e19a6d8641203d66",
+          "newline_count": 229
+        },
+        {
+          "legacy_key": "File.INP.DESCRFORMAT",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 491,
+          "sha256": "75e60dd5b485a569b90677c8989cce19fadd68b9d7a44f724244994b23472592",
+          "newline_count": 4
+        },
+        {
+          "legacy_key": "File.INP.MODULEDEP",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Metadata/der2_ssRefset_ModuleDependencySnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1046,
+          "sha256": "eda043d695d009b6f408b8ffa54536a9bacd661d3229168e2d53f90953611713",
+          "newline_count": 9
+        },
+        {
+          "legacy_key": "File.INP.LANGUAGESETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Language/der2_cRefset_LanguageSnapshot-en_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 394245927,
+          "sha256": "58c06626faddc5d5309c270582f97060792c2f7259184c71d31f8a69f50abd15",
+          "newline_count": 3383931
+        },
+        {
+          "legacy_key": "File.INP.SIMPLEMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_sRefset_SimpleMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 57698895,
+          "sha256": "3493e9edb5befa5567472975415a958131899e377c74d027b5bdcafbc9a55e5a",
+          "newline_count": 561572
+        },
+        {
+          "legacy_key": "File.INP.EXTENDEDMAPS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Map/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 160201316,
+          "sha256": "60e4d68c1581a11657e4e3ce59261d821ceb43b02b0db07b41e98f7ab8121ff2",
+          "newline_count": 682229
+        },
+        {
+          "legacy_key": "File.INP.ATTRIBUTES",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AttributeValueSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 85849760,
+          "sha256": "df56c49dacb8133b90f7ee10390d2baf76b25aac3d846c6acdc18a1defd8e164",
+          "newline_count": 748737
+        },
+        {
+          "legacy_key": "File.INP.SUBSETS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_Refset_SimpleSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 1995855,
+          "sha256": "71df77897a29cdd9569c72e09806e3cec3bf853a88621917d08d474280d955d4",
+          "newline_count": 22726
+        },
+        {
+          "legacy_key": "File.INP.ASSOCIATIONS",
+          "path": "SNOMEDCT_US_2026_09_01/orig/fromprovider/SnomedCT_ManagedServiceUS_PRODUCTION_US1000124_20260901T120000Z/Snapshot/Refset/Content/der2_cRefset_AssociationSnapshot_US1000124_20260901.txt",
+          "role": "archived-publisher-RF2-Snapshot",
+          "required": true,
+          "present": true,
+          "size": 24125967,
+          "sha256": "3e0c2013f0a163770809dc546f6190b9aa03a8969eb9237d6e361be510a76b83",
+          "newline_count": 227704
+        }
+      ],
+      "metadata_inputs": [
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/sources.src",
+          "size": 904,
+          "sha256": "5f30c2bcb4972b02399bc429bfa7f3a7fae9376ca42a1396cad2590f0723145d",
+          "newline_count": 1
+        },
+        {
+          "path": "SNOMEDCT_US_2026_09_01/src/termgroups.src",
+          "size": 828,
+          "sha256": "f8013a10f30ca19a74c56e01f60e6809bf52b91a2506fc086bef6ee37e8a204f",
+          "newline_count": 12
+        },
+        {
+          "legacy_key": "File.INP.ICD10META",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 109803,
+          "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+          "newline_count": 18291
+        },
+        {
+          "legacy_key": "File.INP.ICD10CMMETA",
+          "path": "SNOMEDCT_US_2026_09_01/etc/icd10cm.inmeta",
+          "role": "target-terminology-inventory",
+          "required": true,
+          "present": true,
+          "size": 797093,
+          "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+          "newline_count": 98506
+        }
+      ],
+      "derived_properties": {
+        "VSAB": "SNOMEDCT_US_2026_09_01",
+        "VSABOLD": "SNOMEDCT_US_2026_03_01",
+        "Release": "Snapshot",
+        "EngNum": "20260901",
+        "EngNumOld": "20260301",
+        "SaidStart": "777343593",
+        "SaidEnd": "779143592",
+        "SNOMEDCT_US_2026_09_01.VSY.0": "SNOMED Clinical Terms US Edition, September 1, 2026"
+      },
+      "unused_legacy_input_keys": [
+        "File.INP.STATEDRELS",
+        "File.INP.OldSubset",
+        "File.INP.URCid2Did"
+      ],
+      "absent_optional_input_keys": [
+        "File.INP.COMPLEXMAPS"
+      ]
+    },
+    "limitations": [
+      "Only the reviewed US1000124 ManagedService package and T120000Z naming convention are supported",
+      "Conditional ComplexMap input is absent in this case; newly present input requires a reviewed dependency change"
+    ],
+    "remaining_gates": [
+      "Full native replay, strict official comparison and independent validation",
+      "New-release metadata/state acquisition, allocation, legacy QA, insertion and production approval"
+    ],
+    "template": {
+      "repository_path": "sources/SNOMEDCT_US_2026_09_01/etc/sct.cfg",
+      "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+    },
+    "files": [
+      {
+        "relative_path": "etc/sct.cfg",
+        "mode": "0o444",
+        "sha256": "56b214ee51d698f716a1701ca387543ac161baf8f1618c9a5f51f044147465b3"
+      }
+    ]
+  },
+  "compared_output_hashes_verified_after_run": true,
+  "common_request": {
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2026_09_01",
+    "case_variant": "generated-configuration",
+    "reference_stage": "inversion-src",
+    "comparison_profile": "exact",
+    "schema_version": 1,
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44"
+  },
+  "lock_sha256": "07e1ea563c1ba15ccaf526713ec301f3bc3744317bee7880f744728ae2b60daf",
+  "complete_ID_range_verified": true,
+  "apparatus_ref": "79df69fe5b0b45d4f3c10550c16cb62cb9e8199e",
+  "production_eligible": false,
+  "ID_range_verification_scope": {
+    "bound_kind": "reserved-historical-range",
+    "new_production_allocation_performed": false
+  }
+}

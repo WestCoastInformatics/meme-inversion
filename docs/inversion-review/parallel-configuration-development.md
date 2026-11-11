@@ -2,6 +2,8 @@
 
 The November 10, 2026 development increment assigns NCIt, SNOMEDCT_US and MTH/UMLS to separate agents and Git worktrees, with one coordinator integrating the common interface. The starting revision is `31539b6`, on the production-derived `test/inversion-replay-toolbox` history. Earlier automation prototypes do not define this implementation.
 
+The follow-on [generated-settings execution record](generated-settings-execution.md) tracks the separately frozen SNOMED/MTH native cases and verification. The preview evidence below retains its original scope and run identities.
+
 The three tracks use the same [common configuration](configuration.md). They do not create separate names for version, replacement baseline, publisher history, input stage, identity state or complete source-atom ID bounds. Genuine differences remain explicit source contracts. MDR and RADLEX remain registered and executable through their existing reviewed historical adapters; recognition does not imply a new settings generator.
 
 | Track | Development boundary | Evidence required |

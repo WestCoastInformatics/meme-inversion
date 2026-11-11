@@ -1,0 +1,267 @@
+{
+  "status": "PASS_VERIFIED_DEV_TREE_RETENTION",
+  "recorded_at": "2026-11-11T01:23:52.778941+00:00",
+  "host": "ncias-d3777-c",
+  "account": "tomcata",
+  "profile": "local-retained-test-trees-only",
+  "expanded_regular_bytes": 41564894832,
+  "archive_bytes": 6398384640,
+  "regular_files_verified": 295,
+  "initial_free_disk_gib": 31.91,
+  "free_disk_gib_after_retirement": 59.291,
+  "launch_free_space_floors_unchanged": {
+    "SNOMEDCT_US": 50,
+    "MTH": 45
+  },
+  "archive_results_sha256": "1e976f38ccf9c5263f2a9a1babf8064d2328d4c23e2c758ff8dba03a29deb1de",
+  "actual_phase_records": {
+    "status.json": {
+      "status": "complete",
+      "phase": "archive-and-verify-only",
+      "archives": [
+        {
+          "status": "ARCHIVED_AND_VERIFIED",
+          "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-replay-20261105",
+          "archive": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-replay-20261105-20261110/tree.tar.gz",
+          "receipt": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-replay-20261105-20261110/archive-receipt.json",
+          "receipt_sha256": "29ccadb798704a04642439ee93e25260787afda30c170f8fd17b7580187d36a1",
+          "archive_bytes": 3693089459,
+          "expanded_regular_bytes": 18793508741,
+          "regular_files_verified": 122,
+          "verification": {
+            "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+            "entries_verified": 148,
+            "regular_files_verified": 122,
+            "file_bytes_verified": 18793508741
+          },
+          "source_retired": false
+        },
+        {
+          "status": "ARCHIVED_AND_VERIFIED",
+          "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-consistency-20261106",
+          "archive": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-consistency-20261106-20261110/tree.tar.gz",
+          "receipt": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-consistency-20261106-20261110/archive-receipt.json",
+          "receipt_sha256": "8c1d1f9cc30bb5328a31269d2febdca97c38bfb3e0259498570884953892e633",
+          "archive_bytes": 1442516330,
+          "expanded_regular_bytes": 10057924348,
+          "regular_files_verified": 122,
+          "verification": {
+            "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+            "entries_verified": 148,
+            "regular_files_verified": 122,
+            "file_bytes_verified": 10057924348
+          },
+          "source_retired": false
+        },
+        {
+          "status": "ARCHIVED_AND_VERIFIED",
+          "source": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106",
+          "archive": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/snomed-before-common-20261106-20261110/tree.tar.gz",
+          "receipt": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/snomed-before-common-20261106-20261110/archive-receipt.json",
+          "receipt_sha256": "17153442848b872eea55840742e6d961ede8a43797f501487b4b97bc07ccf623",
+          "archive_bytes": 1262778851,
+          "expanded_regular_bytes": 12713461743,
+          "regular_files_verified": 51,
+          "verification": {
+            "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+            "entries_verified": 72,
+            "regular_files_verified": 51,
+            "file_bytes_verified": 12713461743
+          },
+          "source_retired": false
+        }
+      ],
+      "source_retirement_performed": false,
+      "updated_at": "2026-11-10T23:47:12.826787+00:00",
+      "current_source": "SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106",
+      "archives_verified": 3
+    },
+    "launch.json": {
+      "controller_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller",
+      "controller_pid": 2150522,
+      "code_ref": "9438985f25df4fd712f136d5c7444d07e9d74818",
+      "module_sha256": {
+        "archive_retained_source.py": "5130d4b0e736758ff5217297566c5bc22edc1a845de71ef90d25321d41320a5b",
+        "replay_process.py": "47084598bd533e57878425dcd59990b3a95cb3ebb1f73a7c701fe8caef4a57f9"
+      },
+      "driver_sha256": "506b4f4d10f934636c8a6ac5457eed3650a612b5ba435cebc5cd9942b899650e",
+      "phase": "archive-and-verify-only",
+      "expanded_copies_retained": true
+    },
+    "archive-results.json": [
+      {
+        "status": "ARCHIVED_AND_VERIFIED",
+        "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-replay-20261105",
+        "archive": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-replay-20261105-20261110/tree.tar.gz",
+        "receipt": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-replay-20261105-20261110/archive-receipt.json",
+        "receipt_sha256": "29ccadb798704a04642439ee93e25260787afda30c170f8fd17b7580187d36a1",
+        "archive_bytes": 3693089459,
+        "expanded_regular_bytes": 18793508741,
+        "regular_files_verified": 122,
+        "verification": {
+          "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+          "entries_verified": 148,
+          "regular_files_verified": 122,
+          "file_bytes_verified": 18793508741
+        },
+        "source_retired": false
+      },
+      {
+        "status": "ARCHIVED_AND_VERIFIED",
+        "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-consistency-20261106",
+        "archive": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-consistency-20261106-20261110/tree.tar.gz",
+        "receipt": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/mth-before-consistency-20261106-20261110/archive-receipt.json",
+        "receipt_sha256": "8c1d1f9cc30bb5328a31269d2febdca97c38bfb3e0259498570884953892e633",
+        "archive_bytes": 1442516330,
+        "expanded_regular_bytes": 10057924348,
+        "regular_files_verified": 122,
+        "verification": {
+          "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+          "entries_verified": 148,
+          "regular_files_verified": 122,
+          "file_bytes_verified": 10057924348
+        },
+        "source_retired": false
+      },
+      {
+        "status": "ARCHIVED_AND_VERIFIED",
+        "source": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106",
+        "archive": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/snomed-before-common-20261106-20261110/tree.tar.gz",
+        "receipt": "/local/content/MEME/MEME5/inv/qa/retained-source-archives/snomed-before-common-20261106-20261110/archive-receipt.json",
+        "receipt_sha256": "17153442848b872eea55840742e6d961ede8a43797f501487b4b97bc07ccf623",
+        "archive_bytes": 1262778851,
+        "expanded_regular_bytes": 12713461743,
+        "regular_files_verified": 51,
+        "verification": {
+          "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+          "entries_verified": 72,
+          "regular_files_verified": 51,
+          "file_bytes_verified": 12713461743
+        },
+        "source_retired": false
+      }
+    ],
+    "retirement-status.json": {
+      "status": "complete",
+      "retired": [
+        {
+          "status": "RETIRED_VERIFIED_EXPANDED_COPY",
+          "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-replay-20261105",
+          "receipt_sha256": "29ccadb798704a04642439ee93e25260787afda30c170f8fd17b7580187d36a1",
+          "verification": {
+            "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+            "entries_verified": 148,
+            "regular_files_verified": 122,
+            "file_bytes_verified": 18793508741
+          }
+        },
+        {
+          "status": "RETIRED_VERIFIED_EXPANDED_COPY",
+          "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-consistency-20261106",
+          "receipt_sha256": "8c1d1f9cc30bb5328a31269d2febdca97c38bfb3e0259498570884953892e633",
+          "verification": {
+            "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+            "entries_verified": 148,
+            "regular_files_verified": 122,
+            "file_bytes_verified": 10057924348
+          }
+        },
+        {
+          "status": "RETIRED_VERIFIED_EXPANDED_COPY",
+          "source": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106",
+          "receipt_sha256": "17153442848b872eea55840742e6d961ede8a43797f501487b4b97bc07ccf623",
+          "verification": {
+            "status": "PASS_FULL_ARCHIVE_VERIFICATION",
+            "entries_verified": 72,
+            "regular_files_verified": 51,
+            "file_bytes_verified": 12713461743
+          }
+        }
+      ],
+      "official_archives_changed": false,
+      "current_source_directories_changed": false,
+      "updated_at": "2026-11-11T00:00:25.808946+00:00",
+      "free_disk_gib": 59.291,
+      "current_source": "SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106",
+      "verified_archives_retained": 3
+    },
+    "retirement-launch.json": {
+      "controller_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/dev-retention-20261110.controller",
+      "retirement_pid": 2158713,
+      "driver_sha256": "dd86734676a551bc248eaa5dd9b34861970bcc351ef0d0e6f1846a496c032e08",
+      "code_ref": "7a1dcb0fd93654504f4b32f845e474a7505dc50e",
+      "archive_results_sha256": "1e976f38ccf9c5263f2a9a1babf8064d2328d4c23e2c758ff8dba03a29deb1de",
+      "selected_expanded_copies": 3,
+      "verified_archives_preserved": true
+    }
+  },
+  "archive_receipt_summaries": [
+    {
+      "archive_bytes": 3693089459,
+      "archive_sha256": "c2ac4c3b24bdf9f952cbeacbb0c26e7aed797c2a3a694435419a2aa34072343b",
+      "created_at": "2026-11-10T23:38:29.265023+00:00",
+      "expanded_regular_bytes": 18793508741,
+      "manifest_sha256": "233be40ec1df12505a7b414ba8801f1f1b29af06cdd4887b8ec7360344c4adec",
+      "profile": "retained-dev-source-v1",
+      "regular_files_verified": 122,
+      "root": "/local/content/MEME/MEME5/inv",
+      "schema_version": 1,
+      "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-replay-20261105",
+      "status": "VERIFIED",
+      "tool_sha256": "5130d4b0e736758ff5217297566c5bc22edc1a845de71ef90d25321d41320a5b",
+      "verification": {
+        "entries_verified": 148,
+        "file_bytes_verified": 18793508741,
+        "regular_files_verified": 122,
+        "status": "PASS_FULL_ARCHIVE_VERIFICATION"
+      }
+    },
+    {
+      "archive_bytes": 1442516330,
+      "archive_sha256": "55c082f5be5bd66c12f835c4fb769c5f2a4d7400d1070cce63a0327d130fd0d5",
+      "created_at": "2026-11-10T23:42:33.615735+00:00",
+      "expanded_regular_bytes": 10057924348,
+      "manifest_sha256": "01b470a609b928d7979d57bc4cbf16e3c9c1e03a41b7c49e92f74a874d550997",
+      "profile": "retained-dev-source-v1",
+      "regular_files_verified": 122,
+      "root": "/local/content/MEME/MEME5/inv",
+      "schema_version": 1,
+      "source": "/local/content/MEME/MEME5/inv/sources/MTH_2026AA.before-consistency-20261106",
+      "status": "VERIFIED",
+      "tool_sha256": "5130d4b0e736758ff5217297566c5bc22edc1a845de71ef90d25321d41320a5b",
+      "verification": {
+        "entries_verified": 148,
+        "file_bytes_verified": 10057924348,
+        "regular_files_verified": 122,
+        "status": "PASS_FULL_ARCHIVE_VERIFICATION"
+      }
+    },
+    {
+      "archive_bytes": 1262778851,
+      "archive_sha256": "d2c204d00cc484c6cf69f8b49eba81af9247afdabd3b5cf25c37e8dfe445166d",
+      "created_at": "2026-11-10T23:47:09.110365+00:00",
+      "expanded_regular_bytes": 12713461743,
+      "manifest_sha256": "74dff5bb3e7e0d38a06e9fb7f824be7ad3f42dc8c2ea46a57ef424d9271cde3a",
+      "profile": "retained-dev-source-v1",
+      "regular_files_verified": 51,
+      "root": "/local/content/MEME/MEME5/inv",
+      "schema_version": 1,
+      "source": "/local/content/MEME/MEME5/inv/sources/SNOMEDCT_US_2026_09_01.before-common-snomedct-us-1-20261106",
+      "status": "VERIFIED",
+      "tool_sha256": "5130d4b0e736758ff5217297566c5bc22edc1a845de71ef90d25321d41320a5b",
+      "verification": {
+        "entries_verified": 72,
+        "file_bytes_verified": 12713461743,
+        "regular_files_verified": 51,
+        "status": "PASS_FULL_ARCHIVE_VERIFICATION"
+      }
+    }
+  ],
+  "receipt_summary_limit": "Summaries omit source inode-capture maps. Original complete readonly archive receipts/manifests remain beside each server archive; pinned receipt hashes in actual phase records identify those original bytes.",
+  "official_S3_archives_changed": false,
+  "new_S3_upload_performed": false,
+  "source_layout_changed": false,
+  "recovery_guide_ref": "retained-source-archives.md",
+  "recovery_scope": "Restore to a fresh allowed .before- identity, never overwrite a canonical/current tree. External symlink targets remain separate dependencies.",
+  "later_independent_archive_hash_check": "Queued after current generated-settings batch; not yet reported"
+}
