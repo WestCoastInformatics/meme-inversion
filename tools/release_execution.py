@@ -45,7 +45,10 @@ def verify_locations(manifest, target):
             parsed = urlsplit(file['uri'])
             if parsed.scheme != 'file' or parsed.netloc:
                 raise ValueError('Native admission needs standard local file/cache descriptors; acquisition may populate a missing declared cache')
-            if Path(unquote(parsed.path)).is_relative_to(target):
+            local = Path(unquote(parsed.path))
+            if not local.is_relative_to(target.parents[2]):
+                raise ValueError('Native inputs must use the mirrored MEME storage paths on dev')
+            if local.is_relative_to(target):
                 raise ValueError('Input/oracle is inside the replaceable current source folder; bind an independent archive member or stable publisher cache')
 
 
@@ -68,7 +71,6 @@ def verify_profile(profile):
 
 def verify_plan(plan, manifest, code_files=()):
     config, artifacts = manifest['configuration'], manifest['artifacts']
-    verify_locations(manifest, Path('/local/content/MEME/MEME5/inv/sources') / config['version'])
     required = {'schema_version', 'source', 'version', 'engine_package', 'input_files',
                 'generated_files', 'symlinks', 'stages', 'output_files', 'validation'}
     if not required <= set(plan) or plan['schema_version'] != 1:
@@ -187,6 +189,7 @@ def resolve(manifest, run_id):
     blocked = [i for i in report['issues'] if i['severity'] in ('error', 'blocker') and i['code'] not in DEFERRED]
     if blocked:raise ValueError('Unresolved release decisions: ' + ', '.join(sorted({i['code'] for i in blocked})))
     config, artifacts = manifest['configuration'], manifest['artifacts']
+    verify_locations(manifest, Path('/local/content/MEME/MEME5/inv/sources') / config['version'])
     if manifest['purpose'] != 'historical-replay' or 'replay' not in config:
         raise ValueError('Initial native admission requires a preserved historical oracle; shadow admission remains separate')
     if config['replay']['comparison_profile'] != 'exact':

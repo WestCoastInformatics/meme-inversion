@@ -334,6 +334,14 @@ def main():
         expected = lock.pop('lock_sha256')
         if digest(lock) != expected:
             raise ValueError('Run lock content changed')
+        if lock.get('artifact_type') == 'ncimeta-native-release-lock':
+            print(json.dumps({'run_id': lock['run_id'], 'lock_sha256': expected,
+                              'configuration': lock['configuration'], 'source_profile': lock['source_profile'],
+                              'execution_enabled': lock['execution_enabled'], 'production_eligible': False,
+                              'apparatus_ref': lock['apparatus_ref'], 'plan_sha256': lock['plan_sha256'],
+                              'stages': lock['plan']['stages'], 'outputs': lock['plan']['output_files'],
+                              'source_files': len(lock['code_files']), 'runtime_files': len(lock['runtime_files'])}, indent=2))
+            return
         print(json.dumps({'run_id': lock['run_id'], 'lock_sha256': expected,
                           'configuration': lock['configuration'], 'execution_enabled': lock['execution_enabled'],
                           'apparatus_ref': lock['apparatus_ref'], 'case_sha256': lock['case_sha256'],

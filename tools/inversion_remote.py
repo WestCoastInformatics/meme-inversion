@@ -80,7 +80,7 @@ def read_program(source, run_id, collect):
     locations = [f'/local/content/MEME/MEME5/inv/qa/replay-requests/{run_id}',
                  f'/local/content/MEME/MEME5/inv/sources/{SOURCES[source]}/qa/replay-runs/{run_id}',
                  f'/local/content/MEME/MEME5/inv/sources/{SOURCES[source]}/etc/qa/replay-runs/{run_id}']
-    program = """import json,pathlib,socket
+    program = """import json,pathlib,re,socket
 if socket.gethostname().split('.')[0]!='ncias-d3777-c':raise RuntimeError('Wrong server')
 locations=[pathlib.Path(x) for x in LOCATIONS]
 # A common run has a control report plus an inner legacy run. MTH also has
@@ -95,7 +95,21 @@ for name in names:
  if path.is_symlink():raise RuntimeError('Unexpected report symlink')
  if path.is_file():result['records'][name]=json.loads(path.read_text())
 if root==locations[0].resolve():
- adapters=sorted({x.resolve() for x in locations[1:] if x.is_dir()})
+ state=result['records'].get('status.json',{})
+ version=state.get('version');actual_source=state.get('source')
+ if version is None or actual_source is None:
+  lock_path=root/'case.lock.json'
+  if not lock_path.exists():
+   parent=state.get('parent_run_id')
+   if not isinstance(parent,str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,70}',parent):raise RuntimeError('No locked common release identity')
+   lock_path=root.parent/parent/'case.lock.json'
+  if lock_path.is_symlink():raise RuntimeError('Unexpected common lock symlink')
+  request=json.loads(lock_path.read_text())['request']
+  version=request['version'];actual_source=request['source']
+ if actual_source!=SOURCE or not re.fullmatch(re.escape(SOURCE)+r'_[A-Za-z0-9_]+',version):raise RuntimeError('Common run belongs to another source or unsafe release')
+ source_root=pathlib.Path('/local/content/MEME/MEME5/inv/sources')/version
+ adapter_locations=[source_root/'qa/replay-runs'/RUN_ID,source_root/'etc/qa/replay-runs'/RUN_ID]
+ adapters=sorted({x.resolve() for x in adapter_locations if x.is_dir()})
  if len(adapters)>1:raise RuntimeError('No unique inner adapter run')
  if adapters:
   adapter=adapters[0]
@@ -104,6 +118,10 @@ if root==locations[0].resolve():
    if path.is_file():
     record=json.loads(path.read_text())
     if name=='adapter_progress.json' or record.get('run_id')==RUN_ID:result['records'][name]=record
+ if COLLECT:
+  for path in sorted(root.glob('acquisition-*.json')):
+   if path.is_symlink() or path.stat().st_size>1048576:raise RuntimeError('Unexpected object acquisition receipt')
+   result['records'][path.name]=json.loads(path.read_text())
 else:
  path=root.parents[2]/'replay-active-run.json'
  if path.is_file():

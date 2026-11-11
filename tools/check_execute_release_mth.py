@@ -222,12 +222,56 @@ def check():
                 settings = target / 'range3.spec';settings.chmod(0o644)
                 good(not execution.validate_inputs(plan, target)['passed'], 'Writable generated settings block native stages')
                 settings.chmod(0o444)
-            good((target / 'old/src/cui_said_map').resolve() == (target.parent / 'MTH_2026AA/src/cui_said_map').resolve() and
+            identity_snapshot = target / 'orig/identity/MTH_2026AA/src/cui_said_map'
+            good((target / 'old/src/cui_said_map').resolve() == identity_snapshot.resolve() and
                  (target / 'src/Meta/MRCONSO.RRF').resolve() == (target.parents[2] / ('mr/umls/' + label[4:] + '/subset3/METASUBSET/MRCONSO.RRF')).resolve(),
-                 'Prior CUI and prepared native files retain standard mirrored dependency paths: ' + label)
+                 'Prior CUI map is a candidate snapshot while prepared native files retain standard mirrored paths: ' + label)
+            identity_input = next(item for item in plan['input_files'] if item['role'] == 'cui_said_map')
+            good(identity_input['scope'] == 'candidate' and identity_input['destination'] ==
+                 'orig/identity/MTH_2026AA/src/cui_said_map' and
+                 identity_snapshot.read_bytes() == b'C3|777\nCOLD|778\n' and
+                 identity_snapshot.stat().st_mode & 0o777 == 0o444 and
+                 {path.relative_to(target / 'orig/identity/MTH_2026AA').as_posix()
+                  for path in (target / 'orig/identity/MTH_2026AA').rglob('*') if path.is_file()} == {'src/cui_said_map'},
+                 'Only the explicit prior identity DATA map is frozen read-only with its baseline identity: ' + label)
+            canonical_prior = target.parent / 'MTH_2026AA'
+            (canonical_prior / 'src').mkdir(parents=True)
+            (canonical_prior / 'src/cui_said_map').write_bytes(b'C3|777\nCOLD|778\n')
+            canonical_prior.rename(canonical_prior.with_name('MTH_2026AA.before-other-replay'))
+            (canonical_prior / 'src').mkdir(parents=True)
+            (canonical_prior / 'src/cui_said_map').write_bytes(b'CREPLACED|999\n')
+            origin_identity = manifest['artifacts']['mth-identity']['files'][0]['uri']
+            good(execution.validate_inputs(plan, target)['passed'] and
+                 (target / 'old/src/cui_said_map').read_bytes() == b'C3|777\nCOLD|778\n' and
+                 origin_identity == before['artifacts']['mth-identity']['files'][0]['uri'] and
+                 origin_identity not in (identity_snapshot.as_uri(), (canonical_prior / 'src/cui_said_map').as_uri()) and
+                 Path(origin_identity.removeprefix('file://')).read_bytes() == b'C3|777\nCOLD|778\n',
+                 'Replacing the canonical prior-release folder cannot affect this frozen baseline or its independent origin: ' + label)
             source_metadata = target / 'src/sources.src'
             original_metadata = source_metadata.read_bytes()
+            # A/B only the prior-input location. The external-layout control
+            # retains its unchanged old version data; the actual snapshot case
+            # above deliberately has a replaced canonical predecessor folder.
+            control_directory = Path(temporary) / 'external-prior-layout-control'
+            control_directory.mkdir()
+            _, control_plan, control_target, control_run, _ = fixture(control_directory, skipped)
+            baseline = control_plan['validation']['configuration']['replacement_baseline']['version']
+            external = control_target.parent / baseline / 'src/cui_said_map'
+            external.parent.mkdir(parents=True)
+            external.write_bytes((control_target / 'old/src/cui_said_map').read_bytes())
+            external.chmod(0o444)
+            for inventory in (control_plan['input_files'], control_plan['validation']['input_identities']):
+                item = next(value for value in inventory if value['role'] == 'cui_said_map')
+                item.update(scope='inv', destination='sources/' + baseline + '/src/cui_said_map')
+            next(item for item in control_plan['symlinks'] if item['relative_path'] == 'old')['target'] = '../' + baseline
+            (control_target / 'old').unlink()
+            (control_target / 'old').symlink_to('../' + baseline)
+            (control_run / 'native-plan.json').write_text(json.dumps(control_plan, indent=2) + '\n')
+            run_tiny(control_plan, control_target, control_run)
             run_tiny(plan, target, run)
+            good(all(execution.identity(target / name) == execution.identity(control_target / name)
+                     for name in plan['output_files']) and execution.validate_outputs(control_plan, control_target)['passed'],
+                 'All 23 native output bytes match the prior external-layout control despite canonical predecessor replacement: ' + label)
             good(execution.validate_inputs(plan, target)['passed'] and source_metadata.read_bytes() == original_metadata and
                  source_metadata.stat().st_mode & 0o777 == 0o444,
                  'All declared inputs/settings remain intact after actual tiny native stages: ' + label)

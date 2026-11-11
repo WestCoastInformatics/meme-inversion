@@ -247,8 +247,11 @@ def build_plan(configuration, artifacts, code_files=None):
     subset = _subset(prepared)
     add(prepared_ref, prepared, 'meme', lambda role: 'mr/umls/' + version[4:] + '/' + subset + '/' + role)
     add(selected['reference_ncimeta'], artifacts[selected['reference_ncimeta']], 'candidate', lambda role: role)
-    add(selected['identity_state'], artifacts[selected['identity_state']], 'inv',
-        lambda role: 'sources/' + baseline + '/src/cui_said_map')
+    # Release directories are mutable replay targets. Freeze only the declared
+    # prior DATA map inside this candidate so replaying that older version can
+    # never change this run's insertion-lineage identity input.
+    add(selected['identity_state'], artifacts[selected['identity_state']], 'candidate',
+        lambda role: 'orig/identity/' + baseline + '/src/cui_said_map')
     original_decisions = artifacts[selected['source_plan']]['files']
     if original_decisions:
         if len(original_decisions) != 3 or {item['role'] for item in original_decisions} != {'ncisources.spec', 'sab.vsab.map', 'src_data'}:
@@ -273,7 +276,7 @@ def build_plan(configuration, artifacts, code_files=None):
             selected_sources[release[4:]] = next(item for item in inputs if item['artifact'] == preferred[0] and item['role'] == role)
         histories[kind] = selected_sources
     native = '../../../mr/umls/' + version[4:] + '/' + subset
-    links = [{'relative_path': 'old', 'target': '../' + baseline},
+    links = [{'relative_path': 'old', 'target': 'orig/identity/' + baseline},
              {'relative_path': 'METASUBSET3', 'target': native}, {'relative_path': 'Meta3', 'target': 'METASUBSET3'},
              {'relative_path': 'src/Meta', 'target': '../Meta3'}, {'relative_path': 'src/bin', 'target': '../bin'},
              {'relative_path': 'src/src_data', 'target': '../src_data'}]
@@ -469,6 +472,7 @@ def validate_inputs(plan, target):
                 set(declared_subset) != observed):
             _issue(issues, 'MTH_PREPARED_SUBSET', 'Producer-declared selected sources differ from preserved VSAB update data.', 'prepared-bundle/data/selected_sources')
     facts.update(replacement_baseline=baseline, publisher_previous=plan['validation']['source_plan']['publisher_previous'],
+                 prior_identity_snapshot='orig/identity/' + baseline + '/src/cui_said_map',
                  observed_updated_sources=sorted(updated_rsabs), historical_DB_reconstruction=False, MetamorphoSys_executed=False)
     return {'passed': not issues, 'issues': issues, 'facts': facts}
 

@@ -10,7 +10,8 @@
       "canonical_engine_package": "engines/nci",
       "reviewed_engine_refs": [
         "2a22938ceca47d25a4a69ce239cf4e1a0a0f5f4b",
-        "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78"
+        "b6c60b46602cb77e9ae8c5cc27d8a659362ecd78",
+        "2e77f7b9fce17e71ead1ec719e36428684e34922"
       ],
       "environment_profile_id": "meme-dev-v1",
       "validation_profile_id": "nci-release-core-v1",
@@ -28,7 +29,8 @@
       "handler": "release_snomed",
       "canonical_engine_package": "engines/snomedct_us",
       "reviewed_engine_refs": [
-        "3b125edc1d29f7c7a91673da2a8d752bb0adff44"
+        "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "2e77f7b9fce17e71ead1ec719e36428684e34922"
       ],
       "environment_profile_id": "meme-dev-v1",
       "validation_profile_id": "snomed-snapshot-core-v1",
@@ -54,7 +56,8 @@
       "handler": "release_mth",
       "canonical_engine_package": "engines/mth",
       "reviewed_engine_refs": [
-        "b2611abcf929981628bb2e5051afb450b8525b70"
+        "b2611abcf929981628bb2e5051afb450b8525b70",
+        "2e77f7b9fce17e71ead1ec719e36428684e34922"
       ],
       "environment_profile_id": "meme-dev-v1",
       "validation_profile_id": "mth-prepared-core-v1",

@@ -9,11 +9,10 @@ Implementation status: local execution/lifecycle, physical input/output and sour
 Use the existing pinned local Python environment and the development checkout. A real manifest uses the same [release-manifest schema](release-manifest.schema.json), with `purpose: historical-replay`, a full forty-character Git `engine_ref`, complete preserved input/state/allocation artifacts and an exact current-release reference. The [synthetic preflight examples](release-manifests.md) deliberately cannot authorize execution.
 
 ```sh
-python3 -B tools/inversion_request.py preflight-release release.json \
-  --output release-preflight.json
-
 python3 -B tools/inversion_request.py resolve-release release.json \
   --run-id source-release-test-001 --output release.lock.json
+
+python3 -B tools/inversion_request.py show release.lock.json
 
 python3 -B tools/inversion_remote.py --socket /path/to/dev.sock \
   inspect-current release.lock.json --output previous-source.json
@@ -28,11 +27,15 @@ python3 -B tools/inversion_remote.py --socket /path/to/dev.sock \
 
 Use new filenames and a new run ID. `resolve-release` freezes `ncimeta-native-release-lock`, a different artifact from the non-executable preflight review lock. It requires committed consumed code, schemas and profile bytes. It records the complete source plan, generated files, Git code, source capability, runtime and artifact dependencies. The worker reconstructs the source-owned deterministic plan before accepting a capsule; an altered native argument array cannot be approved by merely resealing a plan hash.
 
+`resolve-release` performs declaration preflight internally. The separate `preflight-release` command remains useful for inspecting detailed findings; its preview reports/review locks do not grant execution and retain exit code 3. `show` displays either historical or native configuration without dumping executable payloads. Common status/collection obtains the actual source/version from run metadata or its locked request rather than a historical date table.
+
 The [native capability registry](native-execution-profiles.json) pins source package inventories, the complete 169-file runtime, the existing S3 helper identity and source capacity floors. Package identities are independent of release dates. The source declaration registry continues to describe declaration preflight; the separate native capability performs execution admission. Fresh NCIt backend captures still need their existing assurance gates. The NCIt preserved-preparation profile consumes exact archived configuration and metadata as data without claiming a new exporter or coherent live capture was authenticated.
 
 ## Inputs, prior releases and official references
 
-Inputs retain their standard locations. Candidate files use `sources/<version>/...`; MTH's prepared data uses `mr/umls/<release>/subsetN/METASUBSET`, and prior CUI identity uses `inv/sources/<explicit-prior>/src/cui_said_map`. Reused data must match frozen bytes and cannot traverse linked ancestors. Existing files and permissions are preserved; differing data is never overwritten. Source executables come only from the canonical Git package.
+Candidate files use `sources/<version>/...`, and MTH prepared data retains `mr/umls/<release>/subsetN/METASUBSET`. Reused data must match frozen bytes and cannot traverse linked ancestors. Existing files and permissions are preserved; differing data is never overwritten. Source executables come only from the canonical Git package.
+
+New MTH runs deliberately snapshot the one required prior CUI map into `sources/<current>/orig/identity/<explicit-prior>/src/cui_said_map`. Their `old` alias points to that data snapshot, preserving the converter's usual `old/src/cui_said_map` access. This is an explicit data-layout improvement: rerunning an older canonical source folder cannot change a newer candidate's captured baseline. It copies one declared data file, not an executable or full prior folder. Prefer a pinned prior archive member or stable input cache as its original locator. Existing sealed historical requests retain their original canonical-prior dependency and execution claims; inspect those consumers before replacing a folder they still reference.
 
 Initial native admission requires local file/cache descriptors. A missing declared `inv/sources/<version>.tgz` cache can be acquired through the existing reviewed download-only S3 helper. An unresolved `s3:` pointer is rejected before a native capsule is issued. Archive SHA/size and member SHA/size remain separate. Publisher/prepared inputs are streamed selectively from tar/ZIP containers; a completed source folder is never restored into the candidate. The original official outputs remain in the existing archive and supply independently verified expected hashes, not constructor files.
 

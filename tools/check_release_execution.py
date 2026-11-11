@@ -2,7 +2,7 @@
 """Confined native admission/lifecycle tests; no server or full inversion."""
 import base64
 import copy
-from contextlib import contextmanager
+from contextlib import contextmanager, redirect_stdout
 import io
 import json
 import os
@@ -129,6 +129,9 @@ def check():
     with fixture() as (lock, root, run, path, gold):
         target = root / 'sources' / lock['request']['version']
         good(worker.verify_lock(lock) == target, 'Native capsule resolves its declared canonical version without historical case selection')
+        shown = subprocess.run([sys.executable, '-B', str(admission.ROOT / 'tools/inversion_request.py'), 'show', str(path)], capture_output=True, text=True)
+        good(shown.returncode == 0 and json.loads(shown.stdout)['configuration'] == lock['configuration'], 'The common show command displays native release configuration')
+        good('data_b64' not in shown.stdout and 'modules_b64' not in shown.stdout, 'Native show omits executable payload bodies')
         program = remote.bootstrap(lock, 'submit')
         compile(program.split('\n', 1)[1].rsplit('\nNCIM_COMMON_REQUEST', 1)[0], '<native-bootstrap>', 'exec')
         good('release_worker' in program, 'The existing common submit command dispatches native capsules with a compilable bootstrap')
@@ -215,7 +218,7 @@ def check():
             rejected(lambda: worker.acquire_preserved_object(artifact, file, destination, run), 'An unresolved prepared-input partial blocks another download instead of accumulating copies')
     # Exercise full common lifecycle control with actual byte/materialization/
     # discovery/comparison and mocked host/runtime/native-conversion only.
-    with fixture() as (lock, root, run, path, gold):
+    with fixture('NCI_2027_02B', 'NCI_2026_12C') as (lock, root, run, path, gold):
         target = root / 'sources' / lock['request']['version'];stages = []
         def conversion(argv, **kwargs):
             stages.append(argv)
@@ -231,6 +234,19 @@ def check():
         good(not (target / 'manual.txt').exists() and (run / 'physical-input-validation.json').is_file(), 'Fresh candidate has physical input evidence and no seeded official output')
         good((target / 'etc/qa').is_dir(), 'Standard QA directory exists before native logger/converter starts')
         good(all(v['reused'] is False for v in manifests.load(run / 'preparation.json')['materialized']), 'Only the declared constructor inputs are materialized')
+        for version, label in [(lock['request']['version'], 'current-release'), (remote.SOURCES['NCI'], 'wrong-historical-release')]:
+            inner = root / 'sources' / version / 'etc/qa/replay-runs' / lock['run_id'];inner.mkdir(parents=True)
+            (inner / 'progress.json').write_text(json.dumps({'stage': label}))
+        program = remote.read_program('NCI', lock['run_id'], True).split('\n', 1)[1].rsplit('\nNCIM_COMMON_READ', 1)[0]
+        program = program.replace('/local/content/MEME/MEME5/inv', str(root))
+        output = io.StringIO()
+        with patch('socket.gethostname', return_value='ncias-d3777-c'), redirect_stdout(output):exec(compile(program, '<confined-status>', 'exec'), {})
+        collected = json.loads(output.getvalue().split('BEGIN_COMMON_REPLAY_RESULT\n')[1].split('\nEND_COMMON_REPLAY_RESULT')[0])
+        good(collected['records']['adapter_progress.json']['stage'] == 'current-release', 'Status/collection follows the actual locked release instead of a historical source/version table')
+        wrong_source = remote.read_program('MTH', lock['run_id'], False).split('\n', 1)[1].rsplit('\nNCIM_COMMON_READ', 1)[0]
+        wrong_source = wrong_source.replace('/local/content/MEME/MEME5/inv', str(root))
+        with patch('socket.gethostname', return_value='ncias-d3777-c'):
+            rejected(lambda: exec(compile(wrong_source, '<wrong-source-status>', 'exec'), {}), 'Status refuses to label another source run with the caller source')
         (target / 'src/attributes.src').write_bytes(b'difference\n')
         checked = worker.compare(lock, target)
         good(checked['acceptance']['status'] == 'DIFFERENCES_REQUIRE_REVIEW', 'Any output/structure mismatch remains a review verdict without a historical waiver')

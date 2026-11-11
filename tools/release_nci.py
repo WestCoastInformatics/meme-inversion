@@ -14,7 +14,6 @@ from pathlib import Path, PurePosixPath
 import re
 from urllib.parse import urlsplit
 
-from jsonschema import Draft202012Validator
 import nci_source_plan
 
 
@@ -49,6 +48,9 @@ def _positive(value):
 
 
 def _validate(value, filename):
+    # Schema checking is local admission work. Frozen worker capsules import
+    # declaration helpers without installing third-party schema dependencies.
+    from jsonschema import Draft202012Validator
     schema = json.loads((DOCS / filename).read_text())
     errors = sorted(Draft202012Validator(schema).iter_errors(value), key=lambda error: str(list(error.path)))
     if errors:
