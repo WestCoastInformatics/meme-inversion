@@ -235,7 +235,7 @@ def _build_plan(configuration, artifacts, code_files, *, validate_schema):
         raise ValueError('Duplicate planned termgroup or a new root without its explicit termgroups')
     properties['NCI.SourcePlan.Roots'] = '../etc/new-subsources.tsv'
     properties['NCI.SourcePlan.Termgroups'] = '../etc/planned-termgroups.tsv'
-    config_raw = ''.join(key + ' = ' + value + '\n' for key, value in properties.items()).encode()
+    config_raw = ''.join(key + ' = ' + properties[key] + '\n' for key in sorted(properties)).encode()
     generated = [_file('etc/nci.cfg', config_raw), _file('etc/new-subsources.tsv', ''.join('\t'.join(row) + '\n' for row in roots).encode()),
                  _file('etc/planned-termgroups.tsv', ''.join('\t'.join((token, *value)) + '\n' for token, value in sorted(tokens.items())).encode())]
     arguments = ['../' + native[role]['relative_path'] for role in ROLES]

@@ -112,6 +112,12 @@ def check():
             good(not execute.validate_inputs(plan, target)['passed'], label)
     args = fixture();before = copy.deepcopy(args)
     plan = build(args)
+    reordered = copy.deepcopy(args)
+    values = reordered[0]['artifacts']['state']['data']['properties']
+    reordered[0]['artifacts']['state']['data']['properties'] = dict(reversed(list(values.items())))
+    canonical = lambda value: hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    good(canonical(args[0]['artifacts']) == canonical(reordered[0]['artifacts']) and canonical(plan) == canonical(build(reordered)) and plan == build(reordered),
+         'Semantically reordered JSON properties retain complete artifact identity and the identical full native plan')
     good(execute.rebuild_plan(args[0]['configuration'], args[0]['artifacts'], args[1]) == plan, 'Runtime rebuild uses the same source planner and exactly reproduces its admitted recipe')
     forged = copy.deepcopy(plan);forged['stages'][0]['argv'] = ['/usr/bin/true']
     good(execute.rebuild_plan(args[0]['configuration'], args[0]['artifacts'], args[1]) != forged, 'Resealing an altered native command cannot change the source-fixed rebuilt recipe')
