@@ -322,6 +322,23 @@ def inspect_current(source):
         return receipt
 
 
+def retention_status(source):
+    """Inspect rollback admission without changing any release or archive."""
+    guard()
+    if source not in VERSIONS:
+        raise ValueError('No executable source adapter')
+    import replay_retention
+    with runtime_lock(ROOT):
+        return replay_retention.inventory(ROOT, VERSIONS[source][0])
+
+
+def retention_budget(target):
+    import replay_retention
+    if target.exists():
+        return replay_retention.check_budget(ROOT, target.name)
+    return replay_retention.inventory(ROOT, target.name)
+
+
 def preserve(target, run_id, receipt, before_publish=lambda: None):
     if not target.exists():
         if receipt is not None:
@@ -757,6 +774,7 @@ def worker(lock_path, receipt_path=None, inherited_lock=None):
         with runtime_lock(ROOT, inherited_lock) as held:
             idle()
             runtime(lock)
+            state['retention_policy'] = retention_budget(target)
             capacity(lock)
             if target.is_symlink():
                 raise RuntimeError('Source directory must not be a symlink')
@@ -810,6 +828,7 @@ def launch(lock, previous_receipt=None):
     with runtime_lock(ROOT) as held:
         idle()
         runtime(lock)
+        retention_budget(target)
         if target.exists() and previous_receipt is None:
             raise RuntimeError('Existing source requires an inspect-current receipt')
         capacity(lock)

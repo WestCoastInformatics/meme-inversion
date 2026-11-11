@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 
-from inversion_request import ADAPTERS, audit_review_capsule, digest, load, write_new
+from inversion_request import ADAPTERS, audit_review_capsule, retention_capsule, digest, load, write_new
 
 HOST = 'ncias-d3777-c.nci.nih.gov'
 SOURCES = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01', 'MTH': 'MTH_2026AA',
@@ -18,7 +18,7 @@ SOURCES = {'NCI': 'NCI_2026_10D', 'SNOMEDCT_US': 'SNOMEDCT_US_2026_09_01', 'MTH'
 def bootstrap(lock, operation, previous=None):
     if digest({k: v for k, v in lock.items() if k != 'lock_sha256'}) != lock['lock_sha256']:
         raise ValueError('Run lock changed')
-    if operation not in ('submit', 'inspect-current', 'activate-runtime'):
+    if operation not in ('submit', 'inspect-current', 'activate-runtime', 'retention-status'):
         raise ValueError('Unsupported bootstrap operation')
     payload = base64.b64encode(json.dumps({'lock': lock, 'previous': previous}).encode()).decode()
     # Payload is base64; no request value is interpolated into shell code. Python
@@ -40,6 +40,7 @@ with tempfile.TemporaryDirectory(prefix='ncim-request-') as temporary:
  operation=OPERATION
  if operation=='submit':result=worker.launch(lock,payload['previous'])
  elif operation=='activate-runtime':result=worker.activate_runtime(lock)
+ elif operation=='retention-status':result=worker.retention_status(lock['request']['source'])
  else:result=worker.inspect_current(lock['request']['source'])
  print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_REPLAY_RESULT',flush=True)
 """.replace('PAYLOAD', repr(payload)).replace('OPERATION', repr(operation))
@@ -108,6 +109,34 @@ print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_
     return "python3 -B - <<'NCIM_COMMON_READ'\n" + program + '\nNCIM_COMMON_READ\nexit\n'
 
 
+def bootstrap_retention(capsule):
+    payload = base64.b64encode(json.dumps(capsule).encode()).decode()
+    program = """import base64,hashlib,json,pathlib,signal,sys,tempfile
+signal.signal(signal.SIGHUP,signal.SIG_IGN)
+capsule=json.loads(base64.b64decode(PAYLOAD))
+unsigned={k:v for k,v in capsule.items() if k!='capsule_sha256'}
+raw=json.dumps(unsigned,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()
+if hashlib.sha256(raw).hexdigest()!=capsule['capsule_sha256']:raise ValueError('Retention capsule changed')
+if capsule['artifact_type']!='ncimeta-dev-retention-request':raise ValueError('Wrong retention capsule')
+hashes={pathlib.Path(x['repository_path']).name:x['sha256'] for x in capsule['provenance']}
+with tempfile.TemporaryDirectory(prefix='ncim-retention-') as temporary:
+ root=pathlib.Path(temporary)
+ for name,encoded in capsule['modules_b64'].items():
+  if pathlib.Path(name).name!=name or not name.endswith('.py'):raise ValueError('Invalid apparatus path')
+  raw=base64.b64decode(encoded,validate=True)
+  if hashlib.sha256(raw).hexdigest()!=hashes.get(name):raise ValueError('Retention apparatus differs')
+  (root/name).write_bytes(raw)
+ sys.path.insert(0,str(root));sys.dont_write_bytecode=True
+ import replay_retention
+ functions={'status':replay_retention.status,'plan':replay_retention.plan,'compact':replay_retention.compact,'restore':replay_retention.restore}
+ result=functions[capsule['operation']](**capsule['parameters'])
+ result['retention_apparatus_ref']=capsule['apparatus_ref']
+ result['retention_capsule_sha256']=capsule['capsule_sha256']
+ print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_REPLAY_RESULT',flush=True)
+""".replace('PAYLOAD', repr(payload))
+    return "python3 -B - <<'NCIM_RETENTION'\n" + program + '\nNCIM_RETENTION\nexit\n'
+
+
 def remote(program, socket_path, account):
     if not re.fullmatch(r'[a-z_][a-z0-9_-]*', account):
         raise ValueError('Invalid SSH account')
@@ -127,7 +156,7 @@ def main():
     parser.add_argument('--socket', required=True, help='Existing authenticated dev SSH control socket')
     parser.add_argument('--account', default='shapirod2')
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ('submit', 'inspect-current', 'activate-runtime'):
+    for name in ('submit', 'inspect-current', 'activate-runtime', 'retention-status'):
         command = commands.add_parser(name)
         command.add_argument('lock')
         command.add_argument('--previous-receipt') if name == 'submit' else None
@@ -141,15 +170,34 @@ def main():
     review.add_argument('--parent-run-id', required=True)
     review.add_argument('--review-id', required=True)
     review.add_argument('--output', required=True)
+    for name in ('plan', 'compact', 'restore'):
+        child = commands.add_parser('retention-' + name)
+        if name == 'plan':
+            child.add_argument('--run-id', required=True)
+            child.add_argument('--verification')
+            child.add_argument('--verification-sha256')
+        else:
+            child.add_argument('--plan-path', required=True)
+            child.add_argument('--plan-sha256', required=True)
+            if name == 'restore':child.add_argument('--destination', required=True)
+        child.add_argument('--output', required=True)
     args = parser.parse_args()
     if Path(args.output).exists():
         raise ValueError('Output already exists; previous evidence is never overwritten')
-    if args.command in ('submit', 'inspect-current', 'activate-runtime'):
+    if args.command in ('submit', 'inspect-current', 'activate-runtime', 'retention-status'):
         lock = load(args.lock)
         previous = load(args.previous_receipt) if getattr(args, 'previous_receipt', None) else None
-        program = bootstrap(lock, args.command, previous)
+        if args.command == 'retention-status':
+            program = bootstrap_retention(retention_capsule('status', {'version': lock['request']['version']}))
+        else:
+            program = bootstrap(lock, args.command, previous)
     elif args.command == 'retry-mth-audit':
         program = bootstrap_review(audit_review_capsule(args.parent_run_id, args.review_id))
+    elif args.command.startswith('retention-'):
+        operation = args.command.removeprefix('retention-')
+        parameters = {key: value for key, value in vars(args).items()
+                      if key not in ('socket', 'account', 'command', 'output')}
+        program = bootstrap_retention(retention_capsule(operation, parameters))
     else:
         program = read_program(args.source, args.run_id, args.command == 'collect')
     result = remote(program, args.socket, args.account)

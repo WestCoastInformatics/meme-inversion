@@ -22,7 +22,8 @@ MODULES = ('inversion_worker.py', 'replay_process.py', 'replay_mth_core.py',
            'prepare_snomed_candidate.py', 'run_snomed_core_replay.py', 'compare_snomed_core.py',
            'audit_mth_corrections.py', 'run_nci_core_replay.py', 'check_core_comparison.py',
            'replay_framework_core.py','compare_framework_core.py','audit_mdr_corrections.py', 'nci_configuration.py', 'nci_source_plan.py',
-           'snomed_configuration.py', 'mth_configuration.py')
+           'snomed_configuration.py', 'mth_configuration.py',
+           'replay_retention.py', 'archive_retained_source.py')
 ADAPTERS = {'NCI': 'nci-oct2026-v1', 'SNOMEDCT_US': 'snomed-sep2026-v1', 'MTH': 'mth-2026aa-v1',
             'MDR':'mdr-29-1-v1','RADLEX':'radlex-4-3-v1'}
 
@@ -124,6 +125,28 @@ def audit_review_capsule(parent_run_id, review_id):
     validate_module_dependencies({name: base64.b64decode(raw) for name, raw in modules.items()})
     result = {'schema_version': 1, 'artifact_type': 'ncimeta-mth-audit-review', 'parent_run_id': parent_run_id,
               'review_id': review_id, 'apparatus_ref': ref, 'modules_b64': modules, 'provenance': provenance}
+    result['capsule_sha256'] = digest(result)
+    return result
+
+
+def retention_capsule(operation, parameters):
+    fields = {'status': {'version'}, 'plan': {'run_id', 'verification', 'verification_sha256'},
+              'compact': {'plan_path', 'plan_sha256'},
+              'restore': {'plan_path', 'plan_sha256', 'destination'}}
+    if operation not in fields or set(parameters) != fields[operation]:
+        raise ValueError('Invalid retention operation parameters')
+    ref = commit('HEAD')
+    modules, provenance = {}, []
+    for name in MODULES:
+        path = 'tools/' + name
+        raw = blob(ref, path)
+        if raw != (ROOT / path).read_bytes():
+            raise ValueError('Commit retention apparatus changes first: ' + path)
+        modules[name] = base64.b64encode(raw).decode()
+        provenance.append({'repository_path': path, 'sha256': hashlib.sha256(raw).hexdigest()})
+    validate_module_dependencies({name: base64.b64decode(raw) for name, raw in modules.items()})
+    result = {'artifact_type': 'ncimeta-dev-retention-request', 'operation': operation,
+              'parameters': parameters, 'apparatus_ref': ref, 'modules_b64': modules, 'provenance': provenance}
     result['capsule_sha256'] = digest(result)
     return result
 

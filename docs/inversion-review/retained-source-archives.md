@@ -1,5 +1,7 @@
 # Reversible retention of expanded dev test trees
 
+The subsequent [dev retention policy](dev-retention-policy.md) prevents repeated full-folder accumulation and compacts verified duplicates against existing official archives. Use this full-tree archival helper only when a unique historical tree genuinely needs full preservation; it is not the default cleanup step after testing.
+
 `tools/archive_retained_source.py` retains older expanded test-preservation trees when they prevent the existing dev worker from meeting its free-space gate. This is local evidence retention, not a new worker layout, an S3 replacement or a change to official release archives. The tool performs no uploads and never selects a tree automatically.
 
 Execution requires `tomcata` on `ncias-d3777-c`, the existing `/local/content/MEME/MEME5/inv` layout, and the existing exclusive `.replay-runtime.lock`. Active common-worker stages therefore exclude archive, verification, retirement and restore operations. There is no CLI guard bypass. Targets must be direct real children of `sources`, named one of the five reviewed versions followed by `.before-<identity>`: NCI_2026_10D, SNOMEDCT_US_2026_09_01, MTH_2026AA, MDR_29_1 or RADLEX_4_3. Current canonical folders, `.tgz` files, unknown versions, symlink roots/ancestors and nested targets are rejected.
