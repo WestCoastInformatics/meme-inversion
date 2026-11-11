@@ -7,6 +7,7 @@ This module runs locally; the frozen worker and source adapters use the stdlib.
 import ast
 import base64
 import importlib
+import posixpath
 import re
 from pathlib import Path, PurePosixPath
 from urllib.parse import unquote, urlsplit
@@ -45,11 +46,13 @@ def verify_locations(manifest, target):
             parsed = urlsplit(file['uri'])
             if parsed.scheme != 'file' or parsed.netloc:
                 raise ValueError('Native admission needs standard local file/cache descriptors; acquisition may populate a missing declared cache')
-            local = Path(unquote(parsed.path))
+            local = Path(posixpath.normpath(unquote(parsed.path)))
             if not local.is_relative_to(target.parents[2]):
                 raise ValueError('Native inputs must use the mirrored MEME storage paths on dev')
             if local.is_relative_to(target):
                 raise ValueError('Input/oracle is inside the replaceable current source folder; bind an independent archive member or stable publisher cache')
+            if local.is_relative_to(target.parent) and len(local.relative_to(target.parent).parts) > 1:
+                raise ValueError('Input/oracle is inside a replaceable source tree; bind an independent archive member or immutable input cache so older replays cannot invalidate it')
 
 
 def verify_profile(profile):

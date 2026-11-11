@@ -155,6 +155,18 @@ def check():
         rejected(lambda: worker.verify_lock(bad), 'A prior-release oracle cannot stand in for current-release official output')
         bad = copy.deepcopy(lock);bad['manifest']['artifacts']['publisher']['files'][0]['uri'] = (target / 'orig/current-input.txt').as_uri();seal(bad)
         rejected(lambda: worker.verify_lock(bad), 'Replaceable current-folder input URI is rejected before preservation can invalidate it')
+        def location(uri):
+            return admission.verify_locations({'artifacts': {'input': {'files': [{'uri': uri}]}}}, target)
+        rejected(lambda: location((target.parent / 'MTH_2023AB/src/cui_said_map').as_uri()),
+                 'A prior canonical folder cannot remain a hidden native replay or retained-verification dependency')
+        rejected(lambda: location((target.parent / 'MTH_2023AB.before-old-test/src/cui_said_map').as_uri()),
+                 'A retained source tree is also mutable through preservation maintenance')
+        escaped = (root / 'qa/../sources/MTH_2023AB/src/cui_said_map').as_uri().replace('/qa/../', '/qa/%2e%2e/')
+        rejected(lambda: location(escaped), 'Encoded parent aliases cannot bypass source-tree input isolation')
+        good(location((target.parent / 'MTH_2023AB.tgz').as_uri()) is None,
+             'A separately frozen top-level official archive cache remains a supported native input')
+        good(location((root / 'qa/prior-identity-cache/MTH_2023AB' / ('a' * 64) / 'cui_said_map').as_uri()) is None,
+             'An immutable prior identity cache outside replaceable trees remains a supported native input')
         for change, label in [
             (lambda p: p['input_files'][0].update(destination='../escape'), 'Input traversal is rejected'),
             (lambda p: p['input_files'].append(copy.deepcopy(p['input_files'][0])), 'Colliding native input destinations are rejected'),
