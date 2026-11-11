@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import time
 import traceback
 
 import inversion_worker as worker
@@ -19,13 +20,29 @@ def save():
     worker.save(CONTROL / 'verification-status.json', state)
 
 
+def wait_for_batch():
+    """Wait for the existing controller; never launch or replace its jobs."""
+    deadline = time.monotonic() + 21600
+    state.update(status='waiting-for-native-batch')
+    save()
+    while True:
+        observed = json.loads((CONTROL / 'status.json').read_text())
+        if observed['status'] == 'complete':
+            return
+        if observed['status'] != 'running':
+            raise RuntimeError('Native batch is not running or complete; verification refused')
+        if time.monotonic() >= deadline:
+            raise RuntimeError('Native batch wait limit reached; existing jobs and evidence are unchanged')
+        time.sleep(15)
+
+
 try:
     worker.guard()
     request = json.loads((CONTROL / 'verification-request.json').read_text())
     entry = CONTROL / 'independent-verifier.py'
     assert hashlib.sha256(entry.read_bytes()).hexdigest() == request['verifier_sha256']
-    assert json.loads((CONTROL / 'status.json').read_text())['status'] == 'complete'
     assert not (CONTROL / 'final-verification.json').exists()
+    wait_for_batch()
     state.update(status='verifying', verifier_sha256=request['verifier_sha256'])
     save()
     metrics = execute([sys.executable, '-B', str(entry)], cwd=CONTROL,
