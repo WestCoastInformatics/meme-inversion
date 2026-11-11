@@ -524,8 +524,9 @@ def verify_after(lock, target, result):
             snomed_configuration.verify_generated(generated, target)
         else:
             import mth_configuration
+            import replay_mth_core
             mth_configuration.execution_recipe_from_lock(lock)
-            mth_configuration.verify_generated(package(lock), target)
+            replay_mth_core.verify_generated(package(lock), target)
     for item in source_files(lock):
         path = target / item['relative_path']
         if item.get('kind') == 'symlink':
