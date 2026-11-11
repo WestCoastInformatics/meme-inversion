@@ -2,26 +2,49 @@
 
 The historical framework establishes reproducible inputs, pinned Git code, generated compatibility settings and independent output checks. The next phase should admit a new release through reviewed data contracts. Keep the characterized converters and the existing dev layout while adding that preparation layer. Source registration or a successful historical comparison cannot authorize an arbitrary new release.
 
+Planning checkpoint, November 11: NCIt, SNOMED and MTH have generated configuration and accepted historical native evidence, but executable admission still selects exact catalog cases. Their three development agents have reviewed the remaining generalization work. The next milestone is a manifest-driven release path alongside historical replay. A new compatible release must not require a new version-specific Python constant or a manually registered replay case. Unknown formats or unresolved source decisions must still block execution.
+
 The common configuration vocabulary remains unchanged. Release-specific precision belongs in the contracts for `inputs.source_data`, `inputs.reference_ncimeta`, `inputs.identity_state`, `inputs.source_plan`, `publisher_history` and `source_atom_ids`. Code comes from Git; an older release contributes only declared data and identity state. An archived complete prepared-input bundle is a valid starting point, without rebuilding its original database queries.
 
 ## Implementation order
 
 | Order | Deliverable | Acceptance gate |
 |---|---|---|
-| 1 | Release-plan and input-bundle preflight for each source | Every dependency has an identified producer, release/stage and hash; missing decisions and inconsistent state block a shadow run |
-| 2 | Verified installed-state capture where the selected transition requires fresh state | Deployed application/exporter identity, project, complete export scope and a coherent state boundary are established; preserved historical inputs remain usable directly |
-| 3 | Reviewable discovery of new source values and metadata | New subsources, termgroups, relationship types, source dispositions and ranking choices are explicit data decisions; no silent guessed defaults |
-| 4 | Real allocation and a newly registered dev case | Final inclusive ID bounds have allocation evidence, all settings are generated, and code/policy/input identities are frozen before execution |
-| 5 | Serialized shadow inversion and release-specific acceptance | Full outputs and retained identity state pass independent checks; historical correction exceptions are not broadened to fit the new release |
-| 6 | Operational QA, test insertion and controlled adoption | Required database QA/MRDOC and insertion checks pass before a release becomes eligible for staff use or production insertion |
+| 1 | Coordinator-owned release-manifest, source-profile and frozen-run contracts, reviewed by all three source agents | One vocabulary and concrete examples for all three; distinguish current publisher package, last inserted replacement, publisher history, saved identity, comparison reference and temporary test predecessor. Preserve historical request compatibility. |
+| 2 | Shared manifest preflight/resolution and release-aware execution services | A reviewed profile admits compatible release data, freezes dependency identities and reports unresolved decisions before staging. Dispatch, acquisition, status/collection, paths, capacity and retention use the locked release identity rather than a fixed source/date table. |
+| 3 | Three parallel source adapter tracks using that shared contract | Canonical pinned Git packages generate legacy settings and validate release-specific inputs/outputs without consuming already-rendered target settings as required constructor inputs. Source decisions are data; older executable folders are never the code source. |
+| 4 | Contract, variation and regression tests | Existing eleven historical request variants remain supported; manifests reproduce the established cases and settings. Small native fixtures cover skipped predecessors, optional additions, packaging/history differences, missing state, bad IDs and unsupported variations. |
+| 5 | One additional real preserved release per source through the new path | Select by input/reference completeness and engine/policy compatibility. The same adapter admits both releases with manifest changes only, without a new source-code edit or replay-catalog entry; compare against stage-correct official outputs and independent source invariants. Serialize full dev inversions. |
+| 6 | Upcoming-release shadow workflow, operational QA, test insertion and controlled adoption | Supply reviewed new-release decisions and required coherent state, distinguish test ranges from production allocation evidence, and complete legacy QA/MRDOC/insertion gates. Compare with staff's official inversion once available; missing official output cannot be reported as an exact match. |
 
 Capture overlapping NCImeta state once per verified consistency boundary and let source adapters render their required legacy metadata files. Avoid separate live-query paths that silently take roots, versions and precedence from different moments. A new release should be admitted through reviewed configuration/artifact data, rather than by editing release constants in copied scripts. Keep historical cases bounded while developing that admission path.
 
+Preserved prepared inputs and saved state can satisfy their declared roles directly. Fresh installed-state capture is an upstream producer only when the selected transition lacks appropriate preserved evidence or explicitly requests fresh preparation. Establish the deployed application/exporter identity, project, export completeness and coherent state boundary before treating a fresh capture as operational evidence. Other source tracks can proceed using complete preserved bundles while this producer is being verified.
+
 Run preparation/discovery locally in parallel where useful. Continue serializing full conversions and shared-runtime changes on the existing worker. Separate worker environments should follow demonstrated contention or incompatible requirements.
+
+## Development ownership and immediate deliverable
+
+| Owner | Implementation responsibility |
+|---|---|
+| Coordinator | Common manifest/profile schemas, artifact roles, immutable lock, readiness/status semantics, release-aware resolver/worker/acquisition/status/retention, cross-source review and integration |
+| NCIt agent | Manifest-driven five-role publisher preparation, generated configuration/source plans, optional subsource/termgroup decisions, supplied-state validation and fresh-state producer integration |
+| SNOMED agent | Parameterized Snapshot package roles and metadata dependencies, canonical Git package, generated cfg, release-aware preparation/conversion/comparison and terminology-specific discovery |
+| MTH agent | Prepared-bundle manifest, canonical templates and policy, dispositions/VSAB decisions, separate inserted/publisher predecessors, history selection and retained-identity validation |
+
+The immediate implementation deliverable is the versioned manifest/profile contract, one concrete manifest example per source and a common preflight report listing resolved inputs, generated settings, required decisions and blockers. This command performs no inversion or production mutation. Each agent supplies positive and negative cases to that shared contract before its adapter implementation converges.
+
+Historical cases remain regression oracles rather than the admission mechanism for every subsequent release. Tests must distinguish a synthetic variation fixture from a genuine different publisher release. Effective historical cfg/spec files can be independent golden references; a fresh candidate must be generated from Git templates/policy and declared inputs, without requiring its own completed reference inversion.
+
+The shared refactor includes validators and maintenance paths, not only generators. Current constraints include `inversion_request.select_case`, worker `VERSIONS`/capacity and correction-case checks, remote `SOURCES`, source preparation/runner globals, comparator namespaces/ID bounds and retention's fixed version allowlist. Replace these with reviewed profile capabilities and validated manifest identities; do not remove the checks without replacements. Keep the existing five-source request vocabulary and MDR/RADLEX regression compatibility.
+
+These agents assist development and troubleshooting. Deterministic code remains responsible for producing, freezing, validating and executing a release plan. An optional operator skill can explain failures or propose decisions through that same interface; it does not infer missing identities, choose unreviewed mappings or override execution gates.
 
 ## NCIt
 
 The [source-plan pilot](nci-source-plan.md) already represents optional subsource and termgroup additions, including empty addition lists and catalog promotion. A skipped month changes the explicit replacement baseline, not the configuration format. A fresh transition needs verified installed roots and ranking state, a reviewed representation catalog and decisions for newly encountered native values.
+
+First exercise the new manifest path with the known October/August transition, then with a genuine additional archived release. Verify both empty and explicit optional additions, no September-folder dependency, deterministic generation and rejection of inconsistent baselines/missing state. Passing historical generation must not make the currently blocked fresh-state preflight operational. The new preparation path must consume publisher roles and independently supplied state/allocation evidence; October's completed archive and observed output SAIDs cannot become required inputs for every new candidate.
 
 The [backend discovery](nci-backend-state-discovery.md) establishes important capture requirements: inverter SAIDs are source alternate identifiers rather than generated database IDs; root selection uses individual SRC/RPT atoms with `V-<RSAB>` codes; default and project precedence are separate ordered RSAB/TTY lists. Direct atom responses may omit alternate identifiers. The separate [v2 contract/preflight](nci-backend-preflight-v2.md) verifies raw field bindings and those distinct rank lists, with 71 passing local checks. Every v2 result still blocks execution. The [deployment inspection candidates](nci-deployment-inspection-candidates.md) identify supported version/configuration/project lookups and distinguish existing database operations from a safe capture. A complete, deployed exporter and coherent capture boundary remain to be demonstrated. The earlier versioned-termgroup synthetic preflight must not be treated as operational ranking proof.
 
@@ -30,6 +53,8 @@ Resolve the declared `CTCAE 6.0` mapping and external ranking findings through r
 ## SNOMEDCT_US
 
 Introduce a Snapshot package manifest and discovery report before generalizing the [bounded generator](snomed-configuration-generation.md). The current profile fixes the historical US edition, package naming and fourteen RF2 members. A new manifest should bind the actual package/member paths, headers, checksums, release identity and compatible module dependencies. Snapshot rows legitimately contain earlier effective dates; they need not all equal the package date. Alternate packaging or newly required members need review rather than filename guessing.
+
+Parameterize comparison as well as preparation: the current comparator uses the captured version for SOURCE_AUI/SOURCE_CUI qualifiers and literal historical ID bounds. A different release needs its own validated namespaces and allocation evidence. The same reviewed profile should accept explicit compatible package/member naming without reconstructing the September filename convention. Full/Delta input support requires a separately reviewed capability. March 2026 is a candidate additional archived release, subject to complete inputs, its actual inserted predecessor and reviewed engine/policy compatibility; availability has not been established by this planning review.
 
 Keep the last-inserted SNOMED baseline separate from the frozen NCImeta metadata/inventory bundle. Saved `sources.src`, `termgroups.src` and ICD inventories suffice for the characterized replay. Recreating their historical exports from today's database is optional upstream coverage. The current converter opens the ICD inventories, but direct pairwise mapping emission is commented out; do not claim they currently generate those relationships or drop the dependency without an explicit impact review.
 
@@ -40,6 +65,8 @@ Operational MRDOC generation also needs a frozen RELA-inverse, expanded-form and
 ## MTH/UMLS
 
 Start with a reviewed release-plan/input-bundle preflight. A final conversion can consume a staff-produced, frozen prepared subset, metadata bundle and last-inserted CUI identity map. The characterized bundle has eleven RRF inputs and eight metadata roles. Validate its release, producer, dispositions and dependency closure; MetamorphoSys regeneration is needed only when the bundle is absent or publisher preparation is explicitly selected. [Preserved-input contract](mth-2026aa-input-output-contract.json)
+
+Introduce a new prepared-input profile rather than broadening the historical profile's exceptions. Current generation uses existing effective `src/inv*.spec` files as constructor oracles and loads a dated source package. Replace those dependencies with canonical Git templates/policy plus typed manifest data; retain the historical effective files as independent regression references. A small native variation fixture should distinguish an uninserted publisher predecessor from the inserted CUI baseline and include kept/updated sources, moved AUIs, merge/split history and bequeathal. Follow it with a second real preserved release once its dependency closure is verified.
 
 Promote `ncisources.spec`, `sab.vsab.map` and `src_data` decisions into typed release artifacts, retaining source/version identities, rationale and hashes. Guessed `KEEP`/`UPDATE`/`NEW`/`EXCLUDE`/`REMOVE`/`SPECIAL` values are proposals requiring review. The current common plan identifies the historical transition; it does not discover new dispositions. [Disposition preparation](../../sources/MTH_2026AA/preinvert1.s), [proposal script](../../sources/MTH_2026AA/guess.ncisources.spec.pl)
 
