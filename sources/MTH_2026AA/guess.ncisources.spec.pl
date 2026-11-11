@@ -2,8 +2,10 @@
 #
 # e.g. "guess.ncisources.spec.pl >ncisources.spec"
 
-open(OLD, 'sort -t\| +0 -1 +1 -2r old/ncisources.spec |sort -m -u -t\| +0 -1|');
-open(NEW, q[awk -F\| '{print $4 "|" $3 "|" $22}' Meta/MRSAB.RRF |sort -t\| +0 -1 |]);
+die "Missing or unreadable old/ncisources.spec\n" unless -f 'old/ncisources.spec' && -r 'old/ncisources.spec';
+die "Missing or unreadable Meta/MRSAB.RRF\n" unless -f 'Meta/MRSAB.RRF' && -r 'Meta/MRSAB.RRF';
+open(OLD, 'sort -t\| +0 -1 +1 -2r old/ncisources.spec |sort -m -u -t\| +0 -1|') || die "Can't open old/ncisources.spec producer: $!\n";
+open(NEW, q[awk -F\| '{print $4 "|" $3 "|" $22}' Meta/MRSAB.RRF |sort -t\| +0 -1 |]) || die "Can't open Meta/MRSAB.RRF producer: $!\n";
 
 &getOLD;
 
@@ -28,8 +30,10 @@ while (<NEW>) {
 	    $TYPE = 'UPDATE' if $RSAB eq 'MTH';
 	} elsif ($oTYPE =~ /^(EXCLUDE|REMOVE)$/) {
 	    $TYPE = 'EXCLUDE';
-	} elsif ($oTYPE = 'SPECIAL') {
+	} elsif ($oTYPE eq 'SPECIAL') {
 	    $TYPE = $oTYPE;
+	} else {
+	    die "Unknown prior disposition $oTYPE for $RSAB\n";
 	}
 	&getOLD;
     } else {
