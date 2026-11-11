@@ -414,5 +414,31 @@
     "capacity_floor_changed": false,
     "full_native_execution": "NOT_STARTED",
     "reason": "Candidate-local identity snapshots protected conversion but retained verification also reopens original artifact locators. The independent content-addressed QA cache removes that mutable canonical-source dependency without skipping any input or rewriting checksums."
+  },
+  "derivative_input_verification_followup": {
+    "scope": "Later read-only verification of the derivative manifest and independent cache; historical lock399 and original dev_read_only_byte_verification remain unchanged.",
+    "run_id": "native-mth-2024aa-cache-20261111",
+    "lock_sha256": "f0653add90ceacb84b63a27ab2c78bf624ab2cca5df1dc4488ca91a4a9031457",
+    "apparatus_ref": "e86a2f0b1f454b2b16adcda520f55b276552b0c7",
+    "status": "VERIFIED_INPUT_AND_REFERENCE_BYTES",
+    "descriptors_verified": 47,
+    "issues": [],
+    "evidence_file": {
+      "name": "mth-native-cache-bytecheck.result.json",
+      "bytes": 30857,
+      "sha256": "1f7c88c68cbb7f2c8e5cea5c299588833c81d7169b024387a6841e1f91095fb6"
+    },
+    "server_record": "/local/content/MEME/MEME5/inv/qa/replay-requests/native-mth-prior-cache-20261111/native-lock-bytecheck.json",
+    "capacity_at_bytecheck": {
+      "status": "INSUFFICIENT",
+      "message": "Native release capacity reserve unavailable: need 48318382080 free bytes",
+      "observed_free_bytes": 22266605568,
+      "profile_minimum_free_bytes": 48318382080
+    },
+    "minimum_free_disk_gib": 45,
+    "capacity_floor_changed": false,
+    "candidate_directory_exists": false,
+    "native_execution": "NOT_STARTED",
+    "production_eligible": false
   }
 }

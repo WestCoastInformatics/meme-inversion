@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-native-dev-capacity-review",
+  "status": "INSUFFICIENT_EVEN_AT_DUPLICATE_UPPER_BOUND",
+  "source": "MTH",
+  "pending_native_release": "MTH_2024AA",
+  "duplicate_scan_version": "MTH_2026AA",
+  "scope": "Actual read-only whole-file SHA256 inventory of current and three retained MTH_2026AA src trees; no existing data maintenance authorized or performed.",
+  "apparatus_ref": "459f9ab538e4d32c7d718bcba88bc72dfb76943c",
+  "plan_receipt": {
+    "schema_version": 1,
+    "status": "PLAN_ONLY",
+    "plan_id": "native-mth-2026aa-capacity-20261111a",
+    "plan_path": "/local/content/MEME/MEME5/inv/qa/replay-storage-plans/native-mth-2026aa-capacity-20261111a/plan.json",
+    "plan_sha256": "29269f851231ae8894dff9e0c2f4c93304d0271fc7bd56da852fa8f91929c73b",
+    "plan_bytes": 148170,
+    "probe_sha256": "fda212d7d79f30f3e0d7c60c1eac8522bf29c9659dd6c2f046c9008a50ec7c54",
+    "execute_authorized": false
+  },
+  "environment": {
+    "account": "tomcata",
+    "block_bytes": 4096,
+    "device": 66305,
+    "filesystem": "xfs",
+    "hostname": "ncias-d3777-c.nci.nih-gov",
+    "kernel": "6.1.189-236.400.amzn2023.x86_64",
+    "machine": "x86_64",
+    "mountinfo_sha256": "a55236a4b7f1ce693fee754e19da8a42990c3ab08e17689ed524828f62abc514",
+    "uid": 991
+  },
+  "started_at": "2026-11-11T23:05:15.620376+00:00",
+  "completed_at": "2026-11-11T23:08:31.824066+00:00",
+  "roots": [
+    {
+      "name": "MTH_2026AA",
+      "role": "current"
+    },
+    {
+      "name": "MTH_2026AA.before-common-mth-clean-20261109",
+      "role": "retained"
+    },
+    {
+      "name": "MTH_2026AA.before-common-mth-corrections-20261106",
+      "role": "retained"
+    },
+    {
+      "name": "MTH_2026AA.before-common-mth-generated-20261110",
+      "role": "retained"
+    }
+  ],
+  "summary": {
+    "by_retained_root": {
+      "MTH_2026AA.before-common-mth-clean-20261109": {
+        "files": 1,
+        "potential_byte_upper_bound": 36212736
+      },
+      "MTH_2026AA.before-common-mth-corrections-20261106": {
+        "files": 15,
+        "potential_byte_upper_bound": 10535239680
+      },
+      "MTH_2026AA.before-common-mth-generated-20261110": {
+        "files": 13,
+        "potential_byte_upper_bound": 9207984128
+      }
+    },
+    "current_targets": 0,
+    "duplicate_groups": 14,
+    "files_fully_hashed": 43,
+    "full_file_bytes_hashed": 30278550582,
+    "limitation": "No physical extents inspected: existing sharing, holes, metadata costs and future COW may reduce savings",
+    "physical_bytes_reclaimed": null,
+    "potential_byte_upper_bound": 19779436544,
+    "retained_targets": 29,
+    "skipped_entries": 131,
+    "untouched_target_eof_tail_bytes": 58578
+  },
+  "integrity": {
+    "all_ten_file_metadata_fields_unchanged": true,
+    "all_eligible_files_completely_hashed": true,
+    "sha256_and_size_equality_required": true,
+    "current_files_never_targets": true,
+    "source_version_file_writes": false,
+    "source_version_file_deletions": false,
+    "real_file_ioctls": false,
+    "old_83_file_cleanup_replayed": false,
+    "new_dataset_archives": false,
+    "s3_uploads": false
+  },
+  "capacity": {
+    "available_bytes_at_plan_completion": 20036485120,
+    "required_free_bytes": 48318382080,
+    "gap_bytes": 28281896960,
+    "duplicate_sharing_upper_bound_bytes": 19779436544,
+    "maximum_free_bytes_even_if_all_potential_sharing_reclaimed": 39815921664,
+    "potential_is_actual_physical_savings": false,
+    "execution_floor_changed": false
+  },
+  "synthetic_probe": {
+    "status": "PASS_SYNTHETIC_SCRATCH_PROBE",
+    "sha256": "fda212d7d79f30f3e0d7c60c1eac8522bf29c9659dd6c2f046c9008a50ec7c54",
+    "path": "/local/content/MEME/MEME5/inv/qa/replay-storage-probes/native-capacity-dedup-20261111a/report.json",
+    "scope": "Only three new synthetic scratch files; does not authorize existing-file maintenance."
+  },
+  "local_checks": {
+    "plan_confined_checks": 47,
+    "synthetic_probe_confined_checks": 64,
+    "scope": "Local confined fixtures; the actual dev scratch probe and actual read-only plan are separately identified above."
+  },
+  "decision": "Do not apply this insufficient storage-sharing plan; request at least 30 GiB additional dev filesystem capacity (40 GiB preferred). No real-data apply helper is implemented.",
+  "native_execution": "NOT_STARTED_CAPACITY_GATE",
+  "production_eligible": false
+}
