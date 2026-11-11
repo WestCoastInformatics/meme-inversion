@@ -378,14 +378,20 @@ def compact(plan_path, plan_sha256):
         # Re-run acceptance and output checks; a plan is not permission to delete changed data.
         scan_pin = record['verification']
         _context(record['run_id'], scan_pin['path'] if scan_pin else None, scan_pin['sha256'] if scan_pin else None)
-        if _archive_matches(record['archive'], record['manifest']) != record['remove']:
-            raise RuntimeError('Official recovery members differ')
+        # Planning verified each mapped member. The externally pinned plan plus
+        # an unchanged SHA-256 of the entire archive preserves that exact proof;
+        # another decompression pass would not add content-identity evidence.
+        archive_path = Path(record['archive']['archive_path'])
+        storage._safe_directory(archive_path.parent)
+        if storage._file_sha(archive_path) != record['archive']['archive_sha256']:
+            raise RuntimeError('Official recovery archive changed')
         started = namespace / 'started.json'
         if started.exists() and storage._load(started).get('plan_sha256') != plan_sha256:
             raise RuntimeError('Another compaction attempt owns this namespace')
-        if not started.exists() and storage._tree(source) != (record['manifest'], record['source_capture']):
+        if started.exists():
+            _check_remaining(source, record, allow_incomplete_modes=True)
+        elif storage._tree(source) != (record['manifest'], record['source_capture']):
             raise RuntimeError('Preserved tree changed before first compaction')
-        _check_remaining(source, record, allow_incomplete_modes=started.exists())
         # Durable plan and provider precede the first unlink. No copy/archive is made.
         for path in (Path(plan_path), Path(record['archive']['archive_path'])):
             with storage._open_file(path) as handle:
