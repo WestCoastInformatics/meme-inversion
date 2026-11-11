@@ -74,10 +74,32 @@ def _shape(source):
     return result
 
 
+def _managed_rollback(root, source):
+    """Apply the limit prospectively; historical apparatus stays unchanged."""
+    restored = root / 'qa/replay-retention' / source.name / 'restore-started.json'
+    if restored.exists() or restored.is_symlink():
+        storage._safe_directory(restored.parent)
+        marker = storage._load(restored)
+        if marker.get('policy') != POLICY or marker.get('destination') != str(source):
+            raise RuntimeError('Restoration retention marker changed')
+        return True
+    run_id = source.name.split('.before-', 1)[1]
+    control = root / 'qa/replay-requests' / run_id
+    lock_path = control / 'case.lock.json'
+    if not lock_path.exists() and not lock_path.is_symlink():
+        return False  # Older standalone adapters did not create common controls.
+    storage._safe_directory(control)
+    lock = storage._load(lock_path)
+    if (lock.get('run_id') != run_id or lock.get('request', {}).get('version') != source.name.split('.before-', 1)[0]
+            or lock.get('lock_sha256') != digest({key: value for key, value in lock.items() if key != 'lock_sha256'})):
+        raise RuntimeError('Rollback control identity changed: ' + str(lock_path))
+    return 'replay_retention.py' in lock.get('modules_b64', {})
+
+
 def inventory(root, version):
     if version not in VERSIONS.values():
         raise ValueError('Unreviewed source/version retention policy')
-    expanded, compacted = [], []
+    expanded, compacted, legacy = [], [], []
     for source in sorted((root / 'sources').glob(version + '.before-*')):
         if source.is_symlink() or not source.is_dir():
             raise RuntimeError('Unexpected rollback path: ' + str(source))
@@ -95,9 +117,14 @@ def inventory(root, version):
                      and not (hold.exists() or hold.is_symlink()))
         except (OSError, ValueError, KeyError, TypeError):
             valid = False
-        (compacted if valid else expanded).append(str(source))
+        if valid:
+            compacted.append(str(source))
+        elif complete.exists() or complete.is_symlink() or _managed_rollback(root, source):
+            expanded.append(str(source))
+        else:
+            legacy.append(str(source))
     return {'policy': POLICY, 'maximum_expanded_rollbacks': MAX_EXPANDED_ROLLBACKS,
-            'expanded_rollbacks': expanded, 'compacted_runs': compacted,
+            'expanded_rollbacks': expanded, 'compacted_runs': compacted, 'legacy_rollbacks': legacy,
             'admission_available': len(expanded) < MAX_EXPANDED_ROLLBACKS}
 
 
@@ -451,6 +478,9 @@ def restore(plan_path, plan_sha256, destination):
             raise ValueError('Restore release differs')
         manifest = record['manifest']
         directories = [item for item in manifest['entries'] if item['type'] == 'directory']
+        restore_namespace = _namespace(destination, create=True)
+        storage._save(restore_namespace / 'restore-started.json',
+                      {'policy': POLICY, 'destination': str(destination), 'plan_sha256': plan_sha256})
         destination.mkdir(mode=0o700)
         for item in sorted(directories, key=lambda row: row['path'].count('/')):
             (destination / item['path']).mkdir(mode=0o700)

@@ -56,6 +56,7 @@ def fixture(source_id='NCI'):
         control = root / 'qa/replay-requests' / run_id;control.mkdir()
         lock={'artifact_type':'ncimeta-dev-replay-lock','run_id':run_id,
               'request':{'source':source_id,'version':version},
+              'modules_b64':{'replay_retention.py':'fixture-marker'},
               'case':{'acquisition':{'archives':[{'archive_path':str(archive),'archive_sha256':storage._file_sha(archive)}]}}}
         lock['lock_sha256']=retention.digest(lock);put(control/'case.lock.json',lock)
         put(control/'previous-source-receipt.json',original)
@@ -243,6 +244,17 @@ def check(include_transport=True):
         before=storage._tree(s)
         report=retention.plan(args[0]);result=retention.compact(report['plan'],report['plan_sha256'])
         require(result['duplicate_files_removed']==0 and storage._tree(s)==before,'A unique-only folder is recorded without deleting data or claiming freed space')
+    with fixture() as (root,s,t,c,a,v,args):
+        report=retention.plan(*args);retention.compact(report['plan'],report['plan_sha256'])
+        old=t.with_name(t.name+'.before-legacy-standalone');old.mkdir();(old/'diagnostic').write_bytes(b'old investigation')
+        inventory=retention.check_budget(root,t.name)
+        require(inventory['legacy_rollbacks']==[str(old)] and inventory['admission_available'],'Legacy backlog is reported without retroactively blocking the improved runner')
+        extra=t.with_name(t.name+'.before-new-policy-extra');extra.mkdir()
+        extra_control=root/'qa/replay-requests/new-policy-extra';extra_control.mkdir()
+        lock=storage._load(c/'case.lock.json');lock['run_id']='new-policy-extra';lock['lock_sha256']=retention.digest({key:value for key,value in lock.items() if key!='lock_sha256'});put(extra_control/'case.lock.json',lock)
+        rejected(lambda:retention.check_budget(root,t.name),'New managed rollbacks still enforce the one-folder limit beside legacy history')
+        lock['run_id']='different-run';put(extra_control/'case.lock.json',lock)
+        rejected(lambda:retention.inventory(root,t.name),'Corrupted managed control cannot masquerade as legacy history')
     if not include_transport:
         return checks
     # Exercise the actual frozen transport construction with only Git reads substituted for in-progress bytes.
