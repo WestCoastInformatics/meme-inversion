@@ -4,6 +4,8 @@ The historical framework establishes reproducible inputs, pinned Git code, gener
 
 Planning checkpoint, November 11: NCIt, SNOMED and MTH have generated configuration and accepted historical native evidence, but executable admission still selects exact catalog cases. Their three development agents have reviewed the remaining generalization work. The next milestone is a manifest-driven release path alongside historical replay. A new compatible release must not require a new version-specific Python constant or a manually registered replay case. Unknown formats or unresolved source decisions must still block execution.
 
+Implementation update, November 11: the [common release-manifest/schema/profile preflight](release-manifests.md) now implements the first offline deliverable. All three source agents supplied declaration validation, examples and variation tests. The common command no longer needs a replay case to inspect these manifests; it does not yet admit them to the native worker. Executable release contracts, canonical packages and release-aware conversion/comparison remain the next implementation work, followed by additional real archived releases.
+
 The common configuration vocabulary remains unchanged. Release-specific precision belongs in the contracts for `inputs.source_data`, `inputs.reference_ncimeta`, `inputs.identity_state`, `inputs.source_plan`, `publisher_history` and `source_atom_ids`. Code comes from Git; an older release contributes only declared data and identity state. An archived complete prepared-input bundle is a valid starting point, without rebuilding its original database queries.
 
 ## Implementation order

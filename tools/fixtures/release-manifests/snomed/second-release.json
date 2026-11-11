@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-release-manifest",
+  "profile": "snomed-us-snapshot-inputs-v1",
+  "purpose": "shadow",
+  "configuration": {
+    "schema_version": 2,
+    "source": "SNOMEDCT_US",
+    "version": "SNOMEDCT_US_2028_11_15",
+    "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+    "policy_ref": "representation-policy",
+    "environment_profile": "dev-environment",
+    "replacement_baseline": {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2027_03_01"
+    },
+    "comparison_baseline": null,
+    "publisher_history": [],
+    "inputs": {
+      "source_data": [
+        "native-release"
+      ],
+      "source_data_stage": "publisher",
+      "reference_ncimeta": "ncimeta-snapshot",
+      "identity_state": null,
+      "source_plan": "source-plan"
+    },
+    "source_atom_ids": {
+      "start": 1000000000,
+      "end": 1000000099,
+      "bound_kind": "dev-reservation",
+      "provenance_ref": "id-allocation"
+    },
+    "validation_profile": "mandatory-validation",
+    "output_stage": "inversion-src",
+    "source_options": {
+      "rf2_view": "Snapshot"
+    }
+  },
+  "artifacts": {
+    "native-release": {
+      "schema_version": 1,
+      "artifact_type": "publisher-bundle",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2028_11_15",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [
+        {
+          "role": "rf2-concepts",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/sct2_Concept_Snapshot_US1000124_20281115.txt",
+          "sha256": "9b689114b13395f478c195105d43302938fe82e45016e6832aed9e28c65156fc",
+          "bytes": 167
+        },
+        {
+          "role": "rf2-descriptions",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/sct2_Description_Snapshot-en_US1000124_20281115.txt",
+          "sha256": "6b2f893ab341edeab1d5ef5f7f1b339863d7c3a19aee0a948ab026d6accac2c6",
+          "bytes": 319
+        },
+        {
+          "role": "rf2-relationships",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/sct2_Relationship_Snapshot_US1000124_20281115.txt",
+          "sha256": "b6de9e1a76afa3d32c76ffe89070d749339637e4083463c2736e65acc775dd16",
+          "bytes": 217
+        },
+        {
+          "role": "rf2-concrete-values",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/sct2_RelationshipConcreteValues_Snapshot_US1000124_20281115.txt",
+          "sha256": "2bbf8b9a8ae1c7ec2b417945f6c372b4e4a4690b548ae7dd37ec54d7dab6180e",
+          "bytes": 105
+        },
+        {
+          "role": "rf2-text-definitions",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/sct2_TextDefinition_Snapshot-en_US1000124_20281115.txt",
+          "sha256": "b71c87c4b8d618931e0db80010760425f9afd53cb7ef97e6cb94ba60dae7dfcd",
+          "bytes": 87
+        },
+        {
+          "role": "rf2-refset-descriptor",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_cciRefset_RefsetDescriptorSnapshot_US1000124_20281115.txt",
+          "sha256": "a7c74b1b2d0ed55dda0a9be047126520d46c1df7368cf7d9db88c3758fc45f67",
+          "bytes": 114
+        },
+        {
+          "role": "rf2-description-type",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_ciRefset_DescriptionTypeSnapshot_US1000124_20281115.txt",
+          "sha256": "00c663c83f7a94520c4810cf0376558f99253ba581c7683802eb6ea355079d50",
+          "bytes": 100
+        },
+        {
+          "role": "rf2-module-dependency",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_ssRefset_ModuleDependencySnapshot_US1000124_20281115.txt",
+          "sha256": "1a83b33ccb7ac81f2a6a984c89d08d58316cbe8c8e9838d754d3b09e552b885f",
+          "bytes": 199
+        },
+        {
+          "role": "rf2-language",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_cRefset_LanguageSnapshot-en_US1000124_20281115.txt",
+          "sha256": "5b4b06e4fd89f6a3fde90502a79d3eac0913951792ebc2821ae310f3b62515a5",
+          "bytes": 172
+        },
+        {
+          "role": "rf2-simple-map",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_sRefset_SimpleMapSnapshot_US1000124_20281115.txt",
+          "sha256": "85a92da0506c8d3e302a2d6991a5daaa37661cf8f519a5b9c8c9c204912534bf",
+          "bytes": 74
+        },
+        {
+          "role": "rf2-extended-map",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_iisssccRefset_ExtendedMapSnapshot_US1000124_20281115.txt",
+          "sha256": "dad0df95dab3023daa7a71b06f8792aab4797fa29494e187abf43f24bcea874b",
+          "bytes": 141
+        },
+        {
+          "role": "rf2-attribute-value",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_cRefset_AttributeValueSnapshot_US1000124_20281115.txt",
+          "sha256": "1369e4300c431b9d26956b14089468beb4561b4f3855018ea8fd41c092cb9385",
+          "bytes": 72
+        },
+        {
+          "role": "rf2-simple-refset",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_Refset_SimpleSnapshot_US1000124_20281115.txt",
+          "sha256": "d46ad31198970d9cac54444b7011b466fe69f4406711c3bd681c35906abf13e1",
+          "bytes": 64
+        },
+        {
+          "role": "rf2-association",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/ReviewedUS_20281115T060000Z_v2/der2_cRefset_AssociationSnapshot_US1000124_20281115.txt",
+          "sha256": "e87204011449cabfbb8640654ac3b9c4d3397b991f9e992cf83a373ba6f6d1e2",
+          "bytes": 82
+        }
+      ],
+      "data": {
+        "edition": "US",
+        "rf2_view": "Snapshot",
+        "publisher_release_date": "2028-11-15",
+        "package_name": "ReviewedUS_20281115T060000Z_v2",
+        "headers": {
+          "rf2-concepts": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "definitionStatusId"
+          ],
+          "rf2-descriptions": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "conceptId",
+            "languageCode",
+            "typeId",
+            "term",
+            "caseSignificanceId"
+          ],
+          "rf2-relationships": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "sourceId",
+            "destinationId",
+            "relationshipGroup",
+            "typeId",
+            "characteristicTypeId",
+            "modifierId"
+          ],
+          "rf2-concrete-values": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "sourceId",
+            "value",
+            "relationshipGroup",
+            "typeId",
+            "characteristicTypeId",
+            "modifierId"
+          ],
+          "rf2-text-definitions": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "conceptId",
+            "languageCode",
+            "typeId",
+            "term",
+            "caseSignificanceId"
+          ],
+          "rf2-refset-descriptor": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "attributeDescription",
+            "attributeType",
+            "attributeOrder"
+          ],
+          "rf2-description-type": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "descriptionFormat",
+            "descriptionLength"
+          ],
+          "rf2-module-dependency": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "sourceEffectiveTime",
+            "targetEffectiveTime"
+          ],
+          "rf2-language": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "acceptabilityId"
+          ],
+          "rf2-simple-map": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "mapTarget"
+          ],
+          "rf2-extended-map": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "mapGroup",
+            "mapPriority",
+            "mapRule",
+            "mapAdvice",
+            "mapTarget",
+            "correlationId",
+            "mapCategoryId"
+          ],
+          "rf2-attribute-value": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "valueId"
+          ],
+          "rf2-simple-refset": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId"
+          ],
+          "rf2-association": [
+            "id",
+            "effectiveTime",
+            "active",
+            "moduleId",
+            "refsetId",
+            "referencedComponentId",
+            "targetComponentId"
+          ]
+        },
+        "effective_time_bounds": {
+          "minimum": "20200131",
+          "maximum": "20281115"
+        },
+        "module_dependencies": [
+          {
+            "source_module_id": "731000124108",
+            "target_module_id": "900000000000207008",
+            "source_effective_time": "20281115",
+            "target_effective_time": "20200131"
+          }
+        ],
+        "discovery": {
+          "relationship_types": [
+            "116680003"
+          ],
+          "association_refsets": [],
+          "description_types": [
+            "900000000000003001",
+            "900000000000013009"
+          ],
+          "attribute_refsets": [],
+          "concrete_types": [],
+          "refset_patterns": [
+            "900000000000509007"
+          ],
+          "map_correlations": [],
+          "labels": {
+            "116680003": "Is a (attribute)"
+          }
+        }
+      }
+    },
+    "ncimeta-snapshot": {
+      "schema_version": 1,
+      "artifact_type": "ncimeta-state",
+      "source": "NCIMETA",
+      "version": "NCIMETA_SYNTHETIC_publication-two",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [
+        {
+          "role": "sources-src",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/metadata/sources.src",
+          "sha256": "d4362d98b32a97f63f9fb312f626e3581fb11ef1eb37e4f7bfc7ba0c6c6502e7",
+          "bytes": 184
+        },
+        {
+          "role": "termgroups-src",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/metadata/termgroups.src",
+          "sha256": "e292a2dc4c167a39f8dd7f28e830fd5ebfcc9a57ce1ceb4182804e5efe9ea05a",
+          "bytes": 183
+        },
+        {
+          "role": "icd10-target-inventory",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/metadata/icd10.inmeta",
+          "sha256": "ca0f05b18f423e15353349631487c434e44e77e1795843417dbfeecaf1895c61",
+          "bytes": 4
+        },
+        {
+          "role": "icd10cm-target-inventory",
+          "uri": "repo:tools/fixtures/release-manifests/snomed/publication-two/metadata/icd10cm.inmeta",
+          "sha256": "0a2e6ea904562aeda2ed6868e202468d6d277325a86603aff884b2ae4e50fad2",
+          "bytes": 6
+        }
+      ],
+      "data": {
+        "snapshot_id": "SYNTHETIC-publication-two",
+        "sources_rows": [
+          [
+            "SNOMEDCT_US_2028_11_15",
+            "SNOMEDCT_US_2027_03_01",
+            "0",
+            "SNOMEDCT_US",
+            "SNOMEDCT_US",
+            "2028-11-15",
+            "SNOMEDCT_US",
+            "SYNTHETIC US Snapshot example",
+            "",
+            "",
+            "",
+            "",
+            "synthetic-fixture",
+            "hierarchical",
+            "",
+            "ENG",
+            "SYNTHETIC",
+            "",
+            "UTF-8",
+            "Y"
+          ]
+        ],
+        "termgroups_rows": [
+          [
+            "SNOMEDCT_US_2028_11_15/FN",
+            "SNOMEDCT_US_2027_03_01/FN",
+            "N",
+            "N",
+            "N",
+            "FN"
+          ],
+          [
+            "SNOMEDCT_US_2028_11_15/SY",
+            "SNOMEDCT_US_2027_03_01/SY",
+            "N",
+            "N",
+            "N",
+            "SY"
+          ],
+          [
+            "SNOMEDCT_US_2028_11_15/PT",
+            "SNOMEDCT_US_2027_03_01/PT",
+            "N",
+            "N",
+            "N",
+            "PT"
+          ]
+        ],
+        "target_inventories": [
+          "ICD10",
+          "ICD10CM"
+        ]
+      }
+    },
+    "source-plan": {
+      "schema_version": 1,
+      "artifact_type": "source-plan",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2028_11_15",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "replacement_baseline": {
+          "source": "SNOMEDCT_US",
+          "version": "SNOMEDCT_US_2027_03_01"
+        },
+        "comparison_baseline": null,
+        "publisher_history": [],
+        "mrdoc_required": false,
+        "mapping_decisions": {
+          "relationship_types": {},
+          "association_refsets": {},
+          "description_types": {},
+          "attribute_refsets": {},
+          "concrete_types": {},
+          "refset_patterns": {},
+          "map_correlations": {}
+        },
+        "label_decisions": {}
+      }
+    },
+    "representation-policy": {
+      "schema_version": 1,
+      "artifact_type": "policy",
+      "source": "SNOMEDCT_US",
+      "version": "SYNTHETIC_POLICY_V1",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "engine_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+        "supported_modules": [
+          "731000124108",
+          "900000000000207008"
+        ],
+        "mappings": {
+          "relationship_types": {
+            "116680003": {
+              "decision": "represent",
+              "rel": "CHD",
+              "rela": "isa",
+              "inverse_rela": "inverse_isa"
+            }
+          },
+          "association_refsets": {},
+          "description_types": {
+            "900000000000003001": {
+              "decision": "represent",
+              "tty": "FN"
+            },
+            "900000000000013009": {
+              "decision": "represent",
+              "tty": "SY"
+            }
+          },
+          "attribute_refsets": {},
+          "concrete_types": {},
+          "refset_patterns": {
+            "900000000000509007": {
+              "decision": "represent",
+              "pattern": "Language type"
+            }
+          },
+          "map_correlations": {}
+        },
+        "labels": {
+          "116680003": "Is a (attribute)"
+        }
+      }
+    },
+    "id-allocation": {
+      "schema_version": 1,
+      "artifact_type": "id-allocation",
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2028_11_15",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "start": 1000000000,
+        "end": 1000000099,
+        "bound_kind": "dev-reservation",
+        "reservation_id": "SYNTHETIC-NO-ALLOCATION",
+        "scope": "SYNTHETIC fixture only"
+      }
+    },
+    "dev-environment": {
+      "schema_version": 1,
+      "artifact_type": "environment-profile",
+      "source": "SNOMEDCT_US",
+      "version": "meme-dev-v1",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "profile_id": "meme-dev-v1"
+      }
+    },
+    "mandatory-validation": {
+      "schema_version": 1,
+      "artifact_type": "validation-profile",
+      "source": "SNOMEDCT_US",
+      "version": "snomed-snapshot-core-v1",
+      "provenance": {
+        "producer": "SYNTHETIC test fixture author",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-publication-two",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "profile_id": "snomed-snapshot-core-v1"
+      }
+    }
+  }
+}

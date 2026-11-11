@@ -289,6 +289,11 @@ def main():
     resolve_parser.add_argument('--output', required=True)
     inspect_parser = commands.add_parser('show', help='Show a lock without executable code payloads')
     inspect_parser.add_argument('lock')
+    release_parser = commands.add_parser('preflight-release', help='Validate a release manifest without a historical catalog case or server changes')
+    release_parser.add_argument('manifest')
+    release_parser.add_argument('--output', required=True)
+    release_parser.add_argument('--verify-files', action='store_true', help='Read and hash local/fixture inputs; no network acquisition or archive extraction')
+    release_parser.add_argument('--lock-output', help='Optional non-executable review lock; requires committed preflight code')
     args = parser.parse_args()
     if args.command == 'resolve':
         lock = resolve(load(args.request), args.run_id)
@@ -296,6 +301,23 @@ def main():
         print(json.dumps({'lock': args.output, 'lock_sha256': lock['lock_sha256'],
                           'source': lock['request']['source'], 'version': lock['request']['version'],
                           'execution_enabled': lock['execution_enabled']}))
+    elif args.command == 'preflight-release':
+        import release_manifest
+        outputs = [args.output] + ([args.lock_output] if args.lock_output else [])
+        if len({str(Path(path).absolute()) for path in outputs}) != len(outputs):
+            raise ValueError('Report and lock destinations must differ')
+        if any(Path(path).exists() or Path(path).is_symlink() for path in outputs):
+            raise FileExistsError('Release report/lock output already exists')
+        manifest = release_manifest.load(args.manifest)
+        report = release_manifest.preflight(manifest, verify=args.verify_files)
+        lock = release_manifest.freeze(manifest, report) if args.lock_output else None
+        release_manifest.write_new(args.output, report)
+        if lock is not None:release_manifest.write_new(args.lock_output, lock)
+        print(json.dumps({'report': args.output, 'status': report['status'], 'manifest_valid': report['manifest_valid'],
+                          'declarations_valid': report['declarations_valid'],
+                          'verified_files': sum(row['status'] == 'VERIFIED' for row in report['input_files']),
+                          'execution_eligible': False, 'production_eligible': False, 'lock': args.lock_output}))
+        raise SystemExit(2 if report['status'] in ('INVALID_MANIFEST', 'INVALID_RELEASE_CONTRACT') else 3)
     else:
         lock = load(args.lock)
         expected = lock.pop('lock_sha256')

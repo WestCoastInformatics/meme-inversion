@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-release-manifest",
+  "profile": "mth-prepared-inputs-v1",
+  "purpose": "shadow",
+  "configuration": {
+    "schema_version": 2,
+    "source": "MTH",
+    "version": "MTH_2027AA",
+    "engine_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "policy_ref": "mth-policy",
+    "environment_profile": "mth-environment",
+    "replacement_baseline": {
+      "source": "MTH",
+      "version": "MTH_2026AA"
+    },
+    "comparison_baseline": null,
+    "publisher_history": [],
+    "inputs": {
+      "source_data": [
+        "mth-prepared"
+      ],
+      "source_data_stage": "prepared",
+      "reference_ncimeta": "mth-state",
+      "identity_state": "mth-identity",
+      "source_plan": "mth-plan"
+    },
+    "source_atom_ids": {
+      "start": 1000,
+      "end": 1099,
+      "bound_kind": "dev-reservation",
+      "provenance_ref": "mth-allocation"
+    },
+    "validation_profile": "mth-validation",
+    "output_stage": "inversion-src",
+    "source_options": {}
+  },
+  "artifacts": {
+    "mth-plan": {
+      "schema_version": 1,
+      "artifact_type": "source-plan",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-source-plan-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "review_status": "reviewed",
+        "review_id": "SYNTHETIC-REVIEW-ONLY",
+        "replacement_baseline": {
+          "source": "MTH",
+          "version": "MTH_2026AA"
+        },
+        "publisher_previous": {
+          "source": "MTH",
+          "version": "MTH_2026AB"
+        },
+        "publisher_release_chain": [
+          "MTH_2026AA",
+          "MTH_2026AB",
+          "MTH_2027AA"
+        ],
+        "history_selection": {
+          "review_status": "reviewed",
+          "moved_aui_releases": [
+            "MTH_2026AA",
+            "MTH_2026AB",
+            "MTH_2027AA"
+          ],
+          "cui_merge_releases": [
+            "MTH_2026AA",
+            "MTH_2026AB"
+          ],
+          "bequeathal_releases": [
+            "MTH_2026AA",
+            "MTH_2026AB"
+          ]
+        },
+        "dispositions": [
+          {
+            "source": "MTH",
+            "version": "MTH_2027AA",
+            "publisher_version": "MTH",
+            "disposition": "UPDATE",
+            "prior_version": "MTH_2026AA",
+            "excluded_termgroups": [],
+            "review_status": "reviewed"
+          },
+          {
+            "source": "TEST",
+            "version": "TEST_2026",
+            "publisher_version": "TEST2026",
+            "disposition": "KEEP",
+            "prior_version": "TEST_2026",
+            "excluded_termgroups": [],
+            "review_status": "reviewed"
+          },
+          {
+            "source": "NEWSOURCE",
+            "version": "NEWSOURCE_1",
+            "publisher_version": "NEWSOURCE1",
+            "disposition": "NEW",
+            "prior_version": null,
+            "excluded_termgroups": [],
+            "review_status": "reviewed"
+          }
+        ],
+        "vsab_mappings": [
+          {
+            "source": "MTH",
+            "publisher_version": "MTH",
+            "version": "MTH_2027AA"
+          },
+          {
+            "source": "TEST",
+            "publisher_version": "TEST2026",
+            "version": "TEST_2026"
+          },
+          {
+            "source": "NEWSOURCE",
+            "publisher_version": "NEWSOURCE1",
+            "version": "NEWSOURCE_1"
+          }
+        ],
+        "src_root": {
+          "source": "MTH",
+          "version": "MTH_2027AA",
+          "status": "R",
+          "term_type": "SSN",
+          "name": "SYNTHETIC UMLS Metathesaurus fixture"
+        }
+      }
+    },
+    "mth-policy": {
+      "schema_version": 1,
+      "artifact_type": "policy",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-policy-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "subset_profile": "synthetic-rest-v1",
+        "special_disposition_rules": []
+      }
+    },
+    "mth-prepared": {
+      "schema_version": 1,
+      "artifact_type": "prepared-bundle",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-prepared-bundle-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [
+        {
+          "role": "MRAUI.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRAUI.RRF",
+          "sha256": "1305db215323b805f1d2915531f3cc517ea29b3782685e7fdaa8e17fee33429d",
+          "bytes": 153
+        },
+        {
+          "role": "MRCONSO.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRCONSO.RRF",
+          "sha256": "f167bb6aa0b04a06668f9a9fae3d257e1299b9759744b47944d25b6310e814dc",
+          "bytes": 92
+        },
+        {
+          "role": "MRCUI.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRCUI.RRF",
+          "sha256": "5b8c7c5b5eccca24d0fe83525b92119faeb4d3b7003197ca6ac0f08ea90dd937",
+          "bytes": 66
+        },
+        {
+          "role": "MRCXT.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRCXT.RRF",
+          "sha256": "a554b96615cedbd4b54cb86b2b36ba8af52ef99cb462c49a6164dab785e010e4",
+          "bytes": 55
+        },
+        {
+          "role": "MRDEF.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRDEF.RRF",
+          "sha256": "b550d011c8091b7ea87827afca6f7ac27b1ec855cb968df2f8676bde74294590",
+          "bytes": 64
+        },
+        {
+          "role": "MRDOC.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRDOC.RRF",
+          "sha256": "47f6114dbde2dfa8bd8fd88d92cbe349c63bad3bb8276b04d6e8c16dea658856",
+          "bytes": 45
+        },
+        {
+          "role": "MRRANK.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRRANK.RRF",
+          "sha256": "b760cfe63172b11a55a9d522fe8a9ab40b14e16575de1839ffd19271296359bf",
+          "bytes": 42
+        },
+        {
+          "role": "MRREL.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRREL.RRF",
+          "sha256": "d1fe04b401f095c086a37a46803dd9accd7cbba663d89bbb4ccf1254d10cb112",
+          "bytes": 85
+        },
+        {
+          "role": "MRSAB.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRSAB.RRF",
+          "sha256": "a2296f3b3669a1f67cd7abe16547f8680d6df0496dd359bb47695826a1a1e095",
+          "bytes": 270
+        },
+        {
+          "role": "MRSAT.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRSAT.RRF",
+          "sha256": "af47dd4b21cfca06369b7dde2c9947100ee0c1e4a8cce8fc8a874030389aaaf2",
+          "bytes": 70
+        },
+        {
+          "role": "MRSTY.RRF",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/prepared/MRSTY.RRF",
+          "sha256": "12c3f30e3ba97b206547b371f0dc13f4a978079d404586e3c76b3e966e5b60f4",
+          "bytes": 49
+        }
+      ],
+      "data": {
+        "publisher_release": "2027AA",
+        "source_plan_ref": "mth-plan",
+        "source_plan_sha256": "d870acf8be06943a1b89d1b4a6b699aef9a86583bef39ad212e7d110e91ab97f",
+        "policy_ref": "mth-policy",
+        "policy_sha256": "a00ca6c8c55dcfb131d6ecf5dbc016e8599e1cba1d5d344657901cf8f09083ea",
+        "subset_profile": "synthetic-rest-v1",
+        "history_coverage": {
+          "moved_aui_releases": [
+            "MTH_2026AA",
+            "MTH_2026AB",
+            "MTH_2027AA"
+          ],
+          "cui_merge_releases": [
+            "MTH_2026AA",
+            "MTH_2026AB"
+          ],
+          "bequeathal_releases": [
+            "MTH_2026AA",
+            "MTH_2026AB"
+          ]
+        }
+      }
+    },
+    "mth-state": {
+      "schema_version": 1,
+      "artifact_type": "ncimeta-state",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-ncimeta-state-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [
+        {
+          "role": "ncimid.sources",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/ncimid.sources",
+          "sha256": "b6751802d94471eae8b73e4fd606664601ece1ada842bb8bf2944cba5e414e72",
+          "bytes": 41
+        },
+        {
+          "role": "ncimid.termgroups",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/ncimid.termgroups",
+          "sha256": "952a4fe1757a1af0bdf1770ddc771adc665ca59cc6a33ea0c3d01ae02ab52c67",
+          "bytes": 19
+        },
+        {
+          "role": "src/rsabs-updated.umls",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/src/rsabs-updated.umls",
+          "sha256": "6f58ed8fe80eb0c54e8041a1d0022abbdb5de9378d0dd526473ab3942a2965e9",
+          "bytes": 14
+        },
+        {
+          "role": "src/sabs_updated_umls",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/src/sabs_updated_umls",
+          "sha256": "d78028efd872c224eaa1fa0f262b331ffb743b67366fd63dace74b41b8e297a4",
+          "bytes": 23
+        },
+        {
+          "role": "src/sources.src",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/src/sources.src",
+          "sha256": "a369faa3ff84c4fda5097e272a22b38d370f34e72ccc6616cbd2b97d7e617cc6",
+          "bytes": 95
+        },
+        {
+          "role": "src/termgroups.src",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/src/termgroups.src",
+          "sha256": "33e69a70c5743cc33ebbd2a8de29d523b0855b70cf2fe052207e3e35d1b24abc",
+          "bytes": 38
+        },
+        {
+          "role": "src/vcodes_updated",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/src/vcodes_updated",
+          "sha256": "3d686dbb979b5e35b7eb0e90e98432e0f613c1f3cefc0cec4277ecc27bbc3644",
+          "bytes": 18
+        },
+        {
+          "role": "src/vsab.updates",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/metadata/src/vsab.updates",
+          "sha256": "aea405aaa59f736df584789df141af087f5eb685a109a81cba07d95b96c0b6d5",
+          "bytes": 38
+        }
+      ],
+      "data": {
+        "source_plan_ref": "mth-plan",
+        "source_plan_sha256": "d870acf8be06943a1b89d1b4a6b699aef9a86583bef39ad212e7d110e91ab97f",
+        "replacement_baseline": {
+          "source": "MTH",
+          "version": "MTH_2026AA"
+        },
+        "installed_sources": [
+          {
+            "source": "MTH",
+            "version": "MTH_2026AA"
+          },
+          {
+            "source": "TEST",
+            "version": "TEST_2026"
+          }
+        ]
+      }
+    },
+    "mth-identity": {
+      "schema_version": 1,
+      "artifact_type": "identity-state",
+      "source": "MTH",
+      "version": "MTH_2026AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-identity-state-MTH_2026AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [
+        {
+          "role": "cui_said_map",
+          "uri": "repo:tools/fixtures/release-manifests/mth/skipped/identity/cui_said_map",
+          "sha256": "b5f2a3e9b41eea951a1621974bdd6db45caca36c9fd67e04fad2900dd70355c3",
+          "bytes": 13
+        }
+      ],
+      "data": {
+        "replacement_baseline": {
+          "source": "MTH",
+          "version": "MTH_2026AA"
+        },
+        "identity_role": "last-inserted-cui-map"
+      }
+    },
+    "mth-allocation": {
+      "schema_version": 1,
+      "artifact_type": "id-allocation",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-id-allocation-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "stage": "final",
+        "reserved_SRC_atoms": 2,
+        "start": 1000,
+        "end": 1099,
+        "bound_kind": "dev-reservation"
+      }
+    },
+    "mth-environment": {
+      "schema_version": 1,
+      "artifact_type": "environment-profile",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-environment-profile-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "profile_id": "meme-dev-v1"
+      }
+    },
+    "mth-validation": {
+      "schema_version": 1,
+      "artifact_type": "validation-profile",
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "provenance": {
+        "producer": "synthetic-mth-preflight-fixture",
+        "producer_version": "1",
+        "capture_id": "SYNTHETIC-validation-profile-MTH_2027AA",
+        "evidence_kind": "synthetic-fixture"
+      },
+      "files": [],
+      "data": {
+        "profile_id": "mth-prepared-core-v1"
+      }
+    }
+  }
+}

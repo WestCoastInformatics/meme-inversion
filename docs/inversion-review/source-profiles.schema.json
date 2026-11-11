@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ncimeta:source-profiles:1",
+  "title": "Reviewed source capabilities for manifest preflight",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "profiles"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "profiles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "version_prefix",
+          "input_stage",
+          "implementation",
+          "handler",
+          "canonical_engine_package",
+          "reviewed_engine_refs",
+          "environment_profile_id",
+          "validation_profile_id",
+          "source_options_schema",
+          "execution_implemented"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_-]*$"
+          },
+          "version_prefix": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input_stage": {
+            "enum": [
+              "publisher",
+              "prepared"
+            ]
+          },
+          "implementation": {
+            "enum": [
+              "preflight-only",
+              "registered-pending"
+            ]
+          },
+          "handler": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "canonical_engine_package": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewed_engine_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            }
+          },
+          "environment_profile_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "validation_profile_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_options_schema": {
+            "type": "object"
+          },
+          "execution_implemented": {
+            "const": false
+          }
+        }
+      }
+    }
+  }
+}

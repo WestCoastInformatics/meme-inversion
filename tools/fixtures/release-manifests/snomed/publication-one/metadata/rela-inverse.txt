@@ -1,0 +1,2 @@
+isa|inverse_isa
+inverse_isa|isa

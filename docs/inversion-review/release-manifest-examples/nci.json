@@ -1,0 +1,309 @@
+{
+  "artifact_type": "ncimeta-release-manifest",
+  "artifacts": {
+    "allocation": {
+      "artifact_type": "id-allocation",
+      "data": {
+        "bound_kind": "dev-reservation",
+        "end": 19999,
+        "start": 10000
+      },
+      "files": [],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_10D"
+    },
+    "dev-environment": {
+      "artifact_type": "environment-profile",
+      "data": {
+        "profile_id": "meme-dev-v1"
+      },
+      "files": [],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_10D"
+    },
+    "publisher": {
+      "artifact_type": "publisher-bundle",
+      "data": {
+        "profile": "nci-publisher-inputs-v1"
+      },
+      "files": [
+        {
+          "bytes": 76,
+          "role": "annotationDeclaration",
+          "sha256": "c26f955e5ae25d4f0cb0f18f039d2dda8610f7c0ea6b8d2a9eb807164fb59bed",
+          "uri": "repo:tools/fixtures/release-manifests/nci/annotationDeclaration-20261001.txt"
+        },
+        {
+          "bytes": 72,
+          "role": "objectDeclaration",
+          "sha256": "855b38b5c4eb0c6cd9f5692aef2083adfea2f31a4831e069645e60189e5c8929",
+          "uri": "repo:tools/fixtures/release-manifests/nci/objectDeclaration-20261001.txt"
+        },
+        {
+          "bytes": 71,
+          "role": "classDeclaration",
+          "sha256": "3026f7b19ae32d28ae160530d4fc1fabfe950aa3ef2cf88aac8a55e79a905dd8",
+          "uri": "repo:tools/fixtures/release-manifests/nci/classDeclaration-20261001.txt"
+        },
+        {
+          "bytes": 64,
+          "role": "relations",
+          "sha256": "6d654eef45dc721f5d1c15b5ebc90c5121a7b209389114d16eac3bae463268b1",
+          "uri": "repo:tools/fixtures/release-manifests/nci/relations-20261001.txt"
+        },
+        {
+          "bytes": 64,
+          "role": "hierarchy",
+          "sha256": "9526e318afb5355485494350a73bd91b7620e1df81fdf10fd990691f6ecb65fb",
+          "uri": "repo:tools/fixtures/release-manifests/nci/hierarchy-20261001.txt"
+        }
+      ],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_10D"
+    },
+    "release-plan": {
+      "artifact_type": "source-plan",
+      "data": {
+        "comparison_baseline": null,
+        "historical_exceptions": [],
+        "new_subsources": [
+          {
+            "after_source": "NCI",
+            "metadata": {
+              "acquisition_contact": "",
+              "character_set": "UTF-8",
+              "citation": "",
+              "content_contact": "",
+              "context_type": "",
+              "inverter": "",
+              "language": "ENG",
+              "license_contact": "",
+              "license_info": "",
+              "low_source": "NCI_{{release}}",
+              "nlm_contact": "",
+              "normalized_source": "TESTPUB_{{release}}",
+              "official_name": "SYNTHETIC TESTPUB fixture",
+              "rel_directionality_flag": "",
+              "restriction_level": "0",
+              "source_family": "NCI",
+              "source_name": "TESTPUB_{{release}}",
+              "stripped_source": "TESTPUB",
+              "url": "",
+              "version": "{{release}}"
+            },
+            "publisher_names": [
+              "Synthetic publisher"
+            ],
+            "root": {
+              "preferred_term": "SYNTHETIC fixture publisher root",
+              "short_name": "TESTPUB"
+            }
+          }
+        ],
+        "new_termgroups": [
+          {
+            "after_termgroup": "NCI_{{release}}/PT",
+            "input_ttys": [
+              "PT"
+            ],
+            "metadata": {
+              "exclude_flag": "N",
+              "low_termgroup": "NCI_{{release}}/PT",
+              "norm_exclude_flag": "N",
+              "suppressible_flag": "N",
+              "termgroup_name": "TESTPUB_{{release}}/PT",
+              "tty": "PT"
+            }
+          }
+        ],
+        "property_updates": {},
+        "publisher_history": [],
+        "replacement_baseline": {
+          "source": "NCI",
+          "version": "NCI_2026_08E"
+        },
+        "schema_version": 1,
+        "source": "NCI",
+        "version": "NCI_2026_10D"
+      },
+      "files": [],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_10D"
+    },
+    "representation-policy": {
+      "artifact_type": "policy",
+      "data": {
+        "metadata_model": {
+          "provenance": {
+            "origin": "SYNTHETIC minimal catalog; never installed state"
+          },
+          "publisher_labels": {},
+          "publisher_properties": [],
+          "publisher_termgroups": [
+            [
+              "NCI",
+              "PT"
+            ]
+          ],
+          "relationship_roles": [],
+          "schema_version": 1,
+          "source": "NCI",
+          "sources": [
+            {
+              "acquisition_contact": "",
+              "character_set": "UTF-8",
+              "citation": "",
+              "content_contact": "",
+              "context_type": "",
+              "inverter": "",
+              "language": "ENG",
+              "license_contact": "",
+              "license_info": "",
+              "low_source": "NCI_{{replacement_release}}",
+              "nlm_contact": "",
+              "normalized_source": "NCI_{{release}}",
+              "official_name": "SYNTHETIC NCI fixture",
+              "rel_directionality_flag": "",
+              "restriction_level": "0",
+              "source_family": "NCI",
+              "source_name": "NCI_{{release}}",
+              "stripped_source": "NCI",
+              "url": "",
+              "version": "{{release}}"
+            }
+          ],
+          "termgroups": [
+            {
+              "exclude_flag": "N",
+              "low_termgroup": "NCI_{{replacement_release}}/PT",
+              "norm_exclude_flag": "N",
+              "suppressible_flag": "N",
+              "termgroup_name": "NCI_{{release}}/PT",
+              "tty": "PT"
+            }
+          ]
+        },
+        "profile": "nci-source-plan-v1",
+        "properties": {
+          "CFG2RSAB": "'NCI'",
+          "HC.RootNodeCode": "SYNTHETIC_ROOT",
+          "HC.RootNodeName": "Synthetic saved hierarchy root",
+          "RSAB": "NCI",
+          "VSAB": "NCI_2026_10D"
+        }
+      },
+      "files": [],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_10D"
+    },
+    "saved-root": {
+      "artifact_type": "identity-state",
+      "data": {
+        "profile": "saved-hierarchy-root-v1",
+        "replacement_baseline": {
+          "source": "NCI",
+          "version": "NCI_2026_08E"
+        },
+        "root_atom_id": 321,
+        "root_code": "SYNTHETIC_ROOT",
+        "root_name": "Synthetic saved hierarchy root"
+      },
+      "files": [],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_08E"
+    },
+    "validation": {
+      "artifact_type": "validation-profile",
+      "data": {
+        "profile_id": "nci-release-core-v1"
+      },
+      "files": [],
+      "provenance": {
+        "capture_id": "synthetic-NCI_2026_10D",
+        "evidence_kind": "synthetic-fixture",
+        "producer": "check_release_nci.py synthetic fixture",
+        "producer_version": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea"
+      },
+      "schema_version": 1,
+      "source": "NCI",
+      "version": "NCI_2026_10D"
+    }
+  },
+  "configuration": {
+    "comparison_baseline": null,
+    "engine_ref": "c9efd6cdd32088670ba1b8a10fe28c5249bc68ea",
+    "environment_profile": "dev-environment",
+    "inputs": {
+      "identity_state": "saved-root",
+      "reference_ncimeta": null,
+      "source_data": [
+        "publisher"
+      ],
+      "source_data_stage": "publisher",
+      "source_plan": "release-plan"
+    },
+    "output_stage": "inversion-src",
+    "policy_ref": "representation-policy",
+    "publisher_history": [],
+    "replacement_baseline": {
+      "source": "NCI",
+      "version": "NCI_2026_08E"
+    },
+    "schema_version": 2,
+    "source": "NCI",
+    "source_atom_ids": {
+      "bound_kind": "dev-reservation",
+      "end": 19999,
+      "provenance_ref": "allocation",
+      "start": 10000
+    },
+    "source_options": {},
+    "validation_profile": "validation",
+    "version": "NCI_2026_10D"
+  },
+  "profile": "nci-publisher-inputs-v1",
+  "purpose": "shadow",
+  "schema_version": 1
+}

@@ -1,0 +1,2 @@
+id	effectiveTime	active	moduleId	refsetId	referencedComponentId	acceptabilityId
+fixture-language	20200131	1	900000000000207008	900000000000509007	100011	900000000000548007

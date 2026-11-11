@@ -1,0 +1,2 @@
+id	effectiveTime	active	moduleId	refsetId	referencedComponentId	sourceEffectiveTime	targetEffectiveTime
+fixture-module	20270301	1	731000124108	900000000000534007	900000000000207008	20270301	20200131
