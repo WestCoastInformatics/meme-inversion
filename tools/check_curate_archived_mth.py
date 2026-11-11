@@ -11,6 +11,7 @@ import tempfile
 import check_execute_release_mth as fixtures
 import curate_archived_mth as curator
 import execute_release_mth as execution
+import release_execution
 import release_manifest
 import release_mth
 
@@ -170,6 +171,7 @@ def check():
                           'archive_bytes': capture['archive']['bytes'], 'entries': entries}, 'captures': bodies}}}
         normalized = curator.normalize(wrapper)
         good(curator._lineage(normalized)['publisher_release_chain'] == curator._lineage(capture)['publisher_release_chain'], 'real wrapper adapter preserves lineage evidence')
+        good(normalized['archive']['uri'] == 's3://synthetic-bucket/fixture.tgz', 'missing frozen local path remains declaration-only S3')
         partial = curator.curate(wrapper, ENGINE, 'SYNTHETIC-PRESERVATION-REVIEW')
         good(partial['manifest'] is None and partial['facts']['preserved_staff_decisions']['rows'] == 3, 'partial inventory still reports original decision facts')
         broken = copy.deepcopy(wrapper);broken['result']['mth_existing']['inventory']['entries'][1]['sha256'] = '0' * 64
@@ -179,6 +181,78 @@ def check():
             raise AssertionError('supplement overwrote captured version')
         except ValueError:
             passed.append('supplement cannot overwrite captured evidence')
+        # A frozen archive receipt permits the precise standard cache URI;
+        # merely supplying another local filename must never grant that claim.
+        cached = copy.deepcopy(wrapper)
+        current = capture['version'];standard = '/local/content/MEME/MEME5/inv/sources/' + current + '.tgz'
+        existing = cached['result']['mth_existing'];reference = existing['reference']
+        reference.update(source='MTH', bucket='nci-evs-meme', key='inv/sources/' + current + '.tgz',
+                         archive_path=standard, archive_read_only=True, extracted=False,
+                         object_identity={'ContentLength': reference['archive_bytes'], 'ETag': '"SYNTHETIC-archive-etag"',
+                                          'LastModified': '2024-01-01T00:00:00+00:00', 'VersionId': None})
+        existing['inventory']['archive_path'] = standard
+        existing['evidence_kind'] = 'synthetic-fixture'
+        frozen = curator.normalize(cached)
+        good(frozen['archive']['uri'] == Path(standard).as_uri(), 'verified archive receipt selects exact standard local cache')
+        good(frozen['archive']['capture_provenance']['s3_uri'] == 's3://nci-evs-meme/inv/sources/' + current + '.tgz' and
+             frozen['archive']['capture_provenance']['object_identity'] == reference['object_identity'], 'archive cache projection retains original S3 object proof')
+        invalid = copy.deepcopy(cached);invalid['result']['mth_existing']['reference']['archive_path'] = standard + '.alternate'
+        blocked(invalid, 'MTH_CAPTURE_INVALID', 'nonstandard cache receipt path rejected')
+        invalid = copy.deepcopy(cached);invalid['result']['mth_existing']['inventory']['archive_path'] = standard.replace(current, 'MTH_1900AA')
+        blocked(invalid, 'MTH_CAPTURE_INVALID', 'inventory and reference cache path must agree')
+        invalid = copy.deepcopy(cached);invalid['result']['mth_existing']['reference']['archive_read_only'] = False
+        blocked(invalid, 'MTH_CAPTURE_INVALID', 'unfrozen receipt cannot claim verified local cache')
+        invalid = copy.deepcopy(cached);invalid['result']['mth_existing']['reference']['object_identity']['ContentLength'] += 1
+        blocked(invalid, 'MTH_CAPTURE_INVALID', 'archive object size must equal captured archive bytes')
+        receipt = {'schema_version': 1, 'artifact_type': 'mth-prepared-capture-receipt',
+            'source': 'MTH', 'version': current, 'complete': True, 'subset_directory': 'subset3/METASUBSET',
+            'request': {'source': 'MTH', 'version': current, 'subset_directory': 'subset3/METASUBSET',
+                        'bucket': 'nci-evs-meme', 'objects': []}, 'files': [], 'facts': {},
+            'before_heads': {}, 'after_heads': {}, 'mrsab_data_b64': capture['prepared']['mrsab_data_b64'],
+            'history_coverage': capture['prepared']['history_coverage'],
+            'history_coverage_evidence': capture['prepared']['history_coverage_evidence'],
+            'apparatus_sha256': '0' * 64}
+        for descriptor in capture['prepared']['files']:
+            role = descriptor['role'];key = 'mr/umls/' + current[4:] + '/subset3/METASUBSET/' + role
+            identity = {'ContentLength': descriptor['bytes'], 'ETag': '"SYNTHETIC-' + role + '"',
+                        'LastModified': '2024-01-01T00:00:00+00:00', 'VersionId': None}
+            receipt['request']['objects'].append({'role': role, 'key': key, 'head': identity})
+            receipt['files'].append({**descriptor, 'uri': 's3://nci-evs-meme/' + key})
+            receipt['before_heads'][role] = copy.deepcopy(identity);receipt['after_heads'][role] = copy.deepcopy(identity)
+            raw = Path(descriptor['uri'].removeprefix('file://')).read_bytes()
+            receipt['facts'][role] = {**curator._identity(descriptor, role), 'rows': raw.count(b'\n'), 'malformed_rows': 0}
+            if role in capture['prepared']['facts']:receipt['facts'][role].update(capture['prepared']['facts'][role])
+        receipt['request_sha256'] = release_mth.artifact_sha256(receipt['request'])
+        supplement = {key: copy.deepcopy(capture[key]) for key in ('prior_identity', 'reference_stage_evidence')}
+        supplement['prepared'] = receipt
+        complete = curator.curate(cached, ENGINE, 'SYNTHETIC-PRESERVATION-REVIEW', supplement)
+        good(complete['manifest'] is not None and not complete['issues'], 'full frozen receipt pipeline emits complete source manifest')
+        bundle = complete['manifest']['artifacts']['mth-prepared']
+        good(all(item['uri'] == 'file:///local/content/MEME/MEME5/mr/umls/' + current[4:] + '/subset3/METASUBSET/' + item['role'] for item in bundle['files']), 'computed prepared SHA identities bind exact standard local caches')
+        good(bundle['data']['acquisition']['objects']['MRCONSO.RRF']['object_identity'] == receipt['before_heads']['MRCONSO.RRF'] and
+             all(item['uri'].startswith('s3://') for item in bundle['data']['prepared_capture_provenance']['s3_files']), 'future acquisition selectors retain complete original S3 capture proof')
+        good(complete['manifest']['artifacts']['mth-plan']['data']['archive_capture_provenance']['archive_path'] == standard,
+             'manifest artifact retains archive-cache provenance alongside decision hashes')
+        combined = curator.normalize(cached, supplement)
+        good(curator.normalize(combined) == combined, 'normalization of verified cache projections is idempotent')
+        # Admission's independent location check does not inspect bytes. Bind a
+        # standard predecessor archive descriptor solely to test that boundary;
+        # its physical archive verification remains a separate runtime gate.
+        declarations = copy.deepcopy(complete['manifest'])
+        prior_version = declarations['configuration']['replacement_baseline']['version']
+        declarations['artifacts']['mth-identity']['files'][0]['uri'] = 'file:///local/content/MEME/MEME5/inv/sources/' + prior_version + '.tgz'
+        release_execution.verify_locations(declarations, Path('/local/content/MEME/MEME5/inv/sources') / current)
+        passed.append('native admission accepts projected cache locations without granting physical verification')
+        invalid = copy.deepcopy(receipt);invalid['request_sha256'] = '0' * 64
+        blocked({**frozen, 'prepared': invalid}, 'MTH_CAPTURE_INVALID', 'changed first-capture request digest rejected')
+        invalid = copy.deepcopy(receipt);invalid['after_heads']['MRCONSO.RRF']['ETag'] = '"SYNTHETIC-changed"'
+        blocked({**frozen, 'prepared': invalid}, 'MTH_CAPTURE_INVALID', 'prepared post-HEAD contradiction rejected')
+        invalid = copy.deepcopy(receipt);invalid['files'][0]['uri'] = 's3://nci-evs-meme/other-object'
+        blocked({**frozen, 'prepared': invalid}, 'MTH_CAPTURE_INVALID', 'prepared descriptor cannot be remapped from unrelated S3 origin')
+        invalid = copy.deepcopy(receipt);invalid['facts']['MRCONSO.RRF']['sha256'] = '0' * 64
+        blocked({**frozen, 'prepared': invalid}, 'MTH_CAPTURE_INVALID', 'computed SHA and first-capture scan must agree')
+        invalid = copy.deepcopy(receipt);invalid['complete'] = False
+        blocked({**frozen, 'prepared': invalid}, 'MTH_CAPTURE_INVALID', 'partial first capture cannot authorize local cache projection')
     print(json.dumps({'passed': len(passed), 'checks': passed}, indent=2))
 
 

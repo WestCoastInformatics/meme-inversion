@@ -23,11 +23,17 @@ contain kind:"symlink"/target. Member paths are relative to the source release
 directory. All original member descriptors come from one hash-bound archive.
 Prepared and prior files may instead identify different archives or S3 objects.
 No input URI is opened. Native materialization and physical scans remain gates.
+The exact frozen standard archive_path becomes a local-cache URI. A complete
+mth-prepared-capture-receipt can be supplied directly as prepared (with explicit
+history coverage added); its known SHA values become standard local descriptors
+and retain S3 object selectors for future acquisition. Uncaptured S3 declarations
+remain remote declarations and cannot pass the native location gate.
 """
 import argparse
 import base64
 from collections import Counter
 import copy
+import datetime
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -76,6 +82,80 @@ def _identity(value, label):
     return {'sha256': value['sha256'], 'bytes': value['bytes']}
 
 
+def _object_identity(value, expected_bytes):
+    keys = {'ContentLength', 'ETag', 'LastModified', 'VersionId'}
+    if (not isinstance(value, dict) or set(value) != keys or
+            type(value.get('ContentLength')) is not int or value['ContentLength'] != expected_bytes or
+            not isinstance(value.get('ETag'), str) or not re.fullmatch(r'"[^"\r\n]+"', value['ETag']) or
+            not isinstance(value.get('LastModified'), str) or
+            (value['VersionId'] is not None and (not isinstance(value['VersionId'], str) or not value['VersionId']))):
+        raise ValueError('Complete matching frozen S3 object identity is required')
+    instant = datetime.datetime.fromisoformat(value['LastModified'].replace('Z', '+00:00'))
+    if instant.utcoffset() is None:
+        raise ValueError('Frozen S3 LastModified must identify an instant with timezone')
+    return copy.deepcopy(value)
+
+
+def _prepared_capture(value, version):
+    """Project a complete first-capture receipt onto its exact native cache."""
+    if not isinstance(value, dict):
+        raise ValueError('A prepared declaration or complete capture receipt object is required')
+    result = copy.deepcopy(value)
+    if result.get('artifact_type') != 'mth-prepared-capture-receipt':
+        return result  # Plain declarations confer no captured-cache assurance.
+    if (result.get('schema_version') != 1 or result.get('source') != 'MTH' or
+            result.get('version') != version or result.get('complete') is not True):
+        raise ValueError('Prepared capture receipt must be complete and identify the current MTH release')
+    request = result['request']
+    subset = result['subset_directory']
+    if (not isinstance(request, dict) or request.get('source') != 'MTH' or request.get('version') != version or
+            request.get('bucket') != 'nci-evs-meme' or request.get('subset_directory') != subset or
+            not isinstance(subset, str) or not re.fullmatch(r'subset[1-9][0-9]*/METASUBSET', subset) or
+            result.get('request_sha256') != release_mth.artifact_sha256(request)):
+        raise ValueError('Prepared capture request identity, subset or SHA256 differs from its receipt')
+    files = _files(result, release_mth.RRF_ROLES, 'Prepared capture')
+    objects = request.get('objects', [])
+    if (not isinstance(objects, list) or len(objects) != len(release_mth.RRF_ROLES) or
+            any(not isinstance(item, dict) or not isinstance(item.get('role'), str) for item in objects) or
+            {item['role'] for item in objects} != release_mth.RRF_ROLES):
+        raise ValueError('Prepared capture request must pin the eleven distinct roles')
+    selected = {item['role']: item for item in objects}
+    if any(set(result.get(key, {})) != release_mth.RRF_ROLES for key in ('before_heads', 'after_heads', 'facts')):
+        raise ValueError('Prepared capture must retain complete before/after HEADs and scan facts')
+    acquisition, origins = {}, []
+    for descriptor in files:
+        role = descriptor['role'];item = selected[role]
+        key = 'mr/umls/' + version[4:] + '/' + subset + '/' + role
+        if set(item) != {'role', 'key', 'head'} or item['key'] != key:
+            raise ValueError('Prepared capture selected a different standard object path')
+        identity = _object_identity(item['head'], descriptor['bytes'])
+        if result['before_heads'][role] != identity or result['after_heads'][role] != identity:
+            raise ValueError('Prepared before/after HEAD identities differ from the pinned selection')
+        facts = result['facts'][role]
+        if (_identity(facts, role) != _identity(descriptor, role) or facts.get('malformed_rows') != 0 or
+                type(facts.get('rows')) is not int or facts['rows'] < 0):
+            raise ValueError('Prepared capture file identity differs from its complete native scan')
+        origin = 's3://nci-evs-meme/' + key
+        local_uri = Path('/local/content/MEME/MEME5', key).as_uri()
+        original = {**descriptor, 'uri': origin}
+        prior_projection = result.get('capture_provenance', {}).get('s3_files', [])
+        if ((descriptor['uri'] != origin and not (descriptor['uri'] == local_uri and original in prior_projection)) or
+                'archive_member' in descriptor):
+            raise ValueError('Prepared capture descriptor differs from the selected S3 object')
+        origins.append(original)
+        descriptor['uri'] = local_uri
+        acquisition[role] = {'key': key, 'object_identity': identity}
+    result['files'] = files
+    result['acquisition'] = {'bucket': 'nci-evs-meme', 'objects': acquisition}
+    result['capture_provenance'] = {
+        'artifact_type': result['artifact_type'], 'request_sha256': result['request_sha256'],
+        'request': copy.deepcopy(request), 'before_heads': copy.deepcopy(result['before_heads']),
+        'after_heads': copy.deepcopy(result['after_heads']), 's3_files': origins,
+        'apparatus_sha256': result.get('apparatus_sha256'),
+        'scope': 'Previously computed SHA256 bound to its exact standard local cache; native admission re-verifies physical bytes'}
+    return result
+
+
 def normalize(capture, supplement=None):
     """Normalize the two documented shapes; reject conflicting capture bytes."""
     value = copy.deepcopy(capture)
@@ -95,6 +175,19 @@ def normalize(capture, supplement=None):
                    'sha256': reference['archive_sha256'], 'bytes': reference['archive_bytes']}
         if (inventory.get('archive_sha256'), inventory.get('archive_bytes')) != (archive['sha256'], archive['bytes']):
             raise ValueError('Captured inventory/reference archive mismatch')
+        if 'archive_path' in reference:
+            expected = '/local/content/MEME/MEME5/inv/sources/' + version + '.tgz'
+            if (reference['archive_path'] != expected or inventory.get('archive_path', expected) != expected or
+                    reference.get('source') != 'MTH' or reference['bucket'] != 'nci-evs-meme' or
+                    reference['key'] != 'inv/sources/' + version + '.tgz' or
+                    reference.get('archive_read_only') is not True or reference.get('extracted') is not False):
+                raise ValueError('Frozen archive receipt must name the exact standard read-only current-release cache')
+            identity = _object_identity(reference.get('object_identity'), archive['bytes'])
+            archive['capture_provenance'] = {'s3_uri': archive['uri'], 'object_identity': identity,
+                'archive_sha256': archive['sha256'], 'archive_bytes': archive['bytes'],
+                'archive_path': expected, 'archive_read_only': True, 'extracted': False,
+                'scope': 'Frozen archive capture receipt; physical cache bytes are independently verified by native admission'}
+            archive['uri'] = Path(expected).as_uri()
         members = {}
         for entry in inventory['entries']:
             if entry['path'] == version:
@@ -123,6 +216,8 @@ def normalize(capture, supplement=None):
             value[key] = copy.deepcopy(item)
     if not isinstance(value.get('version'), str) or not RELEASE.fullmatch(value['version']):
         raise ValueError('A canonical captured MTH release is required')
+    if 'prepared' in value:
+        value['prepared'] = _prepared_capture(value['prepared'], value['version'])
     archive = value['archive']
     _identity(archive, 'archive')
     if archive['bytes'] <= 0 or not isinstance(archive.get('uri'), str):
@@ -400,6 +495,9 @@ def curate(capture, engine_ref, review_id=None, supplement=None):
                        'path': '/capture/evidence_kind'})
         return {'manifest': None, 'issues': issues, 'facts': facts}
     def artifact(kind, data, files=(), release=version):
+        if any('archive_member' in item and item['uri'] == captured['archive']['uri'] for item in files):
+            data = {**data, 'archive_capture_provenance': copy.deepcopy(captured['archive'].get('capture_provenance', {
+                'origin_uri': captured['archive']['uri'], 'scope': 'Declared archive identity; no captured local-cache receipt supplied'}))}
         return {'schema_version': 1, 'artifact_type': kind, 'source': 'MTH', 'version': release,
                 'provenance': {'producer': 'curate_archived_mth.py', 'producer_version': tool_hash,
                                'capture_id': capture_id, 'evidence_kind': evidence_kind},
@@ -418,6 +516,9 @@ def curate(capture, engine_ref, review_id=None, supplement=None):
         'policy_ref': 'mth-policy', 'policy_sha256': release_mth.artifact_sha256(policy),
         'subset_profile': policy['data']['subset_profile'], 'history_coverage': history_coverage,
         'history_coverage_evidence': prepared['history_coverage_evidence'],
+        **({'acquisition': copy.deepcopy(prepared['acquisition']),
+            'prepared_capture_provenance': copy.deepcopy(prepared['capture_provenance'])}
+           if 'acquisition' in prepared and 'capture_provenance' in prepared else {}),
         'curation_scope': facts['curation_scope']}, prepared_files)
     artifacts['mth-state'] = artifact('ncimeta-state', {
         'source_plan_ref': 'mth-plan', 'source_plan_sha256': release_mth.artifact_sha256(plan),
