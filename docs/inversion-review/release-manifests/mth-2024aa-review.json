@@ -6,8 +6,8 @@
   "version": "MTH_2024AA",
   "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
   "review_id": "preserved-staff-decisions-mth-2024aa-20261111",
-  "review_scope": "Present-day typed preservation of original staff choices and captured prepared input closure. No fresh full MTH inversion or exact official-output acceptance has been performed.",
-  "manifest_sha256": "a660bd3c0be817ca5b994439ca7c7648893b194f44b134633a8e4c761eb9691e",
+  "review_scope": "Derivative stable-prior-cache binding of the same original staff choices and preserved prepared inputs. Historical lock399/47-descriptor byte verification remains a separate unchanged record. No fresh full MTH inversion or exact official-output acceptance has been performed.",
+  "manifest_sha256": "288dd1be3a24bc1b53cdd67076ab4d5b317e7d48006483ef632db08a80248f02",
   "capture_files": [
     {
       "name": "mth-small.result.json",
@@ -282,7 +282,7 @@
     "scope": "One preserved prior CUI/SAID map only; not a full source restoration or complete database snapshot",
     "local_file": {
       "role": "cui_said_map",
-      "uri": "file:///local/content/MEME/MEME5/inv/sources/MTH_2023AB/src/cui_said_map",
+      "uri": "file:///local/content/MEME/MEME5/inv/qa/prior-identity-cache/MTH_2023AB/894494da4cf6c1ccea24b07bf229408d3ed39a4c3883a4a51fdbcb9a30ef0faa/cui_said_map",
       "sha256": "894494da4cf6c1ccea24b07bf229408d3ed39a4c3883a4a51fdbcb9a30ef0faa",
       "bytes": 40587724
     },
@@ -290,7 +290,23 @@
     "malformed_rows": 0,
     "candidate_snapshot_destination": "orig/identity/MTH_2023AB/src/cui_said_map",
     "native_old_link_target": "orig/identity/MTH_2023AB",
-    "full_source_folder_restored": false
+    "full_source_folder_restored": false,
+    "previous_canonical_locator": "file:///local/content/MEME/MEME5/inv/sources/MTH_2023AB/src/cui_said_map",
+    "cache_publication": {
+      "receipt_sha256": "7006b0a25681db59e45d7216e4e8bfe0400f700216e11f2824a9ec887cee771b",
+      "original_capture_receipt_sha256": "73eaf5e65c7425a719201c31b71aeade4638dd4ba446ead5a1c65a6ef8486f0c",
+      "cache_directory": "/local/content/MEME/MEME5/inv/qa/prior-identity-cache/MTH_2023AB/894494da4cf6c1ccea24b07bf229408d3ed39a4c3883a4a51fdbcb9a30ef0faa",
+      "independent_copy": true,
+      "hardlink_used": false,
+      "symlink_used": false,
+      "copy_reserve_bytes": 12884901888,
+      "completed_at": "2026-11-11T22:08:41.525529+00:00",
+      "apparatus_sha256": "d54546def060c0de2ee8b4593eee5f46dbfbe9c1d6eac359970e771b110d6470",
+      "publication_capture_file": "mth-prior-cache-publish.result.json",
+      "publication_capture_sha256": "aa6e4d4a0eaf104163f0d886cb41ef3536741cf5d53a643b8caa506c09479b4e",
+      "canonical_stub_and_earlier_records_preserved": true,
+      "scope": "Explicit proactive change to immutable prior-input locator only; source folders, prepared paths, candidate-local snapshot and native old/src access are unchanged."
+    }
   },
   "official_reference": {
     "selected_directory": "src",
@@ -319,7 +335,9 @@
     "physical_input_revalidation_on_native_worker": "PENDING",
     "full_native_execution": "NOT_STARTED",
     "official_exact_output_comparison": "NOT_STARTED",
-    "historical_2026AA_correction_waiver": false
+    "historical_2026AA_correction_waiver": false,
+    "immutable_prior_cache_receipt_projection": "PASS",
+    "native_plan_identical_to_historical_lock399": "PASS"
   },
   "remaining_gates": [
     {
@@ -348,5 +366,53 @@
   "MetamorphoSys_executed": false,
   "publisher_preparation_regenerated": false,
   "native_execution_performed": false,
-  "production_eligible": false
+  "production_eligible": false,
+  "dev_read_only_byte_verification": {
+    "input_byte_verification": "VERIFIED",
+    "input_and_reference_descriptors_verified": 47,
+    "issues": [],
+    "lock_sha256": "399a5c7022a3e6d942d617391f950272b2eee3c6adc4c12c400250497f5cd753",
+    "capacity": {
+      "status": "INSUFFICIENT",
+      "message": "Native release capacity reserve unavailable: need 48318382080 free bytes",
+      "observed_free_bytes": 33295667200,
+      "profile_minimum_free_bytes": 48318382080
+    },
+    "candidate_directory_exists": false,
+    "native_execution": "NOT_STARTED",
+    "server_report": "/local/content/MEME/MEME5/inv/qa/replay-requests/native-mth-input-capture-20261111/native-lock-bytecheck.json",
+    "local_report_file": "mth-native-bytecheck.result.json",
+    "local_report_sha256": "d4c314fc95b953a9c401c035d74645506c9fdc4a182a46501be9916314a22e0b",
+    "scope": "Read-only preserved input/reference byte verification and actual dev capacity; no runtime switch, preparation, output restoration or full inversion"
+  },
+  "prior_cache_derivation": {
+    "status": "PUBLISHED_STABLE_CACHE_BOUND_FOR_NEW_REQUEST",
+    "parent_manifest_git_ref": "820a9c8b2f96c5479b2974334bb7d2957031d5da",
+    "parent_manifest_file_sha256": "a660bd3c0be817ca5b994439ca7c7648893b194f44b134633a8e4c761eb9691e",
+    "parent_manifest_content_sha256": "321baf8e82ce2021f415fa42c852c235c1df2e1a26f95b782850961002aba356",
+    "parent_frozen_lock_sha256": "399a5c7022a3e6d942d617391f950272b2eee3c6adc4c12c400250497f5cd753",
+    "parent_frozen_lock_file_sha256": "eee9d64728648a881fc210716a3af6245595d49b17df859bcef6a8eccc672fd8",
+    "historical_bytecheck_file_sha256": "d4c314fc95b953a9c401c035d74645506c9fdc4a182a46501be9916314a22e0b",
+    "historical_record_section": "dev_read_only_byte_verification",
+    "historical_record_scope": "HISTORICAL lock399 and its original47 descriptors, whose prior locator was canonical; not a current byte-verification claim for this derivative manifest.",
+    "historical_record_preserved_unchanged": true,
+    "changed_manifest_artifacts": [
+      "mth-identity"
+    ],
+    "configuration_unchanged": true,
+    "map_checksum_and_bytes_unchanged": true,
+    "native_plan_unchanged": true,
+    "generated_files_identical": 7,
+    "stages_identical": 13,
+    "symlinks_identical": true,
+    "official_output_references_identical": 23,
+    "parent_engine_ref_unchanged": true,
+    "future_run_id": "native-mth-2024aa-cache-20261111",
+    "new_native_lock": "PENDING",
+    "fresh_derivative47_descriptor_bytecheck": "PENDING",
+    "minimum_free_disk_gib": 45,
+    "capacity_floor_changed": false,
+    "full_native_execution": "NOT_STARTED",
+    "reason": "Candidate-local identity snapshots protected conversion but retained verification also reopens original artifact locators. The independent content-addressed QA cache removes that mutable canonical-source dependency without skipping any input or rewriting checksums."
+  }
 }

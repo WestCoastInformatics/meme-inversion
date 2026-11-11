@@ -28,6 +28,9 @@ mth-prepared-capture-receipt can be supplied directly as prepared (with explicit
 history coverage added); its known SHA values become standard local descriptors
 and retain S3 object selectors for future acquisition. Uncaptured S3 declarations
 remain remote declarations and cannot pass the native location gate.
+prior_identity may likewise be a sealed ncimeta-prior-identity-cache-receipt;
+its descriptor is the independent QA cache, while historical canonical/S3
+locators remain provenance strings and never become mutable input descriptors.
 """
 import argparse
 import base64
@@ -41,6 +44,7 @@ import re
 import sys
 
 import execute_release_mth as execution
+import cache_mth_prior_identity as identity_cache
 import release_mth
 
 DECISIONS = ('ncisources.spec', 'sab.vsab.map', 'src_data')
@@ -94,6 +98,38 @@ def _object_identity(value, expected_bytes):
     if instant.utcoffset() is None:
         raise ValueError('Frozen S3 LastModified must identify an instant with timezone')
     return copy.deepcopy(value)
+
+
+def prior_identity_from_cache_receipt(receipt):
+    """Pure projection of a previously published cache; no URI is opened.
+
+    This checks receipt semantics, not current physical availability. Native
+    admission must independently verify the exact cached map bytes before use.
+    """
+    if (not isinstance(receipt, dict) or receipt.get('schema_version') != 1 or
+            receipt.get('artifact_type') != 'ncimeta-prior-identity-cache-receipt' or
+            receipt.get('status') != 'PUBLISHED_PRIOR_IDENTITY_CACHE' or
+            receipt.get('receipt_sha256') != release_mth.artifact_sha256({key: value for key, value in receipt.items() if key != 'receipt_sha256'})):
+        raise ValueError('A complete sealed independent prior-cache receipt is required')
+    captured, source, target = identity_cache.select(receipt['original_capture_receipt'])
+    identity = captured['map_identity']
+    expected = {'role': 'cui_said_map', 'uri': (target / 'cui_said_map').as_uri(),
+                'sha256': identity['sha256'], 'bytes': identity['bytes']}
+    signature = receipt.get('original_signature_at_copy')
+    if (receipt.get('source') != 'MTH' or receipt.get('version') != captured['version'] or
+            receipt.get('original_capture_receipt_sha256') != captured['receipt_sha256'] or
+            receipt.get('map_identity') != identity or receipt.get('cache_directory') != str(target) or
+            receipt.get('cache_file') != expected or receipt.get('original_locator') != source.as_uri() or
+            receipt.get('independent_copy') is not True or receipt.get('hardlink_used') is not False or
+            receipt.get('symlink_used') is not False or receipt.get('copy_reserve_bytes') != 12 * 1024 ** 3 or
+            receipt.get('native_execution_performed') is not False or receipt.get('production_eligible') is not False or
+            not isinstance(receipt.get('apparatus_sha256'), str) or not SHA.fullmatch(receipt['apparatus_sha256']) or
+            not isinstance(signature, list) or len(signature) != 6 or any(type(value) is not int or value < 0 for value in signature) or
+            signature[2] != identity['bytes'] or signature[5] != 0o444):
+        raise ValueError('Prior cache receipt provenance, independent-copy semantics or exact cache locator differs')
+    return {'version': captured['version'], 'files': [expected],
+            'facts': {**identity, 'malformed_rows': 0},
+            'immutable_cache_publication': copy.deepcopy(receipt)}
 
 
 def _prepared_capture(value, version):
@@ -218,6 +254,12 @@ def normalize(capture, supplement=None):
         raise ValueError('A canonical captured MTH release is required')
     if 'prepared' in value:
         value['prepared'] = _prepared_capture(value['prepared'], value['version'])
+    if isinstance(value.get('prior_identity'), dict) and value['prior_identity'].get('artifact_type') == 'ncimeta-prior-identity-cache-receipt':
+        value['prior_identity'] = prior_identity_from_cache_receipt(value['prior_identity'])
+    elif isinstance(value.get('prior_identity'), dict) and 'immutable_cache_publication' in value['prior_identity']:
+        projected = prior_identity_from_cache_receipt(value['prior_identity']['immutable_cache_publication'])
+        if any(value['prior_identity'].get(key) != projected[key] for key in ('version', 'files', 'facts')):
+            raise ValueError('Projected prior identity differs from its sealed immutable cache publication')
     archive = value['archive']
     _identity(archive, 'archive')
     if archive['bytes'] <= 0 or not isinstance(archive.get('uri'), str):
@@ -551,7 +593,9 @@ def curate(capture, engine_ref, review_id=None, supplement=None):
         'replacement_baseline': baseline, 'installed_sources': projection['observed_installed_sources'],
         'curation_scope': facts['curation_scope']}, metadata)
     artifacts['mth-identity'] = artifact('identity-state', {'replacement_baseline': baseline,
-        'identity_role': 'last-inserted-cui-map'}, prior_files, release=baseline['version'])
+        'identity_role': 'last-inserted-cui-map',
+        **({'immutable_cache_publication': copy.deepcopy(prior['immutable_cache_publication'])}
+           if 'immutable_cache_publication' in prior else {})}, prior_files, release=baseline['version'])
     artifacts['mth-allocation'] = artifact('id-allocation', {**bounds, 'stage': 'final',
         'reserved_SRC_atoms': 2, 'production_reservation': False, 'new_allocation_performed': False},
         [_member(captured, 'range3.spec')])
