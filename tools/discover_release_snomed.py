@@ -19,7 +19,7 @@ MAX_IDENTIFIERS = 10_000
 MAX_LABELS_PER_ID = 32
 # These are fixed consumer capabilities of the reviewed US Snapshot profile,
 # not release-specific dates or names. New values need capability review.
-LANGUAGE_REFSETS = {'900000000000508007', '900000000000509007'}
+LANGUAGE_REFSETS = {'900000000000508004', '900000000000509007'}
 EXTENDED_MAP_REFSETS = {'447562003', '6011000124106'}
 FIELDS = {'relationship_types': ('rel', 'rela', 'inverse_rela'),
           'association_refsets': ('rel', 'rela', 'inverse_rela'),
