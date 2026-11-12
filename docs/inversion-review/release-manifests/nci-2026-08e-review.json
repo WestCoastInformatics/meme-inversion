@@ -424,5 +424,14 @@
       "source_or_output_corrections_applied": false
     },
     "recommendation": "Preserve the raw DIFFERENCES_REQUIRE_REVIEW result and the missing-termgroup validation failure alongside this complete classification. A future explicit QA-decision capture stage may record reviewed before/after rows and evidence separately from raw conversion. Do not derive an output rewrite or clean pass from the official oracle, and do not extend the October correction waiver."
+  },
+  "qa_decision_followup": {
+    "status": "REVIEWED_EXACT_HISTORICAL_ADJUSTMENT",
+    "record": "nci-2026-08e-qa-adjustment.json",
+    "review_basis": "Explicit current-user confirmation",
+    "actor": "unconfirmed",
+    "application_authorized": false,
+    "raw_conversion_and_validation_unchanged": true,
+    "remaining_gate": "Implement and validate a separate post-inversion QA application stage before accepting adjusted output."
   }
 }

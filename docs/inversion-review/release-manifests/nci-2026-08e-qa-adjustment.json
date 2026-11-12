@@ -5,9 +5,10 @@
   "source": "NCI",
   "version": "NCI_2026_08E",
   "stage": "post-inversion-QA",
-  "review_status": "proposed",
-  "reviewer": null,
-  "reviewed_at": null,
+  "review_status": "reviewed",
+  "reviewer": "Project user, confirmed in this session",
+  "reviewed_at": "2026-11-12T23:19:44Z",
+  "review_basis": "Explicit user instruction: Record the exact historical adjustment as reviewed.",
   "actor": "unconfirmed",
   "lock_sha256": "80a566b78b06c085ed21f406cd3b65d821f537435608480b4a3832aaa2c5d06e",
   "row_key": {
@@ -62,8 +63,8 @@
     "qa_member_sha256": "1e8f6a7cba18180c1465b617bc1d3d0849c9ecf03ffa4ca4d120511940c5aec9",
     "qa_line": 139
   },
-  "reason": "Archived QA and generated output identify the same undefined DICOM/SY termgroup. The official row differs only by its PT termgroup. Evidence supports a later QA adjustment; actor and historical approval are unconfirmed.",
+  "reason": "Archived QA and generated output identify the same undefined DICOM/SY termgroup. The official row differs only by its PT termgroup. Evidence supports a later QA adjustment; actor and historical approval are unconfirmed. The current project user has now reviewed this exact historical adjustment; this does not establish its historical actor or original approval.",
   "application_authorized": false,
   "raw_comparison_changed": false,
-  "scope": "Concrete historical QA-decision proposal only; no generic DICOM/SY-to-PT mapping, output rewrite or acceptance waiver."
+  "scope": "Reviewed exact historical QA decision only; no generic DICOM/SY-to-PT mapping, output rewrite or acceptance waiver."
 }

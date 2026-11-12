@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-preparation-and-acceptance-increment",
+  "date": "2026-11-12",
+  "source_engine_unchanged": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+  "code_ref": "dc3287abae157ef2041b96be00915f90e43ebff9",
+  "common_commands": [
+    "discover-release",
+    "review-native"
+  ],
+  "configuration_schema_changed": false,
+  "new_native_inversions": 0,
+  "source_algorithms_modified": false,
+  "production_mutations": false,
+  "new_source_archives": 0,
+  "local_checks": {
+    "nci_discovery": 39,
+    "snomed_discovery": 44,
+    "mth_discovery": 92,
+    "verified_input_reader": 25,
+    "native_acceptance": 19,
+    "existing_common_interface": 95,
+    "existing_manifest": 94,
+    "existing_native_execution": 73
+  },
+  "local_check_scope": "Confined fixtures and interface/import/negative checks; existing native execution suite mocks full conversion. These counts are separate from actual dev scans below.",
+  "actual_mth_acceptance": {
+    "status": "PASS_WITH_VERIFIED_CORRECTIONS",
+    "accepted": true,
+    "policy": "mth-retained-identity-v1",
+    "run_id": "native-mth-2024aa-cache-20261111",
+    "review_id": "acceptance-mth-2024aa-v2-20261112",
+    "lock_sha256": "f0653add90ceacb84b63a27ab2c78bf624ab2cca5df1dc4488ca91a4a9031457",
+    "raw_acceptance": {
+      "status": "DIFFERENCES_REQUIRE_REVIEW",
+      "production_eligible": false,
+      "historical_correction_waivers_applied": false
+    },
+    "parent_result_sha256": "1eabe65db9f4ae0d78511caa964c0d5aa4d88f4875b055e251e81e4feec2d64c",
+    "review_content_sha256": "3d6321490c3580c3465c67b518956f44032b35260c53f9eb4547b291e90c5d8d",
+    "apparatus_ref": "c115fcd3b5df60431366be1e9a9d7e4261a255c4",
+    "runtime_files_reverified": 169,
+    "native_links_reverified": 12,
+    "exact_outputs": 14,
+    "compared_outputs": 23,
+    "raw_comparison_changed": false,
+    "native_data_modified": false,
+    "production_eligible": false,
+    "evidence": {
+      "name": "mth-2024aa-acceptance-v2.json",
+      "sha256": "74086300a3327b876b20159f9f6367a944793c098034226927ba7feba0402e4a",
+      "bytes": 7695
+    },
+    "every_difference_explained": true,
+    "every_generated_attribute_id_verified": true,
+    "scratch_removed": true
+  },
+  "actual_discovery": {
+    "NCI": {
+      "version": "NCI_2026_08E",
+      "status": "DECISIONS_REQUIRED",
+      "manifest_sha256": "951083ea8dcb3b95ae319224e21a20dff73901e0091d18dcee021e4894200931",
+      "apparatus_ref": "a4faa16000cd6c56f87809ee6ce51d8f0f2b21e0",
+      "adapter_sha256": "02e377374b8b7558fe544e4dba3b860dd930a2e2ab5de1edf396bfd04902dda2",
+      "verified_inputs": 8,
+      "input_identities": [
+        {
+          "artifact": "preserved-preparation",
+          "role": "nci-configuration",
+          "sha256": "674ca0c80d01eced32b3bcd4d80efbfe7bd22ed11c4b6de3463c84e3248ceee7",
+          "bytes": 11591
+        },
+        {
+          "artifact": "preserved-preparation",
+          "role": "sources-src",
+          "sha256": "56b7ba6b7d17046ac1005d389684f96b86e95092df20a0cac255962ee9d2a43c",
+          "bytes": 43904
+        },
+        {
+          "artifact": "preserved-preparation",
+          "role": "termgroups-src",
+          "sha256": "cc8c7851bf173724fb92409227579aab9c19141c576b7f1d6641074eb0745697",
+          "bytes": 5931
+        },
+        {
+          "artifact": "publisher",
+          "role": "annotationDeclaration",
+          "sha256": "d878fd8275ec67780758b8add5c3d84d56073de6a396733422791755c8daaf58",
+          "bytes": 8503
+        },
+        {
+          "artifact": "publisher",
+          "role": "classDeclaration",
+          "sha256": "2f0d15d2e9fc7c6437e7a4076325fdd69fd09ff4190402d217f36147b8433867",
+          "bytes": 156541623
+        },
+        {
+          "artifact": "publisher",
+          "role": "hierarchy",
+          "sha256": "75dbeae0f923bc65fa7fb3cbf78131d3d40a792c7e8a87e57ba0c50c7c04f4b3",
+          "bytes": 3578390
+        },
+        {
+          "artifact": "publisher",
+          "role": "objectDeclaration",
+          "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+          "bytes": 4934
+        },
+        {
+          "artifact": "publisher",
+          "role": "relations",
+          "sha256": "44389d0a0c733d3dfb6848548520d06aae0f4e98dcfa1f409d8d2bcf20ec5220",
+          "bytes": 14607914
+        }
+      ],
+      "issues": [
+        {
+          "code": "NCI_PRESERVED_STATE_SCOPE",
+          "severity": "warning",
+          "message": "Preserved metadata/root inputs support their captured scope; catalog ranks do not prove a coherent fresh installed-state export",
+          "path": "configuration/inputs/reference_ncimeta"
+        },
+        {
+          "code": "NCI_SUBSOURCE",
+          "severity": "decision",
+          "message": "Publisher source lacks a reviewed mapping and source metadata",
+          "path": "discovery/subsource/CTCAE 6.0"
+        },
+        {
+          "code": "NCI_TERMGROUP_METADATA",
+          "severity": "decision",
+          "message": "Mapped output termgroup lacks verified metadata",
+          "path": "discovery/termgroup-metadata/DICOM_2026_08E/SY"
+        },
+        {
+          "code": "NCI_HISTORICAL_FINDINGS_NOT_OPERATIONAL_APPROVAL",
+          "severity": "warning",
+          "message": "Recorded historical findings remain review inputs; they do not approve missing mappings for an upcoming release",
+          "path": "configuration/inputs/source_plan"
+        }
+      ],
+      "evidence": {
+        "name": "nci-actual-discovery.json",
+        "sha256": "041c4918ab86f5bb4d6f0ab864c8cb8d638ce02a01da66577999ddad4314f806",
+        "bytes": 22559
+      },
+      "execution_eligible": false,
+      "publisher_scan_complete": true,
+      "decisions": [
+        {
+          "kind": "subsource",
+          "key": "CTCAE 6.0",
+          "status": "requires-review",
+          "reason": "Publisher source lacks a reviewed mapping and source metadata",
+          "occurrences": 4111
+        },
+        {
+          "kind": "termgroup-metadata",
+          "key": "DICOM_2026_08E/SY",
+          "status": "requires-review",
+          "reason": "Mapped output termgroup lacks verified metadata",
+          "occurrences": 1
+        }
+      ],
+      "explicit_new_subsources": [],
+      "explicit_new_termgroups": 0
+    },
+    "SNOMEDCT_US": {
+      "version": "SNOMEDCT_US_2026_03_01",
+      "status": "DECISIONS_REQUIRED",
+      "manifest_sha256": "1bb6ff1b21f0cb2c853b6ab9a1e1061ab2407e9ff63a40047d84e3c8a997187c",
+      "apparatus_ref": "a4faa16000cd6c56f87809ee6ce51d8f0f2b21e0",
+      "adapter_sha256": "d2e76fbf3b30f13a24755a329baae01a2ca8107823ba18d9a784d94e165c9280",
+      "verified_inputs": 20,
+      "input_identities": [
+        {
+          "artifact": "policy",
+          "role": "archived-invert_rf2.pl",
+          "sha256": "cdfc535a15a2ee08a962be7debc7a0997b37a42631482eb8b648fa5c87a15f67",
+          "bytes": 57536
+        },
+        {
+          "artifact": "policy",
+          "role": "archived-sct.cfg",
+          "sha256": "5feb62d87b1f235935446a0b7fe5e65cecda2fcad564dd48987a93fdd1e07650",
+          "bytes": 28675
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-association",
+          "sha256": "a915705b8e9d20a69f951f45b087bd86f70e6ea7e18a95fde7706478f4b4a727",
+          "bytes": 23513224
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-attribute-value",
+          "sha256": "475277a7a94a507688ba07ed508c9d013fe53d7e19d0aa63711e329e7e616a74",
+          "bytes": 85571336
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-concepts",
+          "sha256": "13832728ff41c71bd986d445ada886d4168aef7dd4bba702abbf187298eda4be",
+          "bytes": 32364443
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-concrete-values",
+          "sha256": "566836b1cb56442d295561511d222185511679aa192e69f159086342ae2720a0",
+          "bytes": 4020369
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-description-type",
+          "sha256": "d3a28af12709a07675b59b15d365005c6428d5952314d55f03091ac7906a6532",
+          "bytes": 489
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-descriptions",
+          "sha256": "f92ba840b7270253515afac0c1db512e5f442b8fa8c546a4dcb128c608bf0dd5",
+          "bytes": 230306454
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-extended-map",
+          "sha256": "4bb1433ea5971fe9637f052bd1f264d9aa3ced22dc2696f7e8b2362b22785a97",
+          "bytes": 156008161
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-language",
+          "sha256": "bcfdb6d3061cbeade0e1ad721e3e2eedac1f09c158b00b8f04eb5be14e2220c3",
+          "bytes": 389744878
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-module-dependency",
+          "sha256": "fe64565e58b2e6dc3b2d0f4b7a42697467573df8b7d6365c6879b57bfcbbe67b",
+          "bytes": 1046
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-refset-descriptor",
+          "sha256": "65cc29bd9d547a98505cde98b2f11dc12d54594432e479c4c880326fa929cc27",
+          "bytes": 28915
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-relationships",
+          "sha256": "43208c98e4ec7b02ed4185a58e33f13dd816c6bddd1e85faf04e2ca50251fe9d",
+          "bytes": 404359782
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-simple-map",
+          "sha256": "1b5b6d6e23503adad0de5c8bd3a95fa57826e2f3376be907e52b6e69802bbab2",
+          "bytes": 57116493
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-simple-refset",
+          "sha256": "e57d8e371611fa1fcca0fee8cc4052433f8894e5eec9031a14a156084ba40be3",
+          "bytes": 1990960
+        },
+        {
+          "artifact": "publisher",
+          "role": "rf2-text-definitions",
+          "sha256": "9320a4aaaeb057b986b06ad2917d1cd2292decd538c38c5e5036f1b0ead0beb8",
+          "bytes": 8424855
+        },
+        {
+          "artifact": "state",
+          "role": "icd10-target-inventory",
+          "sha256": "809ce7eb5720626b49a8b9debba00c7f24ca7f318d61b917b2b4c401d0d55b1e",
+          "bytes": 109803
+        },
+        {
+          "artifact": "state",
+          "role": "icd10cm-target-inventory",
+          "sha256": "7088090e7f8e26708543e4ac75c9f5ece98fd3e83f7bb6baf6c25144c942752c",
+          "bytes": 797093
+        },
+        {
+          "artifact": "state",
+          "role": "sources-src",
+          "sha256": "596e20bc042a8d4e69f6b7d4e21d9da1a17163ac7c3504197b219407181d1cee",
+          "bytes": 900
+        },
+        {
+          "artifact": "state",
+          "role": "termgroups-src",
+          "sha256": "254acc5965adebc5550d7b652f1d032d8c41286d6ce792e00c83e3762c78c1c9",
+          "bytes": 828
+        }
+      ],
+      "issues": [
+        {
+          "code": "SNOMED_MRDOC_REQUIRED",
+          "severity": "decision",
+          "message": "Operational MRDOC requires frozen rela-inverse input; it has not been supplied.",
+          "path": "/artifacts/state/files"
+        },
+        {
+          "code": "SNOMED_MRDOC_REQUIRED",
+          "severity": "decision",
+          "message": "Operational MRDOC requires frozen expanded-form input; it has not been supplied.",
+          "path": "/artifacts/state/files"
+        },
+        {
+          "code": "SNOMED_MRDOC_REQUIRED",
+          "severity": "decision",
+          "message": "Operational MRDOC requires frozen tty-class input; it has not been supplied.",
+          "path": "/artifacts/state/files"
+        },
+        {
+          "code": "SNOMED_CHANGED_TYPE_LABEL",
+          "severity": "decision",
+          "message": "Missing/changed/ambiguous native label needs an identifier-bound decision for 370129005.",
+          "path": "/artifacts/source-plan/data/label_decisions/370129005"
+        },
+        {
+          "code": "SNOMED_CHANGED_TYPE_LABEL",
+          "severity": "decision",
+          "message": "Missing/changed/ambiguous native label needs an identifier-bound decision for 411116001.",
+          "path": "/artifacts/source-plan/data/label_decisions/411116001"
+        },
+        {
+          "code": "SNOMED_LANGUAGE_REFSET_REQUIRED",
+          "severity": "decision",
+          "message": "Unreviewed language preference refset: 900000000000508004.",
+          "path": "/artifacts/publisher/files/rf2-language"
+        }
+      ],
+      "evidence": {
+        "name": "snomed-actual-discovery.json",
+        "sha256": "ac2234c82cbd062f96467d77a09a84b8b6194bca7d9746ab81a6c36f1b278956",
+        "bytes": 114172
+      },
+      "execution_eligible": false,
+      "core_native_scan_complete": true,
+      "native_rows": {
+        "rf2-concepts": 537781,
+        "rf2-relationships": 3614587,
+        "rf2-association": 221948,
+        "rf2-descriptions": 1719423,
+        "rf2-concrete-values": 37332,
+        "rf2-text-definitions": 19246,
+        "rf2-refset-descriptor": 216,
+        "rf2-description-type": 3,
+        "rf2-module-dependency": 8,
+        "rf2-language": 3345728,
+        "rf2-simple-map": 556068,
+        "rf2-extended-map": 667377,
+        "rf2-attribute-value": 745882,
+        "rf2-simple-refset": 22670
+      },
+      "mrdoc_semantics_validated": false,
+      "label_review_ids": [
+        "370129005",
+        "411116001"
+      ],
+      "language_policy_reevaluation": {
+        "artifact_type": "ncimeta-discovery-policy-reevaluation",
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_03_01",
+        "original_scan_sha256": "ac2234c82cbd062f96467d77a09a84b8b6194bca7d9746ab81a6c36f1b278956",
+        "original_scan_apparatus_ref": "a4faa16000cd6c56f87809ee6ce51d8f0f2b21e0",
+        "policy_ref": "d14cfd5e00812cfc3466c9c61e3394422d1d32fa",
+        "adapter_sha256": "de509d71631828459f2ae567f28e757d3de05a0e1a7462e3a8eba8b732a7db40",
+        "canonical_engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+        "canonical_cfg_sha256": "5c65a394cae5b55ee981bfba93bede6075651116d1b154c1aba98f3856435d06",
+        "scope": "Policy-only reevaluation of complete already verified RF2 language inventory; no second archive scan, native conversion or modification of original scan.",
+        "observed_language_refsets": {
+          "900000000000508004": 1348786,
+          "900000000000509007": 1370571
+        },
+        "supported_language_refsets": [
+          "900000000000508004",
+          "900000000000509007"
+        ],
+        "removed_false_positive": [
+          {
+            "code": "SNOMED_LANGUAGE_REFSET_REQUIRED",
+            "severity": "decision",
+            "message": "Unreviewed language preference refset: 900000000000508004.",
+            "path": "/artifacts/publisher/files/rf2-language"
+          }
+        ],
+        "remaining_issues": [
+          {
+            "code": "SNOMED_MRDOC_REQUIRED",
+            "severity": "decision",
+            "message": "Operational MRDOC requires frozen rela-inverse input; it has not been supplied.",
+            "path": "/artifacts/state/files"
+          },
+          {
+            "code": "SNOMED_MRDOC_REQUIRED",
+            "severity": "decision",
+            "message": "Operational MRDOC requires frozen expanded-form input; it has not been supplied.",
+            "path": "/artifacts/state/files"
+          },
+          {
+            "code": "SNOMED_MRDOC_REQUIRED",
+            "severity": "decision",
+            "message": "Operational MRDOC requires frozen tty-class input; it has not been supplied.",
+            "path": "/artifacts/state/files"
+          },
+          {
+            "code": "SNOMED_CHANGED_TYPE_LABEL",
+            "severity": "decision",
+            "message": "Missing/changed/ambiguous native label needs an identifier-bound decision for 370129005.",
+            "path": "/artifacts/source-plan/data/label_decisions/370129005"
+          },
+          {
+            "code": "SNOMED_CHANGED_TYPE_LABEL",
+            "severity": "decision",
+            "message": "Missing/changed/ambiguous native label needs an identifier-bound decision for 411116001.",
+            "path": "/artifacts/source-plan/data/label_decisions/411116001"
+          }
+        ],
+        "status": "DECISIONS_REQUIRED",
+        "original_verified_input_count": 20,
+        "execution_eligible": false
+      },
+      "scope": "Original fullscan retained. Canonical GB allowlist typo corrected afterward by purepolicy reevaluation of the complete verified languageinventory; no repeatfullarchive scan."
+    },
+    "MTH": {
+      "version": "MTH_2024AA",
+      "status": "DECISIONS_REQUIRED",
+      "manifest_sha256": "5e2ae53aa7fdc6979c2ffa9d7a31b82b93496377dcdc3d4ffa1e8587236fcef0",
+      "apparatus_ref": "c115fcd3b5df60431366be1e9a9d7e4261a255c4",
+      "adapter_sha256": "8b803c1c1ae17228edbdeb597713b8b801992f828c220c8d61ceb9ab6c4b22f7",
+      "verified_inputs": 8,
+      "input_identities": [
+        {
+          "artifact": "mth-identity",
+          "role": "cui_said_map",
+          "sha256": "894494da4cf6c1ccea24b07bf229408d3ed39a4c3883a4a51fdbcb9a30ef0faa",
+          "bytes": 40587724
+        },
+        {
+          "artifact": "mth-prepared",
+          "role": "MRAUI.RRF",
+          "sha256": "1b62475fb23227e04873e6cae6174b967124e1f79f56ca0607bf4e79ee272893",
+          "bytes": 17373508
+        },
+        {
+          "artifact": "mth-prepared",
+          "role": "MRCUI.RRF",
+          "sha256": "830689c541f934750db95062f9570ee5541f07ddc926122a57856b72cfdf0d38",
+          "bytes": 104178172
+        },
+        {
+          "artifact": "mth-prepared",
+          "role": "MRRANK.RRF",
+          "sha256": "4bd61f78ee4ca6068f8bacaebb082a9e2e554a58b7df0960e56468acbbfa52d4",
+          "bytes": 6109
+        },
+        {
+          "artifact": "mth-prepared",
+          "role": "MRSAB.RRF",
+          "sha256": "58fd8d76e781dde74abb6a07dbc3684283762739f9f6f188a8323c46ceb1e530",
+          "bytes": 128028
+        },
+        {
+          "artifact": "mth-state",
+          "role": "ncimid.sources",
+          "sha256": "ea33914589eb224b75fb96fe8ea43221b2839d9b02a29eabece4e68d429a465a",
+          "bytes": 2398
+        },
+        {
+          "artifact": "mth-state",
+          "role": "ncimid.termgroups",
+          "sha256": "8fd8615cad3b8d318d7b42ddf2e669cea56e25dbae361a68af19721d3a330d39",
+          "bytes": 9999
+        },
+        {
+          "artifact": "mth-state",
+          "role": "src/termgroups.src",
+          "sha256": "1d05ec535bb4dae767f6d66a316511a5ae99eeb6aa0f94304f6b1f8b778214f2",
+          "bytes": 7279
+        }
+      ],
+      "issues": [
+        {
+          "code": "MTH_DISCOVERY_FULL_INVENTORY_REQUIRED",
+          "severity": "decision",
+          "message": "Complete upcoming-release source discovery requires a reviewed full publisher MRSAB inventory; subset omissions cannot establish publisher absence.",
+          "path": "/configuration/inputs/source_data"
+        }
+      ],
+      "evidence": {
+        "name": "mth-actual-discovery-v2.json",
+        "sha256": "2d0d2760c000cf803febd47f98de7c5c3fd09560f3470ff8077ad5636d08c47d",
+        "bytes": 212153
+      },
+      "execution_eligible": false,
+      "inventory_coverage": "prepared-subset-only",
+      "prior_identity": {
+        "rows": 2136196,
+        "unique_CUIs": 2136196,
+        "minimum_SAID": 676166982,
+        "maximum_SAID": 680821594
+      },
+      "ranking_targets_verified": true,
+      "history_record_counts": {
+        "mth-prepared/MRAUI.RRF": 320824,
+        "mth-prepared/MRCUI.RRF": 3726020
+      },
+      "history_suffixes": [
+        "AA",
+        "AB",
+        "AC",
+        "AD"
+      ]
+    }
+  },
+  "cli_probes": [
+    {
+      "source": "NCI",
+      "version": "NCI_2026_10D",
+      "status": "DISCOVERY_BLOCKED",
+      "exit": 2,
+      "verified_inputs": 2,
+      "source_issue_codes": [
+        "NCI_ALLOCATION_PENDING",
+        "NCI_ARTIFACT_REQUIRED",
+        "NCI_INSTALLED_STATE_REVIEW",
+        "NCI_PUBLISHER_INPUT_INVALID"
+      ],
+      "capsule_modules": 37,
+      "committed_ref": "0bfbe6267b5e2a7982b2566e28c0904a99e04fa4",
+      "output_collision_rejected": true,
+      "bootstrap_python39": "PASS",
+      "fixtures_only": true
+    },
+    {
+      "source": "SNOMEDCT_US",
+      "version": "SNOMEDCT_US_2027_03_01",
+      "status": "DECISIONS_REQUIRED",
+      "exit": 3,
+      "verified_inputs": 18,
+      "source_issue_codes": [
+        "SNOMED_MRDOC_REQUIRED",
+        "SNOMED_TYPE_LABEL_REQUIRED"
+      ],
+      "capsule_modules": 37,
+      "committed_ref": "0bfbe6267b5e2a7982b2566e28c0904a99e04fa4",
+      "output_collision_rejected": true,
+      "bootstrap_python39": "PASS",
+      "fixtures_only": true
+    },
+    {
+      "source": "MTH",
+      "version": "MTH_2027AA",
+      "status": "DECISIONS_REQUIRED",
+      "exit": 3,
+      "verified_inputs": 8,
+      "source_issue_codes": [
+        "MTH_DISCOVERY_FINAL_RANGE_PENDING",
+        "MTH_DISCOVERY_FULL_INVENTORY_REQUIRED",
+        "MTH_DISCOVERY_RANK_TARGET_MISSING",
+        "MTH_FINAL_RANGE_REQUIRED"
+      ],
+      "capsule_modules": 36,
+      "committed_ref": "0bfbe6267b5e2a7982b2566e28c0904a99e04fa4",
+      "output_collision_rejected": true,
+      "bootstrap_python39": "PASS",
+      "fixtures_only": true
+    }
+  ],
+  "nci_positive_cli_probe": {
+    "source": "NCI",
+    "fixture_only": true,
+    "schema": "PASS",
+    "cli_exit": 3,
+    "status": "DECISIONS_REQUIRED",
+    "verified_inputs": 8,
+    "allocation": false,
+    "execution_eligible": false,
+    "capsule_modules": 37
+  },
+  "qa_decision": {
+    "artifact": "release-manifests/nci-2026-08e-qa-adjustment.json",
+    "status": "reviewed",
+    "actor": "unconfirmed",
+    "scope": "User-reviewed exact historical row adjustment; no generic mapping or output application.",
+    "automatic_application_implemented": false
+  },
+  "retention": {
+    "new_bulk_datasets": 0,
+    "scratch_removed": true,
+    "scope": "Only compact milestone evidence is retained here. Routine verbose reports follow the30-day development default; no automatic expiry service is installed."
+  },
+  "final_frozen_operation_probes": [
+    {
+      "source": "nci",
+      "modules": 37,
+      "stdlib_only_import": "PASS",
+      "bootstrap_python39": "PASS",
+      "apparatus_ref": "dc3287abae157ef2041b96be00915f90e43ebff9"
+    },
+    {
+      "source": "snomed",
+      "modules": 37,
+      "stdlib_only_import": "PASS",
+      "bootstrap_python39": "PASS",
+      "apparatus_ref": "dc3287abae157ef2041b96be00915f90e43ebff9"
+    },
+    {
+      "source": "mth",
+      "modules": 36,
+      "stdlib_only_import": "PASS",
+      "bootstrap_python39": "PASS",
+      "apparatus_ref": "dc3287abae157ef2041b96be00915f90e43ebff9"
+    },
+    {
+      "operation": "review-native",
+      "modules": 36,
+      "bootstrap_python39": "PASS",
+      "apparatus_ref": "dc3287abae157ef2041b96be00915f90e43ebff9"
+    }
+  ]
+}

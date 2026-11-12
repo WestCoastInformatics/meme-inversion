@@ -645,5 +645,18 @@
     "native_derived_explanation": 15,
     "scope": "Confined helper fixtures and rejection checks; actual archived release evidence is recorded separately."
   },
-  "conclusion": "All nine differing files are fully predicted by the previously implemented retained-identity correction: two obsolete CCS allocations excluded from persisted state and the native LOINCPARTS identity restored, with native semantic-type and context consequences. Fourteen other outputs remain byte-exact. Clean candidate physical validation; strict DIFF requires an explicit acceptance policy review."
+  "conclusion": "All nine differing files are fully predicted by the previously implemented retained-identity correction. Separate committed common review now accepts this preserved-input dev inversion as PASS_WITH_VERIFIED_CORRECTIONS, with all23outputs, native evidence,169runtime files and12links checked. Original raw DIFFERENCES_REQUIRE_REVIEW remains unchanged; production and operational preparation remain separate gates.",
+  "separate_acceptance_review": {
+    "status": "PASS_WITH_VERIFIED_CORRECTIONS",
+    "accepted": true,
+    "policy": "mth-retained-identity-v1",
+    "review_id": "acceptance-mth-2024aa-v2-20261112",
+    "review_content_sha256": "3d6321490c3580c3465c67b518956f44032b35260c53f9eb4547b291e90c5d8d",
+    "apparatus_ref": "c115fcd3b5df60431366be1e9a9d7e4261a255c4",
+    "runtime_files_reverified": 169,
+    "native_links_reverified": 12,
+    "raw_comparison_changed": false,
+    "production_eligible": false,
+    "record": "preparation-and-acceptance-20261112.json"
+  }
 }

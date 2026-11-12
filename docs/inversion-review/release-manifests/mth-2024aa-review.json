@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "artifact_type": "ncimeta-archived-mth-input-review",
-  "status": "NATIVE_COMPLETE_DIFFERENCES_REQUIRE_REVIEW",
+  "status": "ACCEPTED_WITH_VERIFIED_CORRECTIONS",
   "source": "MTH",
   "version": "MTH_2024AA",
   "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
   "review_id": "preserved-staff-decisions-mth-2024aa-20261111",
-  "review_scope": "Original input curation and bytecheck snapshots plus actual later native-execution followup. Fresh full conversion completed; strict comparison differs and does not grant acceptance.",
+  "review_scope": "Original curation/bytecheck snapshots, completed raw conversion/comparison and a later separately identified common acceptance review. Raw differences stay preserved; accepted scope is this preserved-input dev inversion, not production.",
   "manifest_sha256": "288dd1be3a24bc1b53cdd67076ab4d5b317e7d48006483ef632db08a80248f02",
   "capture_files": [
     {
@@ -474,7 +474,9 @@
     "explanation_report_sha256": "34785110a63369a6d4868e13635051ea921152280ebe3084fa2f6209797a1045",
     "all23_candidate_hashes_reverified": true,
     "every_difference_explained": true,
-    "scratch_removed": true
+    "scratch_removed": true,
+    "separate_acceptance_review": "PASS_WITH_VERIFIED_CORRECTIONS",
+    "separate_acceptance_record": "../preparation-and-acceptance-20261112.json"
   },
   "initial_curation_snapshot_scope": "local_validation, remaining_gates and prior_cache_derivation preserve original curation facts. Current execution is native_execution_followup; current_remaining_gates gives outstanding work. Original lock399 bytecheck remains unchanged.",
   "current_remaining_gates": [
@@ -485,8 +487,8 @@
     },
     {
       "code": "EXPLICIT_COMPARISON_ACCEPTANCE_REVIEW",
-      "status": "PENDING",
-      "reason": "Strict raw result remains DIFFERENCES_REQUIRE_REVIEW. The historical2026AA correction waiver is not inherited."
+      "status": "COMPLETE",
+      "reason": "Committed mth-retained-identity-v1 policy independently proves every correction and records separate PASS_WITH_VERIFIED_CORRECTIONS; original rawDIFFunchanged."
     },
     {
       "code": "PRODUCTION_ELIGIBILITY",
