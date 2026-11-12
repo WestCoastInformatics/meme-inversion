@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "artifact_type": "ncimeta-archived-mth-input-review",
-  "status": "CURATED_INPUTS_NATIVE_ACCEPTANCE_BLOCKED_CAPACITY",
+  "status": "NATIVE_COMPLETE_DIFFERENCES_REQUIRE_REVIEW",
   "source": "MTH",
   "version": "MTH_2024AA",
   "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
   "review_id": "preserved-staff-decisions-mth-2024aa-20261111",
-  "review_scope": "Derivative stable-prior-cache binding of the same original staff choices and preserved prepared inputs. Historical lock399/47-descriptor byte verification remains a separate unchanged record. No fresh full MTH inversion or exact official-output acceptance has been performed.",
+  "review_scope": "Original input curation and bytecheck snapshots plus actual later native-execution followup. Fresh full conversion completed; strict comparison differs and does not grant acceptance.",
   "manifest_sha256": "288dd1be3a24bc1b53cdd67076ab4d5b317e7d48006483ef632db08a80248f02",
   "capture_files": [
     {
@@ -365,7 +365,7 @@
   "historical_database_reconstruction_required": false,
   "MetamorphoSys_executed": false,
   "publisher_preparation_regenerated": false,
-  "native_execution_performed": false,
+  "native_execution_performed": true,
   "production_eligible": false,
   "dev_read_only_byte_verification": {
     "input_byte_verification": "VERIFIED",
@@ -443,7 +443,7 @@
   },
   "native_execution_followup": {
     "scope": "Actual later dev launch after authorized obsolete-test retirement; original curation and input-bytecheck snapshots remain unchanged.",
-    "status": "LAUNCHED_NOT_YET_ACCEPTED",
+    "status": "COMPLETE_DIFFERENCES_REQUIRE_REVIEW",
     "run_id": "native-mth-2024aa-cache-20261111",
     "lock_sha256": "f0653add90ceacb84b63a27ab2c78bf624ab2cca5df1dc4488ca91a4a9031457",
     "run_directory": "/local/content/MEME/MEME5/inv/qa/replay-requests/native-mth-2024aa-cache-20261111",
@@ -455,7 +455,39 @@
     "obsolete_test_retirement_record": "../mth-bulk-retirement-20261111.json",
     "native_capacity_floor_gib": 45,
     "free_bytes_before_launch_postcheck": 50360229888,
-    "full_native_result": "PENDING",
-    "production_eligible": false
-  }
+    "full_native_result": "COMPLETE",
+    "production_eligible": false,
+    "completed_at": "2026-11-12T02:27:38.797927+00:00",
+    "apparatus_ref": "e86a2f0b1f454b2b16adcda520f55b276552b0c7",
+    "native_stages_completed": 13,
+    "all_stage_exit_statuses_zero": true,
+    "physical_validation_passed": true,
+    "exact_outputs": 14,
+    "different_outputs": 9,
+    "declared_inputs_unchanged": true,
+    "result_record": "../mth-2024aa-native-results-20261112.json",
+    "native_result_sha256": "1eabe65db9f4ae0d78511caa964c0d5aa4d88f4875b055e251e81e4feec2d64c",
+    "historical_correction_waivers_applied": false,
+    "conditional_independent_verification": "SKIPPED_REVIEW_REQUIRED",
+    "read_only_diagnostic": "COMPLETE_RAW_AND_IDENTITY_DELTA_CLASSIFICATION",
+    "full_native_derived_explanation": "PENDING"
+  },
+  "initial_curation_snapshot_scope": "local_validation, remaining_gates and prior_cache_derivation preserve original curation facts. Current execution is native_execution_followup; current_remaining_gates gives outstanding work. Original lock399 bytecheck remains unchanged.",
+  "current_remaining_gates": [
+    {
+      "code": "FULL_NATIVE_DERIVED_DIFFERENCE_EXPLANATION",
+      "status": "IN_PROGRESS",
+      "reason": "Account for every differing attribute/context byte and generated ID from actual native records and observed identity changes."
+    },
+    {
+      "code": "EXPLICIT_COMPARISON_ACCEPTANCE_REVIEW",
+      "status": "PENDING",
+      "reason": "Strict raw result remains DIFFERENCES_REQUIRE_REVIEW. The historical2026AA correction waiver is not inherited."
+    },
+    {
+      "code": "PRODUCTION_ELIGIBILITY",
+      "status": "NOT_CLAIMED",
+      "reason": "Operational QA, new-release state, insertion and production gates remain separate."
+    }
+  ]
 }

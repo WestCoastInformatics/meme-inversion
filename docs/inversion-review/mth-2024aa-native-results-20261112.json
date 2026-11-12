@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-native-release-result-review",
+  "source": "MTH",
+  "version": "MTH_2024AA",
+  "run_id": "native-mth-2024aa-cache-20261111",
+  "lock_sha256": "f0653add90ceacb84b63a27ab2c78bf624ab2cca5df1dc4488ca91a4a9031457",
+  "execution_apparatus_ref": "e86a2f0b1f454b2b16adcda520f55b276552b0c7",
+  "engine_ref": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+  "runtime_ref": "3b125edc1d29f7c7a91673da2a8d752bb0adff44",
+  "started_at": "2026-11-11T23:42:34.885455+00:00",
+  "completed_at": "2026-11-12T02:27:38.797927+00:00",
+  "native_result_sha256": "1eabe65db9f4ae0d78511caa964c0d5aa4d88f4875b055e251e81e4feec2d64c",
+  "acceptance": {
+    "status": "DIFFERENCES_REQUIRE_REVIEW",
+    "production_eligible": false,
+    "historical_correction_waivers_applied": false
+  },
+  "native_stages_completed": 13,
+  "all_stage_exit_statuses_zero": true,
+  "exact_output_count": 14,
+  "different_output_count": 9,
+  "declared_inputs_unchanged": true,
+  "physical_validation": {
+    "passed": true,
+    "issues": [],
+    "facts": {
+      "version": "MTH_2024AA",
+      "structure": {
+        "atom_ids": {
+          "unique": 3745313,
+          "duplicates": 0,
+          "out_of_range": 0
+        },
+        "files": {
+          "classes_atoms.src": {
+            "rows": 3745313,
+            "field_counts": {
+              "15": 3745313
+            },
+            "violations": {},
+            "identifier_types_and_qualifiers": {}
+          },
+          "attributes.src": {
+            "rows": 19248841,
+            "field_counts": {
+              "15": 19248841
+            },
+            "violations": {},
+            "identifier_types_and_qualifiers": {
+              "SRC_ATOM_ID|": 19248841
+            }
+          },
+          "relationships.src": {
+            "rows": 6258182,
+            "field_counts": {
+              "19": 6258182
+            },
+            "violations": {},
+            "identifier_types_and_qualifiers": {
+              "CODE_TERMGROUP|SRC/VPT": 1,
+              "CODE_TERMGROUP|SRC/RPT": 1,
+              "SRC_ATOM_ID|": 11902230,
+              "CUI_CURRENT|": 614132
+            }
+          },
+          "mergefacts.src": {
+            "rows": 13488,
+            "field_counts": {
+              "13": 13488
+            },
+            "violations": {},
+            "identifier_types_and_qualifiers": {
+              "SRC_ATOM_ID|": 623,
+              "CUI_CURRENT|": 13487,
+              "CUI|": 12866
+            }
+          },
+          "bequeathal.relationships.src": {
+            "rows": 5559,
+            "field_counts": {
+              "19": 5559
+            },
+            "violations": {},
+            "identifier_types_and_qualifiers": {
+              "CUI_CURRENT|": 5559,
+              "CUI_PREVIOUS|": 5559
+            }
+          },
+          "contexts.src": {
+            "rows": 1057973,
+            "field_counts": {
+              "19": 1057973
+            },
+            "violations": {},
+            "identifier_types_and_qualifiers": {
+              "SRC_ATOM_ID|": 4231892
+            }
+          }
+        },
+        "passed": true,
+        "scope": "Observed MTH field widths and context tails, UTF-8, unique generated IDs, reserved atom bounds including two SRC atoms, attribute digests and current SRC_ATOM_ID references/paths. CUI, CUI_CURRENT and CUI_PREVIOUS remain distinct; database identity/domain validation and legacy QA are separate coverage."
+      },
+      "retained_identity": {
+        "passed": true,
+        "raw_binding_violations": {},
+        "files": {
+          "aui_said_map": {
+            "rows": 3744690,
+            "violations": {}
+          },
+          "moved_aui_said_map": {
+            "rows": 621,
+            "violations": {}
+          },
+          "cui_said_map": {
+            "rows": 1815446,
+            "violations": {}
+          },
+          "rel_cui_said_map": {
+            "rows": 1815446,
+            "violations": {}
+          },
+          "cui_splitonly_said_map": {
+            "rows": 20,
+            "violations": {}
+          }
+        },
+        "scope": "Current persisted AUI/CUI maps reference final retained atoms with matching native CUI/AUI and moved roles. Prior/current CUI transition semantics remain separately compared."
+      },
+      "complete_identity_maps": true,
+      "historical_correction_waiver_applied": false
+    }
+  },
+  "output_comparison": {
+    "src/classes_atoms.src": {
+      "candidate": {
+        "sha256": "893e27c5881daebf8c42800f0d275ede16f6f63848c1bf70c330cb7b23122cd6",
+        "bytes": 520459030
+      },
+      "reference": {
+        "sha256": "893e27c5881daebf8c42800f0d275ede16f6f63848c1bf70c330cb7b23122cd6",
+        "bytes": 520459030
+      },
+      "exact_match": true
+    },
+    "src/attributes.src": {
+      "candidate": {
+        "sha256": "12905d24a33f0430afe4a283fe21ef9e697052cd25c806087a3ce790104b512c",
+        "bytes": 2651498025
+      },
+      "reference": {
+        "sha256": "e7be621fe2c795953250ccaa1c22f9df48c8e0233c8c9f73be146fa7eb1f8e6e",
+        "bytes": 2651497998
+      },
+      "exact_match": false
+    },
+    "src/relationships.src": {
+      "candidate": {
+        "sha256": "cd51bb2f31c8e1efdfdb60ef0c9338fc3275ead1eaee5c9c5b2e2a698f950d69",
+        "bytes": 754792792
+      },
+      "reference": {
+        "sha256": "cd51bb2f31c8e1efdfdb60ef0c9338fc3275ead1eaee5c9c5b2e2a698f950d69",
+        "bytes": 754792792
+      },
+      "exact_match": true
+    },
+    "src/mergefacts.src": {
+      "candidate": {
+        "sha256": "73789a5f3a22bb0a1239918f89338dcc0711aaef7257e0a8bd6e8873bc3e4905",
+        "bytes": 909285
+      },
+      "reference": {
+        "sha256": "73789a5f3a22bb0a1239918f89338dcc0711aaef7257e0a8bd6e8873bc3e4905",
+        "bytes": 909285
+      },
+      "exact_match": true
+    },
+    "src/bequeathal.relationships.src": {
+      "candidate": {
+        "sha256": "f0a4e42b1be5350a4ae87cbd0c5a052a7042d15f6cd0c07dc4eb2ea14eaffec9",
+        "bytes": 499203
+      },
+      "reference": {
+        "sha256": "f0a4e42b1be5350a4ae87cbd0c5a052a7042d15f6cd0c07dc4eb2ea14eaffec9",
+        "bytes": 499203
+      },
+      "exact_match": true
+    },
+    "src/contexts.src": {
+      "candidate": {
+        "sha256": "b24f6a29ff743a151596c6c1388eab132cf177794402278152f607f6a0720f84",
+        "bytes": 293683610
+      },
+      "reference": {
+        "sha256": "244013e0e7004f2f3ef7d6f5b501c0538eb28fc600b36c4c429c4475f2d03512",
+        "bytes": 293683592
+      },
+      "exact_match": false
+    },
+    "src/class_src": {
+      "candidate": {
+        "sha256": "e76ff4fbc516aefb898f68f9df1ea6e9de587a6f74875260d6a449594044dbbc",
+        "bytes": 142
+      },
+      "reference": {
+        "sha256": "e76ff4fbc516aefb898f68f9df1ea6e9de587a6f74875260d6a449594044dbbc",
+        "bytes": 142
+      },
+      "exact_match": true
+    },
+    "src/attr_src": {
+      "candidate": {
+        "sha256": "f082c1e9eb89835a5e914c4a6aff26d953ecfb7b540d9042b53e5c91f86b699c",
+        "bytes": 109
+      },
+      "reference": {
+        "sha256": "f082c1e9eb89835a5e914c4a6aff26d953ecfb7b540d9042b53e5c91f86b699c",
+        "bytes": 109
+      },
+      "exact_match": true
+    },
+    "src/rel_src": {
+      "candidate": {
+        "sha256": "a6d797c8577e3de7fc2f38880ccd1b615d0a31b5558613e70f95aa99a49df51a",
+        "bytes": 103
+      },
+      "reference": {
+        "sha256": "a6d797c8577e3de7fc2f38880ccd1b615d0a31b5558613e70f95aa99a49df51a",
+        "bytes": 103
+      },
+      "exact_match": true
+    },
+    "src/merge_src": {
+      "candidate": {
+        "sha256": "7718065dac8d386afb5560d8b35fafc3a831211d6065720c3cd6303986f6b12f",
+        "bytes": 67
+      },
+      "reference": {
+        "sha256": "7718065dac8d386afb5560d8b35fafc3a831211d6065720c3cd6303986f6b12f",
+        "bytes": 67
+      },
+      "exact_match": true
+    },
+    "src/auis_nonupdatedSAB_moved": {
+      "candidate": {
+        "sha256": "48df0f822a1090ef9fdc5fa0c2471b443f587aac9ed6dddb6ff28dac589e2ec3",
+        "bytes": 11535
+      },
+      "reference": {
+        "sha256": "48df0f822a1090ef9fdc5fa0c2471b443f587aac9ed6dddb6ff28dac589e2ec3",
+        "bytes": 11535
+      },
+      "exact_match": true
+    },
+    "src/cui_merges": {
+      "candidate": {
+        "sha256": "7c80fb5d69d3c17490d5c74c38bdb1f8ece4ceb8b7718f8c7655d96bb6553695",
+        "bytes": 231588
+      },
+      "reference": {
+        "sha256": "7c80fb5d69d3c17490d5c74c38bdb1f8ece4ceb8b7718f8c7655d96bb6553695",
+        "bytes": 231588
+      },
+      "exact_match": true
+    },
+    "src/aui_said_map": {
+      "candidate": {
+        "sha256": "a14bfeea99a498f2cb1f62b41a1b98aee41a4221c366c8419d7f98e1509b5d23",
+        "bytes": 107840731
+      },
+      "reference": {
+        "sha256": "9da28d89fb836e6f42a38043236f0bcd1fa9012f4ffec14eb9773c495d1da5d0",
+        "bytes": 107840758
+      },
+      "exact_match": false
+    },
+    "src/cui_said_map": {
+      "candidate": {
+        "sha256": "156417788e75bdc0444bbbb5d5281cdefd24a40c3337b098b3bb84c01e20f400",
+        "bytes": 34493474
+      },
+      "reference": {
+        "sha256": "e21cde58ba2b25d20372281371a52efab075b5667f5904b060974e95e30385b5",
+        "bytes": 34493474
+      },
+      "exact_match": false
+    },
+    "src/rel_cui_said_map": {
+      "candidate": {
+        "sha256": "156417788e75bdc0444bbbb5d5281cdefd24a40c3337b098b3bb84c01e20f400",
+        "bytes": 34493474
+      },
+      "reference": {
+        "sha256": "e21cde58ba2b25d20372281371a52efab075b5667f5904b060974e95e30385b5",
+        "bytes": 34493474
+      },
+      "exact_match": false
+    },
+    "src/moved_aui_said_map": {
+      "candidate": {
+        "sha256": "9719a243d8db9e7e5ae06f9856375ba65dbd2ff187b5fd74d229206c49fc361b",
+        "bytes": 17745
+      },
+      "reference": {
+        "sha256": "9719a243d8db9e7e5ae06f9856375ba65dbd2ff187b5fd74d229206c49fc361b",
+        "bytes": 17745
+      },
+      "exact_match": true
+    },
+    "src/cui_splitonly_said_map": {
+      "candidate": {
+        "sha256": "a03b55573830c39105f493f75af4f2969b3b28fbb483618d8db851dd77df3de8",
+        "bytes": 380
+      },
+      "reference": {
+        "sha256": "a03b55573830c39105f493f75af4f2969b3b28fbb483618d8db851dd77df3de8",
+        "bytes": 380
+      },
+      "exact_match": true
+    },
+    "src/attributes.contexts-all.src": {
+      "candidate": {
+        "sha256": "a94ba737a68311077f437fdcf2651978cd3680cfea11567cca7b7ea6d5e99759",
+        "bytes": 434471189
+      },
+      "reference": {
+        "sha256": "90878112b320572aea2907d98f5e9266e28ed0f42bdd9def68a71aa2a0056f84",
+        "bytes": 434471162
+      },
+      "exact_match": false
+    },
+    "src/src-root.cuis.updated": {
+      "candidate": {
+        "sha256": "5260807d3e9ea7b32f6e3b9c6d192ad5134c404f1c9d93b9605a7c7d2baaf77b",
+        "bytes": 198
+      },
+      "reference": {
+        "sha256": "5260807d3e9ea7b32f6e3b9c6d192ad5134c404f1c9d93b9605a7c7d2baaf77b",
+        "bytes": 198
+      },
+      "exact_match": true
+    },
+    "src/classes_atoms.src.raw": {
+      "candidate": {
+        "sha256": "7c9f73f9a596082bd36804f0c742f0f9887c19517cca5b60ad3bfe00e7da3971",
+        "bytes": 564647223
+      },
+      "reference": {
+        "sha256": "feef7b6ef2c2e6a42e81104a6662197f86ca117881b5c3f0c2201f86ae13e2f4",
+        "bytes": 564647438
+      },
+      "exact_match": false
+    },
+    "src/said.ptsaid": {
+      "candidate": {
+        "sha256": "964ceb87fa3938618182e73fbb5849857e38ed112d7e3764e10961dcda120621",
+        "bytes": 74906260
+      },
+      "reference": {
+        "sha256": "ce2efe372dcd1c06e0b8c6b45a50c261ac3ea994b5205cb2aea8d4815506e232",
+        "bytes": 74906300
+      },
+      "exact_match": false
+    },
+    "src/ptsaid.order": {
+      "candidate": {
+        "sha256": "b6b07b55c22de80d7e45b1c9e0810b426cefac8d85a6e0c14199ee5c152d249a",
+        "bytes": 17733130
+      },
+      "reference": {
+        "sha256": "62ad33a411853b537fafecbab5b919e727869ce70e5b9917efd9e235ab6c0521",
+        "bytes": 17733140
+      },
+      "exact_match": false
+    },
+    "src/cui.splitonly.new": {
+      "candidate": {
+        "sha256": "8c71c1130d138215d40831686f18748d80811ee0a69a5f87ce0c35e73a9b5c7a",
+        "bytes": 180
+      },
+      "reference": {
+        "sha256": "8c71c1130d138215d40831686f18748d80811ee0a69a5f87ce0c35e73a9b5c7a",
+        "bytes": 180
+      },
+      "exact_match": true
+    }
+  },
+  "conditional_independent_verification": {
+    "status": "SKIPPED_REVIEW_REQUIRED",
+    "reason": "Original strict comparison requires review; no exact-acceptance verifier pass is claimed."
+  },
+  "read_only_diagnostic": {
+    "apparatus_ref": "0956aee45722b41e5018a5d59acf10ae26522010",
+    "tool_sha256": "99a09f298ca36e6a104fe1e9eecf9702d29760a9ee2f88c8109796a0dec019ad",
+    "report_sha256": "5ba2998b248f166fb6346bb498eaee59a58e9bce5b3d680b382adb053a84aaf7",
+    "runtime_files_reverified": 169,
+    "previously_exact_output_hashes_reverified": 14,
+    "archive_observations": [
+      {
+        "path": "/local/content/MEME/MEME5/inv/sources/MTH_2024AA.tgz",
+        "sha256": "20a6a46df9b27fe4a96fd92836ecf04af908fe0c953edd9e33ba32d0f36ed74d",
+        "bytes": 2603966150
+      }
+    ],
+    "official_raw_equals_regenerated_unfiltered": true,
+    "official_raw_to_retained_deletions": 2,
+    "preferred_atom_mapping_deletions": 2,
+    "preferred_order_deletions": 1,
+    "identity_map_deltas": {
+      "src/aui_said_map": {
+        "reference_occurrences": 3744691,
+        "candidate_occurrences": 3744690,
+        "reference_only_occurrences": 2,
+        "candidate_only_occurrences": 1,
+        "reference_only": [
+          "A8298300|C1541964|695347012",
+          "A8298289|C1541964|695347013"
+        ],
+        "candidate_only": [
+          "A32818398|C1976636|695704671"
+        ]
+      },
+      "src/cui_said_map": {
+        "reference_occurrences": 1815446,
+        "candidate_occurrences": 1815446,
+        "reference_only_occurrences": 1,
+        "candidate_only_occurrences": 1,
+        "reference_only": [
+          "C1541964|695347012"
+        ],
+        "candidate_only": [
+          "C1976636|695704671"
+        ]
+      },
+      "src/rel_cui_said_map": {
+        "reference_occurrences": 1815446,
+        "candidate_occurrences": 1815446,
+        "reference_only_occurrences": 1,
+        "candidate_only_occurrences": 1,
+        "reference_only": [
+          "C1541964|695347012"
+        ],
+        "candidate_only": [
+          "C1976636|695704671"
+        ]
+      }
+    },
+    "native_attribute_prefix": {
+      "scope": "Read-only full-byte native-attribute prefix and context-append proof; no normalization or acceptance",
+      "lock_sha256": "f0653add90ceacb84b63a27ab2c78bf624ab2cca5df1dc4488ca91a4a9031457",
+      "reference": {
+        "sha256": "e7be621fe2c795953250ccaa1c22f9df48c8e0233c8c9f73be146fa7eb1f8e6e",
+        "bytes": 2651497998,
+        "prefix_sha256": "fe4d8a7280c87d805ae84066c53be5a6c179df1d5d88b900535ec6c1a9f63528",
+        "suffix_sha256": "90878112b320572aea2907d98f5e9266e28ed0f42bdd9def68a71aa2a0056f84",
+        "prefix_rows": 18233753,
+        "prefix_ends_lf": true
+      },
+      "candidate": {
+        "sha256": "12905d24a33f0430afe4a283fe21ef9e697052cd25c806087a3ce790104b512c",
+        "bytes": 2651498025,
+        "prefix_sha256": "3b216e1aa7ac217750c3432a6f50c89b540ca0861138372afb9d7cf47b1120d8",
+        "suffix_sha256": "a94ba737a68311077f437fdcf2651978cd3680cfea11567cca7b7ea6d5e99759",
+        "prefix_rows": 18233753,
+        "prefix_ends_lf": true
+      },
+      "reference_prefix_bytes": 2217026836,
+      "candidate_prefix_bytes": 2217026836,
+      "native_prefix_byte_exact": false,
+      "reference_suffix_matches_frozen_context_attributes": true,
+      "candidate_suffix_matches_recorded_context_attributes": true
+    },
+    "native_target_rows": {
+      "scope": "Actual frozen native records for observed2024 identity deltas; read-only, no acceptance",
+      "files": {
+        "MRSTY.RRF": {
+          "sha256": "65de37164562e5c521340b2eadafd2089b65b03ff54fc2b63114d376923a9ad1",
+          "bytes": 147426201,
+          "matched_rows": 2,
+          "examples": [
+            {
+              "line": 865375,
+              "row": "C1541964|T170|A2.4|Intellectual Product|AT52617785|256|\n"
+            },
+            {
+              "line": 1067204,
+              "row": "C1976636|T170|A2.4|Intellectual Product|AT89442614|256|\n"
+            }
+          ],
+          "all_matching_rows_counted": true
+        },
+        "MRCONSO.RRF": {
+          "sha256": "19bfe41946aa7a8c7d5ade56b909a5d2fda7e9ff9083901de9baa9d053fec002",
+          "bytes": 700100271,
+          "matched_rows": 3,
+          "examples": [
+            {
+              "line": 2120051,
+              "row": "C1541964|ENG|P|L5513692|PF|S6307004|Y|A8298300||||SRC|VPT|V-CCS_2005|Clinical Classifications Software, 2005|0|N|256|\n"
+            },
+            {
+              "line": 2120052,
+              "row": "C1541964|ENG|S|L5513696|PF|S6306997|Y|A8298289||||SRC|VAB|V-CCS_2005|CCS_2005|0|N|256|\n"
+            },
+            {
+              "line": 2530420,
+              "row": "C1976636|ENG|P|L6888493|PF|S8018200|Y|A32818398||MTHU000999||LNC_2_77|HC|MTHU000999|LOINCPARTS|0|N|256|\n"
+            }
+          ],
+          "all_matching_rows_counted": true
+        },
+        "MRCXT.RRF": {
+          "sha256": "ba1a2acdbaa68a9092fed08a3b88151838830bdcbd901f5f2534298d3859b4fb",
+          "bytes": 3891559941,
+          "matched_rows": 3,
+          "examples": [
+            {
+              "line": 7739443,
+              "row": "C1136323|S5537164|A6321000|LNC_2_77|V-LNC|1|CHD||LOINCPARTS|C1976636|A32818398|||||\n"
+            },
+            {
+              "line": 16434048,
+              "row": "C1976636|S8018200|A32818398|LNC_2_77|MTHU000999|1|ANC|1|LOINC Root|C1136323|A6321000|||||\n"
+            },
+            {
+              "line": 16434049,
+              "row": "C1976636|S8018200|A32818398|LNC_2_77|MTHU000999|1|CCP||LOINCPARTS|C1976636|A32818398|||||\n"
+            }
+          ],
+          "all_matching_rows_counted": true
+        }
+      }
+    },
+    "native_target_hashes_match_frozen_inputs": true,
+    "full_native_derived_explanation": "PENDING",
+    "acceptance_changed": false,
+    "native_data_modified": false
+  },
+  "scope": "Actual completed dev conversion, strict official-src comparison and read-only investigation. Historical curation/bytecheck snapshots remain unchanged. No insertion, production eligibility, output correction or inherited 2026AA waiver.",
+  "retention": {
+    "milestone_record": "Compact result identities, counts and findings only.",
+    "verbose_diagnostics": "Routine logs and diagnostic controller details follow the30-day development retention default; no automatic purge service is installed.",
+    "candidate_data": "Current candidate remains available while strict differences are investigated; no additional bulk copy or archive created for diagnosis."
+  }
+}
