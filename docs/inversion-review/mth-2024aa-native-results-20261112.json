@@ -473,29 +473,17 @@
       "candidate_suffix_matches_recorded_context_attributes": true
     },
     "native_target_rows": {
-      "scope": "Actual frozen native records for observed2024 identity deltas; read-only, no acceptance",
+      "scope": "Full frozen MRCONSO/MRSTY/MRCXT hashes reverified; only native records needed for the identity explanation retained here.",
       "files": {
-        "MRSTY.RRF": {
-          "sha256": "65de37164562e5c521340b2eadafd2089b65b03ff54fc2b63114d376923a9ad1",
-          "bytes": 147426201,
-          "matched_rows": 2,
-          "examples": [
-            {
-              "line": 865375,
-              "row": "C1541964|T170|A2.4|Intellectual Product|AT52617785|256|\n"
-            },
-            {
-              "line": 1067204,
-              "row": "C1976636|T170|A2.4|Intellectual Product|AT89442614|256|\n"
-            }
-          ],
-          "all_matching_rows_counted": true
-        },
         "MRCONSO.RRF": {
           "sha256": "19bfe41946aa7a8c7d5ade56b909a5d2fda7e9ff9083901de9baa9d053fec002",
           "bytes": 700100271,
-          "matched_rows": 3,
-          "examples": [
+          "rows": 5164719,
+          "matched_rows": [
+            {
+              "line": 1521826,
+              "row": "C1136323|ENG|S|L4854431|PF|S5537164|Y|A6321000||||SRC|RHT|V-LNC|LOINC Root|0|N|256|\n"
+            },
             {
               "line": 2120051,
               "row": "C1541964|ENG|P|L5513692|PF|S6307004|Y|A8298300||||SRC|VPT|V-CCS_2005|Clinical Classifications Software, 2005|0|N|256|\n"
@@ -508,14 +496,28 @@
               "line": 2530420,
               "row": "C1976636|ENG|P|L6888493|PF|S8018200|Y|A32818398||MTHU000999||LNC_2_77|HC|MTHU000999|LOINCPARTS|0|N|256|\n"
             }
-          ],
-          "all_matching_rows_counted": true
+          ]
+        },
+        "MRSTY.RRF": {
+          "sha256": "65de37164562e5c521340b2eadafd2089b65b03ff54fc2b63114d376923a9ad1",
+          "bytes": 147426201,
+          "rows": 2588725,
+          "matched_rows": [
+            {
+              "line": 865375,
+              "row": "C1541964|T170|A2.4|Intellectual Product|AT52617785|256|\n"
+            },
+            {
+              "line": 1067204,
+              "row": "C1976636|T170|A2.4|Intellectual Product|AT89442614|256|\n"
+            }
+          ]
         },
         "MRCXT.RRF": {
           "sha256": "ba1a2acdbaa68a9092fed08a3b88151838830bdcbd901f5f2534298d3859b4fb",
           "bytes": 3891559941,
-          "matched_rows": 3,
-          "examples": [
+          "rows": 36169041,
+          "matched_rows": [
             {
               "line": 7739443,
               "row": "C1136323|S5537164|A6321000|LNC_2_77|V-LNC|1|CHD||LOINCPARTS|C1976636|A32818398|||||\n"
@@ -528,13 +530,102 @@
               "line": 16434049,
               "row": "C1976636|S8018200|A32818398|LNC_2_77|MTHU000999|1|CCP||LOINCPARTS|C1976636|A32818398|||||\n"
             }
-          ],
-          "all_matching_rows_counted": true
+          ]
         }
       }
     },
     "native_target_hashes_match_frozen_inputs": true,
-    "full_native_derived_explanation": "PENDING",
+    "full_native_derived_explanation": {
+      "explanation_apparatus_ref": "d42a0471b8c1ed29eaa3328836ce99586f9d2bd7",
+      "explanation_module_hashes": {
+        "explain_native_mth.py": "849a506b5665076c787021409a8c8ed3ee0fdc8ce9152eca1315a5da19681ea1",
+        "audit_mth_corrections.py": "1e3a1ba1045320c82f0e47f066880e8de19625efcdae66b68f8640cc4030de69",
+        "diagnose_native_mth.py": "99a09f298ca36e6a104fe1e9eecf9702d29760a9ee2f88c8109796a0dec019ad"
+      },
+      "every_difference_explained": true,
+      "all_original_atom_allocations_exact": true,
+      "full_retained_maps_predicted": true,
+      "restored_native_identity": {
+        "said": "695704671",
+        "cui": "C1976636",
+        "aui": "A32818398",
+        "source": "LNC_2_77",
+        "code": "MTHU000999"
+      },
+      "output_explanations": {
+        "src/said.ptsaid": {
+          "removed_rows": [
+            "695347012|695347012\n",
+            "695347013|695347012\n"
+          ],
+          "full_candidate_hash_predicted": true
+        },
+        "src/attributes.src": {
+          "native_prefix": {
+            "old_rows": 18233753,
+            "new_rows": 18233753,
+            "unchanged_content_in_order": 18233752,
+            "removed_native_records": 1,
+            "added_native_records": 1,
+            "every_generated_id_verified": true
+          },
+          "reference_prefix": {
+            "sha256": "fe4d8a7280c87d805ae84066c53be5a6c179df1d5d88b900535ec6c1a9f63528",
+            "bytes": 2217026836,
+            "rows": 18233753
+          },
+          "candidate_prefix": {
+            "sha256": "3b216e1aa7ac217750c3432a6f50c89b540ca0861138372afb9d7cf47b1120d8",
+            "bytes": 2217026836,
+            "rows": 18233753
+          },
+          "both_full_context_suffixes_exact": true
+        },
+        "src/attributes.contexts-all.src": {
+          "corrected_native_bound_rows": 1,
+          "full_predicted_identity": {
+            "sha256": "a94ba737a68311077f437fdcf2651978cd3680cfea11567cca7b7ea6d5e99759",
+            "bytes": 434471189,
+            "rows": 1015088,
+            "sort_input_bytes": 425335397
+          },
+          "all_other_content_and_duplicate_counts_preserved": true
+        },
+        "src/contexts.src": {
+          "corrected_native_bound_rows": 1,
+          "full_predicted_identity": {
+            "sha256": "b24f6a29ff743a151596c6c1388eab132cf177794402278152f607f6a0720f84",
+            "bytes": 293683610,
+            "rows": 1057973,
+            "sort_input_bytes": 293683610
+          },
+          "all_other_content_and_duplicate_counts_preserved": true
+        },
+        "src/ptsaid.order": {
+          "removed_targets": [
+            "695347012"
+          ],
+          "full_candidate_hash_predicted": true
+        }
+      },
+      "generated_ID_reference_check": {
+        "no_generated_attribute_or_relationship_ID_references": true,
+        "unchanged_framework_code_references": {
+          "CODE_TERMGROUP|SRC/VPT": 1,
+          "CODE_TERMGROUP|SRC/RPT": 1
+        },
+        "producer_evidence": "INV/bin/SRCbuilder.pl:338; INV/etc/inv_defaults.cfg Relation fields 13/15"
+      },
+      "scratch_removed": true,
+      "conservative_scratch_upper_bound_bytes": 1744830464,
+      "scratch_limit_bytes": 2147483648,
+      "runtime_files_reverified": 169,
+      "native_data_modified": false,
+      "acceptance_changed": false,
+      "report_sha256": "34785110a63369a6d4868e13635051ea921152280ebe3084fa2f6209797a1045",
+      "all23_candidate_hashes_reverified": true,
+      "scope": "Complete native-derived explanation of every differing output; strict raw acceptance unchanged."
+    },
     "acceptance_changed": false,
     "native_data_modified": false
   },
@@ -543,5 +634,16 @@
     "milestone_record": "Compact result identities, counts and findings only.",
     "verbose_diagnostics": "Routine logs and diagnostic controller details follow the30-day development retention default; no automatic purge service is installed.",
     "candidate_data": "Current candidate remains available while strict differences are investigated; no additional bulk copy or archive created for diagnosis."
-  }
+  },
+  "source_correction_already_in_engine": {
+    "git_ref": "b2611abcf929981628bb2e5051afb450b8525b70",
+    "ancestor_of_recorded_engine": true,
+    "source_algorithm_changed_during_this_check": false
+  },
+  "confined_diagnostic_checks": {
+    "raw_difference_diagnostic": 39,
+    "native_derived_explanation": 15,
+    "scope": "Confined helper fixtures and rejection checks; actual archived release evidence is recorded separately."
+  },
+  "conclusion": "All nine differing files are fully predicted by the previously implemented retained-identity correction: two obsolete CCS allocations excluded from persisted state and the native LOINCPARTS identity restored, with native semantic-type and context consequences. Fourteen other outputs remain byte-exact. Clean candidate physical validation; strict DIFF requires an explicit acceptance policy review."
 }

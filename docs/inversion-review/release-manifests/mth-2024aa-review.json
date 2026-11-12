@@ -469,15 +469,19 @@
     "native_result_sha256": "1eabe65db9f4ae0d78511caa964c0d5aa4d88f4875b055e251e81e4feec2d64c",
     "historical_correction_waivers_applied": false,
     "conditional_independent_verification": "SKIPPED_REVIEW_REQUIRED",
-    "read_only_diagnostic": "COMPLETE_RAW_AND_IDENTITY_DELTA_CLASSIFICATION",
-    "full_native_derived_explanation": "PENDING"
+    "read_only_diagnostic": "COMPLETE_ALL_DIFFERENCES_EXPLAINED",
+    "full_native_derived_explanation": "COMPLETE_DIAGNOSTIC_ONLY",
+    "explanation_report_sha256": "34785110a63369a6d4868e13635051ea921152280ebe3084fa2f6209797a1045",
+    "all23_candidate_hashes_reverified": true,
+    "every_difference_explained": true,
+    "scratch_removed": true
   },
   "initial_curation_snapshot_scope": "local_validation, remaining_gates and prior_cache_derivation preserve original curation facts. Current execution is native_execution_followup; current_remaining_gates gives outstanding work. Original lock399 bytecheck remains unchanged.",
   "current_remaining_gates": [
     {
       "code": "FULL_NATIVE_DERIVED_DIFFERENCE_EXPLANATION",
-      "status": "IN_PROGRESS",
-      "reason": "Account for every differing attribute/context byte and generated ID from actual native records and observed identity changes."
+      "status": "COMPLETE",
+      "reason": "Every differing file was independently predicted from actual native identities: complete maps, full semantic-type attribute transition, both complete context serializations and preferred-order helpers. Raw strict DIFF is unchanged."
     },
     {
       "code": "EXPLICIT_COMPARISON_ACCEPTANCE_REVIEW",
