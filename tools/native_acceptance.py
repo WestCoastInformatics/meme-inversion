@@ -54,6 +54,7 @@ def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None,
         review['issues'].append({'code':'OUTPUT_VALIDATION_FAILED','message':'Resolve the recorded source/QA findings before acceptance.'})
         review['review_content_sha256'] = manifests.digest(review)
         return review
+    snapshots = {name:manifests._stamp((target/name).lstat()) for name in files}
     if policy == 'exact-v1':
         require(all(item['exact_match'] for item in files.values()) and result['acceptance']['status'] == 'PASS_EXACT', 'Exact policy cannot accept differences')
         for name,item in files.items():
@@ -71,5 +72,7 @@ def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None,
         require(proof['every_difference_explained'] and proof['scratch_removed'] and not proof['acceptance_changed'] and
                 not proof['native_data_modified'], 'Incomplete correction proof')
         review.update(status='PASS_WITH_VERIFIED_CORRECTIONS',accepted=True,proof=proof)
+    require(all(manifests._stamp((target/name).lstat()) == before for name,before in snapshots.items()),
+            'Output set changed during the complete acceptance review')
     review['review_content_sha256'] = manifests.digest(review)
     return review

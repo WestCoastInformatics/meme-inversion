@@ -216,6 +216,35 @@ def check():
            'MTH_DISCOVERY_INPUT_UNAVAILABLE', 'error', bind=False)
     good('mth-prepared/MRCUI.RRF' not in late_history['facts']['observed_history_versions'],
          'Unverified late history results are discarded rather than reported as zero rows')
+    changed, values = fixture()
+    values[('mth-prepared', 'MRAUI.RRF')] = b''.join(
+        rrf(['A0000001', 'C0000001', ver, 'A0000002', 'C0000002', 'SY', '', 'Y', '1'])
+        for ver in ('2004AC', '2005AC', '2006AC', '2006AD', '2007AC', '2026AA'))
+    values[('mth-prepared', 'MRCUI.RRF')] = b''.join(
+        rrf(['C0000001', ver, 'SY', '', '', 'C0000002', 'Y'])
+        for ver in ('1991AA', '2002AD', '2006AC', '2026AA'))
+    rebind(changed, values)
+    quarterly = analyze(changed, values)
+    good(not has(quarterly, 'MTH_DISCOVERY_INPUT_UNAVAILABLE') and
+         quarterly['facts']['observed_history_versions']['mth-prepared/MRAUI.RRF'] == {
+             'MTH_2004AC': 1, 'MTH_2005AC': 1, 'MTH_2006AC': 1, 'MTH_2006AD': 1, 'MTH_2007AC': 1, 'MTH_2026AA': 1} and
+         quarterly['facts']['observed_history_versions']['mth-prepared/MRCUI.RRF'] == {
+             'MTH_1991AA': 1, 'MTH_2002AD': 1, 'MTH_2006AC': 1, 'MTH_2026AA': 1},
+         'Real-shaped native history retains earlier quarterly AC/AD and 1991AA observations')
+    good(quarterly['facts']['history_requirements']['moved_aui_releases']['required'] ==
+         ['MTH_2026AA', 'MTH_2026AB', 'MTH_2027AA'] and
+         quarterly['facts']['history_requirements']['moved_aui_releases']['declared_coverage'] ==
+         ['MTH_2026AA', 'MTH_2026AB', 'MTH_2027AA'],
+         'Observed quarterly history does not extend or replace declared AA/AB transition windows')
+    good(mth.RELEASE.fullmatch('MTH_2006AC') is None and mth.RELEASE.fullmatch('MTH_2006AD') is None,
+         'Current source configuration and transition release grammar remain unchanged')
+    for malformed_ver in ('2006AE', '2006AC-extra', '2006A', '20XXAD'):
+        values[('mth-prepared', 'MRCUI.RRF')] = rrf(['C0000001', malformed_ver, 'SY', '', '', 'C0000002', 'Y'])
+        rebind(changed, values)
+        invalid = analyze(changed, values)
+        good(has(invalid, 'MTH_DISCOVERY_INPUT_UNAVAILABLE') and
+             'mth-prepared/MRCUI.RRF' not in invalid['facts']['observed_history_versions'],
+             'Malformed native history VER fails closed: ' + malformed_ver)
     mutate('Proposed plan approval boolean does not approve saved choices',
            lambda m, r: m['artifacts']['mth-plan']['data'].update(review_status='proposed', approved=True),
            'MTH_DISCOVERY_PLAN_REVIEW', 'decision')

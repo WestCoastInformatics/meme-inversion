@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 import tarfile
 import tempfile
+import subprocess
+import sys
 from unittest.mock import patch
 import zipfile
 
@@ -37,6 +39,13 @@ def check():
         with inputs.open('publisher','native') as stream:good(stream.readline()==b'header\n','binary streaming interface supports header read')
         good(inputs.verified[('publisher','native')]['bytes']==len(raw),'early consumer exit still verifies all bytes')
         good(read(inputs)==raw,'duplicate row occurrences preserved')
+        file.write_bytes(raw+b'changed\n')
+        reject(lambda:read(inputs),'failed reread cannot retain old verification')
+        good(('publisher','native') not in inputs.verified,'failed reread invalidates the earlier verified role')
+        file.write_bytes(raw)
+        inputs=prep.Inputs({'publisher':artifact([descriptor])});read(inputs);file.write_bytes(raw+b'changed\n')
+        good(inputs.finish() and not inputs.verified,'end-of-scan check detects later input mutation and invalidates its rows')
+        file.write_bytes(raw);inputs=prep.Inputs({'publisher':artifact([descriptor])})
         reject(lambda:read(inputs,'missing'),'missing input role rejected')
         wrong=copy.deepcopy(descriptor);wrong['sha256']='0'*64
         reject(lambda:read(prep.Inputs({'publisher':artifact([wrong])})),'incorrect direct file hash rejected')
@@ -75,6 +84,11 @@ def check():
         good(report['status']=='DECISIONS_REQUIRED' and not report['execution_eligible'],'unresolved decision list blocks readiness and never permits execution')
         invalid=copy.deepcopy(manifest);invalid['configuration']['invented_parameter']=True
         good(prep.discover(invalid)['status']=='DISCOVERY_BLOCKED','unknown common configuration key rejected')
+        dangling=root/'dangling-report';dangling.symlink_to(root/'missing-target')
+        for tool,args in [('inversion_request.py',['discover-release','/missing-manifest']),
+                          ('inversion_remote.py',['--socket','/missing-socket','discover-release','/missing-manifest'])]:
+            run=subprocess.run([sys.executable,'-B',str(prep.manifests.ROOT/'tools'/tool),*args,'--output',str(dangling)],capture_output=True,text=True)
+            good(run.returncode==2 and 'already exists' in run.stderr,'dangling output rejected before any input/network work: '+tool)
     print(json.dumps({'passed':len(checks),'checks':checks},indent=2))
 
 

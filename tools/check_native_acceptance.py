@@ -4,10 +4,12 @@ import copy
 import json
 from pathlib import Path
 import tempfile
+from unittest.mock import patch
 
 import check_explain_native_mth as fixture
 import diagnose_native_mth as diagnostic
 import native_acceptance as acceptance
+from release_operations import verify_planned_links
 
 
 def check():
@@ -50,6 +52,29 @@ def check():
         path.write_bytes(raw)
         bad=copy.deepcopy(report);bad['files']['src/cui_said_map']['row_multiset']['candidate_only_examples']=[]
         reject(lambda:acceptance.evaluate(lock,target,result,'mth-retained-identity-v1',bad,scratch),'incomplete native map evidence rejected')
+        exact_lock=copy.deepcopy(lock);exact_result=copy.deepcopy(result)
+        for item in exact_lock['manifest']['artifacts']['official']['files']:
+            item.update(exact_result['comparison']['files'][item['role']]['candidate'])
+        for item in exact_result['comparison']['files'].values():
+            item['reference']=copy.deepcopy(item['candidate']);item['exact_match']=True
+        exact_lock['manifest_sha256']=diagnostic.digest(exact_lock['manifest'])
+        exact_lock['lock_sha256']=diagnostic.digest({k:v for k,v in exact_lock.items() if k!='lock_sha256'})
+        exact_result['lock_sha256']=exact_lock['lock_sha256'];exact_result['acceptance']['status']='PASS_EXACT'
+        good(acceptance.evaluate(exact_lock,target,exact_result,'exact-v1')['status']=='PASS_EXACT','exact policy hashes every retained fixture output')
+        original_open=acceptance.manifests._open;path=target/'src/classes_atoms.src';before=path.read_bytes()
+        def changing_open(p):
+            if p==target/'src/attributes.src':path.write_bytes(before+b'changed\n')
+            return original_open(p)
+        with patch.object(acceptance.manifests,'_open',side_effect=changing_open):
+            reject(lambda:acceptance.evaluate(exact_lock,target,exact_result,'exact-v1'),'later edit of previously verified output rejected by whole-set final check')
+        path.write_bytes(before)
+        links={'plan':{'symlinks':[{'relative_path':'declared-old','target':'orig/identity/PRIOR'}]}}
+        alias=target/'declared-old';alias.symlink_to('orig/identity/PRIOR')
+        good(verify_planned_links(links,target)==1,'frozen native link text verified independently of direct input hashes')
+        alias.unlink();alias.symlink_to('different-prior')
+        reject(lambda:verify_planned_links(links,target),'changed old or Meta link cannot pass retained acceptance')
+        alias.unlink();alias.write_text('ordinary file')
+        reject(lambda:verify_planned_links(links,target),'regular file cannot substitute for a planned symlink')
     print(json.dumps({'passed':len(checks),'checks':checks},indent=2))
 
 

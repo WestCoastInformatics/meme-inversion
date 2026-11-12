@@ -46,7 +46,18 @@ class CheckedStream:
 class Inputs:
     """Streams selected inputs; no extraction, download or official oracle reads."""
     def __init__(self, artifacts):
-        self.artifacts = artifacts;self.verified = {};self.archives = {}
+        self.artifacts = artifacts;self.verified = {};self.archives = {};self.snapshots = {};self.paths = {}
+
+    def finish(self):
+        issues = []
+        for path,before in self.snapshots.items():
+            try:unchanged = manifests._stamp(path.lstat()) == before
+            except OSError:unchanged = False
+            if not unchanged:
+                issues.append(manifests.issue('error','DISCOVERY_INPUT_CHANGED','Selected input changed during the full discovery scan',str(path)))
+                for key,value in self.paths.items():
+                    if value == path:self.verified.pop(key,None)
+        return issues
 
     def descriptor(self, reference, role):
         artifact = self.artifacts.get(reference)
@@ -87,12 +98,15 @@ class Inputs:
 
     @contextmanager
     def open(self, reference, role):
+        key = (reference,role);self.verified.pop(key,None)
         artifact, item = self.descriptor(reference, role)
         path = manifests.location(item, artifact['provenance']['evidence_kind'] == 'synthetic-fixture')
         if path is None:raise ValueError('Acquire declared S3 inputs before offline discovery')
         try:
             with manifests._open(path) as handle:
                 stamp = manifests._stamp(os.fstat(handle.fileno()))
+                if path in self.snapshots and self.snapshots[path] != stamp:raise ValueError('Input changed after an earlier discovery read')
+                self.snapshots.setdefault(path,stamp);self.paths[key] = path
                 if 'archive_member' in item:
                     members = self._archive(path, handle, item, stamp)
                     if members.get(item['archive_member']) != (item['bytes'], True):raise ValueError('Selected member missing, nonregular or wrong size')
@@ -143,6 +157,8 @@ def discover(manifest, schema_validated=False):
                 report['facts'] = result.get('facts', {})
             except (ValueError, KeyError, OSError, UnicodeError) as error:
                 issues.append(manifests.issue('error', 'DISCOVERY_INPUT_FAILURE', str(error), 'artifacts'))
+            changed = inputs.finish();issues.extend(changed)
+            report['selected_input_set_unchanged'] = not changed
             report['input_files'] = sorted(inputs.verified.values(), key=lambda item:(item['artifact'],item['role']))
     invalid = any(item['severity'] == 'error' for item in issues)
     pending = bool(report['decisions']) or any(item['severity'] in ('decision', 'blocker') for item in issues)

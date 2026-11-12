@@ -3,9 +3,18 @@
 import ast
 import base64
 import hashlib
+import os
 from pathlib import Path
 
 import release_manifest as manifests
+
+
+def verify_planned_links(lock,target):
+    for item in lock['plan']['symlinks']:
+        manifests._relative(item['relative_path']);path = target/item['relative_path']
+        if not path.is_symlink() or os.readlink(path) != item['target']:
+            raise ValueError('Frozen native link differs: '+item['relative_path'])
+    return len(lock['plan']['symlinks'])
 
 
 def freeze(operation, parameters, seeds):
@@ -52,6 +61,7 @@ def run_review(capsule):
     parent = worker.CONTROL/lock['run_id'];folder = worker.CONTROL/args['review_id']
     with runtime_lock(worker.ROOT):
         worker.legacy.idle();worker.legacy.runtime(lock);worker.verify_candidate_inputs(lock,target)
+        verify_planned_links(lock,target)
         with manifests._open(parent/'case.lock.json') as handle:parent_lock = json.load(handle)
         if parent_lock != lock:raise ValueError('Parent run has a different frozen lock')
         with manifests._open(parent/'status.json') as handle:state = json.load(handle)
@@ -61,9 +71,10 @@ def run_review(capsule):
         review = evaluate(lock,target,result,args['policy'],args['diagnostic'],folder,
                           progress=lambda message:print(message,flush=True))
         worker.legacy.runtime(lock)
+        links = verify_planned_links(lock,target)
         if (parent/'result.json').read_bytes() != raw:raise ValueError('Original result changed during review')
         review.update(apparatus_ref=capsule['apparatus_ref'],parent_result_sha256=hashlib.sha256(raw).hexdigest(),
-                      review_id=args['review_id'],runtime_files_reverified=169)
+                      review_id=args['review_id'],runtime_files_reverified=169,native_links_reverified=links)
         review.pop('review_content_sha256',None);review['review_content_sha256'] = manifests.digest(review)
         with (folder/'acceptance-review.json').open('x') as out:json.dump(review,out,indent=2);out.write('\n')
         (folder/'acceptance-review.json').chmod(0o444)

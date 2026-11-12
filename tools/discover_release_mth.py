@@ -6,6 +6,8 @@ Prepared MRSAB is subset evidence, never evidence that omitted publisher sources
 were removed. Publisher completeness below is an explicitly reviewed declaration,
 not an independent authentication of the publisher's distribution.
 """
+import re
+
 import release_mth as mth
 
 
@@ -15,6 +17,9 @@ MAX_RECORD_BYTES = 2 * 1024**2
 MAX_INVENTORY_ITEMS = 100_000
 MAX_PRIOR_CUIS = 10_000_000
 MAX_HISTORY_RELEASES = 512
+# Earlier UMLS editions had quarterly AC/AD history records. Observed VER
+# vocabulary is wider than the current AA/AB configuration/transition contract.
+NATIVE_HISTORY_RELEASE = re.compile(r'[0-9]{4}A[A-D]')
 
 
 def _lines(handle):
@@ -392,9 +397,10 @@ def analyze(configuration, artifacts, open_role):
                 counts = {}
                 for fields in native(handle, role):
                     value = fields[index]
-                    identity = value if value.startswith('MTH_') else 'MTH_' + value
-                    if not release(identity):
-                        raise ValueError('History VER is not a canonical publisher release')
+                    native_release = value.removeprefix('MTH_')
+                    if NATIVE_HISTORY_RELEASE.fullmatch(native_release) is None:
+                        raise ValueError('History VER must have the native YYYYAA/AB/AC/AD dialect')
+                    identity = 'MTH_' + native_release
                     if identity not in counts and len(counts) >= MAX_HISTORY_RELEASES:
                         raise ValueError('History exceeds the distinct release-value discovery limit')
                     counts[identity] = counts.get(identity, 0) + 1

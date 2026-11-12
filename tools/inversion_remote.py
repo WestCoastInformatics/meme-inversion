@@ -249,7 +249,7 @@ def main():
             if name == 'restore':child.add_argument('--destination', required=True)
         child.add_argument('--output', required=True)
     args = parser.parse_args()
-    if Path(args.output).exists():
+    if Path(args.output).exists() or Path(args.output).is_symlink():
         raise ValueError('Output already exists; previous evidence is never overwritten')
     if args.command in ('submit', 'inspect-current', 'activate-runtime', 'retention-status', 'verify-native'):
         lock = load(args.lock)
