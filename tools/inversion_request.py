@@ -312,6 +312,8 @@ def main():
     review.add_argument('--scratch-parent')
     review.add_argument('--output', required=True)
     args = parser.parse_args()
+    if args.command in ('discover-release','review-native') and (Path(args.output).exists() or Path(args.output).is_symlink()):
+        raise FileExistsError('Output already exists; previous evidence is never overwritten')
     if args.command == 'discover-release':
         import release_preparation
         report = release_preparation.discover(load(args.manifest))
