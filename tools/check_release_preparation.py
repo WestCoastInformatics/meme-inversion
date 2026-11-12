@@ -73,6 +73,9 @@ def check():
                 good(read(reader)==raw and read(reader,'second')==b'other\n',kind+' selected members verified without extraction')
                 good(counter.call_count==1,kind+' full archive hash reused only while unchanged')
             good(len(reader.verified)==2 and not (root/'package').exists(),kind+' no archive tree extracted')
+            if kind=='zip':
+                with patch.object(prep.zipfile.ZipFile,'open',side_effect=RuntimeError('encrypted archive fixture')):
+                    reject(lambda:read(reader),'unsupported ZIP read failure becomes a structured input blocker')
             archive.write_bytes(archive.read_bytes()+b'x')
             reject(lambda:read(reader),kind+' changed archive rejected after prior verification')
         manifest=prep.manifests.load(prep.manifests.DOCS/'release-manifests/nci-2026-08e.json')

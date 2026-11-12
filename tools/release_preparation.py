@@ -126,7 +126,7 @@ class Inputs:
                     raise ValueError('Input changed during discovery')
                 self.verified[(reference, role)] = {'artifact':reference, 'role':role, **actual,
                     'uri':item['uri'], 'archive_member':item.get('archive_member'), 'status':'VERIFIED'}
-        except (tarfile.TarError, zipfile.BadZipFile, EOFError, NotImplementedError) as error:
+        except (tarfile.TarError, zipfile.BadZipFile, EOFError, NotImplementedError, RuntimeError) as error:
             raise ValueError('Cannot verify selected input: ' + str(error)) from error
 
 
