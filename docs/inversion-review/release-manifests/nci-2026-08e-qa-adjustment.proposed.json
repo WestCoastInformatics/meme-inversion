@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-qa-adjustment",
+  "decision_id": "nci-2026-08e-exposure-termgroup",
+  "source": "NCI",
+  "version": "NCI_2026_08E",
+  "stage": "post-inversion-QA",
+  "review_status": "proposed",
+  "reviewer": null,
+  "reviewed_at": null,
+  "actor": "unconfirmed",
+  "lock_sha256": "80a566b78b06c085ed21f406cd3b65d821f537435608480b4a3832aaa2c5d06e",
+  "row_key": {
+    "source_atom_id": "776930568",
+    "source_cui": "C228011",
+    "code": "C228011",
+    "atom_name": "Exposure"
+  },
+  "output_role": "src/classes_atoms.src",
+  "before_row": "776930568|DICOM_2026_08E|DICOM_2026_08E/SY|C228011|R|Y|N|Exposure|N||C228011||ENG|776930568|\n",
+  "after_row": "776930568|DICOM_2026_08E|DICOM_2026_08E/PT|C228011|R|Y|N|Exposure|N||C228011||ENG|776930568|\n",
+  "before_row_sha256": "a6ea31ad3606a03f76b437754ac002a3068a8ca087757b1fc768789a79d7c998",
+  "after_row_sha256": "6a7228d22215758f667716f682da1201657fbfabb844a43b0e8b7907e2135af2",
+  "allowed_field_change": {
+    "position": 2,
+    "name": "termgroup",
+    "before": "DICOM_2026_08E/SY",
+    "after": "DICOM_2026_08E/PT"
+  },
+  "bindings": {
+    "candidate_file_sha256": "11026d1e4a196a2c4e14af4701feb464d7dde35d1a5e91e8d3a854c779bf9a74",
+    "official_file_sha256": "722c4a36733e2fd2d27b6f46ac0d6248c20bc05201222d888b3fe42388a7142c",
+    "official_archive_sha256": "c232f14d138f0338b5a68b2a444c853b1b1db515c607ff00452bfaaf7a8c6031",
+    "native_inputs": {
+      "NCI_2026_08E/orig/fromprovider/annotationDeclaration-20260831.txt": {
+        "sha256": "d878fd8275ec67780758b8add5c3d84d56073de6a396733422791755c8daaf58",
+        "bytes": 8503,
+        "rows": 289
+      },
+      "NCI_2026_08E/orig/fromprovider/classDeclaration-20260831.txt": {
+        "sha256": "2f0d15d2e9fc7c6437e7a4076325fdd69fd09ff4190402d217f36147b8433867",
+        "bytes": 156541623,
+        "rows": 3073687
+      },
+      "NCI_2026_08E/orig/fromprovider/objectDeclaration-20260831.txt": {
+        "sha256": "0c889485cb88fce7f66ad5fcb8163e23ef7e2a3de0477d4f641b5896167b375b",
+        "bytes": 4934,
+        "rows": 97
+      },
+      "NCI_2026_08E/orig/fromprovider/relations-20260831.txt": {
+        "sha256": "44389d0a0c733d3dfb6848548520d06aae0f4e98dcfa1f409d8d2bcf20ec5220",
+        "bytes": 14607914,
+        "rows": 728971
+      },
+      "NCI_2026_08E/orig/fromprovider/hierarchy-20260831.txt": {
+        "sha256": "75dbeae0f923bc65fa7fb3cbf78131d3d40a792c7e8a87e57ba0c50c7c04f4b3",
+        "bytes": 3578390,
+        "rows": 243020
+      }
+    },
+    "qa_member": "NCI_2026_08E/etc/qa/QaReport.NCI_2026_08E.txt.err",
+    "qa_member_sha256": "1e8f6a7cba18180c1465b617bc1d3d0849c9ecf03ffa4ca4d120511940c5aec9",
+    "qa_line": 139
+  },
+  "reason": "Archived QA and generated output identify the same undefined DICOM/SY termgroup. The official row differs only by its PT termgroup. Evidence supports a later QA adjustment; actor and historical approval are unconfirmed.",
+  "application_authorized": false,
+  "raw_comparison_changed": false,
+  "scope": "Concrete historical QA-decision proposal only; no generic DICOM/SY-to-PT mapping, output rewrite or acceptance waiver."
+}

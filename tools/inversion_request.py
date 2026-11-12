@@ -300,8 +300,36 @@ def main():
     native_parser.add_argument('manifest')
     native_parser.add_argument('--run-id', required=True)
     native_parser.add_argument('--output', required=True)
+    discovery = commands.add_parser('discover-release', help='Discover source preparation decisions from verified inputs; never executes an inversion')
+    discovery.add_argument('manifest')
+    discovery.add_argument('--output', required=True)
+    review = commands.add_parser('review-native', help='Review completed native output separately from the original comparison')
+    review.add_argument('lock')
+    review.add_argument('--result', required=True)
+    review.add_argument('--target', required=True)
+    review.add_argument('--policy', choices=('exact-v1','mth-retained-identity-v1'), required=True)
+    review.add_argument('--diagnostic')
+    review.add_argument('--scratch-parent')
+    review.add_argument('--output', required=True)
     args = parser.parse_args()
-    if args.command == 'resolve':
+    if args.command == 'discover-release':
+        import release_preparation
+        report = release_preparation.discover(load(args.manifest))
+        write_new(args.output,report)
+        print(json.dumps({'report':args.output,'status':report['status'],'verified_inputs':len(report['input_files']),
+                          'execution_eligible':False,'production_eligible':False}))
+        raise SystemExit(2 if report['status']=='DISCOVERY_BLOCKED' else 3 if report['status']=='DECISIONS_REQUIRED' else 0)
+    elif args.command == 'review-native':
+        import native_acceptance
+        import release_worker
+        native_lock = load(args.lock)
+        if Path(args.target) != release_worker.verify_lock(native_lock):raise ValueError('Target differs from native release lock')
+        report = native_acceptance.evaluate(native_lock,Path(args.target),load(args.result),args.policy,
+            load(args.diagnostic) if args.diagnostic else None,Path(args.scratch_parent) if args.scratch_parent else None)
+        write_new(args.output,report)
+        print(json.dumps({'report':args.output,'status':report['status'],'raw_comparison_changed':False,'production_eligible':False}))
+        raise SystemExit(0 if report['accepted'] else 3)
+    elif args.command == 'resolve':
         lock = resolve(load(args.request), args.run_id)
         write_new(args.output, lock)
         print(json.dumps({'lock': args.output, 'lock_sha256': lock['lock_sha256'],

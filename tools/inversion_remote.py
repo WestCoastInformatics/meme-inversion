@@ -72,6 +72,37 @@ with tempfile.TemporaryDirectory(prefix='ncim-audit-review-') as temporary:
     return "python3 -B - <<'NCIM_COMMON_REVIEW'\n" + program + '\nNCIM_COMMON_REVIEW\nexit\n'
 
 
+def bootstrap_release_operation(capsule):
+    payload = base64.b64encode(json.dumps(capsule).encode()).decode()
+    program = """import base64,hashlib,json,pathlib,pwd,os,resource,socket,sys,tempfile
+if socket.gethostname().split('.')[0]!='ncias-d3777-c' or pwd.getpwuid(os.getuid()).pw_name!='tomcata':raise RuntimeError('Wrong dev context')
+resource.setrlimit(resource.RLIMIT_AS,(8*1024**3,8*1024**3))
+capsule=json.loads(base64.b64decode(PAYLOAD))
+hashes={pathlib.Path(x['repository_path']).name:x['sha256'] for x in capsule['provenance']}
+with tempfile.TemporaryDirectory(prefix='ncim-release-review-') as temporary:
+ root=pathlib.Path(temporary)
+ for name,encoded in capsule['modules_b64'].items():
+  if pathlib.Path(name).name!=name or not name.endswith('.py'):raise ValueError('Invalid operation module')
+  raw=base64.b64decode(encoded,validate=True)
+  if hashlib.sha256(raw).hexdigest()!=hashes.get(name):raise ValueError('Operation code differs')
+  (root/name).write_bytes(raw)
+ sys.path.insert(0,str(root));sys.dont_write_bytecode=True
+ import release_manifest as manifests
+ if capsule['capsule_sha256']!=manifests.digest({k:v for k,v in capsule.items() if k!='capsule_sha256'}):raise ValueError('Operation capsule changed')
+ if capsule['artifact_type']=='ncimeta-release-discovery-capsule':
+  if manifests.digest(capsule['manifest'])!=capsule['manifest_sha256']:raise ValueError('Discovery manifest changed')
+  from release_preparation import discover
+  result=discover(capsule['manifest'],schema_validated=True)
+  result['apparatus_ref']=capsule['apparatus_ref'];result['schema_sha256']=capsule['schema_sha256']
+ elif capsule['artifact_type']=='ncimeta-release-operation' and capsule['operation']=='review-native':
+  from release_operations import run_review
+  result=run_review(capsule)
+ else:raise ValueError('Unknown release operation')
+ print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_REPLAY_RESULT',flush=True)
+""".replace('PAYLOAD',repr(payload))
+    return "python3 -B - <<'NCIM_RELEASE_OPERATION'\n"+program+'\nNCIM_RELEASE_OPERATION\nexit\n'
+
+
 def read_program(source, run_id, collect):
     if source not in SOURCES or not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,70}', run_id):
         raise ValueError('Invalid source or run identity')
@@ -88,7 +119,7 @@ locations=[pathlib.Path(x) for x in LOCATIONS]
 found=[locations[0].resolve()] if locations[0].is_dir() else sorted({x.resolve() for x in locations[1:] if x.is_dir()})
 if len(found)!=1:raise RuntimeError('No unique run directory')
 root=found[0]
-names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json','parent-records.json'] if COLLECT else ['status.json','progress.json']
+names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json','parent-records.json','acceptance-review.json'] if COLLECT else ['status.json','progress.json']
 result={'source':SOURCE,'run_id':RUN_ID,'run_directory':str(root),'records':{}}
 for name in names:
  path=root/name
@@ -196,6 +227,15 @@ def main():
     review.add_argument('--parent-run-id', required=True)
     review.add_argument('--review-id', required=True)
     review.add_argument('--output', required=True)
+    discovery = commands.add_parser('discover-release', help='Read source preparation inputs on dev; no inversion or acquisition')
+    discovery.add_argument('manifest')
+    discovery.add_argument('--output', required=True)
+    acceptance = commands.add_parser('review-native', help='Publish a separate acceptance review of completed dev output')
+    acceptance.add_argument('lock')
+    acceptance.add_argument('--policy', choices=('exact-v1','mth-retained-identity-v1'), required=True)
+    acceptance.add_argument('--diagnostic')
+    acceptance.add_argument('--review-id', required=True)
+    acceptance.add_argument('--output', required=True)
     for name in ('plan', 'compact', 'restore', 'retire-plan', 'retire-bulk'):
         child = commands.add_parser('retention-' + name)
         if name in ('plan', 'retire-plan'):
@@ -218,6 +258,13 @@ def main():
             program = bootstrap_retention(retention_capsule('status', {'version': lock['request']['version']}))
         else:
             program = bootstrap(lock, args.command, previous)
+    elif args.command == 'discover-release':
+        import release_preparation
+        program = bootstrap_release_operation(release_preparation.capsule(load(args.manifest)))
+    elif args.command == 'review-native':
+        from release_operations import review_capsule
+        program = bootstrap_release_operation(review_capsule(load(args.lock),args.policy,
+            load(args.diagnostic) if args.diagnostic else None,args.review_id))
     elif args.command == 'retry-mth-audit':
         program = bootstrap_review(audit_review_capsule(args.parent_run_id, args.review_id))
     elif args.command.startswith('retention-'):
@@ -241,6 +288,8 @@ def main():
         stage = status
     print(json.dumps({'saved': args.output, 'run_id': result.get('run_id'), 'status': status,
                       'stage': stage}))
+    if args.command=='discover-release':raise SystemExit(2 if result['status']=='DISCOVERY_BLOCKED' else 3 if result['status']=='DECISIONS_REQUIRED' else 0)
+    if args.command=='review-native':raise SystemExit(0 if result['accepted'] else 3)
 
 
 if __name__ == '__main__':
