@@ -307,7 +307,8 @@ def main():
     review.add_argument('lock')
     review.add_argument('--result', required=True)
     review.add_argument('--target', required=True)
-    review.add_argument('--policy', choices=('exact-v1','mth-retained-identity-v1'), required=True)
+    review.add_argument('--policy', choices=('exact-v1','mth-retained-identity-v1','nci-reviewed-qa-v1'), required=True)
+    review.add_argument('--qa-decision')
     review.add_argument('--diagnostic')
     review.add_argument('--scratch-parent')
     review.add_argument('--output', required=True)
@@ -327,7 +328,8 @@ def main():
         native_lock = load(args.lock)
         if Path(args.target) != release_worker.verify_lock(native_lock):raise ValueError('Target differs from native release lock')
         report = native_acceptance.evaluate(native_lock,Path(args.target),load(args.result),args.policy,
-            load(args.diagnostic) if args.diagnostic else None,Path(args.scratch_parent) if args.scratch_parent else None)
+            load(args.diagnostic) if args.diagnostic else None,Path(args.scratch_parent) if args.scratch_parent else None,
+            qa_decision=load(args.qa_decision) if args.qa_decision else None)
         write_new(args.output,report)
         print(json.dumps({'report':args.output,'status':report['status'],'raw_comparison_changed':False,'production_eligible':False}))
         raise SystemExit(0 if report['accepted'] else 3)
@@ -343,7 +345,7 @@ def main():
         write_new(args.output, lock)
         print(json.dumps({'lock': args.output, 'lock_sha256': lock['lock_sha256'],
                           'source': lock['request']['source'], 'version': lock['request']['version'],
-                          'execution_enabled': lock['execution_enabled'], 'production_eligible': False}))
+                          'purpose':lock['manifest']['purpose'],'execution_enabled': lock['execution_enabled'], 'production_eligible': False}))
     elif args.command == 'preflight-release':
         import release_manifest
         outputs = [args.output] + ([args.lock_output] if args.lock_output else [])
@@ -369,6 +371,7 @@ def main():
         if lock.get('artifact_type') == 'ncimeta-native-release-lock':
             print(json.dumps({'run_id': lock['run_id'], 'lock_sha256': expected,
                               'configuration': lock['configuration'], 'source_profile': lock['source_profile'],
+                              'purpose':lock['manifest']['purpose'],
                               'execution_enabled': lock['execution_enabled'], 'production_eligible': False,
                               'apparatus_ref': lock['apparatus_ref'], 'plan_sha256': lock['plan_sha256'],
                               'stages': lock['plan']['stages'], 'outputs': lock['plan']['output_files'],

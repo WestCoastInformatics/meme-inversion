@@ -45,8 +45,12 @@ def verify_lock(lock):
     verify_locations(manifest, ROOT / 'sources' / version)
     if lock['production_eligible'] is not False or lock['insertion_executed'] is not False or lock['execution_enabled'] is not True:
         raise ValueError('Native lock cannot authorize insertion or production')
-    if (manifest['purpose'] != 'historical-replay' or config['output_stage'] != 'inversion-src'
-            or config['replay']['reference_stage'] != 'inversion-src' or config['replay']['comparison_profile'] != 'exact'):
+    if config['output_stage']!='inversion-src':raise ValueError('Unsupported native execution stage')
+    if manifest['purpose']=='shadow':
+        from shadow_execution import budget
+        budget(manifest)
+    elif (manifest['purpose']!='historical-replay' or config.get('replay',{}).get('reference_stage')!='inversion-src'
+          or config.get('replay',{}).get('comparison_profile')!='exact'):
         raise ValueError('Unsupported native execution/acceptance stage')
     if lock['profile_sha256'] != manifests.digest(lock['profile']) or lock['plan_sha256'] != manifests.digest(lock['plan']):
         raise ValueError('Source profile/plan content differs')
@@ -70,11 +74,12 @@ def verify_lock(lock):
     artifacts = manifest['artifacts']
     if any(v['provenance']['evidence_kind'] == 'synthetic-fixture' for v in artifacts.values()):
         raise ValueError('Synthetic inputs cannot authorize native execution')
-    reference = artifacts[config['replay']['reference_ref']]
-    if (reference['artifact_type'], reference['source'], reference['version'], reference['data'].get('reference_stage')) != ('reference-inversion', source, version, 'inversion-src'):
-        raise ValueError('Official oracle is not current-release inversion output')
-    if (len(reference['files']) != len(lock['plan']['output_files'])
-            or {f['role'] for f in reference['files']} != set(lock['plan']['output_files'])):raise ValueError('Official reference coverage differs')
+    if manifest['purpose']=='historical-replay':
+        reference = artifacts[config['replay']['reference_ref']]
+        if (reference['artifact_type'], reference['source'], reference['version'], reference['data'].get('reference_stage')) != ('reference-inversion', source, version, 'inversion-src'):
+            raise ValueError('Official oracle is not current-release inversion output')
+        if (len(reference['files']) != len(lock['plan']['output_files'])
+                or {f['role'] for f in reference['files']} != set(lock['plan']['output_files'])):raise ValueError('Official reference coverage differs')
     hashes = {v['repository_path']: v['sha256'] for v in lock['provenance']}
     registry_raw = base64.b64decode(lock['profiles_registry_b64'], validate=True)
     if (manifests.hashlib.sha256(registry_raw).hexdigest() != hashes.get('docs/inversion-review/native-execution-profiles.json')
@@ -145,7 +150,12 @@ def verify_previous(lock, target, receipt):
 
 
 def capacity(lock):
-    output_bytes = sum(f['bytes'] for f in lock['manifest']['artifacts'][lock['configuration']['replay']['reference_ref']]['files'])
+    if lock['manifest']['purpose']=='shadow':
+        from shadow_execution import budget
+        resources=budget(lock['manifest']);output_bytes=resources['output_bytes'];scratch_bytes=resources['scratch_bytes']
+    else:
+        output_bytes = sum(f['bytes'] for f in lock['manifest']['artifacts'][lock['configuration']['replay']['reference_ref']]['files'])
+        scratch_bytes=output_bytes
     target = ROOT / 'sources' / lock['request']['version']
     missing = {}
     for artifact in lock['manifest']['artifacts'].values():
@@ -162,7 +172,7 @@ def capacity(lock):
             materialized_bytes += file['bytes']
     download_bytes = sum(missing.values())
     needed = download_bytes + max(lock['profile']['minimum_free_disk_gib'] * 1024 ** 3,
-                                  12 * 1024 ** 3 + output_bytes * 2 + materialized_bytes)
+                                  12 * 1024 ** 3 + output_bytes + scratch_bytes + materialized_bytes)
     free = shutil.disk_usage(ROOT).free
     if free < needed or available_memory() < 24 * 1024 ** 3:
         raise RuntimeError('Native release capacity reserve unavailable: need ' + str(needed) + ' free bytes')
@@ -381,6 +391,9 @@ def verify_candidate_inputs(lock, target):
         path = target / item['relative_path']
         if item['kind'] == 'file':legacy.require_file(path, item['sha256'])
         elif not path.is_symlink() or os.readlink(path) != item['target']:raise RuntimeError('Git code link changed')
+    for item in lock['plan']['symlinks']:
+        path=target/relative(item['relative_path'])
+        if not path.is_symlink() or os.readlink(path)!=item['target']:raise RuntimeError('Frozen native plan link changed')
 
 
 def convert(lock, target, run):
@@ -402,6 +415,9 @@ def convert(lock, target, run):
 
 
 def compare(lock, target):
+    if lock['manifest']['purpose']=='shadow':
+        from shadow_execution import assess
+        return assess(lock,target)
     reference = lock['manifest']['artifacts'][lock['configuration']['replay']['reference_ref']]
     files = {}
     for item in reference['files']:
@@ -428,13 +444,15 @@ def verify_retained(lock):
             raise ValueError('Original native execution did not finish under this lock')
         issues = [];rows = manifests.verify_files(lock['manifest']['artifacts'], True, issues)
         current = json.loads(json.dumps(compare(lock, target), allow_nan=False))
+        shadow=lock['manifest']['purpose']=='shadow'
+        expected_status='SHADOW_VALIDATED_COMPARISON_PENDING' if shadow else 'PASS_EXACT'
         if (issues or any(row['status'] != 'VERIFIED' for row in rows)
                 or original['comparison'] != {k: v for k, v in current.items() if k != 'acceptance'}
-                or original['acceptance'] != current['acceptance'] or current['acceptance']['status'] != 'PASS_EXACT'):
+                or original['acceptance'] != current['acceptance'] or current['acceptance']['status'] != expected_status):
             raise ValueError('Independent native retained-file verification failed')
-        return {'status': 'PASS_NATIVE_RELEASE_VERIFICATION', 'run_id': lock['run_id'],
+        return {'status': 'PASS_SHADOW_RETAINED_VERIFICATION' if shadow else 'PASS_NATIVE_RELEASE_VERIFICATION', 'run_id': lock['run_id'],
                 'source': lock['request']['source'], 'version': target.name, 'lock_sha256': lock['lock_sha256'],
-                'acceptance': 'PASS_EXACT', 'result_sha256': legacy.sha(run / 'result.json'),
+                'acceptance': expected_status, 'comparison_complete':not shadow, 'result_sha256': legacy.sha(run / 'result.json'),
                 'files': {name: row['candidate'] for name, row in current['files'].items()},
                 'inputs_verified': len(rows), 'runtime_files_verified': 169,
                 'physical_output_validation': current['validation'],
@@ -444,7 +462,7 @@ def verify_retained(lock):
 def worker(lock_path, receipt_path=None, inherited_lock=None):
     legacy.guard();lock = manifests.load(lock_path);target = verify_lock(lock);run = Path(lock_path).parent
     receipt = manifests.load(receipt_path) if receipt_path else None
-    state = {'status': 'preflight', 'source': lock['request']['source'], 'version': target.name,
+    state = {'status': 'preflight', 'source': lock['request']['source'], 'version': target.name,'purpose':lock['manifest']['purpose'],
              'run_id': lock['run_id'], 'lock_sha256': lock['lock_sha256'], 'started_at': legacy.now()}
     legacy.save(run / 'status.json', state)
     try:

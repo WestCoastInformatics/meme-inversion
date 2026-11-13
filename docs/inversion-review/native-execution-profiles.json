@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Dev historical release execution; independent of replay case/version catalog; production and insertion excluded",
+  "scope": "Dev preserved-input historical and oracle-free core shadow execution; independent of replay catalog; production and insertion excluded",
   "profiles": {
     "nci-publisher-inputs-v1": {
       "handler": "execute_release_nci",

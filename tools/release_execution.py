@@ -193,10 +193,12 @@ def resolve(manifest, run_id):
     if blocked:raise ValueError('Unresolved release decisions: ' + ', '.join(sorted({i['code'] for i in blocked})))
     config, artifacts = manifest['configuration'], manifest['artifacts']
     verify_locations(manifest, Path('/local/content/MEME/MEME5/inv/sources') / config['version'])
-    if manifest['purpose'] != 'historical-replay' or 'replay' not in config:
-        raise ValueError('Initial native admission requires a preserved historical oracle; shadow admission remains separate')
-    if config['replay']['comparison_profile'] != 'exact':
-        raise ValueError('Generic native admission initially uses exact comparison; no historical correction waivers')
+    if manifest['purpose']=='shadow':
+        from shadow_execution import budget
+        budget(manifest)
+    elif manifest['purpose']=='historical-replay' and 'replay' in config:
+        if config['replay']['comparison_profile']!='exact':raise ValueError('Historical native admission requires exact comparison')
+    else:raise ValueError('Unsupported native execution purpose/reference')
     if not re.fullmatch(r'[0-9a-f]{40}', config['engine_ref']):
         raise ValueError('Native manifests require an immutable full Git engine commit')
     handler = HANDLERS.get(manifest['profile'])
@@ -225,9 +227,10 @@ def resolve(manifest, run_id):
     plan = importlib.import_module(handler).build_plan(config, artifacts, code)
     verify_plan(plan, manifest, code)
     if plan['engine_package'] != profile['engine_package']:raise ValueError('Native plan selects another code package')
-    refs = artifacts[config['replay']['reference_ref']]['files']
-    if {f['role'] for f in refs} != set(plan['output_files']):
-        raise ValueError('Official reference roles must cover each complete planned output path exactly')
+    if manifest['purpose']=='historical-replay':
+        refs = artifacts[config['replay']['reference_ref']]['files']
+        if {f['role'] for f in refs} != set(plan['output_files']):
+            raise ValueError('Official reference roles must cover each complete planned output path exactly')
     ref = historical.commit('HEAD');provenance = [];modules = {}
     paths = ['tools/' + n for n in _modules(handler)] + ['tools/release_execution.py', 'tools/inversion_remote.py',
         'docs/inversion-review/native-execution-profiles.json',

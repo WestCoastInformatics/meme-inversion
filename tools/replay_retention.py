@@ -207,6 +207,7 @@ def _preservation_context(run_id):
     archive_path = ROOT / 'sources' / (version + '.tgz')
     if native:
         from urllib.parse import urlsplit, unquote
+        if lock['manifest']['purpose']=='shadow':raise ValueError('Archive-backed shadow cleanup awaits an independently bound official reference')
         reference = lock['manifest']['artifacts'][lock['configuration']['replay']['reference_ref']]
         values = {(unquote(urlsplit(item['uri']).path), item['archive_sha256']) for item in reference['files']
                   if item.get('archive_format') == 'tar.gz' and urlsplit(item['uri']).scheme == 'file'}

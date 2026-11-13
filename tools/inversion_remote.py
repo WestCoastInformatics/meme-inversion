@@ -97,6 +97,9 @@ with tempfile.TemporaryDirectory(prefix='ncim-release-review-') as temporary:
  elif capsule['artifact_type']=='ncimeta-release-operation' and capsule['operation']=='review-native':
   from release_operations import run_review
   result=run_review(capsule)
+ elif capsule['artifact_type']=='ncimeta-release-operation' and capsule['operation']=='compare-shadow':
+  from compare_shadow import run
+  result=run(capsule)
  else:raise ValueError('Unknown release operation')
  print('BEGIN_COMMON_REPLAY_RESULT');print(json.dumps(result));print('END_COMMON_REPLAY_RESULT',flush=True)
 """.replace('PAYLOAD',repr(payload))
@@ -119,7 +122,7 @@ locations=[pathlib.Path(x) for x in LOCATIONS]
 found=[locations[0].resolve()] if locations[0].is_dir() else sorted({x.resolve() for x in locations[1:] if x.is_dir()})
 if len(found)!=1:raise RuntimeError('No unique run directory')
 root=found[0]
-names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json','parent-records.json','acceptance-review.json'] if COLLECT else ['status.json','progress.json']
+names=['status.json','progress.json','launch.json','result.json','preparation.json','acquisition.json','raw-result.json','correction-audit.json','correction-audit-execution.json','parent-records.json','acceptance-review.json','shadow-comparison.json'] if COLLECT else ['status.json','progress.json']
 result={'source':SOURCE,'run_id':RUN_ID,'run_directory':str(root),'records':{}}
 for name in names:
  path=root/name
@@ -232,10 +235,13 @@ def main():
     discovery.add_argument('--output', required=True)
     acceptance = commands.add_parser('review-native', help='Publish a separate acceptance review of completed dev output')
     acceptance.add_argument('lock')
-    acceptance.add_argument('--policy', choices=('exact-v1','mth-retained-identity-v1'), required=True)
+    acceptance.add_argument('--policy', choices=('exact-v1','mth-retained-identity-v1','nci-reviewed-qa-v1'), required=True)
+    acceptance.add_argument('--qa-decision')
     acceptance.add_argument('--diagnostic')
     acceptance.add_argument('--review-id', required=True)
     acceptance.add_argument('--output', required=True)
+    late=commands.add_parser('compare-shadow',help='Compare retained shadow output with a later official reference; no conversion')
+    late.add_argument('lock');late.add_argument('--reference',required=True);late.add_argument('--comparison-id',required=True);late.add_argument('--output',required=True)
     for name in ('plan', 'compact', 'restore', 'retire-plan', 'retire-bulk'):
         child = commands.add_parser('retention-' + name)
         if name in ('plan', 'retire-plan'):
@@ -261,10 +267,14 @@ def main():
     elif args.command == 'discover-release':
         import release_preparation
         program = bootstrap_release_operation(release_preparation.capsule(load(args.manifest)))
+    elif args.command == 'compare-shadow':
+        from compare_shadow import capsule
+        program=bootstrap_release_operation(capsule(load(args.lock),load(args.reference),args.comparison_id))
     elif args.command == 'review-native':
         from release_operations import review_capsule
         program = bootstrap_release_operation(review_capsule(load(args.lock),args.policy,
-            load(args.diagnostic) if args.diagnostic else None,args.review_id))
+            load(args.diagnostic) if args.diagnostic else None,args.review_id,
+            qa_decision=load(args.qa_decision) if args.qa_decision else None))
     elif args.command == 'retry-mth-audit':
         program = bootstrap_review(audit_review_capsule(args.parent_run_id, args.review_id))
     elif args.command.startswith('retention-'):
@@ -290,6 +300,7 @@ def main():
                       'stage': stage}))
     if args.command=='discover-release':raise SystemExit(2 if result['status']=='DISCOVERY_BLOCKED' else 3 if result['status']=='DECISIONS_REQUIRED' else 0)
     if args.command=='review-native':raise SystemExit(0 if result['accepted'] else 3)
+    if args.command=='compare-shadow':raise SystemExit(0 if result['accepted'] else 3)
 
 
 if __name__ == '__main__':

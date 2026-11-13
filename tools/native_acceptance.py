@@ -10,6 +10,7 @@ import release_manifest as manifests
 POLICIES = {
     'exact-v1': {'source':None, 'method':'exact'},
     'mth-retained-identity-v1': {'source':'MTH', 'method':'native-derived-retained-identity'},
+    'nci-reviewed-qa-v1': {'source':'NCI','method':'reviewed-exact-row-qa-view'},
 }
 
 
@@ -17,12 +18,14 @@ def require(value, message):
     if not value:raise ValueError(message)
 
 
-def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None, progress=lambda message:None):
+def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None, progress=lambda message:None, qa_decision=None):
     if 'records' in result:result = result['records']['result.json']
     require(policy in POLICIES, 'Unknown reviewed acceptance policy')
     require(lock.get('artifact_type') == 'ncimeta-native-release-lock' and
             lock.get('lock_sha256') == manifests.digest({k:v for k,v in lock.items() if k != 'lock_sha256'}), 'Frozen native lock differs')
     config = lock['configuration'];target = Path(target)
+    require(lock['manifest']['purpose']=='historical-replay',
+            'This acceptance review requires a historical oracle; compare-shadow attaches a reference separately')
     require(target.name == config['version'] and lock['manifest']['configuration'] == config and
             lock['manifest_sha256'] == manifests.digest(lock['manifest']) and
             lock['plan_sha256'] == manifests.digest(lock['plan']), 'Frozen source/manifest/plan differs')
@@ -50,7 +53,7 @@ def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None,
         'production_eligible':False, 'issues':[], 'status':'REVIEW_REQUIRED', 'accepted':False,
         'exact_outputs':sum(item['exact_match'] for item in files.values()), 'compared_outputs':len(files),
         'scope':'Acceptance of this preserved-input dev inversion only; operational preparation, QA and insertion remain separate gates.'}
-    if not result['comparison']['validation']['passed']:
+    if not result['comparison']['validation']['passed'] and policy!='nci-reviewed-qa-v1':
         review['issues'].append({'code':'OUTPUT_VALIDATION_FAILED','message':'Resolve the recorded source/QA findings before acceptance.'})
         review['review_content_sha256'] = manifests.digest(review)
         return review
@@ -64,7 +67,7 @@ def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None,
                 require(actual == (item['candidate']['sha256'],item['candidate']['bytes']), 'Retained output changed')
                 require(manifests._stamp(os.fstat(handle.fileno())) == before == manifests._stamp((target/name).lstat()), 'Retained output changed during review')
         review.update(status='PASS_EXACT',accepted=True)
-    else:
+    elif policy=='mth-retained-identity-v1':
         require(lock['source_profile'] == 'mth-prepared-inputs-v1' and config['replay']['comparison_profile'] == 'exact', 'Unreviewed MTH native capability')
         require(diagnostic is not None and scratch_parent is not None, 'Full MTH diagnostic and external scratch parent required')
         from explain_native_mth import explain
@@ -72,6 +75,15 @@ def evaluate(lock, target, result, policy, diagnostic=None, scratch_parent=None,
         require(proof['every_difference_explained'] and proof['scratch_removed'] and not proof['acceptance_changed'] and
                 not proof['native_data_modified'], 'Incomplete correction proof')
         review.update(status='PASS_WITH_VERIFIED_CORRECTIONS',accepted=True,proof=proof)
+    else:
+        require(lock['source_profile']=='nci-publisher-inputs-v1' and qa_decision is not None and scratch_parent is not None,
+                'Reviewed exact NCIt QA decision and external temporary workspace required')
+        from apply_native_nci_qa import apply_and_validate
+        proof=apply_and_validate(lock,target,result,qa_decision,scratch_parent,progress=progress)
+        require(proof['passed'] and proof['post_qa_validation']['passed'] and proof['scratch_removed'] and
+                not proof['native_data_modified'] and not proof['raw_comparison_changed'], 'Incomplete NCIt QA view proof')
+        review.update(status='PASS_WITH_REVIEWED_QA',accepted=True,proof=proof,
+                      persistent_application_authorized=False,accepted_output_stage='temporary-post-inversion-QA-view')
     require(all(manifests._stamp((target/name).lstat()) == before for name,before in snapshots.items()),
             'Output set changed during the complete acceptance review')
     review['review_content_sha256'] = manifests.digest(review)

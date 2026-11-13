@@ -4,6 +4,7 @@ import ast
 import base64
 import hashlib
 import os
+from contextlib import contextmanager
 from pathlib import Path
 
 import release_manifest as manifests
@@ -15,6 +16,19 @@ def verify_planned_links(lock,target):
         if not path.is_symlink() or os.readlink(path) != item['target']:
             raise ValueError('Frozen native link differs: '+item['relative_path'])
     return len(lock['plan']['symlinks'])
+
+
+@contextmanager
+def operation_record(folder,lock,identity,stage):
+    """A failed child operation stays inspectable; parent records are untouched."""
+    import inversion_worker as legacy
+    folder.mkdir(mode=0o700)
+    state={'status':stage,'source':lock['request']['source'],'version':lock['request']['version'],
+           'run_id':identity,'parent_run_id':lock['run_id']}
+    legacy.save(folder/'status.json',state)
+    try:yield
+    except BaseException as error:
+        state.update(status='failed',error=str(error));legacy.save(folder/'status.json',state);raise
 
 
 def freeze(operation, parameters, seeds):
@@ -41,13 +55,13 @@ def freeze(operation, parameters, seeds):
     return value
 
 
-def review_capsule(lock, policy, diagnostic, review_id):
+def review_capsule(lock, policy, diagnostic, review_id, qa_decision=None):
     import re
     from native_acceptance import POLICIES
     if policy not in POLICIES:raise ValueError('Unknown reviewed acceptance policy')
     if not re.fullmatch(r'[a-z0-9][a-z0-9-]{1,70}',review_id) or review_id == lock['run_id']:
         raise ValueError('A separate safe review identity is required')
-    return freeze('review-native',{'lock':lock,'policy':policy,'diagnostic':diagnostic,'review_id':review_id},
+    return freeze('review-native',{'lock':lock,'policy':policy,'diagnostic':diagnostic,'review_id':review_id,'qa_decision':qa_decision},
                   {'native_acceptance.py','release_worker.py','explain_native_mth.py','diagnose_native_mth.py','audit_mth_corrections.py'})
 
 
@@ -67,19 +81,19 @@ def run_review(capsule):
         with manifests._open(parent/'status.json') as handle:state = json.load(handle)
         if state.get('status') != 'complete':raise ValueError('Native conversion must be complete before review')
         with manifests._open(parent/'result.json') as handle:raw = handle.read()
-        result = json.loads(raw);folder.mkdir(mode=0o700)
-        review = evaluate(lock,target,result,args['policy'],args['diagnostic'],folder,
-                          progress=lambda message:print(message,flush=True))
-        worker.legacy.runtime(lock)
-        links = verify_planned_links(lock,target)
-        if (parent/'result.json').read_bytes() != raw:raise ValueError('Original result changed during review')
-        review.update(apparatus_ref=capsule['apparatus_ref'],parent_result_sha256=hashlib.sha256(raw).hexdigest(),
-                      review_id=args['review_id'],runtime_files_reverified=169,native_links_reverified=links)
-        review.pop('review_content_sha256',None);review['review_content_sha256'] = manifests.digest(review)
-        with (folder/'acceptance-review.json').open('x') as out:json.dump(review,out,indent=2);out.write('\n')
-        (folder/'acceptance-review.json').chmod(0o444)
-        with (folder/'status.json').open('x') as out:
-            json.dump({'status':'complete','source':lock['configuration']['source'],'version':target.name,
-                       'run_id':args['review_id'],'parent_run_id':lock['run_id'],
-                       'acceptance':{'status':review['status'],'accepted':review['accepted'],'production_eligible':False}},out,indent=2)
+        result = json.loads(raw)
+        with operation_record(folder,lock,args['review_id'],'reviewing'):
+            review = evaluate(lock,target,result,args['policy'],args['diagnostic'],folder,
+                              progress=lambda message:print(message,flush=True),qa_decision=args.get('qa_decision'))
+            worker.legacy.runtime(lock)
+            links = verify_planned_links(lock,target)
+            if (parent/'result.json').read_bytes() != raw:raise ValueError('Original result changed during review')
+            review.update(apparatus_ref=capsule['apparatus_ref'],parent_result_sha256=hashlib.sha256(raw).hexdigest(),
+                          review_id=args['review_id'],runtime_files_reverified=169,native_links_reverified=links)
+            review.pop('review_content_sha256',None);review['review_content_sha256'] = manifests.digest(review)
+            with (folder/'acceptance-review.json').open('x') as out:json.dump(review,out,indent=2);out.write('\n')
+            (folder/'acceptance-review.json').chmod(0o444)
+            worker.legacy.save(folder/'status.json',{'status':'complete','source':lock['configuration']['source'],'version':target.name,
+                           'run_id':args['review_id'],'parent_run_id':lock['run_id'],
+                           'acceptance':{'status':review['status'],'accepted':review['accepted'],'production_eligible':False}})
     return review
