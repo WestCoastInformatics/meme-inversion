@@ -33,6 +33,7 @@ def fixture(change=None,version='NCI_2032_03B'):
         root=Path(directory).resolve();target=root/'sources'/version;target.mkdir(parents=True)
         scratch=root/'qa';scratch.mkdir()
         manifest,code,native=source.fixture(version,'NCI_2032_01A' if version=='NCI_2032_03B' else 'NCI_2033_04C')
+        manifest['purpose']='historical-replay'
         plan=source.execute.rebuild_plan(manifest['configuration'],manifest['artifacts'],code)
         source.stage(plan,native,target);source.outputs(plan,target)
         rows={role:(target/role).read_bytes() for role in qa.OUTPUTS}

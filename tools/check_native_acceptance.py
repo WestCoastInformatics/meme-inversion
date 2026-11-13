@@ -21,6 +21,7 @@ def check():
         raise AssertionError(label)
     with tempfile.TemporaryDirectory(prefix='native-acceptance-') as temporary:
         lock,target,result,report,scratch = fixture.fixture(Path(temporary).resolve())
+        lock['manifest']['purpose']='historical-replay'
         lock['source_profile']='mth-prepared-inputs-v1';lock['configuration']['replay']['comparison_profile']='exact'
         lock['plan']['stages']=[{'name':'fixture-native-stage'}]
         lock['manifest_sha256']=diagnostic.digest(lock['manifest']);lock['plan_sha256']=diagnostic.digest(lock['plan'])

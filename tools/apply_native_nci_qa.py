@@ -115,6 +115,7 @@ def apply_and_validate(lock,target,result,decision,scratch_parent,progress=lambd
     require(lock.get('artifact_type')=='ncimeta-native-release-lock' and lock.get('schema_version')==1 and
             lock['lock_sha256']==manifests.digest({k:v for k,v in lock.items() if k!='lock_sha256'}),'Frozen native lock changed')
     config=lock['configuration'];plan=lock['plan']
+    require(lock['manifest']['purpose']=='historical-replay','Reviewed historical QA view requires an existing official reference')
     source._version(config['version'])
     require(config==lock['manifest']['configuration'] and lock['manifest_sha256']==manifests.digest(lock['manifest']) and lock['plan_sha256']==manifests.digest(plan), 'Frozen manifest/configuration/plan differs')
     require(config['source']=='NCI' and target.name==config['version'] and plan['source']=='NCI' and plan['version']==config['version'],'QA target/source/release differs')
