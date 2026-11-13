@@ -30,7 +30,7 @@ The report contains a common `issues`, `decisions`, `required_inputs`, `facts` a
 | `DECISIONS_REQUIRED` | Inputs can be inspected, but preparation choices or evidence remain unresolved | 3 |
 | `DISCOVERY_BLOCKED` | Invalid declarations, unavailable/changed bytes, malformed input or unsupported capability | 2 |
 
-Every outcome has `execution_eligible: false`, `production_eligible: false` and `inversion_executed: false`. Discovery completion is not executable shadow admission. `resolve-release` retains its existing historical-execution gates; upcoming-release execution without an oracle remains separate work.
+Every outcome has `execution_eligible: false`, `production_eligible: false` and `inversion_executed: false`. Discovery completion is not executable shadow admission. The separate [`resolve-release` shadow path](qa-and-shadow-execution.md) now admits complete reviewed manifests without an official current output, with its own allocation, capacity and physical verification gates.
 
 The reader hashes selected files/members completely, verifies full container identities and rejects linked inputs, duplicate/unsafe archive members and wrong byte counts. Unchanged archive verification is reused; ZIP members use random access. TAR members may require additional decompression passes. No archive tree is extracted and no network acquisition occurs. Failed rereads invalidate earlier verification, and the completed scan checks all selected file snapshots again. This physical consistency check does not establish coherent database/export provenance.
 
@@ -74,10 +74,12 @@ Use the existing common collection operation with the review identity to retriev
 
 ## NCIt QA decision
 
-The [reviewed August QA decision](release-manifests/nci-2026-08e-qa-adjustment.json) records the Exposure row's SY/PT difference with exact before/after rows, hashes, native-input/reference identities and archived QA evidence. The user explicitly reviewed this exact historical adjustment on November 12; its editor remains unconfirmed and automatic application is unauthorized. It creates no generic DICOM/SY-to-PT rule. A separately validated post-inversion QA application stage is still required before treating adjusted output as accepted. Raw conversion and the unknown-termgroup validation finding remain unchanged.
+The [reviewed August QA decision](release-manifests/nci-2026-08e-qa-adjustment.json) records the Exposure row's SY/PT difference with exact before/after rows, hashes, native-input/reference identities and archived QA evidence. The user explicitly reviewed this exact historical adjustment on November 12; its editor remains unconfirmed. The [separate QA policy](qa-and-shadow-execution.md#reviewed-historical-ncit-qa) now validates it in a disposable classes view. Actual dev review returned `PASS_WITH_REVIEWED_QA`, with clean post-QA structural checks and complete official-output equivalence proof. All 169 runtime files were reverified. Raw conversion, the unknown-termgroup finding and the original five files remain unchanged; persistent application is unauthorized. It creates no generic DICOM/SY-to-PT rule.
 
 ## Verification and retention
 
 The [increment evidence](preparation-and-acceptance-20261112.json) distinguishes tiny confined fixtures, public CLI/frozen-capsule checks and actual dev scans/review. Real scans can correctly return unresolved decisions; they are not successful full inversions or new-release admission proofs.
+
+The later [QA and shadow increment](qa-shadow-execution-20261112.json) records actual historical NCIt temporary-view acceptance and the common oracle-free execution/late-reference comparison implementation. Small native shadow fixtures and declaration-only archived-input probes do not establish real predictive runs.
 
 This work creates no new full inversion or source archive. Temporary code/sort files are removed. Compact milestone evidence records identities, verdicts and findings; routine verbose reports follow the existing 30-day development retention default. No automatic expiry service is installed.

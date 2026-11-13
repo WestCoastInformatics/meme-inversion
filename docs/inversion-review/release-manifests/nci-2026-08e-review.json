@@ -3,7 +3,7 @@
   "artifact_type": "ncimeta-archived-nci-input-review",
   "source": "NCI",
   "version": "NCI_2026_08E",
-  "review_scope": "Genuine archived input review and separately captured native survey; no fresh full inversion/comparison yet.",
+  "review_scope": "Initial genuine archived input review and native survey, followed by the recorded native conversion/diagnostic and separate temporary-view reviewed-QA acceptance below.",
   "archive": {
     "archive_path": "/local/content/MEME/MEME5/inv/sources/NCI_2026_08E.tgz",
     "archive_sha256": "c232f14d138f0338b5a68b2a444c853b1b1db515c607ff00452bfaaf7a8c6031",
@@ -426,12 +426,22 @@
     "recommendation": "Preserve the raw DIFFERENCES_REQUIRE_REVIEW result and the missing-termgroup validation failure alongside this complete classification. A future explicit QA-decision capture stage may record reviewed before/after rows and evidence separately from raw conversion. Do not derive an output rewrite or clean pass from the official oracle, and do not extend the October correction waiver."
   },
   "qa_decision_followup": {
-    "status": "REVIEWED_EXACT_HISTORICAL_ADJUSTMENT",
+    "status": "PASS_WITH_REVIEWED_QA",
     "record": "nci-2026-08e-qa-adjustment.json",
     "review_basis": "Explicit current-user confirmation",
     "actor": "unconfirmed",
     "application_authorized": false,
     "raw_conversion_and_validation_unchanged": true,
-    "remaining_gate": "Implement and validate a separate post-inversion QA application stage before accepting adjusted output."
+    "accepted_output_stage": "temporary-post-inversion-QA-view",
+    "review_id": "acceptance-nci-2026-08e-qa-20261112",
+    "policy": "nci-reviewed-qa-v1",
+    "apparatus_ref": "39eb60c4c2633577eb7f246e27b7f7de6ff31593",
+    "parent_result_sha256": "63015c08a5c2808f1fd23fcbfe9b7fc108d66828f6edcb8ee3600ffebd364f90",
+    "acceptance_file_sha256": "a69312dede4de5455b0844f70d2aaf52e3479c3d0f62e704bfd7360b9338f999",
+    "post_qa_validation_passed": true,
+    "runtime_files_reverified": 169,
+    "scratch_removed": true,
+    "evidence": "../qa-shadow-execution-20261112.json",
+    "remaining_gate": "Persistent QA application, fresh operational preparation and production/insertion adoption remain separate; no raw file is rewritten."
   }
 }

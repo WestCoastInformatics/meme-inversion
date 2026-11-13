@@ -8,6 +8,8 @@ The later [SNOMED/MTH generated-settings execution](generated-settings-execution
 
 The same CLI offers [release-manifest preflight](release-manifests.md) through `preflight-release`. The new [native manifest path](native-release-execution.md) uses `resolve-release` and the same remote `submit` workflow, independently of historical replay cases. In addition to local fixtures, a fresh March 2026 SNOMED run matches all five official outputs exactly and passes independent retained verification. August NCIt completed with diagnosed differences and retains strict review; MTH 2024AA completed all thirteen stages and passed physical validation; fourteen of twenty-three files match exactly and nine retain their strict raw comparison, alongside a separate passing corrected acceptance review. Preflight review locks remain non-executable and are rejected by both workers.
 
+The native path now also supports [`purpose: shadow`](qa-and-shadow-execution.md), using the same common configuration without a current official reference. Clean validation remains comparison-pending; `compare-shadow` attaches the later official output in a separate verified receipt. Historical NCIt's exact user-reviewed adjustment also passed separate temporary-view QA acceptance, with its raw result unchanged. These are dev capabilities; real predictive runs and staff adoption remain to be demonstrated.
+
 ## One request and configuration
 
 The operator supplies seven fields from [request.schema.json](request.schema.json):

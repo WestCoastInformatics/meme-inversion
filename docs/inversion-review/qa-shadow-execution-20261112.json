@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "artifact_type": "ncimeta-qa-shadow-verification",
+  "recorded_at": "2026-11-13T00:20:40.409341+00:00",
+  "apparatus_ref": "39eb60c4c2633577eb7f246e27b7f7de6ff31593",
+  "implementation_commits": [
+    "306b53b",
+    "39eb60c"
+  ],
+  "native_engine_unchanged": "2e77f7b9fce17e71ead1ec719e36428684e34922",
+  "scope": "Dev-only temporary historical QA acceptance, oracle-free core shadow execution and separate late-reference comparison. No new full inversion, source algorithm change, production change, insertion or upload.",
+  "local_checks": {
+    "qa_helper": 46,
+    "qa_acceptance_integration": 25,
+    "shadow_common_lifecycle_and_late_reference": 29,
+    "shadow_mth_native": 62,
+    "shadow_snomed_native": 35,
+    "existing_native_execution": 73,
+    "existing_native_acceptance": 19,
+    "historical_common_interface": 95,
+    "release_manifest": 94
+  },
+  "local_check_scopes": {
+    "shadow_common": "Tiny complete lifecycle with conversion mocked; real materialization/physical checks, pending status, retained verification and separate late-reference comparison; candidate atomic-replacement and failure-state checks.",
+    "shadow_mth": "Actual thirteen-stage native pipeline for each of two tiny synthetic transitions, MTH_2026AB and MTH_2027AA; complete 23-file sets and independent native-derived expected content; no current official dependency.",
+    "shadow_snomed": "Actual five-stage native pipeline for each of two tiny synthetic transitions, SNOMEDCT_US_2027_03_01 and SNOMEDCT_US_2028_11_15; independent native atom/ISA expected content; no current official dependency.",
+    "qa": "Complete tiny five-output proofs, exact reviewed row bindings, raw immutability, full comparison rules and negative mutations; independent common acceptance integration."
+  },
+  "committed_cli_and_frozen_capsules": {
+    "scope": "Committed common CLI declaration admission and isolated frozen imports only; no physical dev validation, preparation, native job or new-release acceptance.",
+    "apparatus_ref": "39eb60c4c2633577eb7f246e27b7f7de6ff31593",
+    "shadow_locks": [
+      {
+        "source": "NCI",
+        "version": "NCI_2026_08E",
+        "lock_sha256": "050c6a18199e67a05a9678b1345a4360549e739623587048fa827f024a1e46ce",
+        "modules": 40,
+        "stdlib_only_imports_passed": true,
+        "python39_syntax_passed": true,
+        "oracle_present": false,
+        "native_output_count": 5,
+        "late_comparison_modules": 41,
+        "late_comparison_capsule_sha256": "62f84eb1a92826f98d88934bdb2652ea037f0142c7cc246df171a6937174025b"
+      },
+      {
+        "source": "SNOMEDCT_US",
+        "version": "SNOMEDCT_US_2026_03_01",
+        "lock_sha256": "c64c1649999de38b2bb97fd5ec9178a77d6db7840697e67caec8090039263bc8",
+        "modules": 41,
+        "stdlib_only_imports_passed": true,
+        "python39_syntax_passed": true,
+        "oracle_present": false,
+        "native_output_count": 5,
+        "late_comparison_modules": 41,
+        "late_comparison_capsule_sha256": "d5f92c68da895ec38ba40a49136d62a92c04677c8746f28737f86c8930251a6f"
+      },
+      {
+        "source": "MTH",
+        "version": "MTH_2024AA",
+        "lock_sha256": "f0e8810a396b9342c66ee1647d54a65efd237bf802cb43534cf5311fe6954d76",
+        "modules": 39,
+        "stdlib_only_imports_passed": true,
+        "python39_syntax_passed": true,
+        "oracle_present": false,
+        "native_output_count": 23,
+        "late_comparison_modules": 41,
+        "late_comparison_capsule_sha256": "d117b4256284b171f0c472ab6c610093cb9112c9392b4b1a0f2a0adda185c051"
+      }
+    ],
+    "qa_capsule": {
+      "modules": 40,
+      "capsule_sha256": "84828653a002f022d8206c0eb4fd93006ca762e2706bd40bc787af74352b8dc9",
+      "stdlib_only_imports_passed": true,
+      "python39_syntax_passed": true,
+      "reviewed_decision_bound": true
+    },
+    "temporary_capsules_removed": true
+  },
+  "actual_dev_nci_qa": {
+    "source": "NCI",
+    "version": "NCI_2026_08E",
+    "parent_run_id": "native-nci-2026-08e-20261111",
+    "review_id": "acceptance-nci-2026-08e-qa-20261112",
+    "lock_sha256": "80a566b78b06c085ed21f406cd3b65d821f537435608480b4a3832aaa2c5d06e",
+    "parent_result_sha256": "63015c08a5c2808f1fd23fcbfe9b7fc108d66828f6edcb8ee3600ffebd364f90",
+    "acceptance_file_sha256": "a69312dede4de5455b0844f70d2aaf52e3479c3d0f62e704bfd7360b9338f999",
+    "review_content_sha256": "9e0eb6eb27188365594ee83f87bb5e59546c7d17e39dde558cc8995a05dc2908",
+    "policy": "nci-reviewed-qa-v1",
+    "status": "PASS_WITH_REVIEWED_QA",
+    "accepted": true,
+    "accepted_output_stage": "temporary-post-inversion-QA-view",
+    "decision_id": "nci-2026-08e-exposure-termgroup",
+    "decision_sha256": "170ac45e1763e576c606ca158cab93351b776a0e5d5ba32694732692f797f984",
+    "actor": "unconfirmed",
+    "actor_independently_confirmed": false,
+    "exact_reviewed_row_replacements": 1,
+    "qa_view_classes_identity": {
+      "sha256": "722c4a36733e2fd2d27b6f46ac0d6248c20bc05201222d888b3fe42388a7142c",
+      "bytes": 86340658,
+      "rows": 798994
+    },
+    "qa_evidence": {
+      "archive_sha256": "c232f14d138f0338b5a68b2a444c853b1b1db515c607ff00452bfaaf7a8c6031",
+      "member": "NCI_2026_08E/etc/qa/QaReport.NCI_2026_08E.txt.err",
+      "member_sha256": "1e8f6a7cba18180c1465b617bc1d3d0849c9ecf03ffa4ca4d120511940c5aec9",
+      "line": 139,
+      "text": "\t****ERR: VUndefinedTG_776930568 => DICOM_2026_08E/SY",
+      "rows": 247
+    },
+    "post_qa_validation_passed": true,
+    "post_qa_issues": [],
+    "output_rows": {
+      "classes_atoms.src": 798994,
+      "attributes.src": 1258799,
+      "relationships.src": 1220912,
+      "mergefacts.src": 591476,
+      "contexts.src": 1164984
+    },
+    "raw_exact_outputs": 2,
+    "compared_outputs": 5,
+    "comparison_contract": {
+      "classes_relationships_mergefacts": "Complete byte equality after the one exact reviewed termgroup change in a temporary classes view.",
+      "contexts": "Every full row and duplicate count equal; order may differ.",
+      "attributes": "All fields except generated column 0 equal as a complete multiset; positive unique IDs, identical ID set, valid value digests and exact ordered non-CONTEXT full rows.",
+      "generated_id_reference_safety": {
+        "passed": true,
+        "allowed_types": [
+          "CODE_SOURCE",
+          "CUI",
+          "SOURCE_CUI",
+          "SRC_ATOM_ID"
+        ],
+        "scope": "All complete post-QA endpoint type inventories exclude generated attribute/relationship ID references."
+      }
+    },
+    "native_publisher_inputs_reverified": 5,
+    "runtime_files_reverified": 169,
+    "native_links_reverified": 0,
+    "raw_acceptance": {
+      "status": "DIFFERENCES_REQUIRE_REVIEW",
+      "production_eligible": false,
+      "historical_correction_waivers_applied": false
+    },
+    "raw_result_unchanged": true,
+    "native_data_modified": false,
+    "raw_comparison_changed": false,
+    "persistent_application_authorized": false,
+    "scratch_removed": true,
+    "reference_tree_extracted": false,
+    "inversion_executed": false,
+    "production_eligible": false
+  },
+  "shadow_result_contract": {
+    "clean_initial_status": "SHADOW_VALIDATED_COMPARISON_PENDING",
+    "initial_accepted": false,
+    "initial_comparison_complete": false,
+    "official_reference_and_equality": null,
+    "retained_status": "PASS_SHADOW_RETAINED_VERIFICATION",
+    "late_exact_status": "PASS_EXACT",
+    "late_difference_status": "DIFFERENCES_REQUIRE_REVIEW",
+    "parent_result_rewritten": false,
+    "production_eligible": false
+  },
+  "remaining_gates": [
+    "Real upcoming-release manifests frozen before staff official output, followed by later independently verified comparison.",
+    "Remaining source decisions and coherent input/state producers, operational QA/MRDOC and test insertion.",
+    "Late-reference corrected-difference review integration; initial late comparison is exact-only.",
+    "Archive-backed shadow cleanup integration with the later official comparison receipt; currently blocked explicitly.",
+    "Persistent NCIt QA application contract; current acceptance is a disposable historical view only.",
+    "MDR/RADLEX native manifest adapters; historical common requests remain supported.",
+    "Per-source staff pilot and controlled meme-edit adoption after predictive verification."
+  ],
+  "retention": "Only compact milestone evidence is committed; temporary frozen probe capsules, QA classes view and sorting scratch removed. No full dataset archive created; routine verbose reports retain existing 30-day dev default. No automatic expiry service installed."
+}
